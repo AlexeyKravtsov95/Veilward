@@ -5,6 +5,8 @@ namespace Veilward.Domain
 {
     public sealed class BattleState
     {
+        private readonly List<EnemyState> _enemies;
+
         public BattleState(
             BattlePhase phase,
             long tick,
@@ -63,15 +65,51 @@ namespace Veilward.Domain
             WaveIndex = waveIndex;
             BaseHealth = baseHealth;
             Gold = gold;
-            Enemies = enemyCopy.AsReadOnly();
+            _enemies = enemyCopy;
+            Enemies = _enemies.AsReadOnly();
         }
 
-        public BattlePhase Phase { get; }
-        public long Tick { get; }
+        public BattlePhase Phase { get; private set; }
+        public long Tick { get; private set; }
         public int WaveIndex { get; }
-        public int BaseHealth { get; }
+        public int BaseHealth { get; private set; }
         public int Gold { get; }
         public IReadOnlyList<EnemyState> Enemies { get; }
+
+        internal void SetPhase(BattlePhase phase)
+        {
+            if (!Enum.IsDefined(typeof(BattlePhase), phase))
+            {
+                throw new ArgumentOutOfRangeException(nameof(phase));
+            }
+
+            Phase = phase;
+        }
+
+        internal void AdvanceTick()
+        {
+            Tick++;
+        }
+
+        internal void AddEnemy(EnemyState enemy)
+        {
+            _enemies.Add(enemy ?? throw new ArgumentNullException(nameof(enemy)));
+        }
+
+        internal void RemoveEnemyAt(int index)
+        {
+            _enemies.RemoveAt(index);
+        }
+
+        internal void ApplyLeak(int damage)
+        {
+            if (damage <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(damage), "Leak damage must be positive.");
+            }
+
+            BaseHealth = Math.Max(0, BaseHealth - damage);
+        }
 
         public static BattleState CreateInitial(int baseHealth, int startingGold)
         {

@@ -31,7 +31,19 @@ namespace Veilward.Domain
         public EnemyId Id { get; }
         public EnemyDefinition Definition { get; }
         public int Health { get; }
-        public float DistanceAlongPath { get; }
+        public float DistanceAlongPath { get; private set; }
+
+        internal void Advance(float distanceAlongPath)
+        {
+            if (distanceAlongPath < DistanceAlongPath || float.IsNaN(distanceAlongPath) || float.IsInfinity(distanceAlongPath))
+            {
+                throw new ArgumentOutOfRangeException(
+                    nameof(distanceAlongPath),
+                    "New path distance must be finite and not move the enemy backwards.");
+            }
+
+            DistanceAlongPath = distanceAlongPath;
+        }
 
         public static EnemyState CreateInitial(EnemyId id, EnemyDefinition definition)
         {
