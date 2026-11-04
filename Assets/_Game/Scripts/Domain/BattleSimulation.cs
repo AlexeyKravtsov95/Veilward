@@ -17,6 +17,7 @@ namespace Veilward.Domain
         }
 
         public BattleState State { get; }
+        public PathDefinition Path => _path;
 
         public void StartWave()
         {
