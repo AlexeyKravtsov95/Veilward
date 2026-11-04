@@ -1,0 +1,86 @@
+{
+  "Assets/_Game/Scripts/Presentation/BootstrapLoader.cs": {
+    "mtime": 1793811734.1795132,
+    "seen": 1793812744.951374,
+    "ast_hash": "08b1f03179f982e4e86d73c03c20af35",
+    "semantic_hash": "08b1f03179f982e4e86d73c03c20af35"
+  },
+  "Assets/_Game/Tests/EditMode/ProjectBootstrapTests.cs": {
+    "mtime": 1793811734.1808743,
+    "seen": 1793812744.9513779,
+    "ast_hash": "01600b6e21479188a21742fa595ed44e",
+    "semantic_hash": "01600b6e21479188a21742fa595ed44e"
+  },
+  "Packages/manifest.json": {
+    "mtime": 1793795164.4286516,
+    "seen": 1793812744.951379,
+    "ast_hash": "e4b66ed6a3ade2d707bbf1352278232a",
+    "semantic_hash": "e4b66ed6a3ade2d707bbf1352278232a"
+  },
+  "Packages/packages-lock.json": {
+    "mtime": 1793795394.04202,
+    "seen": 1793812744.95138,
+    "ast_hash": "410eeb30b3be718d122165bef3f2d407",
+    "semantic_hash": "410eeb30b3be718d122165bef3f2d407"
+  },
+  "ProjectSettings/SceneTemplateSettings.json": {
+    "mtime": 1793811734.1824393,
+    "seen": 1793812744.951381,
+    "ast_hash": "eeb26e313b89cd9334b828428a4847ef",
+    "semantic_hash": "eeb26e313b89cd9334b828428a4847ef"
+  },
+  "Scripts/run-edit-mode-tests.sh": {
+    "mtime": 1793811734.1828268,
+    "seen": 1793812744.951382,
+    "ast_hash": "0c9ad4af74dcd4ebb65c6992ca5bccb4",
+    "semantic_hash": "0c9ad4af74dcd4ebb65c6992ca5bccb4"
+  },
+  "AGENTS.md": {
+    "mtime": 1793796590.128575,
+    "seen": 1793812744.951382,
+    "ast_hash": "b3411fe0e869f2153a83b23b6aac7d30",
+    "semantic_hash": "b3411fe0e869f2153a83b23b6aac7d30"
+  },
+  "Docs/CONCEPTS.md": {
+    "mtime": 1793035086.0,
+    "seen": 1793812744.951383,
+    "ast_hash": "f2b245d90a6f3780b2f1cc9e4a0c78c4",
+    "semantic_hash": "f2b245d90a6f3780b2f1cc9e4a0c78c4"
+  },
+  "Docs/GDD.md": {
+    "mtime": 1793035086.0,
+    "seen": 1793812744.951383,
+    "ast_hash": "0f6f723f8208361df1cf383cc8f82c77",
+    "semantic_hash": "0f6f723f8208361df1cf383cc8f82c77"
+  },
+  "Docs/ROADMAP.md": {
+    "mtime": 1793035086.0,
+    "seen": 1793812744.951384,
+    "ast_hash": "5de3c435728cece7dd87711eb46a80f5",
+    "semantic_hash": "5de3c435728cece7dd87711eb46a80f5"
+  },
+  "Docs/TECH_DESIGN.md": {
+    "mtime": 1793035086.0,
+    "seen": 1793812744.951384,
+    "ast_hash": "3e4605bdbe2f710d0ec795e78c3fb65f",
+    "semantic_hash": "3e4605bdbe2f710d0ec795e78c3fb65f"
+  },
+  "Docs/superpowers/plans/2026-11-04-p0-1-project-bootstrap.md": {
+    "mtime": 1793811734.1817448,
+    "seen": 1793812744.951385,
+    "ast_hash": "9dd8151371bf23d58bf751984514377f",
+    "semantic_hash": "9dd8151371bf23d58bf751984514377f"
+  },
+  "ProjectSettings/ProjectVersion.txt": {
+    "mtime": 1793795333.6240509,
+    "seen": 1793812744.9513862,
+    "ast_hash": "e5842a7189da150d4dec5025a12336e1",
+    "semantic_hash": "e5842a7189da150d4dec5025a12336e1"
+  },
+  "README.md": {
+    "mtime": 1793811734.1826248,
+    "seen": 1793812744.9513862,
+    "ast_hash": "3898f06fb67473453e7396a50bbd210e",
+    "semantic_hash": "3898f06fb67473453e7396a50bbd210e"
+  }
+}
