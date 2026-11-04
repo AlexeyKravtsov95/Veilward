@@ -1,0 +1,6 @@
+# Unity serializes some empty YAML scalars with a trailing space.
+# Keep other whitespace checks enabled for generated Unity YAML.
+*.asset whitespace=-trailing-space
+*.unity whitespace=-trailing-space
+*.meta whitespace=-trailing-space
+*.wlt whitespace=-trailing-space

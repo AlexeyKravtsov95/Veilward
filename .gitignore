@@ -1,0 +1,33 @@
+# Unity generated directories
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Uu]ser[Ss]ettings/
+[Ll]ogs/
+[Bb]uild/
+[Bb]uilds/
+[Aa]rtifacts/
+TestResults/
+CodeCoverage/
+
+# Unity generated IDE files
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+# IDE / OS
+.vs/
+.idea/
+.vscode/
+.DS_Store
+
+# Crash reports and logs
+*.log
+sysinfo.txt
