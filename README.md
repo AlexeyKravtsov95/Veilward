@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. Текущий статус — **P0.1 Project Bootstrap**: настроен фундамент проекта без игровых систем, башен, врагов, VFX, IAP и Game Center.
+Unity-проект мобильной tower defense игры для iOS. Текущий статус — **P0.2 Domain Foundation**: настроены фундамент проекта и чистая C#-модель домена без полноценного gameplay, башен, VFX, IAP и Game Center.
 
 ## Окружение
 
@@ -35,6 +35,12 @@ Assets/_Game/
 ```
 
 Runtime-сборка: `Veilward.asmdef`. Сейчас единственное runtime-поведение — `BootstrapLoader`, который загружает `MainMenu`.
+
+## Domain Foundation
+
+Чистая C#-сборка `Veilward.Domain.asmdef` имеет `noEngineReferences: true` и не зависит от `UnityEngine`, Scene или `MonoBehaviour`. В ней находятся `BattleState`, `BattlePhase`, `EnemyDefinition`, `EnemyState`, `EnemyDefinitionId`, `EnemyId`, `GridCoordinate`, `PathDefinition`, `IBattleSimulation` и `SimulationTiming` с фиксированной частотой **30 Hz**.
+
+Реализованы только неизменяемые модели, проверки инвариантов и минимальный контракт симуляции. Spawn, движение врагов по фиксированному маршруту, health/leaks и детерминированный сценарий волны оставлены на **P1.1**. Волны, экономика, урон, стихии и другие игровые системы в P0.2 не реализуются.
 
 Порядок сцен в Build Settings:
 

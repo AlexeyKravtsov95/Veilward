@@ -3,6 +3,7 @@
   "rootNamespace": "Veilward.Tests.EditMode",
   "references": [
     "Veilward",
+    "Veilward.Domain",
     "UnityEngine.TestRunner",
     "UnityEditor.TestRunner"
   ],

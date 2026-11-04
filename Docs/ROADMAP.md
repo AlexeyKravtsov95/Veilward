@@ -1,6 +1,6 @@
 # VEILWARD — Development Roadmap v0.1
 
-**Planning assumption:** один сильный AI-разработчик (Opus 5.5) + человек, который утверждает продуктовые решения и проводит device-тесты + GPT-6 как независимый ревьювер. Оценка 16–24 недели до первой товарной версии при готовности ассетов; с нуля до polished premium-визуала может занять дольше. Это не обязательства по срокам.
+**Planning assumption:** один сильный AI-разработчик (Kimi K3.1) + человек, который утверждает продуктовые решения и проводит device-тесты + GPT-6 как независимый ревьювер. Оценка 16–24 недели до первой товарной версии при готовности ассетов; с нуля до polished premium-визуала может занять дольше. Это не обязательства по срокам.
 
 ## Decisions / Gates
 
@@ -12,7 +12,7 @@
 
 ## Phase 0 — Foundation (1 неделя)
 
-**P0.1:** Unity 6.3 LTS project / URP / iOS, gitignore, meta visible, assembly definitions, docs. **P0.2:** bootstrap/menu/battle scenes; landscape safe area. **P0.3:** domain entities + data definitions + first EditMode tests. **P0.4:** CI Editor tests, build instructions, reproducibility. **Deliverable:** empty Battle scene runs in Editor and on iPhone.
+**P0.1:** Unity 6.3 LTS project / URP / iOS, gitignore, meta visible, assembly definitions, bootstrap/menu/battle scenes, первые EditMode smoke tests и инструкции локального запуска. **P0.2:** чистый C# domain foundation, config IDs, инварианты моделей, контракт фиксированного шага 30 Hz и Domain EditMode tests; полноценный gameplay не входит. **P0.3:** CI Editor tests, build instructions, reproducibility. **Deliverable:** empty Battle scene runs in Editor and on iPhone.
 
 ## Phase 1 — Core TD (2–3 недели)
 
