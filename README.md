@@ -53,9 +53,11 @@ Runtime-сборка: `Veilward.asmdef`. Сейчас единственное r
 
 ## EditMode smoke tests
 
-Тесты проверяют наличие и порядок сцен, iOS target, IL2CPP, ARM64, минимальную iOS 17.0, landscape orientation, Force Text и Visible Meta Files.
+Тесты проверяют наличие и порядок сцен, сохранённые iOS Player Settings (IL2CPP, ARM64, минимальная iOS 17.0), landscape orientation, Force Text и Visible Meta Files. Проверка использует `NamedBuildTarget.iOS` и не зависит от локального `EditorUserBuildSettings.activeBuildTarget`, поэтому suite воспроизводимо запускается после чистого клонирования и при активной Standalone-платформе.
 
-При открытом Unity Editor с Pipeline package тесты выполняются в нём. Без доступного Editor скрипт запускает Unity в batch mode с `-buildTarget iOS` и создаёт JUnit report, поэтому проверка не зависит от локального активного Build Target.
+При открытом Unity Editor с Pipeline package тесты выполняются в нём. Runner принимает только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. Некорректный JSON и ненулевой exit code Unity CLI приводят к ошибке запуска.
+
+Без доступного Editor скрипт запускает Unity в batch mode с `-buildTarget iOS` и создаёт JUnit report.
 
 ```bash
 ./Scripts/run-edit-mode-tests.sh

@@ -33,9 +33,8 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
-        public void IosSettings_UseLandscapeIl2CppArm64AndMinimumIos17()
+        public void SavedIosSettings_UseLandscapeIl2CppArm64AndMinimumIos17()
         {
-            Assert.That(EditorUserBuildSettings.activeBuildTarget, Is.EqualTo(BuildTarget.iOS));
             Assert.That(PlayerSettings.GetScriptingBackend(NamedBuildTarget.iOS), Is.EqualTo(ScriptingImplementation.IL2CPP));
             Assert.That(PlayerSettings.GetArchitecture(NamedBuildTarget.iOS), Is.EqualTo(1));
             Assert.That(PlayerSettings.iOS.targetOSVersionString, Is.EqualTo("17.0"));
