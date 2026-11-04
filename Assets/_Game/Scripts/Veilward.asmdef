@@ -1,7 +1,9 @@
 {
   "name": "Veilward",
   "rootNamespace": "Veilward",
-  "references": [],
+  "references": [
+    "Veilward.Domain"
+  ],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,

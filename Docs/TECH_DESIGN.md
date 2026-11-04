@@ -37,11 +37,11 @@ Docs/
   AGENTS.md
 ```
 
-**Domain independence:** battle engine must be unit-testable without Scene, prefab, frame time, or Camera. No `GameObject.Find`/`FindObjectOfType` in battle loop. `MonoBehaviour` is a renderer/controller adapter, not the source of game rules.
+**Domain independence:** battle engine must be unit-testable without Scene, prefab, frame time, or Camera. No `GameObject.Find`/`FindObjectOfType` in battle loop. `MonoBehaviour` is a renderer/controller adapter, not the source of game rules. Домен выделен в `Veilward.Domain.asmdef` с `noEngineReferences: true`; основная `Veilward.asmdef` ссылается на него.
 
 ## 3. Simulation rules
 
-- Fixed simulation step recommended 20–30Hz. `BattleSimulation.Step(ticks)` explicitly called by orchestration; rendering interpolates snapshots.
+- Fixed simulation step: **30 Hz** (`SimulationTiming.TicksPerSecond`). `IBattleSimulation.Step()` explicitly called by orchestration; rendering interpolates snapshots. Доменное состояние не использует `Time.deltaTime`.
 - Seeded deterministic RNG wrapped by `IRandomSource`; preserve RNG state in save/replay checkpoint.
 - Currency and health: integer arithmetic; event ordering strictly defined.
 - Path distance as scalar progression along precomputed segments/waypoints; no per-enemy NavMesh or runtime path search for fixed lanes.
