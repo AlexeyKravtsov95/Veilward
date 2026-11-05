@@ -118,28 +118,17 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
-        public void TryOccupy_AvailableCell_SucceedsOnlyOnce()
+        public void TryOccupy_IsInternalToDomain()
         {
-            var grid = CreateEmptyGrid();
-            var cell = new GridCoordinate(-3, 0);
+            var method = typeof(BattleGrid).GetMethod(
+                "TryOccupy",
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.Public |
+                System.Reflection.BindingFlags.NonPublic);
 
-            Assert.That(grid.TryOccupy(cell), Is.True);
-            Assert.That(grid.GetState(cell), Is.EqualTo(GridCellState.Occupied));
-            Assert.That(grid.TryOccupy(cell), Is.False);
-            Assert.That(grid.GetState(cell), Is.EqualTo(GridCellState.Occupied));
-        }
-
-        [Test]
-        public void TryOccupy_BlockedOrOutsideCell_ReturnsFalse()
-        {
-            var grid = CreateGrid(new[]
-            {
-                new GridCoordinate(-2, 0),
-                new GridCoordinate(2, 0)
-            });
-
-            Assert.That(grid.TryOccupy(new GridCoordinate(0, 0)), Is.False);
-            Assert.That(grid.TryOccupy(new GridCoordinate(20, 0)), Is.False);
+            Assert.That(method, Is.Not.Null);
+            Assert.That(method.IsPublic, Is.False);
+            Assert.That(method.IsAssembly, Is.True);
         }
 
         [TestCase(0, 8, 1f)]

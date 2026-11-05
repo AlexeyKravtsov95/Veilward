@@ -33,7 +33,7 @@ namespace Veilward.Domain
             return _cells[GetIndex(coordinate)];
         }
 
-        public bool TryOccupy(GridCoordinate coordinate)
+        internal bool TryOccupy(GridCoordinate coordinate)
         {
             if (!Map.Contains(coordinate))
             {
