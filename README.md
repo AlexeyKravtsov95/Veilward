@@ -63,7 +63,7 @@ Graybox-сцену и assets можно повторно сгенерирова�
 
 ## EditMode tests
 
-Тесты проверяют project settings, геометрию пути, spawn schedule, движение, детерминизм, leaks, terminal phases, преобразование serialized scenario в Domain и соответствие визуальной дороги изменённой конфигурации. Отдельный assembly test проверяет, что `Veilward.Editor` и `BattleSceneBuilder.cs` исключены из player compilation. Проверка platform settings использует `NamedBuildTarget.iOS` и не зависит от локального `EditorUserBuildSettings.activeBuildTarget`, поэтому suite воспроизводимо запускается после чистого клонирования и при активной Standalone-платформе.
+Тесты проверяют project settings, геометрию пути, spawn schedule, движение, детерминизм, leaks, terminal phases, преобразование serialized scenario в Domain и соответствие визуальной дороги изменённой конфигурации. Отдельно покрыты rasterization при `CellSize = 0.5`, отсутствие публичной мутации занятости Grid и запрет `TowerState` с неположительным ID. Assembly test проверяет, что `Veilward.Editor` и `BattleSceneBuilder.cs` исключены из player compilation. Проверка platform settings использует `NamedBuildTarget.iOS` и не зависит от локального `EditorUserBuildSettings.activeBuildTarget`, поэтому suite воспроизводимо запускается после чистого клонирования и при активной Standalone-платформе.
 
 При открытом Unity Editor с Pipeline package тесты выполняются в нём. Runner принимает только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. Некорректный JSON и ненулевой exit code Unity CLI приводят к ошибке запуска.
 
@@ -87,4 +87,6 @@ Graybox-сцену и assets можно повторно сгенерирова�
 
 Unity создаёт Xcode project для iOS. Apple signing, provisioning и установка на устройство выполняются владельцем проекта; приватные credentials в репозиторий не добавляются.
 
-Для P1.2 успешно выполнен реальный Unity iOS export без signing: Xcode project создан в ignored `Builds/iOS/P1.2-Review`, результат `Succeeded`, ошибок 0. Экспортированные IL2CPP sources содержат `Veilward.cpp` и `Veilward.Domain.cpp`, но не `Veilward.Editor`; `Veilward.Editor.dll` отсутствует. EditMode tests и Play Mode с реальным virtual Input System input и Game View screenshots также проверены. Последующая сборка через `xcodebuild`, физическое iOS-устройство, signing, touch и safe area **не проверялись**.
+Для P1.2 выполнен чистый Unity iOS **Device SDK export без signing**: Xcode project создан в ignored `Builds/iOS/P1.2-Review`, результат `Succeeded`, **0 errors / 0 warnings**. Экспортированные IL2CPP sources содержат `Veilward.cpp` и `Veilward.Domain.cpp`, но не `Veilward.Editor` или QA; `Veilward.Editor.dll` отсутствует. Дополнительно ARM64 Simulator export и `xcodebuild` без signing завершились успешно; приложение установлено и визуально запущено в landscape на iPhone 17 Pro, iOS 26.1.
+
+Play Mode с virtual mouse проверен по сценарию select → cancel → select → confirm → start wave; маршрут не изменился, Confirm/Cancel не выбирают клетку позади UI. Game View evidence находится в `Docs/review/P1.2/`. **iOS Simulator touch: NOT VERIFIED** — визуальный preview работает, но поддерживаемый ввод для Unity uGUI недоступен; Editor mouse не считается touch-проверкой. **Физический iPhone, signing, safe area и производительность: NOT VERIFIED.**
