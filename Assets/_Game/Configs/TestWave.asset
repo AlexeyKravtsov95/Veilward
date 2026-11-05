@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3ac9c767ec04a47a46fe8950941e7e, type: 3}
+  m_Name: TestWave
+  m_EditorClassIdentifier: Veilward::Veilward.Presentation.BattleScenarioConfig
+  baseHealth: 20
+  enemyId: shade
+  maxHealth: 100
+  speed: 1.5
+  leakDamage: 1
+  enemyCount: 5
+  firstSpawnTick: 0
+  spawnIntervalTicks: 30
+  waypoints:
+  - {x: -5, y: -2}
+  - {x: 0, y: -2}
+  - {x: 0, y: 2}
+  - {x: 5, y: 2}

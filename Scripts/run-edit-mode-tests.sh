@@ -38,6 +38,10 @@ if not isinstance(payload, dict) or payload.get("success") is not True:
     fail("missing successful Unity CLI status")
 
 summary = payload.get("Summary")
+if summary is None:
+    data = payload.get("data")
+    result = data.get("result") if isinstance(data, dict) else None
+    summary = result.get("Summary") if isinstance(result, dict) else None
 if not isinstance(summary, dict):
     fail("Summary is missing or is not an object")
 
