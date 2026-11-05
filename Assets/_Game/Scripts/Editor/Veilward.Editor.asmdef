@@ -3,7 +3,8 @@
   "rootNamespace": "Veilward.Editor",
   "references": [
     "Veilward",
-    "Veilward.Domain"
+    "Veilward.Domain",
+    "Unity.InputSystem"
   ],
   "includePlatforms": [
     "Editor"

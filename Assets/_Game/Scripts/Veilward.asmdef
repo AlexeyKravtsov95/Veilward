@@ -2,7 +2,8 @@
   "name": "Veilward",
   "rootNamespace": "Veilward",
   "references": [
-    "Veilward.Domain"
+    "Veilward.Domain",
+    "Unity.InputSystem"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

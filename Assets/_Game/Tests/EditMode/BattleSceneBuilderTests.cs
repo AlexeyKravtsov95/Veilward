@@ -65,6 +65,40 @@ namespace Veilward.Tests.EditMode
             }
         }
 
+        [Test]
+        public void CreateGridGeometry_DefaultConfig_MatchesDomainCells()
+        {
+            var config = BattleScenarioConfig.CreateDefault();
+            var available = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            var blocked = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            GameObject gridObject = null;
+
+            try
+            {
+                gridObject = BattleSceneBuilder.CreateGridGeometry(config, available, blocked);
+
+                Assert.That(gridObject.transform.childCount, Is.EqualTo(96));
+                var free = gridObject.transform.Find("Cell_-3_0");
+                var road = gridObject.transform.Find("Cell_-3_-2");
+                Assert.That(free, Is.Not.Null);
+                Assert.That(road, Is.Not.Null);
+                Assert.That(free.GetComponent<Renderer>().sharedMaterial, Is.SameAs(available));
+                Assert.That(road.GetComponent<Renderer>().sharedMaterial, Is.SameAs(blocked));
+                AssertVector(free.position, new Vector3(-3f, 0f, 0f), free.name);
+            }
+            finally
+            {
+                if (gridObject != null)
+                {
+                    Object.DestroyImmediate(gridObject);
+                }
+
+                Object.DestroyImmediate(available);
+                Object.DestroyImmediate(blocked);
+                Object.DestroyImmediate(config);
+            }
+        }
+
         private static Vector3 ToWorld(Veilward.Domain.GridCoordinate point)
         {
             return new Vector3(point.X, 0.05f, point.Y);
