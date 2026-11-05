@@ -43,6 +43,9 @@ namespace Veilward.Presentation
             confirmButton.onClick.AddListener(ConfirmSelection);
             cancelButton.onClick.AddListener(CancelSelection);
             startWaveButton.onClick.AddListener(StartWave);
+            var cellSize = battle.Simulation.Grid.Map.CellSize;
+            selectionHighlight.localScale = new Vector3(0.98f * cellSize, 0.04f, 0.98f * cellSize);
+            towerPreview.localScale = Vector3.one * cellSize;
             CancelSelection();
         }
 

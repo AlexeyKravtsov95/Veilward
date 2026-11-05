@@ -124,6 +124,7 @@ namespace Veilward.Presentation
                 var view = Instantiate(towerPrefab, transform);
                 view.name = $"Tower {tower.Id.Value}";
                 view.position = GetCellCenter(tower.Coordinate);
+                view.localScale = Vector3.one * _simulation.Grid.Map.CellSize;
                 _towerViews.Add(tower.Id, view);
             }
         }

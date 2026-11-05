@@ -67,8 +67,9 @@ namespace Veilward.Editor
             CreatePathGeometry(config, pathMaterial, spawnMaterial, heartMaterial);
             var battleCamera = CreateCamera();
             CreateLight();
-            var selection = CreateSelection(selectionMaterial);
-            var preview = CreatePreview(towerPrefab, previewMaterial);
+            var cellSize = config.CreateSimulation().Grid.Map.CellSize;
+            var selection = CreateSelection(selectionMaterial, cellSize);
+            var preview = CreatePreview(towerPrefab, previewMaterial, cellSize);
             var hud = CreateHud(config.CreateSimulation().TowerDefinition.Price);
             CreateEventSystem();
             CreateController(config, enemyPrefab.transform, towerPrefab.transform, battleCamera, selection, preview, hud);
@@ -117,7 +118,9 @@ namespace Veilward.Editor
             Material spawnMaterial,
             Material heartMaterial)
         {
-            var path = config.CreateSimulation().Path;
+            var simulation = config.CreateSimulation();
+            var path = simulation.Path;
+            var pathWidth = simulation.Grid.Map.CellSize * 0.92f;
             var root = new GameObject("Path Geometry");
             for (var index = 0; index < path.Points.Count - 1; index++)
             {
@@ -130,7 +133,7 @@ namespace Veilward.Editor
                 segment.transform.SetParent(root.transform, false);
                 segment.transform.position = (start + end) * 0.5f;
                 segment.transform.rotation = Quaternion.LookRotation(delta.normalized);
-                segment.transform.localScale = new Vector3(1.2f, 0.1f, delta.magnitude);
+                segment.transform.localScale = new Vector3(pathWidth, 0.1f, delta.magnitude);
                 segment.GetComponent<Renderer>().sharedMaterial = pathMaterial;
             }
 
@@ -161,19 +164,20 @@ namespace Veilward.Editor
             return prefab;
         }
 
-        private static Transform CreateSelection(Material material)
+        private static Transform CreateSelection(Material material, float cellSize)
         {
             var selection = CreatePrimitive(PrimitiveType.Cube, "Selection Highlight");
-            selection.transform.localScale = new Vector3(0.98f, 0.04f, 0.98f);
+            selection.transform.localScale = new Vector3(0.98f * cellSize, 0.04f, 0.98f * cellSize);
             selection.GetComponent<Renderer>().sharedMaterial = material;
             selection.SetActive(false);
             return selection.transform;
         }
 
-        private static Transform CreatePreview(GameObject towerPrefab, Material material)
+        private static Transform CreatePreview(GameObject towerPrefab, Material material, float cellSize)
         {
             var preview = Object.Instantiate(towerPrefab);
             preview.name = "Tower Preview";
+            preview.transform.localScale = Vector3.one * cellSize;
             foreach (var renderer in preview.GetComponentsInChildren<Renderer>())
             {
                 renderer.sharedMaterial = material;
