@@ -25,3 +25,13 @@ MonoBehaviour:
   - {x: 0, y: -2}
   - {x: 0, y: 2}
   - {x: 5, y: 2}
+  gridWidth: 12
+  gridHeight: 8
+  gridOrigin: {x: -6, y: -4}
+  cellSize: 1
+  startingGold: 150
+  towerId: test-tower
+  towerPrice: 60
+  towerRange: 2.5
+  towerFireRate: 1
+  towerDamage: 10
