@@ -55,11 +55,13 @@ Docs/
 
 `PathDefinition` предрасчитывает Euclidean lengths и cumulative boundaries в constructor. `GetPosition(distance)` ограничивает distance границами пути и линейно интерполирует между waypoints, не выделяя collections; diagonal segments используют Euclidean length.
 
-`WaveDefinition` хранит validated single-group schedule. `BattleSimulation.StartWave()` идемпотентно переводит Preparation в Combat и обрабатывает spawn tick 0. Каждый `Step()` сначала увеличивает tick, затем выполняет due spawns, после чего движение и leaks в порядке стабильных enemy IDs. Скорость задаётся в path units/second и делится на 30 за тик. Leak сначала удаляет врага, затем один раз применяет integer damage. Health ограничено нулём; Defeat приоритетнее Victory; terminal `Step()` не изменяет состояние.
+`WaveDefinition` хранит validated single-group schedule. `BattleSimulation.StartWave()` идемпотентно переводит Preparation в Combat и обрабатывает spawn tick 0. Каждый `Step()` сначала увеличивает tick, затем выполняет due spawns, после чего движение и leaks в порядке стабильных enemy IDs. Скорость задаётся в path units/second и делится на 30 за тик. Leak сначала удаляет врага, затем один раз применяет integer damage. Health ограничено нулём; Defeat приоритетнее WaveComplete; terminal `Step()` не изменяет состояние.
 
 `BattleState` хранит один reused enemies list и read-only wrapper; `EnemyState` допускает только internal Domain mutation. Step не создаёт snapshots, lists или enemy state objects на каждом тике. `BattleSceneController` — тонкий Unity adapter: accumulator с ограничением frame delta вызывает fixed steps, а LateUpdate синхронизирует prefab views и HUD без изменения Domain rules из UI.
 
-Для P1.1 `Victory` обозначает только исчерпание одной тестовой волны и отсутствие активных врагов после последнего leak. Это не кампания, results flow или полноценная win condition.
+После исчерпания одной тестовой волны и последнего non-lethal leak фаза становится `WaveComplete`; это не кампания, results flow или полноценная win condition. Lethal leak устанавливает `Defeat`. Состояние `Victory` зарезервировано для будущей полноценной победы и не используется симуляцией тестовой волны.
+
+`BattleSceneBuilder` находится в Editor-only `Veilward.Editor.asmdef` и не компилируется в iOS player. Единый source of truth маршрута — `BattleScenarioConfig.CreateSimulation().Path`: builder создаёт дорожные сегменты, Spawn Marker и Seal Heart по Domain waypoints, без дублирующего массива координат.
 
 ## 4. Core domain interfaces (illustrative, not API lock)
 

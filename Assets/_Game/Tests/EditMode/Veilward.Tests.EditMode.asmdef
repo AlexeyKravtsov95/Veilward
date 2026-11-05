@@ -4,6 +4,7 @@
   "references": [
     "Veilward",
     "Veilward.Domain",
+    "Veilward.Editor",
     "UnityEngine.TestRunner",
     "UnityEditor.TestRunner"
   ],

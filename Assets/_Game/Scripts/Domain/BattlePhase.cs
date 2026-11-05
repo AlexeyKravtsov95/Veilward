@@ -5,6 +5,7 @@ namespace Veilward.Domain
         Preparation,
         Combat,
         Victory,
-        Defeat
+        Defeat,
+        WaveComplete
     }
 }

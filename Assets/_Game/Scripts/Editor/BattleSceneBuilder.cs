@@ -53,27 +53,7 @@ namespace Veilward.Editor
             ground.transform.position = new Vector3(0f, -0.15f, 0f);
             ground.GetComponent<Renderer>().sharedMaterial = groundMaterial;
 
-            var points = new[]
-            {
-                new Vector2Int(-5, -2),
-                new Vector2Int(0, -2),
-                new Vector2Int(0, 2),
-                new Vector2Int(5, 2)
-            };
-            for (var index = 0; index < points.Length - 1; index++)
-            {
-                var start = ToWorld(points[index]);
-                var end = ToWorld(points[index + 1]);
-                var delta = end - start;
-                var segment = CreatePrimitive(PrimitiveType.Cube, $"Path Segment {index}");
-                segment.transform.position = (start + end) * 0.5f;
-                segment.transform.rotation = Quaternion.LookRotation(delta.normalized);
-                segment.transform.localScale = new Vector3(1.2f, 0.1f, delta.magnitude);
-                segment.GetComponent<Renderer>().sharedMaterial = pathMaterial;
-            }
-
-            CreateMarker("Spawn Marker", points[0], spawnMaterial);
-            CreateMarker("Seal Heart", points[points.Length - 1], heartMaterial);
+            CreatePathGeometry(config, pathMaterial, spawnMaterial, heartMaterial);
             CreateCamera();
             CreateLight();
             var hudText = CreateHud();
@@ -84,6 +64,38 @@ namespace Veilward.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             ValidateRequiredReferences();
+        }
+
+        public static GameObject CreatePathGeometry(
+            BattleScenarioConfig config,
+            Material pathMaterial,
+            Material spawnMaterial,
+            Material heartMaterial)
+        {
+            var path = config.CreateSimulation().Path;
+            var root = new GameObject("Path Geometry");
+            for (var index = 0; index < path.Points.Count - 1; index++)
+            {
+                var startPoint = path.Points[index];
+                var endPoint = path.Points[index + 1];
+                var start = ToWorld(new Vector2Int(startPoint.X, startPoint.Y));
+                var end = ToWorld(new Vector2Int(endPoint.X, endPoint.Y));
+                var delta = end - start;
+                var segment = CreatePrimitive(PrimitiveType.Cube, $"Path Segment {index}");
+                segment.transform.SetParent(root.transform, false);
+                segment.transform.position = (start + end) * 0.5f;
+                segment.transform.rotation = Quaternion.LookRotation(delta.normalized);
+                segment.transform.localScale = new Vector3(1.2f, 0.1f, delta.magnitude);
+                segment.GetComponent<Renderer>().sharedMaterial = pathMaterial;
+            }
+
+            var spawn = path.Points[0];
+            var heart = path.Points[path.Points.Count - 1];
+            CreateMarker("Spawn Marker", new Vector2Int(spawn.X, spawn.Y), spawnMaterial)
+                .transform.SetParent(root.transform, false);
+            CreateMarker("Seal Heart", new Vector2Int(heart.X, heart.Y), heartMaterial)
+                .transform.SetParent(root.transform, false);
+            return root;
         }
 
         private static void ValidateRequiredReferences()
@@ -129,12 +141,13 @@ namespace Veilward.Editor
             return new Vector3(point.x, 0.05f, point.y);
         }
 
-        private static void CreateMarker(string name, Vector2Int point, Material material)
+        private static GameObject CreateMarker(string name, Vector2Int point, Material material)
         {
             var marker = CreatePrimitive(PrimitiveType.Cylinder, name);
             marker.transform.position = new Vector3(point.x, 0.25f, point.y);
             marker.transform.localScale = new Vector3(0.8f, 0.25f, 0.8f);
             marker.GetComponent<Renderer>().sharedMaterial = material;
+            return marker;
         }
 
         private static void CreateCamera()

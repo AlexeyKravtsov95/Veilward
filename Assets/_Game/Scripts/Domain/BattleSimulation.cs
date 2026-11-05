@@ -64,7 +64,7 @@ namespace Veilward.Domain
             }
             else if (_nextSpawnIndex == _wave.Count && State.Enemies.Count == 0)
             {
-                State.SetPhase(BattlePhase.Victory);
+                State.SetPhase(BattlePhase.WaveComplete);
             }
         }
 

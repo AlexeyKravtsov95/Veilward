@@ -46,6 +46,23 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void EditorAssembly_ExcludesBattleBuilderFromPlayerCompilation()
+        {
+            var editorAssemblies = UnityEditor.Compilation.CompilationPipeline.GetAssemblies(
+                UnityEditor.Compilation.AssembliesType.Editor);
+            var playerAssemblies = UnityEditor.Compilation.CompilationPipeline.GetAssemblies(
+                UnityEditor.Compilation.AssembliesType.Player);
+
+            Assert.That(editorAssemblies.Any(assembly => assembly.name == "Veilward.Editor"), Is.True);
+            Assert.That(playerAssemblies.Any(assembly => assembly.name == "Veilward.Editor"), Is.False);
+            Assert.That(
+                playerAssemblies
+                    .SelectMany(assembly => assembly.sourceFiles)
+                    .Any(path => path.EndsWith("BattleSceneBuilder.cs")),
+                Is.False);
+        }
+
+        [Test]
         public void EditorSettings_UseForceTextAndVisibleMetaFiles()
         {
             Assert.That(EditorSettings.serializationMode, Is.EqualTo(SerializationMode.ForceText));

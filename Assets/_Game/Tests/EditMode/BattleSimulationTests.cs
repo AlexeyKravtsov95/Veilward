@@ -141,8 +141,28 @@ namespace Veilward.Tests.EditMode
 
             simulation.Step();
 
-            Assert.That(simulation.State.Phase, Is.EqualTo(BattlePhase.Victory));
+            Assert.That(simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
             Assert.That(simulation.State.BaseHealth, Is.EqualTo(19));
+        }
+
+        [Test]
+        public void Step_LastLeakCompletesWaveWithFifteenHealthAndFreezesState()
+        {
+            var simulation = CreateSimulation();
+            simulation.StartWave();
+            Step(simulation, 400);
+
+            Assert.That(simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
+            Assert.That(simulation.State.BaseHealth, Is.EqualTo(15));
+            Assert.That(simulation.State.Enemies, Is.Empty);
+            var completedTick = simulation.State.Tick;
+
+            Step(simulation, 60);
+
+            Assert.That(simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
+            Assert.That(simulation.State.BaseHealth, Is.EqualTo(15));
+            Assert.That(simulation.State.Tick, Is.EqualTo(completedTick));
+            Assert.That(simulation.State.Enemies, Is.Empty);
         }
 
         [Test]
