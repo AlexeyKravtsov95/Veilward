@@ -63,6 +63,14 @@ Docs/
 
 `BattleSceneBuilder` находится в Editor-only `Veilward.Editor.asmdef` и не компилируется в iOS player. Единый source of truth маршрута — `BattleScenarioConfig.CreateSimulation().Path`: builder создаёт дорожные сегменты, Spawn Marker и Seal Heart по Domain waypoints, без дублирующего массива координат.
 
+### P1.2 implemented contract
+
+`GridMapDefinition` задаёт карту 12×8 с origin `(-6,-4)` и cell size 1. `BattleGrid` помечает клетки маршрута как `Blocked`, включая промежуточные и diagonal/supercover cells, а занятость изменяет только Domain. Маршрут при строительстве не пересчитывается и не меняется.
+
+`BattleSimulation.PlaceTower()` атомарно проверяет фазу `Preparation`, известный `TowerDefinitionId`, границы и состояние клетки и достаточность золота. При успехе он один раз списывает цену, занимает клетку и добавляет `TowerState` с уникальным последовательным `TowerId`; при ошибке состояние не меняется. Повторная команда по занятой клетке не списывает золото. Текущий `TestTower` стоит 60 gold при стартовых 150 gold; атака, продажа и улучшения не входят в контракт.
+
+`BattlePlacementController` только преобразует Input System mouse/touch в выбор клетки и вызывает Presentation/Domain API. Первый tap показывает selection и preview без покупки, Confirm применяет команду, Cancel очищает selection. UI raycasts не передаются на поле. Start Wave доступен вручную только в `Preparation`; при входе в Combat selection отменяется и строительство запрещено. `BattleSceneController` создаёт tower view только после успеха Domain и показывает Gold/Towers в HUD.
+
 ## 4. Core domain interfaces (illustrative, not API lock)
 
 ```
