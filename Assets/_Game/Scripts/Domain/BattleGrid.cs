@@ -57,14 +57,16 @@ namespace Veilward.Domain
 
         private void BlockSegment(GridCoordinate start, GridCoordinate end)
         {
-            var startX = (double)start.X;
-            var startY = (double)start.Y;
-            var deltaX = (double)end.X - startX;
-            var deltaY = (double)end.Y - startY;
+            var startX = start.X / (double)Map.CellSize;
+            var startY = start.Y / (double)Map.CellSize;
+            var endPositionX = end.X / (double)Map.CellSize;
+            var endPositionY = end.Y / (double)Map.CellSize;
+            var deltaX = endPositionX - startX;
+            var deltaY = endPositionY - startY;
             var currentX = GetCoordinate(startX);
             var currentY = GetCoordinate(startY);
-            var endX = GetCoordinate(end.X);
-            var endY = GetCoordinate(end.Y);
+            var endX = GetCoordinate(endPositionX);
+            var endY = GetCoordinate(endPositionY);
             var stepX = Math.Sign(deltaX);
             var stepY = Math.Sign(deltaY);
             var nextBoundaryX = stepX > 0 ? currentX + 0.5d : currentX - 0.5d;

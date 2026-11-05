@@ -99,6 +99,54 @@ namespace Veilward.Tests.EditMode
             }
         }
 
+        [Test]
+        public void CreateGridGeometry_HalfSizeCells_MatchesVisiblePath()
+        {
+            var config = BattleScenarioConfig.CreateDefault();
+            var serialized = new SerializedObject(config);
+            serialized.FindProperty("cellSize").floatValue = 0.5f;
+            var waypoints = serialized.FindProperty("waypoints");
+            waypoints.arraySize = 2;
+            waypoints.GetArrayElementAtIndex(0).vector2IntValue = new Vector2Int(-2, 0);
+            waypoints.GetArrayElementAtIndex(1).vector2IntValue = new Vector2Int(2, 0);
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            var available = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            var blocked = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            GameObject gridObject = null;
+            GameObject pathObject = null;
+
+            try
+            {
+                gridObject = BattleSceneBuilder.CreateGridGeometry(config, available, blocked);
+                pathObject = BattleSceneBuilder.CreatePathGeometry(config, blocked, blocked, blocked);
+
+                var roadCell = gridObject.transform.Find("Cell_-4_0");
+                var pathSegment = pathObject.transform.Find("Path Segment 0");
+                Assert.That(roadCell, Is.Not.Null);
+                Assert.That(roadCell.GetComponent<Renderer>().sharedMaterial, Is.SameAs(blocked));
+                AssertVector(roadCell.position, new Vector3(-2f, 0f, 0f), roadCell.name);
+                AssertVector(roadCell.localScale, new Vector3(0.46f, 0.04f, 0.46f), roadCell.name);
+                AssertVector(pathSegment.position, new Vector3(0f, 0.05f, 0f), pathSegment.name);
+                AssertVector(pathSegment.localScale, new Vector3(1.2f, 0.1f, 4f), pathSegment.name);
+            }
+            finally
+            {
+                if (gridObject != null)
+                {
+                    Object.DestroyImmediate(gridObject);
+                }
+
+                if (pathObject != null)
+                {
+                    Object.DestroyImmediate(pathObject);
+                }
+
+                Object.DestroyImmediate(available);
+                Object.DestroyImmediate(blocked);
+                Object.DestroyImmediate(config);
+            }
+        }
+
         private static Vector3 ToWorld(Veilward.Domain.GridCoordinate point)
         {
             return new Vector3(point.X, 0.05f, point.Y);

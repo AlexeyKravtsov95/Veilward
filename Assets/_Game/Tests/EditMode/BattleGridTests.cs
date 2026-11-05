@@ -61,6 +61,24 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void Constructor_HalfSizeCells_BlockWorldSpacePathAtMatchingCoordinates()
+        {
+            var map = new GridMapDefinition(12, 8, new GridCoordinate(-6, -4), 0.5f);
+            var path = new PathDefinition(new[]
+            {
+                new GridCoordinate(-2, 0),
+                new GridCoordinate(2, 0)
+            });
+
+            var grid = new BattleGrid(map, path);
+
+            Assert.That(grid.GetState(new GridCoordinate(-4, 0)), Is.EqualTo(GridCellState.Blocked));
+            Assert.That(grid.GetState(new GridCoordinate(4, 0)), Is.EqualTo(GridCellState.Blocked));
+            Assert.That(grid.GetState(new GridCoordinate(-5, 0)), Is.EqualTo(GridCellState.Available));
+            Assert.That(map.GetCellCenter(new GridCoordinate(-4, 0)).X, Is.EqualTo(-2f));
+        }
+
+        [Test]
         public void Constructor_DiagonalPathBlocksEveryTraversedCell()
         {
             var grid = CreateGrid(new[]
