@@ -179,6 +179,15 @@ namespace Veilward.Tests.EditMode
             Assert.That(positionAfter.Y, Is.EqualTo(positionBefore.Y));
         }
 
+        [Test]
+        public void TowerState_DefaultId_Throws()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => new TowerState(
+                default,
+                CreateDefinition(),
+                FreeCell));
+        }
+
         [TestCase(0)]
         [TestCase(-1)]
         public void TowerId_NonPositiveValue_Throws(int value)
