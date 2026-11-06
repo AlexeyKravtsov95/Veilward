@@ -22,6 +22,20 @@ namespace Veilward.Presentation
             new Vector2Int(5, 2)
         };
 
+        [Header("Build Grid")]
+        [SerializeField, Min(1)] private int gridWidth = 12;
+        [SerializeField, Min(1)] private int gridHeight = 8;
+        [SerializeField] private Vector2Int gridOrigin = new Vector2Int(-6, -4);
+        [SerializeField, Min(0.01f)] private float cellSize = 1f;
+
+        [Header("Test Tower")]
+        [SerializeField, Min(0)] private int startingGold = 150;
+        [SerializeField] private string towerId = "test-tower";
+        [SerializeField, Min(0)] private int towerPrice = 60;
+        [SerializeField, Min(0.01f)] private float towerRange = 2.5f;
+        [SerializeField, Min(0.01f)] private float towerFireRate = 1f;
+        [SerializeField, Min(0.01f)] private float towerDamage = 10f;
+
         public static BattleScenarioConfig CreateDefault()
         {
             return CreateInstance<BattleScenarioConfig>();
@@ -35,6 +49,11 @@ namespace Veilward.Presentation
                 gridPoints[index] = new GridCoordinate(waypoints[index].x, waypoints[index].y);
             }
 
+            var map = new GridMapDefinition(
+                gridWidth,
+                gridHeight,
+                new GridCoordinate(gridOrigin.x, gridOrigin.y),
+                cellSize);
             var path = new PathDefinition(gridPoints);
             var enemy = new EnemyDefinition(
                 new EnemyDefinitionId(enemyId),
@@ -43,7 +62,13 @@ namespace Veilward.Presentation
                 leakDamage,
                 reward: 0);
             var wave = new WaveDefinition(enemy, enemyCount, firstSpawnTick, spawnIntervalTicks);
-            return new BattleSimulation(path, wave, baseHealth);
+            var tower = new TowerDefinition(
+                new TowerDefinitionId(towerId),
+                towerPrice,
+                towerRange,
+                towerFireRate,
+                towerDamage);
+            return new BattleSimulation(map, path, wave, tower, baseHealth, startingGold);
         }
 
         private void OnValidate()
@@ -55,6 +80,14 @@ namespace Veilward.Presentation
             enemyCount = Mathf.Max(1, enemyCount);
             firstSpawnTick = Mathf.Max(0, firstSpawnTick);
             spawnIntervalTicks = Mathf.Max(1, spawnIntervalTicks);
+            gridWidth = Mathf.Max(1, gridWidth);
+            gridHeight = Mathf.Max(1, gridHeight);
+            cellSize = Mathf.Max(0.01f, cellSize);
+            startingGold = Mathf.Max(0, startingGold);
+            towerPrice = Mathf.Max(0, towerPrice);
+            towerRange = Mathf.Max(0.01f, towerRange);
+            towerFireRate = Mathf.Max(0.01f, towerFireRate);
+            towerDamage = Mathf.Max(0.01f, towerDamage);
         }
     }
 }

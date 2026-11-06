@@ -6,6 +6,7 @@ namespace Veilward.Domain
     public sealed class BattleState
     {
         private readonly List<EnemyState> _enemies;
+        private readonly List<TowerState> _towers;
 
         public BattleState(
             BattlePhase phase,
@@ -13,7 +14,8 @@ namespace Veilward.Domain
             int waveIndex,
             int baseHealth,
             int gold,
-            IEnumerable<EnemyState> enemies)
+            IEnumerable<EnemyState> enemies,
+            IEnumerable<TowerState> towers = null)
         {
             if (!Enum.IsDefined(typeof(BattlePhase), phase))
             {
@@ -60,6 +62,27 @@ namespace Veilward.Domain
                 }
             }
 
+            var towerCopy = towers == null ? new List<TowerState>() : new List<TowerState>(towers);
+            var towerIds = new HashSet<TowerId>();
+            var towerCoordinates = new HashSet<GridCoordinate>();
+            foreach (var tower in towerCopy)
+            {
+                if (tower == null)
+                {
+                    throw new ArgumentException("Towers cannot contain null entries.", nameof(towers));
+                }
+
+                if (!towerIds.Add(tower.Id))
+                {
+                    throw new ArgumentException("Tower IDs must be unique.", nameof(towers));
+                }
+
+                if (!towerCoordinates.Add(tower.Coordinate))
+                {
+                    throw new ArgumentException("Tower coordinates must be unique.", nameof(towers));
+                }
+            }
+
             Phase = phase;
             Tick = tick;
             WaveIndex = waveIndex;
@@ -67,14 +90,17 @@ namespace Veilward.Domain
             Gold = gold;
             _enemies = enemyCopy;
             Enemies = _enemies.AsReadOnly();
+            _towers = towerCopy;
+            Towers = _towers.AsReadOnly();
         }
 
         public BattlePhase Phase { get; private set; }
         public long Tick { get; private set; }
         public int WaveIndex { get; }
         public int BaseHealth { get; private set; }
-        public int Gold { get; }
+        public int Gold { get; private set; }
         public IReadOnlyList<EnemyState> Enemies { get; }
+        public IReadOnlyList<TowerState> Towers { get; }
 
         internal void SetPhase(BattlePhase phase)
         {
@@ -94,6 +120,21 @@ namespace Veilward.Domain
         internal void AddEnemy(EnemyState enemy)
         {
             _enemies.Add(enemy ?? throw new ArgumentNullException(nameof(enemy)));
+        }
+
+        internal void AddTower(TowerState tower)
+        {
+            _towers.Add(tower ?? throw new ArgumentNullException(nameof(tower)));
+        }
+
+        internal void Debit(int amount)
+        {
+            if (amount < 0 || amount > Gold)
+            {
+                throw new ArgumentOutOfRangeException(nameof(amount), "Debit must be non-negative and affordable.");
+            }
+
+            Gold -= amount;
         }
 
         internal void RemoveEnemyAt(int index)
@@ -118,7 +159,13 @@ namespace Veilward.Domain
                 throw new ArgumentOutOfRangeException(nameof(baseHealth), "Initial base health must be positive.");
             }
 
-            return new BattleState(BattlePhase.Preparation, 0, 0, baseHealth, startingGold, Array.Empty<EnemyState>());
+            return new BattleState(
+                BattlePhase.Preparation,
+                tick: 0,
+                waveIndex: 0,
+                baseHealth,
+                startingGold,
+                Array.Empty<EnemyState>());
         }
     }
 }

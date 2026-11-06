@@ -4,6 +4,8 @@ namespace Veilward.Domain
     {
         BattleState State { get; }
 
+        PlaceTowerResult PlaceTower(PlaceTowerCommand command);
+
         void Step();
     }
 }

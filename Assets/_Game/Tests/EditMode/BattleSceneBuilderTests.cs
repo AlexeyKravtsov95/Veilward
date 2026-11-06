@@ -38,7 +38,7 @@ namespace Veilward.Tests.EditMode
 
                     Assert.That(segment, Is.Not.Null);
                     AssertVector(segment.position, (start + end) * 0.5f, segment.name);
-                    AssertVector(segment.localScale, new Vector3(1.2f, 0.1f, delta.magnitude), segment.name);
+                    AssertVector(segment.localScale, new Vector3(0.92f, 0.1f, delta.magnitude), segment.name);
                     Assert.That(
                         Quaternion.Angle(segment.rotation, Quaternion.LookRotation(delta.normalized)),
                         Is.LessThan(0.001f));
@@ -61,6 +61,96 @@ namespace Veilward.Tests.EditMode
                 }
 
                 Object.DestroyImmediate(material);
+                Object.DestroyImmediate(config);
+            }
+        }
+
+        [Test]
+        public void CreateGridGeometry_DefaultConfig_MatchesDomainCells()
+        {
+            var config = BattleScenarioConfig.CreateDefault();
+            var available = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            var blocked = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            GameObject gridObject = null;
+
+            try
+            {
+                gridObject = BattleSceneBuilder.CreateGridGeometry(config, available, blocked);
+
+                Assert.That(gridObject.transform.childCount, Is.EqualTo(96));
+                var free = gridObject.transform.Find("Cell_-3_0");
+                var road = gridObject.transform.Find("Cell_-3_-2");
+                Assert.That(free, Is.Not.Null);
+                Assert.That(road, Is.Not.Null);
+                Assert.That(free.GetComponent<Renderer>().sharedMaterial, Is.SameAs(available));
+                Assert.That(road.GetComponent<Renderer>().sharedMaterial, Is.SameAs(blocked));
+                AssertVector(free.position, new Vector3(-3f, 0f, 0f), free.name);
+            }
+            finally
+            {
+                if (gridObject != null)
+                {
+                    Object.DestroyImmediate(gridObject);
+                }
+
+                Object.DestroyImmediate(available);
+                Object.DestroyImmediate(blocked);
+                Object.DestroyImmediate(config);
+            }
+        }
+
+        [Test]
+        public void CreateGridGeometry_HalfSizeCells_MatchesVisiblePath()
+        {
+            var config = BattleScenarioConfig.CreateDefault();
+            var serialized = new SerializedObject(config);
+            serialized.FindProperty("cellSize").floatValue = 0.5f;
+            var waypoints = serialized.FindProperty("waypoints");
+            waypoints.arraySize = 2;
+            waypoints.GetArrayElementAtIndex(0).vector2IntValue = new Vector2Int(-2, 0);
+            waypoints.GetArrayElementAtIndex(1).vector2IntValue = new Vector2Int(2, 0);
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            var available = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            var blocked = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            GameObject gridObject = null;
+            GameObject pathObject = null;
+
+            try
+            {
+                gridObject = BattleSceneBuilder.CreateGridGeometry(config, available, blocked);
+                pathObject = BattleSceneBuilder.CreatePathGeometry(config, blocked, blocked, blocked);
+
+                var roadCell = gridObject.transform.Find("Cell_-4_0");
+                var adjacentBuildableCell = gridObject.transform.Find("Cell_-4_1");
+                var pathSegment = pathObject.transform.Find("Path Segment 0");
+                Assert.That(roadCell, Is.Not.Null);
+                Assert.That(adjacentBuildableCell, Is.Not.Null);
+                Assert.That(roadCell.GetComponent<Renderer>().sharedMaterial, Is.SameAs(blocked));
+                Assert.That(adjacentBuildableCell.GetComponent<Renderer>().sharedMaterial, Is.SameAs(available));
+                AssertVector(roadCell.position, new Vector3(-2f, 0f, 0f), roadCell.name);
+                AssertVector(roadCell.localScale, new Vector3(0.46f, 0.04f, 0.46f), roadCell.name);
+                AssertVector(pathSegment.position, new Vector3(0f, 0.05f, 0f), pathSegment.name);
+                AssertVector(pathSegment.localScale, new Vector3(0.46f, 0.1f, 4f), pathSegment.name);
+                Assert.That(
+                    pathSegment.GetComponent<Renderer>().bounds.Intersects(
+                        adjacentBuildableCell.GetComponent<Renderer>().bounds),
+                    Is.False,
+                    "The visible road must not overlap an adjacent buildable cell.");
+            }
+            finally
+            {
+                if (gridObject != null)
+                {
+                    Object.DestroyImmediate(gridObject);
+                }
+
+                if (pathObject != null)
+                {
+                    Object.DestroyImmediate(pathObject);
+                }
+
+                Object.DestroyImmediate(available);
+                Object.DestroyImmediate(blocked);
                 Object.DestroyImmediate(config);
             }
         }
