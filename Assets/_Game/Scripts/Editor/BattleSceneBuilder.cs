@@ -28,14 +28,13 @@ namespace Veilward.Editor
             if (config == null)
             {
                 config = BattleScenarioConfig.CreateDefault();
+                var serializedConfig = new SerializedObject(config);
+                serializedConfig.FindProperty("towerRange").floatValue = 3f;
+                serializedConfig.FindProperty("towerFireRate").floatValue = 2f;
+                serializedConfig.FindProperty("towerDamage").intValue = 25;
+                serializedConfig.ApplyModifiedPropertiesWithoutUndo();
                 AssetDatabase.CreateAsset(config, ConfigPath);
             }
-
-            var serializedConfig = new SerializedObject(config);
-            serializedConfig.FindProperty("towerRange").floatValue = 3f;
-            serializedConfig.FindProperty("towerFireRate").floatValue = 2f;
-            serializedConfig.FindProperty("towerDamage").intValue = 25;
-            serializedConfig.ApplyModifiedPropertiesWithoutUndo();
 
             var groundMaterial = CreateOrUpdateMaterial("GrayboxGround", new Color(0.12f, 0.16f, 0.2f));
             var pathMaterial = CreateOrUpdateMaterial("GrayboxPath", new Color(0.25f, 0.55f, 0.5f));

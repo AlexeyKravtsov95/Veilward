@@ -316,6 +316,21 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void Step_LethalAttackEvent_PreservesTargetPositionAfterEnemyRemoval()
+        {
+            var simulation = CombatSimulation(damage: 100, speed: 30f);
+            Place(simulation, new GridCoordinate(0, 2));
+            simulation.StartWave();
+
+            simulation.Step();
+
+            Assert.That(simulation.State.Enemies, Is.Empty);
+            var attack = simulation.AttackEvents.Single();
+            Assert.That(attack.TargetPosition.X, Is.EqualTo(1f).Within(0.0001f));
+            Assert.That(attack.TargetPosition.Y, Is.Zero.Within(0.0001f));
+        }
+
+        [Test]
         public void ClearAttackEvents_ClearsOnlyEventLifetime()
         {
             var simulation = CombatSimulation();

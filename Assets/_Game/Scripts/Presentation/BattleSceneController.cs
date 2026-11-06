@@ -127,12 +127,12 @@ namespace Veilward.Presentation
                 for (var index = 0; index < attacks.Count; index++)
                 {
                     var attack = attacks[index];
-                    if (!TryGetTowerPosition(attack.AttackerTowerId, out var start) ||
-                        !TryGetEnemyPosition(attack.TargetEnemyId, out var end))
+                    if (!TryGetTowerPosition(attack.AttackerTowerId, out var start))
                     {
                         continue;
                     }
 
+                    var end = new Vector3(attack.TargetPosition.X, 0.6f, attack.TargetPosition.Y);
                     var beam = new GameObject(
                         $"Attack Beam Tower {attack.AttackerTowerId.Value} Enemy {attack.TargetEnemyId.Value}");
                     beam.transform.SetParent(transform, false);
@@ -162,30 +162,6 @@ namespace Veilward.Presentation
                 if (towers[index].Id == towerId)
                 {
                     position = GetCellCenter(towers[index].Coordinate);
-                    return true;
-                }
-            }
-
-            position = default;
-            return false;
-        }
-
-        private bool TryGetEnemyPosition(EnemyId enemyId, out Vector3 position)
-        {
-            if (_enemyViews.TryGetValue(enemyId, out var view))
-            {
-                position = view.Transform.position;
-                return true;
-            }
-
-            var enemies = _simulation.State.Enemies;
-            for (var index = 0; index < enemies.Count; index++)
-            {
-                var enemy = enemies[index];
-                if (enemy.Id == enemyId)
-                {
-                    var pathPosition = _simulation.Path.GetPosition(enemy.DistanceAlongPath);
-                    position = new Vector3(pathPosition.X, 0.6f, pathPosition.Y);
                     return true;
                 }
             }

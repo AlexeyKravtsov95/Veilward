@@ -1,5 +1,8 @@
+using System.Collections.Generic;
+using System.IO;
 using NUnit.Framework;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using Veilward.Editor;
 using Veilward.Presentation;
@@ -8,6 +11,56 @@ namespace Veilward.Tests.EditMode
 {
     public sealed class BattleSceneBuilderTests
     {
+        [Test]
+        public void Build_ExistingConfig_PreservesCombatParametersAcrossRepeatedGeneration()
+        {
+            const string configPath = "Assets/_Game/Configs/TestWave.asset";
+            const string scenePath = "Assets/_Game/Scenes/Battle.unity";
+            var outputPaths = new List<string>
+            {
+                configPath,
+                scenePath,
+                "Assets/_Game/Prefabs/Shade.prefab",
+                "Assets/_Game/Prefabs/TestTower.prefab"
+            };
+            outputPaths.AddRange(Directory.GetFiles("Assets/_Game/Art/Materials", "*.mat"));
+            var snapshots = new Dictionary<string, byte[]>();
+            foreach (var path in outputPaths)
+            {
+                snapshots[path] = File.ReadAllBytes(path);
+            }
+
+            try
+            {
+                var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(configPath);
+                var serialized = new SerializedObject(config);
+                serialized.FindProperty("towerRange").floatValue = 4.25f;
+                serialized.FindProperty("towerFireRate").floatValue = 3.5f;
+                serialized.FindProperty("towerDamage").intValue = 37;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                AssetDatabase.SaveAssets();
+
+                BattleSceneBuilder.Build();
+                BattleSceneBuilder.Build();
+
+                config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(configPath);
+                var tower = config.CreateSimulation().TowerDefinition;
+                Assert.That(tower.Range, Is.EqualTo(4.25f).Within(0.0001f));
+                Assert.That(tower.FireRate, Is.EqualTo(3.5f).Within(0.0001f));
+                Assert.That(tower.Damage, Is.EqualTo(37));
+            }
+            finally
+            {
+                foreach (var snapshot in snapshots)
+                {
+                    File.WriteAllBytes(snapshot.Key, snapshot.Value);
+                }
+
+                AssetDatabase.Refresh();
+                EditorSceneManager.OpenScene(scenePath);
+            }
+        }
+
         [Test]
         public void CreatePathGeometry_ModifiedConfig_MatchesDomainPath()
         {

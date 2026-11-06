@@ -173,11 +173,13 @@ namespace Veilward.Domain
                     continue;
                 }
 
+                var targetPosition = _path.GetPosition(target.DistanceAlongPath);
                 var wasLethal = target.ApplyDamage(tower.Definition.Damage);
                 tower.MarkAttacked(State.Tick);
                 _attackEvents.Add(new AttackEvent(
                     tower.Id,
                     target.Id,
+                    targetPosition,
                     State.Tick,
                     tower.Definition.Damage,
                     wasLethal));

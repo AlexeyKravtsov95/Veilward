@@ -92,6 +92,59 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void AttackEvent_LethalBeforeFirstEnemyView_CreatesBeamAtEventPosition()
+        {
+            var serializedConfig = new SerializedObject(_config);
+            serializedConfig.FindProperty("towerDamage").intValue = 100;
+            serializedConfig.ApplyModifiedPropertiesWithoutUndo();
+            Invoke(_battle, "Start");
+            Assert.That(_battle.PlaceTower(new GridCoordinate(-4, 0)).Success, Is.True);
+            _battle.StartWave();
+            _battle.Simulation.Step();
+            Assert.That(_battle.Simulation.State.Enemies, Is.Empty);
+
+            Invoke(_battle, "ProcessAttackEvents");
+
+            var beam = _battle.GetComponentsInChildren<LineRenderer>().SingleOrDefault();
+            Assert.That(beam, Is.Not.Null);
+            Assert.That(Vector3.Distance(beam.GetPosition(1), new Vector3(-4.95f, 0.6f, -2f)), Is.LessThan(0.0001f));
+            Assert.That(_battle.Simulation.AttackEvents, Is.Empty);
+        }
+
+        [Test]
+        public void AttackEvents_MultipleFixedStepsBeforeRender_UsePerAttackPositions()
+        {
+            Assert.That(_battle.PlaceTower(new GridCoordinate(-4, 0)).Success, Is.True);
+            _battle.StartWave();
+            Invoke(_battle, "LateUpdate");
+            for (var index = 0; index < 31; index++)
+            {
+                _battle.Simulation.Step();
+                Invoke(_battle, "ProcessAttackEvents");
+            }
+
+            var beams = _battle.GetComponentsInChildren<LineRenderer>()
+                .OrderBy(beam => beam.transform.GetSiblingIndex())
+                .ToArray();
+            var expectedEnds = new[]
+            {
+                new Vector3(-4.95f, 0.6f, -2f),
+                new Vector3(-4.2f, 0.6f, -2f),
+                new Vector3(-3.45f, 0.6f, -2f)
+            };
+            Assert.That(beams.Length, Is.EqualTo(expectedEnds.Length));
+            for (var index = 0; index < expectedEnds.Length; index++)
+            {
+                Assert.That(
+                    Vector3.Distance(beams[index].GetPosition(1), expectedEnds[index]),
+                    Is.LessThan(0.0001f),
+                    $"Beam {index} must use the position captured at its attack tick.");
+            }
+
+            Assert.That(_battle.Simulation.AttackEvents, Is.Empty);
+        }
+
+        [Test]
         public void LateUpdate_HealthBarMatchesDomainDamage()
         {
             Assert.That(_battle.PlaceTower(new GridCoordinate(-4, 0)).Success, Is.True);
