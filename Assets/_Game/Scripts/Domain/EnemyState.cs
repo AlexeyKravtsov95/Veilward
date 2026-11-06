@@ -30,7 +30,8 @@ namespace Veilward.Domain
 
         public EnemyId Id { get; }
         public EnemyDefinition Definition { get; }
-        public int Health { get; }
+        public int Health { get; private set; }
+        public bool IsAlive => Health > 0;
         public float DistanceAlongPath { get; private set; }
 
         internal void Advance(float distanceAlongPath)
@@ -43,6 +44,22 @@ namespace Veilward.Domain
             }
 
             DistanceAlongPath = distanceAlongPath;
+        }
+
+        internal bool ApplyDamage(int damage)
+        {
+            if (damage <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(damage), "Damage must be positive.");
+            }
+
+            if (!IsAlive)
+            {
+                return false;
+            }
+
+            Health = Math.Max(0, Health - damage);
+            return Health == 0;
         }
 
         public static EnemyState CreateInitial(EnemyId id, EnemyDefinition definition)

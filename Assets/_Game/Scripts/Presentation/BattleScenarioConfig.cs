@@ -34,7 +34,7 @@ namespace Veilward.Presentation
         [SerializeField, Min(0)] private int towerPrice = 60;
         [SerializeField, Min(0.01f)] private float towerRange = 2.5f;
         [SerializeField, Min(0.01f)] private float towerFireRate = 1f;
-        [SerializeField, Min(0.01f)] private float towerDamage = 10f;
+        [SerializeField, Min(1)] private int towerDamage = 10;
 
         public static BattleScenarioConfig CreateDefault()
         {
@@ -87,7 +87,7 @@ namespace Veilward.Presentation
             towerPrice = Mathf.Max(0, towerPrice);
             towerRange = Mathf.Max(0.01f, towerRange);
             towerFireRate = Mathf.Max(0.01f, towerFireRate);
-            towerDamage = Mathf.Max(0.01f, towerDamage);
+            towerDamage = Mathf.Max(1, towerDamage);
         }
     }
 }

@@ -99,6 +99,7 @@ namespace Veilward.Domain
         public int WaveIndex { get; }
         public int BaseHealth { get; private set; }
         public int Gold { get; private set; }
+        public int Kills { get; private set; }
         public IReadOnlyList<EnemyState> Enemies { get; }
         public IReadOnlyList<TowerState> Towers { get; }
 
@@ -140,6 +141,20 @@ namespace Veilward.Domain
         internal void RemoveEnemyAt(int index)
         {
             _enemies.RemoveAt(index);
+        }
+
+        internal void RemoveDefeatedEnemies()
+        {
+            for (var index = _enemies.Count - 1; index >= 0; index--)
+            {
+                if (_enemies[index].IsAlive)
+                {
+                    continue;
+                }
+
+                _enemies.RemoveAt(index);
+                Kills++;
+            }
         }
 
         internal void ApplyLeak(int damage)
