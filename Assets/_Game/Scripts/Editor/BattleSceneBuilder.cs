@@ -17,7 +17,7 @@ namespace Veilward.Editor
         private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
         private const string MaterialsFolder = "Assets/_Game/Art/Materials";
 
-        [MenuItem("Veilward/Build P1.2 Battle Scene")]
+        [MenuItem("Veilward/Build P1.3 Battle Scene")]
         public static void Build()
         {
             Directory.CreateDirectory("Assets/_Game/Configs");
@@ -31,6 +31,12 @@ namespace Veilward.Editor
                 AssetDatabase.CreateAsset(config, ConfigPath);
             }
 
+            var serializedConfig = new SerializedObject(config);
+            serializedConfig.FindProperty("towerRange").floatValue = 3f;
+            serializedConfig.FindProperty("towerFireRate").floatValue = 2f;
+            serializedConfig.FindProperty("towerDamage").intValue = 25;
+            serializedConfig.ApplyModifiedPropertiesWithoutUndo();
+
             var groundMaterial = CreateOrUpdateMaterial("GrayboxGround", new Color(0.12f, 0.16f, 0.2f));
             var pathMaterial = CreateOrUpdateMaterial("GrayboxPath", new Color(0.25f, 0.55f, 0.5f));
             var spawnMaterial = CreateOrUpdateMaterial("GrayboxSpawn", new Color(0.2f, 0.8f, 0.9f));
@@ -41,10 +47,15 @@ namespace Veilward.Editor
             var towerMaterial = CreateOrUpdateMaterial("GrayboxTower", new Color(0.95f, 0.7f, 0.2f));
             var selectionMaterial = CreateOrUpdateMaterial("GrayboxSelection", new Color(1f, 0.9f, 0.2f));
             var previewMaterial = CreateOrUpdateMaterial("GrayboxTowerPreview", new Color(0.3f, 0.9f, 0.95f));
+            var beamMaterial = CreateOrUpdateUnlitMaterial("AttackBeam", new Color(1f, 0.85f, 0.25f));
+            var healthBackgroundMaterial = CreateOrUpdateUnlitMaterial("HealthBackground", new Color(0.12f, 0.03f, 0.04f));
+            var healthFillMaterial = CreateOrUpdateUnlitMaterial("HealthFill", new Color(0.25f, 0.9f, 0.35f));
+            var rangeMaterial = CreateOrUpdateUnlitMaterial("RangePreview", new Color(0.3f, 0.9f, 0.95f));
 
             var enemy = CreatePrimitive(PrimitiveType.Capsule, "Shade");
             enemy.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
             enemy.GetComponent<Renderer>().sharedMaterial = enemyMaterial;
+            AddHealthBar(enemy, healthBackgroundMaterial, healthFillMaterial);
             var enemyPrefab = PrefabUtility.SaveAsPrefabAsset(enemy, EnemyPrefabPath);
             Object.DestroyImmediate(enemy);
             var towerPrefab = CreateTowerPrefab(towerMaterial);
@@ -70,9 +81,19 @@ namespace Veilward.Editor
             var cellSize = config.CreateSimulation().Grid.Map.CellSize;
             var selection = CreateSelection(selectionMaterial, cellSize);
             var preview = CreatePreview(towerPrefab, previewMaterial, cellSize);
+            var rangePreview = CreateRangePreview(rangeMaterial);
             var hud = CreateHud(config.CreateSimulation().TowerDefinition.Price);
             CreateEventSystem();
-            CreateController(config, enemyPrefab.transform, towerPrefab.transform, battleCamera, selection, preview, hud);
+            CreateController(
+                config,
+                enemyPrefab.transform,
+                towerPrefab.transform,
+                battleCamera,
+                selection,
+                preview,
+                rangePreview,
+                beamMaterial,
+                hud);
 
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
@@ -164,6 +185,33 @@ namespace Veilward.Editor
             return prefab;
         }
 
+        private static void AddHealthBar(
+            GameObject enemy,
+            Material backgroundMaterial,
+            Material fillMaterial)
+        {
+            var healthBar = enemy.AddComponent<EnemyHealthBarView>();
+            var barRoot = new GameObject("Health Bar").transform;
+            barRoot.SetParent(enemy.transform, false);
+            barRoot.localPosition = new Vector3(0f, 0.85f, 0f);
+
+            var background = CreatePrimitive(PrimitiveType.Quad, "Health Background");
+            background.transform.SetParent(barRoot, false);
+            background.transform.localScale = new Vector3(0.9f, 0.12f, 1f);
+            background.GetComponent<Renderer>().sharedMaterial = backgroundMaterial;
+
+            var fill = CreatePrimitive(PrimitiveType.Quad, "Health Fill");
+            fill.transform.SetParent(barRoot, false);
+            fill.transform.localPosition = new Vector3(0f, 0f, -0.01f);
+            fill.transform.localScale = new Vector3(0.9f, 0.1f, 1f);
+            fill.GetComponent<Renderer>().sharedMaterial = fillMaterial;
+
+            var serialized = new SerializedObject(healthBar);
+            serialized.FindProperty("barRoot").objectReferenceValue = barRoot;
+            serialized.FindProperty("fill").objectReferenceValue = fill.transform;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+        }
+
         private static Transform CreateSelection(Material material, float cellSize)
         {
             var selection = CreatePrimitive(PrimitiveType.Cube, "Selection Highlight");
@@ -187,11 +235,29 @@ namespace Veilward.Editor
             return preview.transform;
         }
 
+        private static LineRenderer CreateRangePreview(Material material)
+        {
+            var rangeObject = new GameObject("Range Preview", typeof(LineRenderer));
+            var line = rangeObject.GetComponent<LineRenderer>();
+            line.useWorldSpace = false;
+            line.loop = true;
+            line.startWidth = 0.04f;
+            line.endWidth = 0.04f;
+            line.sharedMaterial = material;
+            line.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            line.receiveShadows = false;
+            rangeObject.SetActive(false);
+            return line;
+        }
+
         private static void ValidateRequiredReferences()
         {
             var controller = Object.FindFirstObjectByType<BattleSceneController>();
             var serialized = new SerializedObject(controller);
-            var propertyNames = new[] { "scenario", "enemyPrefab", "towerPrefab", "hudText" };
+            var propertyNames = new[]
+            {
+                "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial"
+            };
             foreach (var propertyName in propertyNames)
             {
                 if (serialized.FindProperty(propertyName).objectReferenceValue == null)
@@ -206,7 +272,7 @@ namespace Veilward.Editor
             var placementProperties = new[]
             {
                 "battle", "worldCamera", "selectionHighlight", "towerPreview",
-                "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton"
+                "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "rangePreview"
             };
             foreach (var propertyName in placementProperties)
             {
@@ -228,7 +294,22 @@ namespace Veilward.Editor
                 AssetDatabase.CreateAsset(material, path);
             }
 
-            material.color = color;
+            material.SetColor("_BaseColor", color);
+            EditorUtility.SetDirty(material);
+            return material;
+        }
+
+        private static Material CreateOrUpdateUnlitMaterial(string name, Color color)
+        {
+            var path = $"{MaterialsFolder}/{name}.mat";
+            var material = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (material == null)
+            {
+                material = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+                AssetDatabase.CreateAsset(material, path);
+            }
+
+            material.SetColor("_BaseColor", color);
             EditorUtility.SetDirty(material);
             return material;
         }
@@ -296,7 +377,7 @@ namespace Veilward.Editor
             var panel = panelObject.AddComponent<UnityEngine.UI.Image>();
             panel.color = new Color(0.02f, 0.03f, 0.05f, 0.85f);
             panel.raycastTarget = false;
-            SetRect(panel.rectTransform, new Vector2(0f, 1f), new Vector2(24f, -24f), new Vector2(440f, 210f));
+            SetRect(panel.rectTransform, new Vector2(0f, 1f), new Vector2(24f, -24f), new Vector2(440f, 240f));
             var stats = CreateText("Stats", panelObject.transform, 24, TextAnchor.UpperLeft);
             SetRect(stats.rectTransform, Vector2.zero, Vector2.zero, Vector2.zero);
             stats.rectTransform.anchorMin = Vector2.zero;
@@ -422,6 +503,8 @@ namespace Veilward.Editor
             Camera battleCamera,
             Transform selection,
             Transform preview,
+            LineRenderer rangePreview,
+            Material beamMaterial,
             HudReferences hud)
         {
             var controllerObject = new GameObject(
@@ -433,6 +516,8 @@ namespace Veilward.Editor
             serialized.FindProperty("enemyPrefab").objectReferenceValue = enemyPrefab;
             serialized.FindProperty("towerPrefab").objectReferenceValue = towerPrefab;
             serialized.FindProperty("hudText").objectReferenceValue = hud.StatsText;
+            serialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
+            serialized.FindProperty("attackBeamMaterial").objectReferenceValue = beamMaterial;
             serialized.ApplyModifiedPropertiesWithoutUndo();
 
             var placementSerialized = new SerializedObject(controllerObject.GetComponent<BattlePlacementController>());
@@ -441,6 +526,7 @@ namespace Veilward.Editor
             placementSerialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
             placementSerialized.FindProperty("selectionHighlight").objectReferenceValue = selection;
             placementSerialized.FindProperty("towerPreview").objectReferenceValue = preview;
+            placementSerialized.FindProperty("rangePreview").objectReferenceValue = rangePreview;
             placementSerialized.FindProperty("confirmationPanel").objectReferenceValue = hud.ConfirmationPanel;
             placementSerialized.FindProperty("confirmButton").objectReferenceValue = hud.ConfirmButton;
             placementSerialized.FindProperty("cancelButton").objectReferenceValue = hud.CancelButton;

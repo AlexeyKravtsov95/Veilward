@@ -32,6 +32,6 @@ MonoBehaviour:
   startingGold: 150
   towerId: test-tower
   towerPrice: 60
-  towerRange: 2.5
-  towerFireRate: 1
-  towerDamage: 10
+  towerRange: 3
+  towerFireRate: 2
+  towerDamage: 25
