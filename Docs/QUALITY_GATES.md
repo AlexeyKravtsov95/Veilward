@@ -68,7 +68,7 @@ Job `unity-tests` использует `game-ci/unity-test-runner@v4`, `max-para
 
 ## Зафиксированные локальные результаты P0.3
 
-- Static self-tests: **21/21 PASS**; project static checks PASS.
+- Static self-tests: **23/23 PASS**; project static checks PASS.
 - EditMode: **158/158 PASS**, 0 failed/inconclusive/skipped.
 - PlayMode: **1/1 PASS**, 0 failed/inconclusive/skipped.
 - Generated tracked outputs после reproducibility suite: без diff.

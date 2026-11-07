@@ -79,7 +79,7 @@ Graybox-сцену и assets можно повторно сгенерирова�
 ./Scripts/run-play-mode-tests.sh
 ```
 
-Static checks не требуют Unity license: Python stdlib tests проверяют сам validator, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат: **21/21 static self-tests passed**, project checks PASS.
+Static checks не требуют Unity license: Python stdlib tests проверяют сам validator, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат: **23/23 static self-tests passed**, project checks PASS.
 
 EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…008`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат: **158/158 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode smoke загружает Battle и проверяет Preparation: **1/1 PlayMode test passed**, 0 failed/inconclusive/skipped.
 

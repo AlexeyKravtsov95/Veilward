@@ -191,5 +191,72 @@ class UnityResultChecksTests(unittest.TestCase):
         self.assertTrue(any("fail.xml" in error for error in verify_path(self.root)))
 
 
+class UnityRunnerTests(unittest.TestCase):
+    def run_play_mode_with_fake_unity(self, total, passed):
+        import os
+        import subprocess
+
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            bin_dir = root / "bin"
+            bin_dir.mkdir()
+            log_path = root / "commands.jsonl"
+            fake_unity = bin_dir / "unity"
+            fake_unity.write_text(textwrap.dedent("""\
+                #!/usr/bin/env python3
+                import json
+                import os
+                import sys
+
+                with open(os.environ["FAKE_UNITY_LOG"], "a", encoding="utf-8") as stream:
+                    stream.write(json.dumps(sys.argv[1:]) + "\\n")
+                if sys.argv[1] == "status":
+                    print(json.dumps({"success": True}))
+                elif sys.argv[1:3] == ["command", "test run"]:
+                    print(json.dumps({"success": True, "result": {
+                        "status": "running", "result": "running"
+                    }}))
+                elif sys.argv[1:3] == ["command", "test status"]:
+                    total = int(os.environ["FAKE_TOTAL"])
+                    passed = int(os.environ["FAKE_PASSED"])
+                    print(json.dumps({"success": True, "result": {
+                        "status": "completed",
+                        "summary": {
+                            "total": total, "passed": passed,
+                            "failed": total - passed, "skipped": 0, "inconclusive": 0
+                        }
+                    }}))
+                else:
+                    raise SystemExit(2)
+                """), encoding="utf-8")
+            fake_unity.chmod(0o755)
+            environment = dict(os.environ)
+            environment["PATH"] = str(bin_dir) + os.pathsep + environment["PATH"]
+            environment["FAKE_UNITY_LOG"] = str(log_path)
+            environment["FAKE_TOTAL"] = str(total)
+            environment["FAKE_PASSED"] = str(passed)
+            completed = subprocess.run(
+                [str(SCRIPTS / "run-unity-tests.sh"), "PlayMode"],
+                cwd=SCRIPTS.parent,
+                env=environment,
+                capture_output=True,
+                text=True,
+                timeout=20,
+                check=False)
+            commands = [json.loads(line) for line in log_path.read_text(encoding="utf-8").splitlines()]
+            return completed, commands
+
+    def test_play_mode_uses_async_run_and_polls_completed_result(self):
+        completed, commands = self.run_play_mode_with_fake_unity(total=1, passed=1)
+        self.assertEqual(0, completed.returncode, completed.stdout + completed.stderr + str(commands))
+        run_command = next(command for command in commands if command[:2] == ["command", "test run"])
+        self.assertIn("--async-tests", run_command)
+        self.assertTrue(any(command[:2] == ["command", "test status"] for command in commands))
+
+    def test_play_mode_empty_completed_suite_is_rejected(self):
+        completed, _ = self.run_play_mode_with_fake_unity(total=0, passed=0)
+        self.assertNotEqual(0, completed.returncode)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
