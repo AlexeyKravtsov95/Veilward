@@ -79,13 +79,13 @@ Graybox-сцену и assets можно повторно сгенерирова�
 ./Scripts/run-play-mode-tests.sh
 ```
 
-Static checks не требуют Unity license: Python stdlib tests проверяют сам validator, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат: **23/23 static self-tests passed**, project checks PASS.
+Static checks не требуют Unity license: Python stdlib tests проверяют сами validators и CI security contract, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P0.3.1: **27/27 static self-tests passed**, project checks PASS.
 
 EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…008`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат: **158/158 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode smoke загружает Battle и проверяет Preparation: **1/1 PlayMode test passed**, 0 failed/inconclusive/skipped.
 
-Runners принимают только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. XML validator независимо проверяет NUnit/JUnit reports. При открытом проекте без доступного Unity CLI runner завершается кодом 2 и не запускает второй Editor. В clean checkout используется `UNITY_EDITOR_PATH` либо стандартный Unity Hub path; batch mode получает `-buildTarget iOS` и сохраняет report/log в ignored `TestResults`.
+Runners принимают только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. XML validator независимо проверяет NUnit/JUnit reports. При открытом проекте без доступного Unity CLI runner завершается кодом 2 и не запускает второй Editor. В P0.3.1 оба локальных suite остались **NOT VERIFIED / BLOCKED** именно по этой причине. В clean checkout используется `UNITY_EDITOR_PATH` либо стандартный Unity Hub path; batch mode получает `-buildTarget iOS` и сохраняет report/log в ignored `TestResults`.
 
-GitHub Actions workflow `Quality Gates` всегда выполняет static checks на PR/push в `main`. Hosted Unity EditMode/PlayMode jobs используют GameCI, но сейчас **BLOCKED** до настройки владельцем полного license secret set и проверки manual run. Это не считается Unity CI PASS. Точная процедура включения и ограничения описаны в `Docs/QUALITY_GATES.md`; регрессионный контракт — в `Docs/REGRESSION.md`.
+GitHub Actions workflow `Quality Gates` выполняет static checks на PR/push в `main` на `ubuntu-latest`. Отдельный workflow `Unity Personal Tests` запускает EditMode/PlayMode только вручную на доверенном `main` через `[self-hosted, macOS, veilward-unity-personal]`. Unity Personal активируется владельцем через Unity Hub: workflow не использует GameCI, ALF/ULF, Unity account secrets или serial. Сейчас Unity CI **NOT VERIFIED / BLOCKED**, потому что runner не зарегистрирован и полный manual PASS ещё не получен. Автоматический запуск непроверенного PR-кода на self-hosted runner не разрешён. Процедура изоляции и включения описана в `Docs/QUALITY_GATES.md`; регрессионный контракт — в `Docs/REGRESSION.md`.
 
 ## iOS build
 

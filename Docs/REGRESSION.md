@@ -1,4 +1,4 @@
-# VEILWARD — Battle Regression Contract
+# VEILWARD — Battle & CI Regression Contract
 
 ## Назначение и источник данных
 
@@ -18,6 +18,13 @@
 | REG-BATTLE-006 | Без башен происходят ровно пять последовательных leaks; волна завершается на последнем leak в WaveComplete с 15 HP, 150 gold, нулём Kills и пустым списком врагов. После terminal phase `Step()` ничего не меняет. Точные boundary ticks не округляются в спецификации из-за накопления float distance. | `BattleRegressionTests.NoTowerWave_MovesLeaksAndCompletes` |
 | REG-BATTLE-007 | После завершения P1.3 выбор первой цели, cooldown, атака/урон, one-time kill, точный AttackEvent и beam position проверяются отдельно от P1.2 regression. | `BattleCombatTests`; `BattleCombatVisualTests`; `TowerPlacementTests` |
 | REG-BATTLE-008 | Два запуска сохранённого scenario с одинаковой командой размещения дают полный одинаковый timeline каждого тика до terminal phase: phase/tick/HP/gold/Kills, все enemy/tower states и все AttackEvents. | `BattleRegressionTests.IdenticalSavedScenarioRuns_ProduceIdenticalCompleteTimelines` |
+
+## CI-сценарии
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-CI-001 | Static checks остаются на GitHub-hosted runner для PR/push в `main`. Unity EditMode/PlayMode запускаются только вручную на checkout `main`, на выделенном `self-hosted` macOS runner с label `veilward-unity-personal` и read-only permissions. | `UnityWorkflowContractTests.test_static_quality_gates_keep_hosted_pr_and_push_coverage`; `test_unity_tests_are_manual_main_on_dedicated_macos_runner` |
+| REG-CI-002 | Unity workflow не использует GameCI, license/account secrets, serial или ALF/ULF activation. Оба suite вызывают общий runner, независимую проверку полного PASS и публикацию diagnostics. | `UnityWorkflowContractTests.test_unity_ci_does_not_use_license_secrets_or_game_ci`; `test_unity_tests_validate_and_publish_both_reports` |
 
 ## Правила сопровождения
 

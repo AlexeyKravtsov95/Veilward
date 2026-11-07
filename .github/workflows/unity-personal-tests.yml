@@ -1,0 +1,57 @@
+name: Unity Personal Tests
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: unity-personal-tests-main
+  cancel-in-progress: false
+
+jobs:
+  unity-tests:
+    # A runner is intentionally required only for an owner-approved run of trusted main.
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.repository == 'AlexeyKravtsov95/Veilward' &&
+      github.ref == 'refs/heads/main'
+    name: Unity ${{ matrix.testMode }} tests (trusted main)
+    runs-on: [self-hosted, macOS, veilward-unity-personal]
+    environment: unity-personal-ci
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        testMode: [EditMode, PlayMode]
+    steps:
+      - name: Checkout trusted main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          lfs: true
+
+      - name: Verify trusted source
+        run: |
+          test "$GITHUB_EVENT_NAME" = "workflow_dispatch"
+          test "$GITHUB_REF" = "refs/heads/main"
+          test "$(git branch --show-current)" = "main"
+
+      - name: Run Unity ${{ matrix.testMode }} tests with the Hub-activated Editor
+        run: ./Scripts/run-unity-tests.sh "${{ matrix.testMode }}"
+
+      - name: Reject empty, failed, inconclusive, or skipped tests
+        run: python3 Scripts/verify_unity_test_results.py "TestResults/${{ matrix.testMode }}.xml"
+
+      - name: Publish NUnit report and diagnostic log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-personal-${{ matrix.testMode }}-results
+          path: |
+            TestResults/${{ matrix.testMode }}.xml
+            TestResults/${{ matrix.testMode }}.log
+            TestResults/${{ matrix.testMode }}.json
+          if-no-files-found: error

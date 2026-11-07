@@ -258,5 +258,58 @@ class UnityRunnerTests(unittest.TestCase):
         self.assertNotEqual(0, completed.returncode)
 
 
+class UnityWorkflowContractTests(unittest.TestCase):
+    def setUp(self):
+        workflows = SCRIPTS.parent / ".github" / "workflows"
+        self.quality = (workflows / "quality-gates.yml").read_text(encoding="utf-8")
+        self.unity = (workflows / "unity-personal-tests.yml").read_text(encoding="utf-8")
+
+    def test_static_quality_gates_keep_hosted_pr_and_push_coverage(self):
+        self.assertIn("\n  pull_request:\n    branches: [main]", self.quality)
+        self.assertIn("\n  push:\n    branches: [main]", self.quality)
+        self.assertIn("runs-on: ubuntu-latest", self.quality)
+        self.assertIn("./Scripts/run-static-checks.sh", self.quality)
+        self.assertNotIn("runs-on: [self-hosted", self.quality)
+
+    def test_unity_tests_are_manual_main_on_dedicated_macos_runner(self):
+        self.assertIn("\n  workflow_dispatch:", self.unity)
+        self.assertNotIn("\n  pull_request:", self.unity)
+        self.assertNotIn("\n  push:", self.unity)
+        self.assertNotIn("pull_request_target", self.unity)
+        self.assertIn("github.event_name == 'workflow_dispatch'", self.unity)
+        self.assertIn("github.ref == 'refs/heads/main'", self.unity)
+        self.assertIn("runs-on: [self-hosted, macOS, veilward-unity-personal]", self.unity)
+        self.assertIn("environment: unity-personal-ci", self.unity)
+        self.assertIn("ref: main", self.unity)
+        self.assertIn("permissions:\n  contents: read", self.unity)
+
+    def test_unity_ci_does_not_use_license_secrets_or_game_ci(self):
+        combined = self.quality + self.unity
+        for forbidden in (
+            "game-ci/",
+            "secrets.",
+            "UNITY_LICENSE",
+            "UNITY_EMAIL",
+            "UNITY_PASSWORD",
+            "UNITY_SERIAL",
+            "createManualActivationFile",
+            "manualLicenseFile",
+            "VEILWARD_UNITY_CI",
+        ):
+            self.assertNotIn(forbidden, combined)
+
+    def test_unity_tests_validate_and_publish_both_reports(self):
+        self.assertIn("testMode: [EditMode, PlayMode]", self.unity)
+        self.assertIn("max-parallel: 1", self.unity)
+        self.assertIn('./Scripts/run-unity-tests.sh "${{ matrix.testMode }}"', self.unity)
+        self.assertIn(
+            'python3 Scripts/verify_unity_test_results.py "TestResults/${{ matrix.testMode }}.xml"',
+            self.unity,
+        )
+        self.assertIn("if: always()", self.unity)
+        self.assertIn("TestResults/${{ matrix.testMode }}.log", self.unity)
+        self.assertIn("if-no-files-found: error", self.unity)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
