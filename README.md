@@ -69,27 +69,23 @@ Graybox-сцену и assets можно повторно сгенерирова�
 - Unity `.meta` файлы коммитятся вместе с assets.
 - `Library`, `Temp`, `Logs`, `UserSettings`, результаты тестов и сборки исключены через `.gitignore`.
 
-## EditMode tests
+## Quality Gates
 
-Тесты проверяют project settings, геометрию пути, spawn schedule, движение, детерминизм, leaks, terminal phases, преобразование serialized scenario в Domain и соответствие визуальной дороги изменённой конфигурации. Отдельно покрыты grid/placement, First targeting и tie-breaking, граница Range, cooldown из FireRate, порядок атак по Tower ID, урон и overkill, однократная смерть, отсутствие leak от убитого врага, удаление погибших, AttackEvent lifetime и сохранение его координат после смерти цели, beams при lethal first-shot и нескольких fixed steps, health bars, Kills, Range preview и сохранность боевых параметров после повторного Build. Assembly test проверяет, что `Veilward.Editor` и `BattleSceneBuilder.cs` исключены из player compilation. Проверка platform settings использует `NamedBuildTarget.iOS` и не зависит от локального `EditorUserBuildSettings.activeBuildTarget`. Текущий результат: **151/151 EditMode tests passed**, 0 failed/skipped.
-
-При открытом Unity Editor с Pipeline package тесты выполняются в нём. Runner принимает только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. Некорректный JSON и ненулевой exit code Unity CLI приводят к ошибке запуска.
-
-Без доступного Editor скрипт запускает Unity в batch mode с `-buildTarget iOS` и создаёт JUnit report.
+Обязательные команды:
 
 ```bash
+./Scripts/run-static-checks.sh
 ./Scripts/run-edit-mode-tests.sh
+./Scripts/run-play-mode-tests.sh
 ```
 
-### CI
+Static checks не требуют Unity license: Python stdlib tests проверяют сам validator, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат: **21/21 static self-tests passed**, project checks PASS.
 
-Используйте macOS runner с установленным Unity **6000.3.28f1**, iOS Build Support, Unity CLI **1.0.0-beta.17** и активной лицензией. Выполните ту же команду:
+EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…008`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат: **158/158 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode smoke загружает Battle и проверяет Preparation: **1/1 PlayMode test passed**, 0 failed/inconclusive/skipped.
 
-```bash
-./Scripts/run-edit-mode-tests.sh
-```
+Runners принимают только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. XML validator независимо проверяет NUnit/JUnit reports. При открытом проекте без доступного Unity CLI runner завершается кодом 2 и не запускает второй Editor. В clean checkout используется `UNITY_EDITOR_PATH` либо стандартный Unity Hub path; batch mode получает `-buildTarget iOS` и сохраняет report/log в ignored `TestResults`.
 
-При headless-запуске опубликуйте `TestResults/EditMode.xml` как test artifact. Каталог `TestResults` не коммитится. Не запускайте второй Editor для того же проекта, пока проект открыт в другом Editor.
+GitHub Actions workflow `Quality Gates` всегда выполняет static checks на PR/push в `main`. Hosted Unity EditMode/PlayMode jobs используют GameCI, но сейчас **BLOCKED** до настройки владельцем полного license secret set и проверки manual run. Это не считается Unity CI PASS. Точная процедура включения и ограничения описаны в `Docs/QUALITY_GATES.md`; регрессионный контракт — в `Docs/REGRESSION.md`.
 
 ## iOS build
 

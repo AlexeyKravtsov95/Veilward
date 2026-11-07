@@ -10,12 +10,15 @@ Read `Docs/GDD.md`, `Docs/TECH_DESIGN.md`, `Docs/ROADMAP.md`, this `AGENTS.md`, 
 
 ## Workflow
 
-1. Работай по одному тикету, на отдельной ветке/worktree. Не изменяй параллельные ветки/проекты.
-2. В начале задачи кратко выпиши scope, acceptance criteria, затронутые системы, риски, тесты.
-3. Имплементируй минимальный вертикальный путь и тесты; не добавляй незаказанные архитектурные «фреймворки».
-4. Перед PR запускай доступные EditMode/PlayMode тесты, проверяй `.meta` файлы, compile, отсутствие секретов и новых неподтверждённых packages.
-5. Отправляй PR с: summary, architecture notes, exact commands and test results, on-device evidence when relevant, known issues, docs changes.
-6. Не мержи свой PR и не выпускай сборку без review/approval.
+Обязательный порядок: **specification → implementation → tests → evidence → PR → review**.
+
+1. Работай по одному тикету, на отдельной ветке/worktree. Не изменяй параллельные ветки/проекты и не вноси неоговорённые изменения соседних систем.
+2. В начале задачи кратко выпиши scope, acceptance criteria, затронутые системы, риски и тесты. Новая функция сначала получает regression scenario в `Docs/REGRESSION.md` или отдельной спецификации.
+3. Имплементируй минимальный вертикальный путь; каждая новая функция сопровождается regression tests. Не добавляй незаказанные архитектурные «фреймворки».
+4. Перед PR запускай обязательные Quality Gates: `./Scripts/run-static-checks.sh`, доступные EditMode/PlayMode suites и `git diff --check`. Проверяй compile, `.meta`/GUID, отсутствие секретов и новых неподтверждённых packages.
+5. Собирай evidence: точные команды, positive test totals, настройки окружения и ограничения. Для визуальных задач обязательны реальные Play Mode screenshots; Editor-only assertions и утверждение «работает» их не заменяют.
+6. В PR и summary явно разделяй **VERIFIED** и **NOT VERIFIED / BLOCKED**. Нельзя выдавать пропущенный, пустой или незапущенный suite за PASS.
+7. Отправляй PR с summary, architecture notes, test results, on-device evidence когда применимо, known issues и docs changes. Не мержи свой PR и не выпускай сборку без review/approval.
 
 ## Architecture boundaries
 
@@ -27,19 +30,18 @@ Read `Docs/GDD.md`, `Docs/TECH_DESIGN.md`, `Docs/ROADMAP.md`, this `AGENTS.md`, 
 
 ## Safety / assets / privacy
 
-Не получай и не требуй Apple signing/private credentials. Не добавляй чужие аниме-персонажи, изображения, музыку, модели, звук без подтверждённой лицензии. Не интегрируй ненужную аналитику, tracking SDK, рекламу или сеть; MVP offline-first.
+Не получай и не требуй Apple signing/private credentials. Не добавляй чужие аниме-персонажи, изображения, музыку, модели, звук без подтверждённой лицензии. Не интегрируй ненужную аналитику, tracking SDK, рекламу или сеть; MVP offline-first. Правила источников и импорта 3D описаны в `Docs/ART_PIPELINE.md`.
 
 ## Acceptance checklist per PR
 
-- [ ] Узкий scope; нет посторонних файлов и изменений.
-- [ ] EditMode tests для domain rules; PlayMode для сцены/обработки input по необходимости.
+- [ ] Узкий scope; нет посторонних файлов и неоговорённых изменений соседних систем.
+- [ ] Specification и regression tests добавлены для каждой новой функции.
+- [ ] Static checks и доступные EditMode/PlayMode suites имеют положительный полный PASS; skipped/inconclusive не скрыты.
 - [ ] Невозможны отрицательная валюта, duplicate reward и repeated command exploit.
 - [ ] Unity serialization и `.meta` сохранены; prefab/scene references целые.
 - [ ] Пауза, фон, touch/safe area учтены там, где применимо.
 - [ ] Нет ненужных allocation в hot path и новых неоправданных Render features.
-- [ ] Есть данные/скриншоты (если визуальный PR), а не только утверждение «работает».
+- [ ] Для визуального PR приложены реальные Play Mode screenshots.
 - [ ] Документация изменена при изменении контракта.
-
-## FIRST TASK: P0.1
-
-Создай Unity 6.3 LTS проект с URP и iOS target, landscape-first. Инициализируй `Assets/_Game` по TECH_DESIGN; создай bootstrap, MainMenu и пустую Battle сцену; Git ignore, Visible Meta Files, Force Text, README с точным editor version. Добавь минимальный EditMode smoke test, CI-инструкции/скрипт локального запуска; не делай ещё систему башен, пути, врагов, VFX, IAP, Game Center, внешние зависимости. Если Unity/Xcode GUI недоступны, подготовь проект настолько, насколько возможно без симуляции реального Editor-создания, и явно опиши, что требует ручной проверки. Итог — PR на отдельной ветке, без merge.
+- [ ] Результаты разделены на VERIFIED и NOT VERIFIED / BLOCKED.
+- [ ] PR передан на независимое review; self-merge не выполняется.
