@@ -19,5 +19,11 @@ namespace Veilward.Domain
         public TowerId Id { get; }
         public TowerDefinition Definition { get; }
         public GridCoordinate Coordinate { get; }
+        public long NextAttackTick { get; private set; }
+
+        internal void MarkAttacked(long tick)
+        {
+            NextAttackTick = tick + Definition.AttackIntervalTicks;
+        }
     }
 }

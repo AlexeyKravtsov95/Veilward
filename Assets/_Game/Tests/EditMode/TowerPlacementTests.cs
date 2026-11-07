@@ -104,11 +104,11 @@ namespace Veilward.Tests.EditMode
                 price: 60,
                 range: 2.5f,
                 fireRate: 1f,
-                damage: 10f));
+                damage: 10));
             Assert.Throws<ArgumentOutOfRangeException>(() => CreateDefinition(price: -1));
             Assert.Throws<ArgumentOutOfRangeException>(() => CreateDefinition(range: 0f));
             Assert.Throws<ArgumentOutOfRangeException>(() => CreateDefinition(fireRate: float.NaN));
-            Assert.Throws<ArgumentOutOfRangeException>(() => CreateDefinition(damage: float.PositiveInfinity));
+            Assert.Throws<ArgumentOutOfRangeException>(() => CreateDefinition(damage: 0));
         }
 
         [Test]
@@ -244,7 +244,7 @@ namespace Veilward.Tests.EditMode
             int price = 60,
             float range = 2.5f,
             float fireRate = 1f,
-            float damage = 10f)
+            int damage = 10)
         {
             return new TowerDefinition(
                 new TowerDefinitionId("test-tower"),

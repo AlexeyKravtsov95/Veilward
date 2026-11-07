@@ -19,6 +19,7 @@ namespace Veilward.Presentation
         [SerializeField] private UnityEngine.UI.Button confirmButton;
         [SerializeField] private UnityEngine.UI.Button cancelButton;
         [SerializeField] private UnityEngine.UI.Button startWaveButton;
+        [SerializeField] private LineRenderer rangePreview;
 
         private bool _hasSelection;
 
@@ -40,12 +41,25 @@ namespace Veilward.Presentation
             ValidateReference(confirmButton, nameof(confirmButton));
             ValidateReference(cancelButton, nameof(cancelButton));
             ValidateReference(startWaveButton, nameof(startWaveButton));
+            ValidateReference(rangePreview, nameof(rangePreview));
             confirmButton.onClick.AddListener(ConfirmSelection);
             cancelButton.onClick.AddListener(CancelSelection);
             startWaveButton.onClick.AddListener(StartWave);
             var cellSize = battle.Simulation.Grid.Map.CellSize;
             selectionHighlight.localScale = new Vector3(0.98f * cellSize, 0.04f, 0.98f * cellSize);
             towerPreview.localScale = Vector3.one * cellSize;
+            rangePreview.useWorldSpace = false;
+            rangePreview.loop = true;
+            rangePreview.positionCount = 64;
+            var radius = battle.Simulation.TowerDefinition.Range;
+            for (var index = 0; index < rangePreview.positionCount; index++)
+            {
+                var angle = index * Mathf.PI * 2f / rangePreview.positionCount;
+                rangePreview.SetPosition(
+                    index,
+                    new Vector3(Mathf.Cos(angle) * radius, 0f, Mathf.Sin(angle) * radius));
+            }
+
             CancelSelection();
         }
 
@@ -119,8 +133,10 @@ namespace Veilward.Presentation
             var position = battle.GetCellCenter(coordinate);
             selectionHighlight.position = position + new Vector3(0f, 0.06f, 0f);
             towerPreview.position = position + new Vector3(0f, 0.06f, 0f);
+            rangePreview.transform.position = position + new Vector3(0f, 0.04f, 0f);
             selectionHighlight.gameObject.SetActive(true);
             towerPreview.gameObject.SetActive(true);
+            rangePreview.gameObject.SetActive(true);
             confirmationPanel.SetActive(true);
             return true;
         }
@@ -151,6 +167,11 @@ namespace Veilward.Presentation
             if (towerPreview != null)
             {
                 towerPreview.gameObject.SetActive(false);
+            }
+
+            if (rangePreview != null)
+            {
+                rangePreview.gameObject.SetActive(false);
             }
 
             if (confirmationPanel != null)

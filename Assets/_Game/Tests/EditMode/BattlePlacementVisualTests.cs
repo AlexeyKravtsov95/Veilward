@@ -15,6 +15,8 @@ namespace Veilward.Tests.EditMode
         private BattleScenarioConfig _config;
         private BattleSceneController _battle;
         private GameObject _towerPrefab;
+        private Camera _camera;
+        private Material _beamMaterial;
 
         [SetUp]
         public void SetUp()
@@ -37,6 +39,10 @@ namespace Veilward.Tests.EditMode
             enemyPrefab.transform.SetParent(_root.transform, false);
             var hud = new GameObject("HUD", typeof(Text));
             hud.transform.SetParent(_root.transform, false);
+            var cameraObject = new GameObject("Battle Camera", typeof(Camera));
+            cameraObject.transform.SetParent(_root.transform, false);
+            _camera = cameraObject.GetComponent<Camera>();
+            _beamMaterial = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
 
             var battleObject = new GameObject("Battle", typeof(BattleSceneController));
             battleObject.transform.SetParent(_root.transform, false);
@@ -46,6 +52,8 @@ namespace Veilward.Tests.EditMode
             serializedBattle.FindProperty("enemyPrefab").objectReferenceValue = enemyPrefab.transform;
             serializedBattle.FindProperty("towerPrefab").objectReferenceValue = _towerPrefab.transform;
             serializedBattle.FindProperty("hudText").objectReferenceValue = hud.GetComponent<Text>();
+            serializedBattle.FindProperty("worldCamera").objectReferenceValue = _camera;
+            serializedBattle.FindProperty("attackBeamMaterial").objectReferenceValue = _beamMaterial;
             serializedBattle.ApplyModifiedPropertiesWithoutUndo();
             Invoke(_battle, "Start");
         }
@@ -61,6 +69,11 @@ namespace Veilward.Tests.EditMode
             if (_config != null)
             {
                 Object.DestroyImmediate(_config);
+            }
+
+            if (_beamMaterial != null)
+            {
+                Object.DestroyImmediate(_beamMaterial);
             }
         }
 
@@ -78,19 +91,21 @@ namespace Veilward.Tests.EditMode
             var confirm = CreateButton("Confirm");
             var cancel = CreateButton("Cancel");
             var startWave = CreateButton("Start Wave");
-            var cameraObject = new GameObject("Camera", typeof(Camera));
-            cameraObject.transform.SetParent(_root.transform, false);
+            var rangeObject = new GameObject("Range Preview", typeof(LineRenderer));
+            rangeObject.transform.SetParent(_root.transform, false);
+            var range = rangeObject.GetComponent<LineRenderer>();
 
             var placement = _battle.gameObject.AddComponent<BattlePlacementController>();
             var serializedPlacement = new SerializedObject(placement);
             serializedPlacement.FindProperty("battle").objectReferenceValue = _battle;
-            serializedPlacement.FindProperty("worldCamera").objectReferenceValue = cameraObject.GetComponent<Camera>();
+            serializedPlacement.FindProperty("worldCamera").objectReferenceValue = _camera;
             serializedPlacement.FindProperty("selectionHighlight").objectReferenceValue = selection.transform;
             serializedPlacement.FindProperty("towerPreview").objectReferenceValue = preview.transform;
             serializedPlacement.FindProperty("confirmationPanel").objectReferenceValue = panel;
             serializedPlacement.FindProperty("confirmButton").objectReferenceValue = confirm;
             serializedPlacement.FindProperty("cancelButton").objectReferenceValue = cancel;
             serializedPlacement.FindProperty("startWaveButton").objectReferenceValue = startWave;
+            serializedPlacement.FindProperty("rangePreview").objectReferenceValue = range;
             serializedPlacement.ApplyModifiedPropertiesWithoutUndo();
             Invoke(placement, "Start");
 

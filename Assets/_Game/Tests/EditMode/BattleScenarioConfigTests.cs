@@ -75,7 +75,7 @@ namespace Veilward.Tests.EditMode
             serialized.FindProperty("towerPrice").intValue = 65;
             serialized.FindProperty("towerRange").floatValue = 3.5f;
             serialized.FindProperty("towerFireRate").floatValue = 1.25f;
-            serialized.FindProperty("towerDamage").floatValue = 12f;
+            serialized.FindProperty("towerDamage").intValue = 12;
             serialized.ApplyModifiedPropertiesWithoutUndo();
 
             var simulation = config.CreateSimulation();
@@ -91,7 +91,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(simulation.TowerDefinition.Id.Value, Is.EqualTo("dummy"));
             Assert.That(simulation.TowerDefinition.Range, Is.EqualTo(3.5f));
             Assert.That(simulation.TowerDefinition.FireRate, Is.EqualTo(1.25f));
-            Assert.That(simulation.TowerDefinition.Damage, Is.EqualTo(12f));
+            Assert.That(simulation.TowerDefinition.Damage, Is.EqualTo(12));
             Assert.That(result.Success, Is.True);
             Object.DestroyImmediate(config);
         }

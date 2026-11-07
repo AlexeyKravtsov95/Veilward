@@ -5,6 +5,7 @@ using Veilward.Domain;
 
 namespace Veilward.Presentation
 {
+    [DefaultExecutionOrder(-100)]
     public sealed class BattleSceneController : MonoBehaviour
     {
         private const float StepSeconds = 1f / SimulationTiming.TicksPerSecond;
@@ -14,6 +15,8 @@ namespace Veilward.Presentation
         [SerializeField] private Transform enemyPrefab;
         [SerializeField] private Transform towerPrefab;
         [SerializeField] private UnityEngine.UI.Text hudText;
+        [SerializeField] private Camera worldCamera;
+        [SerializeField] private Material attackBeamMaterial;
 
         private readonly Dictionary<EnemyId, EnemyView> _enemyViews = new Dictionary<EnemyId, EnemyView>();
         private readonly Dictionary<TowerId, Transform> _towerViews = new Dictionary<TowerId, Transform>();
@@ -45,6 +48,16 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("HUD text reference is required.");
             }
 
+            if (worldCamera == null)
+            {
+                throw new InvalidOperationException("Battle camera reference is required.");
+            }
+
+            if (attackBeamMaterial == null)
+            {
+                throw new InvalidOperationException("Attack beam material reference is required.");
+            }
+
             _simulation = scenario.CreateSimulation();
             SynchronizeViews();
             UpdateHud();
@@ -74,6 +87,7 @@ namespace Veilward.Presentation
             }
 
             _simulation.StartWave();
+            ProcessAttackEvents();
         }
 
         private void Update()
@@ -88,6 +102,7 @@ namespace Veilward.Presentation
             while (_accumulator >= StepSeconds && steps < MaxStepsPerFrame)
             {
                 _simulation.Step();
+                ProcessAttackEvents();
                 _accumulator -= StepSeconds;
                 steps++;
             }
@@ -102,6 +117,57 @@ namespace Veilward.Presentation
 
             SynchronizeViews();
             UpdateHud();
+        }
+
+        private void ProcessAttackEvents()
+        {
+            try
+            {
+                var attacks = _simulation.AttackEvents;
+                for (var index = 0; index < attacks.Count; index++)
+                {
+                    var attack = attacks[index];
+                    if (!TryGetTowerPosition(attack.AttackerTowerId, out var start))
+                    {
+                        continue;
+                    }
+
+                    var end = new Vector3(attack.TargetPosition.X, 0.6f, attack.TargetPosition.Y);
+                    var beam = new GameObject(
+                        $"Attack Beam Tower {attack.AttackerTowerId.Value} Enemy {attack.TargetEnemyId.Value}");
+                    beam.transform.SetParent(transform, false);
+                    beam.AddComponent<AttackBeamView>().Initialize(
+                        attackBeamMaterial,
+                        start + new Vector3(0f, 0.85f, 0f),
+                        end);
+                }
+            }
+            finally
+            {
+                _simulation.ClearAttackEvents();
+            }
+        }
+
+        private bool TryGetTowerPosition(TowerId towerId, out Vector3 position)
+        {
+            if (_towerViews.TryGetValue(towerId, out var view))
+            {
+                position = view.position;
+                return true;
+            }
+
+            var towers = _simulation.State.Towers;
+            for (var index = 0; index < towers.Count; index++)
+            {
+                if (towers[index].Id == towerId)
+                {
+                    position = GetCellCenter(towers[index].Coordinate);
+                    return true;
+                }
+            }
+
+            position = default;
+            return false;
         }
 
         private void SynchronizeViews()
@@ -144,6 +210,11 @@ namespace Veilward.Presentation
                 var position = _simulation.Path.GetPosition(enemy.DistanceAlongPath);
                 view.Transform.position = new Vector3(position.X, 0.6f, position.Y);
                 view.SeenTick = state.Tick;
+                if (view.HealthBar != null)
+                {
+                    view.HealthBar.SetNormalizedHealth((float)enemy.Health / enemy.Definition.MaxHealth);
+                    view.HealthBar.Face(worldCamera);
+                }
             }
 
             _staleEnemyIds.Clear();
@@ -158,7 +229,16 @@ namespace Veilward.Presentation
             for (var index = 0; index < _staleEnemyIds.Count; index++)
             {
                 var enemyId = _staleEnemyIds[index];
-                Destroy(_enemyViews[enemyId].Transform.gameObject);
+                var staleView = _enemyViews[enemyId].Transform.gameObject;
+                if (Application.isPlaying)
+                {
+                    Destroy(staleView);
+                }
+                else
+                {
+                    DestroyImmediate(staleView);
+                }
+
                 _enemyViews.Remove(enemyId);
             }
         }
@@ -169,6 +249,7 @@ namespace Veilward.Presentation
             hudText.text = $"Base Health: {state.BaseHealth}\n" +
                            $"Gold: {state.Gold}\n" +
                            $"Towers: {state.Towers.Count}\n" +
+                           $"Kills: {state.Kills}\n" +
                            $"Active Enemies: {state.Enemies.Count}\n" +
                            $"Tick: {state.Tick}\n" +
                            $"Phase: {state.Phase}";
@@ -179,9 +260,11 @@ namespace Veilward.Presentation
             public EnemyView(Transform transform)
             {
                 Transform = transform;
+                HealthBar = transform.GetComponentInChildren<EnemyHealthBarView>(true);
             }
 
             public Transform Transform { get; }
+            public EnemyHealthBarView HealthBar { get; }
             public long SeenTick { get; set; }
         }
     }
