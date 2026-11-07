@@ -83,6 +83,16 @@ Docs/
 
 Текущий `TestWave.asset` использует Range **3**, FireRate **2**, Damage **25**, сохраняя маршрут, пять Shade, spawn schedule, цену 60 и стартовые 150 gold. Пулинг beams, armor/resistance, status effects, rewards за kills и дополнительные targeting modes остаются за пределами P1.3.
 
+### P0.3 quality gates contract
+
+`Scripts/check_unity_project.py` — независимый stdlib gate для Unity version/revision, direct package baseline/lock, paired/orphan `.meta`, 32-hex GUID, duplicate GUID и Assembly Definitions. `Veilward.Domain` сохраняет `noEngineReferences: true`; Editor и EditMode test assemblies остаются Editor-only, PlayMode test assembly может компилироваться для player test targets.
+
+`Scripts/verify_unity_test_results.py` принимает NUnit/JUnit XML только при non-empty полном PASS: `Passed == Total`, нулевые failed/errors/inconclusive/skipped. Static checks обязательны на каждом PR/push в `main`. GameCI EditMode/PlayMode jobs не дают dummy PASS: до license configuration они явно BLOCKED, а включение automatic runs происходит только после проверенного manual dispatch.
+
+`BattleAssetValidator.ValidateSavedBattle()` — Editor-only read-only проверка сохранённой Battle scene, config и обязательных serialized references, exact prefab paths, missing scripts, materials и shaders. Validator не сохраняет scene и закрывает её только при additive open самим validator.
+
+Reproducibility test резервирует scene/config/prefabs/materials и их `.meta` в памяти, выполняет два Build и восстанавливает originals в `finally`. Все outputs кроме scene сравниваются побайтово. Scene сравнивается как canonical YAML: Unity назначает новые local fileIDs при recreate, поэтому IDs и их local references получают стабильные canonical tokens, а внешние GUID references и serialized content сравниваются без ослабления. После suite `git diff` подтверждает отсутствие неожиданных tracked changes.
+
 ## 4. Core domain interfaces (illustrative, not API lock)
 
 ```

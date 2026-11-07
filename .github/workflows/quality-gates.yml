@@ -1,0 +1,109 @@
+name: Quality Gates
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-gates-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static-checks:
+    name: Static Unity project checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Run independent static checks
+        run: |
+          set -o pipefail
+          mkdir -p TestResults
+          ./Scripts/run-static-checks.sh 2>&1 | tee TestResults/StaticChecks.log
+
+      - name: Publish static diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-check-diagnostics
+          path: TestResults/StaticChecks.log
+          if-no-files-found: error
+
+  unity-tests:
+    # BLOCKED until the owner configures a complete license secret set.
+    # Manual dispatch always runs this job; automatic PR/push runs require the variable.
+    if: github.event_name == 'workflow_dispatch' || vars.VEILWARD_UNITY_CI == 'enabled'
+    name: Unity ${{ matrix.testMode }} tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        testMode: [EditMode, PlayMode]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Require a complete Unity license configuration
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+        run: |
+          if { [ -n "$UNITY_LICENSE" ] || [ -n "$UNITY_SERIAL" ]; } && \
+             [ -n "$UNITY_EMAIL" ] && [ -n "$UNITY_PASSWORD" ]; then
+            echo "Unity license configuration is present; secret values are not logged."
+          else
+            echo "::error::BLOCKED: configure UNITY_LICENSE + UNITY_EMAIL + UNITY_PASSWORD (Personal) or UNITY_SERIAL + UNITY_EMAIL + UNITY_PASSWORD (Professional)."
+            exit 2
+          fi
+
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: unity-${{ matrix.testMode }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            unity-${{ matrix.testMode }}-
+            unity-
+
+      - name: Run Unity tests with GameCI
+        id: tests
+        uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+        with:
+          projectPath: .
+          testMode: ${{ matrix.testMode }}
+          artifactsPath: TestResults/${{ matrix.testMode }}
+          coverageEnabled: false
+          customParameters: -nographics
+          githubToken: ''
+
+      - name: Reject empty, failed, inconclusive, or skipped tests
+        run: python3 Scripts/verify_unity_test_results.py "TestResults/${{ matrix.testMode }}"
+
+      - name: Publish JUnit/NUnit reports and diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-${{ matrix.testMode }}-results
+          path: TestResults/${{ matrix.testMode }}
+          if-no-files-found: error
