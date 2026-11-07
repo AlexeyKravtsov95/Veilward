@@ -23,8 +23,10 @@
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |
 |---|---|---|
-| REG-CI-001 | Static checks остаются на GitHub-hosted runner для PR/push в `main`. Unity EditMode/PlayMode запускаются только вручную на checkout `main`, на выделенном `self-hosted` macOS runner с label `veilward-unity-personal` и read-only permissions. | `UnityWorkflowContractTests.test_static_quality_gates_keep_hosted_pr_and_push_coverage`; `test_unity_tests_are_manual_main_on_dedicated_macos_runner` |
-| REG-CI-002 | Unity workflow не использует GameCI, license/account secrets, serial или ALF/ULF activation. Оба suite вызывают общий runner, независимую проверку полного PASS и публикацию diagnostics. | `UnityWorkflowContractTests.test_unity_ci_does_not_use_license_secrets_or_game_ci`; `test_unity_tests_validate_and_publish_both_reports` |
+| REG-CI-001 | Static checks остаются на GitHub-hosted runner для PR/push в `main`. Unity EditMode/PlayMode запускаются только вручную при `github.ref == refs/heads/main`, на выделенном `self-hosted` macOS runner с label `veilward-unity-personal` и read-only permissions. Checkout закреплён на `github.sha`, фактический HEAD обязан совпасть с ожидаемым SHA. | `UnityWorkflowContractTests.test_static_quality_gates_keep_hosted_pr_and_push_coverage`; `test_unity_tests_are_manual_main_on_dedicated_macos_runner` |
+| REG-CI-002 | Unity workflow не использует GameCI, license/account secrets, serial или ALF/ULF activation. Оба suite вызывают общий runner с явным `batch` backend, независимую проверку полного NUnit PASS и публикацию diagnostics. | `UnityWorkflowContractTests.test_unity_ci_does_not_use_license_secrets_or_game_ci`; `test_unity_tests_validate_and_publish_both_reports` |
+| REG-CI-003 | Явный `batch` backend создаёт NUnit XML и log для EditMode и PlayMode без Unity CLI JSON. Default `auto` сохраняет локальный CLI path. Batch отклоняет live Editor descriptor или доступный resident Editor и не запускает второй Editor. | `UnityBatchRunnerTests.test_batch_backend_produces_nunit_xml_for_both_modes`; `test_batch_backend_refuses_live_editor_descriptor`; `test_batch_backend_refuses_resident_editor`; `UnityRunnerTests.test_play_mode_uses_async_run_and_polls_completed_result` |
+| REG-CI-004 | Missing/stale, failed, skipped, inconclusive и empty NUnit reports, а также nonzero Unity exit при внешне passing report завершают batch runner ошибкой. | `UnityBatchRunnerTests.test_batch_backend_rejects_invalid_reports`; `test_batch_backend_rejects_nonzero_unity_exit` |
 
 ## Правила сопровождения
 

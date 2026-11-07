@@ -27,14 +27,15 @@ git diff --check
 
 ### Unity runners и строгая проверка results
 
-`run-edit-mode-tests.sh` и `run-play-mode-tests.sh` используют общий `run-unity-tests.sh`.
+`run-edit-mode-tests.sh` и `run-play-mode-tests.sh` используют общий `run-unity-tests.sh EditMode|PlayMode [auto|batch]`; default — `auto`.
 
-- При доступном Unity CLI команды выполняются в уже открытом проекте; результат дополнительно проверяется по counts.
-- Если CLI недоступен, но существует live Editor descriptor, runner завершается кодом **2**: второй Editor для того же проекта запрещён.
+- `auto` при доступном Unity CLI выполняет tests в уже открытом проекте, сохраняет JSON summary и строго проверяет counts. Этот локальный CLI path не обещает NUnit XML.
+- Если CLI недоступен, но существует live Editor descriptor, `auto` завершается кодом **2**: второй Editor для того же проекта запрещён.
+- Явный `batch` обязателен для self-hosted CI. Он не использует Unity CLI test result contract и создаёт `TestResults/<Mode>.xml` и `<Mode>.log` для обоих режимов. Resident Editor через CLI status либо live descriptor завершает `batch` кодом **2** до запуска executable.
 - В clean checkout требуется executable `UNITY_EDITOR_PATH`; на macOS также проверяется Hub path для закреплённой версии. Batch command содержит `-batchmode -nographics -buildTarget iOS -runTests -testResults -logFile -quit`.
-- `python3 Scripts/verify_unity_test_results.py <xml-or-directory>` независимо принимает NUnit `<test-run>` или JUnit `<testsuite>/<testsuites>` и отклоняет missing/malformed/empty/incomplete reports.
+- Перед запуском удаляются stale XML, JSON и log выбранного режима. `python3 Scripts/verify_unity_test_results.py <xml-or-directory>` независимо принимает NUnit `<test-run>` или JUnit `<testsuite>/<testsuites>` и отклоняет missing/malformed/empty/failed/inconclusive/skipped reports. Nonzero Unity exit также остаётся ошибкой после проверки report.
 
-`TestResults` находится в `.gitignore`. Оба GitHub Actions workflow публикуют XML и diagnostic logs как artifacts через `if: always()`.
+`TestResults` находится в `.gitignore`. Unity CI workflow публикует NUnit XML и diagnostic logs как artifacts через `if: always()`; static workflow публикует свой diagnostic log.
 
 ### Scene & Asset Validation
 
@@ -51,7 +52,7 @@ Reproducibility test сохраняет originals и `.meta` в памяти и 
 
 `Quality Gates` остаётся отдельным hosted static workflow. Он не запускает Unity и не обращается к self-hosted runner.
 
-`Unity Personal Tests` находится в `.github/workflows/unity-personal-tests.yml` и имеет только `workflow_dispatch`. Job дополнительно проверяет repository, event и `refs/heads/main`, а checkout явно закреплён на `main`. Manual dispatch с другой веткой не является Unity PASS. Matrix выполняет EditMode и PlayMode последовательно (`max-parallel: 1`) с `contents: read`, protected environment `unity-personal-ci`, общим strict runner и независимым XML validator. Пустой, missing, malformed, failed, inconclusive или skipped report завершает gate ошибкой.
+`Unity Personal Tests` находится в `.github/workflows/unity-personal-tests.yml` и имеет только `workflow_dispatch`. Job дополнительно проверяет repository, event и `refs/heads/main`. Checkout закреплён на `github.sha` инициированного dispatch, а step сравнивает фактический `git rev-parse HEAD` с ожидаемым SHA; плавающий `main` не используется. Manual dispatch с другой веткой не является Unity PASS. Matrix выполняет EditMode и PlayMode последовательно (`max-parallel: 1`) с `contents: read`, protected environment `unity-personal-ci`, явным `batch` backend и независимым NUnit XML validator. Пустой, missing, malformed, failed, inconclusive или skipped report завершает gate ошибкой.
 
 Workflow **не активирует лицензию** и не содержит `UNITY_LICENSE`, Unity account credentials, serial, GameCI или ALF/ULF. Он использует Unity **6000.3.28f1**, установленный через Unity Hub по стандартному macOS path; при необходимости локальный runner поддерживает `UNITY_EDITOR_PATH`. Для Personal активация выполняется владельцем через Unity Hub до запуска CI. При истечении или потере активации владелец повторяет её в Hub; агент не запрашивает и не получает пароль Unity.
 
@@ -96,7 +97,8 @@ Workflow **не активирует лицензию** и не содержит
 
 ### P0.3.1 — Unity Personal CI Adaptation
 
-- Static self-tests, включая `REG-CI-001…002`: **27/27 PASS**; project static checks PASS.
+- Static self-tests, включая `REG-CI-001…004`: **32/32 PASS**; project static checks PASS.
+- Fake batch runner: EditMode/PlayMode NUnit XML и logs **PASS**; missing/stale, failed, skipped, inconclusive, empty, nonzero exit и open Editor rejection **PASS**. Локальный fake CLI async path также **PASS**.
 - GitHub Actions `Static Unity project checks` в PR #7: **PASS**, run `42377053685`.
 - YAML syntax обоих workflows: **PASS**; `git diff --check`: **PASS**; tracked `Assets`, `Packages`, `ProjectSettings`: без diff.
 - Локальные EditMode/PlayMode: **NOT VERIFIED / BLOCKED**, оба runner завершились кодом **2** из-за live Editor descriptor при недоступном Unity CLI; второй Editor не запускался.

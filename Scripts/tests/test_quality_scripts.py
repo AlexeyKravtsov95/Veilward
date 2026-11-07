@@ -258,6 +258,150 @@ class UnityRunnerTests(unittest.TestCase):
         self.assertNotEqual(0, completed.returncode)
 
 
+class UnityBatchRunnerTests(unittest.TestCase):
+    def setUp(self):
+        import shutil
+
+        self.temp = tempfile.TemporaryDirectory()
+        self.root = Path(self.temp.name)
+        scripts = self.root / "Scripts"
+        scripts.mkdir()
+        shutil.copy2(SCRIPTS / "run-unity-tests.sh", scripts / "run-unity-tests.sh")
+        shutil.copy2(SCRIPTS / "verify_unity_test_results.py", scripts / "verify_unity_test_results.py")
+        project_settings = self.root / "ProjectSettings"
+        project_settings.mkdir()
+        (project_settings / "ProjectVersion.txt").write_text(
+            "m_EditorVersion: 6000.3.28f1\n", encoding="utf-8")
+
+        self.bin_dir = self.root / "bin"
+        self.bin_dir.mkdir()
+        self.editor_commands = self.root / "editor-commands.jsonl"
+        self.editor = self.root / "FakeUnityEditor"
+        self.editor.write_text(textwrap.dedent("""\
+            #!/usr/bin/env python3
+            import json
+            import os
+            from pathlib import Path
+            import sys
+
+            with open(os.environ["FAKE_EDITOR_LOG"], "a", encoding="utf-8") as stream:
+                stream.write(json.dumps(sys.argv[1:]) + "\\n")
+            mode = os.environ.get("FAKE_BATCH_RESULT", "pass")
+            summaries = {
+                "pass": (2, 2, 0, 0, 0),
+                "failed": (2, 1, 1, 0, 0),
+                "skipped": (2, 1, 0, 1, 0),
+                "inconclusive": (2, 1, 0, 0, 1),
+                "empty": (0, 0, 0, 0, 0),
+            }
+            if mode != "missing":
+                total, passed, failed, skipped, inconclusive = summaries[mode]
+                result_path = Path(sys.argv[sys.argv.index("-testResults") + 1])
+                result_path.parent.mkdir(parents=True, exist_ok=True)
+                result_path.write_text(
+                    '<test-run testcasecount="{0}" total="{0}" passed="{1}" failed="{2}" '
+                    'errors="0" skipped="{3}" inconclusive="{4}" result="Passed" />'.format(
+                        total, passed, failed, skipped, inconclusive),
+                    encoding="utf-8")
+            log_path = Path(sys.argv[sys.argv.index("-logFile") + 1])
+            log_path.parent.mkdir(parents=True, exist_ok=True)
+            log_path.write_text("fake Unity batch log\\n", encoding="utf-8")
+            raise SystemExit(int(os.environ.get("FAKE_EDITOR_EXIT", "0")))
+            """), encoding="utf-8")
+        self.editor.chmod(0o755)
+
+        self.fake_cli = self.bin_dir / "unity"
+        self.fake_cli.write_text(textwrap.dedent("""\
+            #!/usr/bin/env python3
+            import os
+            import sys
+            if sys.argv[1] == "status":
+                raise SystemExit(int(os.environ.get("FAKE_CLI_STATUS", "1")))
+            raise SystemExit(2)
+            """), encoding="utf-8")
+        self.fake_cli.chmod(0o755)
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def run_batch(self, mode="EditMode", result="pass", editor_exit=0, cli_status=1):
+        import os
+        import subprocess
+
+        results = self.root / "TestResults"
+        results.mkdir(exist_ok=True)
+        (results / f"{mode}.xml").write_text(
+            '<test-run total="1" passed="1" failed="0" inconclusive="0" skipped="0" />',
+            encoding="utf-8")
+        (results / f"{mode}.json").write_text("stale CLI result", encoding="utf-8")
+        (results / f"{mode}.log").write_text("stale log", encoding="utf-8")
+
+        environment = dict(os.environ)
+        environment["PATH"] = str(self.bin_dir) + os.pathsep + environment["PATH"]
+        environment["UNITY_EDITOR_PATH"] = str(self.editor)
+        environment["FAKE_EDITOR_LOG"] = str(self.editor_commands)
+        environment["FAKE_BATCH_RESULT"] = result
+        environment["FAKE_EDITOR_EXIT"] = str(editor_exit)
+        environment["FAKE_CLI_STATUS"] = str(cli_status)
+        completed = subprocess.run(
+            [str(self.root / "Scripts" / "run-unity-tests.sh"), mode, "batch"],
+            cwd=self.root,
+            env=environment,
+            capture_output=True,
+            text=True,
+            timeout=20,
+            check=False)
+        commands = []
+        if self.editor_commands.exists():
+            commands = [json.loads(line) for line in self.editor_commands.read_text(
+                encoding="utf-8").splitlines()]
+        return completed, commands
+
+    def test_batch_backend_produces_nunit_xml_for_both_modes(self):
+        for mode in ("EditMode", "PlayMode"):
+            with self.subTest(mode=mode):
+                completed, commands = self.run_batch(mode=mode)
+                self.assertEqual(0, completed.returncode, completed.stdout + completed.stderr)
+                self.assertTrue((self.root / "TestResults" / f"{mode}.xml").is_file())
+                self.assertTrue((self.root / "TestResults" / f"{mode}.log").is_file())
+                self.assertFalse((self.root / "TestResults" / f"{mode}.json").exists())
+                command = commands[-1]
+                self.assertIn("-batchmode", command)
+                self.assertIn("-nographics", command)
+                self.assertEqual(mode, command[command.index("-testPlatform") + 1])
+                self.assertIn("-runTests", command)
+                self.assertIn("-testResults", command)
+
+    def test_batch_backend_rejects_invalid_reports(self):
+        for result in ("missing", "failed", "skipped", "inconclusive", "empty"):
+            with self.subTest(result=result):
+                completed, _ = self.run_batch(result=result)
+                self.assertNotEqual(0, completed.returncode)
+                self.assertIn("Unity test report: FAIL", completed.stderr)
+                if result == "missing":
+                    self.assertFalse((self.root / "TestResults" / "EditMode.xml").exists())
+
+    def test_batch_backend_rejects_nonzero_unity_exit(self):
+        completed, _ = self.run_batch(result="pass", editor_exit=7)
+        self.assertEqual(7, completed.returncode, completed.stdout + completed.stderr)
+        self.assertIn("Unity test report: PASS", completed.stdout)
+
+    def test_batch_backend_refuses_live_editor_descriptor(self):
+        descriptor = self.root / "Library" / "Pipeline" / ".unity-pipeline-port"
+        descriptor.parent.mkdir(parents=True)
+        descriptor.write_text("12345", encoding="utf-8")
+        completed, commands = self.run_batch()
+        self.assertEqual(2, completed.returncode)
+        self.assertIn("second Editor will not be started", completed.stderr)
+        self.assertEqual([], commands)
+
+    def test_batch_backend_refuses_resident_editor(self):
+        completed, commands = self.run_batch(cli_status=0)
+        self.assertEqual(2, completed.returncode)
+        self.assertIn("second Editor will not be started", completed.stderr)
+        self.assertEqual([], commands)
+
+
 class UnityWorkflowContractTests(unittest.TestCase):
     def setUp(self):
         workflows = SCRIPTS.parent / ".github" / "workflows"
@@ -280,7 +424,10 @@ class UnityWorkflowContractTests(unittest.TestCase):
         self.assertIn("github.ref == 'refs/heads/main'", self.unity)
         self.assertIn("runs-on: [self-hosted, macOS, veilward-unity-personal]", self.unity)
         self.assertIn("environment: unity-personal-ci", self.unity)
-        self.assertIn("ref: main", self.unity)
+        self.assertIn("ref: ${{ github.sha }}", self.unity)
+        self.assertNotIn("ref: main", self.unity)
+        self.assertIn("EXPECTED_SHA: ${{ github.sha }}", self.unity)
+        self.assertIn('test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"', self.unity)
         self.assertIn("permissions:\n  contents: read", self.unity)
 
     def test_unity_ci_does_not_use_license_secrets_or_game_ci(self):
@@ -301,7 +448,7 @@ class UnityWorkflowContractTests(unittest.TestCase):
     def test_unity_tests_validate_and_publish_both_reports(self):
         self.assertIn("testMode: [EditMode, PlayMode]", self.unity)
         self.assertIn("max-parallel: 1", self.unity)
-        self.assertIn('./Scripts/run-unity-tests.sh "${{ matrix.testMode }}"', self.unity)
+        self.assertIn('./Scripts/run-unity-tests.sh "${{ matrix.testMode }}" batch', self.unity)
         self.assertIn(
             'python3 Scripts/verify_unity_test_results.py "TestResults/${{ matrix.testMode }}.xml"',
             self.unity,

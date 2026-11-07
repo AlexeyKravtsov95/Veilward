@@ -1,21 +1,41 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ "$#" -ne 1 ] || { [ "$1" != "EditMode" ] && [ "$1" != "PlayMode" ]; }; then
-  echo "Usage: $0 EditMode|PlayMode" >&2
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+  echo "Usage: $0 EditMode|PlayMode [auto|batch]" >&2
   exit 2
 fi
 
 TEST_MODE="$1"
+BACKEND="${2:-auto}"
+if { [ "$TEST_MODE" != "EditMode" ] && [ "$TEST_MODE" != "PlayMode" ]; } || \
+   { [ "$BACKEND" != "auto" ] && [ "$BACKEND" != "batch" ]; }; then
+  echo "Usage: $0 EditMode|PlayMode [auto|batch]" >&2
+  exit 2
+fi
+
 PROJECT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 UNITY_VERSION="$(awk '/m_EditorVersion:/ { print $2; exit }' "$PROJECT_PATH/ProjectSettings/ProjectVersion.txt")"
 RESULT_DIR="$PROJECT_PATH/TestResults"
 RESULT_PATH="$RESULT_DIR/$TEST_MODE.xml"
 LOG_PATH="$RESULT_DIR/$TEST_MODE.log"
+JSON_PATH="$RESULT_DIR/$TEST_MODE.json"
 mkdir -p "$RESULT_DIR"
-rm -f "$RESULT_PATH"
+rm -f "$RESULT_PATH" "$LOG_PATH" "$JSON_PATH"
 
+RESIDENT_EDITOR=0
 if unity status --project-path "$PROJECT_PATH" --format json >/dev/null 2>&1; then
+  RESIDENT_EDITOR=1
+fi
+
+if [ "$BACKEND" = "batch" ] && \
+   { [ "$RESIDENT_EDITOR" -eq 1 ] || [ -f "$PROJECT_PATH/Library/Pipeline/.unity-pipeline-port" ]; }; then
+  echo "BLOCKED: batch backend detected an open Unity Editor for this project." >&2
+  echo "A second Editor will not be started; use the default auto backend locally." >&2
+  exit 2
+fi
+
+if [ "$BACKEND" = "auto" ] && [ "$RESIDENT_EDITOR" -eq 1 ]; then
   if [ "$TEST_MODE" = "PlayMode" ]; then
     CLI_MODE="playmode"
   else

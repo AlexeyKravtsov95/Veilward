@@ -27,20 +27,22 @@ jobs:
       matrix:
         testMode: [EditMode, PlayMode]
     steps:
-      - name: Checkout trusted main
+      - name: Checkout dispatched revision
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.sha }}
           lfs: true
 
-      - name: Verify trusted source
+      - name: Verify trusted source and exact revision
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
         run: |
           test "$GITHUB_EVENT_NAME" = "workflow_dispatch"
           test "$GITHUB_REF" = "refs/heads/main"
-          test "$(git branch --show-current)" = "main"
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
 
       - name: Run Unity ${{ matrix.testMode }} tests with the Hub-activated Editor
-        run: ./Scripts/run-unity-tests.sh "${{ matrix.testMode }}"
+        run: ./Scripts/run-unity-tests.sh "${{ matrix.testMode }}" batch
 
       - name: Reject empty, failed, inconclusive, or skipped tests
         run: python3 Scripts/verify_unity_test_results.py "TestResults/${{ matrix.testMode }}.xml"
@@ -53,5 +55,4 @@ jobs:
           path: |
             TestResults/${{ matrix.testMode }}.xml
             TestResults/${{ matrix.testMode }}.log
-            TestResults/${{ matrix.testMode }}.json
           if-no-files-found: error
