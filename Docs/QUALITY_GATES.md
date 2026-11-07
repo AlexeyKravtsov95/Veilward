@@ -97,6 +97,7 @@ Workflow **не активирует лицензию** и не содержит
 ### P0.3.1 — Unity Personal CI Adaptation
 
 - Static self-tests, включая `REG-CI-001…002`: **27/27 PASS**; project static checks PASS.
+- GitHub Actions `Static Unity project checks` в PR #7: **PASS**, run `42377053685`.
 - YAML syntax обоих workflows: **PASS**; `git diff --check`: **PASS**; tracked `Assets`, `Packages`, `ProjectSettings`: без diff.
 - Локальные EditMode/PlayMode: **NOT VERIFIED / BLOCKED**, оба runner завершились кодом **2** из-за live Editor descriptor при недоступном Unity CLI; второй Editor не запускался.
 - GitHub self-hosted Unity EditMode/PlayMode: **NOT VERIFIED / BLOCKED** — runner не зарегистрирован, manual run не выполнялся.
