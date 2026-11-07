@@ -144,7 +144,7 @@ def check_assembly_definitions(assets):
     domain = definitions.get("Veilward.Domain")
     if domain and domain[1].get("noEngineReferences") is not True:
         errors.append("Veilward.Domain must have noEngineReferences: true")
-    for name in ("Veilward.Editor", "Veilward.Tests.EditMode", "Veilward.Tests.PlayMode"):
+    for name in ("Veilward.Editor", "Veilward.Tests.EditMode"):
         definition = definitions.get(name)
         if definition and definition[1].get("includePlatforms") != ["Editor"]:
             errors.append(f"{name} must be Editor-only")

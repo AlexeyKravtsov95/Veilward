@@ -124,6 +124,10 @@ class UnityProjectChecksTests(unittest.TestCase):
         self.write_asmdef("Veilward.Editor", ["Veilward"], "e" * 32, editor=False)
         self.assertTrue(any("Editor-only" in error for error in self.check()))
 
+    def test_play_mode_assembly_is_not_forced_to_be_editor_only(self):
+        self.write_asmdef("Veilward.Tests.PlayMode", [], "5" * 32, editor=False)
+        self.assertEqual([], self.check())
+
 
 class UnityResultChecksTests(unittest.TestCase):
     def setUp(self):

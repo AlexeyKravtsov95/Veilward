@@ -1,0 +1,28 @@
+# VEILWARD — Battle Regression Contract
+
+## Назначение и источник данных
+
+Этот набор фиксирует наблюдаемый контракт текущего vertical slice без изменения игровых правил. Все интеграционные сценарии используют сохранённый `Assets/_Game/Configs/TestWave.asset` и публичный API `BattleScenarioConfig.CreateSimulation()` / `BattleSimulation`.
+
+Базовые значения: Preparation, tick 0, 150 gold, 20 HP, цена башни 60, Range 3, FireRate 2, Damage 25. Маршрут имеет длину 14 path units; пять Shade по 100 HP двигаются со скоростью 1.5 units/second, spawn ticks 0/30/60/90/120, leak damage 1.
+
+## Обязательные сценарии
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-001 | При загрузке сохранённого config: Preparation, tick 0, 150 gold, 20 HP, нет башен и врагов, Kills 0; путь длиной 14. | `BattleRegressionTests.InitialState_SavedScenario_MatchesRegressionContract` |
+| REG-BATTLE-002 | Строительство `test-tower` на свободной клетке `(-3,0)` успешно, создаёт TowerId 1 и списывает ровно 60: остаётся 90 gold. | `BattleRegressionTests.PlacementAndRejectedCommands_PreserveEconomyAndGrid` |
+| REG-BATTLE-003 | Строительство на дороге `(-3,-2)` отклоняется как Blocked без списания. Повторная команда в occupied `(-3,0)` отклоняется как Occupied, сохраняет исходный TowerId и 90 gold. | `BattleRegressionTests.PlacementAndRejectedCommands_PreserveEconomyAndGrid` |
+| REG-BATTLE-004 | `StartWave()` создаёт первого Shade на tick 0. Далее появляются ровно пять Shade с уникальными EnemyId 1…5 на ticks 0/30/60/90/120. | `BattleRegressionTests.NoTowerWave_SpawnsFiveUniqueShadeOnSchedule` |
+| REG-BATTLE-005 | Движение фиксировано на 0.05 path units за тик; первый Shade после первого `Step()` имеет distance 0.05. Leak удаляет врага и уменьшает HP ровно один раз. | `BattleRegressionTests.NoTowerWave_MovesLeaksAndCompletes` |
+| REG-BATTLE-006 | Без башен происходят ровно пять последовательных leaks; волна завершается на последнем leak в WaveComplete с 15 HP, 150 gold, нулём Kills и пустым списком врагов. После terminal phase `Step()` ничего не меняет. Точные boundary ticks не округляются в спецификации из-за накопления float distance. | `BattleRegressionTests.NoTowerWave_MovesLeaksAndCompletes` |
+| REG-BATTLE-007 | После завершения P1.3 выбор первой цели, cooldown, атака/урон, one-time kill, точный AttackEvent и beam position проверяются отдельно от P1.2 regression. | `BattleCombatTests`; `BattleCombatVisualTests`; `TowerPlacementTests` |
+| REG-BATTLE-008 | Два запуска сохранённого scenario с одинаковой командой размещения дают полный одинаковый timeline каждого тика до terminal phase: phase/tick/HP/gold/Kills, все enemy/tower states и все AttackEvents. | `BattleRegressionTests.IdenticalSavedScenarioRuns_ProduceIdenticalCompleteTimelines` |
+
+## Правила сопровождения
+
+- Новая игровая функция добавляет или обновляет сценарий до implementation и сопровождается автоматическим regression test.
+- При намеренной смене баланса сначала отдельно утверждается новый контракт; нельзя менять ожидания только для получения зелёного suite.
+- Integration tests не подменяют сохранённый config значениями по умолчанию и не используют internal Domain mutation.
+- Полный suite обязан быть non-empty; failed, inconclusive и skipped не считаются PASS.
+- REG-BATTLE-007 фиксирует уже существующее P1.3 покрытие. Тесты визуализации выполняются в EditMode и не заменяют реальные Play Mode screenshots для визуальных PR.
