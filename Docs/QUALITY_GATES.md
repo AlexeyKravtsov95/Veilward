@@ -72,9 +72,10 @@ Job `unity-tests` использует `game-ci/unity-test-runner@v4`, `max-para
 - EditMode: **158/158 PASS**, 0 failed/inconclusive/skipped.
 - PlayMode: **1/1 PASS**, 0 failed/inconclusive/skipped.
 - Generated tracked outputs после reproducibility suite: без diff.
+- GitHub Actions `Static Unity project checks`: **PASS**, run `42368103741`; отдельный clean Git archive check также PASS.
 
 ## NOT VERIFIED / BLOCKED
 
 - Hosted GitHub Unity EditMode/PlayMode execution — **BLOCKED** до действий владельца выше.
-- Поведение GitHub workflow на hosted runners — **NOT VERIFIED** до первого actual run.
+- Direct batch fallback и реальный Unity CLI resident path — **NOT VERIFIED** в текущем окружении; fake CLI contract tests и local Pipeline suites выполнены отдельно.
 - Физический iPhone, touch/safe area, thermal/performance и signing — **NOT VERIFIED** этим тикетом.
