@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Veilward.Domain;
 
@@ -36,6 +37,20 @@ namespace Veilward.Presentation
         [SerializeField, Min(0.01f)] private float towerFireRate = 1f;
         [SerializeField, Min(1)] private int towerDamage = 10;
 
+        [Header("Wave Sequence")]
+        [SerializeField] private BattleScenarioConfig sharedScenario;
+        [SerializeField, Min(0)] private int enemyReward;
+        [SerializeField, Min(0)] private int waveCompletionBonus;
+        [SerializeField] private WaveSettings[] waves;
+
+        [Serializable]
+        public sealed class WaveSettings
+        {
+            [Min(1)] public int enemyCount = 5;
+            [Min(0)] public int firstSpawnTick;
+            [Min(1)] public int spawnIntervalTicks = 30;
+        }
+
         public static BattleScenarioConfig CreateDefault()
         {
             return CreateInstance<BattleScenarioConfig>();
@@ -43,32 +58,63 @@ namespace Veilward.Presentation
 
         public BattleSimulation CreateSimulation()
         {
-            var gridPoints = new GridCoordinate[waypoints.Length];
-            for (var index = 0; index < waypoints.Length; index++)
+            var shared = sharedScenario != null ? sharedScenario : this;
+            var gridPoints = new GridCoordinate[shared.waypoints.Length];
+            for (var index = 0; index < shared.waypoints.Length; index++)
             {
-                gridPoints[index] = new GridCoordinate(waypoints[index].x, waypoints[index].y);
+                gridPoints[index] = new GridCoordinate(
+                    shared.waypoints[index].x,
+                    shared.waypoints[index].y);
             }
 
             var map = new GridMapDefinition(
-                gridWidth,
-                gridHeight,
-                new GridCoordinate(gridOrigin.x, gridOrigin.y),
-                cellSize);
+                shared.gridWidth,
+                shared.gridHeight,
+                new GridCoordinate(shared.gridOrigin.x, shared.gridOrigin.y),
+                shared.cellSize);
             var path = new PathDefinition(gridPoints);
             var enemy = new EnemyDefinition(
-                new EnemyDefinitionId(enemyId),
-                maxHealth,
-                speed,
-                leakDamage,
-                reward: 0);
-            var wave = new WaveDefinition(enemy, enemyCount, firstSpawnTick, spawnIntervalTicks);
+                new EnemyDefinitionId(shared.enemyId),
+                shared.maxHealth,
+                shared.speed,
+                shared.leakDamage,
+                enemyReward);
             var tower = new TowerDefinition(
-                new TowerDefinitionId(towerId),
-                towerPrice,
-                towerRange,
-                towerFireRate,
-                towerDamage);
-            return new BattleSimulation(map, path, wave, tower, baseHealth, startingGold);
+                new TowerDefinitionId(shared.towerId),
+                shared.towerPrice,
+                shared.towerRange,
+                shared.towerFireRate,
+                shared.towerDamage);
+
+            if (waves == null || waves.Length == 0)
+            {
+                var legacyWave = new WaveDefinition(
+                    enemy,
+                    shared.enemyCount,
+                    shared.firstSpawnTick,
+                    shared.spawnIntervalTicks);
+                return new BattleSimulation(map, path, legacyWave, tower, shared.baseHealth, shared.startingGold);
+            }
+
+            var sequence = new WaveDefinition[waves.Length];
+            for (var index = 0; index < waves.Length; index++)
+            {
+                var settings = waves[index];
+                sequence[index] = new WaveDefinition(
+                    enemy,
+                    settings.enemyCount,
+                    settings.firstSpawnTick,
+                    settings.spawnIntervalTicks);
+            }
+
+            return new BattleSimulation(
+                map,
+                path,
+                sequence,
+                tower,
+                shared.baseHealth,
+                shared.startingGold,
+                waveCompletionBonus);
         }
 
         private void OnValidate()
@@ -88,6 +134,24 @@ namespace Veilward.Presentation
             towerRange = Mathf.Max(0.01f, towerRange);
             towerFireRate = Mathf.Max(0.01f, towerFireRate);
             towerDamage = Mathf.Max(1, towerDamage);
+            enemyReward = Mathf.Max(0, enemyReward);
+            waveCompletionBonus = Mathf.Max(0, waveCompletionBonus);
+            if (waves == null)
+            {
+                return;
+            }
+
+            foreach (var wave in waves)
+            {
+                if (wave == null)
+                {
+                    continue;
+                }
+
+                wave.enemyCount = Mathf.Max(1, wave.enemyCount);
+                wave.firstSpawnTick = Mathf.Max(0, wave.firstSpawnTick);
+                wave.spawnIntervalTicks = Mathf.Max(1, wave.spawnIntervalTicks);
+            }
         }
     }
 }

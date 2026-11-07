@@ -59,7 +59,7 @@ Docs/
 
 `BattleState` хранит один reused enemies list и read-only wrapper; `EnemyState` допускает только internal Domain mutation. Step не создаёт snapshots, lists или enemy state objects на каждом тике. `BattleSceneController` — тонкий Unity adapter: accumulator с ограничением frame delta вызывает fixed steps, а LateUpdate синхронизирует prefab views и HUD без изменения Domain rules из UI.
 
-После исчерпания одной тестовой волны и последнего non-lethal leak фаза становится `WaveComplete`; это не кампания, results flow или полноценная win condition. Lethal leak устанавливает `Defeat`. Состояние `Victory` зарезервировано для будущей полноценной победы и не используется симуляцией тестовой волны.
+После исчерпания одной legacy тестовой волны и последнего non-lethal leak фаза становится `WaveComplete`; lethal leak устанавливает `Defeat`. Начиная с P1.4a отдельный восьмиволновой scenario использует `Victory` после успешной финальной волны; legacy single-wave сохраняет прежний контракт без Victory.
 
 `BattleSceneBuilder` находится в Editor-only `Veilward.Editor.asmdef` и не компилируется в iOS player. Единый source of truth маршрута — `BattleScenarioConfig.CreateSimulation().Path`: builder создаёт дорожные сегменты, Spawn Marker и Seal Heart по Domain waypoints, без дублирующего массива координат. При повторной генерации существующий `BattleScenarioConfig` не сериализуется заново: сохранённые `towerRange`, `towerFireRate` и `towerDamage` остаются источником значений для сцены и Domain. Боевые значения по умолчанию назначаются только веткой создания отсутствующего asset.
 
@@ -81,7 +81,17 @@ Docs/
 
 `BattleSimulation.AttackEvents` — reused read-only list. Presentation обрабатывает события после каждого fixed step и сразу вызывает `ClearAttackEvents()` в `finally`; автоматической очистки между тиками нет. `BattleSceneController` создаёт короткоживущий world-space beam строго по `AttackEvent.TargetPosition`, не используя текущий список врагов или позицию Enemy View предыдущего кадра. Поэтому lethal first-shot и каждый из нескольких fixed steps перед render сохраняют собственную точку попадания. Health bars обновляются из Domain HP, Kills показываются в HUD. `BattlePlacementController` показывает XZ-круг configured range при selection и скрывает его при Confirm/Cancel/Start Wave.
 
-Текущий `TestWave.asset` использует Range **3**, FireRate **2**, Damage **25**, сохраняя маршрут, пять Shade, spawn schedule, цену 60 и стартовые 150 gold. Пулинг beams, armor/resistance, status effects, rewards за kills и дополнительные targeting modes остаются за пределами P1.3.
+Текущий `TestWave.asset` использует Range **3**, FireRate **2**, Damage **25**, сохраняя маршрут, пять Shade, spawn schedule, цену 60 и стартовые 150 gold. Пулинг beams, armor/resistance, status effects и дополнительные targeting modes остаются за пределами текущего scope. Награды за kills и завершение волн добавлены отдельным контрактом P1.4a.
+
+### P1.4a implemented contract
+
+`BattleScenarioConfig` сохраняет legacy serialized поля. Пустой `waves` создаёт один `WaveDefinition` с bonus 0 и финальной фазой WaveComplete. Непустой `waves` создаёт последовательность, а `sharedScenario` предоставляет общие map/path/enemy/tower/base/gold параметры. `EightWave.asset` ссылается на `TestWave.asset`, содержит counts **5…12**, `enemyReward = 5` и `waveCompletionBonus = 20`; повторный Build не перезаписывает существующие значения.
+
+`StartWave()` возвращает `WaveTransitionResult`, успешен только из Preparation и задаёт `_waveStartTick = State.Tick`. Абсолютный spawn tick вычисляется от начала текущей волны с long-арифметикой. `ContinueToNextWave()` успешен только из WaveComplete при наличии следующей волны, увеличивает zero-based `WaveIndex` ровно один раз и возвращает Preparation. Следующая волна требует отдельного `StartWave()`; автозапуска нет. Terminal Victory/Defeat и rejected commands не меняют состояние.
+
+Между волнами сохраняются глобальный Tick, `_nextEnemyId`, `_nextTowerId`, Towers и `NextAttackTick`, Gold, BaseHealth и Kills. Kill начисляет `EnemyDefinition.Reward` один раз вместе с удалением и `Kills += 1`; leak не платит. Успешное завершение каждой волны, включая финальную Victory, начисляет configured bonus один раз. Defeat имеет приоритет и не платит bonus. `Credit` использует насыщение на `int.MaxValue`; покупка остаётся атомарной и не допускает отрицательный Gold.
+
+Боевой порядок расширен до **Advance Tick → Spawn → Movement/Leaks → Tower Attacks → Death/Removal + kill rewards → Defeat/WaveComplete/Victory + wave bonus**. Presentation вызывает Domain commands для Start/Next Wave, отражает `WaveIndex + 1 / WaveCount`, Phase и terminal Result, но не реализует экономику или переходы самостоятельно. Полный контракт и transition table находятся в `Docs/P1.4A_WAVE_LIFECYCLE.md`, regression scenarios — REG-BATTLE-009…024.
 
 ### P0.3 quality gates contract
 
@@ -91,7 +101,7 @@ Docs/
 
 `BattleAssetValidator.ValidateSavedBattle()` — Editor-only read-only проверка сохранённой Battle scene, config и обязательных serialized references, exact prefab paths, missing scripts, materials и shaders. Validator не сохраняет scene и закрывает её только при additive open самим validator.
 
-Reproducibility test резервирует scene/config/prefabs/materials и их `.meta` в памяти, выполняет два Build и восстанавливает originals в `finally`. Все outputs кроме scene сравниваются побайтово. Scene сравнивается как canonical YAML: Unity назначает новые local fileIDs при recreate, поэтому IDs и их local references получают стабильные canonical tokens, а внешние GUID references и serialized content сравниваются без ослабления. После suite `git diff` подтверждает отсутствие неожиданных tracked changes.
+Reproducibility test резервирует scene/config/prefabs/materials и их `.meta` в памяти, выполняет два Build и восстанавливает originals в `finally`. Scene сравнивается как canonical YAML: Unity назначает новые local fileIDs и может менять порядок YAML documents при recreate, поэтому IDs получают content-based canonical tokens, documents сортируются, а внешние GUID references и serialized content сохраняются в сравнении. Для остальных YAML trailing whitespace пустых значений игнорируется как serialization noise; весь остальной text сравнивается. Восстановление originals всегда проверяется побайтово. После suite `git diff` подтверждает отсутствие неожиданных tracked changes.
 
 ## 4. Core domain interfaces (illustrative, not API lock)
 

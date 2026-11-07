@@ -79,15 +79,26 @@ namespace Veilward.Presentation
             return new Vector3(position.X, 0.04f, position.Y);
         }
 
-        public void StartWave()
+        public WaveTransitionResult StartWave()
         {
             if (_simulation == null)
             {
                 throw new InvalidOperationException("Battle simulation is not initialized.");
             }
 
-            _simulation.StartWave();
+            var result = _simulation.StartWave();
             ProcessAttackEvents();
+            return result;
+        }
+
+        public WaveTransitionResult ContinueToNextWave()
+        {
+            if (_simulation == null)
+            {
+                throw new InvalidOperationException("Battle simulation is not initialized.");
+            }
+
+            return _simulation.ContinueToNextWave();
         }
 
         private void Update()
@@ -246,13 +257,18 @@ namespace Veilward.Presentation
         private void UpdateHud()
         {
             var state = _simulation.State;
-            hudText.text = $"Base Health: {state.BaseHealth}\n" +
+            var result = state.Phase == BattlePhase.Victory || state.Phase == BattlePhase.Defeat
+                ? $"\nResult: {state.Phase}"
+                : string.Empty;
+            hudText.text = $"Wave: {state.WaveIndex + 1} / {state.WaveCount}\n" +
+                           $"Base Health: {state.BaseHealth}\n" +
                            $"Gold: {state.Gold}\n" +
                            $"Towers: {state.Towers.Count}\n" +
                            $"Kills: {state.Kills}\n" +
                            $"Active Enemies: {state.Enemies.Count}\n" +
                            $"Tick: {state.Tick}\n" +
-                           $"Phase: {state.Phase}";
+                           $"Phase: {state.Phase}" +
+                           result;
         }
 
         private sealed class EnemyView

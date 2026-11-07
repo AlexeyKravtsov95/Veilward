@@ -11,7 +11,7 @@ namespace Veilward.Editor
     public static class BattleAssetValidator
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
-        private const string ConfigPath = "Assets/_Game/Configs/TestWave.asset";
+        private const string ConfigPath = "Assets/_Game/Configs/EightWave.asset";
         private const string EnemyPrefabPath = "Assets/_Game/Prefabs/Shade.prefab";
         private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
 
@@ -72,7 +72,7 @@ namespace Veilward.Editor
                     new[]
                     {
                         "battle", "worldCamera", "selectionHighlight", "towerPreview",
-                        "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "rangePreview"
+                        "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview"
                     },
                     errors);
             }

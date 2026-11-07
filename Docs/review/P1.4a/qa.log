@@ -1,0 +1,47 @@
+QA READY unity=6000.3.28f1 platform=OSXEditor scene=Battle screen=1241x913 batchmode=False out=/Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/P1.4a
+QA STEP 1/24 t=0.00 frame=303 scene=Battle :: wait 0.5
+QA STEP 2/24 t=0.56 frame=314 scene=Battle :: shot 01_preparation
+QA SHOT /Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/P1.4a/shot_01_01_preparation.png frame=314 scene=Battle Battle_Controller=0.0,0.0,0.0
+QA STEP 3/24 t=0.56 frame=314 scene=Battle :: audit hud
+QA HUD [current] TEXT "Wave: 1 / 8 Base Health: 20 Gold: 150 Towers: 0 Kills: 0 Act..." at 30,25 302x192 (Text HUD/Stats_Panel/Stats) 18px
+QA HUD [current] TEXT "Start Wave" at 1053,18 170x50 (Text HUD/Start_Wave_Button/Label) 18px
+QA HUD [current] TEXT "Next Wave" at 1053,74 170x50 (Text HUD/Next_Wave_Button/Label) 18px
+QA HUD [current] 3 visible texts, 0 problem(s), screen 1241x913
+QA STEP 4/24 t=0.56 frame=314 scene=Battle :: click @Start Wave
+QA CLICK 'Start Wave' -> uGUI HUD/Start_Wave_Button at 1138,43 (pixels from the top-left)
+QA STEP 5/24 t=0.91 frame=321 scene=Battle :: wait 0.2
+QA STEP 6/24 t=1.14 frame=326 scene=Battle :: shot 02_combat
+QA SHOT /Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/P1.4a/shot_02_02_combat.png frame=326 scene=Battle Battle_Controller=0.0,0.0,0.0
+QA STEP 7/24 t=1.14 frame=326 scene=Battle :: timescale 20
+QA STEP 8/24 t=1.14 frame=326 scene=Battle :: wait 5
+QA STEP 9/24 t=6.21 frame=421 scene=Battle :: shot 03_wave_complete
+QA SHOT /Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/P1.4a/shot_03_03_wave_complete.png frame=421 scene=Battle Battle_Controller=0.0,0.0,0.0
+QA STEP 10/24 t=6.21 frame=421 scene=Battle :: click @Next Wave
+QA CLICK 'Next Wave' -> uGUI HUD/Next_Wave_Button at 1138,99 (pixels from the top-left)
+QA STEP 11/24 t=6.56 frame=428 scene=Battle :: timescale 1
+QA STEP 12/24 t=6.56 frame=428 scene=Battle :: wait 0.2
+QA STEP 13/24 t=6.78 frame=432 scene=Battle :: shot 04_preparation_wave_2
+QA SHOT /Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/P1.4a/shot_04_04_preparation_wave_2.png frame=432 scene=Battle Battle_Controller=0.0,0.0,0.0
+QA STEP 14/24 t=6.78 frame=432 scene=Battle :: click @Start Wave
+QA CLICK 'Start Wave' -> uGUI HUD/Start_Wave_Button at 1138,43 (pixels from the top-left)
+QA STEP 15/24 t=7.13 frame=439 scene=Battle :: timescale 20
+QA STEP 16/24 t=7.13 frame=439 scene=Battle :: wait 5
+QA STEP 17/24 t=12.19 frame=533 scene=Battle :: click @Next Wave
+QA CLICK 'Next Wave' -> uGUI HUD/Next_Wave_Button at 1138,99 (pixels from the top-left)
+QA STEP 18/24 t=12.62 frame=541 scene=Battle :: click @Start Wave
+QA CLICK 'Start Wave' -> uGUI HUD/Start_Wave_Button at 1138,43 (pixels from the top-left)
+QA STEP 19/24 t=13.04 frame=549 scene=Battle :: wait 5
+QA STEP 20/24 t=18.08 frame=643 scene=Battle :: click @Next Wave
+QA CLICK 'Next Wave' -> uGUI HUD/Next_Wave_Button at 1138,99 (pixels from the top-left)
+QA STEP 21/24 t=18.50 frame=651 scene=Battle :: click @Start Wave
+QA CLICK 'Start Wave' -> uGUI HUD/Start_Wave_Button at 1138,43 (pixels from the top-left)
+QA STEP 22/24 t=18.92 frame=659 scene=Battle :: wait 5
+QA STEP 23/24 t=23.96 frame=753 scene=Battle :: shot 05_defeat
+QA SHOT /Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/P1.4a/shot_05_05_defeat.png frame=753 scene=Battle Battle_Controller=0.0,0.0,0.0
+QA STEP 24/24 t=23.96 frame=753 scene=Battle :: audit hud
+QA HUD [current] TEXT "Wave: 4 / 8 Base Health: 0 Gold: 210 Towers: 0 Kills: 0 Acti..." at 30,25 302x192 (Text HUD/Stats_Panel/Stats) 18px
+QA HUD [current] TEXT "Start Wave" at 1053,18 170x50 (Text HUD/Start_Wave_Button/Label) 18px
+QA HUD [current] TEXT "Next Wave" at 1053,74 170x50 (Text HUD/Next_Wave_Button/Label) 18px
+QA HUD [current] 3 visible texts, 0 problem(s), screen 1241x913
+QA PERF frames=452 avg_fps=17.3 worst_frame_ms=103
+QA DONE steps=24 shots=5 errors_logged=0 frames=754

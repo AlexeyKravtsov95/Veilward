@@ -20,6 +20,8 @@ namespace Veilward.Tests.PlayMode
             Assert.That(battle, Is.Not.Null);
             Assert.That(battle.Simulation, Is.Not.Null);
             Assert.That(battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
+            Assert.That(battle.Simulation.State.WaveIndex, Is.Zero);
+            Assert.That(battle.Simulation.State.WaveCount, Is.EqualTo(8));
             Assert.That(battle.Simulation.State.Gold, Is.EqualTo(150));
             Assert.That(battle.Simulation.State.BaseHealth, Is.EqualTo(20));
             Assert.That(battle.Simulation.State.Towers, Is.Empty);

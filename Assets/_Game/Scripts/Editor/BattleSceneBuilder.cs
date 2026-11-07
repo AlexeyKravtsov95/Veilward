@@ -12,26 +12,49 @@ namespace Veilward.Editor
     public static class BattleSceneBuilder
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
-        private const string ConfigPath = "Assets/_Game/Configs/TestWave.asset";
+        private const string LegacyConfigPath = "Assets/_Game/Configs/TestWave.asset";
+        private const string ConfigPath = "Assets/_Game/Configs/EightWave.asset";
         private const string EnemyPrefabPath = "Assets/_Game/Prefabs/Shade.prefab";
         private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
         private const string MaterialsFolder = "Assets/_Game/Art/Materials";
 
-        [MenuItem("Veilward/Build P1.3 Battle Scene")]
+        [MenuItem("VEILWARD/P1.4a Build")]
         public static void Build()
         {
             Directory.CreateDirectory("Assets/_Game/Configs");
             Directory.CreateDirectory("Assets/_Game/Prefabs");
             Directory.CreateDirectory(MaterialsFolder);
 
+            var legacyConfig = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(LegacyConfigPath);
+            if (legacyConfig == null)
+            {
+                legacyConfig = BattleScenarioConfig.CreateDefault();
+                var serializedLegacy = new SerializedObject(legacyConfig);
+                serializedLegacy.FindProperty("towerRange").floatValue = 3f;
+                serializedLegacy.FindProperty("towerFireRate").floatValue = 2f;
+                serializedLegacy.FindProperty("towerDamage").intValue = 25;
+                serializedLegacy.ApplyModifiedPropertiesWithoutUndo();
+                AssetDatabase.CreateAsset(legacyConfig, LegacyConfigPath);
+            }
+
             var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath);
             if (config == null)
             {
                 config = BattleScenarioConfig.CreateDefault();
                 var serializedConfig = new SerializedObject(config);
-                serializedConfig.FindProperty("towerRange").floatValue = 3f;
-                serializedConfig.FindProperty("towerFireRate").floatValue = 2f;
-                serializedConfig.FindProperty("towerDamage").intValue = 25;
+                serializedConfig.FindProperty("sharedScenario").objectReferenceValue = legacyConfig;
+                serializedConfig.FindProperty("enemyReward").intValue = 5;
+                serializedConfig.FindProperty("waveCompletionBonus").intValue = 20;
+                var waves = serializedConfig.FindProperty("waves");
+                waves.arraySize = 8;
+                for (var index = 0; index < waves.arraySize; index++)
+                {
+                    var wave = waves.GetArrayElementAtIndex(index);
+                    wave.FindPropertyRelative("enemyCount").intValue = 5 + index;
+                    wave.FindPropertyRelative("firstSpawnTick").intValue = 0;
+                    wave.FindPropertyRelative("spawnIntervalTicks").intValue = 30;
+                }
+
                 serializedConfig.ApplyModifiedPropertiesWithoutUndo();
                 AssetDatabase.CreateAsset(config, ConfigPath);
             }
@@ -271,7 +294,7 @@ namespace Veilward.Editor
             var placementProperties = new[]
             {
                 "battle", "worldCamera", "selectionHighlight", "towerPreview",
-                "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "rangePreview"
+                "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview"
             };
             foreach (var propertyName in placementProperties)
             {
@@ -376,7 +399,7 @@ namespace Veilward.Editor
             var panel = panelObject.AddComponent<UnityEngine.UI.Image>();
             panel.color = new Color(0.02f, 0.03f, 0.05f, 0.85f);
             panel.raycastTarget = false;
-            SetRect(panel.rectTransform, new Vector2(0f, 1f), new Vector2(24f, -24f), new Vector2(440f, 240f));
+            SetRect(panel.rectTransform, new Vector2(0f, 1f), new Vector2(24f, -24f), new Vector2(440f, 280f));
             var stats = CreateText("Stats", panelObject.transform, 24, TextAnchor.UpperLeft);
             SetRect(stats.rectTransform, Vector2.zero, Vector2.zero, Vector2.zero);
             stats.rectTransform.anchorMin = Vector2.zero;
@@ -423,13 +446,20 @@ namespace Veilward.Editor
                 new Vector2(1f, 1f),
                 new Vector2(-24f, -24f),
                 new Vector2(230f, 68f));
+            var nextWave = CreateButton("Next Wave Button", canvasObject.transform, "Next Wave", Vector2.zero);
+            SetRect(
+                nextWave.GetComponent<RectTransform>(),
+                new Vector2(1f, 1f),
+                new Vector2(-24f, -100f),
+                new Vector2(230f, 68f));
             return new HudReferences
             {
                 StatsText = stats,
                 ConfirmationPanel = confirmation,
                 ConfirmButton = confirm,
                 CancelButton = cancel,
-                StartWaveButton = startWave
+                StartWaveButton = startWave,
+                NextWaveButton = nextWave
             };
         }
 
@@ -530,6 +560,7 @@ namespace Veilward.Editor
             placementSerialized.FindProperty("confirmButton").objectReferenceValue = hud.ConfirmButton;
             placementSerialized.FindProperty("cancelButton").objectReferenceValue = hud.CancelButton;
             placementSerialized.FindProperty("startWaveButton").objectReferenceValue = hud.StartWaveButton;
+            placementSerialized.FindProperty("nextWaveButton").objectReferenceValue = hud.NextWaveButton;
             placementSerialized.ApplyModifiedPropertiesWithoutUndo();
         }
 
@@ -540,6 +571,7 @@ namespace Veilward.Editor
             public UnityEngine.UI.Button ConfirmButton;
             public UnityEngine.UI.Button CancelButton;
             public UnityEngine.UI.Button StartWaveButton;
+            public UnityEngine.UI.Button NextWaveButton;
         }
     }
 }

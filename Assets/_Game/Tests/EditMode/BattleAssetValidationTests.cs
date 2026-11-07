@@ -62,53 +62,97 @@ namespace Veilward.Tests.EditMode
 
         private static string CanonicalScene(byte[] content)
         {
-            // Unity assigns new local fileIDs when objects are recreated. Canonicalize only
-            // those IDs and their local references; external GUID references remain exact.
+            // Unity assigns new local fileIDs and may reorder YAML documents on every save.
+            // Derive stable tokens from object content and several reference-refinement passes,
+            // then sort documents so equivalent scenes compare independently of declaration order.
             var text = System.Text.Encoding.UTF8.GetString(content);
-            var identifiers = new Dictionary<string, string>(StringComparer.Ordinal);
-            var nextIdentifier = 0;
-            var canonical = System.Text.RegularExpressions.Regex.Replace(
+            var documents = System.Text.RegularExpressions.Regex.Matches(
                 text,
-                @"(?m)^--- !u!(\d+) &(-?\d+)(.*)$",
-                match =>
-                {
-                    var oldId = match.Groups[2].Value;
-                    if (!identifiers.TryGetValue(oldId, out var stableId))
-                    {
-                        stableId = "L" + nextIdentifier++.ToString("D6", System.Globalization.CultureInfo.InvariantCulture);
-                        identifiers.Add(oldId, stableId);
-                    }
-
-                    return $"--- !u!{match.Groups[1].Value} &{stableId}{match.Groups[3].Value}";
-                });
-            var lines = canonical.Split('\n');
-            for (var index = 0; index < lines.Length; index++)
+                @"(?ms)^--- !u!(\d+) &(-?\d+)([^\r\n]*)\r?\n(.*?)(?=^--- !u!|\z)");
+            var documentIndices = new Dictionary<string, int>(StringComparer.Ordinal);
+            for (var index = 0; index < documents.Count; index++)
             {
-                if (lines[index].Contains("guid:"))
-                {
-                    continue;
-                }
-
-                lines[index] = System.Text.RegularExpressions.Regex.Replace(
-                    lines[index],
-                    @"fileID: (-?\d+)",
-                    match => identifiers.TryGetValue(match.Groups[1].Value, out var stableId)
-                        ? "fileID: " + stableId
-                        : match.Value);
+                documentIndices.Add(documents[index].Groups[2].Value, index);
             }
 
-            return string.Join("\n", lines);
+            string ReplaceLocalIds(string source, Func<string, string> replacement)
+            {
+                var lines = source.Split('\n');
+                for (var index = 0; index < lines.Length; index++)
+                {
+                    if (lines[index].Contains("guid:"))
+                    {
+                        continue;
+                    }
+
+                    lines[index] = System.Text.RegularExpressions.Regex.Replace(
+                        lines[index],
+                        @"fileID: (-?\d+)",
+                        match => documentIndices.ContainsKey(match.Groups[1].Value)
+                            ? "fileID: " + replacement(match.Groups[1].Value)
+                            : match.Value);
+                }
+
+                return string.Join("\n", lines).TrimEnd('\r', '\n');
+            }
+
+            var identifiers = new string[documents.Count];
+            for (var index = 0; index < documents.Count; index++)
+            {
+                identifiers[index] = documents[index].Groups[1].Value;
+            }
+
+            using (var hash = System.Security.Cryptography.SHA256.Create())
+            {
+                for (var iteration = 0; iteration < 8; iteration++)
+                {
+                    var refined = new string[documents.Count];
+                    for (var index = 0; index < documents.Count; index++)
+                    {
+                        var document = documents[index];
+                        var canonicalBody = ReplaceLocalIds(
+                            document.Groups[4].Value,
+                            oldId => identifiers[documentIndices[oldId]]);
+                        var fingerprint = document.Groups[1].Value + "\n" + canonicalBody;
+                        refined[index] = BitConverter.ToString(hash.ComputeHash(
+                            System.Text.Encoding.UTF8.GetBytes(fingerprint))).Replace("-", string.Empty);
+                    }
+
+                    identifiers = refined;
+                }
+            }
+
+            var canonicalDocuments = new string[documents.Count];
+            for (var index = 0; index < documents.Count; index++)
+            {
+                var document = documents[index];
+                var stableId = "L" + identifiers[index].Substring(0, 24);
+                var canonicalBody = ReplaceLocalIds(
+                    document.Groups[4].Value,
+                    oldId => "L" + identifiers[documentIndices[oldId]].Substring(0, 24));
+                canonicalDocuments[index] =
+                    $"--- !u!{document.Groups[1].Value} &{stableId}{document.Groups[3].Value}\n{canonicalBody}";
+            }
+
+            Array.Sort(canonicalDocuments, StringComparer.Ordinal);
+            return "%YAML 1.1\n%TAG !u! tag:unity3d.com,2011:\n" + string.Join("\n", canonicalDocuments);
         }
 
         private static void AssertYamlBytesEqual(byte[] expected, byte[] actual, string path)
         {
-            if (!expected.SequenceEqual(actual))
+            if (expected.SequenceEqual(actual))
             {
-                AssertTextEqual(
-                    System.Text.Encoding.UTF8.GetString(expected),
-                    System.Text.Encoding.UTF8.GetString(actual),
-                    path);
+                return;
             }
+
+            // Unity can emit trailing spaces for empty YAML values after an in-memory save.
+            // Compare semantic YAML content while the restoration check below remains byte-exact.
+            string CanonicalYaml(byte[] content) => string.Join("\n",
+                System.Text.Encoding.UTF8.GetString(content)
+                    .Split('\n')
+                    .Select(line => line.TrimEnd(' ', '\t', '\r')));
+
+            AssertTextEqual(CanonicalYaml(expected), CanonicalYaml(actual), path);
         }
 
         private static void AssertTextEqual(string expected, string actual, string path)
@@ -138,6 +182,7 @@ namespace Veilward.Tests.EditMode
             {
                 BattleScenePath,
                 "Assets/_Game/Configs/TestWave.asset",
+                "Assets/_Game/Configs/EightWave.asset",
                 "Assets/_Game/Prefabs/Shade.prefab",
                 "Assets/_Game/Prefabs/TestTower.prefab"
             };

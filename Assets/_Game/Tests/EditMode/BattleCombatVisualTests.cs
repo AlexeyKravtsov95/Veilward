@@ -178,6 +178,91 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void LateUpdate_DisplaysCurrentWaveAndWaveCount()
+        {
+            Invoke(_battle, "LateUpdate");
+
+            Assert.That(_hud.text, Does.Contain("Wave: 1 / 1"));
+        }
+
+        [Test]
+        public void LateUpdate_Defeat_DisplaysResultFeedback()
+        {
+            var serializedConfig = new SerializedObject(_config);
+            serializedConfig.FindProperty("baseHealth").intValue = 1;
+            serializedConfig.FindProperty("speed").floatValue = 300f;
+            serializedConfig.ApplyModifiedPropertiesWithoutUndo();
+            Invoke(_battle, "Start");
+            _battle.StartWave();
+            _battle.Simulation.Step();
+            _battle.Simulation.Step();
+
+            Invoke(_battle, "LateUpdate");
+
+            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Defeat));
+            Assert.That(_hud.text, Does.Contain("Result: Defeat"));
+        }
+
+        [Test]
+        public void NextWaveButton_WaveComplete_TransitionsToSecondPreparation()
+        {
+            var serializedConfig = new SerializedObject(_config);
+            serializedConfig.FindProperty("speed").floatValue = 300f;
+            var waves = serializedConfig.FindProperty("waves");
+            waves.arraySize = 2;
+            for (var index = 0; index < waves.arraySize; index++)
+            {
+                var wave = waves.GetArrayElementAtIndex(index);
+                wave.FindPropertyRelative("enemyCount").intValue = 1;
+                wave.FindPropertyRelative("firstSpawnTick").intValue = 0;
+                wave.FindPropertyRelative("spawnIntervalTicks").intValue = 30;
+            }
+
+            serializedConfig.ApplyModifiedPropertiesWithoutUndo();
+            Invoke(_battle, "Start");
+            var selection = new GameObject("Selection").transform;
+            selection.SetParent(_root.transform, false);
+            var preview = new GameObject("Tower Preview").transform;
+            preview.SetParent(_root.transform, false);
+            var panel = new GameObject("Placement Panel", typeof(RectTransform));
+            panel.transform.SetParent(_root.transform, false);
+            var rangeObject = new GameObject("Range Preview", typeof(LineRenderer));
+            rangeObject.transform.SetParent(_root.transform, false);
+            var nextWave = CreateButton("Next Wave");
+            var placement = _battle.gameObject.AddComponent<BattlePlacementController>();
+            var serialized = new SerializedObject(placement);
+            serialized.FindProperty("battle").objectReferenceValue = _battle;
+            serialized.FindProperty("worldCamera").objectReferenceValue = _camera;
+            serialized.FindProperty("selectionHighlight").objectReferenceValue = selection;
+            serialized.FindProperty("towerPreview").objectReferenceValue = preview;
+            serialized.FindProperty("confirmationPanel").objectReferenceValue = panel;
+            serialized.FindProperty("confirmButton").objectReferenceValue = CreateButton("Confirm");
+            serialized.FindProperty("cancelButton").objectReferenceValue = CreateButton("Cancel");
+            serialized.FindProperty("startWaveButton").objectReferenceValue = CreateButton("Start Wave");
+            var nextWaveProperty = serialized.FindProperty("nextWaveButton");
+            Assert.That(nextWaveProperty, Is.Not.Null, "Next Wave button reference is required.");
+            nextWaveProperty.objectReferenceValue = nextWave;
+            serialized.FindProperty("rangePreview").objectReferenceValue = rangeObject.GetComponent<LineRenderer>();
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            Invoke(placement, "Start");
+            Invoke(placement, "RefreshUi");
+            Assert.That(nextWave.interactable, Is.False);
+
+            _battle.StartWave();
+            _battle.Simulation.Step();
+            _battle.Simulation.Step();
+            Invoke(placement, "RefreshUi");
+            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
+            Assert.That(nextWave.interactable, Is.True);
+
+            nextWave.onClick.Invoke();
+
+            Assert.That(_battle.Simulation.State.WaveIndex, Is.EqualTo(1));
+            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
+            Assert.That(nextWave.interactable, Is.False);
+        }
+
+        [Test]
         public void Selection_ShowsConfiguredRangeAndCancelHidesIt()
         {
             var selection = new GameObject("Selection").transform;
@@ -201,6 +286,7 @@ namespace Veilward.Tests.EditMode
             serialized.FindProperty("confirmButton").objectReferenceValue = CreateButton("Confirm");
             serialized.FindProperty("cancelButton").objectReferenceValue = CreateButton("Cancel");
             serialized.FindProperty("startWaveButton").objectReferenceValue = CreateButton("Start Wave");
+            serialized.FindProperty("nextWaveButton").objectReferenceValue = CreateButton("Next Wave");
             serialized.FindProperty("rangePreview").objectReferenceValue = range;
             serialized.ApplyModifiedPropertiesWithoutUndo();
 

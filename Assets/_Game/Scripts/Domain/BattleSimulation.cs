@@ -6,11 +6,14 @@ namespace Veilward.Domain
     public sealed class BattleSimulation : IBattleSimulation
     {
         private readonly PathDefinition _path;
-        private readonly WaveDefinition _wave;
+        private readonly WaveDefinition[] _waves;
+        private readonly int _waveCompletionBonus;
+        private readonly bool _legacySingleWave;
         private readonly List<AttackEvent> _attackEvents = new List<AttackEvent>();
         private int _nextEnemyId = 1;
         private int _nextTowerId = 1;
         private int _nextSpawnIndex;
+        private long _waveStartTick;
 
         public BattleSimulation(PathDefinition path, WaveDefinition wave, int baseHealth)
             : this(
@@ -30,17 +33,84 @@ namespace Veilward.Domain
             TowerDefinition towerDefinition,
             int baseHealth,
             int startingGold)
+            : this(
+                map,
+                path,
+                new[] { wave ?? throw new ArgumentNullException(nameof(wave)) },
+                towerDefinition,
+                baseHealth,
+                startingGold,
+                waveCompletionBonus: 0,
+                legacySingleWave: true)
+        {
+        }
+
+        public BattleSimulation(
+            GridMapDefinition map,
+            PathDefinition path,
+            IReadOnlyList<WaveDefinition> waves,
+            TowerDefinition towerDefinition,
+            int baseHealth,
+            int startingGold,
+            int waveCompletionBonus)
+            : this(
+                map,
+                path,
+                waves,
+                towerDefinition,
+                baseHealth,
+                startingGold,
+                waveCompletionBonus,
+                legacySingleWave: false)
+        {
+        }
+
+        private BattleSimulation(
+            GridMapDefinition map,
+            PathDefinition path,
+            IReadOnlyList<WaveDefinition> waves,
+            TowerDefinition towerDefinition,
+            int baseHealth,
+            int startingGold,
+            int waveCompletionBonus,
+            bool legacySingleWave)
         {
             if (map == null)
             {
                 throw new ArgumentNullException(nameof(map));
             }
 
+            if (waves == null)
+            {
+                throw new ArgumentNullException(nameof(waves));
+            }
+
+            if (waves.Count == 0)
+            {
+                throw new ArgumentException("At least one wave is required.", nameof(waves));
+            }
+
+            if (waveCompletionBonus < 0)
+            {
+                throw new ArgumentOutOfRangeException(
+                    nameof(waveCompletionBonus),
+                    "Wave completion bonus cannot be negative.");
+            }
+
             _path = path ?? throw new ArgumentNullException(nameof(path));
-            _wave = wave ?? throw new ArgumentNullException(nameof(wave));
             TowerDefinition = towerDefinition ?? throw new ArgumentNullException(nameof(towerDefinition));
+            _waves = new WaveDefinition[waves.Count];
+            for (var index = 0; index < waves.Count; index++)
+            {
+                _waves[index] = waves[index] ?? throw new ArgumentException(
+                    "Waves cannot contain null entries.",
+                    nameof(waves));
+            }
+
+            _waveCompletionBonus = waveCompletionBonus;
+            _legacySingleWave = legacySingleWave;
             Grid = new BattleGrid(map, path);
-            State = BattleState.CreateInitial(baseHealth, startingGold);
+            State = BattleState.CreateInitial(baseHealth, startingGold, _waves.Length);
             AttackEvents = _attackEvents.AsReadOnly();
         }
 
@@ -49,6 +119,7 @@ namespace Veilward.Domain
         public BattleGrid Grid { get; }
         public TowerDefinition TowerDefinition { get; }
         public IReadOnlyList<AttackEvent> AttackEvents { get; }
+        private WaveDefinition CurrentWave => _waves[State.WaveIndex];
 
         public PlaceTowerResult PlaceTower(PlaceTowerCommand command)
         {
@@ -95,15 +166,35 @@ namespace Veilward.Domain
             return PlaceTowerResult.Succeeded(tower);
         }
 
-        public void StartWave()
+        public WaveTransitionResult StartWave()
         {
             if (State.Phase != BattlePhase.Preparation)
             {
-                return;
+                return WaveTransitionResult.RejectedInvalidPhase;
             }
 
+            _waveStartTick = State.Tick;
+            _nextSpawnIndex = 0;
             State.SetPhase(BattlePhase.Combat);
             SpawnDueEnemies();
+            return WaveTransitionResult.Started;
+        }
+
+        public WaveTransitionResult ContinueToNextWave()
+        {
+            if (State.Phase != BattlePhase.WaveComplete)
+            {
+                return WaveTransitionResult.RejectedInvalidPhase;
+            }
+
+            if (State.WaveIndex + 1 >= State.WaveCount)
+            {
+                return WaveTransitionResult.RejectedNoNextWave;
+            }
+
+            State.AdvanceWave();
+            State.SetPhase(BattlePhase.Preparation);
+            return WaveTransitionResult.Continued;
         }
 
         public void Step()
@@ -123,9 +214,13 @@ namespace Veilward.Domain
             {
                 State.SetPhase(BattlePhase.Defeat);
             }
-            else if (_nextSpawnIndex == _wave.Count && State.Enemies.Count == 0)
+            else if (_nextSpawnIndex == CurrentWave.Count && State.Enemies.Count == 0)
             {
-                State.SetPhase(BattlePhase.WaveComplete);
+                State.Credit(_waveCompletionBonus);
+                State.SetPhase(
+                    !_legacySingleWave && State.WaveIndex == State.WaveCount - 1
+                        ? BattlePhase.Victory
+                        : BattlePhase.WaveComplete);
             }
         }
 
@@ -188,9 +283,9 @@ namespace Veilward.Domain
 
         private void SpawnDueEnemies()
         {
-            while (_nextSpawnIndex < _wave.Count && NextSpawnTick() <= State.Tick)
+            while (_nextSpawnIndex < CurrentWave.Count && NextSpawnTick() <= State.Tick)
             {
-                State.AddEnemy(EnemyState.CreateInitial(new EnemyId(_nextEnemyId), _wave.Enemy));
+                State.AddEnemy(EnemyState.CreateInitial(new EnemyId(_nextEnemyId), CurrentWave.Enemy));
                 _nextEnemyId++;
                 _nextSpawnIndex++;
             }
@@ -198,7 +293,8 @@ namespace Veilward.Domain
 
         private long NextSpawnTick()
         {
-            return (long)_wave.FirstSpawnTick + (long)_nextSpawnIndex * _wave.SpawnIntervalTicks;
+            return _waveStartTick + (long)CurrentWave.FirstSpawnTick +
+                   (long)_nextSpawnIndex * CurrentWave.SpawnIntervalTicks;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Veilward.Tests.EditMode
     public sealed class BattleSceneBuilderTests
     {
         [Test]
-        public void Build_ExistingConfig_PreservesCombatParametersAcrossRepeatedGeneration()
+        public void Build_ExistingConfigs_PreserveCombatAndWaveParametersAcrossRepeatedGeneration()
         {
             const string configPath = "Assets/_Game/Configs/TestWave.asset";
             const string scenePath = "Assets/_Game/Scenes/Battle.unity";
@@ -20,6 +20,8 @@ namespace Veilward.Tests.EditMode
             {
                 configPath,
                 scenePath,
+                "Assets/_Game/Configs/EightWave.asset",
+                "Assets/_Game/Configs/EightWave.asset.meta",
                 "Assets/_Game/Prefabs/Shade.prefab",
                 "Assets/_Game/Prefabs/TestTower.prefab"
             };
@@ -38,6 +40,15 @@ namespace Veilward.Tests.EditMode
                 serialized.FindProperty("towerFireRate").floatValue = 3.5f;
                 serialized.FindProperty("towerDamage").intValue = 37;
                 serialized.ApplyModifiedPropertiesWithoutUndo();
+                var waveConfig = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(
+                    "Assets/_Game/Configs/EightWave.asset");
+                Assert.That(waveConfig, Is.Not.Null, "EightWave.asset must exist before reproducibility checks.");
+                var serializedWaves = new SerializedObject(waveConfig);
+                serializedWaves.FindProperty("enemyReward").intValue = 9;
+                serializedWaves.FindProperty("waveCompletionBonus").intValue = 13;
+                serializedWaves.FindProperty("waves").GetArrayElementAtIndex(0)
+                    .FindPropertyRelative("enemyCount").intValue = 3;
+                serializedWaves.ApplyModifiedPropertiesWithoutUndo();
                 AssetDatabase.SaveAssets();
 
                 BattleSceneBuilder.Build();
@@ -48,6 +59,15 @@ namespace Veilward.Tests.EditMode
                 Assert.That(tower.Range, Is.EqualTo(4.25f).Within(0.0001f));
                 Assert.That(tower.FireRate, Is.EqualTo(3.5f).Within(0.0001f));
                 Assert.That(tower.Damage, Is.EqualTo(37));
+                waveConfig = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(
+                    "Assets/_Game/Configs/EightWave.asset");
+                serializedWaves = new SerializedObject(waveConfig);
+                Assert.That(serializedWaves.FindProperty("enemyReward").intValue, Is.EqualTo(9));
+                Assert.That(serializedWaves.FindProperty("waveCompletionBonus").intValue, Is.EqualTo(13));
+                Assert.That(
+                    serializedWaves.FindProperty("waves").GetArrayElementAtIndex(0)
+                        .FindPropertyRelative("enemyCount").intValue,
+                    Is.EqualTo(3));
             }
             finally
             {
@@ -56,6 +76,10 @@ namespace Veilward.Tests.EditMode
                     File.WriteAllBytes(snapshot.Key, snapshot.Value);
                 }
 
+                AssetDatabase.ImportAsset(configPath, ImportAssetOptions.ForceUpdate);
+                AssetDatabase.ImportAsset(
+                    "Assets/_Game/Configs/EightWave.asset",
+                    ImportAssetOptions.ForceUpdate);
                 AssetDatabase.Refresh();
                 EditorSceneManager.OpenScene(scenePath);
             }

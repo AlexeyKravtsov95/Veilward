@@ -19,6 +19,7 @@ namespace Veilward.Presentation
         [SerializeField] private UnityEngine.UI.Button confirmButton;
         [SerializeField] private UnityEngine.UI.Button cancelButton;
         [SerializeField] private UnityEngine.UI.Button startWaveButton;
+        [SerializeField] private UnityEngine.UI.Button nextWaveButton;
         [SerializeField] private LineRenderer rangePreview;
 
         private bool _hasSelection;
@@ -41,10 +42,12 @@ namespace Veilward.Presentation
             ValidateReference(confirmButton, nameof(confirmButton));
             ValidateReference(cancelButton, nameof(cancelButton));
             ValidateReference(startWaveButton, nameof(startWaveButton));
+            ValidateReference(nextWaveButton, nameof(nextWaveButton));
             ValidateReference(rangePreview, nameof(rangePreview));
             confirmButton.onClick.AddListener(ConfirmSelection);
             cancelButton.onClick.AddListener(CancelSelection);
             startWaveButton.onClick.AddListener(StartWave);
+            nextWaveButton.onClick.AddListener(ContinueToNextWave);
             var cellSize = battle.Simulation.Grid.Map.CellSize;
             selectionHighlight.localScale = new Vector3(0.98f * cellSize, 0.04f, 0.98f * cellSize);
             towerPreview.localScale = Vector3.one * cellSize;
@@ -61,6 +64,7 @@ namespace Veilward.Presentation
             }
 
             CancelSelection();
+            RefreshUi();
         }
 
         private void Update()
@@ -115,6 +119,11 @@ namespace Veilward.Presentation
             if (startWaveButton != null)
             {
                 startWaveButton.onClick.RemoveListener(StartWave);
+            }
+
+            if (nextWaveButton != null)
+            {
+                nextWaveButton.onClick.RemoveListener(ContinueToNextWave);
             }
         }
 
@@ -192,9 +201,21 @@ namespace Veilward.Presentation
             RefreshUi();
         }
 
+        public void ContinueToNextWave()
+        {
+            if (battle.Simulation == null)
+            {
+                return;
+            }
+
+            battle.ContinueToNextWave();
+            RefreshUi();
+        }
+
         private void RefreshUi()
         {
-            var isPreparing = battle.Simulation.State.Phase == BattlePhase.Preparation;
+            var state = battle.Simulation.State;
+            var isPreparing = state.Phase == BattlePhase.Preparation;
             if (!isPreparing && _hasSelection)
             {
                 CancelSelection();
@@ -204,6 +225,8 @@ namespace Veilward.Presentation
             confirmButton.interactable = isPreparing && _hasSelection;
             cancelButton.interactable = isPreparing && _hasSelection;
             startWaveButton.interactable = isPreparing;
+            nextWaveButton.interactable = state.Phase == BattlePhase.WaveComplete &&
+                                          state.WaveIndex + 1 < state.WaveCount;
         }
 
         private void TryHandlePointer(Vector2 screenPosition, int? pointerId)

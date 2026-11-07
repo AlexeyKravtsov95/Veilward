@@ -15,7 +15,8 @@ namespace Veilward.Domain
             int baseHealth,
             int gold,
             IEnumerable<EnemyState> enemies,
-            IEnumerable<TowerState> towers = null)
+            IEnumerable<TowerState> towers = null,
+            int waveCount = 1)
         {
             if (!Enum.IsDefined(typeof(BattlePhase), phase))
             {
@@ -27,9 +28,14 @@ namespace Veilward.Domain
                 throw new ArgumentOutOfRangeException(nameof(tick), "Tick cannot be negative.");
             }
 
-            if (waveIndex < 0)
+            if (waveCount <= 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(waveIndex), "Wave index cannot be negative.");
+                throw new ArgumentOutOfRangeException(nameof(waveCount), "Wave count must be positive.");
+            }
+
+            if (waveIndex < 0 || waveIndex >= waveCount)
+            {
+                throw new ArgumentOutOfRangeException(nameof(waveIndex), "Wave index must identify an existing wave.");
             }
 
             if (baseHealth < 0)
@@ -86,6 +92,7 @@ namespace Veilward.Domain
             Phase = phase;
             Tick = tick;
             WaveIndex = waveIndex;
+            WaveCount = waveCount;
             BaseHealth = baseHealth;
             Gold = gold;
             _enemies = enemyCopy;
@@ -96,7 +103,8 @@ namespace Veilward.Domain
 
         public BattlePhase Phase { get; private set; }
         public long Tick { get; private set; }
-        public int WaveIndex { get; }
+        public int WaveIndex { get; private set; }
+        public int WaveCount { get; }
         public int BaseHealth { get; private set; }
         public int Gold { get; private set; }
         public int Kills { get; private set; }
@@ -116,6 +124,16 @@ namespace Veilward.Domain
         internal void AdvanceTick()
         {
             Tick++;
+        }
+
+        internal void AdvanceWave()
+        {
+            if (WaveIndex + 1 >= WaveCount)
+            {
+                throw new InvalidOperationException("Cannot advance past the final wave.");
+            }
+
+            WaveIndex++;
         }
 
         internal void AddEnemy(EnemyState enemy)
@@ -138,6 +156,16 @@ namespace Veilward.Domain
             Gold -= amount;
         }
 
+        internal void Credit(int amount)
+        {
+            if (amount < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(amount), "Credit cannot be negative.");
+            }
+
+            Gold = amount > int.MaxValue - Gold ? int.MaxValue : Gold + amount;
+        }
+
         internal void RemoveEnemyAt(int index)
         {
             _enemies.RemoveAt(index);
@@ -147,13 +175,15 @@ namespace Veilward.Domain
         {
             for (var index = _enemies.Count - 1; index >= 0; index--)
             {
-                if (_enemies[index].IsAlive)
+                var enemy = _enemies[index];
+                if (enemy.IsAlive)
                 {
                     continue;
                 }
 
                 _enemies.RemoveAt(index);
                 Kills++;
+                Credit(enemy.Definition.Reward);
             }
         }
 
@@ -167,7 +197,7 @@ namespace Veilward.Domain
             BaseHealth = Math.Max(0, BaseHealth - damage);
         }
 
-        public static BattleState CreateInitial(int baseHealth, int startingGold)
+        public static BattleState CreateInitial(int baseHealth, int startingGold, int waveCount = 1)
         {
             if (baseHealth <= 0)
             {
@@ -180,7 +210,8 @@ namespace Veilward.Domain
                 waveIndex: 0,
                 baseHealth,
                 startingGold,
-                Array.Empty<EnemyState>());
+                Array.Empty<EnemyState>(),
+                waveCount: waveCount);
         }
     }
 }
