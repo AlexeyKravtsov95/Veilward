@@ -88,7 +88,7 @@ Graybox-сцену и оба config можно повторно сгенерир
 git diff --check
 ```
 
-Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P1.4a: **32/32 static self-tests passed**, project checks PASS.
+Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P1.4a после review fix: **38/38 static self-tests passed**, project checks PASS.
 
 EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…024`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат: **175/175 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode smoke загружает Battle и проверяет Preparation первой из восьми волн: **1/1 PlayMode test passed**, 0 failed/inconclusive/skipped. `git diff --check`: PASS; `Packages/manifest.json` и `Packages/packages-lock.json` не изменялись.
 

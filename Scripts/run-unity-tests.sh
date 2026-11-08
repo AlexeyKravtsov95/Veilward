@@ -71,7 +71,13 @@ if [ "$BACKEND" = "auto" ] && [ "$RESIDENT_EDITOR" -eq 1 ]; then
 import json
 import sys
 payload = json.load(sys.stdin)
-if not isinstance(payload, dict) or payload.get("success") is False:
+if not isinstance(payload, dict):
+    raise SystemExit(2)
+if "success" in payload:
+    if payload["success"] is not True:
+        raise SystemExit(2)
+elif payload.get("status") not in ("running", "completed"):
+    # Raw asynchronous polling responses have no envelope and expose top-level status.
     raise SystemExit(2)
 result = payload.get("result")
 if isinstance(result, dict):
@@ -114,10 +120,13 @@ try:
 except (json.JSONDecodeError, UnicodeDecodeError) as error:
     fail(f"malformed JSON ({error})")
 
-if not isinstance(payload, dict) or payload.get("success") is False:
-    fail("missing successful Unity CLI status")
-if payload.get("success") is None and payload.get("status") != "completed":
-    fail("missing successful Unity CLI status")
+if not isinstance(payload, dict):
+    fail("Unity CLI result must be an object")
+if "success" in payload:
+    if payload["success"] is not True:
+        fail("Unity CLI envelope success must be boolean true")
+elif payload.get("status") != "completed":
+    fail("raw asynchronous result must have status completed")
 summary = payload.get("Summary")
 result = None
 if summary is None:

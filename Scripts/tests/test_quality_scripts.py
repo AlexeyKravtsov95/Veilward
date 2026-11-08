@@ -192,7 +192,17 @@ class UnityResultChecksTests(unittest.TestCase):
 
 
 class UnityRunnerTests(unittest.TestCase):
-    def run_play_mode_with_fake_unity(self, total, passed):
+    @staticmethod
+    def summary(total=1, passed=1, failed=0, skipped=0, inconclusive=0):
+        return {
+            "total": total,
+            "passed": passed,
+            "failed": failed,
+            "skipped": skipped,
+            "inconclusive": inconclusive,
+        }
+
+    def run_with_fake_unity(self, mode, run_payload, status_payloads=None):
         import os
         import subprocess
 
@@ -201,11 +211,13 @@ class UnityRunnerTests(unittest.TestCase):
             bin_dir = root / "bin"
             bin_dir.mkdir()
             log_path = root / "commands.jsonl"
+            status_index = root / "status-index"
             fake_unity = bin_dir / "unity"
             fake_unity.write_text(textwrap.dedent("""\
                 #!/usr/bin/env python3
                 import json
                 import os
+                from pathlib import Path
                 import sys
 
                 with open(os.environ["FAKE_UNITY_LOG"], "a", encoding="utf-8") as stream:
@@ -213,19 +225,13 @@ class UnityRunnerTests(unittest.TestCase):
                 if sys.argv[1] == "status":
                     print(json.dumps({"success": True}))
                 elif sys.argv[1:3] == ["command", "test run"]:
-                    print(json.dumps({"success": True, "result": {
-                        "status": "running", "result": "running"
-                    }}))
+                    print(os.environ["FAKE_RUN_PAYLOAD"])
                 elif sys.argv[1:3] == ["command", "test status"]:
-                    total = int(os.environ["FAKE_TOTAL"])
-                    passed = int(os.environ["FAKE_PASSED"])
-                    print(json.dumps({"success": True, "result": {
-                        "status": "completed",
-                        "summary": {
-                            "total": total, "passed": passed,
-                            "failed": total - passed, "skipped": 0, "inconclusive": 0
-                        }
-                    }}))
+                    index_path = Path(os.environ["FAKE_STATUS_INDEX"])
+                    index = int(index_path.read_text(encoding="utf-8")) if index_path.exists() else 0
+                    payloads = json.loads(os.environ["FAKE_STATUS_PAYLOADS"])
+                    print(json.dumps(payloads[min(index, len(payloads) - 1)]))
+                    index_path.write_text(str(index + 1), encoding="utf-8")
                 else:
                     raise SystemExit(2)
                 """), encoding="utf-8")
@@ -233,10 +239,11 @@ class UnityRunnerTests(unittest.TestCase):
             environment = dict(os.environ)
             environment["PATH"] = str(bin_dir) + os.pathsep + environment["PATH"]
             environment["FAKE_UNITY_LOG"] = str(log_path)
-            environment["FAKE_TOTAL"] = str(total)
-            environment["FAKE_PASSED"] = str(passed)
+            environment["FAKE_STATUS_INDEX"] = str(status_index)
+            environment["FAKE_RUN_PAYLOAD"] = json.dumps(run_payload)
+            environment["FAKE_STATUS_PAYLOADS"] = json.dumps(status_payloads or [])
             completed = subprocess.run(
-                [str(SCRIPTS / "run-unity-tests.sh"), "PlayMode"],
+                [str(SCRIPTS / "run-unity-tests.sh"), mode],
                 cwd=SCRIPTS.parent,
                 env=environment,
                 capture_output=True,
@@ -246,16 +253,86 @@ class UnityRunnerTests(unittest.TestCase):
             commands = [json.loads(line) for line in log_path.read_text(encoding="utf-8").splitlines()]
             return completed, commands
 
+    def test_edit_mode_valid_envelope_is_accepted(self):
+        completed, _ = self.run_with_fake_unity(
+            "EditMode", {"success": True, "Summary": self.summary()})
+        self.assertEqual(0, completed.returncode, completed.stdout + completed.stderr)
+
+    def test_play_mode_valid_raw_completed_response_is_accepted(self):
+        completed, _ = self.run_with_fake_unity(
+            "PlayMode",
+            {"success": True, "result": {"status": "running"}},
+            [{"status": "completed", "summary": self.summary()}])
+        self.assertEqual(0, completed.returncode, completed.stdout + completed.stderr)
+
+    def test_edit_mode_envelope_rejects_non_boolean_success(self):
+        for success in (False, "false", None, 1):
+            with self.subTest(success=success):
+                completed, _ = self.run_with_fake_unity(
+                    "EditMode", {"success": success, "Summary": self.summary()})
+                self.assertNotEqual(0, completed.returncode)
+
+    def test_play_mode_polling_rejects_non_boolean_success(self):
+        for success in (False, "false", None, 1):
+            with self.subTest(success=success):
+                completed, _ = self.run_with_fake_unity(
+                    "PlayMode",
+                    {"success": True, "result": {"status": "running"}},
+                    [{"success": success, "result": {
+                        "status": "completed", "summary": self.summary()
+                    }}])
+                self.assertNotEqual(0, completed.returncode)
+
+    def test_play_mode_raw_running_is_not_accepted_as_completed(self):
+        completed, commands = self.run_with_fake_unity(
+            "PlayMode",
+            {"success": True, "result": {"status": "running"}},
+            [
+                {"status": "running"},
+                {"status": "completed", "summary": self.summary()},
+            ])
+        self.assertEqual(0, completed.returncode, completed.stdout + completed.stderr)
+        status_commands = [command for command in commands if command[:2] == ["command", "test status"]]
+        self.assertEqual(2, len(status_commands))
+
     def test_play_mode_uses_async_run_and_polls_completed_result(self):
-        completed, commands = self.run_play_mode_with_fake_unity(total=1, passed=1)
+        completed, commands = self.run_with_fake_unity(
+            "PlayMode",
+            {"success": True, "result": {"status": "running"}},
+            [{"success": True, "result": {
+                "status": "completed", "summary": self.summary()
+            }}])
         self.assertEqual(0, completed.returncode, completed.stdout + completed.stderr + str(commands))
         run_command = next(command for command in commands if command[:2] == ["command", "test run"])
         self.assertIn("--async-tests", run_command)
         self.assertTrue(any(command[:2] == ["command", "test status"] for command in commands))
 
-    def test_play_mode_empty_completed_suite_is_rejected(self):
-        completed, _ = self.run_play_mode_with_fake_unity(total=0, passed=0)
-        self.assertNotEqual(0, completed.returncode)
+    def test_missing_or_invalid_summary_is_rejected(self):
+        payloads = (
+            {"success": True},
+            {"success": True, "Summary": None},
+            {"status": "completed"},
+            {"status": "completed", "summary": "invalid"},
+        )
+        for payload in payloads:
+            with self.subTest(payload=payload):
+                completed, _ = self.run_with_fake_unity("EditMode", payload)
+                self.assertNotEqual(0, completed.returncode)
+
+    def test_failed_skipped_empty_and_mismatched_reports_are_rejected(self):
+        summaries = (
+            self.summary(total=2, passed=1, failed=1),
+            self.summary(total=2, passed=1, skipped=1),
+            self.summary(total=0, passed=0),
+            self.summary(total=2, passed=1),
+        )
+        for summary in summaries:
+            with self.subTest(summary=summary):
+                completed, _ = self.run_with_fake_unity(
+                    "PlayMode",
+                    {"success": True, "result": {"status": "running"}},
+                    [{"status": "completed", "summary": summary}])
+                self.assertNotEqual(0, completed.returncode)
 
 
 class UnityBatchRunnerTests(unittest.TestCase):

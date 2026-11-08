@@ -29,7 +29,7 @@ git diff --check
 
 `run-edit-mode-tests.sh` и `run-play-mode-tests.sh` используют общий `run-unity-tests.sh EditMode|PlayMode [auto|batch]`; default — `auto`.
 
-- `auto` при доступном Unity CLI выполняет tests в уже открытом проекте, сохраняет JSON summary и строго проверяет counts. Этот локальный CLI path не обещает NUnit XML.
+- `auto` при доступном Unity CLI выполняет tests в уже открытом проекте, сохраняет JSON summary и строго проверяет counts. Envelope принимается только со строгим boolean `success: true`; `false`, `null`, строки и числа отклоняются. Без envelope raw polling допускает `status: running`, а финальный результат — только `status: completed` с корректным summary. Этот локальный CLI path не обещает NUnit XML.
 - Если CLI недоступен, но существует live Editor descriptor, `auto` завершается кодом **2**: второй Editor для того же проекта запрещён.
 - Явный `batch` обязателен для self-hosted CI. Он не использует Unity CLI test result contract и создаёт `TestResults/<Mode>.xml` и `<Mode>.log` для обоих режимов. Resident Editor через CLI status либо live descriptor завершает `batch` кодом **2** до запуска executable.
 - В clean checkout требуется executable `UNITY_EDITOR_PATH`; на macOS также проверяется Hub path для закреплённой версии. Batch command содержит `-batchmode -nographics -buildTarget iOS -runTests -testResults -logFile -quit`.
@@ -108,7 +108,7 @@ Workflow **не активирует лицензию** и не содержит
 ### P1.4a — Multi-Wave Lifecycle & Rewards
 
 - Окружение: Unity **6000.3.28f1**, Unity CLI **1.0.0-beta.17**, один открытый Editor; второй Editor не запускался.
-- `./Scripts/run-static-checks.sh`: **32/32 static self-tests PASS**, project checks PASS.
+- `./Scripts/run-static-checks.sh`: **38/38 static self-tests PASS**, включая REG-CI-005 strict Unity CLI response validation; project checks PASS.
 - `PATH="$PWD/.tools/unity-cli/bin:$PATH" ./Scripts/run-edit-mode-tests.sh`: **175/175 PASS**, 0 failed/inconclusive/skipped; runtime compilation и saved asset validation PASS.
 - `PATH="$PWD/.tools/unity-cli/bin:$PATH" ./Scripts/run-play-mode-tests.sh`: **1/1 PASS**, 0 failed/inconclusive/skipped.
 - `git diff --check`: **PASS**; `Packages/manifest.json` и `Packages/packages-lock.json`: без diff.
