@@ -29,7 +29,7 @@ git diff --check
 
 `run-edit-mode-tests.sh` и `run-play-mode-tests.sh` используют общий `run-unity-tests.sh EditMode|PlayMode [auto|batch]`; default — `auto`.
 
-- `auto` при доступном Unity CLI выполняет tests в уже открытом проекте, сохраняет JSON summary и строго проверяет counts. Этот локальный CLI path не обещает NUnit XML.
+- `auto` при доступном Unity CLI выполняет tests в уже открытом проекте, сохраняет JSON summary и строго проверяет counts. Envelope принимается только со строгим boolean `success: true`; `false`, `null`, строки и числа отклоняются. Без envelope raw polling допускает `status: running`, а финальный результат — только `status: completed` с корректным summary. Этот локальный CLI path не обещает NUnit XML.
 - Если CLI недоступен, но существует live Editor descriptor, `auto` завершается кодом **2**: второй Editor для того же проекта запрещён.
 - Явный `batch` обязателен для self-hosted CI. Он не использует Unity CLI test result contract и создаёт `TestResults/<Mode>.xml` и `<Mode>.log` для обоих режимов. Resident Editor через CLI status либо live descriptor завершает `batch` кодом **2** до запуска executable.
 - В clean checkout требуется executable `UNITY_EDITOR_PATH`; на macOS также проверяется Hub path для закреплённой версии. Batch command содержит `-batchmode -nographics -buildTarget iOS -runTests -testResults -logFile -quit`.
@@ -41,7 +41,7 @@ git diff --check
 
 `BattleAssetValidator` работает в `Veilward.Editor` и только читает сохранённые assets. Additive scene закрывается только если её открыл сам validator. Проверяются controller references, config creation, exact prefab paths, missing scripts, materials и shaders.
 
-Reproducibility test сохраняет originals и `.meta` в памяти и гарантированно восстанавливает их в `finally`. Два Build сравниваются побайтово для config/prefabs/materials/`.meta`; scene YAML сравнивается после canonicalization автоматически переназначаемых Unity local fileIDs и их local references. GUID references и остальной serialized content не игнорируются. После tests нужен `git diff --exit-code -- Assets Packages ProjectSettings` в чистом tracked tree.
+Reproducibility test сохраняет originals и `.meta` в памяти и гарантированно восстанавливает их в `finally`. Два Build сравнивают config/prefabs/materials/`.meta` с нормализацией только trailing whitespace пустых YAML values; остальной text не игнорируется. Scene YAML сравнивается после content-based canonicalization автоматически переназначаемых Unity local fileIDs, их local references и сортировки documents. GUID references и остальной serialized content сохраняются в сравнении. Восстановление originals проверяется побайтово. После tests нужен `git diff --exit-code -- Assets Packages ProjectSettings` в чистом tracked tree.
 
 ## GitHub Actions
 
@@ -105,8 +105,19 @@ Workflow **не активирует лицензию** и не содержит
 - GitHub self-hosted Unity EditMode/PlayMode: **NOT VERIFIED / BLOCKED** — runner не зарегистрирован, manual run не выполнялся.
 - Gameplay, Unity version/revision и dependencies не изменялись.
 
+### P1.4a — Multi-Wave Lifecycle & Rewards
+
+- Окружение: Unity **6000.3.28f1**, Unity CLI **1.0.0-beta.17**, один открытый Editor; второй Editor не запускался.
+- `./Scripts/run-static-checks.sh`: **38/38 static self-tests PASS**, включая REG-CI-005 strict Unity CLI response validation; project checks PASS.
+- `PATH="$PWD/.tools/unity-cli/bin:$PATH" ./Scripts/run-edit-mode-tests.sh`: **175/175 PASS**, 0 failed/inconclusive/skipped; runtime compilation и saved asset validation PASS.
+- `PATH="$PWD/.tools/unity-cli/bin:$PATH" ./Scripts/run-play-mode-tests.sh`: **1/1 PASS**, 0 failed/inconclusive/skipped.
+- `git diff --check`: **PASS**; `Packages/manifest.json` и `Packages/packages-lock.json`: без diff.
+- Настоящий Play Mode QA с виртуальной мышью Input System: 24 шага, 5 кадров 1241×913, 0 logged/console errors, HUD audit — 0 проблем. Evidence: `Docs/review/P1.4a/`.
+- Проверены Preparation 1/8, Combat 1/8, WaveComplete, Preparation 2/8 и terminal Defeat. Terminal Victory и вся восьмиволновая последовательность проверены Domain tests, но полный визуальный Victory не захвачен.
+
 ## NOT VERIFIED / BLOCKED
 
 - GitHub self-hosted Unity EditMode/PlayMode execution — **BLOCKED** до действий владельца и полного manual PASS по процедуре выше.
-- Локальные EditMode/PlayMode и direct batch fallback — **BLOCKED** текущим live Editor descriptor при недоступном Unity CLI; реальный Unity CLI resident path также **NOT VERIFIED**. Fake CLI contract tests выполнены отдельно.
-- Физический iPhone, touch/safe area, thermal/performance и signing — **NOT VERIFIED** этим тикетом.
+- Direct batch fallback для P1.4a — **NOT VERIFIED**; обязательные локальные suites выполнены через реальный Unity CLI resident path. Fake CLI contract tests выполнены отдельно.
+- Физический iPhone, touch/safe area, thermal/performance, Simulator и signing — **NOT VERIFIED** этим тикетом.
+- Полный визуальный Victory — **NOT VERIFIED**; визуальный terminal evidence получен для Defeat.

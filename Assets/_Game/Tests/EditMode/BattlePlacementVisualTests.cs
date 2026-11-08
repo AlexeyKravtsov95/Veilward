@@ -105,6 +105,7 @@ namespace Veilward.Tests.EditMode
             serializedPlacement.FindProperty("confirmButton").objectReferenceValue = confirm;
             serializedPlacement.FindProperty("cancelButton").objectReferenceValue = cancel;
             serializedPlacement.FindProperty("startWaveButton").objectReferenceValue = startWave;
+            serializedPlacement.FindProperty("nextWaveButton").objectReferenceValue = CreateButton("Next Wave");
             serializedPlacement.FindProperty("rangePreview").objectReferenceValue = range;
             serializedPlacement.ApplyModifiedPropertiesWithoutUndo();
             Invoke(placement, "Start");

@@ -19,6 +19,29 @@
 | REG-BATTLE-007 | После завершения P1.3 выбор первой цели, cooldown, атака/урон, one-time kill, точный AttackEvent и beam position проверяются отдельно от P1.2 regression. | `BattleCombatTests`; `BattleCombatVisualTests`; `TowerPlacementTests` |
 | REG-BATTLE-008 | Два запуска сохранённого scenario с одинаковой командой размещения дают полный одинаковый timeline каждого тика до terminal phase: phase/tick/HP/gold/Kills, все enemy/tower states и все AttackEvents. | `BattleRegressionTests.IdenticalSavedScenarioRuns_ProduceIdenticalCompleteTimelines` |
 
+## P1.4a — Multi-Wave Lifecycle & Rewards
+
+Новые сценарии используют отдельный восьмиволновый config либо явно созданные Domain definitions. Сохранённый `TestWave.asset` остаётся legacy single-wave: reward/bonus равны нулю, последняя фаза — `WaveComplete`. `EightWave.asset` использует общую карту/бой TestWave, 5 gold за Shade, 20 gold за успешную волну и финальный `Victory`.
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-009 | Восемь волн проходят последовательно с WaveIndex 0…7; после нефинальных волн WaveComplete и ручной Continue, после восьмой Victory. | `BattleWaveLifecycleTests.EightWaves_CompleteInOrderAndFinishWithVictory` |
+| REG-BATTLE-010 | Spawn offsets второй и последующих волн отсчитываются от tick их StartWave; глобальный Tick не сбрасывается. | `BattleWaveLifecycleTests.SecondWave_UsesSpawnTicksRelativeToWaveStart` |
+| REG-BATTLE-011 | Continue увеличивает WaveIndex ровно один раз; повторные Start/Continue не создают enemies и не меняют состояние после rejected result. | `BattleWaveLifecycleTests.WaveCommands_AreIdempotentAndRejectedCommandsDoNotMutate` |
+| REG-BATTLE-012 | Gold/HP/Towers/Kills и глобальные cooldown сохраняются между волнами; строительство разрешено в новой Preparation. | `BattleWaveLifecycleTests.BetweenWaves_PreservesMatchStateAndAllowsPlacement` |
+| REG-BATTLE-013 | EnemyId и TowerId уникальны и монотонны в пределах полного матча. | `BattleWaveLifecycleTests.Ids_RemainUniqueAcrossAllWaves` |
+| REG-BATTLE-014 | Kill начисляет configured Reward и Kills ровно один раз даже при нескольких атаках одного тика. | `BattleWaveLifecycleTests.KillReward_IsGrantedExactlyOnce` |
+| REG-BATTLE-015 | Leak не начисляет Gold/Kills; wave bonus начисляется один раз, включая финальную Victory. | `BattleWaveLifecycleTests.LeakAndWaveBonuses_FollowEconomyInvariants` |
+| REG-BATTLE-016 | Defeat имеет приоритет над завершением, не даёт wave bonus и вместе с Victory замораживает Step/transition commands. | `BattleWaveLifecycleTests.DefeatAndVictory_AreTerminalAndDefeatPaysNoBonus` |
+| REG-BATTLE-017 | Недостаток денег, occupied/blocked/invalid phase и rejected wave commands не меняют snapshot. | `BattleWaveLifecycleTests.RejectedCommands_PreserveCompleteState` |
+| REG-BATTLE-018 | Reward/bonus неотрицательны; Gold никогда не становится отрицательным и насыщается на `int.MaxValue` без overflow. | `BattleWaveLifecycleTests.Rewards_CannotOverflowGold` |
+| REG-BATTLE-019 | Два одинаковых полных восьмиволновых матча дают одинаковые snapshots и AttackEvents. | `BattleWaveLifecycleTests.IdenticalFullMatches_ProduceIdenticalSnapshotsAndEvents` |
+| REG-BATTLE-020 | Сохранённый TestWave сохраняет прежние 150 Gold, 15 HP, 0 Kills и WaveComplete. | `BattleRegressionTests` (REG-BATTLE-001…008) |
+| REG-BATTLE-021 | EightWave содержит counts 5…12, reward 5, bonus 20 и использует общий Path/Tower без копии маршрута. | `BattleScenarioConfigTests.EightWaveAsset_UsesSharedMapAndConfiguredWaveSequence` |
+| REG-BATTLE-022 | Battle HUD отображает Wave current/count, Domain stats, Phase и Victory/Defeat result; кнопки доступны только в допустимых фазах. | `BattleWavePresentationTests` |
+| REG-BATTLE-023 | Battle builder/validator сохраняют TestWave, создают EightWave и валидные references без Missing Scripts и с воспроизводимым output. | `BattleAssetValidationTests`; `BattleSceneBuilderTests` |
+| REG-BATTLE-024 | Сохранённая Battle scene запускается в Play Mode с Preparation, WaveIndex 0, WaveCount 8; реальные screenshots фиксируют пять фаз матча. | `BattleSmokeTests.Battle_LoadsIntoPreparation`; `Docs/review/P1.4a` |
+
 ## CI-сценарии
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |
@@ -27,6 +50,7 @@
 | REG-CI-002 | Unity workflow не использует GameCI, license/account secrets, serial или ALF/ULF activation. Оба suite вызывают общий runner с явным `batch` backend, независимую проверку полного NUnit PASS и публикацию diagnostics. | `UnityWorkflowContractTests.test_unity_ci_does_not_use_license_secrets_or_game_ci`; `test_unity_tests_validate_and_publish_both_reports` |
 | REG-CI-003 | Явный `batch` backend создаёт NUnit XML и log для EditMode и PlayMode без Unity CLI JSON. Default `auto` сохраняет локальный CLI path. Batch отклоняет live Editor descriptor или доступный resident Editor и не запускает второй Editor. | `UnityBatchRunnerTests.test_batch_backend_produces_nunit_xml_for_both_modes`; `test_batch_backend_refuses_live_editor_descriptor`; `test_batch_backend_refuses_resident_editor`; `UnityRunnerTests.test_play_mode_uses_async_run_and_polls_completed_result` |
 | REG-CI-004 | Missing/stale, failed, skipped, inconclusive и empty NUnit reports, а также nonzero Unity exit при внешне passing report завершают batch runner ошибкой. | `UnityBatchRunnerTests.test_batch_backend_rejects_invalid_reports`; `test_batch_backend_rejects_nonzero_unity_exit` |
+| REG-CI-005 | Unity CLI envelope принимается только со строгим boolean `success: true`; `false`, `null`, строки и числа отклоняются при финальной проверке и PlayMode polling. Без envelope разрешены только raw `status: running` для продолжения polling и `status: completed` с корректным summary для результата. Missing/invalid summary, failed/skipped/empty и несовпадающие counts завершают runner ошибкой; batch XML path не меняется. | `UnityRunnerTests.test_edit_mode_valid_envelope_is_accepted`; `test_play_mode_valid_raw_completed_response_is_accepted`; `test_edit_mode_envelope_rejects_non_boolean_success`; `test_play_mode_polling_rejects_non_boolean_success`; `test_play_mode_raw_running_is_not_accepted_as_completed`; `test_missing_or_invalid_summary_is_rejected`; `test_failed_skipped_empty_and_mismatched_reports_are_rejected`; `UnityBatchRunnerTests.test_batch_backend_produces_nunit_xml_for_both_modes` |
 
 ## Правила сопровождения
 

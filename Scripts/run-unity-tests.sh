@@ -55,6 +55,8 @@ if [ "$BACKEND" = "auto" ] && [ "$RESIDENT_EDITOR" -eq 1 ]; then
   fi
 
   if [ "$TEST_MODE" = "PlayMode" ]; then
+    # The Pipeline endpoint briefly disappears while the Editor enters Play Mode.
+    sleep 2
     DEADLINE=$((SECONDS + 600))
     COMPLETED=0
     while [ "$SECONDS" -lt "$DEADLINE" ]; do
@@ -69,10 +71,19 @@ if [ "$BACKEND" = "auto" ] && [ "$RESIDENT_EDITOR" -eq 1 ]; then
 import json
 import sys
 payload = json.load(sys.stdin)
-if not isinstance(payload, dict) or payload.get("success") is not True:
+if not isinstance(payload, dict):
+    raise SystemExit(2)
+if "success" in payload:
+    if payload["success"] is not True:
+        raise SystemExit(2)
+elif payload.get("status") not in ("running", "completed"):
+    # Raw asynchronous polling responses have no envelope and expose top-level status.
     raise SystemExit(2)
 result = payload.get("result")
-print(result.get("status", "running") if isinstance(result, dict) else "running")
+if isinstance(result, dict):
+    print(result.get("status", "running"))
+else:
+    print(payload.get("status", "running"))
 ')"
       if [ "$RUN_STATUS" = "completed" ]; then
         COMPLETED=1
@@ -109,8 +120,13 @@ try:
 except (json.JSONDecodeError, UnicodeDecodeError) as error:
     fail(f"malformed JSON ({error})")
 
-if not isinstance(payload, dict) or payload.get("success") is not True:
-    fail("missing successful Unity CLI status")
+if not isinstance(payload, dict):
+    fail("Unity CLI result must be an object")
+if "success" in payload:
+    if payload["success"] is not True:
+        fail("Unity CLI envelope success must be boolean true")
+elif payload.get("status") != "completed":
+    fail("raw asynchronous result must have status completed")
 summary = payload.get("Summary")
 result = None
 if summary is None:
@@ -119,6 +135,8 @@ if summary is None:
     summary = result.get("Summary") if isinstance(result, dict) else None
 if not isinstance(summary, dict):
     result = payload.get("result")
+    if not isinstance(result, dict) and MODE == "PlayMode":
+        result = payload
     if isinstance(result, dict):
         summary = result.get("Summary") or result.get("summary")
         if MODE == "PlayMode" and result.get("status") != "completed":

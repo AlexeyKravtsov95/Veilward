@@ -110,5 +110,82 @@ namespace Veilward.Tests.EditMode
             Assert.That(simulation.TowerDefinition.Price, Is.EqualTo(60));
             Object.DestroyImmediate(config);
         }
+
+        [Test]
+        public void CreateSimulation_UsesSerializedWaveSequenceAndRewards()
+        {
+            var config = BattleScenarioConfig.CreateDefault();
+            var serialized = new SerializedObject(config);
+            var waves = serialized.FindProperty("waves");
+            Assert.That(waves, Is.Not.Null, "Serialized wave sequence is required.");
+            serialized.FindProperty("speed").floatValue = 0.03f;
+            serialized.FindProperty("towerDamage").intValue = 100;
+            serialized.FindProperty("towerFireRate").floatValue = 30f;
+            serialized.FindProperty("enemyReward").intValue = 7;
+            serialized.FindProperty("waveCompletionBonus").intValue = 11;
+            waves.arraySize = 2;
+            for (var index = 0; index < waves.arraySize; index++)
+            {
+                var wave = waves.GetArrayElementAtIndex(index);
+                wave.FindPropertyRelative("enemyCount").intValue = 1;
+                wave.FindPropertyRelative("firstSpawnTick").intValue = 0;
+                wave.FindPropertyRelative("spawnIntervalTicks").intValue = 30;
+            }
+
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            var simulation = config.CreateSimulation();
+            Assert.That(simulation.State.WaveCount, Is.EqualTo(2));
+            var placement = simulation.PlaceTower(new PlaceTowerCommand(
+                simulation.TowerDefinition.Id,
+                new GridCoordinate(-4, 0)));
+            Assert.That(placement.Success, Is.True, placement.FailureReason.ToString());
+
+            simulation.StartWave();
+            simulation.Step();
+            Assert.That(simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
+            Assert.That(simulation.State.Gold, Is.EqualTo(108));
+            Assert.That(simulation.State.Kills, Is.EqualTo(1));
+
+            Assert.That(
+                simulation.ContinueToNextWave(),
+                Is.EqualTo(WaveTransitionResult.Continued));
+            simulation.StartWave();
+            simulation.Step();
+            Assert.That(simulation.State.Phase, Is.EqualTo(BattlePhase.Victory));
+            Assert.That(simulation.State.Gold, Is.EqualTo(126));
+            Assert.That(simulation.State.Kills, Is.EqualTo(2));
+            Object.DestroyImmediate(config);
+        }
+
+        [Test]
+        public void EightWaveAsset_UsesSharedMapAndConfiguredWaveSequence()
+        {
+            const string configPath = "Assets/_Game/Configs/EightWave.asset";
+            var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(configPath);
+            Assert.That(config, Is.Not.Null, configPath);
+            var legacy = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(
+                "Assets/_Game/Configs/TestWave.asset");
+            var serialized = new SerializedObject(config);
+            Assert.That(serialized.FindProperty("sharedScenario").objectReferenceValue, Is.SameAs(legacy));
+            Assert.That(serialized.FindProperty("enemyReward").intValue, Is.EqualTo(5));
+            Assert.That(serialized.FindProperty("waveCompletionBonus").intValue, Is.EqualTo(20));
+            var waves = serialized.FindProperty("waves");
+            Assert.That(waves.arraySize, Is.EqualTo(8));
+            var expectedCounts = new[] { 5, 6, 7, 8, 9, 10, 11, 12 };
+            for (var index = 0; index < expectedCounts.Length; index++)
+            {
+                Assert.That(
+                    waves.GetArrayElementAtIndex(index).FindPropertyRelative("enemyCount").intValue,
+                    Is.EqualTo(expectedCounts[index]));
+            }
+
+            var simulation = config.CreateSimulation();
+            var legacySimulation = legacy.CreateSimulation();
+            Assert.That(simulation.State.WaveCount, Is.EqualTo(8));
+            Assert.That(simulation.Path.TotalLength, Is.EqualTo(legacySimulation.Path.TotalLength));
+            Assert.That(simulation.TowerDefinition.Price, Is.EqualTo(legacySimulation.TowerDefinition.Price));
+            Assert.That(simulation.TowerDefinition.Range, Is.EqualTo(legacySimulation.TowerDefinition.Range));
+            Assert.That(simulation.TowerDefinition.Damage, Is.EqualTo(legacySimulation.TowerDefinition.Damage));
+        }
     }
 }

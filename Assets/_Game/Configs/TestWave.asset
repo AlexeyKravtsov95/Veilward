@@ -35,3 +35,7 @@ MonoBehaviour:
   towerRange: 3
   towerFireRate: 2
   towerDamage: 25
+  sharedScenario: {fileID: 0}
+  enemyReward: 0
+  waveCompletionBonus: 0
+  waves: []

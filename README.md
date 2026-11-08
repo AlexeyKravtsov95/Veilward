@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. Текущий статус — **P1.3 Targeting & Combat**: детерминированная 30 Hz симуляция одной тестовой волны, fixed-path movement, build grid, установка башен и первая боевая модель First targeting в graybox Battle. Продажа, улучшения, стихии, сохранения, IAP и Game Center ещё не реализованы.
+Unity-проект мобильной tower defense игры для iOS. Текущий статус — **P1.4a Multi-Wave Lifecycle & Rewards**: детерминированная 30 Hz симуляция восьми волн с ручными переходами, наградами за kills и завершение волн, Victory/Defeat, fixed-path movement, build grid и First targeting в graybox Battle. Продажа, улучшения, стихии, сохранения, IAP и Game Center ещё не реализованы.
 
 ## Окружение
 
@@ -62,6 +62,14 @@ Graybox-сцену и assets можно повторно сгенерирова�
 
 `MainMenu` не изменялось; переход из меню в Battle в этом тикете не добавляется.
 
+## P1.4a Multi-Wave Lifecycle & Rewards
+
+`Assets/_Game/Configs/EightWave.asset` задаёт восемь волн с количеством Shade **5, 6, 7, 8, 9, 10, 11, 12** и ссылается на `TestWave.asset` через `sharedScenario`, не дублируя карту, маршрут и боевые параметры. Каждый kill приносит **5 gold**, завершение волны — **20 gold**, включая финальную. Leak не даёт награды; Defeat не даёт wave bonus; начисление Gold насыщается на `int.MaxValue`.
+
+**Start Wave** переводит Preparation в Combat, **Next Wave** доступен только в WaveComplete и переводит к следующей Preparation. Между волнами сохраняются глобальный tick, Enemy/Tower IDs, башни и cooldown, Gold, Base Health и Kills. Последняя волна завершается Victory; повторные и недопустимые команды не меняют состояние. HUD показывает `Wave: current / count`, Phase и terminal Result. Legacy `TestWave.asset` остаётся single-wave с bonus 0 и финальной фазой WaveComplete.
+
+Graybox-сцену и оба config можно повторно сгенерировать через **VEILWARD → P1.4a Build**. Builder сохраняет существующие настройки волн, наград и боя; validator проверяет EightWave, Next Wave и остальные обязательные ссылки.
+
 ## Настройки репозитория
 
 - Asset Serialization: **Force Text**.
@@ -77,22 +85,21 @@ Graybox-сцену и assets можно повторно сгенерирова�
 ./Scripts/run-static-checks.sh
 ./Scripts/run-edit-mode-tests.sh
 ./Scripts/run-play-mode-tests.sh
+git diff --check
 ```
 
-Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P0.3.1 после review fixes: **32/32 static self-tests passed**, project checks PASS.
+Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P1.4a после review fix: **38/38 static self-tests passed**, project checks PASS.
 
-EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…008`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат: **158/158 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode smoke загружает Battle и проверяет Preparation: **1/1 PlayMode test passed**, 0 failed/inconclusive/skipped.
+EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…024`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат: **175/175 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode smoke загружает Battle и проверяет Preparation первой из восьми волн: **1/1 PlayMode test passed**, 0 failed/inconclusive/skipped. `git diff --check`: PASS; `Packages/manifest.json` и `Packages/packages-lock.json` не изменялись.
 
-Runners принимают только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. XML validator независимо проверяет NUnit/JUnit reports. Default `auto` сохраняет локальный Unity CLI path с JSON summary; self-hosted CI явно вызывает `run-unity-tests.sh <Mode> batch` и получает NUnit XML и log для EditMode/PlayMode. Batch отклоняет resident Editor или live descriptor и не запускает второй Editor. В P0.3.1 оба локальных suite остались **NOT VERIFIED / BLOCKED** из-за открытого Editor при недоступном Unity CLI. В clean checkout используется `UNITY_EDITOR_PATH` либо стандартный Unity Hub path; batch mode получает `-buildTarget iOS` и сохраняет report/log в ignored `TestResults`.
+Runners принимают только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. XML validator независимо проверяет NUnit/JUnit reports. Default `auto` сохраняет локальный Unity CLI path с JSON summary; self-hosted CI явно вызывает `run-unity-tests.sh <Mode> batch` и получает NUnit XML и log для EditMode/PlayMode. Batch отклоняет resident Editor или live descriptor и не запускает второй Editor. В clean checkout используется `UNITY_EDITOR_PATH` либо стандартный Unity Hub path; batch mode получает `-buildTarget iOS` и сохраняет report/log в ignored `TestResults`.
 
 GitHub Actions workflow `Quality Gates` выполняет static checks на PR/push в `main` на `ubuntu-latest`. Отдельный workflow `Unity Personal Tests` запускает EditMode/PlayMode только вручную при `github.ref == refs/heads/main` через `[self-hosted, macOS, veilward-unity-personal]`. Checkout закреплён на `github.sha` и сверяет фактический HEAD с ожидаемым SHA. Unity Personal активируется владельцем через Unity Hub: workflow не использует GameCI, ALF/ULF, Unity account secrets или serial. Сейчас Unity CI **NOT VERIFIED / BLOCKED**, потому что runner не зарегистрирован и полный manual PASS ещё не получен. Автоматический запуск непроверенного PR-кода на self-hosted runner не разрешён. Процедура изоляции и включения описана в `Docs/QUALITY_GATES.md`; регрессионный контракт — в `Docs/REGRESSION.md`.
 
-## iOS build
+## iOS build и Play Mode evidence
 
-Unity создаёт Xcode project для iOS. Apple signing, provisioning и установка на устройство выполняются владельцем проекта; приватные credentials в репозиторий не добавляются.
+Unity создаёт Xcode project для iOS. Apple signing, provisioning и установка на устройство выполняются владельцем проекта; приватные credentials в репозиторий не добавляются. Для P1.4a новый iOS export не запускался; предыдущий P1.3 Device SDK export без signing завершился `Succeeded`, **0 errors / 0 warnings**, но не является device-проверкой P1.4a.
 
-После review fixes повторно выполнен Unity iOS **Device SDK export без signing** в открытом Editor: Xcode project создан в ignored `Builds/iOS/P1.3-Review`, результат `Succeeded`, **0 errors / 0 warnings**. Экспортированные IL2CPP sources содержат `Veilward.Domain.cpp`; `Veilward.Editor` и QA в player не входят. Simulator build и `xcodebuild` в этом тикете не запускались.
+P1.4a проверен в настоящем Play Mode через виртуальную мышь Input System: Preparation 1/8, Combat 1/8, WaveComplete с Gold 170 и Preparation 2/8 с сохранёнными Gold/tick, затем Defeat 4/8 с видимым `Result: Defeat`. Пять кадров 1241×913 находятся в `Docs/review/P1.4a/`; `qa.log` фиксирует 24 шага, 5 screenshots и 0 logged errors, HUD audit — 0 проблем, Console — 0 errors. Terminal Victory проверен deterministic Domain tests; полный визуальный Victory не захватывался.
 
-Play Mode после review fixes проверен с виртуальной мышью Input System. Обычный бой с башней в `(-4,0)`: подтверждённые selection/Confirm/Start Wave, beam, первая смерть с **Kills 1, Base Health 20**, финал **Kills 1, Base Health 16, Active Enemies 0, WaveComplete, tick 399**. Отдельный lethal first-shot с временным QA Damage 100 только в памяти Play Mode: на захваченном кадре противник уже удалён, **Kills 1, Base Health 20, Active Enemies 0**, beam виден в сохранённой точке попадания. После остановки сохранённый asset остался с Damage 25. Console errors — **0**. Game View evidence находится в `Docs/review/P1.3/review-fix-normal/` и `Docs/review/P1.3/review-fix-lethal/`.
-
-**Физический iPhone не проверялся.** Signing, touch на устройстве, safe area, производительность и Simulator для P1.3 также не проверялись.
+**Физический iPhone не проверялся.** Signing, touch на устройстве, safe area, производительность и Simulator для P1.4a также не проверялись.
