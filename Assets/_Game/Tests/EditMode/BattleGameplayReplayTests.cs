@@ -73,6 +73,18 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void SavedFlexibleReplay_RebuildsSoldCellWithNewTowerId()
+        {
+            var report = RunSavedStrategy(SavedStrategy.FlexibleEconomy);
+
+            Assert.That(report.Commands[0], Is.EqualTo("Place Tower=1 Cell=(-1,0) Cost=60 Gold=90"));
+            Assert.That(report.Timeline[1], Does.Contain("G:-1,0=Occupied"));
+            Assert.That(report.Commands[1], Is.EqualTo("Sell Tower=1 Refund=42 Gold=132"));
+            Assert.That(report.Timeline[2], Does.Contain("G:-1,0=Available"));
+            Assert.That(report.Commands[2], Is.EqualTo("Place Tower=2 Cell=(-1,0) Cost=60 Gold=72"));
+        }
+
+        [Test]
         public void SavedStrategies_ProduceReproducibleMechanicalResults()
         {
             AssertStrategyReplays(SavedStrategy.TowerExpansion);
@@ -234,7 +246,7 @@ namespace Veilward.Tests.EditMode
                     Place(simulation, ExpansionCells[0], commands, timeline);
                     break;
                 case SavedStrategy.FlexibleEconomy:
-                    var sold = Place(simulation, new GridCoordinate(-4, -3), commands, timeline);
+                    var sold = Place(simulation, ExpansionCells[0], commands, timeline);
                     Sell(simulation, sold.Tower.Id, commands, timeline);
                     Place(simulation, ExpansionCells[0], commands, timeline);
                     break;

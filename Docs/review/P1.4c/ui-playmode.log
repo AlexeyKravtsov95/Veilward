@@ -8,20 +8,20 @@ Frame advancement=real Editor Play Mode frames; QA Time.timeScale=8 during waits
 INITIAL
 Wave=1/8 Phase=Preparation Tick=0 Gold=150 HP=20 Kills=0 Towers=0 Enemies=0
 
-BUILD / SELL / REBUILD
-Select Cell=(-4,-3); Confirm: Gold=90 Towers=1
+BUILD / SELL / SAME-CELL REBUILD
+Select Cell=(-1,0); Confirm: Gold=90 Towers=1 TowerIds=[1]
 Occupied selection: Level=1 Damage=25 Range=3 FireRate=2/s Upgrade=50 SellRefund=42
-Sell click: SellDialog=True; Cancel: SellDialog=False Gold=90 Towers=1
-Sell click; Confirm Sell: Gold=132 Towers=0 SellDialog=False
-Select Cell=(-1,0); Confirm: Gold=72 Towers=1
+Sell click: SellDialog=True; Cancel: SellDialog=False Gold=90 Towers=1 TowerIds=[1]
+Sell click; Confirm Sell: Gold=132 Towers=0 SellDialog=False TowerIds=[]
+Select same Cell=(-1,0) after Sell: selection accepted; Confirm: Gold=72 Towers=1 TowerIds=[2]
 Start Wave: Phase=Combat Tick=0 Enemies=1
 
-UPGRADES
-After wave 2: Tower=2 Cell=(-1,0) L1 -> L2; Gold=117 -> 57; Damage=35; next Upgrade=80; SellRefund=77
+ECONOMIC ACTIONS IN CHRONOLOGICAL ORDER
+After wave 1: Place Tower=3 Cell=(1,0); Gold=117 -> 57
+After wave 2: Tower=2 Cell=(-1,0) L1 -> L2; Gold=107 -> 57; Cost=50; Damage=35; next Upgrade=80; SellRefund=77
 After wave 3: Tower=3 Cell=(1,0) L1 -> L2; Gold=112 -> 62; Damage=35; next Upgrade=80; SellRefund=77
 After wave 4: Tower=2 L2 -> L3; Gold=122 -> 42; Damage=50; Upgrade=MAX; SellRefund=133
 After wave 5: Tower=3 L2 -> L3; Gold=107 -> 27; Damage=50; Upgrade=MAX; SellRefund=133
-After wave 1: Place Tower=3 Cell=(1,0); Gold=117 -> 57
 After wave 6: Place Tower=4 Cell=(-1,1); Gold=97 -> 37
 After wave 7: Place Tower=5 Cell=(1,1); Gold=112 -> 52
 
@@ -37,7 +37,7 @@ Wave=8 Phase=Victory Tick=2460 Gold=132 HP=20 Kills=68 Towers=4 Enemies=0
 
 VISUAL / CONSOLE AUDIT
 Wave-8 preparation: Tick=2079 Gold=52 Towers=4
-Wave-8 combat screenshot: Tick=2203 Phase=Combat ActiveEnemies=2 TimeScale=1
+Wave-8 combat screenshot: Tick=2202 Phase=Combat Gold=67 Kills=59 ActiveEnemies=2 TimeScale=1
 Terminal screenshot: Phase=Victory Tick=2460 Gold=132 HP=20 Kills=68 Towers=4
 Landscape captures=10; resolution=1600x900
 MissingScripts=0

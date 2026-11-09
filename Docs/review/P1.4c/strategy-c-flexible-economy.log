@@ -4,10 +4,10 @@ Strategy=FlexibleEconomy
 Source=BattleGameplayReplayTests.RunSavedStrategy
 RejectedCommands=None (fixed successful command sequence)
 TimelineEntries=2487
-TimelineSha256=18f627786cc60ec45213e4abc2d396d2e7a70626bbad8aff28ce35ebfa5ef1c4
+TimelineSha256=6c96a353dc4b3a470d47658ea7605b061dd4bf9630860101aa0ec14d210d781b
 
 COMMANDS
-Place Tower=1 Cell=(-4,-3) Cost=60 Gold=90
+Place Tower=1 Cell=(-1,0) Cost=60 Gold=90
 Sell Tower=1 Refund=42 Gold=132
 Place Tower=2 Cell=(-1,0) Cost=60 Gold=72
 Place Tower=3 Cell=(1,0) Cost=60 Gold=57

@@ -80,7 +80,7 @@
 | ID | Сценарий и ожидаемый результат | Автоматизация |
 |---|---|---|
 | REG-BATTLE-051 | Два replay сохранённого EightWave с одинаковыми начальными условиями и последовательностью публичных команд дают одинаковые состояния на каждом тике, Gold, TowerId/EnemyId, AttackEvents и terminal result. | `BattleGameplayReplayTests.SavedFlexibleReplay_ProducesIdenticalCompleteTimelines` |
-| REG-BATTLE-052 | Стратегии Tower Expansion, Tower Upgrades и Flexible Economy используют неизменённый saved EightWave и штатные Domain API; журналы содержат пословновые Gold/HP/kills/leaks, экономические команды и фактический Victory/Defeat без гарантии искусственной победы. | `BattleGameplayReplayTests.SavedStrategies_ProduceReproducibleMechanicalResults`; `Docs/review/P1.4c` |
+| REG-BATTLE-052 | Стратегии Tower Expansion, Tower Upgrades и Flexible Economy используют неизменённый saved EightWave и штатные Domain API; журналы содержат пословновые Gold/HP/kills/leaks, экономические команды и фактический Victory/Defeat без гарантии искусственной победы. Flexible Economy выполняет build → sell → rebuild в одной клетке: после постройки клетка Occupied, после продажи Available, повторная покупка успешна и получает новый монотонный TowerId. | `BattleGameplayReplayTests.SavedStrategies_ProduceReproducibleMechanicalResults`; `BattleGameplayReplayTests.SavedFlexibleReplay_RebuildsSoldCellWithNewTowerId`; `Docs/review/P1.4c` |
 | REG-BATTLE-053 | Editor Play Mode подтверждает полный UI cycle: build/Confirm, wave start, selection, L1→L2→L3, Sell Confirm/Cancel, rebuild, Next Wave и фактический terminal; landscape screenshots показывают ключевые фазы и последнюю волну без обрезаний HUD. | `Docs/review/P1.4c`; реальный Play Mode QA |
 
 ## CI-сценарии
