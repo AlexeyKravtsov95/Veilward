@@ -75,6 +75,14 @@
 | REG-BATTLE-049 | В Combat occupied selection продолжает показывать актуальные характеристики, но Upgrade/Sell и confirmation остаются недоступны. | `BattleSellConfirmationTests.CancelSellConfirmation_RestoresActionsAndPreservesCombatStats` |
 | REG-BATTLE-050 | Измерение Tower Stats использует изолированный preview-scene экземпляр, восстанавливает ресурсы в finally и не меняет текст или dirty state сохранённой Battle scene. | `BattleAssetValidationTests.SavedBattleScene_TowerStatsRect_FitsAllEconomyLines`; `SavedBattleScene_TowerStatsMeasurement_DoesNotMutateScene` |
 
+## P1.4c — Gameplay Validation & Balance Baseline
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-051 | Два replay сохранённого EightWave с одинаковыми начальными условиями и последовательностью публичных команд дают одинаковые состояния на каждом тике, Gold, TowerId/EnemyId, AttackEvents и terminal result. | `BattleGameplayReplayTests.SavedFlexibleReplay_ProducesIdenticalCompleteTimelines` |
+| REG-BATTLE-052 | Стратегии Tower Expansion, Tower Upgrades и Flexible Economy используют неизменённый saved EightWave и штатные Domain API; журналы содержат пословновые Gold/HP/kills/leaks, экономические команды и фактический Victory/Defeat без гарантии искусственной победы. | `BattleGameplayReplayTests.SavedStrategies_ProduceReproducibleMechanicalResults`; `Docs/review/P1.4c` |
+| REG-BATTLE-053 | Editor Play Mode подтверждает полный UI cycle: build/Confirm, wave start, selection, L1→L2→L3, Sell Confirm/Cancel, rebuild, Next Wave и фактический terminal; landscape screenshots показывают ключевые фазы и последнюю волну без обрезаний HUD. | `Docs/review/P1.4c`; реальный Play Mode QA |
+
 ## CI-сценарии
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |

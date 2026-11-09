@@ -1,0 +1,30 @@
+﻿P1.4c deterministic saved-EightWave strategy
+Config=Assets/_Game/Configs/EightWave.asset
+Strategy=TowerUpgrades
+Source=BattleGameplayReplayTests.RunSavedStrategy
+RejectedCommands=None (fixed successful command sequence)
+TimelineEntries=2473
+TimelineSha256=581135e9b787478cbc58236fe28e220d9dbe1d526310e6008c80bb7297f826e9
+
+COMMANDS
+Place Tower=1 Cell=(-1,0) Cost=60 Gold=90
+Upgrade Tower=1 Level=2 Cost=50 Gold=85
+Upgrade Tower=1 Level=3 Cost=80 Gold=55
+Place Tower=2 Cell=(1,0) Cost=60 Gold=50
+Upgrade Tower=2 Level=2 Cost=50 Gold=60
+Upgrade Tower=2 Level=3 Cost=80 Gold=45
+Place Tower=3 Cell=(-1,1) Cost=60 Gold=55
+Upgrade Tower=3 Level=2 Cost=50 Gold=80
+
+WAVE SUMMARIES
+Wave=1|Phase=WaveComplete|Tick=321|Gold=135|HP=20|Kills=5|Leaks=0|Towers=1@-1,0:L1:I60;
+Wave=2|Phase=WaveComplete|Tick=612|Gold=135|HP=20|Kills=11|Leaks=0|Towers=1@-1,0:L2:I110;
+Wave=3|Phase=WaveComplete|Tick=843|Gold=110|HP=20|Kills=18|Leaks=0|Towers=1@-1,0:L3:I190;
+Wave=4|Phase=WaveComplete|Tick=1104|Gold=110|HP=20|Kills=26|Leaks=0|Towers=1@-1,0:L3:I190;2@1,0:L1:I60;
+Wave=5|Phase=WaveComplete|Tick=1395|Gold=125|HP=20|Kills=35|Leaks=0|Towers=1@-1,0:L3:I190;2@1,0:L2:I110;
+Wave=6|Phase=WaveComplete|Tick=1716|Gold=115|HP=20|Kills=45|Leaks=0|Towers=1@-1,0:L3:I190;2@1,0:L3:I190;
+Wave=7|Phase=WaveComplete|Tick=2067|Gold=130|HP=20|Kills=56|Leaks=0|Towers=1@-1,0:L3:I190;2@1,0:L3:I190;3@-1,1:L1:I60;
+Wave=8|Phase=Victory|Tick=2448|Gold=160|HP=20|Kills=68|Leaks=0|Towers=1@-1,0:L3:I190;2@1,0:L3:I190;3@-1,1:L2:I110;
+
+FINAL
+Strategy=TowerUpgrades|Phase=Victory|Wave=8/8|Tick=2448|Gold=160|HP=20|Kills=68|Towers=1@-1,0:L3:I190;2@1,0:L3:I190;3@-1,1:L2:I110;

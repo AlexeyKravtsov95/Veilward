@@ -1,0 +1,45 @@
+P1.4c Editor Play Mode UI validation
+Source=actual result fields from temporary .tools/ui-actions.jsonl
+Scene flow=FlexibleEconomy on the saved EightWave config
+Input=existing Presentation selection APIs and Unity Button.onClick.Invoke
+Domain mutations=none; no direct Gold/HP/Kills/Tower/Enemy writes and no manual simulation ticks
+Frame advancement=real Editor Play Mode frames; QA Time.timeScale=8 during waits, 0 at inspection boundaries, 1 for the wave-8 combat screenshot
+
+INITIAL
+Wave=1/8 Phase=Preparation Tick=0 Gold=150 HP=20 Kills=0 Towers=0 Enemies=0
+
+BUILD / SELL / REBUILD
+Select Cell=(-4,-3); Confirm: Gold=90 Towers=1
+Occupied selection: Level=1 Damage=25 Range=3 FireRate=2/s Upgrade=50 SellRefund=42
+Sell click: SellDialog=True; Cancel: SellDialog=False Gold=90 Towers=1
+Sell click; Confirm Sell: Gold=132 Towers=0 SellDialog=False
+Select Cell=(-1,0); Confirm: Gold=72 Towers=1
+Start Wave: Phase=Combat Tick=0 Enemies=1
+
+UPGRADES
+After wave 2: Tower=2 Cell=(-1,0) L1 -> L2; Gold=117 -> 57; Damage=35; next Upgrade=80; SellRefund=77
+After wave 3: Tower=3 Cell=(1,0) L1 -> L2; Gold=112 -> 62; Damage=35; next Upgrade=80; SellRefund=77
+After wave 4: Tower=2 L2 -> L3; Gold=122 -> 42; Damage=50; Upgrade=MAX; SellRefund=133
+After wave 5: Tower=3 L2 -> L3; Gold=107 -> 27; Damage=50; Upgrade=MAX; SellRefund=133
+After wave 1: Place Tower=3 Cell=(1,0); Gold=117 -> 57
+After wave 6: Place Tower=4 Cell=(-1,1); Gold=97 -> 37
+After wave 7: Place Tower=5 Cell=(1,1); Gold=112 -> 52
+
+WAVE RESULTS
+Wave=1 Phase=WaveComplete Tick=321 Gold=117 HP=20 Kills=5 Towers=1 Enemies=0
+Wave=2 Phase=WaveComplete Tick=561 Gold=107 HP=20 Kills=11 Towers=2 Enemies=0
+Wave=3 Phase=WaveComplete Tick=831 Gold=112 HP=20 Kills=18 Towers=2 Enemies=0
+Wave=4 Phase=WaveComplete Tick=1116 Gold=122 HP=20 Kills=26 Towers=2 Enemies=0
+Wave=5 Phase=WaveComplete Tick=1407 Gold=107 HP=20 Kills=35 Towers=2 Enemies=0
+Wave=6 Phase=WaveComplete Tick=1728 Gold=97 HP=20 Kills=45 Towers=2 Enemies=0
+Wave=7 Phase=WaveComplete Tick=2079 Gold=112 HP=20 Kills=56 Towers=3 Enemies=0
+Wave=8 Phase=Victory Tick=2460 Gold=132 HP=20 Kills=68 Towers=4 Enemies=0
+
+VISUAL / CONSOLE AUDIT
+Wave-8 preparation: Tick=2079 Gold=52 Towers=4
+Wave-8 combat screenshot: Tick=2203 Phase=Combat ActiveEnemies=2 TimeScale=1
+Terminal screenshot: Phase=Victory Tick=2460 Gold=132 HP=20 Kills=68 Towers=4
+Landscape captures=10; resolution=1600x900
+MissingScripts=0
+Console errors=0; console-errors.json entries=[]
+Play Mode stopped and Run In Background restored after capture

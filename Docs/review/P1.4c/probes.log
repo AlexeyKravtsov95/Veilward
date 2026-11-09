@@ -1,0 +1,68 @@
+=== PROBE - One L1 Hold ===
+START Phase=Preparation Gold=150 HP=20 Waves=8
+PREP 1: T1@(-1,0) L1 I60; Gold=90
+WAVE 1: Phase=WaveComplete Tick=321 Gold=135 HP=20 Kills=5 WaveKills=5 Leaks=0
+TOWERS: T1@(-1,0) L1 I60; Gold=135
+PREP 2: T1@(-1,0) L1 I60; Gold=135
+WAVE 2: Phase=WaveComplete Tick=750 Gold=180 HP=19 Kills=10 WaveKills=5 Leaks=1
+TOWERS: T1@(-1,0) L1 I60; Gold=180
+PREP 3: T1@(-1,0) L1 I60; Gold=180
+WAVE 3: Phase=WaveComplete Tick=1209 Gold=225 HP=17 Kills=15 WaveKills=5 Leaks=2
+TOWERS: T1@(-1,0) L1 I60; Gold=225
+PREP 4: T1@(-1,0) L1 I60; Gold=225
+WAVE 4: Phase=WaveComplete Tick=1698 Gold=270 HP=14 Kills=20 WaveKills=5 Leaks=3
+TOWERS: T1@(-1,0) L1 I60; Gold=270
+PREP 5: T1@(-1,0) L1 I60; Gold=270
+WAVE 5: Phase=WaveComplete Tick=2217 Gold=315 HP=10 Kills=25 WaveKills=5 Leaks=4
+TOWERS: T1@(-1,0) L1 I60; Gold=315
+PREP 6: T1@(-1,0) L1 I60; Gold=315
+WAVE 6: Phase=WaveComplete Tick=2766 Gold=360 HP=5 Kills=30 WaveKills=5 Leaks=5
+TOWERS: T1@(-1,0) L1 I60; Gold=360
+PREP 7: T1@(-1,0) L1 I60; Gold=360
+WAVE 7: Phase=Defeat Tick=3315 Gold=385 HP=0 Kills=35 WaveKills=5 Leaks=5
+TOWERS: T1@(-1,0) L1 I60; Gold=385
+RESULT Defeat Wave=7 Gold=385 HP=0 Kills=35
+
+=== PROBE - Two L1 Hold ===
+START Phase=Preparation Gold=150 HP=20 Waves=8
+PREP 1: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=30
+WAVE 1: Phase=WaveComplete Tick=210 Gold=75 HP=20 Kills=5 WaveKills=5 Leaks=0
+TOWERS: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=75
+PREP 2: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=75
+WAVE 2: Phase=WaveComplete Tick=450 Gold=125 HP=20 Kills=11 WaveKills=6 Leaks=0
+TOWERS: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=125
+PREP 3: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=125
+WAVE 3: Phase=WaveComplete Tick=720 Gold=180 HP=20 Kills=18 WaveKills=7 Leaks=0
+TOWERS: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=180
+PREP 4: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=180
+WAVE 4: Phase=WaveComplete Tick=1020 Gold=240 HP=20 Kills=26 WaveKills=8 Leaks=0
+TOWERS: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=240
+PREP 5: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=240
+WAVE 5: Phase=WaveComplete Tick=1350 Gold=305 HP=20 Kills=35 WaveKills=9 Leaks=0
+TOWERS: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=305
+PREP 6: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=305
+WAVE 6: Phase=WaveComplete Tick=1710 Gold=375 HP=20 Kills=45 WaveKills=10 Leaks=0
+TOWERS: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=375
+PREP 7: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=375
+WAVE 7: Phase=WaveComplete Tick=2100 Gold=450 HP=20 Kills=56 WaveKills=11 Leaks=0
+TOWERS: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=450
+PREP 8: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=450
+WAVE 8: Phase=Victory Tick=2520 Gold=530 HP=20 Kills=68 WaveKills=12 Leaks=0
+TOWERS: T1@(-1,0) L1 I60; T2@(1,0) L1 I60; Gold=530
+RESULT Victory Wave=8 Gold=530 HP=20 Kills=68
+
+=== PROBE - No Build ===
+START Phase=Preparation Gold=150 HP=20 Waves=8
+PREP 1: Gold=150
+WAVE 1: Phase=WaveComplete Tick=399 Gold=170 HP=15 Kills=0 WaveKills=0 Leaks=5
+TOWERS: Gold=170
+PREP 2: Gold=170
+WAVE 2: Phase=WaveComplete Tick=828 Gold=190 HP=9 Kills=0 WaveKills=0 Leaks=6
+TOWERS: Gold=190
+PREP 3: Gold=190
+WAVE 3: Phase=WaveComplete Tick=1287 Gold=210 HP=2 Kills=0 WaveKills=0 Leaks=7
+TOWERS: Gold=210
+PREP 4: Gold=210
+WAVE 4: Phase=Defeat Tick=1596 Gold=210 HP=0 Kills=0 WaveKills=0 Leaks=2
+TOWERS: Gold=210
+RESULT Defeat Wave=4 Gold=210 HP=0 Kills=0
