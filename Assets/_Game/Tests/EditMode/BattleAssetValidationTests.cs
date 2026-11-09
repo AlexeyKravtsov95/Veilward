@@ -29,12 +29,56 @@ namespace Veilward.Tests.EditMode
                     UnityEngine.FindObjectsInactive.Include,
                     UnityEngine.FindObjectsSortMode.None)
                 .Single(text => text.name == "Tower Stats");
-            stats.text = "Level: 3\nDamage: 50\nRange: 3\nFireRate: 2/s\nUpgrade: MAX\nSell refund: 133 gold";
+            var measurementScene = EditorSceneManager.NewPreviewScene();
+            UnityEngine.GameObject temporary = null;
+            try
+            {
+                temporary = (UnityEngine.GameObject)UnityEngine.Object.Instantiate(stats.gameObject, measurementScene);
+                var copy = temporary.GetComponent<UnityEngine.UI.Text>();
+                copy.text = "Level: 3\nDamage: 50\nRange: 3\nFireRate: 2/s\nUpgrade: MAX\nSell refund: 133 gold";
 
-            Assert.That(
-                stats.rectTransform.rect.height,
-                Is.GreaterThanOrEqualTo(stats.preferredHeight),
-                "Tower Stats must display every economy line without clipping.");
+                Assert.That(
+                    stats.rectTransform.rect.height,
+                    Is.GreaterThanOrEqualTo(copy.preferredHeight),
+                    "Tower Stats must display every economy line without clipping.");
+            }
+            finally
+            {
+                if (temporary != null)
+                {
+                    UnityEngine.Object.DestroyImmediate(temporary);
+                }
+
+                EditorSceneManager.ClosePreviewScene(measurementScene);
+            }
+        }
+
+        [Test]
+        public void SavedBattleScene_TowerStatsMeasurement_DoesNotMutateScene()
+        {
+            UnityEngine.UI.Text FindStats() => UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Text>(
+                    UnityEngine.FindObjectsInactive.Include,
+                    UnityEngine.FindObjectsSortMode.None)
+                .Single(text => text.name == "Tower Stats");
+
+            var scene = EditorSceneManager.OpenScene(BattleScenePath);
+            Assert.That(scene.isDirty, Is.False, "The measurement test requires a clean Battle scene.");
+            var originalText = FindStats().text;
+            try
+            {
+                SavedBattleScene_TowerStatsRect_FitsAllEconomyLines();
+
+                Assert.That(FindStats().text, Is.EqualTo(originalText));
+                Assert.That(EditorSceneManager.GetActiveScene().isDirty, Is.False);
+            }
+            finally
+            {
+                FindStats().text = originalText;
+                if (EditorSceneManager.GetActiveScene().isDirty)
+                {
+                    EditorSceneManager.OpenScene(BattleScenePath);
+                }
+            }
         }
 
         [Test]

@@ -32,6 +32,7 @@ namespace Veilward.Presentation
         private bool _hasSelection;
         private bool _hasTowerSelection;
         private bool _isSellConfirmationVisible;
+        private TowerId? _sellConfirmationTowerId;
 
         public bool HasSelection => _hasSelection;
         public GridCoordinate SelectedCell { get; private set; }
@@ -238,7 +239,7 @@ namespace Veilward.Presentation
 
         public void ConfirmSelection()
         {
-            if (!_hasSelection || _hasTowerSelection || battle.Simulation == null)
+            if (_isSellConfirmationVisible || !_hasSelection || _hasTowerSelection || battle.Simulation == null)
             {
                 return;
             }
@@ -252,6 +253,11 @@ namespace Veilward.Presentation
 
         public TowerOperationResult UpgradeSelectedTower()
         {
+            if (_isSellConfirmationVisible)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.ConfirmationRequired);
+            }
+
             if (!SelectedTowerId.HasValue)
             {
                 return TowerOperationResult.Failed(TowerOperationFailureReason.TowerNotFound);
@@ -264,23 +270,26 @@ namespace Veilward.Presentation
 
         public void RequestSellSelectedTower()
         {
-            if (!SelectedTowerId.HasValue || battle.Simulation.State.Phase != BattlePhase.Preparation)
+            if (_isSellConfirmationVisible || !SelectedTowerId.HasValue ||
+                battle.Simulation.State.Phase != BattlePhase.Preparation)
             {
                 return;
             }
 
+            _sellConfirmationTowerId = SelectedTowerId;
             _isSellConfirmationVisible = true;
             RefreshUi();
         }
 
         public TowerOperationResult ConfirmSellSelectedTower()
         {
-            if (!SelectedTowerId.HasValue)
+            if (!_isSellConfirmationVisible || !_sellConfirmationTowerId.HasValue ||
+                SelectedTowerId != _sellConfirmationTowerId)
             {
-                return TowerOperationResult.Failed(TowerOperationFailureReason.TowerNotFound);
+                return TowerOperationResult.Failed(TowerOperationFailureReason.ConfirmationRequired);
             }
 
-            var result = battle.SellTower(SelectedTowerId.Value);
+            var result = battle.SellTower(_sellConfirmationTowerId.Value);
             if (result.Success)
             {
                 CancelSelection();
@@ -297,9 +306,15 @@ namespace Veilward.Presentation
         public void CancelSellConfirmation()
         {
             _isSellConfirmationVisible = false;
+            _sellConfirmationTowerId = null;
             if (sellConfirmationPanel != null)
             {
                 sellConfirmationPanel.SetActive(false);
+            }
+
+            if (battle != null && battle.Simulation != null)
+            {
+                RefreshUi();
             }
         }
 
@@ -308,6 +323,7 @@ namespace Veilward.Presentation
             _hasSelection = false;
             _hasTowerSelection = false;
             _isSellConfirmationVisible = false;
+            _sellConfirmationTowerId = null;
             SelectedCell = default;
             SelectedTowerId = null;
             if (selectionHighlight != null)
@@ -343,7 +359,7 @@ namespace Veilward.Presentation
 
         public void StartWave()
         {
-            if (battle.Simulation == null)
+            if (_isSellConfirmationVisible || battle.Simulation == null)
             {
                 return;
             }
@@ -355,7 +371,7 @@ namespace Veilward.Presentation
 
         public void ContinueToNextWave()
         {
-            if (battle.Simulation == null)
+            if (_isSellConfirmationVisible || battle.Simulation == null)
             {
                 return;
             }
@@ -379,23 +395,29 @@ namespace Veilward.Presentation
                 CancelSelection();
             }
 
-            confirmationPanel.SetActive(isPreparing && _hasSelection && !_hasTowerSelection);
-            confirmButton.interactable = isPreparing && _hasSelection && !_hasTowerSelection;
-            cancelButton.interactable = isPreparing && _hasSelection && !_hasTowerSelection;
-            startWaveButton.interactable = isPreparing;
-            nextWaveButton.interactable = state.Phase == BattlePhase.WaveComplete &&
-                                          state.WaveIndex + 1 < state.WaveCount;
-            towerPanel.SetActive(tower != null);
-            upgradeButton.interactable = false;
-            sellButton.interactable = isPreparing && tower != null;
-            if (!isPreparing)
+            if (_isSellConfirmationVisible &&
+                (!isPreparing || tower == null || _sellConfirmationTowerId != SelectedTowerId))
             {
                 _isSellConfirmationVisible = false;
+                _sellConfirmationTowerId = null;
             }
 
-            sellConfirmationPanel.SetActive(isPreparing && tower != null && _isSellConfirmationVisible);
-            confirmSellButton.interactable = isPreparing && tower != null && _isSellConfirmationVisible;
-            cancelSellButton.interactable = isPreparing && tower != null && _isSellConfirmationVisible;
+            var isSellConfirmationActive = isPreparing && tower != null && _isSellConfirmationVisible;
+            confirmationPanel.SetActive(isPreparing && !isSellConfirmationActive &&
+                                        _hasSelection && !_hasTowerSelection);
+            confirmButton.interactable = isPreparing && !isSellConfirmationActive &&
+                                         _hasSelection && !_hasTowerSelection;
+            cancelButton.interactable = isPreparing && !isSellConfirmationActive &&
+                                        _hasSelection && !_hasTowerSelection;
+            startWaveButton.interactable = isPreparing && !isSellConfirmationActive;
+            nextWaveButton.interactable = state.Phase == BattlePhase.WaveComplete &&
+                                          state.WaveIndex + 1 < state.WaveCount && !isSellConfirmationActive;
+            towerPanel.SetActive(tower != null);
+            upgradeButton.interactable = false;
+            sellButton.interactable = isPreparing && tower != null && !isSellConfirmationActive;
+            sellConfirmationPanel.SetActive(isSellConfirmationActive);
+            confirmSellButton.interactable = isSellConfirmationActive;
+            cancelSellButton.interactable = isSellConfirmationActive;
             if (tower == null)
             {
                 towerStatsText.text = string.Empty;
@@ -411,7 +433,8 @@ namespace Veilward.Presentation
                                   $"FireRate: {tower.Definition.FireRate:0.##}/s\n" +
                                   (hasNextLevel ? $"Upgrade: {nextLevel.Price} gold" : "Upgrade: MAX") +
                                   $"\nSell refund: {refund} gold";
-            upgradeButton.interactable = isPreparing && hasNextLevel && state.Gold >= nextLevel.Price;
+            upgradeButton.interactable = isPreparing && !isSellConfirmationActive &&
+                                         hasNextLevel && state.Gold >= nextLevel.Price;
         }
 
         private TowerState FindSelectedTower()

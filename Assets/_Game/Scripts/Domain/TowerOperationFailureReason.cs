@@ -8,6 +8,7 @@ namespace Veilward.Domain
         MaxLevel = 3,
         InsufficientGold = 4,
         InvestmentOverflow = 5,
-        InvalidGridState = 6
+        InvalidGridState = 6,
+        ConfirmationRequired = 7
     }
 }

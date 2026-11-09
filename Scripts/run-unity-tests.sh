@@ -63,6 +63,22 @@ if [ "$BACKEND" = "auto" ] && [ "$RESIDENT_EDITOR" -eq 1 ]; then
       UNITY_STATUS=0
       RESULT="$(unity command "test status" --project-path "$PROJECT_PATH" --format json)" || UNITY_STATUS=$?
       if [ "$UNITY_STATUS" -ne 0 ]; then
+        # Play Mode domain reload can temporarily remove the Pipeline endpoint.
+        if printf '%s\n' "$RESULT" | python3 -c '
+import json
+import sys
+payload = json.load(sys.stdin)
+errors = payload.get("errors", [])
+transient = isinstance(errors, list) and any(
+    error.get("code") == "EDITOR_NOT_RUNNING"
+    for error in errors
+    if isinstance(error, dict)
+)
+raise SystemExit(0 if transient else 1)
+'; then
+          sleep 2
+          continue
+        fi
         printf '%s\n' "$RESULT"
         exit "$UNITY_STATUS"
       fi
