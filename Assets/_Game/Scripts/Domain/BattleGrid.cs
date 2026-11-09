@@ -50,6 +50,23 @@ namespace Veilward.Domain
             return true;
         }
 
+        internal bool TryRelease(GridCoordinate coordinate)
+        {
+            if (!Map.Contains(coordinate))
+            {
+                return false;
+            }
+
+            var index = GetIndex(coordinate);
+            if (_cells[index] != GridCellState.Occupied)
+            {
+                return false;
+            }
+
+            _cells[index] = GridCellState.Available;
+            return true;
+        }
+
         private int GetIndex(GridCoordinate coordinate)
         {
             return (coordinate.Y - Map.Origin.Y) * Map.Width + coordinate.X - Map.Origin.X;

@@ -42,6 +42,39 @@
 | REG-BATTLE-023 | Battle builder/validator сохраняют TestWave, создают EightWave и валидные references без Missing Scripts и с воспроизводимым output. | `BattleAssetValidationTests`; `BattleSceneBuilderTests` |
 | REG-BATTLE-024 | Сохранённая Battle scene запускается в Play Mode с Preparation, WaveIndex 0, WaveCount 8; реальные screenshots фиксируют пять фаз матча. | `BattleSmokeTests.Battle_LoadsIntoPreparation`; `Docs/review/P1.4a` |
 
+## P1.4b — Tower Economy
+
+Новые сценарии используют три serialized уровня Test Tower: стоимость 60/50/80, Damage 25/35/50, Range 3 и FireRate 2. Upgrade/Sell разрешены только в Preparation; rejected commands сохраняют полный snapshot. Refund равен `InvestedGold * 70 / 100` с округлением вниз.
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-025 | Upgrade L1→L2 списывает 50, сохраняет TowerId/coordinate/NextAttackTick, задаёт Level 2, Damage 35 и InvestedGold 110. | `BattleTowerEconomyTests.Upgrade_LevelOneToTwo_UpdatesStatsAndInvestment` |
+| REG-BATTLE-026 | Повторный Upgrade L2→L3 списывает 80, задаёт Level 3, Damage 50 и InvestedGold 190; Range/FireRate остаются configured. | `BattleTowerEconomyTests.Upgrade_LevelTwoToThree_UpdatesStatsAndInvestment` |
+| REG-BATTLE-027 | Upgrade после L3 возвращает MaxLevel и не меняет состояние. | `BattleTowerEconomyTests.Upgrade_MaxLevel_IsRejectedWithoutMutation` |
+| REG-BATTLE-028 | Недостаток Gold возвращает InsufficientGold без списания и изменения башни. | `BattleTowerEconomyTests.Upgrade_InsufficientGold_IsRejectedWithoutMutation` |
+| REG-BATTLE-029 | Несуществующий TowerId отклоняет Upgrade/Sell как TowerNotFound. | `BattleTowerEconomyTests.Commands_UnknownTowerId_AreRejectedWithoutMutation` |
+| REG-BATTLE-030 | Upgrade/Sell в Combat отклоняются как InvalidPhase без изменения snapshot. | `BattleTowerEconomyTests.Commands_Combat_AreRejectedWithoutMutation` |
+| REG-BATTLE-031 | Upgrade/Sell в Victory и Defeat отклоняются; terminal state заморожен. | `BattleTowerEconomyTests.Commands_TerminalPhases_AreRejectedWithoutMutation` |
+| REG-BATTLE-032 | Sell L1/L2/L3 начисляет ровно 42/77/133 от InvestedGold 60/110/190. | `BattleTowerEconomyTests.Sell_AllLevels_GrantsExactFloorRefund` |
+| REG-BATTLE-033 | Повторная продажа возвращает TowerNotFound и не начисляет Gold повторно. | `BattleTowerEconomyTests.Sell_Repeated_DoesNotGrantRefundTwice` |
+| REG-BATTLE-034 | После Sell принадлежащая клетка становится Available; Blocked соседних клеток не меняется. | `BattleTowerEconomyTests.Sell_ReleasesOnlyOwnedCell` |
+| REG-BATTLE-035 | На освобождённой клетке разрешена новая покупка с обычным списанием Level 1 price. | `BattleTowerEconomyTests.SellThenPlace_RebuildsOnReleasedCell` |
+| REG-BATTLE-036 | Rebuild получает новый монотонный TowerId; проданный ID не переиспользуется. | `BattleTowerEconomyTests.SellThenPlace_RebuildsOnReleasedCell` |
+| REG-BATTLE-037 | Internal Grid release отклоняет Blocked и повторный Available без изменения состояния. | `BattleGridTests.Release_OnlyOccupiedCell_Succeeds` |
+| REG-BATTLE-038 | Upgrade сохраняет NextAttackTick между волнами и не даёт бесплатную атаку. | `BattleTowerEconomyTests.Upgrade_PreservesCooldownBetweenWaves` |
+| REG-BATTLE-039 | Последующая атака upgraded башни публикует configured Damage нового уровня; First и порядок атак не меняются. | `BattleTowerEconomyTests.Upgrade_SubsequentAttack_UsesNewDamage` |
+| REG-BATTLE-040 | InvestedGold не переполняется, Gold остаётся в диапазоне 0…int.MaxValue, refund/credit насыщаются без overflow. | `BattleTowerEconomyTests.EconomyOperations_CannotOverflow` |
+| REG-BATTLE-041 | MaxLevel, InsufficientGold, TowerNotFound, InvalidPhase и Grid errors оставляют полный snapshot включая Level/InvestedGold/cooldown/grid/events неизменным. | `BattleTowerEconomyTests.RejectedCommands_PreserveCompleteState` |
+| REG-BATTLE-042 | Два полных восьмиволновых матча с Upgrade/Sell/rebuild дают одинаковые snapshots и AttackEvents и заканчиваются Victory. | `BattleTowerEconomyTests.IdenticalFullMatchesWithEconomy_ProduceIdenticalTimelines` |
+| REG-BATTLE-043 | Все REG-BATTLE-001…024 и прежние Domain/config/scene tests сохраняются без подгонки legacy ожиданий. | Полный EditMode/PlayMode suite |
+| REG-BATTLE-044 | Play Mode: occupied selection, L1/L2/L3 stats, Upgrade affordability/max state, Sell confirmation/refund, удаление View и rebuild новым ID. | `BattleSmokeTests.Battle_TowerEconomyFlow_UpgradesSellsAndRebuilds`; `Docs/review/P1.4b` |
+| REG-BATTLE-045 | ConfirmSell без Request возвращает ConfirmationRequired без изменения Gold/Grid; при активном диалоге Upgrade, Sell, placement Confirm/Cancel, Start/Next Wave заблокированы в API и кнопках. | `BattleSellConfirmationTests.ConfirmSell_WithoutRequest_DoesNotMutateDomain`; `SellConfirmation_BlocksConflictingActionsAndButtons`; `BattleSellConfirmationPlayModeTests.Battle_SellConfirmation_EnforcesModalContract` |
+| REG-BATTLE-046 | Pending confirmation привязано к TowerId; после смены selection нельзя продать другую башню или изменить Gold/Grid. | `BattleSellConfirmationTests.ConfirmSell_AfterSelectionChange_DoesNotSellAnotherTower`; PlayMode modal contract |
+| REG-BATTLE-047 | Cancel закрывает confirmation без Domain mutation и немедленно восстанавливает обычные действия и кнопки. | `BattleSellConfirmationTests.CancelSellConfirmation_RestoresActionsAndPreservesCombatStats`; PlayMode modal contract |
+| REG-BATTLE-048 | Успешная подтверждённая продажа начисляет refund один раз, освобождает клетку и очищает selection/confirmation. | `BattleSellConfirmationTests.ConfirmedSell_ClearsSelectionAndConfirmation`; PlayMode modal contract |
+| REG-BATTLE-049 | В Combat occupied selection продолжает показывать актуальные характеристики, но Upgrade/Sell и confirmation остаются недоступны. | `BattleSellConfirmationTests.CancelSellConfirmation_RestoresActionsAndPreservesCombatStats` |
+| REG-BATTLE-050 | Измерение Tower Stats использует изолированный preview-scene экземпляр, восстанавливает ресурсы в finally и не меняет текст или dirty state сохранённой Battle scene. | `BattleAssetValidationTests.SavedBattleScene_TowerStatsRect_FitsAllEconomyLines`; `SavedBattleScene_TowerStatsMeasurement_DoesNotMutateScene` |
+
 ## CI-сценарии
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |
@@ -50,7 +83,7 @@
 | REG-CI-002 | Unity workflow не использует GameCI, license/account secrets, serial или ALF/ULF activation. Оба suite вызывают общий runner с явным `batch` backend, независимую проверку полного NUnit PASS и публикацию diagnostics. | `UnityWorkflowContractTests.test_unity_ci_does_not_use_license_secrets_or_game_ci`; `test_unity_tests_validate_and_publish_both_reports` |
 | REG-CI-003 | Явный `batch` backend создаёт NUnit XML и log для EditMode и PlayMode без Unity CLI JSON. Default `auto` сохраняет локальный CLI path. Batch отклоняет live Editor descriptor или доступный resident Editor и не запускает второй Editor. | `UnityBatchRunnerTests.test_batch_backend_produces_nunit_xml_for_both_modes`; `test_batch_backend_refuses_live_editor_descriptor`; `test_batch_backend_refuses_resident_editor`; `UnityRunnerTests.test_play_mode_uses_async_run_and_polls_completed_result` |
 | REG-CI-004 | Missing/stale, failed, skipped, inconclusive и empty NUnit reports, а также nonzero Unity exit при внешне passing report завершают batch runner ошибкой. | `UnityBatchRunnerTests.test_batch_backend_rejects_invalid_reports`; `test_batch_backend_rejects_nonzero_unity_exit` |
-| REG-CI-005 | Unity CLI envelope принимается только со строгим boolean `success: true`; `false`, `null`, строки и числа отклоняются при финальной проверке и PlayMode polling. Без envelope разрешены только raw `status: running` для продолжения polling и `status: completed` с корректным summary для результата. Missing/invalid summary, failed/skipped/empty и несовпадающие counts завершают runner ошибкой; batch XML path не меняется. | `UnityRunnerTests.test_edit_mode_valid_envelope_is_accepted`; `test_play_mode_valid_raw_completed_response_is_accepted`; `test_edit_mode_envelope_rejects_non_boolean_success`; `test_play_mode_polling_rejects_non_boolean_success`; `test_play_mode_raw_running_is_not_accepted_as_completed`; `test_missing_or_invalid_summary_is_rejected`; `test_failed_skipped_empty_and_mismatched_reports_are_rejected`; `UnityBatchRunnerTests.test_batch_backend_produces_nunit_xml_for_both_modes` |
+| REG-CI-005 | Unity CLI envelope принимается только со строгим boolean `success: true`; `false`, `null`, строки и числа отклоняются при финальной проверке и PlayMode polling. Без envelope разрешены только raw `status: running` для продолжения polling и `status: completed` с корректным summary для результата. Во время Play Mode domain reload временный `EDITOR_NOT_RUNNING` повторно опрашивается до общего deadline; остальные CLI errors прекращают run. Missing/invalid summary, failed/skipped/empty и несовпадающие counts завершают runner ошибкой; batch XML path не меняется. | `UnityRunnerTests.test_edit_mode_valid_envelope_is_accepted`; `test_play_mode_valid_raw_completed_response_is_accepted`; `test_edit_mode_envelope_rejects_non_boolean_success`; `test_play_mode_polling_rejects_non_boolean_success`; `test_play_mode_raw_running_is_not_accepted_as_completed`; `test_missing_or_invalid_summary_is_rejected`; `test_failed_skipped_empty_and_mismatched_reports_are_rejected`; `UnityBatchRunnerTests.test_batch_backend_produces_nunit_xml_for_both_modes` |
 
 ## Правила сопровождения
 

@@ -118,6 +118,40 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void Release_OnlyOccupiedCell_Succeeds()
+        {
+            var grid = CreateEmptyGrid();
+            var occupied = new GridCoordinate(-3, 0);
+            var blocked = new GridCoordinate(-6, -4);
+            var available = new GridCoordinate(-2, 0);
+            Assert.That(grid.TryOccupy(occupied), Is.True);
+
+            Assert.That(grid.TryRelease(blocked), Is.False);
+            Assert.That(grid.GetState(blocked), Is.EqualTo(GridCellState.Blocked));
+            Assert.That(grid.TryRelease(available), Is.False);
+            Assert.That(grid.GetState(available), Is.EqualTo(GridCellState.Available));
+            Assert.That(grid.TryRelease(new GridCoordinate(20, 20)), Is.False);
+            Assert.That(grid.TryRelease(occupied), Is.True);
+            Assert.That(grid.GetState(occupied), Is.EqualTo(GridCellState.Available));
+            Assert.That(grid.TryRelease(occupied), Is.False);
+            Assert.That(grid.GetState(occupied), Is.EqualTo(GridCellState.Available));
+        }
+
+        [Test]
+        public void Release_IsInternalToDomain()
+        {
+            var method = typeof(BattleGrid).GetMethod(
+                "TryRelease",
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.Public |
+                System.Reflection.BindingFlags.NonPublic);
+
+            Assert.That(method, Is.Not.Null);
+            Assert.That(method.IsPublic, Is.False);
+            Assert.That(method.IsAssembly, Is.True);
+        }
+
+        [Test]
         public void TryOccupy_IsInternalToDomain()
         {
             var method = typeof(BattleGrid).GetMethod(

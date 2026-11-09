@@ -21,6 +21,7 @@ namespace Veilward.Presentation
         private readonly Dictionary<EnemyId, EnemyView> _enemyViews = new Dictionary<EnemyId, EnemyView>();
         private readonly Dictionary<TowerId, Transform> _towerViews = new Dictionary<TowerId, Transform>();
         private readonly List<EnemyId> _staleEnemyIds = new List<EnemyId>();
+        private readonly List<TowerId> _staleTowerIds = new List<TowerId>();
         private BattleSimulation _simulation;
         private float _accumulator;
 
@@ -71,6 +72,32 @@ namespace Veilward.Presentation
             }
 
             return _simulation.PlaceTower(new PlaceTowerCommand(_simulation.TowerDefinition.Id, coordinate));
+        }
+
+        public TowerOperationResult UpgradeTower(TowerId towerId)
+        {
+            if (_simulation == null)
+            {
+                throw new InvalidOperationException("Battle simulation is not initialized.");
+            }
+
+            return _simulation.UpgradeTower(towerId);
+        }
+
+        public TowerOperationResult SellTower(TowerId towerId)
+        {
+            if (_simulation == null)
+            {
+                throw new InvalidOperationException("Battle simulation is not initialized.");
+            }
+
+            var result = _simulation.SellTower(towerId);
+            if (result.Success)
+            {
+                SynchronizeTowerViews();
+            }
+
+            return result;
         }
 
         public Vector3 GetCellCenter(GridCoordinate coordinate)
@@ -204,6 +231,44 @@ namespace Veilward.Presentation
                 view.localScale = Vector3.one * _simulation.Grid.Map.CellSize;
                 _towerViews.Add(tower.Id, view);
             }
+
+            _staleTowerIds.Clear();
+            foreach (var pair in _towerViews)
+            {
+                if (!ContainsTower(towers, pair.Key))
+                {
+                    _staleTowerIds.Add(pair.Key);
+                }
+            }
+
+            for (var index = 0; index < _staleTowerIds.Count; index++)
+            {
+                var towerId = _staleTowerIds[index];
+                var staleView = _towerViews[towerId].gameObject;
+                if (Application.isPlaying)
+                {
+                    Destroy(staleView);
+                }
+                else
+                {
+                    DestroyImmediate(staleView);
+                }
+
+                _towerViews.Remove(towerId);
+            }
+        }
+
+        private static bool ContainsTower(IReadOnlyList<TowerState> towers, TowerId towerId)
+        {
+            for (var index = 0; index < towers.Count; index++)
+            {
+                if (towers[index].Id == towerId)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void SynchronizeEnemyViews()

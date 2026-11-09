@@ -14,12 +14,23 @@ namespace Veilward.Domain
             Definition = definition ?? throw new ArgumentNullException(nameof(definition));
             Id = id;
             Coordinate = coordinate;
+            Level = 1;
+            InvestedGold = definition.Price;
         }
 
         public TowerId Id { get; }
-        public TowerDefinition Definition { get; }
+        public TowerDefinition Definition { get; private set; }
         public GridCoordinate Coordinate { get; }
+        public int Level { get; private set; }
+        public int InvestedGold { get; private set; }
         public long NextAttackTick { get; private set; }
+
+        internal void UpgradeTo(TowerDefinition nextLevel)
+        {
+            Definition = nextLevel ?? throw new ArgumentNullException(nameof(nextLevel));
+            Level++;
+            InvestedGold = checked(InvestedGold + nextLevel.Price);
+        }
 
         internal void MarkAttacked(long tick)
         {

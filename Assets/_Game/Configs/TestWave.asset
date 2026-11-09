@@ -35,6 +35,15 @@ MonoBehaviour:
   towerRange: 3
   towerFireRate: 2
   towerDamage: 25
+  towerUpgrades:
+  - price: 50
+    range: 3
+    fireRate: 2
+    damage: 35
+  - price: 80
+    range: 3
+    fireRate: 2
+    damage: 50
   sharedScenario: {fileID: 0}
   enemyReward: 0
   waveCompletionBonus: 0

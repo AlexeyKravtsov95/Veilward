@@ -6,6 +6,10 @@ namespace Veilward.Domain
 
         PlaceTowerResult PlaceTower(PlaceTowerCommand command);
 
+        TowerOperationResult UpgradeTower(TowerId towerId);
+
+        TowerOperationResult SellTower(TowerId towerId);
+
         WaveTransitionResult StartWave();
 
         WaveTransitionResult ContinueToNextWave();
