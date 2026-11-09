@@ -22,6 +22,22 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void SavedBattleScene_TowerStatsRect_FitsAllEconomyLines()
+        {
+            EditorSceneManager.OpenScene(BattleScenePath);
+            var stats = UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Text>(
+                    UnityEngine.FindObjectsInactive.Include,
+                    UnityEngine.FindObjectsSortMode.None)
+                .Single(text => text.name == "Tower Stats");
+            stats.text = "Level: 3\nDamage: 50\nRange: 3\nFireRate: 2/s\nUpgrade: MAX\nSell refund: 133 gold";
+
+            Assert.That(
+                stats.rectTransform.rect.height,
+                Is.GreaterThanOrEqualTo(stats.preferredHeight),
+                "Tower Stats must display every economy line without clipping.");
+        }
+
+        [Test]
         public void BattleBuilder_TwoConsecutiveBuilds_ProduceIdenticalContentAndRestoreOriginals()
         {
             var originals = Snapshot(OutputPaths());

@@ -36,8 +36,25 @@ namespace Veilward.Domain
             : this(
                 map,
                 path,
+                wave,
+                new[] { towerDefinition ?? throw new ArgumentNullException(nameof(towerDefinition)) },
+                baseHealth,
+                startingGold)
+        {
+        }
+
+        public BattleSimulation(
+            GridMapDefinition map,
+            PathDefinition path,
+            WaveDefinition wave,
+            IReadOnlyList<TowerDefinition> towerLevels,
+            int baseHealth,
+            int startingGold)
+            : this(
+                map,
+                path,
                 new[] { wave ?? throw new ArgumentNullException(nameof(wave)) },
-                towerDefinition,
+                towerLevels,
                 baseHealth,
                 startingGold,
                 waveCompletionBonus: 0,
@@ -57,7 +74,26 @@ namespace Veilward.Domain
                 map,
                 path,
                 waves,
-                towerDefinition,
+                new[] { towerDefinition ?? throw new ArgumentNullException(nameof(towerDefinition)) },
+                baseHealth,
+                startingGold,
+                waveCompletionBonus)
+        {
+        }
+
+        public BattleSimulation(
+            GridMapDefinition map,
+            PathDefinition path,
+            IReadOnlyList<WaveDefinition> waves,
+            IReadOnlyList<TowerDefinition> towerLevels,
+            int baseHealth,
+            int startingGold,
+            int waveCompletionBonus)
+            : this(
+                map,
+                path,
+                waves,
+                towerLevels,
                 baseHealth,
                 startingGold,
                 waveCompletionBonus,
@@ -69,7 +105,7 @@ namespace Veilward.Domain
             GridMapDefinition map,
             PathDefinition path,
             IReadOnlyList<WaveDefinition> waves,
-            TowerDefinition towerDefinition,
+            IReadOnlyList<TowerDefinition> towerLevels,
             int baseHealth,
             int startingGold,
             int waveCompletionBonus,
@@ -90,6 +126,16 @@ namespace Veilward.Domain
                 throw new ArgumentException("At least one wave is required.", nameof(waves));
             }
 
+            if (towerLevels == null)
+            {
+                throw new ArgumentNullException(nameof(towerLevels));
+            }
+
+            if (towerLevels.Count == 0)
+            {
+                throw new ArgumentException("At least one tower level is required.", nameof(towerLevels));
+            }
+
             if (waveCompletionBonus < 0)
             {
                 throw new ArgumentOutOfRangeException(
@@ -98,7 +144,21 @@ namespace Veilward.Domain
             }
 
             _path = path ?? throw new ArgumentNullException(nameof(path));
-            TowerDefinition = towerDefinition ?? throw new ArgumentNullException(nameof(towerDefinition));
+            var levels = new TowerDefinition[towerLevels.Count];
+            for (var index = 0; index < towerLevels.Count; index++)
+            {
+                levels[index] = towerLevels[index] ?? throw new ArgumentException(
+                    "Tower levels cannot contain null entries.",
+                    nameof(towerLevels));
+                if (index > 0 && levels[index].Id != levels[0].Id)
+                {
+                    throw new ArgumentException(
+                        "All tower levels must use the same definition ID.",
+                        nameof(towerLevels));
+                }
+            }
+
+            TowerLevels = Array.AsReadOnly(levels);
             _waves = new WaveDefinition[waves.Count];
             for (var index = 0; index < waves.Count; index++)
             {
@@ -117,7 +177,8 @@ namespace Veilward.Domain
         public BattleState State { get; }
         public PathDefinition Path => _path;
         public BattleGrid Grid { get; }
-        public TowerDefinition TowerDefinition { get; }
+        public IReadOnlyList<TowerDefinition> TowerLevels { get; }
+        public TowerDefinition TowerDefinition => TowerLevels[0];
         public IReadOnlyList<AttackEvent> AttackEvents { get; }
         private WaveDefinition CurrentWave => _waves[State.WaveIndex];
 
@@ -164,6 +225,81 @@ namespace Veilward.Domain
             State.Debit(TowerDefinition.Price);
             State.AddTower(tower);
             return PlaceTowerResult.Succeeded(tower);
+        }
+
+        public TowerOperationResult UpgradeTower(TowerId towerId)
+        {
+            if (State.Phase != BattlePhase.Preparation)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
+            }
+
+            var towerIndex = FindTowerIndex(towerId);
+            if (towerIndex < 0)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.TowerNotFound);
+            }
+
+            var tower = State.Towers[towerIndex];
+            if (tower.Level >= TowerLevels.Count)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.MaxLevel);
+            }
+
+            var nextLevel = TowerLevels[tower.Level];
+            if (nextLevel.Price > int.MaxValue - tower.InvestedGold)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.InvestmentOverflow);
+            }
+
+            if (State.Gold < nextLevel.Price)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.InsufficientGold);
+            }
+
+            State.Debit(nextLevel.Price);
+            tower.UpgradeTo(nextLevel);
+            return TowerOperationResult.Succeeded(tower);
+        }
+
+        public TowerOperationResult SellTower(TowerId towerId)
+        {
+            if (State.Phase != BattlePhase.Preparation)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
+            }
+
+            var towerIndex = FindTowerIndex(towerId);
+            if (towerIndex < 0)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.TowerNotFound);
+            }
+
+            var tower = State.Towers[towerIndex];
+            if (Grid.GetState(tower.Coordinate) != GridCellState.Occupied)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidGridState);
+            }
+
+            var refund = (int)((long)tower.InvestedGold * 70 / 100);
+            State.RemoveTowerAt(towerIndex);
+            Grid.TryRelease(tower.Coordinate);
+            State.Credit(refund);
+            return TowerOperationResult.Succeeded(tower, refund);
+        }
+
+        private int FindTowerIndex(TowerId towerId)
+        {
+            var towers = State.Towers;
+            for (var index = 0; index < towers.Count; index++)
+            {
+                if (towers[index].Id == towerId)
+                {
+                    return index;
+                }
+            }
+
+            return -1;
         }
 
         public WaveTransitionResult StartWave()

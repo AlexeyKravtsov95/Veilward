@@ -36,6 +36,11 @@ namespace Veilward.Presentation
         [SerializeField, Min(0.01f)] private float towerRange = 2.5f;
         [SerializeField, Min(0.01f)] private float towerFireRate = 1f;
         [SerializeField, Min(1)] private int towerDamage = 10;
+        [SerializeField] private TowerUpgradeSettings[] towerUpgrades =
+        {
+            new TowerUpgradeSettings { price = 50, range = 3f, fireRate = 2f, damage = 35 },
+            new TowerUpgradeSettings { price = 80, range = 3f, fireRate = 2f, damage = 50 }
+        };
 
         [Header("Wave Sequence")]
         [SerializeField] private BattleScenarioConfig sharedScenario;
@@ -49,6 +54,15 @@ namespace Veilward.Presentation
             [Min(1)] public int enemyCount = 5;
             [Min(0)] public int firstSpawnTick;
             [Min(1)] public int spawnIntervalTicks = 30;
+        }
+
+        [Serializable]
+        public sealed class TowerUpgradeSettings
+        {
+            [Min(0)] public int price = 50;
+            [Min(0.01f)] public float range = 3f;
+            [Min(0.01f)] public float fireRate = 2f;
+            [Min(1)] public int damage = 35;
         }
 
         public static BattleScenarioConfig CreateDefault()
@@ -79,12 +93,26 @@ namespace Veilward.Presentation
                 shared.speed,
                 shared.leakDamage,
                 enemyReward);
-            var tower = new TowerDefinition(
+            var upgradeCount = shared.towerUpgrades?.Length ?? 0;
+            var towerLevels = new TowerDefinition[upgradeCount + 1];
+            towerLevels[0] = new TowerDefinition(
                 new TowerDefinitionId(shared.towerId),
                 shared.towerPrice,
                 shared.towerRange,
                 shared.towerFireRate,
                 shared.towerDamage);
+            for (var index = 0; index < upgradeCount; index++)
+            {
+                var upgrade = shared.towerUpgrades[index] ?? throw new ArgumentException(
+                    "Tower upgrades cannot contain null entries.",
+                    nameof(towerUpgrades));
+                towerLevels[index + 1] = new TowerDefinition(
+                    new TowerDefinitionId(shared.towerId),
+                    upgrade.price,
+                    upgrade.range,
+                    upgrade.fireRate,
+                    upgrade.damage);
+            }
 
             if (waves == null || waves.Length == 0)
             {
@@ -93,7 +121,13 @@ namespace Veilward.Presentation
                     shared.enemyCount,
                     shared.firstSpawnTick,
                     shared.spawnIntervalTicks);
-                return new BattleSimulation(map, path, legacyWave, tower, shared.baseHealth, shared.startingGold);
+                return new BattleSimulation(
+                    map,
+                    path,
+                    legacyWave,
+                    towerLevels,
+                    shared.baseHealth,
+                    shared.startingGold);
             }
 
             var sequence = new WaveDefinition[waves.Length];
@@ -111,7 +145,7 @@ namespace Veilward.Presentation
                 map,
                 path,
                 sequence,
-                tower,
+                towerLevels,
                 shared.baseHealth,
                 shared.startingGold,
                 waveCompletionBonus);
@@ -136,6 +170,22 @@ namespace Veilward.Presentation
             towerDamage = Mathf.Max(1, towerDamage);
             enemyReward = Mathf.Max(0, enemyReward);
             waveCompletionBonus = Mathf.Max(0, waveCompletionBonus);
+            if (towerUpgrades != null)
+            {
+                foreach (var upgrade in towerUpgrades)
+                {
+                    if (upgrade == null)
+                    {
+                        continue;
+                    }
+
+                    upgrade.price = Mathf.Max(0, upgrade.price);
+                    upgrade.range = Mathf.Max(0.01f, upgrade.range);
+                    upgrade.fireRate = Mathf.Max(0.01f, upgrade.fireRate);
+                    upgrade.damage = Mathf.Max(1, upgrade.damage);
+                }
+            }
+
             if (waves == null)
             {
                 return;

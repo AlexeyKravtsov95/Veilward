@@ -18,6 +18,8 @@
 
 **P1.1:** fixed-path enemies + health/leaks. **P1.2:** grid and placement validation. **P1.3:** targeting and ranged attacks (one dummy tower). **P1.4:** waves, gold, sell, upgrade, win/lose. **P1.5:** pause/background checkpoint. **Deliverable:** playable graybox 8-wave match.
 
+**P1.4 status:** P1.4a Multi-Wave Lifecycle & Rewards и P1.4b Tower Economy реализованы. Локальные quality gates P1.4b: static 38/38, EditMode 199/199, PlayMode 2/2, `git diff --check` PASS; PR ожидает независимый review, merge не выполнен. Device validation остаётся отдельным gate и не заменяется Editor/Play Mode evidence.
+
 ## Phase 2 — Elemental vertical slice (3–4 недели)
 
 **P2.1:** all 4 basic archetypes and status pipeline. **P2.2:** 2 hybrid towers + reactions Steam and Storm. **P2.3:** choose/unlock elements after defined waves. **P2.4:** basic ability and boss. **P2.5:** readable touch HUD, explanations and onboarding. **Deliverable:** 1 visually coherent map, 8 waves, one boss, 10 external tests. **Gate G2:** revise design if reactions aren't fun/understandable.

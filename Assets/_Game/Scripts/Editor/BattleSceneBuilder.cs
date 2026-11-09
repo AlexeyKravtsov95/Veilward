@@ -18,7 +18,7 @@ namespace Veilward.Editor
         private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
         private const string MaterialsFolder = "Assets/_Game/Art/Materials";
 
-        [MenuItem("VEILWARD/P1.4a Build")]
+        [MenuItem("VEILWARD/P1.4b Build")]
         public static void Build()
         {
             Directory.CreateDirectory("Assets/_Game/Configs");
@@ -294,7 +294,8 @@ namespace Veilward.Editor
             var placementProperties = new[]
             {
                 "battle", "worldCamera", "selectionHighlight", "towerPreview",
-                "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview"
+                "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview",
+                "towerPanel", "towerStatsText", "upgradeButton", "sellButton", "sellConfirmationPanel", "confirmSellButton", "cancelSellButton"
             };
             foreach (var propertyName in placementProperties)
             {
@@ -316,7 +317,7 @@ namespace Veilward.Editor
                 AssetDatabase.CreateAsset(material, path);
             }
 
-            material.SetColor("_BaseColor", color);
+            SetMaterialColors(material, color);
             EditorUtility.SetDirty(material);
             return material;
         }
@@ -331,9 +332,28 @@ namespace Veilward.Editor
                 AssetDatabase.CreateAsset(material, path);
             }
 
-            material.SetColor("_BaseColor", color);
+            SetMaterialColors(material, color);
             EditorUtility.SetDirty(material);
             return material;
+        }
+
+        private static void SetMaterialColors(Material material, Color color)
+        {
+            material.SetColor("_BaseColor", color);
+
+            // SetColor("_Color") меняет serialized cache без dirty-флага; пишем legacy color напрямую.
+            var serializedMaterial = new SerializedObject(material);
+            var colors = serializedMaterial.FindProperty("m_SavedProperties.m_Colors");
+            for (var index = 0; index < colors.arraySize; index++)
+            {
+                var entry = colors.GetArrayElementAtIndex(index);
+                if (entry.FindPropertyRelative("first").stringValue == "_Color")
+                {
+                    entry.FindPropertyRelative("second").colorValue = color;
+                }
+            }
+
+            serializedMaterial.ApplyModifiedPropertiesWithoutUndo();
         }
 
         private static GameObject CreatePrimitive(PrimitiveType type, string name)
@@ -440,6 +460,64 @@ namespace Veilward.Editor
                 new Vector2(130f, -38f));
             confirmation.SetActive(false);
 
+            var towerPanel = CreateUiObject("Tower Panel", canvasObject.transform);
+            var towerPanelImage = towerPanel.AddComponent<UnityEngine.UI.Image>();
+            towerPanelImage.color = new Color(0.02f, 0.03f, 0.05f, 0.92f);
+            SetRect(
+                towerPanelImage.rectTransform,
+                new Vector2(0.5f, 0f),
+                new Vector2(0f, 24f),
+                new Vector2(680f, 270f));
+            var towerStats = CreateText("Tower Stats", towerPanel.transform, 22, TextAnchor.UpperLeft);
+            towerStats.raycastTarget = false;
+            towerStats.rectTransform.anchorMin = Vector2.zero;
+            towerStats.rectTransform.anchorMax = Vector2.one;
+            towerStats.rectTransform.offsetMin = new Vector2(16f, 105f);
+            towerStats.rectTransform.offsetMax = new Vector2(-16f, -12f);
+            var upgrade = CreateButton(
+                "Upgrade Button",
+                towerPanel.transform,
+                "Upgrade",
+                new Vector2(-140f, -55f));
+            var sell = CreateButton(
+                "Sell Button",
+                towerPanel.transform,
+                "Sell",
+                new Vector2(140f, -55f));
+            towerPanel.SetActive(false);
+
+            var sellConfirmation = CreateUiObject("Sell Confirmation Panel", canvasObject.transform);
+            var sellConfirmationImage = sellConfirmation.AddComponent<UnityEngine.UI.Image>();
+            sellConfirmationImage.color = new Color(0.02f, 0.03f, 0.05f, 0.96f);
+            SetRect(
+                sellConfirmationImage.rectTransform,
+                new Vector2(0.5f, 0.5f),
+                Vector2.zero,
+                new Vector2(600f, 190f));
+            var sellLabel = CreateText(
+                "Sell Confirmation Label",
+                sellConfirmation.transform,
+                24,
+                TextAnchor.MiddleCenter);
+            sellLabel.text = "Sell this tower?";
+            sellLabel.raycastTarget = false;
+            SetRect(
+                sellLabel.rectTransform,
+                new Vector2(0.5f, 1f),
+                new Vector2(0f, -16f),
+                new Vector2(560f, 60f));
+            var confirmSell = CreateButton(
+                "Confirm Sell Button",
+                sellConfirmation.transform,
+                "Confirm Sell",
+                new Vector2(-140f, -42f));
+            var cancelSell = CreateButton(
+                "Cancel Sell Button",
+                sellConfirmation.transform,
+                "Cancel",
+                new Vector2(140f, -42f));
+            sellConfirmation.SetActive(false);
+
             var startWave = CreateButton("Start Wave Button", canvasObject.transform, "Start Wave", Vector2.zero);
             SetRect(
                 startWave.GetComponent<RectTransform>(),
@@ -459,7 +537,14 @@ namespace Veilward.Editor
                 ConfirmButton = confirm,
                 CancelButton = cancel,
                 StartWaveButton = startWave,
-                NextWaveButton = nextWave
+                NextWaveButton = nextWave,
+                TowerPanel = towerPanel,
+                TowerStatsText = towerStats,
+                UpgradeButton = upgrade,
+                SellButton = sell,
+                SellConfirmationPanel = sellConfirmation,
+                ConfirmSellButton = confirmSell,
+                CancelSellButton = cancelSell
             };
         }
 
@@ -561,6 +646,13 @@ namespace Veilward.Editor
             placementSerialized.FindProperty("cancelButton").objectReferenceValue = hud.CancelButton;
             placementSerialized.FindProperty("startWaveButton").objectReferenceValue = hud.StartWaveButton;
             placementSerialized.FindProperty("nextWaveButton").objectReferenceValue = hud.NextWaveButton;
+            placementSerialized.FindProperty("towerPanel").objectReferenceValue = hud.TowerPanel;
+            placementSerialized.FindProperty("towerStatsText").objectReferenceValue = hud.TowerStatsText;
+            placementSerialized.FindProperty("upgradeButton").objectReferenceValue = hud.UpgradeButton;
+            placementSerialized.FindProperty("sellButton").objectReferenceValue = hud.SellButton;
+            placementSerialized.FindProperty("sellConfirmationPanel").objectReferenceValue = hud.SellConfirmationPanel;
+            placementSerialized.FindProperty("confirmSellButton").objectReferenceValue = hud.ConfirmSellButton;
+            placementSerialized.FindProperty("cancelSellButton").objectReferenceValue = hud.CancelSellButton;
             placementSerialized.ApplyModifiedPropertiesWithoutUndo();
         }
 
@@ -572,6 +664,13 @@ namespace Veilward.Editor
             public UnityEngine.UI.Button CancelButton;
             public UnityEngine.UI.Button StartWaveButton;
             public UnityEngine.UI.Button NextWaveButton;
+            public GameObject TowerPanel;
+            public UnityEngine.UI.Text TowerStatsText;
+            public UnityEngine.UI.Button UpgradeButton;
+            public UnityEngine.UI.Button SellButton;
+            public GameObject SellConfirmationPanel;
+            public UnityEngine.UI.Button ConfirmSellButton;
+            public UnityEngine.UI.Button CancelSellButton;
         }
     }
 }

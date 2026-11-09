@@ -42,6 +42,33 @@
 | REG-BATTLE-023 | Battle builder/validator сохраняют TestWave, создают EightWave и валидные references без Missing Scripts и с воспроизводимым output. | `BattleAssetValidationTests`; `BattleSceneBuilderTests` |
 | REG-BATTLE-024 | Сохранённая Battle scene запускается в Play Mode с Preparation, WaveIndex 0, WaveCount 8; реальные screenshots фиксируют пять фаз матча. | `BattleSmokeTests.Battle_LoadsIntoPreparation`; `Docs/review/P1.4a` |
 
+## P1.4b — Tower Economy
+
+Новые сценарии используют три serialized уровня Test Tower: стоимость 60/50/80, Damage 25/35/50, Range 3 и FireRate 2. Upgrade/Sell разрешены только в Preparation; rejected commands сохраняют полный snapshot. Refund равен `InvestedGold * 70 / 100` с округлением вниз.
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-025 | Upgrade L1→L2 списывает 50, сохраняет TowerId/coordinate/NextAttackTick, задаёт Level 2, Damage 35 и InvestedGold 110. | `BattleTowerEconomyTests.Upgrade_LevelOneToTwo_UpdatesStatsAndInvestment` |
+| REG-BATTLE-026 | Повторный Upgrade L2→L3 списывает 80, задаёт Level 3, Damage 50 и InvestedGold 190; Range/FireRate остаются configured. | `BattleTowerEconomyTests.Upgrade_LevelTwoToThree_UpdatesStatsAndInvestment` |
+| REG-BATTLE-027 | Upgrade после L3 возвращает MaxLevel и не меняет состояние. | `BattleTowerEconomyTests.Upgrade_MaxLevel_IsRejectedWithoutMutation` |
+| REG-BATTLE-028 | Недостаток Gold возвращает InsufficientGold без списания и изменения башни. | `BattleTowerEconomyTests.Upgrade_InsufficientGold_IsRejectedWithoutMutation` |
+| REG-BATTLE-029 | Несуществующий TowerId отклоняет Upgrade/Sell как TowerNotFound. | `BattleTowerEconomyTests.Commands_UnknownTowerId_AreRejectedWithoutMutation` |
+| REG-BATTLE-030 | Upgrade/Sell в Combat отклоняются как InvalidPhase без изменения snapshot. | `BattleTowerEconomyTests.Commands_Combat_AreRejectedWithoutMutation` |
+| REG-BATTLE-031 | Upgrade/Sell в Victory и Defeat отклоняются; terminal state заморожен. | `BattleTowerEconomyTests.Commands_TerminalPhases_AreRejectedWithoutMutation` |
+| REG-BATTLE-032 | Sell L1/L2/L3 начисляет ровно 42/77/133 от InvestedGold 60/110/190. | `BattleTowerEconomyTests.Sell_AllLevels_GrantsExactFloorRefund` |
+| REG-BATTLE-033 | Повторная продажа возвращает TowerNotFound и не начисляет Gold повторно. | `BattleTowerEconomyTests.Sell_Repeated_DoesNotGrantRefundTwice` |
+| REG-BATTLE-034 | После Sell принадлежащая клетка становится Available; Blocked соседних клеток не меняется. | `BattleTowerEconomyTests.Sell_ReleasesOnlyOwnedCell` |
+| REG-BATTLE-035 | На освобождённой клетке разрешена новая покупка с обычным списанием Level 1 price. | `BattleTowerEconomyTests.SellThenPlace_RebuildsOnReleasedCell` |
+| REG-BATTLE-036 | Rebuild получает новый монотонный TowerId; проданный ID не переиспользуется. | `BattleTowerEconomyTests.SellThenPlace_RebuildsOnReleasedCell` |
+| REG-BATTLE-037 | Internal Grid release отклоняет Blocked и повторный Available без изменения состояния. | `BattleGridTests.Release_OnlyOccupiedCell_Succeeds` |
+| REG-BATTLE-038 | Upgrade сохраняет NextAttackTick между волнами и не даёт бесплатную атаку. | `BattleTowerEconomyTests.Upgrade_PreservesCooldownBetweenWaves` |
+| REG-BATTLE-039 | Последующая атака upgraded башни публикует configured Damage нового уровня; First и порядок атак не меняются. | `BattleTowerEconomyTests.Upgrade_SubsequentAttack_UsesNewDamage` |
+| REG-BATTLE-040 | InvestedGold не переполняется, Gold остаётся в диапазоне 0…int.MaxValue, refund/credit насыщаются без overflow. | `BattleTowerEconomyTests.EconomyOperations_CannotOverflow` |
+| REG-BATTLE-041 | MaxLevel, InsufficientGold, TowerNotFound, InvalidPhase и Grid errors оставляют полный snapshot включая Level/InvestedGold/cooldown/grid/events неизменным. | `BattleTowerEconomyTests.RejectedCommands_PreserveCompleteState` |
+| REG-BATTLE-042 | Два полных восьмиволновых матча с Upgrade/Sell/rebuild дают одинаковые snapshots и AttackEvents и заканчиваются Victory. | `BattleTowerEconomyTests.IdenticalFullMatchesWithEconomy_ProduceIdenticalTimelines` |
+| REG-BATTLE-043 | Все REG-BATTLE-001…024 и прежние Domain/config/scene tests сохраняются без подгонки legacy ожиданий. | Полный EditMode/PlayMode suite |
+| REG-BATTLE-044 | Play Mode: occupied selection, L1/L2/L3 stats, Upgrade affordability/max state, Sell confirmation/refund, удаление View и rebuild новым ID. | `BattleSmokeTests.Battle_TowerEconomyFlow_UpgradesSellsAndRebuilds`; `Docs/review/P1.4b` |
+
 ## CI-сценарии
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |

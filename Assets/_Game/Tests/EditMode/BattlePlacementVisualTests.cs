@@ -107,6 +107,19 @@ namespace Veilward.Tests.EditMode
             serializedPlacement.FindProperty("startWaveButton").objectReferenceValue = startWave;
             serializedPlacement.FindProperty("nextWaveButton").objectReferenceValue = CreateButton("Next Wave");
             serializedPlacement.FindProperty("rangePreview").objectReferenceValue = range;
+            var towerPanel = new GameObject("Tower Panel", typeof(RectTransform));
+            towerPanel.transform.SetParent(_root.transform, false);
+            var towerStats = new GameObject("Tower Stats", typeof(RectTransform), typeof(Text));
+            towerStats.transform.SetParent(_root.transform, false);
+            var sellConfirmation = new GameObject("Sell Confirmation Panel", typeof(RectTransform));
+            sellConfirmation.transform.SetParent(_root.transform, false);
+            serializedPlacement.FindProperty("towerPanel").objectReferenceValue = towerPanel;
+            serializedPlacement.FindProperty("towerStatsText").objectReferenceValue = towerStats.GetComponent<Text>();
+            serializedPlacement.FindProperty("upgradeButton").objectReferenceValue = CreateButton("Upgrade");
+            serializedPlacement.FindProperty("sellButton").objectReferenceValue = CreateButton("Sell");
+            serializedPlacement.FindProperty("sellConfirmationPanel").objectReferenceValue = sellConfirmation;
+            serializedPlacement.FindProperty("confirmSellButton").objectReferenceValue = CreateButton("Confirm Sell");
+            serializedPlacement.FindProperty("cancelSellButton").objectReferenceValue = CreateButton("Cancel Sell");
             serializedPlacement.ApplyModifiedPropertiesWithoutUndo();
             Invoke(placement, "Start");
 

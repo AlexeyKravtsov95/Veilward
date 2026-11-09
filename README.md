@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. Текущий статус — **P1.4a Multi-Wave Lifecycle & Rewards**: детерминированная 30 Hz симуляция восьми волн с ручными переходами, наградами за kills и завершение волн, Victory/Defeat, fixed-path movement, build grid и First targeting в graybox Battle. Продажа, улучшения, стихии, сохранения, IAP и Game Center ещё не реализованы.
+Unity-проект мобильной tower defense игры для iOS. Текущий статус — **P1.4b Tower Economy**: детерминированная 30 Hz симуляция восьми волн с ручными переходами, наградами, Victory/Defeat, fixed-path movement, build grid, First targeting, улучшениями Test Tower до Level 3 и продажей с подтверждением в graybox Battle. Стихии, сохранения, IAP и Game Center ещё не реализованы.
 
 ## Окружение
 
@@ -68,7 +68,15 @@ Graybox-сцену и assets можно повторно сгенерирова�
 
 **Start Wave** переводит Preparation в Combat, **Next Wave** доступен только в WaveComplete и переводит к следующей Preparation. Между волнами сохраняются глобальный tick, Enemy/Tower IDs, башни и cooldown, Gold, Base Health и Kills. Последняя волна завершается Victory; повторные и недопустимые команды не меняют состояние. HUD показывает `Wave: current / count`, Phase и terminal Result. Legacy `TestWave.asset` остаётся single-wave с bonus 0 и финальной фазой WaveComplete.
 
-Graybox-сцену и оба config можно повторно сгенерировать через **VEILWARD → P1.4a Build**. Builder сохраняет существующие настройки волн, наград и боя; validator проверяет EightWave, Next Wave и остальные обязательные ссылки.
+Актуальную graybox-сцену и оба config можно повторно сгенерировать через **VEILWARD → P1.4b Build**. Builder сохраняет существующие настройки волн, наград, боя и уровней башни; validator проверяет EightWave, экономические панели, кнопки и остальные обязательные ссылки.
+
+## P1.4b Tower Economy
+
+Test Tower имеет три serialized уровня с Damage **25/35/50**, Range **3**, FireRate **2** и стоимостью покупки/улучшений **60/50/80 gold**. `InvestedGold` равен **60/110/190**, а refund при продаже округляется вниз до 70%: **42/77/133 gold**. Level 2 и Level 3 хранятся в `towerUpgrades`; прежние serialized поля остаются источником Level 1.
+
+Occupied cell в Preparation открывает Tower Panel с характеристиками, стоимостью следующего Upgrade и текущим refund. **Upgrade** и **Sell** выполняются только через атомарные Domain-команды в Preparation; в Combat характеристики доступны только для чтения. Upgrade сохраняет TowerId, координату и cooldown. Sell требует отдельного подтверждения, удаляет Tower View, освобождает только принадлежащую башне клетку и начисляет refund один раз. Повторная постройка получает новый монотонный TowerId.
+
+Полный контракт находится в `Docs/P1.4B_TOWER_ECONOMY.md`, regression scenarios — `REG-BATTLE-025…044` в `Docs/REGRESSION.md`.
 
 ## Настройки репозитория
 
@@ -88,9 +96,9 @@ Graybox-сцену и оба config можно повторно сгенерир
 git diff --check
 ```
 
-Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P1.4a после review fix: **38/38 static self-tests passed**, project checks PASS.
+Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P1.4b: **38/38 static self-tests passed**, project checks PASS.
 
-EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…024`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат: **175/175 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode smoke загружает Battle и проверяет Preparation первой из восьми волн: **1/1 PlayMode test passed**, 0 failed/inconclusive/skipped. `git diff --check`: PASS; `Packages/manifest.json` и `Packages/packages-lock.json` не изменялись.
+EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…044`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат: **199/199 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode проверяет загрузку Battle и полный Upgrade/Sell/Rebuild flow: **2/2 PlayMode tests passed**, 0 failed/inconclusive/skipped. `git diff --check`: PASS; `Packages/manifest.json` и `Packages/packages-lock.json` не изменялись.
 
 Runners принимают только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. XML validator независимо проверяет NUnit/JUnit reports. Default `auto` сохраняет локальный Unity CLI path с JSON summary; self-hosted CI явно вызывает `run-unity-tests.sh <Mode> batch` и получает NUnit XML и log для EditMode/PlayMode. Batch отклоняет resident Editor или live descriptor и не запускает второй Editor. В clean checkout используется `UNITY_EDITOR_PATH` либо стандартный Unity Hub path; batch mode получает `-buildTarget iOS` и сохраняет report/log в ignored `TestResults`.
 
@@ -98,8 +106,8 @@ GitHub Actions workflow `Quality Gates` выполняет static checks на PR
 
 ## iOS build и Play Mode evidence
 
-Unity создаёт Xcode project для iOS. Apple signing, provisioning и установка на устройство выполняются владельцем проекта; приватные credentials в репозиторий не добавляются. Для P1.4a новый iOS export не запускался; предыдущий P1.3 Device SDK export без signing завершился `Succeeded`, **0 errors / 0 warnings**, но не является device-проверкой P1.4a.
+Unity создаёт Xcode project для iOS. Apple signing, provisioning и установка на устройство выполняются владельцем проекта; приватные credentials в репозиторий не добавляются. Для P1.4b новый iOS export не запускался; предыдущий P1.3 Device SDK export без signing не является device-проверкой P1.4b.
 
-P1.4a проверен в настоящем Play Mode через виртуальную мышь Input System: Preparation 1/8, Combat 1/8, WaveComplete с Gold 170 и Preparation 2/8 с сохранёнными Gold/tick, затем Defeat 4/8 с видимым `Result: Defeat`. Пять кадров 1241×913 находятся в `Docs/review/P1.4a/`; `qa.log` фиксирует 24 шага, 5 screenshots и 0 logged errors, HUD audit — 0 проблем, Console — 0 errors. Terminal Victory проверен deterministic Domain tests; полный визуальный Victory не захватывался.
+P1.4b проверен в настоящем Play Mode через live Editor eval и реальные `Button.onClick.Invoke`: выбор Level 1, два улучшения, подтверждение Sell, refund 133 gold, освобождение клетки, rebuild с TowerId 2 и атака улучшенной башни. Семь кадров **1600×900** находятся в `Docs/review/P1.4b/`; `qa.log` фиксирует значения сценария, точные команды и ограничения метода. Console финального визуального прогона — **0 errors**. Terminal Victory проверен deterministic Domain tests; полный визуальный Victory не захватывался.
 
-**Физический iPhone не проверялся.** Signing, touch на устройстве, safe area, производительность и Simulator для P1.4a также не проверялись.
+**Физический iPhone не проверялся.** Built-player touch, signing, safe area, производительность и Simulator для P1.4b также не проверялись. Независимый GPT-6 review ожидается.

@@ -243,6 +243,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(nextWaveProperty, Is.Not.Null, "Next Wave button reference is required.");
             nextWaveProperty.objectReferenceValue = nextWave;
             serialized.FindProperty("rangePreview").objectReferenceValue = rangeObject.GetComponent<LineRenderer>();
+            AddTowerEconomyReferences(serialized);
             serialized.ApplyModifiedPropertiesWithoutUndo();
             Invoke(placement, "Start");
             Invoke(placement, "RefreshUi");
@@ -288,6 +289,7 @@ namespace Veilward.Tests.EditMode
             serialized.FindProperty("startWaveButton").objectReferenceValue = CreateButton("Start Wave");
             serialized.FindProperty("nextWaveButton").objectReferenceValue = CreateButton("Next Wave");
             serialized.FindProperty("rangePreview").objectReferenceValue = range;
+            AddTowerEconomyReferences(serialized);
             serialized.ApplyModifiedPropertiesWithoutUndo();
 
             Invoke(placement, "Start");
@@ -303,6 +305,23 @@ namespace Veilward.Tests.EditMode
 
             placement.CancelSelection();
             Assert.That(range.gameObject.activeSelf, Is.False);
+        }
+
+        private void AddTowerEconomyReferences(SerializedObject serialized)
+        {
+            var towerPanel = new GameObject("Tower Panel", typeof(RectTransform));
+            towerPanel.transform.SetParent(_root.transform, false);
+            var towerStats = new GameObject("Tower Stats", typeof(RectTransform), typeof(Text));
+            towerStats.transform.SetParent(_root.transform, false);
+            var sellConfirmation = new GameObject("Sell Confirmation Panel", typeof(RectTransform));
+            sellConfirmation.transform.SetParent(_root.transform, false);
+            serialized.FindProperty("towerPanel").objectReferenceValue = towerPanel;
+            serialized.FindProperty("towerStatsText").objectReferenceValue = towerStats.GetComponent<Text>();
+            serialized.FindProperty("upgradeButton").objectReferenceValue = CreateButton("Upgrade");
+            serialized.FindProperty("sellButton").objectReferenceValue = CreateButton("Sell");
+            serialized.FindProperty("sellConfirmationPanel").objectReferenceValue = sellConfirmation;
+            serialized.FindProperty("confirmSellButton").objectReferenceValue = CreateButton("Confirm Sell");
+            serialized.FindProperty("cancelSellButton").objectReferenceValue = CreateButton("Cancel Sell");
         }
 
         private Button CreateButton(string name)

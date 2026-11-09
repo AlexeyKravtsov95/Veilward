@@ -146,6 +146,11 @@ namespace Veilward.Domain
             _towers.Add(tower ?? throw new ArgumentNullException(nameof(tower)));
         }
 
+        internal void RemoveTowerAt(int index)
+        {
+            _towers.RemoveAt(index);
+        }
+
         internal void Debit(int amount)
         {
             if (amount < 0 || amount > Gold)

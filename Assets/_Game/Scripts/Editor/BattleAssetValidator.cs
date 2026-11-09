@@ -72,7 +72,8 @@ namespace Veilward.Editor
                     new[]
                     {
                         "battle", "worldCamera", "selectionHighlight", "towerPreview",
-                        "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview"
+                        "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview",
+                        "towerPanel", "towerStatsText", "upgradeButton", "sellButton", "sellConfirmationPanel", "confirmSellButton", "cancelSellButton"
                     },
                     errors);
             }
