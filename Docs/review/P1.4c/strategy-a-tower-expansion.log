@@ -1,0 +1,30 @@
+﻿P1.4c deterministic saved-EightWave strategy
+Config=Assets/_Game/Configs/EightWave.asset
+Strategy=TowerExpansion
+Source=BattleGameplayReplayTests.RunSavedStrategy
+RejectedCommands=None (fixed successful command sequence)
+TimelineEntries=2302
+TimelineSha256=ecadc1db11c23fa806c57523bedd06d98b0148e0b455df169ae87a4b1518e4d2
+
+COMMANDS
+Place Tower=1 Cell=(-1,0) Cost=60 Gold=90
+Place Tower=2 Cell=(1,0) Cost=60 Gold=30
+Place Tower=3 Cell=(-1,1) Cost=60 Gold=15
+Place Tower=4 Cell=(1,1) Cost=60 Gold=5
+Place Tower=5 Cell=(-1,-1) Cost=60 Gold=0
+Place Tower=6 Cell=(1,-1) Cost=60 Gold=0
+Place Tower=7 Cell=(-2,0) Cost=60 Gold=5
+Place Tower=8 Cell=(2,0) Cost=60 Gold=15
+
+WAVE SUMMARIES
+Wave=1|Phase=WaveComplete|Tick=210|Gold=75|HP=20|Kills=5|Leaks=0|Towers=1@-1,0:L1:I60;2@1,0:L1:I60;
+Wave=2|Phase=WaveComplete|Tick=450|Gold=65|HP=20|Kills=11|Leaks=0|Towers=1@-1,0:L1:I60;2@1,0:L1:I60;3@-1,1:L1:I60;
+Wave=3|Phase=WaveComplete|Tick=720|Gold=60|HP=20|Kills=18|Leaks=0|Towers=1@-1,0:L1:I60;2@1,0:L1:I60;3@-1,1:L1:I60;4@1,1:L1:I60;
+Wave=4|Phase=WaveComplete|Tick=981|Gold=60|HP=20|Kills=26|Leaks=0|Towers=1@-1,0:L1:I60;2@1,0:L1:I60;3@-1,1:L1:I60;4@1,1:L1:I60;5@-1,-1:L1:I60;
+Wave=5|Phase=WaveComplete|Tick=1272|Gold=65|HP=20|Kills=35|Leaks=0|Towers=1@-1,0:L1:I60;2@1,0:L1:I60;3@-1,1:L1:I60;4@1,1:L1:I60;5@-1,-1:L1:I60;6@1,-1:L1:I60;
+Wave=6|Phase=WaveComplete|Tick=1577|Gold=75|HP=20|Kills=45|Leaks=0|Towers=1@-1,0:L1:I60;2@1,0:L1:I60;3@-1,1:L1:I60;4@1,1:L1:I60;5@-1,-1:L1:I60;6@1,-1:L1:I60;7@-2,0:L1:I60;
+Wave=7|Phase=WaveComplete|Tick=1912|Gold=90|HP=20|Kills=56|Leaks=0|Towers=1@-1,0:L1:I60;2@1,0:L1:I60;3@-1,1:L1:I60;4@1,1:L1:I60;5@-1,-1:L1:I60;6@1,-1:L1:I60;7@-2,0:L1:I60;8@2,0:L1:I60;
+Wave=8|Phase=Victory|Tick=2277|Gold=170|HP=20|Kills=68|Leaks=0|Towers=1@-1,0:L1:I60;2@1,0:L1:I60;3@-1,1:L1:I60;4@1,1:L1:I60;5@-1,-1:L1:I60;6@1,-1:L1:I60;7@-2,0:L1:I60;8@2,0:L1:I60;
+
+FINAL
+Strategy=TowerExpansion|Phase=Victory|Wave=8/8|Tick=2277|Gold=170|HP=20|Kills=68|Towers=1@-1,0:L1:I60;2@1,0:L1:I60;3@-1,1:L1:I60;4@1,1:L1:I60;5@-1,-1:L1:I60;6@1,-1:L1:I60;7@-2,0:L1:I60;8@2,0:L1:I60;
