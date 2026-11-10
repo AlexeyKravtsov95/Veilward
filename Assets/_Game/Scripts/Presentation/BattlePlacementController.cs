@@ -33,6 +33,7 @@ namespace Veilward.Presentation
         private bool _hasTowerSelection;
         private bool _isSellConfirmationVisible;
         private TowerId? _sellConfirmationTowerId;
+        private int _pointerSuppressedUntilFrame = -1;
 
         public bool HasSelection => _hasSelection;
         public GridCoordinate SelectedCell { get; private set; }
@@ -92,6 +93,11 @@ namespace Veilward.Presentation
             }
 
             RefreshUi();
+            if (battle.IsPaused || Time.frameCount <= _pointerSuppressedUntilFrame)
+            {
+                return;
+            }
+
             var mouse = Mouse.current;
             if (mouse != null && mouse.leftButton.wasPressedThisFrame)
             {
@@ -169,10 +175,15 @@ namespace Veilward.Presentation
             ConfirmSellSelectedTower();
         }
 
+        public void SuppressPointerForCurrentFrame()
+        {
+            _pointerSuppressedUntilFrame = Time.frameCount;
+        }
+
         public bool TrySelectCell(GridCoordinate coordinate)
         {
             var simulation = battle.Simulation;
-            if (simulation == null || !simulation.Grid.Map.Contains(coordinate))
+            if (battle.IsPaused || simulation == null || !simulation.Grid.Map.Contains(coordinate))
             {
                 return false;
             }

@@ -448,6 +448,7 @@ class UnityBatchRunnerTests(unittest.TestCase):
                 self.assertEqual(mode, command[command.index("-testPlatform") + 1])
                 self.assertIn("-runTests", command)
                 self.assertIn("-testResults", command)
+                self.assertNotIn("-quit", command, "Unity 6000.3 quits before starting the Test Runner")
 
     def test_batch_backend_rejects_invalid_reports(self):
         for result in ("missing", "failed", "skipped", "inconclusive", "empty"):
