@@ -127,6 +127,179 @@ namespace Veilward.Tests.EditMode
             Assert.That(_placement.TrySelectCell(FirstCell), Is.False);
         }
 
+        [Test]
+        public void Pause_ClearsPendingPlacementAndSellConfirmation()
+        {
+            Assert.That(_placement.TrySelectCell(FirstCell), Is.True);
+            _pause.Pause();
+            Assert.That(_placement.HasSelection, Is.False);
+            _pause.Resume();
+
+            Assert.That(_battle.PlaceTower(FirstCell).Success, Is.True);
+            var gold = _battle.Simulation.State.Gold;
+            Assert.That(_placement.TrySelectCell(FirstCell), Is.True);
+            _placement.RequestSellSelectedTower();
+            Assert.That(_placement.IsSellConfirmationVisible, Is.True);
+
+            _pause.Pause();
+
+            Assert.That(_placement.HasSelection, Is.False);
+            Assert.That(_placement.IsSellConfirmationVisible, Is.False);
+            Assert.That(_battle.Simulation.State.Gold, Is.EqualTo(gold));
+            Assert.That(_placement.ConfirmSellSelectedTower().FailureReason,
+                Is.EqualTo(TowerOperationFailureReason.ConfirmationRequired));
+        }
+
+        [Test]
+        public void Pause_DisablesGameplayButtons()
+        {
+            _pause.Pause();
+            Invoke(_placement, "RefreshUi");
+
+            Assert.That(_startWaveButton.interactable, Is.False);
+            Assert.That(_nextWaveButton.interactable, Is.False);
+            Assert.That(_placement.UpgradeButton.interactable, Is.False);
+        }
+
+        [Test]
+        public void Resume_DoesNotCatchUpAndPreservesDeterministicContinuation()
+        {
+            _battle.StartWave();
+            _battle.Simulation.Step();
+            var tick = _battle.Simulation.State.Tick;
+            SetField(_battle, "_accumulator", 1f);
+            _pause.Pause();
+            Invoke(_battle, "Update");
+            Assert.That(_battle.Simulation.State.Tick, Is.EqualTo(tick));
+            Assert.That(GetField<float>(_battle, "_accumulator"), Is.Zero);
+
+            SetField(_battle, "_accumulator", 1f);
+            _pause.Resume();
+            Invoke(_battle, "Update");
+            Assert.That(_battle.Simulation.State.Tick, Is.EqualTo(tick),
+                "The resume boundary must discard the current frame delta.");
+            Assert.That(GetField<float>(_battle, "_accumulator"), Is.Zero);
+
+            // Компенсируем реальный deltaTime кадра, чтобы аккумулятор содержал ровно один tick.
+            SetField(_battle, "_accumulator",
+                1f / SimulationTiming.TicksPerSecond - Mathf.Min(Time.deltaTime, 0.25f) + 0.0001f);
+            Invoke(_battle, "Update");
+            Assert.That(_battle.Simulation.State.Tick, Is.EqualTo(tick + 1));
+        }
+
+        [Test]
+        public void Beams_FreezeAndResumeWithoutGlobalTimeScale()
+        {
+            var timeScale = Time.timeScale;
+            var beamObject = new GameObject("Beam");
+            beamObject.transform.SetParent(_root.transform, false);
+            var beam = beamObject.AddComponent<AttackBeamView>();
+            beam.Initialize(_beamMaterial, Vector3.zero, Vector3.one, _battle);
+            _pause.Pause();
+
+            Invoke(beam, "Update");
+
+            Assert.That(GetField<float>(beam, "_remainingSeconds"), Is.EqualTo(0.12f).Within(0.0001f));
+            Assert.That(Time.timeScale, Is.EqualTo(timeScale));
+        }
+
+        [TestCase(BattlePhase.Preparation)]
+        [TestCase(BattlePhase.Combat)]
+        [TestCase(BattlePhase.WaveComplete)]
+        [TestCase(BattlePhase.Victory)]
+        [TestCase(BattlePhase.Defeat)]
+        public void Pause_PreservesPhaseSnapshot(BattlePhase phase)
+        {
+            AdvanceToPhase(phase);
+            var snapshot = Snapshot();
+
+            _pause.Pause();
+            SetField(_battle, "_accumulator", 1f);
+            Invoke(_battle, "Update");
+            Invoke(_battle, "Update");
+
+            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(phase));
+            Assert.That(Snapshot(), Is.EqualTo(snapshot));
+        }
+
+        private void AdvanceToPhase(BattlePhase phase)
+        {
+            if (phase == BattlePhase.Preparation)
+            {
+                return;
+            }
+
+            if (phase == BattlePhase.Combat)
+            {
+                Assert.That(_battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+                return;
+            }
+
+            var serialized = new SerializedObject(_config);
+            serialized.FindProperty("speed").floatValue = 300f;
+            if (phase == BattlePhase.Defeat)
+            {
+                serialized.FindProperty("baseHealth").intValue = 1;
+            }
+            else
+            {
+                serialized.FindProperty("towerDamage").intValue = 100;
+            }
+
+            var waves = serialized.FindProperty("waves");
+            waves.arraySize = phase == BattlePhase.WaveComplete ? 2 : 1;
+            for (var index = 0; index < waves.arraySize; index++)
+            {
+                var wave = waves.GetArrayElementAtIndex(index);
+                wave.FindPropertyRelative("enemyCount").intValue = 1;
+                wave.FindPropertyRelative("firstSpawnTick").intValue = 0;
+                wave.FindPropertyRelative("spawnIntervalTicks").intValue = 30;
+            }
+
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            Invoke(_battle, "Start");
+            if (phase != BattlePhase.Defeat)
+            {
+                Assert.That(_battle.PlaceTower(new GridCoordinate(-4, 0)).Success, Is.True);
+            }
+
+            Assert.That(_battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+            for (var index = 0; index < 4 && _battle.Simulation.State.Phase == BattlePhase.Combat; index++)
+            {
+                _battle.Simulation.Step();
+            }
+
+            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(phase));
+        }
+
+        private string Snapshot()
+        {
+            var state = _battle.Simulation.State;
+            return string.Join("|",
+                state.Phase,
+                state.Tick,
+                state.WaveIndex,
+                state.BaseHealth,
+                state.Gold,
+                state.Kills,
+                state.Enemies.Count,
+                state.Towers.Count);
+        }
+
+        private static void SetField(object target, string name, object value)
+        {
+            var field = target.GetType().GetField(name, BindingFlags.Instance | BindingFlags.NonPublic);
+            Assert.That(field, Is.Not.Null, name);
+            field.SetValue(target, value);
+        }
+
+        private static T GetField<T>(object target, string name)
+        {
+            var field = target.GetType().GetField(name, BindingFlags.Instance | BindingFlags.NonPublic);
+            Assert.That(field, Is.Not.Null, name);
+            return (T)field.GetValue(target);
+        }
+
         private void CreatePlacement()
         {
             var selection = new GameObject("Selection").transform;

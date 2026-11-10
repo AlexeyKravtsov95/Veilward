@@ -25,6 +25,7 @@ namespace Veilward.Presentation
         private readonly List<TowerId> _staleTowerIds = new List<TowerId>();
         private BattleSimulation _simulation;
         private float _accumulator;
+        private bool _skipNextDelta;
 
         public BattleSimulation Simulation => _simulation;
         public bool IsPaused => pauseController != null && pauseController.IsPaused;
@@ -162,6 +163,20 @@ namespace Veilward.Presentation
                 return;
             }
 
+            if (IsPaused)
+            {
+                _accumulator = 0f;
+                _skipNextDelta = true;
+                return;
+            }
+
+            if (_skipNextDelta)
+            {
+                _skipNextDelta = false;
+                _accumulator = 0f;
+                return;
+            }
+
             _accumulator += Mathf.Min(Time.deltaTime, 0.25f);
             var steps = 0;
             while (_accumulator >= StepSeconds && steps < MaxStepsPerFrame)
@@ -204,7 +219,8 @@ namespace Veilward.Presentation
                     beam.AddComponent<AttackBeamView>().Initialize(
                         attackBeamMaterial,
                         start + new Vector3(0f, 0.85f, 0f),
-                        end);
+                        end,
+                        this);
                 }
             }
             finally

@@ -7,9 +7,11 @@ namespace Veilward.Presentation
     {
         private const float LifetimeSeconds = 0.12f;
         private float _remainingSeconds = LifetimeSeconds;
+        private BattleSceneController _battle;
 
-        public void Initialize(Material material, Vector3 start, Vector3 end)
+        public void Initialize(Material material, Vector3 start, Vector3 end, BattleSceneController battle)
         {
+            _battle = battle;
             var line = gameObject.AddComponent<LineRenderer>();
             line.useWorldSpace = true;
             line.positionCount = 2;
@@ -24,6 +26,11 @@ namespace Veilward.Presentation
 
         private void Update()
         {
+            if (_battle != null && _battle.IsPaused)
+            {
+                return;
+            }
+
             _remainingSeconds -= Time.deltaTime;
             if (_remainingSeconds <= 0f)
             {
