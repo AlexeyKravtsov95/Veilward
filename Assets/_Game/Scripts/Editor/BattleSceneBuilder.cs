@@ -278,7 +278,7 @@ namespace Veilward.Editor
             var serialized = new SerializedObject(controller);
             var propertyNames = new[]
             {
-                "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial"
+                "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial", "pauseController"
             };
             foreach (var propertyName in propertyNames)
             {
@@ -303,6 +303,18 @@ namespace Veilward.Editor
                 {
                     throw new System.InvalidOperationException(
                         $"Battle Placement is missing required reference: {propertyName}.");
+                }
+            }
+
+            var pause = Object.FindFirstObjectByType<BattlePauseController>();
+            var pauseSerialized = new SerializedObject(pause);
+            var pauseProperties = new[] { "battle", "placement", "pauseOverlay", "pauseButton", "resumeButton" };
+            foreach (var propertyName in pauseProperties)
+            {
+                if (pauseSerialized.FindProperty(propertyName).objectReferenceValue == null)
+                {
+                    throw new System.InvalidOperationException(
+                        $"Battle Pause is missing required reference: {propertyName}.");
                 }
             }
         }
@@ -530,6 +542,33 @@ namespace Veilward.Editor
                 new Vector2(1f, 1f),
                 new Vector2(-24f, -100f),
                 new Vector2(230f, 68f));
+            var pause = CreateButton("Pause Button", canvasObject.transform, "Pause", Vector2.zero);
+            SetRect(
+                pause.GetComponent<RectTransform>(),
+                new Vector2(1f, 1f),
+                new Vector2(-24f, -176f),
+                new Vector2(230f, 68f));
+
+            var pauseOverlay = CreateUiObject("Pause Overlay", canvasObject.transform);
+            var overlayImage = pauseOverlay.AddComponent<UnityEngine.UI.Image>();
+            overlayImage.color = new Color(0.02f, 0.03f, 0.05f, 0.88f);
+            overlayImage.raycastTarget = true;
+            var overlayRect = overlayImage.rectTransform;
+            overlayRect.anchorMin = Vector2.zero;
+            overlayRect.anchorMax = Vector2.one;
+            overlayRect.offsetMin = Vector2.zero;
+            overlayRect.offsetMax = Vector2.zero;
+            var pausedLabel = CreateText("Paused Label", pauseOverlay.transform, 42, TextAnchor.MiddleCenter);
+            pausedLabel.text = "Paused";
+            pausedLabel.raycastTarget = false;
+            SetRect(
+                pausedLabel.rectTransform,
+                new Vector2(0.5f, 0.5f),
+                new Vector2(0f, 70f),
+                new Vector2(400f, 70f));
+            var resume = CreateButton("Resume Button", pauseOverlay.transform, "Resume", new Vector2(0f, -30f));
+            pauseOverlay.SetActive(false);
+
             return new HudReferences
             {
                 StatsText = stats,
@@ -538,6 +577,9 @@ namespace Veilward.Editor
                 CancelButton = cancel,
                 StartWaveButton = startWave,
                 NextWaveButton = nextWave,
+                PauseButton = pause,
+                PauseOverlay = pauseOverlay,
+                ResumeButton = resume,
                 TowerPanel = towerPanel,
                 TowerStatsText = towerStats,
                 UpgradeButton = upgrade,
@@ -624,19 +666,23 @@ namespace Veilward.Editor
             var controllerObject = new GameObject(
                 "Battle Controller",
                 typeof(BattleSceneController),
-                typeof(BattlePlacementController));
-            var serialized = new SerializedObject(controllerObject.GetComponent<BattleSceneController>());
+                typeof(BattlePlacementController),
+                typeof(BattlePauseController));
+            var battle = controllerObject.GetComponent<BattleSceneController>();
+            var placement = controllerObject.GetComponent<BattlePlacementController>();
+            var pause = controllerObject.GetComponent<BattlePauseController>();
+            var serialized = new SerializedObject(battle);
             serialized.FindProperty("scenario").objectReferenceValue = config;
             serialized.FindProperty("enemyPrefab").objectReferenceValue = enemyPrefab;
             serialized.FindProperty("towerPrefab").objectReferenceValue = towerPrefab;
             serialized.FindProperty("hudText").objectReferenceValue = hud.StatsText;
             serialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
             serialized.FindProperty("attackBeamMaterial").objectReferenceValue = beamMaterial;
+            serialized.FindProperty("pauseController").objectReferenceValue = pause;
             serialized.ApplyModifiedPropertiesWithoutUndo();
 
-            var placementSerialized = new SerializedObject(controllerObject.GetComponent<BattlePlacementController>());
-            placementSerialized.FindProperty("battle").objectReferenceValue =
-                controllerObject.GetComponent<BattleSceneController>();
+            var placementSerialized = new SerializedObject(placement);
+            placementSerialized.FindProperty("battle").objectReferenceValue = battle;
             placementSerialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
             placementSerialized.FindProperty("selectionHighlight").objectReferenceValue = selection;
             placementSerialized.FindProperty("towerPreview").objectReferenceValue = preview;
@@ -654,6 +700,14 @@ namespace Veilward.Editor
             placementSerialized.FindProperty("confirmSellButton").objectReferenceValue = hud.ConfirmSellButton;
             placementSerialized.FindProperty("cancelSellButton").objectReferenceValue = hud.CancelSellButton;
             placementSerialized.ApplyModifiedPropertiesWithoutUndo();
+
+            var pauseSerialized = new SerializedObject(pause);
+            pauseSerialized.FindProperty("battle").objectReferenceValue = battle;
+            pauseSerialized.FindProperty("placement").objectReferenceValue = placement;
+            pauseSerialized.FindProperty("pauseOverlay").objectReferenceValue = hud.PauseOverlay;
+            pauseSerialized.FindProperty("pauseButton").objectReferenceValue = hud.PauseButton;
+            pauseSerialized.FindProperty("resumeButton").objectReferenceValue = hud.ResumeButton;
+            pauseSerialized.ApplyModifiedPropertiesWithoutUndo();
         }
 
         private sealed class HudReferences
@@ -664,6 +718,9 @@ namespace Veilward.Editor
             public UnityEngine.UI.Button CancelButton;
             public UnityEngine.UI.Button StartWaveButton;
             public UnityEngine.UI.Button NextWaveButton;
+            public UnityEngine.UI.Button PauseButton;
+            public GameObject PauseOverlay;
+            public UnityEngine.UI.Button ResumeButton;
             public GameObject TowerPanel;
             public UnityEngine.UI.Text TowerStatsText;
             public UnityEngine.UI.Button UpgradeButton;
