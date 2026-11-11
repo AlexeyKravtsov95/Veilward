@@ -204,8 +204,7 @@ UNITY_STATUS=0
   -runTests \
   -testPlatform "$TEST_MODE" \
   -testResults "$RESULT_PATH" \
-  -logFile "$LOG_PATH" \
-  -quit || UNITY_STATUS=$?
+  -logFile "$LOG_PATH" || UNITY_STATUS=$?
 
 python3 "$PROJECT_PATH/Scripts/verify_unity_test_results.py" "$RESULT_PATH"
 if [ "$UNITY_STATUS" -ne 0 ]; then

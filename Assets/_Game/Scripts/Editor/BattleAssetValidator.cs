@@ -60,6 +60,12 @@ namespace Veilward.Editor
                 errors.Add($"Battle must contain exactly one BattlePlacementController; found {placements.Count}.");
             }
 
+            var pauses = FindComponents<BattlePauseController>(roots);
+            if (pauses.Count != 1)
+            {
+                errors.Add($"Battle must contain exactly one BattlePauseController; found {pauses.Count}.");
+            }
+
             if (controllers.Count == 1)
             {
                 ValidateBattleController(controllers[0], errors);
@@ -78,6 +84,14 @@ namespace Veilward.Editor
                     errors);
             }
 
+            if (pauses.Count == 1)
+            {
+                RequireReferences(
+                    pauses[0],
+                    new[] { "battle", "placement", "pauseOverlay", "pauseButton", "resumeButton" },
+                    errors);
+            }
+
             foreach (var root in roots)
             {
                 ValidateRenderers(root.GetComponentsInChildren<Renderer>(true), root.name, errors);
@@ -91,7 +105,7 @@ namespace Veilward.Editor
         {
             var references = RequireReferences(
                 controller,
-                new[] { "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial" },
+                new[] { "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial", "pauseController" },
                 errors);
             RequireAssetPath(references["scenario"], ConfigPath, "scenario", errors);
             RequireAssetPath(references["enemyPrefab"], EnemyPrefabPath, "enemyPrefab", errors);

@@ -83,6 +83,26 @@
 | REG-BATTLE-052 | Стратегии Tower Expansion, Tower Upgrades и Flexible Economy используют неизменённый saved EightWave и штатные Domain API; журналы содержат пословновые Gold/HP/kills/leaks, экономические команды и фактический Victory/Defeat без гарантии искусственной победы. Flexible Economy выполняет build → sell → rebuild в одной клетке: после постройки клетка Occupied, после продажи Available, повторная покупка успешна и получает новый монотонный TowerId. | `BattleGameplayReplayTests.SavedStrategies_ProduceReproducibleMechanicalResults`; `BattleGameplayReplayTests.SavedFlexibleReplay_RebuildsSoldCellWithNewTowerId`; `Docs/review/P1.4c` |
 | REG-BATTLE-053 | Editor Play Mode подтверждает полный UI cycle: build/Confirm, wave start, selection, L1→L2→L3, Sell Confirm/Cancel, rebuild, Next Wave и фактический terminal; landscape screenshots показывают ключевые фазы и последнюю волну без обрезаний HUD. | `Docs/review/P1.4c`; реальный Play Mode QA |
 
+## P1.5a — Pause & Background
+
+Пауза принадлежит orchestration/presentation и не добавляет состояние в Domain. Полный gameplay snapshot включает Phase/Tick/WaveIndex, Gold/HP/Kills, enemies, towers/NextAttackTick и grid; presentation selection и pending Sell проверяются отдельно.
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-054 | Ручная Pause в Preparation, Combat и WaveComplete сохраняет исходную Battle Phase; несколько кадров паузы не меняют полный gameplay snapshot, включая cooldown и rewards. | `BattlePauseTests.ManualPause_AllActivePhases_PreservesBattleState`; `BattlePausePlayModeTests.Battle_PauseFreezesSimulationAcrossFrames` |
+| REG-BATTLE-055 | Во время паузы PlaceTower, Upgrade, Sell, Start Wave и Next Wave отклоняются через controller API без Domain mutation; соответствующие UI buttons не interactable, вызовы их listeners не обходят запрет. | `BattlePauseTests.PausedCommands_AreRejectedWithoutMutation`; `BattlePausePlayModeTests.Battle_PausedCommandsAndButtons_CannotMutateMatch` |
+| REG-BATTLE-056 | Вход в паузу очищает незавершённое placement и Sell confirmation без изменения Gold/Grid; после Resume старый ConfirmSell возвращает ConfirmationRequired и не продаёт башню. | `BattlePauseTests.Pause_ClearsPendingPlacementAndSellConfirmation`; `BattlePausePlayModeTests.Battle_PauseClearsPendingActions` |
+| REG-BATTLE-057 | Ручная пауза, focus loss и background пересекаются в разном порядке и обрабатываются идемпотентно; focus regain/application resume не снимают паузу автоматически. | `BattlePauseTests.LifecycleCallbacks_OverlapWithoutAutomaticResume` |
+| REG-BATTLE-058 | Resume отклоняется в background и при потере focus; при active/focused приложении только явный Resume снимает паузу, повторный Resume безопасен и сохраняет Battle Phase. | `BattlePauseTests.Resume_RequiresActiveFocusedApplication` |
+| REG-BATTLE-059 | Во время отсутствия accumulator не накапливается; первый кадр после Resume не выполняет catch-up. Контрольный и paused прогоны с одинаковой последовательностью explicit simulation ticks имеют одинаковые AttackEvents, Gold/HP/Kills, cooldown и terminal result. | `BattlePauseTests.Resume_DoesNotCatchUpAndPreservesDeterministicContinuation`; `BattlePausePlayModeTests.Battle_Resume_ContinuesWithoutCatchUp` |
+| REG-BATTLE-060 | Полноэкранный Pause Overlay перехватывает raycasts; Resume не выбирает клетку и не активирует control под overlay в том же input frame. | `BattlePausePlayModeTests.Battle_ResumeClick_DoesNotPassThroughOverlay` |
+| REG-BATTLE-061 | AttackBeamView не уменьшает remaining lifetime во время паузы и продолжает оставшееся время после Resume без изменения глобального Time.timeScale. | `BattlePauseTests.Beams_FreezeAndResumeWithoutGlobalTimeScale` |
+| REG-BATTLE-062 | Pause/lifecycle в Victory и Defeat не меняют terminal result и не возвращают матч в Combat; последующий Resume сохраняет terminal snapshot. | `BattlePauseTests.PauseAndResume_TerminalStates_RemainTerminal` |
+| REG-BATTLE-063 | Закрытие Battle scene снимает Pause/Resume listeners и уничтожает scene-owned state; повторная загрузка создаёт ровно один pause controller без дублированных вызовов и статических подписок. | `BattlePausePlayModeTests.Battle_Reload_DoesNotDuplicatePauseListeners` |
+| REG-BATTLE-064 | Saved Battle содержит ровно один полностью wired BattlePauseController, Pause Button и blocking Pause Overlay; builder повторяем, validator отклоняет отсутствующие pause references и Missing Scripts. | `BattleAssetValidationTests`; `BattleSceneBuilderTests` |
+| REG-BATTLE-065 | Реальный Editor Play Mode фиксирует landscape Preparation/Combat pause и Resume screenshots, значения frozen/resumed state и фактический Console audit. | `Docs/review/P1.5a`; реальный Play Mode QA |
+| REG-BATTLE-066 | Все REG-BATTLE-001…053 и прежние Domain/config/scene tests сохраняются без изменения баланса и подгонки legacy ожиданий. | Полный EditMode/PlayMode suite |
+
 ## CI-сценарии
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |

@@ -17,6 +17,7 @@ namespace Veilward.Presentation
         [SerializeField] private UnityEngine.UI.Text hudText;
         [SerializeField] private Camera worldCamera;
         [SerializeField] private Material attackBeamMaterial;
+        [SerializeField] private BattlePauseController pauseController;
 
         private readonly Dictionary<EnemyId, EnemyView> _enemyViews = new Dictionary<EnemyId, EnemyView>();
         private readonly Dictionary<TowerId, Transform> _towerViews = new Dictionary<TowerId, Transform>();
@@ -24,8 +25,10 @@ namespace Veilward.Presentation
         private readonly List<TowerId> _staleTowerIds = new List<TowerId>();
         private BattleSimulation _simulation;
         private float _accumulator;
+        private bool _skipNextDelta;
 
         public BattleSimulation Simulation => _simulation;
+        public bool IsPaused => pauseController != null && pauseController.IsPaused;
 
         private void Start()
         {
@@ -71,6 +74,11 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("Battle simulation is not initialized.");
             }
 
+            if (IsPaused)
+            {
+                return PlaceTowerResult.Failed(PlaceTowerFailureReason.InvalidPhase);
+            }
+
             return _simulation.PlaceTower(new PlaceTowerCommand(_simulation.TowerDefinition.Id, coordinate));
         }
 
@@ -81,6 +89,11 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("Battle simulation is not initialized.");
             }
 
+            if (IsPaused)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
+            }
+
             return _simulation.UpgradeTower(towerId);
         }
 
@@ -89,6 +102,11 @@ namespace Veilward.Presentation
             if (_simulation == null)
             {
                 throw new InvalidOperationException("Battle simulation is not initialized.");
+            }
+
+            if (IsPaused)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
             }
 
             var result = _simulation.SellTower(towerId);
@@ -113,6 +131,11 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("Battle simulation is not initialized.");
             }
 
+            if (IsPaused)
+            {
+                return WaveTransitionResult.RejectedInvalidPhase;
+            }
+
             var result = _simulation.StartWave();
             ProcessAttackEvents();
             return result;
@@ -125,6 +148,11 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("Battle simulation is not initialized.");
             }
 
+            if (IsPaused)
+            {
+                return WaveTransitionResult.RejectedInvalidPhase;
+            }
+
             return _simulation.ContinueToNextWave();
         }
 
@@ -132,6 +160,20 @@ namespace Veilward.Presentation
         {
             if (_simulation == null)
             {
+                return;
+            }
+
+            if (IsPaused)
+            {
+                _accumulator = 0f;
+                _skipNextDelta = true;
+                return;
+            }
+
+            if (_skipNextDelta)
+            {
+                _skipNextDelta = false;
+                _accumulator = 0f;
                 return;
             }
 
@@ -177,7 +219,8 @@ namespace Veilward.Presentation
                     beam.AddComponent<AttackBeamView>().Initialize(
                         attackBeamMaterial,
                         start + new Vector3(0f, 0.85f, 0f),
-                        end);
+                        end,
+                        this);
                 }
             }
             finally

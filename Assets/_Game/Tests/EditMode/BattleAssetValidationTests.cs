@@ -5,13 +5,57 @@ using System.Linq;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEngine;
 using Veilward.Editor;
+using Veilward.Presentation;
 
 namespace Veilward.Tests.EditMode
 {
     public sealed class BattleAssetValidationTests
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
+
+        [Test]
+        public void SavedBattleScene_PauseOverlayAndReferences_AreValid()
+        {
+            EditorSceneManager.OpenScene(BattleScenePath);
+            var pause = UnityEngine.Object.FindFirstObjectByType<BattlePauseController>(FindObjectsInactive.Include);
+            var battle = UnityEngine.Object.FindFirstObjectByType<BattleSceneController>();
+            var rects = UnityEngine.Object.FindObjectsByType<RectTransform>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            var overlay = rects.SingleOrDefault(rect => rect.name == "Pause Overlay");
+            var pauseRect = rects.SingleOrDefault(rect => rect.name == "Pause Button");
+            var resumeRect = rects.SingleOrDefault(rect => rect.name == "Resume Button");
+
+            Assert.That(pause, Is.Not.Null);
+            Assert.That(overlay, Is.Not.Null);
+            Assert.That(pauseRect, Is.Not.Null);
+            Assert.That(resumeRect, Is.Not.Null);
+            var overlayImage = overlay.GetComponent<UnityEngine.UI.Image>();
+            Assert.That(overlayImage, Is.Not.Null);
+            Assert.That(overlayImage.raycastTarget, Is.True);
+            Assert.That(overlay.anchorMin, Is.EqualTo(Vector2.zero));
+            Assert.That(overlay.anchorMax, Is.EqualTo(Vector2.one));
+            Assert.That(overlay.offsetMin, Is.EqualTo(Vector2.zero));
+            Assert.That(overlay.offsetMax, Is.EqualTo(Vector2.zero));
+            Assert.That(overlay.GetSiblingIndex(), Is.EqualTo(overlay.parent.childCount - 1));
+            Assert.That(overlay.gameObject.activeSelf, Is.False);
+
+            var serialized = new SerializedObject(pause);
+            foreach (var propertyName in new[] { "battle", "placement", "pauseOverlay", "pauseButton", "resumeButton" })
+            {
+                Assert.That(serialized.FindProperty(propertyName).objectReferenceValue, Is.Not.Null, propertyName);
+            }
+
+            Assert.That(serialized.FindProperty("battle").objectReferenceValue, Is.EqualTo(battle));
+            Assert.That(serialized.FindProperty("pauseOverlay").objectReferenceValue, Is.EqualTo(overlay.gameObject));
+            Assert.That(serialized.FindProperty("pauseButton").objectReferenceValue,
+                Is.EqualTo(pauseRect.GetComponent<UnityEngine.UI.Button>()));
+            Assert.That(serialized.FindProperty("resumeButton").objectReferenceValue,
+                Is.EqualTo(resumeRect.GetComponent<UnityEngine.UI.Button>()));
+            var serializedBattle = new SerializedObject(battle);
+            Assert.That(serializedBattle.FindProperty("pauseController").objectReferenceValue, Is.EqualTo(pause));
+            Assert.That(BattleAssetValidator.ValidateSavedBattle(), Is.Empty);
+        }
 
         [Test]
         public void SavedBattleScene_ConfigReferencesPrefabsAndMaterials_AreValid()

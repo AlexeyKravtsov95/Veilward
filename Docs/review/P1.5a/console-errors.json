@@ -1,0 +1,11 @@
+{
+    "scope": "Application.logMessageReceived during P1.5a Editor Play Mode visual scenario",
+    "sampledUtc": "2026-11-11T07:34:17.3136540Z",
+    "entries": [],
+    "returned": 0,
+    "counts": {
+        "error": 0,
+        "warn": 2,
+        "log": 6
+    }
+}

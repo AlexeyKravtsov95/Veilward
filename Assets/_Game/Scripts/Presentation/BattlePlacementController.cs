@@ -33,6 +33,7 @@ namespace Veilward.Presentation
         private bool _hasTowerSelection;
         private bool _isSellConfirmationVisible;
         private TowerId? _sellConfirmationTowerId;
+        private int _pointerSuppressedUntilFrame = -1;
 
         public bool HasSelection => _hasSelection;
         public GridCoordinate SelectedCell { get; private set; }
@@ -92,6 +93,11 @@ namespace Veilward.Presentation
             }
 
             RefreshUi();
+            if (battle.IsPaused || Time.frameCount <= _pointerSuppressedUntilFrame)
+            {
+                return;
+            }
+
             var mouse = Mouse.current;
             if (mouse != null && mouse.leftButton.wasPressedThisFrame)
             {
@@ -169,10 +175,15 @@ namespace Veilward.Presentation
             ConfirmSellSelectedTower();
         }
 
+        public void SuppressPointerForCurrentFrame()
+        {
+            _pointerSuppressedUntilFrame = Time.frameCount;
+        }
+
         public bool TrySelectCell(GridCoordinate coordinate)
         {
             var simulation = battle.Simulation;
-            if (simulation == null || !simulation.Grid.Map.Contains(coordinate))
+            if (battle.IsPaused || simulation == null || !simulation.Grid.Map.Contains(coordinate))
             {
                 return false;
             }
@@ -239,7 +250,8 @@ namespace Veilward.Presentation
 
         public void ConfirmSelection()
         {
-            if (_isSellConfirmationVisible || !_hasSelection || _hasTowerSelection || battle.Simulation == null)
+            if (battle.IsPaused || _isSellConfirmationVisible || !_hasSelection ||
+                _hasTowerSelection || battle.Simulation == null)
             {
                 return;
             }
@@ -253,6 +265,11 @@ namespace Veilward.Presentation
 
         public TowerOperationResult UpgradeSelectedTower()
         {
+            if (battle.IsPaused)
+            {
+                return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
+            }
+
             if (_isSellConfirmationVisible)
             {
                 return TowerOperationResult.Failed(TowerOperationFailureReason.ConfirmationRequired);
@@ -270,7 +287,7 @@ namespace Veilward.Presentation
 
         public void RequestSellSelectedTower()
         {
-            if (_isSellConfirmationVisible || !SelectedTowerId.HasValue ||
+            if (battle.IsPaused || _isSellConfirmationVisible || !SelectedTowerId.HasValue ||
                 battle.Simulation.State.Phase != BattlePhase.Preparation)
             {
                 return;
@@ -359,7 +376,7 @@ namespace Veilward.Presentation
 
         public void StartWave()
         {
-            if (_isSellConfirmationVisible || battle.Simulation == null)
+            if (battle.IsPaused || _isSellConfirmationVisible || battle.Simulation == null)
             {
                 return;
             }
@@ -371,7 +388,7 @@ namespace Veilward.Presentation
 
         public void ContinueToNextWave()
         {
-            if (_isSellConfirmationVisible || battle.Simulation == null)
+            if (battle.IsPaused || _isSellConfirmationVisible || battle.Simulation == null)
             {
                 return;
             }
@@ -383,6 +400,7 @@ namespace Veilward.Presentation
         private void RefreshUi()
         {
             var state = battle.Simulation.State;
+            var isPaused = battle.IsPaused;
             var isPreparing = state.Phase == BattlePhase.Preparation;
             if (!isPreparing && _hasSelection && !_hasTowerSelection)
             {
@@ -402,19 +420,20 @@ namespace Veilward.Presentation
                 _sellConfirmationTowerId = null;
             }
 
-            var isSellConfirmationActive = isPreparing && tower != null && _isSellConfirmationVisible;
+            var isSellConfirmationActive = !isPaused && isPreparing && tower != null &&
+                                           _isSellConfirmationVisible;
             confirmationPanel.SetActive(isPreparing && !isSellConfirmationActive &&
                                         _hasSelection && !_hasTowerSelection);
-            confirmButton.interactable = isPreparing && !isSellConfirmationActive &&
+            confirmButton.interactable = !isPaused && isPreparing && !isSellConfirmationActive &&
                                          _hasSelection && !_hasTowerSelection;
             cancelButton.interactable = isPreparing && !isSellConfirmationActive &&
                                         _hasSelection && !_hasTowerSelection;
-            startWaveButton.interactable = isPreparing && !isSellConfirmationActive;
-            nextWaveButton.interactable = state.Phase == BattlePhase.WaveComplete &&
+            startWaveButton.interactable = !isPaused && isPreparing && !isSellConfirmationActive;
+            nextWaveButton.interactable = !isPaused && state.Phase == BattlePhase.WaveComplete &&
                                           state.WaveIndex + 1 < state.WaveCount && !isSellConfirmationActive;
             towerPanel.SetActive(tower != null);
             upgradeButton.interactable = false;
-            sellButton.interactable = isPreparing && tower != null && !isSellConfirmationActive;
+            sellButton.interactable = !isPaused && isPreparing && tower != null && !isSellConfirmationActive;
             sellConfirmationPanel.SetActive(isSellConfirmationActive);
             confirmSellButton.interactable = isSellConfirmationActive;
             cancelSellButton.interactable = isSellConfirmationActive;
@@ -433,7 +452,7 @@ namespace Veilward.Presentation
                                   $"FireRate: {tower.Definition.FireRate:0.##}/s\n" +
                                   (hasNextLevel ? $"Upgrade: {nextLevel.Price} gold" : "Upgrade: MAX") +
                                   $"\nSell refund: {refund} gold";
-            upgradeButton.interactable = isPreparing && !isSellConfirmationActive &&
+            upgradeButton.interactable = !isPaused && isPreparing && !isSellConfirmationActive &&
                                          hasNextLevel && state.Gold >= nextLevel.Price;
         }
 

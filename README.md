@@ -78,6 +78,16 @@ Occupied cell в Preparation открывает Tower Panel с характер�
 
 Полный контракт находится в `Docs/P1.4B_TOWER_ECONOMY.md`, regression scenarios — `REG-BATTLE-025…050` в `Docs/REGRESSION.md`.
 
+## P1.4c Gameplay Validation & Balance Baseline
+
+PR #10 (`dc17cca`) merged в `main` 2026-11-10. Добавлены deterministic replay трёх стратегий и сохранённого FlexibleEconomy flow, включая Sell/Rebuild с новым TowerId; зафиксированы результаты восьми волн и десять реальных Play Mode кадров 1600×900. Финальные локальные gates: **38/38 static self-tests**, **208/208 EditMode**, **3/3 PlayMode**, 0 failed/inconclusive/skipped и `git diff --check` PASS. Контракт и balance review находятся в `Docs/P1.4C_VALIDATION_SPEC.md` и `Docs/P1.4C_BALANCE_REVIEW.md`.
+
+## P1.5a Pause & Background
+
+`BattlePauseController` хранит latched manual pause, application pause и focus. Background/focus loss ставят игру на паузу, но возврат не снимает её автоматически; Resume доступен только при активном focused application. Во время паузы fixed-step simulation, gameplay commands/buttons и attack beams останавливаются, accumulator очищается, а первый resumed Update не выполняет catch-up. Selection и Sell confirmation отменяются без изменения Gold/Grid. Полноэкранный Pause Overlay блокирует raycasts, а Resume подавляет сквозной world pointer на текущий кадр. `Time.timeScale`, Domain balance и disk persistence не изменяются.
+
+Полный контракт находится в `Docs/P1.5A_PAUSE_BACKGROUND.md`, regression scenarios — `REG-BATTLE-054…066`. Три кадра 1600×900, telemetry Pause/Resume и фактический scenario Console report с 0 errors находятся в `Docs/review/P1.5a/`. Это Editor Play Mode evidence, не physical iOS verification.
+
 ## Настройки репозитория
 
 - Asset Serialization: **Force Text**.
@@ -96,18 +106,18 @@ Occupied cell в Preparation открывает Tower Panel с характер�
 git diff --check
 ```
 
-Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P1.4b: **38/38 static self-tests passed**, project checks PASS.
+Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P1.5a: **38/38 static self-tests passed**, project checks PASS.
 
-EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…050`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат: **205/205 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode проверяет загрузку Battle, полный Upgrade/Sell/Rebuild flow и модальный Sell confirmation contract: **3/3 PlayMode tests passed**, 0 failed/inconclusive/skipped. `git diff --check`: PASS; `Packages/manifest.json` и `Packages/packages-lock.json` не изменялись.
+EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…066`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат P1.5a: **221/221 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode проверяет загрузку Battle, Upgrade/Sell/Rebuild, модальные confirmations, Pause/Resume, blocked commands, pending-action cleanup, отсутствие catch-up, click-through и отсутствие duplicate listeners: **9/9 PlayMode tests passed**, 0 failed/inconclusive/skipped. `git diff --check`: PASS; `Packages/manifest.json` и `Packages/packages-lock.json` не изменялись.
 
-Runners принимают только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. XML validator независимо проверяет NUnit/JUnit reports. Default `auto` сохраняет локальный Unity CLI path с JSON summary; во время Play Mode domain reload временный `EDITOR_NOT_RUNNING` повторно опрашивается до общего deadline, остальные ошибки завершают run. Self-hosted CI явно вызывает `run-unity-tests.sh <Mode> batch` и получает NUnit XML и log для EditMode/PlayMode. Batch отклоняет resident Editor или live descriptor и не запускает второй Editor. В clean checkout используется `UNITY_EDITOR_PATH` либо стандартный Unity Hub path; batch mode получает `-buildTarget iOS` и сохраняет report/log в ignored `TestResults`.
+Runners принимают только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. XML validator независимо проверяет NUnit/JUnit reports. Default `auto` сохраняет локальный Unity CLI path с JSON summary; во время Play Mode domain reload временный `EDITOR_NOT_RUNNING` повторно опрашивается до общего deadline, остальные ошибки завершают run. Self-hosted CI явно вызывает `run-unity-tests.sh <Mode> batch` и получает NUnit XML и log для EditMode/PlayMode. Batch отклоняет resident Editor или live descriptor и не запускает второй Editor. В clean checkout используется `UNITY_EDITOR_PATH` либо стандартный Unity Hub path; batch mode получает `-buildTarget iOS` и сохраняет report/log в ignored `TestResults`. Batch test invocation не передаёт `-quit`, потому что на Unity 6000.3.28f1 это завершало Editor до фактического Test Runner run; report проверяется только после реального завершения tests.
 
 GitHub Actions workflow `Quality Gates` выполняет static checks на PR/push в `main` на `ubuntu-latest`. Отдельный workflow `Unity Personal Tests` запускает EditMode/PlayMode только вручную при `github.ref == refs/heads/main` через `[self-hosted, macOS, veilward-unity-personal]`. Checkout закреплён на `github.sha` и сверяет фактический HEAD с ожидаемым SHA. Unity Personal активируется владельцем через Unity Hub: workflow не использует GameCI, ALF/ULF, Unity account secrets или serial. Сейчас Unity CI **NOT VERIFIED / BLOCKED**, потому что runner не зарегистрирован и полный manual PASS ещё не получен. Автоматический запуск непроверенного PR-кода на self-hosted runner не разрешён. Процедура изоляции и включения описана в `Docs/QUALITY_GATES.md`; регрессионный контракт — в `Docs/REGRESSION.md`.
 
 ## iOS build и Play Mode evidence
 
-Unity создаёт Xcode project для iOS. Apple signing, provisioning и установка на устройство выполняются владельцем проекта; приватные credentials в репозиторий не добавляются. Для P1.4b новый iOS export не запускался; предыдущий P1.3 Device SDK export без signing не является device-проверкой P1.4b.
+Unity создаёт Xcode project для iOS. Apple signing, provisioning и установка на устройство выполняются владельцем проекта; приватные credentials в репозиторий не добавляются. Для P1.5a новый iOS export не запускался; предыдущие exports без signing не являются device-проверкой текущего scope.
 
-P1.4b проверен в настоящем Play Mode через live Editor eval и реальные `Button.onClick.Invoke`: выбор Level 1, два улучшения, подтверждение Sell, refund 133 gold, освобождение клетки, rebuild с TowerId 2 и атака улучшенной башни. Семь кадров **1600×900** находятся в `Docs/review/P1.4b/`; `qa.log` фиксирует значения сценария, точные команды и ограничения метода. Console финального визуального прогона — **0 errors**. Terminal Victory проверен deterministic Domain tests; полный визуальный Victory не захватывался.
+P1.5a проверен в настоящем Editor Play Mode через реальные `Button.onClick.Invoke` и Presentation placement API: Preparation pause, Combat pause с неизменными Tick/HP/Gold/Kills/позициями/cooldown на восьми кадрах и Resume с продолжением Tick 40 → 41 без catch-up. Три кадра **1600×900**, точная команда, telemetry и ограничения находятся в `Docs/review/P1.5a/qa.log`. Scenario Console listener записал **0 errors** и 2 rendering warnings; временный QA-код и Game View profile не входят в изменения.
 
-**Физический iPhone не проверялся.** Built-player touch, signing, safe area, производительность и Simulator для P1.4b также не проверялись. Независимый GPT-6 review ожидается.
+**Физический iPhone не проверялся.** Built-player touch, signing, safe area, производительность, Simulator и реальные iOS background/focus для P1.5a также не проверялись. Ветка передаётся на независимый review; self-merge не выполняется.

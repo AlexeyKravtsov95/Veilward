@@ -1,0 +1,33 @@
+P1.5a Editor Play Mode visual validation
+Command=XDG_CACHE_HOME="$PWD/Temp/UnityCache" XDG_CONFIG_HOME="$PWD/Temp/UnityConfig" /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -projectPath "$PWD" -buildTarget iOS -screen-width 1600 -screen-height 900 -screen-fullscreen 0 -runTests -testPlatform PlayMode -testFilter Veilward.Tests.PlayMode.BattlePauseVisualQa.CapturePauseFlow -testResults "$PWD/TestResults/P1.5a-visual.xml" -logFile "$PWD/Docs/review/P1.5a/visual-capture.log" > Docs/review/P1.5a/visual-command.log 2>&1
+Result verification=python3 Scripts/verify_unity_test_results.py TestResults/P1.5a-visual.xml; 1/1 PASS, 0 failed/inconclusive/skipped
+Method=real Editor Play Mode frames; Unity Button.onClick.Invoke; existing Presentation placement API
+Domain mutations=none; no direct Gold/HP/Kills/Tower/Enemy writes and no manual simulation ticks
+Time.timeScale=unchanged
+Unity=6000.3.28f1; Platform=OSXEditor; Screen=1241x913
+GameView=temporary fixed profile 1600x900; Index=36
+Actual screen after load=1600x900; RunInBackground=True
+PREPARATION BEFORE PAUSE Phase=Preparation Tick=0 HP=20 Gold=150 Kills=0 IsPaused=False Beams=0
+PREPARATION PAUSED Phase=Preparation Tick=0 HP=20 Gold=150 Kills=0 IsPaused=True Beams=0
+Requested capture=01-preparation-paused.png; Screen=1600x900; Exists=True
+PREPARATION AFTER 8 PAUSED FRAMES Phase=Preparation Tick=0 HP=20 Gold=150 Kills=0 IsPaused=True Beams=0
+COMBAT WAIT RESULT Phase=Combat Tick=40 HP=20 Gold=90 Kills=0 IsPaused=False Beams=0 Enemy[1]=(x:-3.000001,y:-2,distance:1.99999917,hp:25) Enemy[2]=(x:-4.45,y:-2,distance:0.5500001,hp:100) Tower[1]=(nextAttack:46,cooldown:6)
+COMBAT BEFORE PAUSE Phase=Combat Tick=40 HP=20 Gold=90 Kills=0 IsPaused=False Beams=0 Enemy[1]=(x:-3.000001,y:-2,distance:1.99999917,hp:25) Enemy[2]=(x:-4.45,y:-2,distance:0.5500001,hp:100) Tower[1]=(nextAttack:46,cooldown:6)
+COMBAT PAUSED Phase=Combat Tick=40 HP=20 Gold=90 Kills=0 IsPaused=True Beams=0 Enemy[1]=(x:-3.000001,y:-2,distance:1.99999917,hp:25) Enemy[2]=(x:-4.45,y:-2,distance:0.5500001,hp:100) Tower[1]=(nextAttack:46,cooldown:6)
+Requested capture=02-combat-paused.png; Screen=1600x900; Exists=True
+COMBAT AFTER 8 PAUSED FRAMES Phase=Combat Tick=40 HP=20 Gold=90 Kills=0 IsPaused=True Beams=0 Enemy[1]=(x:-3.000001,y:-2,distance:1.99999917,hp:25) Enemy[2]=(x:-4.45,y:-2,distance:0.5500001,hp:100) Tower[1]=(nextAttack:46,cooldown:6)
+FIRST RESUMED FRAME Phase=Combat Tick=40 HP=20 Gold=90 Kills=0 IsPaused=False Beams=0 Enemy[1]=(x:-3.000001,y:-2,distance:1.99999917,hp:25) Enemy[2]=(x:-4.45,y:-2,distance:0.5500001,hp:100) Tower[1]=(nextAttack:46,cooldown:6)
+AFTER 30 RESUMED FRAMES Phase=Combat Tick=41 HP=20 Gold=90 Kills=0 IsPaused=False Beams=0 Enemy[1]=(x:-2.95000076,y:-2,distance:2.04999924,hp:25) Enemy[2]=(x:-4.4,y:-2,distance:0.6000001,hp:100) Tower[1]=(nextAttack:46,cooldown:5)
+Requested capture=03-resumed.png; Screen=1600x900; Exists=True
+MissingScripts=0
+Capture=01-preparation-paused.png; 1600x900; Bytes=142184
+Capture=02-combat-paused.png; 1600x900; Bytes=147853
+Capture=03-resumed.png; 1600x900; Bytes=160623
+Console errors=0; warnings=2; logs=6
+Console scope=Application.logMessageReceived only during this Play Mode scenario; entries in console-errors.json are actual captured Error/Assert/Exception records
+Console warnings=2 x "Ignoring depth surface load/store action as it is memoryless"; no application exception was recorded
+Editor startup=transient licensing handshake/access-token messages occurred before successful Unity Personal entitlement resolution; they are outside the scenario listener scope
+Visual inspection=all three PNGs opened at native 1600x900; overlay and Resume readable, HUD not clipped, Combat tower/enemies visible, Resume removes overlay and advances Tick 40 -> 41
+Lifecycle limitation=visual run exercises manual Pause/Resume; Editor lifecycle callbacks are covered by tests, not represented as physical iOS background/focus evidence
+NOT VERIFIED=physical iPhone, built-player touch, safe area, Simulator, signing and Unity CI
+Temporary GameView profile=removed or not created
