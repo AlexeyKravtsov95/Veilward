@@ -4,6 +4,7 @@
   "references": [
     "Veilward",
     "Veilward.Domain",
+    "Unity.InputSystem",
     "UnityEngine.TestRunner"
   ],
   "includePlatforms": [],

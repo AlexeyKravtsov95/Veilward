@@ -206,9 +206,7 @@ namespace Veilward.Tests.EditMode
         [TestCase(BattlePhase.Preparation)]
         [TestCase(BattlePhase.Combat)]
         [TestCase(BattlePhase.WaveComplete)]
-        [TestCase(BattlePhase.Victory)]
-        [TestCase(BattlePhase.Defeat)]
-        public void Pause_PreservesPhaseSnapshot(BattlePhase phase)
+        public void ManualPause_AllActivePhases_PreservesBattleState(BattlePhase phase)
         {
             AdvanceToPhase(phase);
             var snapshot = Snapshot();
@@ -216,6 +214,23 @@ namespace Veilward.Tests.EditMode
             _pause.Pause();
             SetField(_battle, "_accumulator", 1f);
             Invoke(_battle, "Update");
+            Invoke(_battle, "Update");
+
+            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(phase));
+            Assert.That(Snapshot(), Is.EqualTo(snapshot));
+        }
+
+        [TestCase(BattlePhase.Victory)]
+        [TestCase(BattlePhase.Defeat)]
+        public void PauseAndResume_TerminalStates_RemainTerminal(BattlePhase phase)
+        {
+            AdvanceToPhase(phase);
+            var snapshot = Snapshot();
+
+            _pause.Pause();
+            SetField(_battle, "_accumulator", 1f);
+            Invoke(_battle, "Update");
+            Assert.That(_pause.Resume(), Is.True);
             Invoke(_battle, "Update");
 
             Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(phase));
