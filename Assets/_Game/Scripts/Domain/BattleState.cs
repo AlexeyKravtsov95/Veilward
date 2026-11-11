@@ -16,7 +16,8 @@ namespace Veilward.Domain
             int gold,
             IEnumerable<EnemyState> enemies,
             IEnumerable<TowerState> towers = null,
-            int waveCount = 1)
+            int waveCount = 1,
+            int kills = 0)
         {
             if (!Enum.IsDefined(typeof(BattlePhase), phase))
             {
@@ -46,6 +47,11 @@ namespace Veilward.Domain
             if (gold < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(gold), "Gold cannot be negative.");
+            }
+
+            if (kills < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(kills), "Kills cannot be negative.");
             }
 
             if (enemies == null)
@@ -95,6 +101,7 @@ namespace Veilward.Domain
             WaveCount = waveCount;
             BaseHealth = baseHealth;
             Gold = gold;
+            Kills = kills;
             _enemies = enemyCopy;
             Enemies = _enemies.AsReadOnly();
             _towers = towerCopy;

@@ -9,6 +9,7 @@ namespace Veilward.Domain
         private readonly WaveDefinition[] _waves;
         private readonly int _waveCompletionBonus;
         private readonly bool _legacySingleWave;
+        private readonly int _initialBaseHealth;
         private readonly List<AttackEvent> _attackEvents = new List<AttackEvent>();
         private int _nextEnemyId = 1;
         private int _nextTowerId = 1;
@@ -169,18 +170,224 @@ namespace Veilward.Domain
 
             _waveCompletionBonus = waveCompletionBonus;
             _legacySingleWave = legacySingleWave;
+            _initialBaseHealth = baseHealth;
             Grid = new BattleGrid(map, path);
             State = BattleState.CreateInitial(baseHealth, startingGold, _waves.Length);
             AttackEvents = _attackEvents.AsReadOnly();
         }
 
-        public BattleState State { get; }
+        public BattleState State { get; private set; }
         public PathDefinition Path => _path;
-        public BattleGrid Grid { get; }
+        public BattleGrid Grid { get; private set; }
         public IReadOnlyList<TowerDefinition> TowerLevels { get; }
         public TowerDefinition TowerDefinition => TowerLevels[0];
         public IReadOnlyList<AttackEvent> AttackEvents { get; }
         private WaveDefinition CurrentWave => _waves[State.WaveIndex];
+
+        public BattleCheckpoint ExportCheckpoint()
+        {
+            switch (State.Phase)
+            {
+                case BattlePhase.Preparation:
+                case BattlePhase.WaveComplete:
+                case BattlePhase.Victory:
+                case BattlePhase.Defeat:
+                    return BattleCheckpoint.FromState(State, _nextEnemyId, _nextTowerId);
+                default:
+                    throw new InvalidOperationException("Only stable battle phases can be exported.");
+            }
+        }
+
+        public bool TryValidateCheckpoint(BattleCheckpoint checkpoint, out string error)
+        {
+            return TryBuildRestoredState(checkpoint, out _, out _, out error);
+        }
+
+        public void RestoreCheckpoint(BattleCheckpoint checkpoint)
+        {
+            if (!TryBuildRestoredState(checkpoint, out var restoredState, out var restoredGrid, out var error))
+            {
+                throw new ArgumentException(error, nameof(checkpoint));
+            }
+
+            State = restoredState;
+            Grid = restoredGrid;
+            _nextEnemyId = checkpoint.nextEnemyId;
+            _nextTowerId = checkpoint.nextTowerId;
+            _nextSpawnIndex = 0;
+            _waveStartTick = checkpoint.tick;
+            _attackEvents.Clear();
+        }
+
+        private bool TryBuildRestoredState(
+            BattleCheckpoint checkpoint,
+            out BattleState restoredState,
+            out BattleGrid restoredGrid,
+            out string error)
+        {
+            restoredState = null;
+            restoredGrid = null;
+            error = null;
+            if (checkpoint == null)
+            {
+                error = "Checkpoint is required.";
+                return false;
+            }
+
+            if (checkpoint.tick < 0 || checkpoint.baseHealth < 0 ||
+                checkpoint.baseHealth > _initialBaseHealth || checkpoint.gold < 0 || checkpoint.kills < 0)
+            {
+                error = "Checkpoint scalar values are invalid.";
+                return false;
+            }
+
+            if (checkpoint.waveIndex < 0 || checkpoint.waveIndex >= _waves.Length)
+            {
+                error = "Checkpoint wave index is invalid.";
+                return false;
+            }
+
+            if (checkpoint.nextEnemyId <= 0 || checkpoint.nextTowerId <= 0)
+            {
+                error = "Checkpoint next IDs must be positive.";
+                return false;
+            }
+
+            switch (checkpoint.phase)
+            {
+                case BattlePhase.Preparation:
+                case BattlePhase.WaveComplete:
+                case BattlePhase.Victory:
+                    if (checkpoint.baseHealth == 0)
+                    {
+                        error = "A live checkpoint must have positive base health.";
+                        return false;
+                    }
+
+                    break;
+                case BattlePhase.Defeat:
+                    if (checkpoint.baseHealth != 0)
+                    {
+                        error = "A defeated checkpoint must have zero base health.";
+                        return false;
+                    }
+
+                    break;
+                default:
+                    error = "Checkpoint phase is not restorable.";
+                    return false;
+            }
+
+            if (checkpoint.phase == BattlePhase.Victory && checkpoint.waveIndex != _waves.Length - 1)
+            {
+                error = "Victory is only valid on the final wave.";
+                return false;
+            }
+
+            if (!_legacySingleWave && checkpoint.phase == BattlePhase.WaveComplete &&
+                checkpoint.waveIndex == _waves.Length - 1)
+            {
+                error = "The final non-legacy wave must end in Victory.";
+                return false;
+            }
+
+            if (checkpoint.towers == null)
+            {
+                error = "Checkpoint towers are required.";
+                return false;
+            }
+
+            var towers = new List<TowerState>(checkpoint.towers.Length);
+            var towerIds = new HashSet<int>();
+            var coordinates = new HashSet<GridCoordinate>();
+            var grid = new BattleGrid(Grid.Map, _path);
+            var maximumTowerId = 0;
+            for (var index = 0; index < checkpoint.towers.Length; index++)
+            {
+                var towerCheckpoint = checkpoint.towers[index];
+                if (towerCheckpoint == null || towerCheckpoint.towerId <= 0 ||
+                    towerCheckpoint.investedGold < 0 || towerCheckpoint.nextAttackTick < 0)
+                {
+                    error = "Checkpoint tower values are invalid.";
+                    return false;
+                }
+
+                if (!towerIds.Add(towerCheckpoint.towerId))
+                {
+                    error = "Checkpoint tower IDs must be unique.";
+                    return false;
+                }
+
+                if (towerCheckpoint.level <= 0 || towerCheckpoint.level > TowerLevels.Count)
+                {
+                    error = "Checkpoint tower level is invalid.";
+                    return false;
+                }
+
+                long investedGold = 0;
+                for (var levelIndex = 0; levelIndex < towerCheckpoint.level; levelIndex++)
+                {
+                    investedGold += TowerLevels[levelIndex].Price;
+                }
+
+                if (towerCheckpoint.investedGold != investedGold)
+                {
+                    error = "Checkpoint tower investment does not match configured prices.";
+                    return false;
+                }
+
+                var coordinate = new GridCoordinate(towerCheckpoint.x, towerCheckpoint.y);
+                if (!coordinates.Add(coordinate))
+                {
+                    error = "Checkpoint tower cells must be unique.";
+                    return false;
+                }
+
+                if (!Grid.Map.Contains(coordinate) || grid.GetState(coordinate) != GridCellState.Available)
+                {
+                    error = "Checkpoint tower cell is not buildable.";
+                    return false;
+                }
+
+                var tower = TowerState.Restore(towerCheckpoint, TowerLevels[towerCheckpoint.level - 1]);
+                if (!grid.TryOccupy(coordinate))
+                {
+                    error = "Checkpoint tower could not occupy its cell.";
+                    return false;
+                }
+
+                towers.Add(tower);
+                maximumTowerId = Math.Max(maximumTowerId, towerCheckpoint.towerId);
+            }
+
+            if (checkpoint.nextTowerId <= maximumTowerId)
+            {
+                error = "Checkpoint next tower ID would reuse an existing ID.";
+                return false;
+            }
+
+            try
+            {
+                restoredState = new BattleState(
+                    checkpoint.phase,
+                    checkpoint.tick,
+                    checkpoint.waveIndex,
+                    checkpoint.baseHealth,
+                    checkpoint.gold,
+                    Array.Empty<EnemyState>(),
+                    towers,
+                    _waves.Length,
+                    checkpoint.kills);
+            }
+            catch (ArgumentException exception)
+            {
+                error = exception.Message;
+                return false;
+            }
+
+            restoredGrid = grid;
+            return true;
+        }
 
         public PlaceTowerResult PlaceTower(PlaceTowerCommand command)
         {
