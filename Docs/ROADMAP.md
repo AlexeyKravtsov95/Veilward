@@ -18,7 +18,9 @@
 
 **P1.1:** fixed-path enemies + health/leaks. **P1.2:** grid and placement validation. **P1.3:** targeting and ranged attacks (one dummy tower). **P1.4:** waves, gold, sell, upgrade, win/lose. **P1.5:** pause/background checkpoint. **Deliverable:** playable graybox 8-wave match.
 
-**P1.4 status:** P1.4a Multi-Wave Lifecycle & Rewards и P1.4b Tower Economy реализованы. Локальные quality gates P1.4b после review fixes: static 38/38, EditMode 205/205, PlayMode 3/3, `git diff --check` PASS; PR ожидает независимый review, merge не выполнен. Device validation остаётся отдельным gate и не заменяется Editor/Play Mode evidence.
+**P1.4 status:** P1.4a Multi-Wave Lifecycle & Rewards, P1.4b Tower Economy и P1.4c Gameplay Validation & Balance Baseline завершены. PR #10 (`dc17cca`) merged в `main` 2026-11-10. Финальные локальные gates P1.4c: static 38/38, EditMode 208/208, PlayMode 3/3, `git diff --check` PASS; сохранены deterministic replay evidence и десять Play Mode кадров 1600×900.
+
+**P1.5a status:** Pause & Background реализован на отдельной ветке и подготовлен к независимому review; merge не выполнен. Добавлены latched manual/lifecycle pause, frozen fixed-step simulation без catch-up, blocked commands/UI, pending-action cleanup, modal Resume и frozen beams; disk checkpoint относится к отдельному scope. Локальные gates: static 38/38, EditMode 221/221, PlayMode 9/9; три кадра 1600×900 и scenario Console report с 0 errors находятся в `Docs/review/P1.5a/`. Physical iPhone background/focus, built-player touch, safe area, Simulator, signing и Unity CI остаются NOT VERIFIED / BLOCKED и не заменяются Editor evidence.
 
 ## Phase 2 — Elemental vertical slice (3–4 недели)
 
