@@ -265,6 +265,8 @@ namespace Veilward.Tests.EditMode
                 checkpoint => checkpoint.waveIndex = 2,
                 checkpoint => checkpoint.nextEnemyId = 0,
                 checkpoint => checkpoint.nextTowerId = 0,
+                checkpoint => checkpoint.nextEnemyId = int.MaxValue,
+                checkpoint => checkpoint.nextTowerId = int.MaxValue,
                 checkpoint => checkpoint.phase = BattlePhase.Combat,
                 checkpoint => checkpoint.phase = (BattlePhase)999,
                 checkpoint => checkpoint.phase = BattlePhase.Defeat,
@@ -273,6 +275,61 @@ namespace Veilward.Tests.EditMode
             };
 
             AssertInvalidMutations(mutations);
+        }
+
+        [Test]
+        public void EnemyIdExhaustion_RejectsStartWaveWithoutMutation()
+        {
+            var simulation = CreateSimulation(enemiesPerWave: 2);
+            var checkpoint = simulation.ExportCheckpoint();
+            checkpoint.nextEnemyId = int.MaxValue - 1;
+            simulation.RestoreCheckpoint(checkpoint);
+            var before = simulation.ExportCheckpoint();
+
+            Assert.That(simulation.StartWave(), Is.EqualTo(WaveTransitionResult.RejectedIdExhausted));
+            AssertStatesEqual(before, simulation.ExportCheckpoint());
+            Assert.That(simulation.State.Enemies, Is.Empty);
+        }
+
+        [Test]
+        public void LastSafeEnemyId_CompletesRestorableWaveAndRejectsFollowingWave()
+        {
+            var simulation = CreateSimulation(enemiesPerWave: 1, speed: 1000f);
+            var checkpoint = simulation.ExportCheckpoint();
+            checkpoint.nextEnemyId = int.MaxValue - 2;
+            simulation.RestoreCheckpoint(checkpoint);
+
+            Assert.That(simulation.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+            simulation.Step();
+            Assert.That(simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
+            var completed = simulation.ExportCheckpoint();
+            Assert.That(simulation.TryValidateCheckpoint(completed, out _), Is.True);
+            Assert.That(simulation.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.Continued));
+            var before = simulation.ExportCheckpoint();
+
+            Assert.That(simulation.StartWave(), Is.EqualTo(WaveTransitionResult.RejectedIdExhausted));
+            AssertStatesEqual(before, simulation.ExportCheckpoint());
+        }
+
+        [Test]
+        public void TowerIdExhaustion_RejectsPlacementWithoutMutation()
+        {
+            var simulation = CreateSimulation();
+            var checkpoint = simulation.ExportCheckpoint();
+            checkpoint.nextTowerId = int.MaxValue - 2;
+            simulation.RestoreCheckpoint(checkpoint);
+            var command = new PlaceTowerCommand(simulation.TowerDefinition.Id, TowerCell);
+            Assert.That(simulation.PlaceTower(command).Success, Is.True);
+            var before = simulation.ExportCheckpoint();
+            Assert.That(simulation.TryValidateCheckpoint(before, out _), Is.True);
+
+            var result = simulation.PlaceTower(new PlaceTowerCommand(
+                simulation.TowerDefinition.Id,
+                new GridCoordinate(-3, 0)));
+
+            Assert.That(result.Success, Is.False);
+            Assert.That(result.FailureReason, Is.EqualTo(PlaceTowerFailureReason.IdentifierExhausted));
+            AssertStatesEqual(before, simulation.ExportCheckpoint());
         }
 
         [Test]

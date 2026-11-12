@@ -38,7 +38,7 @@ test_unity_tests_are_manual_main_on_dedicated_macos_runner (__main__.UnityWorkfl
 test_unity_tests_validate_and_publish_both_reports (__main__.UnityWorkflowContractTests.test_unity_tests_validate_and_publish_both_reports) ... ok
 
 ----------------------------------------------------------------------
-Ran 38 tests in 35.297s
+Ran 38 tests in 32.666s
 
 OK
 Static Unity checks: PASS (version, packages, .meta, GUID, Assembly Definitions)

@@ -247,9 +247,10 @@ namespace Veilward.Domain
                 return false;
             }
 
-            if (checkpoint.nextEnemyId <= 0 || checkpoint.nextTowerId <= 0)
+            if (checkpoint.nextEnemyId <= 0 || checkpoint.nextEnemyId >= int.MaxValue ||
+                checkpoint.nextTowerId <= 0 || checkpoint.nextTowerId >= int.MaxValue)
             {
-                error = "Checkpoint next IDs must be positive.";
+                error = "Checkpoint next IDs must be positive and below the exhaustion sentinel.";
                 return false;
             }
 
@@ -422,6 +423,11 @@ namespace Veilward.Domain
                 return PlaceTowerResult.Failed(PlaceTowerFailureReason.InsufficientGold);
             }
 
+            if (_nextTowerId >= int.MaxValue - 1)
+            {
+                return PlaceTowerResult.Failed(PlaceTowerFailureReason.IdentifierExhausted);
+            }
+
             var tower = new TowerState(new TowerId(_nextTowerId), TowerDefinition, command.Coordinate);
             if (!Grid.TryOccupy(command.Coordinate))
             {
@@ -514,6 +520,11 @@ namespace Veilward.Domain
             if (State.Phase != BattlePhase.Preparation)
             {
                 return WaveTransitionResult.RejectedInvalidPhase;
+            }
+
+            if (CurrentWave.Count > int.MaxValue - 1 - _nextEnemyId)
+            {
+                return WaveTransitionResult.RejectedIdExhausted;
             }
 
             _waveStartTick = State.Tick;

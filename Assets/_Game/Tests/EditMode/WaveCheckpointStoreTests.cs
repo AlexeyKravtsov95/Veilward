@@ -57,6 +57,30 @@ namespace Veilward.Tests.EditMode
             Assert.That(load.Envelope.state.gold, Is.EqualTo(150));
         }
 
+        [TestCase(true, false)]
+        [TestCase(false, true)]
+        public void InvalidNextIdInPrimary_LoadsCompatibleBackup(bool invalidEnemyId, bool invalidTowerId)
+        {
+            AssertSave(CreateEnvelope(150));
+            AssertSave(CreateEnvelope(90));
+            var damaged = CreateEnvelope(90);
+            if (invalidEnemyId)
+            {
+                damaged.state.nextEnemyId = int.MaxValue;
+            }
+
+            if (invalidTowerId)
+            {
+                damaged.state.nextTowerId = int.MaxValue;
+            }
+
+            File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(damaged, prettyPrint: true));
+
+            Assert.That(_store.TryLoad(ContentId, Validate, out var load), Is.True, load.Error);
+            Assert.That(load.Status, Is.EqualTo(WaveCheckpointLoadStatus.LoadedBackup));
+            Assert.That(load.Envelope.state.gold, Is.EqualTo(150));
+        }
+
         [Test]
         public void CorruptPrimaryAndBackup_ReturnsCorrupt()
         {

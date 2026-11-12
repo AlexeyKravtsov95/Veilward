@@ -137,9 +137,11 @@ namespace Veilward.Infrastructure
         {
             try
             {
+                // Keep both checkpoint slots until stale temp cleanup succeeds.
+                // The backup remains available for Continue if a later delete fails.
+                File.Delete(TempPath);
                 File.Delete(PrimaryPath);
                 File.Delete(BackupPath);
-                File.Delete(TempPath);
                 error = null;
                 return true;
             }

@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.TestTools;
 using Veilward.Application;
 using Veilward.Domain;
 using Veilward.Infrastructure;
@@ -102,6 +104,30 @@ namespace Veilward.Tests.EditMode
             Assert.That(session.Store, Is.SameAs(_store));
             Assert.That(session.Checkpoint, Is.Null);
             Assert.That(session.ScenarioContentId, Is.EqualTo(_scenario.ScenarioContentId));
+        }
+
+        [Test]
+        public void NewGameResetFailure_PreservesCheckpointAndContinueSession()
+        {
+            var menu = CreateMenu();
+            Save(BattlePhase.WaveComplete);
+            Save(BattlePhase.Preparation);
+            var primary = File.ReadAllBytes(_store.PrimaryPath);
+            var backup = File.ReadAllBytes(_store.BackupPath);
+            Directory.CreateDirectory(_store.TempPath);
+            LogAssert.Expect(LogType.Error, new Regex("^Checkpoint delete failed:"));
+
+            Assert.That(menu.PrepareNewGameSession(), Is.False);
+
+            Assert.That(File.ReadAllBytes(_store.PrimaryPath), Is.EqualTo(primary));
+            Assert.That(File.ReadAllBytes(_store.BackupPath), Is.EqualTo(backup));
+            menu.RefreshCheckpointStatus();
+            Assert.That(menu.ContinueButton.interactable, Is.True);
+            Assert.That(menu.PrepareContinueSession(), Is.True);
+            var session = BattleSessionContext.Consume();
+            Assert.That(session.Store, Is.SameAs(_store));
+            Assert.That(session.Checkpoint.state.phase, Is.EqualTo(BattlePhase.Preparation));
+            Assert.That(BattleSessionContext.Consume(), Is.Null);
         }
 
         [Test]

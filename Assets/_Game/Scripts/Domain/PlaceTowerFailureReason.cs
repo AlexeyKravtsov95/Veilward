@@ -8,6 +8,7 @@ namespace Veilward.Domain
         OutsideMap = 3,
         Blocked = 4,
         Occupied = 5,
-        InsufficientGold = 6
+        InsufficientGold = 6,
+        IdentifierExhausted = 7
     }
 }
