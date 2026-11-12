@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Veilward.Application;
 using Veilward.Domain;
+using Application = UnityEngine.Application;
 
 namespace Veilward.Presentation
 {
@@ -18,6 +20,8 @@ namespace Veilward.Presentation
         [SerializeField] private Camera worldCamera;
         [SerializeField] private Material attackBeamMaterial;
         [SerializeField] private BattlePauseController pauseController;
+        [SerializeField] private BattlePlacementController placementController;
+        [SerializeField] private BattleCheckpointController checkpointController;
 
         private readonly Dictionary<EnemyId, EnemyView> _enemyViews = new Dictionary<EnemyId, EnemyView>();
         private readonly Dictionary<TowerId, Transform> _towerViews = new Dictionary<TowerId, Transform>();
@@ -63,6 +67,45 @@ namespace Veilward.Presentation
             }
 
             _simulation = scenario.CreateSimulation();
+            _accumulator = 0f;
+            _skipNextDelta = true;
+            var session = BattleSessionContext.Consume();
+            if (session != null && checkpointController == null)
+            {
+                throw new InvalidOperationException("Battle checkpoint controller is required for a menu session.");
+            }
+
+            if (checkpointController != null)
+            {
+                checkpointController.Configure(
+                    session?.Store,
+                    _simulation,
+                    scenario.ScenarioContentId);
+                if (session != null)
+                {
+                    if (!string.Equals(
+                            session.ScenarioContentId,
+                            scenario.ScenarioContentId,
+                            StringComparison.Ordinal))
+                    {
+                        throw new InvalidOperationException("Battle session scenario content ID does not match.");
+                    }
+
+                    if (session.Checkpoint != null)
+                    {
+                        checkpointController.RestoreCheckpoint(session.Checkpoint);
+                        if (placementController != null)
+                        {
+                            placementController.CancelSelection();
+                        }
+                    }
+                    else
+                    {
+                        checkpointController.SaveCurrentState();
+                    }
+                }
+            }
+
             SynchronizeViews();
             UpdateHud();
         }
@@ -79,7 +122,13 @@ namespace Veilward.Presentation
                 return PlaceTowerResult.Failed(PlaceTowerFailureReason.InvalidPhase);
             }
 
-            return _simulation.PlaceTower(new PlaceTowerCommand(_simulation.TowerDefinition.Id, coordinate));
+            var result = _simulation.PlaceTower(new PlaceTowerCommand(_simulation.TowerDefinition.Id, coordinate));
+            if (result.Success && checkpointController != null)
+            {
+                checkpointController.SaveCurrentState();
+            }
+
+            return result;
         }
 
         public TowerOperationResult UpgradeTower(TowerId towerId)
@@ -94,7 +143,13 @@ namespace Veilward.Presentation
                 return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
             }
 
-            return _simulation.UpgradeTower(towerId);
+            var result = _simulation.UpgradeTower(towerId);
+            if (result.Success && checkpointController != null)
+            {
+                checkpointController.SaveCurrentState();
+            }
+
+            return result;
         }
 
         public TowerOperationResult SellTower(TowerId towerId)
@@ -112,6 +167,11 @@ namespace Veilward.Presentation
             var result = _simulation.SellTower(towerId);
             if (result.Success)
             {
+                if (checkpointController != null)
+                {
+                    checkpointController.SaveCurrentState();
+                }
+
                 SynchronizeTowerViews();
             }
 
@@ -136,7 +196,17 @@ namespace Veilward.Presentation
                 return WaveTransitionResult.RejectedInvalidPhase;
             }
 
+            if (checkpointController != null && !checkpointController.SaveForStartWave())
+            {
+                return WaveTransitionResult.RejectedInvalidPhase;
+            }
+
             var result = _simulation.StartWave();
+            if (checkpointController != null)
+            {
+                checkpointController.ObservePhaseTransition();
+            }
+
             ProcessAttackEvents();
             return result;
         }
@@ -153,7 +223,13 @@ namespace Veilward.Presentation
                 return WaveTransitionResult.RejectedInvalidPhase;
             }
 
-            return _simulation.ContinueToNextWave();
+            var result = _simulation.ContinueToNextWave();
+            if (result == WaveTransitionResult.Continued && checkpointController != null)
+            {
+                checkpointController.SaveCurrentState();
+            }
+
+            return result;
         }
 
         private void Update()
@@ -183,6 +259,11 @@ namespace Veilward.Presentation
             {
                 _simulation.Step();
                 ProcessAttackEvents();
+                if (checkpointController != null)
+                {
+                    checkpointController.ObservePhaseTransition();
+                }
+
                 _accumulator -= StepSeconds;
                 steps++;
             }
@@ -288,7 +369,7 @@ namespace Veilward.Presentation
             {
                 var towerId = _staleTowerIds[index];
                 var staleView = _towerViews[towerId].gameObject;
-                if (Application.isPlaying)
+                if (UnityEngine.Application.isPlaying)
                 {
                     Destroy(staleView);
                 }
@@ -349,7 +430,7 @@ namespace Veilward.Presentation
             {
                 var enemyId = _staleEnemyIds[index];
                 var staleView = _enemyViews[enemyId].Transform.gameObject;
-                if (Application.isPlaying)
+                if (UnityEngine.Application.isPlaying)
                 {
                     Destroy(staleView);
                 }

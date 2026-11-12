@@ -9,7 +9,7 @@ namespace Veilward.Presentation
 
         private void Start()
         {
-            if (!Application.CanStreamedLevelBeLoaded(MainMenuSceneName))
+            if (!UnityEngine.Application.CanStreamedLevelBeLoaded(MainMenuSceneName))
             {
                 Debug.LogError($"Bootstrap cannot load scene '{MainMenuSceneName}'. Check Build Settings.");
                 return;
