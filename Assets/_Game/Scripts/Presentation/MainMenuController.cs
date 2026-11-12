@@ -19,6 +19,7 @@ namespace Veilward.Presentation
         private WaveCheckpointStore _store;
         private WaveCheckpointEnvelope _availableCheckpoint;
 
+        public static Func<WaveCheckpointStore> CheckpointStoreFactory { get; set; }
         public UnityEngine.UI.Button NewGameButton => newGameButton;
         public UnityEngine.UI.Button ContinueButton => continueButton;
         public UnityEngine.UI.Text StatusText => statusText;
@@ -149,7 +150,8 @@ namespace Veilward.Presentation
         {
             if (_store == null)
             {
-                _store = new WaveCheckpointStore(UnityEngine.Application.persistentDataPath);
+                _store = CheckpointStoreFactory?.Invoke() ??
+                         new WaveCheckpointStore(UnityEngine.Application.persistentDataPath);
             }
         }
 
