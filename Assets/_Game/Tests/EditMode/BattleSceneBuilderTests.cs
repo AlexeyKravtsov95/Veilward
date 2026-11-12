@@ -20,6 +20,7 @@ namespace Veilward.Tests.EditMode
             {
                 configPath,
                 scenePath,
+                "Assets/_Game/Scenes/MainMenu.unity",
                 "Assets/_Game/Configs/EightWave.asset",
                 "Assets/_Game/Configs/EightWave.asset.meta",
                 "Assets/_Game/Prefabs/Shade.prefab",

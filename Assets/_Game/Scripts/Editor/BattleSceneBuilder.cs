@@ -12,6 +12,7 @@ namespace Veilward.Editor
     public static class BattleSceneBuilder
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
+        private const string MainMenuScenePath = "Assets/_Game/Scenes/MainMenu.unity";
         private const string LegacyConfigPath = "Assets/_Game/Configs/TestWave.asset";
         private const string ConfigPath = "Assets/_Game/Configs/EightWave.asset";
         private const string EnemyPrefabPath = "Assets/_Game/Prefabs/Shade.prefab";
@@ -58,6 +59,9 @@ namespace Veilward.Editor
                 serializedConfig.ApplyModifiedPropertiesWithoutUndo();
                 AssetDatabase.CreateAsset(config, ConfigPath);
             }
+
+            SetScenarioContentId(legacyConfig, "legacy-single-wave-v1");
+            SetScenarioContentId(config, "eight-wave-v1");
 
             var groundMaterial = CreateOrUpdateMaterial("GrayboxGround", new Color(0.12f, 0.16f, 0.2f));
             var pathMaterial = CreateOrUpdateMaterial("GrayboxPath", new Color(0.25f, 0.55f, 0.5f));
@@ -122,6 +126,85 @@ namespace Veilward.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             ValidateRequiredReferences();
+            BuildMainMenu(config);
+        }
+
+        private static void SetScenarioContentId(BattleScenarioConfig config, string contentId)
+        {
+            var serialized = new SerializedObject(config);
+            serialized.FindProperty("scenarioContentId").stringValue = contentId;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            EditorUtility.SetDirty(config);
+        }
+
+        private static void BuildMainMenu(BattleScenarioConfig config)
+        {
+            var scene = EditorSceneManager.OpenScene(MainMenuScenePath);
+            foreach (var root in scene.GetRootGameObjects())
+            {
+                Object.DestroyImmediate(root);
+            }
+
+            var cameraObject = new GameObject("Main Camera", typeof(Camera), typeof(AudioListener));
+            cameraObject.tag = "MainCamera";
+            cameraObject.transform.position = new Vector3(0f, 1f, -10f);
+            var camera = cameraObject.GetComponent<Camera>();
+            camera.clearFlags = CameraClearFlags.SolidColor;
+            camera.backgroundColor = new Color(0.04f, 0.05f, 0.08f);
+
+            var canvasObject = new GameObject(
+                "Main Menu Canvas",
+                typeof(Canvas),
+                typeof(UnityEngine.UI.CanvasScaler),
+                typeof(UnityEngine.UI.GraphicRaycaster));
+            var canvas = canvasObject.GetComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            var scaler = canvasObject.GetComponent<UnityEngine.UI.CanvasScaler>();
+            scaler.uiScaleMode = UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1920f, 1080f);
+            scaler.matchWidthOrHeight = 0.5f;
+
+            var background = CreateUiObject("Background", canvasObject.transform);
+            var backgroundImage = background.AddComponent<UnityEngine.UI.Image>();
+            backgroundImage.color = new Color(0.04f, 0.05f, 0.08f, 1f);
+            backgroundImage.raycastTarget = false;
+            backgroundImage.rectTransform.anchorMin = Vector2.zero;
+            backgroundImage.rectTransform.anchorMax = Vector2.one;
+            backgroundImage.rectTransform.offsetMin = Vector2.zero;
+            backgroundImage.rectTransform.offsetMax = Vector2.zero;
+
+            var title = CreateText("Title", canvasObject.transform, 64, TextAnchor.MiddleCenter);
+            title.text = "VEILWARD";
+            title.raycastTarget = false;
+            SetRect(title.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, 220f), new Vector2(900f, 100f));
+            var subtitle = CreateText("Subtitle", canvasObject.transform, 28, TextAnchor.MiddleCenter);
+            subtitle.text = "Spirit Defense";
+            subtitle.raycastTarget = false;
+            SetRect(subtitle.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, 140f), new Vector2(700f, 60f));
+
+            var newGame = CreateButton("New Game Button", canvasObject.transform, "New Game", Vector2.zero);
+            SetRect(newGame.GetComponent<RectTransform>(), new Vector2(0.5f, 0.5f), new Vector2(0f, 20f), new Vector2(360f, 72f));
+            var continueButton = CreateButton("Continue Button", canvasObject.transform, "Continue", Vector2.zero);
+            SetRect(continueButton.GetComponent<RectTransform>(), new Vector2(0.5f, 0.5f), new Vector2(0f, -80f), new Vector2(360f, 72f));
+            var status = CreateText("Status Text", canvasObject.transform, 24, TextAnchor.MiddleCenter);
+            status.raycastTarget = false;
+            SetRect(status.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, -220f), new Vector2(900f, 100f));
+
+            CreateEventSystem();
+            var controllerObject = new GameObject("Main Menu Controller", typeof(MainMenuController));
+            var menu = controllerObject.GetComponent<MainMenuController>();
+            var menuConfig = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath);
+            var serialized = new SerializedObject(menu);
+            serialized.FindProperty("scenario").objectReferenceValue = menuConfig;
+            serialized.FindProperty("newGameButton").objectReferenceValue = newGame;
+            serialized.FindProperty("continueButton").objectReferenceValue = continueButton;
+            serialized.FindProperty("statusText").objectReferenceValue = status;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
 
         public static GameObject CreateGridGeometry(
@@ -278,7 +361,8 @@ namespace Veilward.Editor
             var serialized = new SerializedObject(controller);
             var propertyNames = new[]
             {
-                "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial", "pauseController"
+                "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
+                "pauseController", "placementController", "checkpointController"
             };
             foreach (var propertyName in propertyNames)
             {
@@ -316,6 +400,13 @@ namespace Veilward.Editor
                     throw new System.InvalidOperationException(
                         $"Battle Pause is missing required reference: {propertyName}.");
                 }
+            }
+
+            var checkpoint = Object.FindFirstObjectByType<BattleCheckpointController>();
+            var checkpointSerialized = new SerializedObject(checkpoint);
+            if (checkpointSerialized.FindProperty("saveStatusText").objectReferenceValue == null)
+            {
+                throw new System.InvalidOperationException("Battle Checkpoint is missing Save Status Text.");
             }
         }
 
@@ -569,9 +660,19 @@ namespace Veilward.Editor
             var resume = CreateButton("Resume Button", pauseOverlay.transform, "Resume", new Vector2(0f, -30f));
             pauseOverlay.SetActive(false);
 
+            var saveStatus = CreateText("Save Status", canvasObject.transform, 18, TextAnchor.UpperRight);
+            saveStatus.raycastTarget = false;
+            SetRect(
+                saveStatus.rectTransform,
+                new Vector2(1f, 1f),
+                new Vector2(-24f, -260f),
+                new Vector2(440f, 90f));
+            pauseOverlay.transform.SetAsLastSibling();
+
             return new HudReferences
             {
                 StatsText = stats,
+                SaveStatusText = saveStatus,
                 ConfirmationPanel = confirmation,
                 ConfirmButton = confirm,
                 CancelButton = cancel,
@@ -667,10 +768,12 @@ namespace Veilward.Editor
                 "Battle Controller",
                 typeof(BattleSceneController),
                 typeof(BattlePlacementController),
-                typeof(BattlePauseController));
+                typeof(BattlePauseController),
+                typeof(BattleCheckpointController));
             var battle = controllerObject.GetComponent<BattleSceneController>();
             var placement = controllerObject.GetComponent<BattlePlacementController>();
             var pause = controllerObject.GetComponent<BattlePauseController>();
+            var checkpoint = controllerObject.GetComponent<BattleCheckpointController>();
             var serialized = new SerializedObject(battle);
             serialized.FindProperty("scenario").objectReferenceValue = config;
             serialized.FindProperty("enemyPrefab").objectReferenceValue = enemyPrefab;
@@ -679,7 +782,13 @@ namespace Veilward.Editor
             serialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
             serialized.FindProperty("attackBeamMaterial").objectReferenceValue = beamMaterial;
             serialized.FindProperty("pauseController").objectReferenceValue = pause;
+            serialized.FindProperty("placementController").objectReferenceValue = placement;
+            serialized.FindProperty("checkpointController").objectReferenceValue = checkpoint;
             serialized.ApplyModifiedPropertiesWithoutUndo();
+
+            var checkpointSerialized = new SerializedObject(checkpoint);
+            checkpointSerialized.FindProperty("saveStatusText").objectReferenceValue = hud.SaveStatusText;
+            checkpointSerialized.ApplyModifiedPropertiesWithoutUndo();
 
             var placementSerialized = new SerializedObject(placement);
             placementSerialized.FindProperty("battle").objectReferenceValue = battle;
@@ -713,6 +822,7 @@ namespace Veilward.Editor
         private sealed class HudReferences
         {
             public UnityEngine.UI.Text StatsText;
+            public UnityEngine.UI.Text SaveStatusText;
             public GameObject ConfirmationPanel;
             public UnityEngine.UI.Button ConfirmButton;
             public UnityEngine.UI.Button CancelButton;

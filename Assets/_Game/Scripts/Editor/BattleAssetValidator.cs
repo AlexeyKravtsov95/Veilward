@@ -11,6 +11,7 @@ namespace Veilward.Editor
     public static class BattleAssetValidator
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
+        private const string MainMenuScenePath = "Assets/_Game/Scenes/MainMenu.unity";
         private const string ConfigPath = "Assets/_Game/Configs/EightWave.asset";
         private const string EnemyPrefabPath = "Assets/_Game/Prefabs/Shade.prefab";
         private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
@@ -28,6 +29,66 @@ namespace Veilward.Editor
                 }
 
                 ValidateScene(scene, errors);
+            }
+            finally
+            {
+                if (openedByValidator && scene.IsValid() && scene.isLoaded)
+                {
+                    EditorSceneManager.CloseScene(scene, true);
+                }
+            }
+
+            return errors;
+        }
+
+        public static IReadOnlyList<string> ValidateSavedMainMenu()
+        {
+            var errors = new List<string>();
+            var scene = SceneManager.GetSceneByPath(MainMenuScenePath);
+            var openedByValidator = !scene.IsValid() || !scene.isLoaded;
+            try
+            {
+                if (openedByValidator)
+                {
+                    scene = EditorSceneManager.OpenScene(MainMenuScenePath, OpenSceneMode.Additive);
+                }
+
+                var roots = scene.GetRootGameObjects();
+                foreach (var root in roots)
+                {
+                    ValidateMissingScripts(root, $"Main Menu {root.name}", errors);
+                }
+
+                var menus = FindComponents<MainMenuController>(roots);
+                if (menus.Count != 1)
+                {
+                    errors.Add($"Main Menu must contain exactly one MainMenuController; found {menus.Count}.");
+                }
+                else
+                {
+                    var references = RequireReferences(
+                        menus[0],
+                        new[] { "scenario", "newGameButton", "continueButton", "statusText" },
+                        errors);
+                    RequireAssetPath(references["scenario"], ConfigPath, "Main Menu scenario", errors);
+                }
+
+                var canvases = FindComponents<Canvas>(roots);
+                var raycasters = FindComponents<UnityEngine.UI.GraphicRaycaster>(roots);
+                var eventSystems = FindComponents<UnityEngine.EventSystems.EventSystem>(roots);
+                if (canvases.Count != 1 || raycasters.Count != 1 || eventSystems.Count != 1)
+                {
+                    errors.Add("Main Menu requires exactly one Canvas, GraphicRaycaster and EventSystem.");
+                }
+
+                if (canvases.Count == 1)
+                {
+                    var scaler = canvases[0].GetComponent<UnityEngine.UI.CanvasScaler>();
+                    if (scaler == null || scaler.referenceResolution != new Vector2(1920f, 1080f))
+                    {
+                        errors.Add("Main Menu CanvasScaler must use a 1920x1080 reference resolution.");
+                    }
+                }
             }
             finally
             {
@@ -92,6 +153,16 @@ namespace Veilward.Editor
                     errors);
             }
 
+            var checkpoints = FindComponents<BattleCheckpointController>(roots);
+            if (checkpoints.Count != 1)
+            {
+                errors.Add($"Battle must contain exactly one BattleCheckpointController; found {checkpoints.Count}.");
+            }
+            else
+            {
+                RequireReferences(checkpoints[0], new[] { "saveStatusText" }, errors);
+            }
+
             foreach (var root in roots)
             {
                 ValidateRenderers(root.GetComponentsInChildren<Renderer>(true), root.name, errors);
@@ -105,7 +176,11 @@ namespace Veilward.Editor
         {
             var references = RequireReferences(
                 controller,
-                new[] { "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial", "pauseController" },
+                new[]
+                {
+                    "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
+                    "pauseController", "placementController", "checkpointController"
+                },
                 errors);
             RequireAssetPath(references["scenario"], ConfigPath, "scenario", errors);
             RequireAssetPath(references["enemyPrefab"], EnemyPrefabPath, "enemyPrefab", errors);

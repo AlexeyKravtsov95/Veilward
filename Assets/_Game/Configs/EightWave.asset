@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3ac9c767ec04a47a46fe8950941e7e, type: 3}
   m_Name: EightWave
   m_EditorClassIdentifier: Veilward::Veilward.Presentation.BattleScenarioConfig
+  scenarioContentId: eight-wave-v1
   baseHealth: 20
   enemyId: shade
   maxHealth: 100
@@ -35,6 +36,15 @@ MonoBehaviour:
   towerRange: 2.5
   towerFireRate: 1
   towerDamage: 10
+  towerUpgrades:
+  - price: 50
+    range: 3
+    fireRate: 2
+    damage: 35
+  - price: 80
+    range: 3
+    fireRate: 2
+    damage: 50
   sharedScenario: {fileID: 11400000, guid: 43af8410231b84d758a17683659e9e7a, type: 2}
   enemyReward: 5
   waveCompletionBonus: 20
