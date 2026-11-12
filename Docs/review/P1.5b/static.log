@@ -1,0 +1,44 @@
+test_batch_backend_produces_nunit_xml_for_both_modes (__main__.UnityBatchRunnerTests.test_batch_backend_produces_nunit_xml_for_both_modes) ... ok
+test_batch_backend_refuses_live_editor_descriptor (__main__.UnityBatchRunnerTests.test_batch_backend_refuses_live_editor_descriptor) ... ok
+test_batch_backend_refuses_resident_editor (__main__.UnityBatchRunnerTests.test_batch_backend_refuses_resident_editor) ... ok
+test_batch_backend_rejects_invalid_reports (__main__.UnityBatchRunnerTests.test_batch_backend_rejects_invalid_reports) ... ok
+test_batch_backend_rejects_nonzero_unity_exit (__main__.UnityBatchRunnerTests.test_batch_backend_rejects_nonzero_unity_exit) ... ok
+test_direct_lock_drift_is_rejected (__main__.UnityProjectChecksTests.test_direct_lock_drift_is_rejected) ... ok
+test_domain_engine_reference_is_rejected (__main__.UnityProjectChecksTests.test_domain_engine_reference_is_rejected) ... ok
+test_duplicate_guid_is_rejected (__main__.UnityProjectChecksTests.test_duplicate_guid_is_rejected) ... ok
+test_editor_assembly_must_be_editor_only (__main__.UnityProjectChecksTests.test_editor_assembly_must_be_editor_only) ... ok
+test_missing_directory_meta_is_rejected (__main__.UnityProjectChecksTests.test_missing_directory_meta_is_rejected) ... ok
+test_missing_file_meta_is_rejected (__main__.UnityProjectChecksTests.test_missing_file_meta_is_rejected) ... ok
+test_missing_local_assembly_reference_is_rejected (__main__.UnityProjectChecksTests.test_missing_local_assembly_reference_is_rejected) ... ok
+test_orphan_meta_is_rejected (__main__.UnityProjectChecksTests.test_orphan_meta_is_rejected) ... ok
+test_package_manifest_drift_is_rejected (__main__.UnityProjectChecksTests.test_package_manifest_drift_is_rejected) ... ok
+test_play_mode_assembly_is_not_forced_to_be_editor_only (__main__.UnityProjectChecksTests.test_play_mode_assembly_is_not_forced_to_be_editor_only) ... ok
+test_unity_version_drift_is_rejected (__main__.UnityProjectChecksTests.test_unity_version_drift_is_rejected) ... ok
+test_valid_project_passes (__main__.UnityProjectChecksTests.test_valid_project_passes) ... ok
+test_directory_requires_every_report_to_pass (__main__.UnityResultChecksTests.test_directory_requires_every_report_to_pass) ... ok
+test_empty_junit_suite_is_rejected (__main__.UnityResultChecksTests.test_empty_junit_suite_is_rejected) ... ok
+test_failed_junit_test_is_rejected (__main__.UnityResultChecksTests.test_failed_junit_test_is_rejected) ... ok
+test_inconclusive_nunit_test_is_rejected (__main__.UnityResultChecksTests.test_inconclusive_nunit_test_is_rejected) ... ok
+test_malformed_report_is_rejected (__main__.UnityResultChecksTests.test_malformed_report_is_rejected) ... ok
+test_missing_report_is_rejected (__main__.UnityResultChecksTests.test_missing_report_is_rejected) ... ok
+test_passing_junit_report_is_accepted (__main__.UnityResultChecksTests.test_passing_junit_report_is_accepted) ... ok
+test_passing_nunit_report_is_accepted (__main__.UnityResultChecksTests.test_passing_nunit_report_is_accepted) ... ok
+test_skipped_junit_test_is_rejected (__main__.UnityResultChecksTests.test_skipped_junit_test_is_rejected) ... ok
+test_edit_mode_envelope_rejects_non_boolean_success (__main__.UnityRunnerTests.test_edit_mode_envelope_rejects_non_boolean_success) ... ok
+test_edit_mode_valid_envelope_is_accepted (__main__.UnityRunnerTests.test_edit_mode_valid_envelope_is_accepted) ... ok
+test_failed_skipped_empty_and_mismatched_reports_are_rejected (__main__.UnityRunnerTests.test_failed_skipped_empty_and_mismatched_reports_are_rejected) ... ok
+test_missing_or_invalid_summary_is_rejected (__main__.UnityRunnerTests.test_missing_or_invalid_summary_is_rejected) ... ok
+test_play_mode_polling_rejects_non_boolean_success (__main__.UnityRunnerTests.test_play_mode_polling_rejects_non_boolean_success) ... ok
+test_play_mode_raw_running_is_not_accepted_as_completed (__main__.UnityRunnerTests.test_play_mode_raw_running_is_not_accepted_as_completed) ... ok
+test_play_mode_uses_async_run_and_polls_completed_result (__main__.UnityRunnerTests.test_play_mode_uses_async_run_and_polls_completed_result) ... ok
+test_play_mode_valid_raw_completed_response_is_accepted (__main__.UnityRunnerTests.test_play_mode_valid_raw_completed_response_is_accepted) ... ok
+test_static_quality_gates_keep_hosted_pr_and_push_coverage (__main__.UnityWorkflowContractTests.test_static_quality_gates_keep_hosted_pr_and_push_coverage) ... ok
+test_unity_ci_does_not_use_license_secrets_or_game_ci (__main__.UnityWorkflowContractTests.test_unity_ci_does_not_use_license_secrets_or_game_ci) ... ok
+test_unity_tests_are_manual_main_on_dedicated_macos_runner (__main__.UnityWorkflowContractTests.test_unity_tests_are_manual_main_on_dedicated_macos_runner) ... ok
+test_unity_tests_validate_and_publish_both_reports (__main__.UnityWorkflowContractTests.test_unity_tests_validate_and_publish_both_reports) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 35.297s
+
+OK
+Static Unity checks: PASS (version, packages, .meta, GUID, Assembly Definitions)

@@ -1,0 +1,24 @@
+{
+    "schemaVersion": 1,
+    "scenarioContentId": "eight-wave-v1",
+    "state": {
+        "phase": 4,
+        "waveIndex": 0,
+        "tick": 321,
+        "baseHealth": 20,
+        "gold": 135,
+        "kills": 5,
+        "nextEnemyId": 6,
+        "nextTowerId": 2,
+        "towers": [
+            {
+                "towerId": 1,
+                "x": -1,
+                "y": 0,
+                "level": 1,
+                "investedGold": 60,
+                "nextAttackTick": 336
+            }
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+P1.5b Editor Play Mode visual validation
+Method=real Editor Play Mode frames; Unity Button.onClick.Invoke; existing Presentation placement API
+Domain mutations=none; no direct Gold/HP/Kills/Tower/Enemy writes and no manual simulation ticks
+Unity=6000.3.28f1; Platform=OSXEditor; Screen=1241x913
+MAIN MENU Continue=False
+Requested capture=01-main-menu.png; Screen=1600x900; Exists=True
+INTERRUPTED COMBAT Phase=Combat Tick=31 Gold=45 Kills=1
+RESTORED Phase=Preparation Tick=0 HP=20 Gold=40 Kills=0 TowerLevel=2
+Requested capture=02-restored-preparation.png; Screen=1600x900; Exists=True
+WAVE COMPLETE Phase=WaveComplete Wave=1 Tick=321 HP=20 Gold=135 Kills=5
+Requested capture=03-wave-complete.png; Screen=1600x900; Exists=True
+Capture=01-main-menu.png; Bytes=44760
+Capture=02-restored-preparation.png; Bytes=158826
+Capture=03-wave-complete.png; Bytes=161631
+Console errors=0; warnings=6; logs=0
+Console scope=Application.logMessageReceived only during this Play Mode scenario
+Lifecycle limitation=scene reload and menu Continue are verified; physical iOS force quit/relaunch is not represented
+NOT VERIFIED=physical iPhone, built-player touch, safe area, Simulator, signing and Unity CI
+Command=XDG_CACHE_HOME="$PWD/TestResults/xdg-cache" XDG_CONFIG_HOME="$PWD/TestResults/xdg-config" /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -projectPath "$PWD" -buildTarget iOS -screen-width 1600 -screen-height 900 -screen-fullscreen 0 -runTests -testPlatform PlayMode -testFilter Veilward.Tests.PlayMode.BattleCheckpointVisualQa.CaptureCheckpointFlow -testResults "$PWD/TestResults/P1.5b-visual.xml" -logFile "$PWD/Docs/review/P1.5b/visual-capture.log"
+Result verification=TestResults/P1.5b-visual.xml; 1/1 PASS, 0 failed/inconclusive/skipped
+Capture profile=temporary fixed Game View 1600x900; actual capture screen=1600x900; RunInBackground=True
+Time.timeScale=8 while waiting for interrupted Combat reward; 20 while completing the wave; restored to 1 before every capture
+Console warnings=3 pairs of "Ignoring depth surface load/store action as it is memoryless" from Editor Game View rendering; no application exception was recorded
+Editor startup=transient licensing handshake/access-token messages occurred before successful Unity Personal entitlement resolution; they are outside the scenario listener scope
+Visual inspection=all three PNGs opened at native 1600x900; menu controls and status readable, restored HUD/tower visible, WaveComplete HUD and Checkpoint saved visible, no clipped UI or missing/pink materials observed
+Raw visual-capture.log=removed after extracting warning/startup audit; sanitized results are retained in qa.log and console-errors.json
