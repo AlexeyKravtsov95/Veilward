@@ -135,18 +135,42 @@ namespace Veilward.Infrastructure
 
         public bool Delete(out string error)
         {
+            var hasRecoveryCopy = false;
             try
             {
-                // Keep both checkpoint slots until stale temp cleanup succeeds.
-                // The backup remains available for Continue if a later delete fails.
                 File.Delete(TempPath);
+                var recoverySource = File.Exists(PrimaryPath)
+                    ? PrimaryPath
+                    : File.Exists(BackupPath) ? BackupPath : null;
+                if (recoverySource != null)
+                {
+                    File.Copy(recoverySource, TempPath);
+                    hasRecoveryCopy = true;
+                }
+
                 File.Delete(PrimaryPath);
                 File.Delete(BackupPath);
+                File.Delete(TempPath);
                 error = null;
                 return true;
             }
             catch (Exception exception) when (IsFileSystemException(exception))
             {
+                try
+                {
+                    if (hasRecoveryCopy && File.Exists(TempPath) &&
+                        !File.Exists(PrimaryPath) && !File.Exists(BackupPath))
+                    {
+                        File.Move(TempPath, PrimaryPath);
+                    }
+                }
+                catch (Exception recoveryException) when (IsFileSystemException(recoveryException))
+                {
+                    error = "Checkpoint delete failed: " + exception.Message +
+                            " Recovery restore failed: " + recoveryException.Message;
+                    return false;
+                }
+
                 error = "Checkpoint delete failed: " + exception.Message;
                 return false;
             }

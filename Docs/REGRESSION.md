@@ -131,6 +131,7 @@ Checkpoint содержит только safe-wave state. Combat не сериа
 | REG-BATTLE-086 | Все REG-BATTLE-001…066 и прежние Domain/config/scene/pause tests сохраняются без изменения баланса и подгонки legacy ожиданий. | Полный EditMode/PlayMode suite |
 | REG-BATTLE-087 | Failed New Game reset на temp cleanup не удаляет primary/backup, не создаёт fresh session и оставляет Continue доступным для прежнего checkpoint. | `MainMenuControllerTests.NewGameResetFailure_PreservesCheckpointAndContinueSession` |
 | REG-BATTLE-088 | `nextEnemyId/nextTowerId = int.MaxValue` в primary считается corrupt и загружает valid backup. Последний безопасный ID остаётся сохраняемым; исчерпание счётчиков отклоняет Start Wave/Place Tower без overflow или mutation. | `WaveCheckpointStoreTests.InvalidNextIdInPrimary_LoadsCompatibleBackup`; `BattleCheckpointTests.EnemyIdExhaustion_RejectsStartWaveWithoutMutation`; `LastSafeEnemyId_CompletesRestorableWaveAndRejectsFollowingWave`; `TowerIdExhaustion_RejectsPlacementWithoutMutation` |
+| REG-BATTLE-089 | New Game создаёт recovery copy до удаления слотов. Ошибка удаления каталога по BackupPath после удаления primary восстанавливает byte-identical primary, не создаёт fresh session и позволяет Continue прежней Preparation. | `MainMenuControllerTests.NewGameBackupDeleteFailure_RestoresPrimaryAndContinueSession` |
 
 ## CI-сценарии
 

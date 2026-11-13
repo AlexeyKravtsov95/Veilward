@@ -131,6 +131,28 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void NewGameBackupDeleteFailure_RestoresPrimaryAndContinueSession()
+        {
+            var menu = CreateMenu();
+            Save(BattlePhase.Preparation);
+            var primary = File.ReadAllBytes(_store.PrimaryPath);
+            Directory.CreateDirectory(_store.BackupPath);
+            LogAssert.Expect(LogType.Error, new Regex("^Checkpoint delete failed:"));
+
+            Assert.That(menu.PrepareNewGameSession(), Is.False);
+
+            Assert.That(File.Exists(_store.PrimaryPath), Is.True, "Reset must retain a recoverable checkpoint.");
+            Assert.That(File.ReadAllBytes(_store.PrimaryPath), Is.EqualTo(primary));
+            menu.RefreshCheckpointStatus();
+            Assert.That(menu.ContinueButton.interactable, Is.True);
+            Assert.That(menu.PrepareContinueSession(), Is.True);
+            var session = BattleSessionContext.Consume();
+            Assert.That(session.Store, Is.SameAs(_store));
+            Assert.That(session.Checkpoint.state.phase, Is.EqualTo(BattlePhase.Preparation));
+            Assert.That(BattleSessionContext.Consume(), Is.Null);
+        }
+
+        [Test]
         public void MissingCheckpoint_DisablesContinueWithoutCreatingSession()
         {
             var menu = CreateMenu();
