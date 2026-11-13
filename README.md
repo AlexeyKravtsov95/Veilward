@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. Текущий статус — **P1.4b Tower Economy**: детерминированная 30 Hz симуляция восьми волн с ручными переходами, наградами, Victory/Defeat, fixed-path movement, build grid, First targeting, улучшениями Test Tower до Level 3 и продажей с подтверждением в graybox Battle. Стихии, сохранения, IAP и Game Center ещё не реализованы.
+Unity-проект мобильной tower defense игры для iOS. Текущий статус — **P1.5b Wave Checkpoint & Continue**: детерминированная 30 Hz симуляция восьми волн, tower economy, pause/background и версионированное safe-wave сохранение с MainMenu Continue в graybox Battle. Стихии, долгосрочный метапрогресс, IAP и Game Center ещё не реализованы.
 
 ## Окружение
 
@@ -88,6 +88,12 @@ PR #10 (`dc17cca`) merged в `main` 2026-11-10. Добавлены deterministic
 
 Полный контракт находится в `Docs/P1.5A_PAUSE_BACKGROUND.md`, regression scenarios — `REG-BATTLE-054…066`. Три кадра 1600×900, telemetry Pause/Resume и фактический scenario Console report с 0 errors находятся в `Docs/review/P1.5a/`. Это Editor Play Mode evidence, не physical iOS verification.
 
+## P1.5b Wave Checkpoint & Continue
+
+Версионированный JSON checkpoint содержит только safe-wave состояние Preparation, WaveComplete, Victory или Defeat: phase/wave/tick, HP/Gold/Kills, next IDs и towers с координатами, Level/InvestedGold/NextAttackTick. Enemies, spawn index, RNG, AttackEvents и UI transients не сериализуются. Прерванный Combat восстанавливается в Preparation перед Start Wave; повторный Continue не начисляет награды повторно. `wave-checkpoint-v1.json` записывается через validated temp и атомарную замену с `.bak`; load проверяет primary, затем backup. Failed save блокирует Start Wave, но не откатывает успешную live Build/Upgrade/Sell command. New Game создаёт recovery copy до удаления слотов и восстанавливает primary при failed reset, включая ошибку на BackupPath; повреждённые исчерпанные next IDs вызывают fallback на backup, а безопасное исчерпание счётчиков отклоняет команду без Domain mutation.
+
+MainMenu предоставляет явные **New Game** и **Continue**. Continue доступен только для совместимых Preparation/WaveComplete; terminal checkpoint не перезапускает матч. Прямой запуск Battle без session context использует in-memory store и не читает/пишет реальный `persistentDataPath`. Полный контракт — `Docs/P1.5B_WAVE_CHECKPOINT.md`, regression scenarios — `REG-BATTLE-067…089`. Три реальных Editor Play Mode кадра 1600×900, sanitized `checkpoint-example.json`, telemetry и Console audit с 0 errors находятся в `Docs/review/P1.5b/`.
+
 ## Настройки репозитория
 
 - Asset Serialization: **Force Text**.
@@ -106,9 +112,9 @@ PR #10 (`dc17cca`) merged в `main` 2026-11-10. Добавлены deterministic
 git diff --check
 ```
 
-Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P1.5a: **38/38 static self-tests passed**, project checks PASS.
+Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P1.5b: **38/38 static self-tests passed**, project checks PASS.
 
-EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…066`, визуальные правила, сохранённую Battle scene, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат P1.5a: **221/221 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode проверяет загрузку Battle, Upgrade/Sell/Rebuild, модальные confirmations, Pause/Resume, blocked commands, pending-action cleanup, отсутствие catch-up, click-through и отсутствие duplicate listeners: **9/9 PlayMode tests passed**, 0 failed/inconclusive/skipped. `git diff --check`: PASS; `Packages/manifest.json` и `Packages/packages-lock.json` не изменялись.
+EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…089`, checkpoint round-trip/validation/storage, MainMenu, визуальные правила, сохранённые сцены, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат P1.5b: **261/261 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode дополнительно проверяет реальные MainMenu/Battle scene reloads, interrupted Combat → restored Preparation, repeated Continue без duplicate rewards и изоляцию direct Battle: **12/12 PlayMode tests passed**, 0 failed/inconclusive/skipped. `git diff --check`: PASS; `Packages/manifest.json` и `Packages/packages-lock.json` не изменялись.
 
 Runners принимают только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. XML validator независимо проверяет NUnit/JUnit reports. Default `auto` сохраняет локальный Unity CLI path с JSON summary; во время Play Mode domain reload временный `EDITOR_NOT_RUNNING` повторно опрашивается до общего deadline, остальные ошибки завершают run. Self-hosted CI явно вызывает `run-unity-tests.sh <Mode> batch` и получает NUnit XML и log для EditMode/PlayMode. Batch отклоняет resident Editor или live descriptor и не запускает второй Editor. В clean checkout используется `UNITY_EDITOR_PATH` либо стандартный Unity Hub path; batch mode получает `-buildTarget iOS` и сохраняет report/log в ignored `TestResults`. Batch test invocation не передаёт `-quit`, потому что на Unity 6000.3.28f1 это завершало Editor до фактического Test Runner run; report проверяется только после реального завершения tests.
 
@@ -116,8 +122,8 @@ GitHub Actions workflow `Quality Gates` выполняет static checks на PR
 
 ## iOS build и Play Mode evidence
 
-Unity создаёт Xcode project для iOS. Apple signing, provisioning и установка на устройство выполняются владельцем проекта; приватные credentials в репозиторий не добавляются. Для P1.5a новый iOS export не запускался; предыдущие exports без signing не являются device-проверкой текущего scope.
+Unity создаёт Xcode project для iOS. Apple signing, provisioning и установка на устройство выполняются владельцем проекта; приватные credentials в репозиторий не добавляются. Для P1.5b новый iOS export не запускался; предыдущие exports без signing не являются device-проверкой текущего scope.
 
-P1.5a проверен в настоящем Editor Play Mode через реальные `Button.onClick.Invoke` и Presentation placement API: Preparation pause, Combat pause с неизменными Tick/HP/Gold/Kills/позициями/cooldown на восьми кадрах и Resume с продолжением Tick 40 → 41 без catch-up. Три кадра **1600×900**, точная команда, telemetry и ограничения находятся в `Docs/review/P1.5a/qa.log`. Scenario Console listener записал **0 errors** и 2 rendering warnings; временный QA-код и Game View profile не входят в изменения.
+P1.5b проверен в настоящем Editor Play Mode через реальные `Button.onClick.Invoke` и Presentation placement API: New Game → Build/Upgrade → interrupted Combat с Gold 45/Kills 1 → MainMenu Continue → restored Preparation с Tick 0/Gold 40/Kills 0/Tower Level 2, затем отдельный New Game flow до WaveComplete с Gold 135/Kills 5. Три кадра **1600×900**, точная команда, telemetry и ограничения находятся в `Docs/review/P1.5b/qa.log`. Scenario Console listener записал **0 errors** и 6 Editor rendering warnings; временный QA-код и raw Editor log не входят в изменения.
 
-**Физический iPhone не проверялся.** Built-player touch, signing, safe area, производительность, Simulator и реальные iOS background/focus для P1.5a также не проверялись. Ветка передаётся на независимый review; self-merge не выполняется.
+**Физический iPhone не проверялся.** Force quit/relaunch, built-player touch, signing, safe area, производительность, Simulator и реальные iOS background/focus для P1.5b также не проверялись. Ветка передаётся на независимый review; self-merge не выполняется.

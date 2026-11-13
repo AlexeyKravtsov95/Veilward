@@ -7,6 +7,7 @@ namespace Veilward.Presentation
     [CreateAssetMenu(fileName = "TestWave", menuName = "Veilward/Battle Scenario")]
     public sealed class BattleScenarioConfig : ScriptableObject
     {
+        [SerializeField] private string scenarioContentId = "legacy-single-wave-v1";
         [SerializeField, Min(1)] private int baseHealth = 20;
         [SerializeField] private string enemyId = "shade";
         [SerializeField, Min(1)] private int maxHealth = 100;
@@ -64,6 +65,8 @@ namespace Veilward.Presentation
             [Min(0.01f)] public float fireRate = 2f;
             [Min(1)] public int damage = 35;
         }
+
+        public string ScenarioContentId => scenarioContentId;
 
         public static BattleScenarioConfig CreateDefault()
         {

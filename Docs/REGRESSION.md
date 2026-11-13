@@ -103,6 +103,36 @@
 | REG-BATTLE-065 | Реальный Editor Play Mode фиксирует landscape Preparation/Combat pause и Resume screenshots, значения frozen/resumed state и фактический Console audit. | `Docs/review/P1.5a`; реальный Play Mode QA |
 | REG-BATTLE-066 | Все REG-BATTLE-001…053 и прежние Domain/config/scene tests сохраняются без изменения баланса и подгонки legacy ожиданий. | Полный EditMode/PlayMode suite |
 
+## P1.5b — Wave Checkpoint & Continue
+
+Checkpoint содержит только safe-wave state. Combat не сериализуется: после новой сессии восстанавливается Preparation текущей волны, сохранённая до Start Wave. Сохранения тестов и QA изолированы от реального `Application.persistentDataPath`.
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-067 | После успешного Build в Preparation round-trip восстанавливает Phase/Tick/WaveIndex, HP/Gold/Kills, TowerId/cell/Level/InvestedGold/NextAttackTick и next Enemy/Tower IDs; Grid occupancy совпадает. | `BattleCheckpointTests.Build_RoundTrip_RestoresConsistentPreparation` |
+| REG-BATTLE-068 | Upgrade и Sell сохраняются отдельно; rejected Build/Upgrade/Sell и Cancel оставляют прежний файл и checkpoint snapshot неизменными. | `BattleCheckpointTests.EconomyAndRejectedCommands_SaveOnlySuccessfulMutations`; `BattleCheckpointControllerTests` |
+| REG-BATTLE-069 | После Start Wave и частичного Combat с kills/leaks новая сессия восстанавливает Preparation той же волны с состоянием до попытки: HP/Gold/Kills/towers/cooldown/next IDs откачены, enemies отсутствуют и Start Wave ждёт явной команды. | `BattleCheckpointTests.InterruptedWave_RestoresPreparationBeforeAttempt`; `BattleCheckpointPlayModeTests` |
+| REG-BATTLE-070 | WaveComplete сохраняется после kill/wave rewards; одна и несколько повторных загрузок не начисляют награды повторно и не меняют Tick/Gold/Kills. | `BattleCheckpointTests.WaveComplete_RepeatedLoads_DoNotDuplicateRewards`; `BattleCheckpointPlayModeTests.WaveComplete_RepeatedMenuContinue_DoesNotDuplicateRewards` |
+| REG-BATTLE-071 | Next Wave сохраняет новую Preparation с WaveIndex +1 и уже начисленными наградами; restore не запускает волну автоматически. | `BattleCheckpointTests.NextWave_RoundTrip_PreservesRewardAndRequiresExplicitStart` |
+| REG-BATTLE-072 | Victory/Defeat round-trip сохраняет terminal result; Continue недоступен, Step/Start Wave не превращают завершённый матч в активную волну. | `BattleCheckpointTests.TerminalStates_RemainTerminalAfterRestore`; `MainMenuControllerTests` |
+| REG-BATTLE-073 | Pause/background/resume живого процесса не читают disk checkpoint и не откатывают текущую симуляцию; P1.5a no-catch-up сохраняется. | `BattleCheckpointControllerTests.LivePause_DoesNotReloadDisk`; полный Pause suite |
+| REG-BATTLE-074 | После restore Preparation дальнейшие команды и каждый тик до terminal совпадают с непрерывным контрольным прогоном: snapshots, AttackEvents, Gold/HP/Kills, cooldown и ID. | `BattleCheckpointTests.RestoredRun_MatchesContinuousDeterministicTimeline` |
+| REG-BATTLE-075 | Sell → save/load → rebuild использует сохранённый nextTowerId и новый монотонный ID; проданный ID не переиспользуется. | `BattleCheckpointTests.SellRestoreRebuild_DoesNotReuseSoldTowerId` |
+| REG-BATTLE-076 | Duplicate TowerId/cells, outside/blocked coordinates и несогласованная Grid occupancy отклоняются до публикации State/Grid. | `BattleCheckpointTests.InvalidTowers_AreRejectedWithoutPublishingPartialState` |
+| REG-BATTLE-077 | Negative values, невозможные Level/InvestedGold, invalid next IDs, WaveIndex и несогласованные Phase/HP отклоняются; текущая симуляция не меняется. | `BattleCheckpointTests.InvalidScalarsAndPhases_AreRejectedWithoutMutation` |
+| REG-BATTLE-078 | Unknown schema version и несовместимый scenarioContentId возвращают explicit incompatible result и не разрешают Continue. | `WaveCheckpointStoreTests.UnknownVersionAndContentMismatch_AreIncompatible`; `MainMenuControllerTests` |
+| REG-BATTLE-079 | Повреждённый/обрезанный primary не публикует частичное состояние; совместимый проверенный backup восстанавливается с diagnostics loaded-from-backup. | `WaveCheckpointStoreTests.CorruptPrimary_FallsBackToValidatedBackup` |
+| REG-BATTLE-080 | Отсутствующий, повреждённый primary+backup или terminal checkpoint оставляет Continue disabled; New Game остаётся явным действием игрока. | `MainMenuControllerTests.Continue_RequiresCompatibleUnfinishedCheckpoint` |
+| REG-BATTLE-081 | Ошибка temp/write/replace сохраняет прежний primary/backup и показывает diagnostics; Start Wave не входит в Combat до успешного checkpoint save. | `WaveCheckpointStoreTests.WriteFailure_PreservesPreviousGoodFiles`; `BattleCheckpointControllerTests.StartWave_WriteFailure_StaysInPreparation` |
+| REG-BATTLE-082 | Успешная атомарная замена сохраняет новый primary и предыдущий корректный primary в backup; повреждённый primary не перезаписывает исправный backup при последующем save. | `WaveCheckpointStoreTests.AtomicReplacement_PreservesPreviousGoodBackup` |
+| REG-BATTLE-083 | Continue создаёт Tower Views из restored Domain state и заново очищает selection, Sell confirmation, enemies/beams и accumulator/pause boundary. | `BattleCheckpointPlayModeTests.InterruptedCombat_MenuContinue_RestoresPreparationViewsAndClearsTransients` |
+| REG-BATTLE-084 | MainMenu New Game/Continue wiring воспроизводим builder, имеет ровно один EventSystem/GraphicRaycaster и валидные references; прямой Battle без session context не читает/пишет реальный save. | `BattleAssetValidationTests`; `BattleSceneBuilderTests`; `BattleCheckpointPlayModeTests` |
+| REG-BATTLE-085 | Реальный Play Mode фиксирует MainMenu → Battle → checkpoint → scene reload/MainMenu → Continue, restored Preparation и фактический Console audit; сохраняется sanitized example JSON. | `BattleCheckpointPlayModeTests`; `Docs/review/P1.5b` |
+| REG-BATTLE-086 | Все REG-BATTLE-001…066 и прежние Domain/config/scene/pause tests сохраняются без изменения баланса и подгонки legacy ожиданий. | Полный EditMode/PlayMode suite |
+| REG-BATTLE-087 | Failed New Game reset на temp cleanup не удаляет primary/backup, не создаёт fresh session и оставляет Continue доступным для прежнего checkpoint. | `MainMenuControllerTests.NewGameResetFailure_PreservesCheckpointAndContinueSession` |
+| REG-BATTLE-088 | `nextEnemyId/nextTowerId = int.MaxValue` в primary считается corrupt и загружает valid backup. Последний безопасный ID остаётся сохраняемым; исчерпание счётчиков отклоняет Start Wave/Place Tower без overflow или mutation. | `WaveCheckpointStoreTests.InvalidNextIdInPrimary_LoadsCompatibleBackup`; `BattleCheckpointTests.EnemyIdExhaustion_RejectsStartWaveWithoutMutation`; `LastSafeEnemyId_CompletesRestorableWaveAndRejectsFollowingWave`; `TowerIdExhaustion_RejectsPlacementWithoutMutation` |
+| REG-BATTLE-089 | New Game создаёт recovery copy до удаления слотов. Ошибка удаления каталога по BackupPath после удаления primary восстанавливает byte-identical primary, не создаёт fresh session и позволяет Continue прежней Preparation. | `MainMenuControllerTests.NewGameBackupDeleteFailure_RestoresPrimaryAndContinueSession` |
+
 ## CI-сценарии
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |

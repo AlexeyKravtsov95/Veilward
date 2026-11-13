@@ -54,7 +54,36 @@ namespace Veilward.Tests.EditMode
                 Is.EqualTo(resumeRect.GetComponent<UnityEngine.UI.Button>()));
             var serializedBattle = new SerializedObject(battle);
             Assert.That(serializedBattle.FindProperty("pauseController").objectReferenceValue, Is.EqualTo(pause));
+            var checkpoint = UnityEngine.Object.FindFirstObjectByType<BattleCheckpointController>();
+            var placement = UnityEngine.Object.FindFirstObjectByType<BattlePlacementController>();
+            Assert.That(checkpoint, Is.Not.Null);
+            Assert.That(serializedBattle.FindProperty("checkpointController").objectReferenceValue, Is.EqualTo(checkpoint));
+            Assert.That(serializedBattle.FindProperty("placementController").objectReferenceValue, Is.EqualTo(placement));
+            Assert.That(new SerializedObject(checkpoint).FindProperty("saveStatusText").objectReferenceValue, Is.Not.Null);
             Assert.That(BattleAssetValidator.ValidateSavedBattle(), Is.Empty);
+        }
+
+        [Test]
+        public void SavedMainMenu_NewGameContinueAndCanvas_AreValid()
+        {
+            EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity");
+            var menu = UnityEngine.Object.FindFirstObjectByType<MainMenuController>();
+            Assert.That(menu, Is.Not.Null);
+            var serialized = new SerializedObject(menu);
+            foreach (var propertyName in new[] { "scenario", "newGameButton", "continueButton", "statusText" })
+            {
+                Assert.That(serialized.FindProperty(propertyName).objectReferenceValue, Is.Not.Null, propertyName);
+            }
+
+            Assert.That(UnityEngine.Object.FindObjectsByType<UnityEngine.EventSystems.EventSystem>(
+                FindObjectsInactive.Include, FindObjectsSortMode.None).Length, Is.EqualTo(1));
+            var canvas = UnityEngine.Object.FindFirstObjectByType<Canvas>();
+            Assert.That(canvas, Is.Not.Null);
+            Assert.That(canvas.GetComponent<UnityEngine.UI.GraphicRaycaster>(), Is.Not.Null);
+            var scaler = canvas.GetComponent<UnityEngine.UI.CanvasScaler>();
+            Assert.That(scaler, Is.Not.Null);
+            Assert.That(scaler.referenceResolution, Is.EqualTo(new Vector2(1920f, 1080f)));
+            Assert.That(BattleAssetValidator.ValidateSavedMainMenu(), Is.Empty);
         }
 
         [Test]
@@ -139,7 +168,7 @@ namespace Veilward.Tests.EditMode
                 CollectionAssert.AreEqual(first.Keys, second.Keys);
                 foreach (var path in first.Keys)
                 {
-                    if (path == BattleScenePath)
+                    if (path == BattleScenePath || path == "Assets/_Game/Scenes/MainMenu.unity")
                     {
                         AssertTextEqual(CanonicalScene(first[path]), CanonicalScene(second[path]), path);
                     }
@@ -285,6 +314,7 @@ namespace Veilward.Tests.EditMode
             var assets = new List<string>
             {
                 BattleScenePath,
+                "Assets/_Game/Scenes/MainMenu.unity",
                 "Assets/_Game/Configs/TestWave.asset",
                 "Assets/_Game/Configs/EightWave.asset",
                 "Assets/_Game/Prefabs/Shade.prefab",

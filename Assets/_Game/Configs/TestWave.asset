@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3ac9c767ec04a47a46fe8950941e7e, type: 3}
   m_Name: TestWave
   m_EditorClassIdentifier: Veilward::Veilward.Presentation.BattleScenarioConfig
+  scenarioContentId: legacy-single-wave-v1
   baseHealth: 20
   enemyId: shade
   maxHealth: 100
