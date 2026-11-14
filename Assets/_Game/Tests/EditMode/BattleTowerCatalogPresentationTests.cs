@@ -164,6 +164,44 @@ namespace Veilward.Tests.EditMode
             Assert.That(_battle.Simulation.State.Gold, Is.EqualTo(117));
         }
 
+        [Test]
+        public void RegBattle120_SellModal_RejectsPublicCellSelection()
+        {
+            _battle.PlaceTower(new TowerDefinitionId("tide"), Cell);
+            var second = new GridCoordinate(-3, 0);
+            _battle.PlaceTower(new TowerDefinitionId("tide"), second);
+            _placement.TrySelectCell(Cell);
+            var selected = _placement.SelectedTowerId;
+            _placement.RequestSellSelectedTower();
+            Assert.That(_placement.TrySelectCell(second), Is.False);
+            Assert.That(_placement.TrySelectCell(new GridCoordinate(-2, 0)), Is.False);
+            Assert.That(_placement.SelectedTowerId, Is.EqualTo(selected));
+            Assert.That(_placement.IsSellConfirmationVisible, Is.True);
+            Assert.That(_battle.Simulation.State.Gold, Is.EqualTo(30));
+            Assert.That(_battle.Simulation.State.Towers.Count, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void RegBattle122_LandscapeInsets_OffsetCatalogAndTowerPanelsInsideSafeArea()
+        {
+            var serialized = new SerializedObject(_placement);
+            var panels = new[] { "confirmationPanel", "towerPanel" }.Select(name =>
+                ((GameObject)serialized.FindProperty(name).objectReferenceValue).GetComponent<RectTransform>()).ToArray();
+            var initial = panels.Select(panel => panel.anchoredPosition).ToArray();
+            var method = typeof(BattlePlacementController).GetMethod("ApplySafeArea", BindingFlags.NonPublic | BindingFlags.Instance);
+            Assert.That(method, Is.Not.Null, "New panels must account for landscape right/bottom unsafe insets.");
+            method.Invoke(_placement, new object[] { new Rect(0f, 24f, 1468f, 876f), new Vector2(1600f, 900f), 0.8f });
+            for (var index = 0; index < panels.Length; index++)
+            {
+                Assert.That(panels[index].anchoredPosition, Is.EqualTo(initial[index] + new Vector2(-165f, 30f)));
+                Assert.That(panels[index].anchorMin, Is.EqualTo(new Vector2(1f, 0f)));
+                Assert.That(panels[index].anchorMax, Is.EqualTo(new Vector2(1f, 0f)));
+            }
+            method.Invoke(_placement, new object[] { new Rect(0f, 0f, 1600f, 900f), new Vector2(1600f, 900f), 0.8f });
+            for (var index = 0; index < panels.Length; index++)
+                Assert.That(panels[index].anchoredPosition, Is.EqualTo(initial[index]), "Insets must not accumulate or survive full-screen safe area.");
+        }
+
         private static Color ColorOf(GameObject view)
         {
             var block = new MaterialPropertyBlock();

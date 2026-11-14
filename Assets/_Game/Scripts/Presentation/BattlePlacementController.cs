@@ -37,6 +37,14 @@ namespace Veilward.Presentation
 
         private readonly List<UnityEngine.UI.Button> _catalogButtons = new List<UnityEngine.UI.Button>();
         private readonly List<RaycastResult> _uiHits = new List<RaycastResult>();
+        private Canvas _canvas;
+        private RectTransform _placementPanelRect;
+        private RectTransform _towerPanelRect;
+        private Vector2 _placementPanelOrigin;
+        private Vector2 _towerPanelOrigin;
+        private Rect _lastSafeArea;
+        private Vector2 _lastScreenSize;
+        private float _lastCanvasScale;
         private TowerDefinition _selectedDefinition;
         private TowerDefinition _displayedTowerDefinition;
         public TowerDefinitionId SelectedTowerTypeId { get; private set; }
@@ -84,6 +92,12 @@ namespace Veilward.Presentation
             ValidateReference(catalogButtonTemplate, nameof(catalogButtonTemplate));
             ValidateReference(buildStatsText, nameof(buildStatsText));
             ValidateReference(sellConfirmationText, nameof(sellConfirmationText));
+            _canvas = confirmationPanel.GetComponentInParent<Canvas>();
+            _placementPanelRect = confirmationPanel.GetComponent<RectTransform>();
+            _towerPanelRect = towerPanel.GetComponent<RectTransform>();
+            _placementPanelOrigin = _placementPanelRect.anchoredPosition;
+            _towerPanelOrigin = _towerPanelRect.anchoredPosition;
+            RefreshSafeArea();
             foreach (var archetype in battle.Simulation.TowerCatalog.Archetypes)
             {
                 if (!archetype.ShowInCatalog) continue;
@@ -122,6 +136,7 @@ namespace Veilward.Presentation
                 return;
             }
 
+            RefreshSafeArea();
             RefreshUi();
             if (battle.IsPaused || Time.frameCount <= _pointerSuppressedUntilFrame)
             {
@@ -213,7 +228,7 @@ namespace Veilward.Presentation
         public bool TrySelectCell(GridCoordinate coordinate)
         {
             var simulation = battle.Simulation;
-            if (battle.IsPaused || simulation == null || !simulation.Grid.Map.Contains(coordinate))
+            if (battle.IsPaused || _isSellConfirmationVisible || simulation == null || !simulation.Grid.Map.Contains(coordinate))
             {
                 return false;
             }
@@ -543,6 +558,27 @@ namespace Veilward.Presentation
             }
 
             return null;
+        }
+
+        private void RefreshSafeArea()
+        {
+            var size = new Vector2(Screen.width, Screen.height);
+            var area = Screen.safeArea;
+            var scale = _canvas != null ? _canvas.scaleFactor : 1f;
+            if (area == _lastSafeArea && size == _lastScreenSize && scale == _lastCanvasScale) return;
+            ApplySafeArea(area, size, scale);
+            _lastSafeArea = area;
+            _lastScreenSize = size;
+            _lastCanvasScale = scale;
+        }
+
+        private void ApplySafeArea(Rect area, Vector2 screenSize, float canvasScale)
+        {
+            if (screenSize.x <= 0f || screenSize.y <= 0f || area.width <= 0f || area.height <= 0f || canvasScale <= 0f) return;
+            // Новые панели привязаны к правому нижнему углу; fullscreen Pause Overlay не сужаем.
+            var inset = new Vector2(-Mathf.Max(0f, screenSize.x - area.xMax), Mathf.Max(0f, area.yMin)) / canvasScale;
+            _placementPanelRect.anchoredPosition = _placementPanelOrigin + inset;
+            _towerPanelRect.anchoredPosition = _towerPanelOrigin + inset;
         }
 
         private void TryHandlePointer(Vector2 screenPosition, int? pointerId)

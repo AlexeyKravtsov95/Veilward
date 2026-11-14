@@ -73,6 +73,9 @@ namespace Veilward.Tests.PlayMode
 
             Assert.That(placement.TrySelectCell(firstCell), Is.True);
             placement.RequestSellSelectedTower();
+            Assert.That(placement.TrySelectCell(secondCell), Is.False);
+            Assert.That(placement.SelectedTowerId, Is.EqualTo(firstId));
+            placement.CancelSellConfirmation();
             Assert.That(placement.TrySelectCell(secondCell), Is.True);
             var wrongTowerSale = placement.ConfirmSellSelectedTower();
 

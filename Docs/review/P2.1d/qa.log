@@ -1,18 +1,18 @@
 P2.1d — реальный Unity Editor Play Mode QA
 Unity=6000.3.28f1; platform=OSXEditor
 CATALOG Gold=150; entries=FLAME,TIDE,GALE,STONE
-Capture=01-catalog.png; actual=1600x900; frame=5041; bytes=172680
+Capture=01-catalog.png; actual=1600x900; frame=5022; bytes=172680
 PREVIEW TIDE — Movement control;Price: 60 gold;Damage: 10    Range: 3.5 units;FireRate: 0.8/s;Status: Wet — Power: 20% slow;Duration: 2 s
-Capture=02-preview.png; actual=1600x900; frame=5043; bytes=204659
+Capture=02-preview.png; actual=1600x900; frame=5024; bytes=204675
 COMBAT Tick=23; enemy=1; HP=90; status=Wet; Power=20; RemainingTicks=60
-Capture=03-status-combat.png; actual=1600x900; frame=5963; bytes=199875
+Capture=03-status-combat.png; actual=1600x900; frame=5918; bytes=199875
 WAVE COMPLETE Tick=411; Gold=110; HP=15; Kills=0
 UPGRADE TIDE — Level: 2;Damage: 14    Range: 3.5 units;FireRate: 0.9/s;Status: Wet — Power: 25% slow;Duration: 2.5 s;Upgrade: 120 gold;Sell refund: 105 gold; Gold=20
-Capture=04-upgraded-panel.png; actual=1600x900; frame=6702; bytes=196480
-Capture=05-sell-confirmation.png; actual=1600x900; frame=6704; bytes=202509
+Capture=04-upgraded-panel.png; actual=1600x900; frame=6653; bytes=196480
+Capture=05-sell-confirmation.png; actual=1600x900; frame=6655; bytes=202072
 SELL/REBUILD oldId=1; newId=2; Gold=65; towerType=tide; wave=1
 CONTINUE TIDE — Level: 1;Damage: 10    Range: 3.5 units;FireRate: 0.8/s;Status: Wet — Power: 20% slow;Duration: 2 s;Upgrade: 90 gold;Sell refund: 42 gold; Gold=65
-Capture=06-continued-tower.png; actual=1600x900; frame=6713; bytes=195824
+Capture=06-continued-tower.png; actual=1600x900; frame=6664; bytes=195824
 Console scenario audit: errors=0; warnings=4
 Warning: Ignoring depth surface load action as it is memoryless
 Warning: Ignoring depth surface store action as it is memoryless
@@ -46,6 +46,13 @@ Time.timeScale=20 only while waiting for the natural wave completion; 1 for ever
 Visual inspection=all six final PNGs opened at native 1600x900; catalog/type buttons, preview/radius, beam/enemy, per-level stats, sell ID/refund and continued tower/HUD visible. No clipped text, overlapping controls or missing/pink materials observed. Sell modal intentionally overlays the world and blocks gameplay.
 Console audit=Application.logMessageReceived scoped to the visual Play Mode flow; errors/exceptions/asserts 0, warnings 4 (2 memoryless depth load + 2 store warnings); warning text above. Raw Editor startup logs are not committed.
 Red evidence=initial new catalog tests failed compilation on missing catalog APIs; initial post-implementation run 272/307, then 306/308; exact-config test observed EightWave rewrite 1709 -> 4406 bytes before SetScenarioContentId no-op dirty fix. These incomplete/failed runs are not counted as PASS.
-Final positive results=EditMode 312/312; PlayMode 15/15; visual QA 1/1. Each completed report has failed=0, inconclusive=0, skipped=0. XMLs validated by Scripts/verify_unity_test_results.py.
+Final positive results=EditMode 314/314; PlayMode 15/15; visual QA 1/1. Each completed report has failed=0, inconclusive=0, skipped=0. XMLs validated by Scripts/verify_unity_test_results.py.
 NOT VERIFIED / BLOCKED=physical iPhone, actual device touch/safe area/background, force quit/relaunch, Simulator, signing, iOS export and Unity CI; no device evidence claimed. Unity CLI beta.17 reported 1.0.0 available; installation was not changed.
 Final static=38/38 self-tests and project checks PASS; git diff --check PASS; frozen-scope diff audit PASS. Static runner self-tests clear standard TestResults filenames; full EditMode and PlayMode wrappers were rerun afterward and completed XMLs copied into ignored ledger storage. Sanitized totals/SHA256: quality-gates.json.
+
+Independent review response:
+Initial GPT-6 review (df5f066)=With fixes: new panels ignored unsafe right/bottom insets; public TrySelectCell allowed selection changes while Sell modal was open.
+Red regression run=314 total, 312 passed, exactly 2 failed: RegBattle120_SellModal_RejectsPublicCellSelection and RegBattle122_LandscapeInsets_OffsetCatalogAndTowerPanelsInsideSafeArea.
+Fix=only new catalog/tower panels offset from their serialized origins using Screen.safeArea and Canvas.scaleFactor; update on screen/inset/scale changes, no accumulated drift; fullscreen Pause overlay preserved. Test simulates 1600x900 with right inset 132px and bottom inset 24px at Canvas scale 0.8, then restores full screen. This is Editor simulation only, NOT physical device safe-area verification.
+Fix=TrySelectCell rejects both occupied and free cells during Sell modal; explicit Cancel is required before changing selection. Existing wrong-tower sale tests retain economic/id assertions and add blocked-selection checks.
+Post-fix final gates=static 38/38 + project PASS, EditMode 314/314, PlayMode 15/15, visual QA 1/1; all failed/inconclusive/skipped zero. Entire visual flow rerun after fixes; final six PNGs visually inspected, Console 0 errors / 4 known Editor warnings.

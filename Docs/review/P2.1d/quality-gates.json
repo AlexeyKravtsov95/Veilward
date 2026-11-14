@@ -9,12 +9,12 @@
   },
   "suites": {
     "EditMode": {
-      "total": 312,
-      "passed": 312,
+      "total": 314,
+      "passed": 314,
       "failed": 0,
       "inconclusive": 0,
       "skipped": 0,
-      "reportSha256": "3cea22f462f2d5849c44014e002599471786620b67da19b6d5a7eea7540b5c15"
+      "reportSha256": "c3cd36d26056da04b40265475b944ed81ce0f9e991441c79adadd541bfc7129f"
     },
     "PlayMode": {
       "total": 15,
@@ -22,7 +22,7 @@
       "failed": 0,
       "inconclusive": 0,
       "skipped": 0,
-      "reportSha256": "c19fb988efc0b1d861be65d1f414886dd948b210c93710a48ea52a14871e6f47"
+      "reportSha256": "aa08ffe053c9c7cf77fb798a5f05ef22f8c4c132adf9fddc3f49f670d7bdbf98"
     },
     "VisualQA": {
       "total": 1,
@@ -30,9 +30,10 @@
       "failed": 0,
       "inconclusive": 0,
       "skipped": 0,
-      "reportSha256": "aeff58d1e102844991151a337086f4d4236d5bd3fc4cb733b1378cdfb8a9339e"
+      "reportSha256": "b8f5e4cc5625520a8bda5682d43990eafb9686c3187a8e23a7b00c3a1c6f7f8f"
     }
   },
   "diffCheck": "PASS",
-  "physicalDeviceVerified": false
+  "physicalDeviceVerified": false,
+  "simulatedLandscapeInsetsTested": true
 }

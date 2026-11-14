@@ -132,6 +132,9 @@ namespace Veilward.Tests.EditMode
             Assert.That(placement.TrySelectCell(FirstCell), Is.True);
             var firstId = placement.SelectedTowerId;
             placement.RequestSellSelectedTower();
+            Assert.That(placement.TrySelectCell(SecondCell), Is.False);
+            Assert.That(placement.SelectedTowerId, Is.EqualTo(firstId));
+            placement.CancelSellConfirmation();
             Assert.That(placement.TrySelectCell(SecondCell), Is.True);
             var secondId = placement.SelectedTowerId;
 
