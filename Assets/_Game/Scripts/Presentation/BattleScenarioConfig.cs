@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Veilward.Domain;
 
@@ -11,6 +12,7 @@ namespace Veilward.Presentation
         [SerializeField, Min(1)] private int baseHealth = 20;
         [SerializeField] private string enemyId = "shade";
         [SerializeField, Min(1)] private int maxHealth = 100;
+        [SerializeField, Min(0)] private int enemyArmor;
         [SerializeField, Min(0.01f)] private float speed = 1.5f;
         [SerializeField, Min(1)] private int leakDamage = 1;
         [SerializeField, Min(1)] private int enemyCount = 5;
@@ -43,6 +45,9 @@ namespace Veilward.Presentation
             new TowerUpgradeSettings { price = 80, range = 3f, fireRate = 2f, damage = 50 }
         };
 
+        [Header("Elemental Tower Catalog")]
+        [SerializeField] private TowerArchetypeSettings[] towerArchetypes = CreateDefaultTowerArchetypes();
+
         [Header("Wave Sequence")]
         [SerializeField] private BattleScenarioConfig sharedScenario;
         [SerializeField, Min(0)] private int enemyReward;
@@ -64,6 +69,34 @@ namespace Veilward.Presentation
             [Min(0.01f)] public float range = 3f;
             [Min(0.01f)] public float fireRate = 2f;
             [Min(1)] public int damage = 35;
+        }
+
+        [Serializable]
+        public sealed class TowerArchetypeSettings
+        {
+            public string id;
+            public bool showInCatalog = true;
+            public TowerLevelSettings[] levels;
+        }
+
+        [Serializable]
+        public sealed class TowerLevelSettings
+        {
+            [Min(0)] public int price;
+            [Min(1)] public int damage;
+            [Min(0.01f)] public float range;
+            [Min(0.01f)] public float fireRate;
+            public StatusEffectSettings statusEffect;
+            [Min(0)] public int armorPenetration;
+        }
+
+        [Serializable]
+        public sealed class StatusEffectSettings
+        {
+            public StatusKind kind;
+            [Min(1)] public int power;
+            [Min(1)] public int durationTicks;
+            [Min(0)] public int damageIntervalTicks;
         }
 
         public string ScenarioContentId => scenarioContentId;
@@ -95,7 +128,8 @@ namespace Veilward.Presentation
                 shared.maxHealth,
                 shared.speed,
                 shared.leakDamage,
-                enemyReward);
+                enemyReward,
+                shared.enemyArmor);
             var upgradeCount = shared.towerUpgrades?.Length ?? 0;
             var towerLevels = new TowerDefinition[upgradeCount + 1];
             towerLevels[0] = new TowerDefinition(
@@ -117,6 +151,7 @@ namespace Veilward.Presentation
                     upgrade.damage);
             }
 
+            var towerCatalog = CreateTowerCatalog(shared, towerLevels);
             if (waves == null || waves.Length == 0)
             {
                 var legacyWave = new WaveDefinition(
@@ -128,7 +163,7 @@ namespace Veilward.Presentation
                     map,
                     path,
                     legacyWave,
-                    towerLevels,
+                    towerCatalog,
                     shared.baseHealth,
                     shared.startingGold);
             }
@@ -148,10 +183,148 @@ namespace Veilward.Presentation
                 map,
                 path,
                 sequence,
-                towerLevels,
+                towerCatalog,
                 shared.baseHealth,
                 shared.startingGold,
                 waveCompletionBonus);
+        }
+
+        private static TowerCatalog CreateTowerCatalog(
+            BattleScenarioConfig shared,
+            IReadOnlyList<TowerDefinition> legacyLevels)
+        {
+            if (shared.towerArchetypes == null || shared.towerArchetypes.Length != 4)
+            {
+                throw new ArgumentException(
+                    "Exactly four elemental tower archetypes are required.",
+                    nameof(towerArchetypes));
+            }
+
+            var archetypes = new List<TowerArchetypeDefinition>(5)
+            {
+                new TowerArchetypeDefinition(
+                    new TowerDefinitionId(shared.towerId),
+                    showInCatalog: false,
+                    legacyLevels)
+            };
+            foreach (var settings in shared.towerArchetypes)
+            {
+                if (settings == null)
+                {
+                    throw new ArgumentException(
+                        "Elemental tower archetypes cannot contain null entries.",
+                        nameof(towerArchetypes));
+                }
+
+                var levels = new TowerDefinition[settings.levels?.Length ?? 0];
+                for (var index = 0; index < levels.Length; index++)
+                {
+                    var level = settings.levels[index] ?? throw new ArgumentException(
+                        "Elemental tower levels cannot contain null entries.",
+                        nameof(towerArchetypes));
+                    var status = level.statusEffect ?? throw new ArgumentException(
+                        $"Elemental tower {settings.id} requires a status definition.",
+                        nameof(towerArchetypes));
+                    var statusDefinition = new StatusEffectDefinition(
+                        status.kind,
+                        status.power,
+                        status.durationTicks,
+                        status.damageIntervalTicks);
+                    levels[index] = new TowerDefinition(
+                        new TowerDefinitionId(settings.id),
+                        level.price,
+                        level.range,
+                        level.fireRate,
+                        level.damage,
+                        statusDefinition,
+                        level.armorPenetration);
+                }
+
+                archetypes.Add(new TowerArchetypeDefinition(
+                    new TowerDefinitionId(settings.id),
+                    settings.showInCatalog,
+                    levels));
+            }
+
+            var catalog = new TowerCatalog(archetypes);
+            foreach (var requiredId in new[] { "flame", "tide", "gale", "stone" })
+            {
+                if (!catalog.TryGet(new TowerDefinitionId(requiredId), out _))
+                {
+                    throw new ArgumentException(
+                        $"Elemental tower catalog is missing {requiredId}.",
+                        nameof(towerArchetypes));
+                }
+            }
+
+            return catalog;
+        }
+
+        private static TowerArchetypeSettings[] CreateDefaultTowerArchetypes()
+        {
+            return new[]
+            {
+                CreateArchetype(
+                    "flame",
+                    CreateLevel(70, 12, 3f, 1f, StatusKind.Burn, 3, 90, 15),
+                    CreateLevel(105, 16, 3f, 1.1f, StatusKind.Burn, 4, 105, 15),
+                    CreateLevel(140, 22, 3.2f, 1.2f, StatusKind.Burn, 6, 120, 15)),
+                CreateArchetype(
+                    "tide",
+                    CreateLevel(60, 10, 3.5f, 0.8f, StatusKind.Wet, 20, 60, 0),
+                    CreateLevel(90, 14, 3.5f, 0.9f, StatusKind.Wet, 25, 75, 0),
+                    CreateLevel(120, 18, 3.5f, 1f, StatusKind.Wet, 30, 90, 0)),
+                CreateArchetype(
+                    "gale",
+                    CreateLevel(80, 6, 3f, 3f, StatusKind.Gust, 20, 45, 0),
+                    CreateLevel(120, 8, 3.2f, 3.5f, StatusKind.Gust, 30, 60, 0),
+                    CreateLevel(160, 10, 3.5f, 4f, StatusKind.Gust, 40, 75, 0)),
+                CreateArchetype(
+                    "stone",
+                    CreateLevel(90, 40, 2.5f, 0.5f, StatusKind.Crack, 2, 90, 0, 4),
+                    CreateLevel(135, 55, 2.75f, 0.55f, StatusKind.Crack, 3, 105, 0, 6),
+                    CreateLevel(180, 75, 3f, 0.6f, StatusKind.Crack, 4, 120, 0, 8))
+            };
+        }
+
+        private static TowerArchetypeSettings CreateArchetype(
+            string id,
+            params TowerLevelSettings[] levels)
+        {
+            return new TowerArchetypeSettings
+            {
+                id = id,
+                showInCatalog = true,
+                levels = levels
+            };
+        }
+
+        private static TowerLevelSettings CreateLevel(
+            int price,
+            int damage,
+            float range,
+            float fireRate,
+            StatusKind kind,
+            int power,
+            int durationTicks,
+            int damageIntervalTicks,
+            int armorPenetration = 0)
+        {
+            return new TowerLevelSettings
+            {
+                price = price,
+                damage = damage,
+                range = range,
+                fireRate = fireRate,
+                armorPenetration = armorPenetration,
+                statusEffect = new StatusEffectSettings
+                {
+                    kind = kind,
+                    power = power,
+                    durationTicks = durationTicks,
+                    damageIntervalTicks = damageIntervalTicks
+                }
+            };
         }
 
         private void OnValidate()

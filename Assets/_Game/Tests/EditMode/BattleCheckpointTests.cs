@@ -435,6 +435,7 @@ namespace Veilward.Tests.EditMode
             for (var index = 0; index < expected.towers.Length; index++)
             {
                 Assert.That(actual.towers[index].towerId, Is.EqualTo(expected.towers[index].towerId));
+                Assert.That(actual.towers[index].towerTypeId, Is.EqualTo(expected.towers[index].towerTypeId));
                 Assert.That(actual.towers[index].x, Is.EqualTo(expected.towers[index].x));
                 Assert.That(actual.towers[index].y, Is.EqualTo(expected.towers[index].y));
                 Assert.That(actual.towers[index].level, Is.EqualTo(expected.towers[index].level));
@@ -470,6 +471,7 @@ namespace Veilward.Tests.EditMode
             return new TowerCheckpoint
             {
                 towerId = source.towerId,
+                towerTypeId = source.towerTypeId,
                 x = source.x,
                 y = source.y,
                 level = source.level,

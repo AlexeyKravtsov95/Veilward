@@ -6,6 +6,7 @@ namespace Veilward.Domain
     public sealed class TowerCheckpoint
     {
         public int towerId;
+        public string towerTypeId;
         public int x;
         public int y;
         public int level;
@@ -17,6 +18,7 @@ namespace Veilward.Domain
             return new TowerCheckpoint
             {
                 towerId = tower.Id.Value,
+                towerTypeId = tower.Definition.Id.Value,
                 x = tower.Coordinate.X,
                 y = tower.Coordinate.Y,
                 level = tower.Level,

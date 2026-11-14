@@ -193,6 +193,37 @@ namespace Veilward.Tests.EditMode
             }
         }
 
+        [Test]
+        public void RegBattle090_InvalidSavedElementalDefinition_ReturnsValidationError()
+        {
+            const string configPath = "Assets/_Game/Configs/TestWave.asset";
+            var original = File.ReadAllBytes(configPath);
+            EditorSceneManager.OpenScene(BattleScenePath);
+            try
+            {
+                var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(configPath);
+                var serialized = new SerializedObject(config);
+                serialized.FindProperty("towerArchetypes").GetArrayElementAtIndex(1)
+                    .FindPropertyRelative("levels").GetArrayElementAtIndex(0)
+                    .FindPropertyRelative("statusEffect.power").intValue = 101;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                EditorUtility.SetDirty(config);
+                AssetDatabase.SaveAssets();
+
+                var errors = BattleAssetValidator.ValidateSavedBattle();
+
+                Assert.That(errors, Has.Some.Contains("Battle scenario cannot create a simulation"));
+                Assert.That(errors, Has.Some.Contains("Wet power"));
+            }
+            finally
+            {
+                File.WriteAllBytes(configPath, original);
+                AssetDatabase.ImportAsset(configPath, ImportAssetOptions.ForceUpdate);
+                AssetDatabase.Refresh();
+                EditorSceneManager.OpenScene(BattleScenePath);
+            }
+        }
+
         private static string CanonicalScene(byte[] content)
         {
             // Unity assigns new local fileIDs and may reorder YAML documents on every save.

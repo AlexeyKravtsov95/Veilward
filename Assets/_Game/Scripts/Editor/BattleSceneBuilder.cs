@@ -38,6 +38,7 @@ namespace Veilward.Editor
                 AssetDatabase.CreateAsset(legacyConfig, LegacyConfigPath);
             }
 
+            EnsureElementalCatalog(legacyConfig);
             var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath);
             if (config == null)
             {
@@ -127,6 +128,29 @@ namespace Veilward.Editor
             AssetDatabase.Refresh();
             ValidateRequiredReferences();
             BuildMainMenu(config);
+        }
+
+        private static void EnsureElementalCatalog(BattleScenarioConfig config)
+        {
+            var serialized = new SerializedObject(config);
+            var catalog = serialized.FindProperty("towerArchetypes");
+            if (catalog != null && catalog.arraySize > 0)
+            {
+                return;
+            }
+
+            var defaults = BattleScenarioConfig.CreateDefault();
+            try
+            {
+                var defaultCatalog = new SerializedObject(defaults).FindProperty("towerArchetypes");
+                serialized.CopyFromSerializedProperty(defaultCatalog);
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                EditorUtility.SetDirty(config);
+            }
+            finally
+            {
+                Object.DestroyImmediate(defaults);
+            }
         }
 
         private static void SetScenarioContentId(BattleScenarioConfig config, string contentId)

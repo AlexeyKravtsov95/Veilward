@@ -16,6 +16,7 @@ MonoBehaviour:
   baseHealth: 20
   enemyId: shade
   maxHealth: 100
+  enemyArmor: 0
   speed: 1.5
   leakDamage: 1
   enemyCount: 5
@@ -45,6 +46,139 @@ MonoBehaviour:
     range: 3
     fireRate: 2
     damage: 50
+  towerArchetypes:
+  - id: flame
+    showInCatalog: 1
+    levels:
+    - price: 70
+      damage: 12
+      range: 3
+      fireRate: 1
+      statusEffect:
+        kind: 0
+        power: 3
+        durationTicks: 90
+        damageIntervalTicks: 15
+      armorPenetration: 0
+    - price: 105
+      damage: 16
+      range: 3
+      fireRate: 1.1
+      statusEffect:
+        kind: 0
+        power: 4
+        durationTicks: 105
+        damageIntervalTicks: 15
+      armorPenetration: 0
+    - price: 140
+      damage: 22
+      range: 3.2
+      fireRate: 1.2
+      statusEffect:
+        kind: 0
+        power: 6
+        durationTicks: 120
+        damageIntervalTicks: 15
+      armorPenetration: 0
+  - id: tide
+    showInCatalog: 1
+    levels:
+    - price: 60
+      damage: 10
+      range: 3.5
+      fireRate: 0.8
+      statusEffect:
+        kind: 1
+        power: 20
+        durationTicks: 60
+        damageIntervalTicks: 0
+      armorPenetration: 0
+    - price: 90
+      damage: 14
+      range: 3.5
+      fireRate: 0.9
+      statusEffect:
+        kind: 1
+        power: 25
+        durationTicks: 75
+        damageIntervalTicks: 0
+      armorPenetration: 0
+    - price: 120
+      damage: 18
+      range: 3.5
+      fireRate: 1
+      statusEffect:
+        kind: 1
+        power: 30
+        durationTicks: 90
+        damageIntervalTicks: 0
+      armorPenetration: 0
+  - id: gale
+    showInCatalog: 1
+    levels:
+    - price: 80
+      damage: 6
+      range: 3
+      fireRate: 3
+      statusEffect:
+        kind: 2
+        power: 20
+        durationTicks: 45
+        damageIntervalTicks: 0
+      armorPenetration: 0
+    - price: 120
+      damage: 8
+      range: 3.2
+      fireRate: 3.5
+      statusEffect:
+        kind: 2
+        power: 30
+        durationTicks: 60
+        damageIntervalTicks: 0
+      armorPenetration: 0
+    - price: 160
+      damage: 10
+      range: 3.5
+      fireRate: 4
+      statusEffect:
+        kind: 2
+        power: 40
+        durationTicks: 75
+        damageIntervalTicks: 0
+      armorPenetration: 0
+  - id: stone
+    showInCatalog: 1
+    levels:
+    - price: 90
+      damage: 40
+      range: 2.5
+      fireRate: 0.5
+      statusEffect:
+        kind: 3
+        power: 2
+        durationTicks: 90
+        damageIntervalTicks: 0
+      armorPenetration: 4
+    - price: 135
+      damage: 55
+      range: 2.75
+      fireRate: 0.55
+      statusEffect:
+        kind: 3
+        power: 3
+        durationTicks: 105
+        damageIntervalTicks: 0
+      armorPenetration: 6
+    - price: 180
+      damage: 75
+      range: 3
+      fireRate: 0.6
+      statusEffect:
+        kind: 3
+        power: 4
+        durationTicks: 120
+        damageIntervalTicks: 0
+      armorPenetration: 8
   sharedScenario: {fileID: 0}
   enemyReward: 0
   waveCompletionBonus: 0

@@ -11,7 +11,8 @@ namespace Veilward.Infrastructure
 
     public sealed class WaveCheckpointStore
     {
-        public const int CurrentSchemaVersion = 1;
+        public const int CurrentSchemaVersion = 2;
+        private const int LegacySchemaVersion = 1;
         private const string PrimaryFileName = "wave-checkpoint-v1.json";
 
         public WaveCheckpointStore(string rootDirectory)
@@ -216,14 +217,30 @@ namespace Veilward.Infrastructure
                     return status;
                 }
 
-                if (candidate == null || candidate.schemaVersion != CurrentSchemaVersion ||
+                if (candidate == null)
+                {
+                    status = FileReadStatus.Corrupt;
+                    error = "Checkpoint JSON is empty.";
+                    return status;
+                }
+
+                if ((candidate.schemaVersion != CurrentSchemaVersion &&
+                     candidate.schemaVersion != LegacySchemaVersion) ||
                     !string.Equals(candidate.scenarioContentId, scenarioContentId, StringComparison.Ordinal))
                 {
-                    status = candidate == null ? FileReadStatus.Corrupt : FileReadStatus.Incompatible;
-                    error = status == FileReadStatus.Corrupt
-                        ? "Checkpoint JSON is empty."
-                        : "Checkpoint schema or scenario content is incompatible.";
+                    status = FileReadStatus.Incompatible;
+                    error = "Checkpoint schema or scenario content is incompatible.";
                     return status;
+                }
+
+                if (candidate.schemaVersion == LegacySchemaVersion)
+                {
+                    candidate = new WaveCheckpointEnvelope
+                    {
+                        schemaVersion = CurrentSchemaVersion,
+                        scenarioContentId = candidate.scenarioContentId,
+                        state = candidate.state == null ? null : candidate.state.DeepCopyForMigration()
+                    };
                 }
 
                 if (!TryValidateEnvelope(candidate, scenarioContentId, validator, out error))
