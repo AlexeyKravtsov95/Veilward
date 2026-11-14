@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Reflection;
 using NUnit.Framework;
 using UnityEditor;
@@ -185,6 +186,41 @@ namespace Veilward.Tests.EditMode
                 1f / SimulationTiming.TicksPerSecond - Mathf.Min(Time.deltaTime, 0.25f) + 0.0001f);
             Invoke(_battle, "Update");
             Assert.That(_battle.Simulation.State.Tick, Is.EqualTo(tick + 1));
+        }
+
+        [Test]
+        public void RegBattle112_PauseAndBackground_FreezeStatusTimersWithoutCatchUp()
+        {
+            Assert.That(_battle.Simulation.PlaceTower(new PlaceTowerCommand(
+                new TowerDefinitionId("flame"), new GridCoordinate(-4, 0))).Success, Is.True);
+            Assert.That(_battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+            _battle.Simulation.Step();
+            var enemy = _battle.Simulation.State.Enemies.Single();
+            var health = enemy.Health;
+            var remainingTicks = enemy.Burn.RemainingTicks;
+            var nextDamageTick = enemy.Burn.NextDamageTick;
+            var tick = _battle.Simulation.State.Tick;
+
+            _pause.Pause();
+            SetField(_battle, "_accumulator", 1f);
+            Invoke(_battle, "Update");
+            Invoke(_battle, "Update");
+            Assert.That(_battle.Simulation.State.Tick, Is.EqualTo(tick));
+            Assert.That(enemy.Health, Is.EqualTo(health));
+            Assert.That(enemy.Burn.RemainingTicks, Is.EqualTo(remainingTicks));
+            Assert.That(enemy.Burn.NextDamageTick, Is.EqualTo(nextDamageTick));
+
+            _pause.Resume();
+            Invoke(_battle, "Update");
+            Assert.That(_battle.Simulation.State.Tick, Is.EqualTo(tick),
+                "The resume boundary must not catch up paused status ticks.");
+            _pause.OnApplicationPause(true);
+            _pause.OnApplicationPause(false);
+            SetField(_battle, "_accumulator", 1f);
+            Invoke(_battle, "Update");
+            Assert.That(_battle.Simulation.State.Tick, Is.EqualTo(tick));
+            Assert.That(enemy.Burn.RemainingTicks, Is.EqualTo(remainingTicks));
+            Assert.That(enemy.Burn.NextDamageTick, Is.EqualTo(nextDamageTick));
         }
 
         [Test]

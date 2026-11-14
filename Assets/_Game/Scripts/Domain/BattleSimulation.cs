@@ -415,6 +415,8 @@ namespace Veilward.Domain
                 return false;
             }
 
+            towers.Sort((left, right) => left.Id.Value.CompareTo(right.Id.Value));
+
             try
             {
                 restoredState = new BattleState(
@@ -610,6 +612,7 @@ namespace Veilward.Domain
 
             State.AdvanceTick();
             SpawnDueEnemies();
+            ProcessStatusDamageAndExpiry();
             MoveEnemiesAndApplyLeaks();
             ProcessTowerAttacks();
             State.RemoveDefeatedEnemies();
@@ -633,15 +636,46 @@ namespace Veilward.Domain
             _attackEvents.Clear();
         }
 
+        private void ProcessStatusDamageAndExpiry()
+        {
+            // Spawn и удаление сохраняют возрастание EnemyId в этом списке.
+            for (var index = 0; index < State.Enemies.Count; index++)
+            {
+                var enemy = State.Enemies[index];
+                var burn = enemy.Burn;
+                if (burn != null && burn.NextDamageTick == State.Tick)
+                {
+                    var effectiveArmor = EffectiveArmor(enemy);
+                    enemy.ApplyDamage(ApplyArmor(burn.Power, effectiveArmor, penetration: 0));
+                    burn.ScheduleNextDamage(State.Tick);
+                }
+
+                enemy.AdvanceStatusTimers();
+            }
+        }
+
         private void MoveEnemiesAndApplyLeaks()
         {
             var index = 0;
             while (index < State.Enemies.Count)
             {
                 var enemy = State.Enemies[index];
+                if (!enemy.IsAlive)
+                {
+                    index++;
+                    continue;
+                }
+
+                var speed = enemy.Definition.Speed;
+                var wet = enemy.Wet;
+                if (wet != null)
+                {
+                    speed *= (100 - wet.Power) / 100f;
+                }
+
                 var distance = Math.Min(
                     _path.TotalLength,
-                    enemy.DistanceAlongPath + enemy.Definition.Speed / SimulationTiming.TicksPerSecond);
+                    enemy.DistanceAlongPath + speed / SimulationTiming.TicksPerSecond);
                 if (distance >= _path.TotalLength)
                 {
                     State.RemoveEnemyAt(index);
@@ -673,7 +707,17 @@ namespace Veilward.Domain
                 }
 
                 var targetPosition = _path.GetPosition(target.DistanceAlongPath);
-                var wasLethal = target.ApplyDamage(tower.Definition.Damage);
+                var afterArmor = ApplyArmor(
+                    tower.Definition.Damage,
+                    EffectiveArmor(target),
+                    tower.Definition.ArmorPenetration);
+                var directDamage = ApplyGust(afterArmor, target.Gust);
+                var wasLethal = target.ApplyDamage(directDamage);
+                if (!wasLethal && tower.Definition.StatusEffect != null)
+                {
+                    target.ApplyStatus(tower.Definition.StatusEffect, tower.Id, State.Tick);
+                }
+
                 tower.MarkAttacked(State.Tick);
                 _attackEvents.Add(new AttackEvent(
                     tower.Id,
@@ -683,6 +727,28 @@ namespace Veilward.Domain
                     tower.Definition.Damage,
                     wasLethal));
             }
+        }
+
+        private static int EffectiveArmor(EnemyState enemy)
+        {
+            var crackPower = enemy.Crack == null ? 0 : enemy.Crack.Power;
+            return Math.Max(0, enemy.Definition.Armor - crackPower);
+        }
+
+        private static int ApplyArmor(int damage, int armor, int penetration)
+        {
+            var remainingArmor = Math.Max(0, armor - penetration);
+            return Math.Max(1, damage - remainingArmor);
+        }
+
+        private static int ApplyGust(int damage, StatusInstance gust)
+        {
+            if (gust == null)
+            {
+                return damage;
+            }
+
+            return (int)Math.Min(int.MaxValue, ((long)damage * (100 + gust.Power)) / 100);
         }
 
         private void SpawnDueEnemies()
