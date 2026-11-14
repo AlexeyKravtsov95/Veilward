@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. Текущий статус — **P1.5b Wave Checkpoint & Continue**: детерминированная 30 Hz симуляция восьми волн, tower economy, pause/background и версионированное safe-wave сохранение с MainMenu Continue в graybox Battle. Стихии, долгосрочный метапрогресс, IAP и Game Center ещё не реализованы.
+Unity-проект мобильной tower defense игры для iOS. Текущий статус ветки — **P2.1b Elemental Definitions & Checkpoint Schema 2**: детерминированная 30 Hz симуляция, validated каталог FLAME/TIDE/GALE/STONE, typed tower economy и миграция safe-wave сохранений. Активные стихийные статусы, новый Build UI, долгосрочный метапрогресс, IAP и Game Center ещё не реализованы.
 
 ## Окружение
 
@@ -94,6 +94,12 @@ PR #10 (`dc17cca`) merged в `main` 2026-11-10. Добавлены deterministic
 
 MainMenu предоставляет явные **New Game** и **Continue**. Continue доступен только для совместимых Preparation/WaveComplete; terminal checkpoint не перезапускает матч. Прямой запуск Battle без session context использует in-memory store и не читает/пишет реальный `persistentDataPath`. Полный контракт — `Docs/P1.5B_WAVE_CHECKPOINT.md`, regression scenarios — `REG-BATTLE-067…089`. Три реальных Editor Play Mode кадра 1600×900, sanitized `checkpoint-example.json`, telemetry и Console audit с 0 errors находятся в `Docs/review/P1.5b/`.
 
+## P2.1b Elemental Definitions & Checkpoint Schema 2
+
+`TestWave.asset` содержит четыре validated архетипа **flame/tide/gale/stone**, по три уровня с полными параметрами статусов и ArmorPenetration; Shade имеет Armor 0, а legacy `test-tower` сохранён без статуса и скрыт из будущего Build UI. Domain поддерживает строительство по `TowerDefinitionId`, Upgrade следующего уровня того же типа и Sell с refund от фактического InvestedGold. Эти данные пока не накладывают active statuses и не меняют damage pipeline.
+
+Checkpoint schema 2 добавляет обязательный `towerTypeId`. При Continue совместимый schema 1 мигрируется в памяти: каждая старая башня явно становится `test-tower`, остальные поля сохраняются, source JSON не перезаписывается. Следующий Save использует прежние `wave-checkpoint-v1.json`, temp/atomic replace и backup, но записывает schema 2. Missing/empty/unknown type отклоняется, а валидный backup остаётся доступен. Подробности — `Docs/P2.1A_ELEMENTAL_TOWERS.md` и REG-BATTLE-090…099 в `Docs/REGRESSION.md`.
+
 ## Настройки репозитория
 
 - Asset Serialization: **Force Text**.
@@ -112,9 +118,9 @@ MainMenu предоставляет явные **New Game** и **Continue**. Con
 git diff --check
 ```
 
-Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P1.5b: **38/38 static self-tests passed**, project checks PASS.
+Static checks не требуют Unity license: Python stdlib tests проверяют сами validators, CI security contract и fake Unity runner backends, затем Unity version/revision, frozen direct package baseline и lock, paired/orphan `.meta`, GUID и Assembly Definitions. Текущий локальный результат P2.1b: **38/38 static self-tests passed**, project checks PASS.
 
-EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…089`, checkpoint round-trip/validation/storage, MainMenu, визуальные правила, сохранённые сцены, config/prefabs/materials и безопасную воспроизводимость генератора. Текущий локальный результат P1.5b: **261/261 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode дополнительно проверяет реальные MainMenu/Battle scene reloads, interrupted Combat → restored Preparation, repeated Continue без duplicate rewards и изоляцию direct Battle: **12/12 PlayMode tests passed**, 0 failed/inconclusive/skipped. `git diff --check`: PASS; `Packages/manifest.json` и `Packages/packages-lock.json` не изменялись.
+EditMode suite покрывает Domain, regression contract `REG-BATTLE-001…099`, typed catalog/economy, checkpoint round-trip/migration/validation/storage, MainMenu, сохранённые сцены и воспроизводимость генератора. Текущий локальный результат P2.1b: **278/278 EditMode tests passed**, 0 failed/inconclusive/skipped. PlayMode дополнительно проверяет реальные MainMenu/Battle scene reloads, interrupted Combat → restored Preparation, repeated Continue без duplicate rewards и изоляцию direct Battle: **12/12 PlayMode tests passed**, 0 failed/inconclusive/skipped. `git diff --check`: PASS; `Packages/manifest.json` и `Packages/packages-lock.json` не изменялись.
 
 Runners принимают только полный успех: `Total > 0`, `Passed == Total`, а `Failed`, `Inconclusive` и `Skipped` равны нулю. XML validator независимо проверяет NUnit/JUnit reports. Default `auto` сохраняет локальный Unity CLI path с JSON summary; во время Play Mode domain reload временный `EDITOR_NOT_RUNNING` повторно опрашивается до общего deadline, остальные ошибки завершают run. Self-hosted CI явно вызывает `run-unity-tests.sh <Mode> batch` и получает NUnit XML и log для EditMode/PlayMode. Batch отклоняет resident Editor или live descriptor и не запускает второй Editor. В clean checkout используется `UNITY_EDITOR_PATH` либо стандартный Unity Hub path; batch mode получает `-buildTarget iOS` и сохраняет report/log в ignored `TestResults`. Batch test invocation не передаёт `-quit`, потому что на Unity 6000.3.28f1 это завершало Editor до фактического Test Runner run; report проверяется только после реального завершения tests.
 

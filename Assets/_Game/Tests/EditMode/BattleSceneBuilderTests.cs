@@ -40,6 +40,10 @@ namespace Veilward.Tests.EditMode
                 serialized.FindProperty("towerRange").floatValue = 4.25f;
                 serialized.FindProperty("towerFireRate").floatValue = 3.5f;
                 serialized.FindProperty("towerDamage").intValue = 37;
+                serialized.FindProperty("enemyArmor").intValue = 3;
+                serialized.FindProperty("towerArchetypes").GetArrayElementAtIndex(1)
+                    .FindPropertyRelative("levels").GetArrayElementAtIndex(0)
+                    .FindPropertyRelative("statusEffect.power").intValue = 23;
                 serialized.ApplyModifiedPropertiesWithoutUndo();
                 var waveConfig = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(
                     "Assets/_Game/Configs/EightWave.asset");
@@ -56,10 +60,15 @@ namespace Veilward.Tests.EditMode
                 BattleSceneBuilder.Build();
 
                 config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(configPath);
-                var tower = config.CreateSimulation().TowerDefinition;
+                var simulation = config.CreateSimulation();
+                var tower = simulation.TowerDefinition;
                 Assert.That(tower.Range, Is.EqualTo(4.25f).Within(0.0001f));
                 Assert.That(tower.FireRate, Is.EqualTo(3.5f).Within(0.0001f));
                 Assert.That(tower.Damage, Is.EqualTo(37));
+                Assert.That(simulation.TowerCatalog.Get(new Domain.TowerDefinitionId("tide"))
+                    .Levels[0].StatusEffect.Power, Is.EqualTo(23));
+                simulation.StartWave();
+                Assert.That(simulation.State.Enemies[0].Definition.Armor, Is.EqualTo(3));
                 waveConfig = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(
                     "Assets/_Game/Configs/EightWave.asset");
                 serializedWaves = new SerializedObject(waveConfig);

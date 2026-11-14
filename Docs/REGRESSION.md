@@ -133,6 +133,21 @@ Checkpoint содержит только safe-wave state. Combat не сериа
 | REG-BATTLE-088 | `nextEnemyId/nextTowerId = int.MaxValue` в primary считается corrupt и загружает valid backup. Последний безопасный ID остаётся сохраняемым; исчерпание счётчиков отклоняет Start Wave/Place Tower без overflow или mutation. | `WaveCheckpointStoreTests.InvalidNextIdInPrimary_LoadsCompatibleBackup`; `BattleCheckpointTests.EnemyIdExhaustion_RejectsStartWaveWithoutMutation`; `LastSafeEnemyId_CompletesRestorableWaveAndRejectsFollowingWave`; `TowerIdExhaustion_RejectsPlacementWithoutMutation` |
 | REG-BATTLE-089 | New Game создаёт recovery copy до удаления слотов. Ошибка удаления каталога по BackupPath после удаления primary восстанавливает byte-identical primary, не создаёт fresh session и позволяет Continue прежней Preparation. | `MainMenuControllerTests.NewGameBackupDeleteFailure_RestoresPrimaryAndContinueSession` |
 
+## P2.1b — определения, каталог и checkpoint schema 2
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-090 | Saved config и Domain catalog содержат уникальные `flame/tide/gale/stone`, ровно три уровня и точные StatusEffect/ArmorPenetration/Armor; legacy `test-tower` сохранён без статуса и скрыт из каталога. Невалидные status/armor/levels/IDs отклоняются, включая Wet.Power = 101 в Domain и serialized config. | `BattleTowerCatalogTests.RegBattle090_SavedCatalog_ContainsExactDefinitionsAndLegacyCompatibility`; `RegBattle090_InvalidDefinitions_AreRejectedByDomainAndSavedConfigContract`; `RegBattle090_Catalog_RejectsDuplicateNullAndIncompleteArchetypes`; `BattleAssetValidationTests.RegBattle090_InvalidSavedElementalDefinition_ReturnsValidationError` |
+| REG-BATTLE-091 | Place каждого элементального типа создаёт правильный Level 1, списывает его Price и сохраняет тип/занятость клетки. | `BattleTowerCatalogTests.RegBattle091_PlaceTower_EachElementalType_CreatesCorrectLevelAndDebitsPrice` |
+| REG-BATTLE-092 | Upgrade выбирает следующий уровень и status definition того же архетипа; TowerId/cell/NextAttackTick сохраняются. | `BattleTowerCatalogTests.RegBattle092_UpgradeTower_PreservesTypeIdentityCellAndCooldown` |
+| REG-BATTLE-093 | Sell использует InvestedGold выбранного типа, refund округляется вниз и повторная продажа не платит/не меняет snapshot. | `BattleTowerCatalogTests.RegBattle093_SellTower_UsesSelectedTypeInvestmentAndPaysOnlyOnce` |
+| REG-BATTLE-094 | Unknown type, insufficient gold, invalid phase, occupied/blocked и rejected commands не создают частичное изменение Gold/Grid/towers/events. | `BattleTowerCatalogTests.RegBattle094_RejectedCommands_DoNotPartiallyMutateState`; полный legacy suite |
+| REG-BATTLE-095 | Schema 2 round-trip каждого типа восстанавливает type/level/investment/cooldown/Grid/next IDs по validated definition. | `BattleTowerCatalogTests.RegBattle095_Schema2RoundTrip_RestoresEveryTypeWithoutChangingIdentity` |
+| REG-BATTLE-096 | Schema 1 с башнями и пустым списком явно мигрирует в `test-tower`, сохраняет экономику/статы и не перезаписывает source при Load. | `BattleTowerCatalogTests.RegBattle096_Schema1_MigratesExplicitlyToLegacyWithoutRewritingSource` |
+| REG-BATTLE-097 | Missing/empty/unknown type и unknown schema/content отклоняются без fallback на первый архетип или частичного restore; invalid primary использует valid backup. | `BattleTowerCatalogTests.RegBattle097_InvalidPrimaryType_FallsBackToValidatedBackup`; `RegBattle097_UnknownSchemaOrContent_IsRejected`; `WaveCheckpointStoreTests.UnknownSchemaOrContent_IsIncompatible` |
+| REG-BATTLE-098 | Interrupted Combat после schema migration восстанавливает Preparation без duplicate rewards и reuse IDs. | `BattleTowerCatalogTests.RegBattle098_InterruptedCombatAfterMigration_RestoresPreparationWithoutRewardsOrIdReuse`; полный checkpoint suite |
+| REG-BATTLE-099 | REG-BATTLE-001…089 сохраняются без изменения legacy ожиданий; active statuses/timers/DoT и новый UI не заявляются в P2.1b. | Полный EditMode/PlayMode suite; `BattleSceneBuilderTests`; `BattleAssetValidationTests` |
+
 ## CI-сценарии
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |

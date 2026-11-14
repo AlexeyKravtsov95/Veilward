@@ -9,7 +9,8 @@ namespace Veilward.Domain
             int maxHealth,
             float speed,
             int leakDamage,
-            int reward)
+            int reward,
+            int armor = 0)
         {
             if (string.IsNullOrWhiteSpace(id.Value))
             {
@@ -36,11 +37,17 @@ namespace Veilward.Domain
                 throw new ArgumentOutOfRangeException(nameof(reward), "Reward cannot be negative.");
             }
 
+            if (armor < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(armor), "Armor cannot be negative.");
+            }
+
             Id = id;
             MaxHealth = maxHealth;
             Speed = speed;
             LeakDamage = leakDamage;
             Reward = reward;
+            Armor = armor;
         }
 
         public EnemyDefinitionId Id { get; }
@@ -48,5 +55,6 @@ namespace Veilward.Domain
         public float Speed { get; }
         public int LeakDamage { get; }
         public int Reward { get; }
+        public int Armor { get; }
     }
 }

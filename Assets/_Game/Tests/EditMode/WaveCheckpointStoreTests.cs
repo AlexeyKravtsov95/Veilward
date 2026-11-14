@@ -94,7 +94,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(load.Envelope, Is.Null);
         }
 
-        [TestCase(2, ContentId)]
+        [TestCase(3, ContentId)]
         [TestCase(WaveCheckpointStore.CurrentSchemaVersion, "other-scenario-v1")]
         public void UnknownSchemaOrContent_IsIncompatible(int schemaVersion, string contentId)
         {

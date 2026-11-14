@@ -9,7 +9,9 @@ namespace Veilward.Domain
             int price,
             float range,
             float fireRate,
-            int damage)
+            int damage,
+            StatusEffectDefinition statusEffect = null,
+            int armorPenetration = 0)
         {
             if (string.IsNullOrWhiteSpace(id.Value))
             {
@@ -26,6 +28,12 @@ namespace Veilward.Domain
                 throw new ArgumentOutOfRangeException(nameof(damage), "Damage must be positive.");
             }
 
+            if (armorPenetration < 0)
+            {
+                throw new ArgumentOutOfRangeException(
+                    nameof(armorPenetration), "Armor penetration cannot be negative.");
+            }
+
             ValidatePositiveFinite(range, nameof(range), "Range");
             ValidatePositiveFinite(fireRate, nameof(fireRate), "Fire rate");
             Id = id;
@@ -33,12 +41,25 @@ namespace Veilward.Domain
             Range = range;
             FireRate = fireRate;
             Damage = damage;
+            StatusEffect = statusEffect;
+            ArmorPenetration = armorPenetration;
 
-            // FireRate is attacks/second. Rounding picks the nearest tick; one tick is the minimum interval.
-            var roundedTicks = Math.Round(
-                (double)SimulationTiming.TicksPerSecond / fireRate,
-                MidpointRounding.AwayFromZero);
-            AttackIntervalTicks = (int)Math.Min(int.MaxValue, Math.Max(1d, roundedTicks));
+            // Decimal сохраняет midpoint сериализованных FireRate (например, 30 / 0.8 = 37.5).
+            var approximateTicks = (double)SimulationTiming.TicksPerSecond / fireRate;
+            if (approximateTicks >= int.MaxValue)
+            {
+                AttackIntervalTicks = int.MaxValue;
+            }
+            else if (approximateTicks <= 1d)
+            {
+                AttackIntervalTicks = 1;
+            }
+            else
+            {
+                var exactTicks = (decimal)SimulationTiming.TicksPerSecond / (decimal)fireRate;
+                var roundedTicks = Math.Round(exactTicks, MidpointRounding.AwayFromZero);
+                AttackIntervalTicks = (int)Math.Max(1m, roundedTicks);
+            }
         }
 
         public TowerDefinitionId Id { get; }
@@ -46,6 +67,8 @@ namespace Veilward.Domain
         public float Range { get; }
         public float FireRate { get; }
         public int Damage { get; }
+        public StatusEffectDefinition StatusEffect { get; }
+        public int ArmorPenetration { get; }
         public int AttackIntervalTicks { get; }
 
         private static void ValidatePositiveFinite(float value, string parameterName, string displayName)
