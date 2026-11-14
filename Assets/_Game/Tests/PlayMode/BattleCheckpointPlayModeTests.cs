@@ -16,7 +16,7 @@ namespace Veilward.Tests.PlayMode
 {
     public sealed class BattleCheckpointPlayModeTests
     {
-        private static readonly GridCoordinate TowerCell = new GridCoordinate(-4, 0);
+        private static readonly GridCoordinate TowerCell = new GridCoordinate(-1, 0);
         private string _root;
         private WaveCheckpointStore _store;
 
@@ -56,18 +56,22 @@ namespace Veilward.Tests.PlayMode
             var placement = Object.FindFirstObjectByType<BattlePlacementController>();
             Assert.That(battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
             Assert.That(File.Exists(_store.PrimaryPath), Is.True);
+            var initial = battle.Simulation.ExportCheckpoint();
+            initial.gold = 500;
+            battle.Simulation.RestoreCheckpoint(initial);
             Assert.That(placement.TrySelectCell(TowerCell), Is.True);
+            placement.SelectTowerType(new TowerDefinitionId("flame"));
             FindButton("Confirm Button").onClick.Invoke();
             yield return null;
             Assert.That(placement.TrySelectCell(TowerCell), Is.True);
             FindButton("Upgrade Button").onClick.Invoke();
             yield return null;
             var expected = battle.Simulation.ExportCheckpoint();
-            Assert.That(expected.gold, Is.EqualTo(40));
+            Assert.That(expected.gold, Is.EqualTo(325));
             Assert.That(expected.towers[0].level, Is.EqualTo(2));
 
             FindButton("Start Wave Button").onClick.Invoke();
-            for (var index = 0; index < 31; index++)
+            for (var index = 0; index < 300 && battle.Simulation.State.Kills == 0; index++)
             {
                 battle.Simulation.Step();
                 battle.Simulation.ClearAttackEvents();

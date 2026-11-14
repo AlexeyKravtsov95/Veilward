@@ -24,6 +24,7 @@ namespace Veilward.Presentation
         [SerializeField] private BattleCheckpointController checkpointController;
 
         private readonly Dictionary<EnemyId, EnemyView> _enemyViews = new Dictionary<EnemyId, EnemyView>();
+        private readonly Dictionary<TowerId, int> _towerViewLevels = new Dictionary<TowerId, int>();
         private readonly Dictionary<TowerId, Transform> _towerViews = new Dictionary<TowerId, Transform>();
         private readonly List<EnemyId> _staleEnemyIds = new List<EnemyId>();
         private readonly List<TowerId> _staleTowerIds = new List<TowerId>();
@@ -112,6 +113,12 @@ namespace Veilward.Presentation
 
         public PlaceTowerResult PlaceTower(GridCoordinate coordinate)
         {
+            if (_simulation == null) throw new InvalidOperationException("Battle simulation is not initialized.");
+            return PlaceTower(_simulation.TowerDefinition.Id, coordinate);
+        }
+
+        public PlaceTowerResult PlaceTower(TowerDefinitionId definitionId, GridCoordinate coordinate)
+        {
             if (_simulation == null)
             {
                 throw new InvalidOperationException("Battle simulation is not initialized.");
@@ -122,7 +129,7 @@ namespace Veilward.Presentation
                 return PlaceTowerResult.Failed(PlaceTowerFailureReason.InvalidPhase);
             }
 
-            var result = _simulation.PlaceTower(new PlaceTowerCommand(_simulation.TowerDefinition.Id, coordinate));
+            var result = _simulation.PlaceTower(new PlaceTowerCommand(definitionId, coordinate));
             if (result.Success && checkpointController != null)
             {
                 checkpointController.SaveCurrentState();
@@ -344,8 +351,13 @@ namespace Veilward.Presentation
             for (var index = 0; index < towers.Count; index++)
             {
                 var tower = towers[index];
-                if (_towerViews.ContainsKey(tower.Id))
+                if (_towerViews.TryGetValue(tower.Id, out var existing))
                 {
+                    if (_towerViewLevels[tower.Id] != tower.Level)
+                    {
+                        TowerDisplay.ApplyVisual(existing, tower.Definition, tower.Level);
+                        _towerViewLevels[tower.Id] = tower.Level;
+                    }
                     continue;
                 }
 
@@ -353,7 +365,9 @@ namespace Veilward.Presentation
                 view.name = $"Tower {tower.Id.Value}";
                 view.position = GetCellCenter(tower.Coordinate);
                 view.localScale = Vector3.one * _simulation.Grid.Map.CellSize;
+                TowerDisplay.ApplyVisual(view, tower.Definition, tower.Level);
                 _towerViews.Add(tower.Id, view);
+                _towerViewLevels.Add(tower.Id, tower.Level);
             }
 
             _staleTowerIds.Clear();
@@ -379,6 +393,7 @@ namespace Veilward.Presentation
                 }
 
                 _towerViews.Remove(towerId);
+                _towerViewLevels.Remove(towerId);
             }
         }
 

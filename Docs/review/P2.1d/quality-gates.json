@@ -1,0 +1,38 @@
+{
+  "unity": "6000.3.28f1",
+  "base": "a19f188",
+  "date": "2026-11-15",
+  "static": {
+    "passed": 38,
+    "total": 38,
+    "projectChecks": "PASS"
+  },
+  "suites": {
+    "EditMode": {
+      "total": 312,
+      "passed": 312,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "reportSha256": "3cea22f462f2d5849c44014e002599471786620b67da19b6d5a7eea7540b5c15"
+    },
+    "PlayMode": {
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "reportSha256": "c19fb988efc0b1d861be65d1f414886dd948b210c93710a48ea52a14871e6f47"
+    },
+    "VisualQA": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "reportSha256": "aeff58d1e102844991151a337086f4d4236d5bd3fc4cb733b1378cdfb8a9339e"
+    }
+  },
+  "diffCheck": "PASS",
+  "physicalDeviceVerified": false
+}

@@ -156,7 +156,9 @@ namespace Veilward.Editor
         private static void SetScenarioContentId(BattleScenarioConfig config, string contentId)
         {
             var serialized = new SerializedObject(config);
-            serialized.FindProperty("scenarioContentId").stringValue = contentId;
+            var property = serialized.FindProperty("scenarioContentId");
+            if (property.stringValue == contentId) return;
+            property.stringValue = contentId;
             serialized.ApplyModifiedPropertiesWithoutUndo();
             EditorUtility.SetDirty(config);
         }
@@ -401,6 +403,7 @@ namespace Veilward.Editor
             var placementSerialized = new SerializedObject(placement);
             var placementProperties = new[]
             {
+                "catalogRoot", "catalogButtonTemplate", "buildStatsText", "sellConfirmationText",
                 "battle", "worldCamera", "selectionHighlight", "towerPreview",
                 "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview",
                 "towerPanel", "towerStatsText", "upgradeButton", "sellButton", "sellConfirmationPanel", "confirmSellButton", "cancelSellButton"
@@ -545,7 +548,7 @@ namespace Veilward.Editor
             var panelObject = CreateUiObject("Stats Panel", canvasObject.transform);
             var panel = panelObject.AddComponent<UnityEngine.UI.Image>();
             panel.color = new Color(0.02f, 0.03f, 0.05f, 0.85f);
-            panel.raycastTarget = false;
+            panel.raycastTarget = true;
             SetRect(panel.rectTransform, new Vector2(0f, 1f), new Vector2(24f, -24f), new Vector2(440f, 280f));
             var stats = CreateText("Stats", panelObject.transform, 24, TextAnchor.UpperLeft);
             SetRect(stats.rectTransform, Vector2.zero, Vector2.zero, Vector2.zero);
@@ -560,31 +563,33 @@ namespace Veilward.Editor
             confirmationImage.color = new Color(0.02f, 0.03f, 0.05f, 0.92f);
             SetRect(
                 confirmationImage.rectTransform,
-                new Vector2(0.5f, 0f),
-                new Vector2(0f, 24f),
-                new Vector2(540f, 122f));
-            var placementLabel = CreateText(
-                "Placement Label",
-                confirmation.transform,
-                22,
-                TextAnchor.MiddleCenter);
-            placementLabel.text = $"Test Tower — {towerPrice} gold";
-            placementLabel.raycastTarget = false;
-            SetRect(
-                placementLabel.rectTransform,
-                new Vector2(0.5f, 1f),
-                new Vector2(0f, -12f),
-                new Vector2(500f, 38f));
+                new Vector2(1f, 0f),
+                new Vector2(-24f, 24f),
+                new Vector2(720f, 440f));
+            var catalog = CreateUiObject("Tower Catalog", confirmation.transform).GetComponent<RectTransform>();
+            SetRect(catalog, new Vector2(0.5f, 1f), new Vector2(0f, -20f), new Vector2(680f, 68f));
+            var layout = catalog.gameObject.AddComponent<UnityEngine.UI.HorizontalLayoutGroup>();
+            layout.spacing = 12f;
+            layout.childControlWidth = true;
+            layout.childControlHeight = true;
+            layout.childForceExpandWidth = true;
+            layout.childForceExpandHeight = true;
+            var catalogTemplate = CreateButton("Catalog Button Template", catalog, "Type", Vector2.zero);
+            catalogTemplate.gameObject.SetActive(false);
+            var buildStats = CreateText("Build Stats", confirmation.transform, 24, TextAnchor.UpperLeft);
+            buildStats.text = "Choose a tower type";
+            buildStats.raycastTarget = false;
+            SetRect(buildStats.rectTransform, new Vector2(0f, 1f), new Vector2(20f, -110f), new Vector2(680f, 240f));
             var confirm = CreateButton(
                 "Confirm Button",
                 confirmation.transform,
                 "Confirm",
-                new Vector2(-130f, -38f));
+                new Vector2(-160f, -175f));
             var cancel = CreateButton(
                 "Cancel Button",
                 confirmation.transform,
                 "Cancel",
-                new Vector2(130f, -38f));
+                new Vector2(160f, -175f));
             confirmation.SetActive(false);
 
             var towerPanel = CreateUiObject("Tower Panel", canvasObject.transform);
@@ -592,25 +597,25 @@ namespace Veilward.Editor
             towerPanelImage.color = new Color(0.02f, 0.03f, 0.05f, 0.92f);
             SetRect(
                 towerPanelImage.rectTransform,
-                new Vector2(0.5f, 0f),
-                new Vector2(0f, 24f),
-                new Vector2(680f, 270f));
+                new Vector2(1f, 0f),
+                new Vector2(-24f, 24f),
+                new Vector2(720f, 350f));
             var towerStats = CreateText("Tower Stats", towerPanel.transform, 22, TextAnchor.UpperLeft);
             towerStats.raycastTarget = false;
             towerStats.rectTransform.anchorMin = Vector2.zero;
             towerStats.rectTransform.anchorMax = Vector2.one;
-            towerStats.rectTransform.offsetMin = new Vector2(16f, 105f);
-            towerStats.rectTransform.offsetMax = new Vector2(-16f, -12f);
+            towerStats.rectTransform.offsetMin = new Vector2(20f, 90f);
+            towerStats.rectTransform.offsetMax = new Vector2(-20f, -20f);
             var upgrade = CreateButton(
                 "Upgrade Button",
                 towerPanel.transform,
                 "Upgrade",
-                new Vector2(-140f, -55f));
+                new Vector2(-160f, -125f));
             var sell = CreateButton(
                 "Sell Button",
                 towerPanel.transform,
                 "Sell",
-                new Vector2(140f, -55f));
+                new Vector2(160f, -125f));
             towerPanel.SetActive(false);
 
             var sellConfirmation = CreateUiObject("Sell Confirmation Panel", canvasObject.transform);
@@ -697,6 +702,10 @@ namespace Veilward.Editor
             {
                 StatsText = stats,
                 SaveStatusText = saveStatus,
+                CatalogRoot = catalog,
+                CatalogButtonTemplate = catalogTemplate,
+                BuildStatsText = buildStats,
+                SellConfirmationText = sellLabel,
                 ConfirmationPanel = confirmation,
                 ConfirmButton = confirm,
                 CancelButton = cancel,
@@ -820,6 +829,10 @@ namespace Veilward.Editor
             placementSerialized.FindProperty("selectionHighlight").objectReferenceValue = selection;
             placementSerialized.FindProperty("towerPreview").objectReferenceValue = preview;
             placementSerialized.FindProperty("rangePreview").objectReferenceValue = rangePreview;
+            placementSerialized.FindProperty("catalogRoot").objectReferenceValue = hud.CatalogRoot;
+            placementSerialized.FindProperty("catalogButtonTemplate").objectReferenceValue = hud.CatalogButtonTemplate;
+            placementSerialized.FindProperty("buildStatsText").objectReferenceValue = hud.BuildStatsText;
+            placementSerialized.FindProperty("sellConfirmationText").objectReferenceValue = hud.SellConfirmationText;
             placementSerialized.FindProperty("confirmationPanel").objectReferenceValue = hud.ConfirmationPanel;
             placementSerialized.FindProperty("confirmButton").objectReferenceValue = hud.ConfirmButton;
             placementSerialized.FindProperty("cancelButton").objectReferenceValue = hud.CancelButton;
@@ -847,6 +860,10 @@ namespace Veilward.Editor
         {
             public UnityEngine.UI.Text StatsText;
             public UnityEngine.UI.Text SaveStatusText;
+            public RectTransform CatalogRoot;
+            public UnityEngine.UI.Button CatalogButtonTemplate;
+            public UnityEngine.UI.Text BuildStatsText;
+            public UnityEngine.UI.Text SellConfirmationText;
             public GameObject ConfirmationPanel;
             public UnityEngine.UI.Button ConfirmButton;
             public UnityEngine.UI.Button CancelButton;

@@ -123,6 +123,7 @@ namespace Veilward.Tests.PlayMode
             FindButton("Resume Button").onClick.Invoke();
 
             Assert.That(placement.TrySelectCell(cell), Is.True);
+            placement.SelectTowerType(new TowerDefinitionId("tide"));
             placement.ConfirmSelection();
             yield return null;
             Assert.That(placement.TrySelectCell(cell), Is.True);

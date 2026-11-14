@@ -169,6 +169,20 @@ Checkpoint содержит только safe-wave state. Combat не сериа
 | REG-BATTLE-114 | Два mixed-status прогона до terminal имеют одинаковые полные timelines, statuses, AttackEvents, HP/Gold/Kills и Phase. | `BattleStatusEffectTests.RegBattle114_IdenticalMixedStatusRuns_ProduceIdenticalCompleteTimelines` |
 | REG-BATTLE-115 | REG-BATTLE-001…114 и прежние Domain/config/scene/pause/checkpoint tests проходят без ослабления assertions; configs, packages и UI не меняются. | Полный static/EditMode/PlayMode suite и `git diff --check` |
 
+## P2.1d — каталог строительства и панели башен
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-116 | Первый tap без покупки; только ShowInCatalog, без legacy. | `BattleTowerCatalogPresentationTests.RegBattle116_FirstTap_OpensOnlyVisibleCatalogWithoutPurchase` |
+| REG-BATTLE-117 | Все четыре типа: stats, preview/range, typed Confirm, один debit/View. | `BattleTowerCatalogPresentationTests.RegBattle117_EachType_PreviewsAndPurchasesExactlyOnce` |
+| REG-BATTLE-118 | Cancel/смена клетки очищают тип; insufficient и repeat не покупают. | `BattleTowerCatalogPresentationTests.RegBattle118_CancelChangeCellInsufficientAndRepeat_DoNotPurchase` |
+| REG-BATTLE-119 | Per-type panel/Upgrade/MAX/refund/Sell без повторного начисления. | `BattleTowerCatalogPresentationTests.RegBattle119_PanelUpgradeMaxAndSell_UseSelectedArchetype` |
+| REG-BATTLE-120 | Combat read-only; Pause/modal/UI clicks и Resume не проходят на поле. | `BattleTowerCatalogPlayModeTests.RegBattle120_CombatPauseAndPointers_BlockMutationAndClickThrough` |
+| REG-BATTLE-121 | Legacy restore: View, None status, старые Upgrade/Sell; скрыт в каталоге. | `BattleTowerCatalogPresentationTests.RegBattle121_LegacyRestore_HasNoneStatusAndOwnEconomyButIsHidden`; `BattleTowerCatalogPlayModeTests.RegBattle121_LegacyContinue_MigratesAndKeepsHiddenCatalogAndEconomy` |
+| REG-BATTLE-122 | Builder повторяем, configs неизменны; missing references/scripts отклонены; текст помещается. | `BattleAssetValidationTests`; `BattleSceneBuilderTests` |
+| REG-BATTLE-123 | Реальный PlayMode flow с active status, Upgrade/Sell/Menu/Continue всех типов. | `BattleTowerCatalogPlayModeTests.RegBattle123_CatalogStatusEconomyAndContinue_RestoresEveryType`; `Docs/review/P2.1d/qa.log` и реальные кадры |
+| REG-BATTLE-124 | Прежние UI-тесты сохраняют проверки экономики/паузы/save при явном выборе типа. | Полные EditMode/PlayMode suites; прежние PlayMode purchase flows явно выбирают TIDE/FLAME; legacy проверен отдельным schema 1 Continue |
+
 ## CI-сценарии
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |

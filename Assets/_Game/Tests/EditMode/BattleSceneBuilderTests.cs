@@ -12,6 +12,31 @@ namespace Veilward.Tests.EditMode
     public sealed class BattleSceneBuilderTests
     {
         [Test]
+        public void RegBattle122_BuildTwice_PreservesSavedConfigBytesAndCatalogReferences()
+        {
+            var paths = new[] { "Assets/_Game/Configs/TestWave.asset", "Assets/_Game/Configs/EightWave.asset" };
+            var before = new Dictionary<string, byte[]>();
+            foreach (var path in paths) before[path] = File.ReadAllBytes(path);
+            try
+            {
+                for (var pass = 0; pass < 2; pass++)
+                {
+                    BattleSceneBuilder.Build();
+                    foreach (var path in paths) CollectionAssert.AreEqual(before[path], File.ReadAllBytes(path), path);
+                    Assert.That(BattleAssetValidator.ValidateSavedBattle(), Is.Empty);
+                }
+            }
+            finally
+            {
+                foreach (var pair in before)
+                {
+                    File.WriteAllBytes(pair.Key, pair.Value);
+                    AssetDatabase.ImportAsset(pair.Key, ImportAssetOptions.ForceUpdate);
+                }
+            }
+        }
+
+        [Test]
         public void Build_ExistingConfigs_PreserveCombatAndWaveParametersAcrossRepeatedGeneration()
         {
             const string configPath = "Assets/_Game/Configs/TestWave.asset";

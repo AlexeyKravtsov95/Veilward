@@ -1,0 +1,51 @@
+P2.1d — реальный Unity Editor Play Mode QA
+Unity=6000.3.28f1; platform=OSXEditor
+CATALOG Gold=150; entries=FLAME,TIDE,GALE,STONE
+Capture=01-catalog.png; actual=1600x900; frame=5041; bytes=172680
+PREVIEW TIDE — Movement control;Price: 60 gold;Damage: 10    Range: 3.5 units;FireRate: 0.8/s;Status: Wet — Power: 20% slow;Duration: 2 s
+Capture=02-preview.png; actual=1600x900; frame=5043; bytes=204659
+COMBAT Tick=23; enemy=1; HP=90; status=Wet; Power=20; RemainingTicks=60
+Capture=03-status-combat.png; actual=1600x900; frame=5963; bytes=199875
+WAVE COMPLETE Tick=411; Gold=110; HP=15; Kills=0
+UPGRADE TIDE — Level: 2;Damage: 14    Range: 3.5 units;FireRate: 0.9/s;Status: Wet — Power: 25% slow;Duration: 2.5 s;Upgrade: 120 gold;Sell refund: 105 gold; Gold=20
+Capture=04-upgraded-panel.png; actual=1600x900; frame=6702; bytes=196480
+Capture=05-sell-confirmation.png; actual=1600x900; frame=6704; bytes=202509
+SELL/REBUILD oldId=1; newId=2; Gold=65; towerType=tide; wave=1
+CONTINUE TIDE — Level: 1;Damage: 10    Range: 3.5 units;FireRate: 0.8/s;Status: Wet — Power: 20% slow;Duration: 2 s;Upgrade: 90 gold;Sell refund: 42 gold; Gold=65
+Capture=06-continued-tower.png; actual=1600x900; frame=6713; bytes=195824
+Console scenario audit: errors=0; warnings=4
+Warning: Ignoring depth surface load action as it is memoryless
+Warning: Ignoring depth surface store action as it is memoryless
+Flow PASS; no manual Domain state writes or manual simulation ticks. All actions use Presentation APIs/Button.onClick and MainMenu Continue. Save root is temporary.
+NOT VERIFIED: physical iPhone, device touch/safe area/background, Simulator, signing, iOS build and Unity CI.
+
+VERIFIED — specification / implementation / regression evidence
+Base=origin/main a19f188, includes merged PR #15 (9c119bc). Worktree isolated; original user checkout remains unchanged.
+Scope=Task 3 only; Presentation catalog/type selection/stats/graybox view tint, typed placement; builder/validator and saved Battle scene; REG-BATTLE-116…124 tests and evidence.
+Domain/BattleScenarioConfig/TestWave/EightWave/packages/Unity version/balance unchanged.
+Type labels and role labels are Presentation text; every numeric stat, price, next level and status parameter comes from validated definitions. Refund uses existing long 70% formula.
+Regression includes four types, first tap/no debit, explicit type/preview/range, Confirm/Cancel/insufficient/repeat, per-type Upgrade/MAX/Sell, Combat/Pause/modal raycasts/Resume suppression, schema 1 legacy MainMenu Continue, schema 2 Continue for all types.
+Previous UI tests explicitly select TIDE/FLAME. Economy/MAX and save fixtures use validated temporary checkpoints with 500 starting gold, never modified saved configs; exact costs/refunds and save comparisons remain asserted. Default 150 gold and insufficient cases are covered independently.
+Views synchronize in existing LateUpdate; presentation tests wait for this synchronization. Upgrade updates range and view tint, with exact per-level stats and renderer checks.
+
+Commands executed from isolated worktree:
+./Scripts/run-static-checks.sh
+./Scripts/run-edit-mode-tests.sh
+./Scripts/run-play-mode-tests.sh
+git diff --check
+Unity batch scene generation:
+/Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -batchmode -nographics -quit -projectPath "$PWD" -executeMethod Veilward.Editor.BattleSceneBuilder.Build -logFile /tmp/p21d-builder.log
+Visual command (temporary QA test source removed after capture):
+/Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -projectPath "$PWD" -buildTarget iOS -screen-width 1600 -screen-height 900 -screen-fullscreen 0 -runTests -testPlatform PlayMode -testFilter Veilward.Tests.PlayMode.TemporaryTowerCatalogVisualQa.CaptureTowerCatalogFlow -testResults "$PWD/TestResults/P2.1d-visual.xml" -logFile /tmp/p21d-visual-editor.log
+python3 Scripts/verify_unity_test_results.py TestResults/P2.1d-visual.xml
+Wrappers available: auto backend used installed Unity executable with -batchmode -nographics -buildTarget iOS -runTests -testPlatform EditMode|PlayMode -testResults TestResults/<Mode>.xml -logFile TestResults/<Mode>.log. No resident Editor in this worktree; no wrapper bypass required. Original checkout's resident Editor was not controlled.
+Visual environment=Unity 6000.3.28f1, macOS Editor, iOS build target, fixed Game View 1600x900, runInBackground=true temporarily. No iOS export/device build.
+Visual actions=real frames; Button.onClick.Invoke for New Game, type, Confirm, Start/Next Wave, Upgrade/Sell/Confirm Sell, Continue; Presentation TrySelectCell for world taps; SceneManager loads MainMenu for the menu transition.
+Capture synchronization=wait for ShaderUtil.anythingCompiling to finish plus 4 realtime seconds before catalog capture; WaitForEndOfFrame before screenshots. Initial captures before shader warmup were rejected visually and replaced by a full rerun.
+Time.timeScale=20 only while waiting for the natural wave completion; 1 for every capture. No manual simulation ticks or Domain state writes in this visual scenario.
+Visual inspection=all six final PNGs opened at native 1600x900; catalog/type buttons, preview/radius, beam/enemy, per-level stats, sell ID/refund and continued tower/HUD visible. No clipped text, overlapping controls or missing/pink materials observed. Sell modal intentionally overlays the world and blocks gameplay.
+Console audit=Application.logMessageReceived scoped to the visual Play Mode flow; errors/exceptions/asserts 0, warnings 4 (2 memoryless depth load + 2 store warnings); warning text above. Raw Editor startup logs are not committed.
+Red evidence=initial new catalog tests failed compilation on missing catalog APIs; initial post-implementation run 272/307, then 306/308; exact-config test observed EightWave rewrite 1709 -> 4406 bytes before SetScenarioContentId no-op dirty fix. These incomplete/failed runs are not counted as PASS.
+Final positive results=EditMode 312/312; PlayMode 15/15; visual QA 1/1. Each completed report has failed=0, inconclusive=0, skipped=0. XMLs validated by Scripts/verify_unity_test_results.py.
+NOT VERIFIED / BLOCKED=physical iPhone, actual device touch/safe area/background, force quit/relaunch, Simulator, signing, iOS export and Unity CI; no device evidence claimed. Unity CLI beta.17 reported 1.0.0 available; installation was not changed.
+Final static=38/38 self-tests and project checks PASS; git diff --check PASS; frozen-scope diff audit PASS. Static runner self-tests clear standard TestResults filenames; full EditMode and PlayMode wrappers were rerun afterward and completed XMLs copied into ignored ledger storage. Sanitized totals/SHA256: quality-gates.json.

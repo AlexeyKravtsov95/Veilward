@@ -245,6 +245,7 @@ namespace Veilward.Tests.EditMode
             serialized.FindProperty("rangePreview").objectReferenceValue = rangeObject.GetComponent<LineRenderer>();
             AddTowerEconomyReferences(serialized);
             serialized.ApplyModifiedPropertiesWithoutUndo();
+            BattleTowerCatalogPresentationTests.WireCatalog(new SerializedObject(placement), _root.transform);
             Invoke(placement, "Start");
             Invoke(placement, "RefreshUi");
             Assert.That(nextWave.interactable, Is.False);
@@ -292,9 +293,11 @@ namespace Veilward.Tests.EditMode
             AddTowerEconomyReferences(serialized);
             serialized.ApplyModifiedPropertiesWithoutUndo();
 
+            BattleTowerCatalogPresentationTests.WireCatalog(new SerializedObject(placement), _root.transform);
             Invoke(placement, "Start");
             Assert.That(placement.TrySelectCell(new GridCoordinate(-3, 1)), Is.True);
 
+            placement.SelectTowerType(new TowerDefinitionId("flame"));
             Assert.That(range.gameObject.activeSelf, Is.True);
             Assert.That(range.positionCount, Is.EqualTo(64));
             for (var index = 0; index < range.positionCount; index++)
