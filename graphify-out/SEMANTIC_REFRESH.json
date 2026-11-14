@@ -1,0 +1,192 @@
+{
+  "commit": "9c119bc7696e16308699e7eb8e8f9616495ad61d",
+  "documents": {
+    ".github/pull_request_template.md": {
+      "lines": 37,
+      "sha256": "79efbd7787fb7106c99f71e4e743d84985eccd4f16768897e10ebe45ecb81c7b",
+      "nodes": 5
+    },
+    "AGENTS.md": {
+      "lines": 47,
+      "sha256": "5f26f060954b79d800726754d34b490bb2deeee8f7e0d1e314c91a96eb4ec4af",
+      "nodes": 8
+    },
+    "Docs/ADR/README.md": {
+      "lines": 28,
+      "sha256": "802dffc9bf4038d4fb7439234b4cc48e006cc94816885ecb01b56ba730a0b845",
+      "nodes": 4
+    },
+    "Docs/ART_PIPELINE.md": {
+      "lines": 69,
+      "sha256": "d8c9efa8e0f1912b52763123804b5f3cbdd4a822353a6bf1016906047d3e8496",
+      "nodes": 10
+    },
+    "Docs/CONCEPTS.md": {
+      "lines": 52,
+      "sha256": "51b61bb9e30723b0a3504d1c3b851203dcb3a03054292f722c94ceae385eb061",
+      "nodes": 7
+    },
+    "Docs/GDD.md": {
+      "lines": 168,
+      "sha256": "da502a9e10fffd49f10eeb697ae64704a5cb1fbefaec61b330810511c8737cef",
+      "nodes": 21
+    },
+    "Docs/P2.1A_ELEMENTAL_TOWERS.md": {
+      "lines": 287,
+      "sha256": "cdef2fcb53aebda0a755da752455e8574f172a73f539ae37398735d90b483178",
+      "nodes": 25
+    },
+    "Docs/P2.1A_IMPLEMENTATION_PLAN.md": {
+      "lines": 426,
+      "sha256": "c7da27329e6a22ee670dbc2863c38bd9cd0b458a3f5d569ade1a92aaa32f9c9a",
+      "nodes": 8
+    },
+    "Docs/QUALITY_GATES.md": {
+      "lines": 123,
+      "sha256": "9f21ad9b909eae5287bf6fd0d20f2ca0e25fdc9d189bb60b64d714e5349fbfef",
+      "nodes": 15
+    },
+    "Docs/REGRESSION.md": {
+      "lines": 188,
+      "sha256": "b8c5b1d66769c2edbe7c6959161b0d99a4e8d4538ab4b654de6a4953dfba5704",
+      "nodes": 276
+    },
+    "Docs/ROADMAP.md": {
+      "lines": 65,
+      "sha256": "14530cac039ae2eb3b8c63819dcb8971485f915cd117d58bb084ef1166abd992",
+      "nodes": 17
+    },
+    "Docs/TECH_DESIGN.md": {
+      "lines": 198,
+      "sha256": "f1592420cf0df851b31fc48c18c574409e59f87df6ace661c025d1af5a8e1f35",
+      "nodes": 29
+    },
+    "ProjectSettings/ProjectVersion.txt": {
+      "lines": 2,
+      "sha256": "91b35566b263574c8a513eff3bba6d5d313482d752d961077b47ab5b3ff14981",
+      "nodes": 2
+    },
+    "README.md": {
+      "lines": 135,
+      "sha256": "ed37b2f57da3c050907ad8e03a61b2006037163697b2a179aa2bb5439ff83998",
+      "nodes": 15
+    },
+    "Docs/P1.4A_WAVE_LIFECYCLE.md": {
+      "lines": 79,
+      "sha256": "bf426fd8d3dc6bd6ebd3f677d9b8f7c78dd8c6bd61266311b1b7fbda97cce731",
+      "nodes": 18
+    },
+    "Docs/P1.4B_TOWER_ECONOMY.md": {
+      "lines": 51,
+      "sha256": "19aac8fdd3d43ff78c0401990fff0f7ec848f8c43949f8fffaefb006ce5fd13d",
+      "nodes": 17
+    },
+    "Docs/P1.4C_BALANCE_REVIEW.md": {
+      "lines": 154,
+      "sha256": "d5ce01fd9128161e9073b65276931e8a559f40d2167be7acdb4e48029fc734c5",
+      "nodes": 18
+    },
+    "Docs/P1.4C_VALIDATION_SPEC.md": {
+      "lines": 45,
+      "sha256": "324463e1f7865085ca27213fc967f4cb474e7700e2b1b9cb44c9e5c0318a6744",
+      "nodes": 10
+    },
+    "Docs/P1.5A_PAUSE_BACKGROUND.md": {
+      "lines": 116,
+      "sha256": "55a23aedd61d0a7b43727f3d91af8076650e45ad726caa7898a603d2570b282c",
+      "nodes": 18
+    },
+    "Docs/P1.5B_IMPLEMENTATION_PLAN.md": {
+      "lines": 334,
+      "sha256": "bfbc9cdc4f26231b9fdbfad12cc8573f63052b4c133e9c16e2f80fdc82460da0",
+      "nodes": 15
+    },
+    "Docs/P1.5B_WAVE_CHECKPOINT.md": {
+      "lines": 123,
+      "sha256": "f3612adf6568dc1d0c8cb4fa0edb826db3e31c4c502f62ff443224cb9c9ecc78",
+      "nodes": 21
+    },
+    "Docs/superpowers/plans/2026-11-08-p1-4a-wave-lifecycle.md": {
+      "lines": 180,
+      "sha256": "c44e861cf648ac755120f9cb34eeda3a6fe87cb9cd4e4fdade39efc27da6f83a",
+      "nodes": 9
+    },
+    "Docs/superpowers/plans/2026-11-10-p1-5a-pause-background.md": {
+      "lines": 484,
+      "sha256": "02f18f35a1f7887c5c824977bf18811c213bea0ca73832f2c4e4693e93c43e67",
+      "nodes": 12
+    },
+    "Docs/superpowers/plans/2026-11-04-p0-1-project-bootstrap.md": {
+      "lines": 456,
+      "sha256": "2290ada75177ae79c1e229ef37bd0eb2230d9eace7802b5b650eac2eac535f35",
+      "nodes": 13
+    },
+    "Docs/superpowers/plans/2026-11-05-grid-tower-placement.md": {
+      "lines": 279,
+      "sha256": "6f55ca5ec45fa44043eb970a88c43183dcf21f8b370a578198530c5acc486b24",
+      "nodes": 14
+    },
+    "Docs/superpowers/plans/2026-11-05-p1-1-enemy-path.md": {
+      "lines": 434,
+      "sha256": "eff72da4bd401e02633f27a1e83e7ef672d83470204bafcd46e473502db9a1c6",
+      "nodes": 14
+    },
+    "Docs/superpowers/plans/2026-11-06-p1-3-targeting-combat.md": {
+      "lines": 393,
+      "sha256": "e324fbd48b53c0029165237b7fccde079c7d7fbe785ecbc236f43ea8e9a86471",
+      "nodes": 13
+    },
+    "Docs/superpowers/plans/2026-11-07-p0-3-quality-gates.md": {
+      "lines": 314,
+      "sha256": "ec344728fc626574b689c1be4d0bc1ad6802054f8921a7be511ce640209763f5",
+      "nodes": 14
+    },
+    "Docs/superpowers/specs/2026-11-05-grid-tower-placement-design.md": {
+      "lines": 46,
+      "sha256": "10a30d681e19fbe050b9275208be221457e20e80845be55f755314d7131848dc",
+      "nodes": 9
+    },
+    "Docs/superpowers/specs/2026-11-05-p1-1-enemy-path-design.md": {
+      "lines": 49,
+      "sha256": "e7ee2225eb50e403d585fea4525746aecc185cfae1dab7848c8f85cc9592af23",
+      "nodes": 9
+    },
+    "Docs/superpowers/specs/2026-11-06-p1-3-targeting-combat-design.md": {
+      "lines": 73,
+      "sha256": "068e1f31ae868b98c5a617dbeb3ebdb2d2b059e4feeb855a563876f8ea0d671a",
+      "nodes": 11
+    }
+  },
+  "nodes": 2650,
+  "edges": 7111,
+  "communities": 163,
+  "source_code_nodes_preserved": 1099,
+  "code_edges_preserved": 3264,
+  "explicit_references_added": 626,
+  "semantic_cache_files": 31,
+  "static_tests": {
+    "passed": 38,
+    "total": 38
+  },
+  "unity_suites": "not run: generated documentation artifacts only",
+  "token_usage": null,
+  "non_document_code_nodes_preserved": 1591,
+  "primary_document_hashes_match": true,
+  "git_diff_check": "PASS",
+  "diagnostics": {
+    "missing_endpoint_edges": 0,
+    "dangling_endpoint_edges": 0,
+    "self_loop_edges": 6,
+    "self_loops_unchanged_from_ast_baseline": true,
+    "collapsed_edges": 0
+  },
+  "commands": [
+    "GRAPHIFY_NO_TIPS=1 graphify update .",
+    "./Scripts/run-static-checks.sh",
+    "/Users/alexeykravtsov/.local/share/uv/tools/graphifyy/bin/python /tmp/veilward-graphify-semantic-merge.py",
+    "GRAPHIFY_NO_TIPS=1 graphify export html",
+    "git diff --check"
+  ],
+  "extracted_at_commit": "397b81fffeea962889cdf72bd9e7b8e57aad11b1",
+  "baseline_reconciled": "origin/main merge commit has identical source tree to extraction baseline"
+}
