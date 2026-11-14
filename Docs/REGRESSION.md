@@ -148,6 +148,27 @@ Checkpoint содержит только safe-wave state. Combat не сериа
 | REG-BATTLE-098 | Interrupted Combat после schema migration восстанавливает Preparation без duplicate rewards и reuse IDs. | `BattleTowerCatalogTests.RegBattle098_InterruptedCombatAfterMigration_RestoresPreparationWithoutRewardsOrIdReuse`; полный checkpoint suite |
 | REG-BATTLE-099 | REG-BATTLE-001…089 сохраняются без изменения legacy ожиданий; active statuses/timers/DoT и новый UI не заявляются в P2.1b. | Полный EditMode/PlayMode suite; `BattleSceneBuilderTests`; `BattleAssetValidationTests` |
 
+## P2.1c — активные статусы, DoT и боевой порядок
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-100 | Burn не наносит immediate/early damage; после применения на tick 1 срабатывает на ticks 16/31 с configured Power и сохраняет SourceTowerId. | `BattleStatusEffectTests.RegBattle100_Burn_AppliesWithoutImmediateDamageAndTicksOnExactSchedule` |
+| REG-BATTLE-101 | Повторный Burn не стакается, продлевает RemainingTicks и не сдвигает NextDamageTick; same-tick DoT предшествует прямому удару. | `BattleStatusEffectTests.RegBattle101_ReappliedBurn_ExtendsDurationWithoutStackingOrDelayingDueTick` |
+| REG-BATTLE-102 | Wet даёт multiplier 0.8 начиная со следующего Movement и удаляется до Movement в тик истечения. | `BattleStatusEffectTests.RegBattle102_Wet_UsesExactMultiplierAndExpiresBeforeMovement` |
+| REG-BATTLE-103 | Gust не усиливает собственное попадание, усиливает следующий direct damage с floor rounding и не влияет на Burn; `Gust.Power = int.MaxValue` насыщает урон до `int.MaxValue` без overflow/исключения. | `BattleStatusEffectTests.RegBattle103_Gust_UsesFloorRoundingOnLaterDirectDamageOnly`; `RegBattle103_ExtremeGust_SaturatesDamageWithoutOverflow` |
+| REG-BATTLE-104 | Stone учитывает ArmorPenetration; Crack не действует на собственное попадание и снижает броню последующих direct/Burn. | `BattleStatusEffectTests.RegBattle104_StoneAndCrack_ApplyPenetrationThenReduceDirectAndBurnArmor` |
+| REG-BATTLE-105 | Более слабый повторный статус не снижает Power/интервал, больший заменяет параметры, duration использует max, равный Power обновляет SourceTowerId без сдвига due tick. | `BattleStatusEffectTests.RegBattle105_Reapplication_PreservesStrongestPowerAndUsesMaximumDuration` |
+| REG-BATTLE-106 | Burn на последнем активном тике наносит DoT до expiry; истёкшие Gust/Crack не влияют на последующие атаки того же тика. | `BattleStatusEffectTests.RegBattle106_LastActiveTick_DealsBurnBeforeExpiryAndExpiredModifiersSkipAttacks` |
+| REG-BATTLE-107 | Lethal direct hit не накладывает статус; мёртвая цель не выбирается следующей башней. | `BattleStatusEffectTests.RegBattle107_LethalDirectHit_DoesNotApplyStatusOrBecomeLaterTarget` |
+| REG-BATTLE-108 | DoT kill перед Movement не двигается и не даёт leak; Kills и Enemy Reward начисляются ровно один раз. | `BattleStatusEffectTests.RegBattle108_DotKillBeforeMovement_DoesNotLeakAndPaysExactlyOnce` |
+| REG-BATTLE-109 | Overkill/несколько атак и повторный death processing не дублируют награду; DoT reward насыщает Gold без overflow. | `BattleStatusEffectTests.RegBattle109_OverkillAndRepeatedDeathProcessing_DoNotDuplicateReward`; `RegBattle109_DotReward_SaturatesGoldWithoutOverflowOrDuplication` |
+| REG-BATTLE-110 | Burn с отсутствующим SourceTowerId продолжает работать и даёт однократную награду независимо от исходной башни. | `BattleStatusEffectTests.RegBattle110_BurnWithAbsentSource_StillKillsAndPaysExactlyOnce` |
+| REG-BATTLE-111 | Same-tick Gust/Crack видимы только атакам с большими TowerId; порядок событий и HP детерминированы, включая restore из checkpoint с другим порядком массива towers. | `BattleStatusEffectTests.RegBattle111_SameTickStatusEffects_AreVisibleOnlyToLaterTowerIds`; `RegBattle111_RestoredTowers_KeepTowerIdAttackOrder` |
+| REG-BATTLE-112 | Pause/background замораживают HP, RemainingTicks/NextDamageTick и глобальный Tick; Resume не выполняет catch-up. | `BattlePauseTests.RegBattle112_PauseAndBackground_FreezeStatusTimersWithoutCatchUp` |
+| REG-BATTLE-113 | Interrupted Combat rollback отменяет enemies/statuses/kills/gold попытки и восстанавливает Preparation с исходными next IDs; повторный запуск даёт тот же результат. | `BattleStatusEffectTests.RegBattle113_CheckpointRollback_DiscardsPartialDotAttemptAndRewards` |
+| REG-BATTLE-114 | Два mixed-status прогона до terminal имеют одинаковые полные timelines, statuses, AttackEvents, HP/Gold/Kills и Phase. | `BattleStatusEffectTests.RegBattle114_IdenticalMixedStatusRuns_ProduceIdenticalCompleteTimelines` |
+| REG-BATTLE-115 | REG-BATTLE-001…114 и прежние Domain/config/scene/pause/checkpoint tests проходят без ослабления assertions; configs, packages и UI не меняются. | Полный static/EditMode/PlayMode suite и `git diff --check` |
+
 ## CI-сценарии
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |
