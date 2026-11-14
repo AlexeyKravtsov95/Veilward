@@ -748,7 +748,7 @@ namespace Veilward.Domain
                 return damage;
             }
 
-            return (int)Math.Min(int.MaxValue, ((long)damage * (100 + gust.Power)) / 100);
+            return (int)Math.Min(int.MaxValue, ((long)damage * (100L + gust.Power)) / 100);
         }
 
         private void SpawnDueEnemies()

@@ -114,6 +114,25 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void RegBattle103_ExtremeGust_SaturatesDamageWithoutOverflow()
+        {
+            var simulation = CreateSimulation(
+                new[] { Plain("direct", damage: 100) }, maxHealth: int.MaxValue);
+            Place(simulation, "direct", new GridCoordinate(0, 2));
+            simulation.StartWave();
+            var target = simulation.State.Enemies.Single();
+            target.ApplyStatus(
+                Status(StatusKind.Gust, power: int.MaxValue, duration: 45),
+                new TowerId(99),
+                currentTick: 0);
+
+            Assert.DoesNotThrow(() => StepTo(simulation, 1));
+
+            Assert.That(target.Health, Is.Zero);
+            Assert.That(simulation.State.Kills, Is.EqualTo(1));
+        }
+
+        [Test]
         public void RegBattle104_StoneAndCrack_ApplyPenetrationThenReduceDirectAndBurnArmor()
         {
             var flame = Tower(
