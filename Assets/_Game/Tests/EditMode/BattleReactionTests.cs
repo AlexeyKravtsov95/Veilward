@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using NUnit.Framework;
 using Veilward.Domain;
 
@@ -22,6 +21,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(Reactions(s).Count, Is.EqualTo(1));
             Assert.That(Reactions(s)[0].Kind, Is.EqualTo(kind));
             Assert.That(Reactions(s)[0].SourceTowerId.Value, Is.EqualTo(2));
+            Trace(s, "pair-" + first + "-" + second);
         }
 
         [TestCase(StatusKind.Burn)] [TestCase(StatusKind.Wet)] [TestCase(StatusKind.Gust)]
@@ -82,9 +82,9 @@ namespace Veilward.Tests.EditMode
             var s = Create(new[] { Tower("a", incoming, fireRate: 30) }, hp: 10000);
             Place(s, "a", 0); s.StartWave(); s.State.Enemies[0].Advance(5); var p = s.State.Enemies[0]; Status(p, StatusKind.Wet); Add(s, 2, 4.5f, hp: 10000);
             s.Step(); Assert.That(Last(p, kind), Is.EqualTo(1));
-            StepTo(s, 60); Assert.That(Reactions(s).Count, Is.EqualTo(1)); Assert.That(Last(p, kind), Is.EqualTo(1));
+            StepTo(s, 60); Trace(s, kind + "-t+59"); Assert.That(Reactions(s).Count, Is.EqualTo(1)); Assert.That(Last(p, kind), Is.EqualTo(1));
             s.Step(); Assert.That(Reactions(s).Count, Is.EqualTo(2)); Assert.That(Last(p, kind), Is.EqualTo(61));
-            Assert.That(Last(s.State.Enemies[1], kind), Is.EqualTo(61));
+            Assert.That(Last(s.State.Enemies[1], kind), Is.EqualTo(61)); Trace(s, kind + "-t+60");
         }
 
         [TestCase(ReactionKind.Steam)] [TestCase(ReactionKind.Storm)]
@@ -141,7 +141,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(outside.Health, Is.EqualTo(1000)); Assert.That(p.Health, Is.EqualTo(990));
             Assert.That(hits[0].FromPosition.X, Is.EqualTo(5)); Assert.That(hits[1].FromPosition.X, Is.EqualTo(3));
             Assert.That(hits[0].HitIndex, Is.EqualTo(1)); Assert.That(hits[1].HitIndex, Is.EqualTo(2));
-            Assert.That(Last(p, ReactionKind.Storm), Is.EqualTo(1)); Assert.That(Last(c, ReactionKind.Storm), Is.EqualTo(1));
+            Assert.That(Last(p, ReactionKind.Storm), Is.EqualTo(1)); Assert.That(Last(c, ReactionKind.Storm), Is.EqualTo(1)); Trace(s, "storm-lethal-chain");
         }
 
         [TestCase(0)] [TestCase(1)]
@@ -152,7 +152,7 @@ namespace Veilward.Tests.EditMode
             if (neighbors == 1) Add(s, 2, 3);
             s.Step(); Assert.That(Reactions(s).Count, Is.EqualTo(neighbors)); Assert.That(ReactionHits(s).Count, Is.EqualTo(neighbors));
             Assert.That(Last(p, ReactionKind.Storm), neighbors == 0 ? Is.Null : Is.EqualTo(1));
-            Assert.That(s.State.Towers[0].NextAttackTick, Is.EqualTo(2));
+            Assert.That(s.State.Towers[0].NextAttackTick, Is.EqualTo(2)); Trace(s, "storm-neighbors-" + neighbors);
         }
 
         [Test]
@@ -220,6 +220,94 @@ namespace Veilward.Tests.EditMode
                 path, new WaveDefinition(new EnemyDefinition(new EnemyDefinitionId("e"), 10, 1, 1, 0), 1, 0, 1), hybrid, 20, 0));
         }
 
+        [Test]
+        public void RegBattle139_SteamExcludesLockedVictim()
+        {
+            var s = Create(new[] { Tower("a", StatusKind.Burn) }); Place(s, "a", 0); s.StartWave();
+            var p = s.State.Enemies[0]; p.Advance(5); Status(p, StatusKind.Wet);
+            var locked = Add(s, 2, 4.75f); Reserve(locked, ReactionKind.Steam, 0); Add(s, 3, 4.5f);
+            s.Step(); Assert.That(ReactionHits(s).ConvertAll(h => h.TargetEnemyId.Value), Is.EqualTo(new[] { 1, 3 }));
+            Assert.That(locked.Health, Is.EqualTo(1000)); Assert.That(Last(locked, ReactionKind.Steam), Is.EqualTo(0));
+        }
+
+        [Test]
+        public void RegBattle140_FoldedPathUsesEuclideanRatherThanProgressDistance()
+        {
+            var path = new PathDefinition(new[] { new GridCoordinate(0, 0), new GridCoordinate(8, 0),
+                new GridCoordinate(8, 1), new GridCoordinate(0, 1) });
+            var definition = new EnemyDefinition(new EnemyDefinitionId("e"), 100, 1, 1, 0);
+            var primary = new EnemyState(new EnemyId(1), definition, 100, 15);
+            var across = new EnemyState(new EnemyId(2), definition, 100, 2);
+            var along = new EnemyState(new EnemyId(3), definition, 100, 13);
+            Status(primary, StatusKind.Burn); Status(primary, StatusKind.Wet);
+            var state = new BattleState(BattlePhase.Combat, 1, 0, 20, 0, new[] { primary, along, across });
+            var reactions = new List<ReactionEvent>(); var damages = new List<DamageResolvedEvent>(); var sequence = 0;
+            Assert.That(new ReactionResolver().TryResolve(state, path,
+                new TowerState(new TowerId(1), Tower("a", StatusKind.Burn), new GridCoordinate(0, 2)),
+                primary, path.GetPosition(15), Catalog(), reactions, damages, ref sequence), Is.True);
+            Assert.That(damages.Count, Is.EqualTo(2)); Assert.That(damages[1].TargetEnemyId.Value, Is.EqualTo(2));
+            Assert.That(damages[1].FromPosition.X, Is.EqualTo(2)); Assert.That(damages[1].FromPosition.Y, Is.EqualTo(1));
+            Assert.That(damages[1].TargetPosition.X, Is.EqualTo(2)); Assert.That(damages[1].TargetPosition.Y, Is.Zero);
+        }
+
+        [Test]
+        public void RegBattle136_CooldownNearLongLimitCannotWrapIntoReady()
+        {
+            var s = Create(new[] { Tower("a", StatusKind.Gust, fireRate: 30) }); Place(s, "a", 0);
+            var checkpoint = s.ExportCheckpoint(); checkpoint.tick = long.MaxValue - 2; s.RestoreCheckpoint(checkpoint);
+            s.StartWave(); Status(s.State.Enemies[0], StatusKind.Wet); Reserve(s.State.Enemies[0], ReactionKind.Storm, long.MaxValue - 10);
+            Add(s, 2, 0); s.Step(); Assert.That(Reactions(s), Is.Empty);
+            Assert.That(Last(s.State.Enemies[0], ReactionKind.Storm), Is.EqualTo(long.MaxValue - 10));
+        }
+
+        [Test]
+        public void RegBattle141_NoNeighborCanRetryNextTickWithoutCooldownConsumption()
+        {
+            var s = Create(new[] { Tower("a", StatusKind.Gust, fireRate: 30) }); Place(s, "a", 0); s.StartWave();
+            var p = s.State.Enemies[0]; p.Advance(5); Status(p, StatusKind.Wet); s.Step();
+            Assert.That(Reactions(s), Is.Empty); Assert.That(Last(p, ReactionKind.Storm), Is.Null);
+            Add(s, 2, 4.5f); s.Step(); Assert.That(Reactions(s).Count, Is.EqualTo(1));
+            Assert.That(Last(p, ReactionKind.Storm), Is.EqualTo(2));
+        }
+
+        [Test]
+        public void RegBattle138_MissingSteamDefinitionAllowsStormFallback()
+        {
+            var catalog = new ReactionCatalog(new[] { Catalog().Get(ReactionKind.Storm) });
+            var s = Create(new[] { Tower("a", StatusKind.Wet) }, catalog: catalog); Place(s, "a", 0); s.StartWave();
+            var p = s.State.Enemies[0]; p.Advance(5); Status(p, StatusKind.Burn); Status(p, StatusKind.Gust); Add(s, 2, 4.5f);
+            s.Step(); Assert.That(Reactions(s).Count, Is.EqualTo(1)); Assert.That(Reactions(s)[0].Kind, Is.EqualTo(ReactionKind.Storm));
+            Assert.That(Last(p, ReactionKind.Steam), Is.Null);
+        }
+
+        [Test]
+        public void RegBattle144_IntrinsicIgnoresForeignPairsAndDoesNotRefreshThem()
+        {
+            var s = Create(new[] { Tower("a", null, intrinsic: new ReactionPayload(ReactionKind.Storm, 75, 2, 2)) });
+            Place(s, "a", 0); s.StartWave(); var p = s.State.Enemies[0]; p.Advance(5); Add(s, 2, 4.5f);
+            Status(p, StatusKind.Burn); Status(p, StatusKind.Wet); Status(p, StatusKind.Gust);
+            s.Step(); Assert.That(Reactions(s).Count, Is.EqualTo(1)); Assert.That(Reactions(s)[0].Kind, Is.EqualTo(ReactionKind.Storm));
+            Assert.That(Last(p, ReactionKind.Steam), Is.Null); foreach (var status in p.Statuses) Assert.That(status.RemainingTicks, Is.EqualTo(999));
+        }
+
+        internal static void Trace(BattleSimulation s, string label)
+        {
+            TestContext.WriteLine("TRACE " + label + " tick=" + s.State.Tick + " phase=" + s.State.Phase +
+                " hp=" + s.State.BaseHealth + " gold=" + s.State.Gold + " kills=" + s.State.Kills);
+            foreach (var enemy in s.State.Enemies)
+                TestContext.WriteLine("enemy=" + enemy.Id.Value + " hp=" + enemy.Health + " Steam=" + enemy.LastSteamTick + " Storm=" + enemy.LastStormTick);
+            foreach (var reaction in s.ReactionEvents)
+                TestContext.WriteLine("reaction tick=" + reaction.Tick + " seq=" + reaction.SequenceInTick + " kind=" + reaction.Kind +
+                    " trigger=" + reaction.TriggerKind + " source=" + reaction.SourceTowerId.Value + " primary=" + reaction.PrimaryEnemyId.Value);
+            foreach (var damage in s.DamageEvents)
+                TestContext.WriteLine(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                    "damage tick={0} seq={1} origin={2} source={3} victim={4} from=({5},{6}) to=({7},{8}) base={9} raw={10} resolved={11} applied={12} hp={13} lethal={14} reaction={15} correlation={16} hit={17}",
+                    damage.Tick, damage.SequenceInTick, damage.Origin, damage.SourceTowerId.Value, damage.TargetEnemyId.Value,
+                    damage.FromPosition.X, damage.FromPosition.Y, damage.TargetPosition.X, damage.TargetPosition.Y,
+                    damage.ConfiguredBaseDamage, damage.RawDamage, damage.ResolvedDamage, damage.AppliedHpLoss, damage.HealthAfter,
+                    damage.WasLethal, damage.ReactionKind, damage.ReactionSequenceInTick, damage.HitIndex));
+        }
+
         internal static ReactionCatalog Catalog() => new ReactionCatalog(new[] {
             new ReactionDefinition(new ReactionPayload(ReactionKind.Steam, 100, 1.25f, 4), 60, 0),
             new ReactionDefinition(new ReactionPayload(ReactionKind.Storm, 75, 2, 2), 60, 1) });
@@ -238,12 +326,7 @@ namespace Veilward.Tests.EditMode
             var towers = new TowerArchetypeDefinition[definitions.Length];
             for (var i = 0; i < towers.Length; i++) towers[i] = TowerArchetypeDefinition.CreateCompatibility(new[] { definitions[i] });
             var tc = new TowerCatalog(towers); var waves = new[] { new WaveDefinition(enemy, 1, 0, 1) };
-            // RED bridge: существующая simulation продолжает работать, поэтому failures показывают отсутствие поведения, а не compile errors.
-            var ctor = typeof(BattleSimulation).GetConstructor(new[] { typeof(GridMapDefinition), typeof(PathDefinition), typeof(IReadOnlyList<WaveDefinition>),
-                typeof(TowerCatalog), typeof(int), typeof(int), typeof(int), typeof(ReactionCatalog) });
-            if (ctor == null) return new BattleSimulation(map, path, waves, tc, 20, gold, bonus);
-            try { return (BattleSimulation)ctor.Invoke(new object[] { map, path, waves, tc, 20, gold, bonus, catalog ?? Catalog() }); }
-            catch (TargetInvocationException e) { throw e.InnerException; }
+            return new BattleSimulation(map, path, waves, tc, 20, gold, bonus, catalog ?? Catalog());
         }
 
         internal static void Place(BattleSimulation s, string id, int x) => Assert.That(s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId(id), new GridCoordinate(x, 2))).Success, Is.True);
@@ -255,13 +338,12 @@ namespace Veilward.Tests.EditMode
         internal static void Status(EnemyState e, StatusKind kind, int power = 20, int duration = 1000, int interval = 1000) =>
             e.ApplyStatus(new StatusEffectDefinition(kind, power, duration, kind == StatusKind.Burn ? interval : 0), new TowerId(99), 0);
         internal static void StepTo(BattleSimulation s, long tick) { while (s.State.Tick < tick) s.Step(); }
-        internal static IReadOnlyList<ReactionEvent> Reactions(BattleSimulation s) => Read<IReadOnlyList<ReactionEvent>>(s, "ReactionEvents");
-        internal static IReadOnlyList<DamageResolvedEvent> Damages(BattleSimulation s) => Read<IReadOnlyList<DamageResolvedEvent>>(s, "DamageEvents");
-        internal static long? Last(EnemyState e, ReactionKind kind) => Read<long?>(e, kind == ReactionKind.Steam ? "LastSteamTick" : "LastStormTick");
+        internal static IReadOnlyList<ReactionEvent> Reactions(BattleSimulation s) => s.ReactionEvents;
+        internal static IReadOnlyList<DamageResolvedEvent> Damages(BattleSimulation s) => s.DamageEvents;
+        internal static long? Last(EnemyState e, ReactionKind kind) => kind == ReactionKind.Steam ? e.LastSteamTick : e.LastStormTick;
         internal static void Reserve(EnemyState e, ReactionKind kind, long tick)
         {
-            var p = e.GetType().GetProperty(kind == ReactionKind.Steam ? "LastSteamTick" : "LastStormTick");
-            Assert.That(p, Is.Not.Null, "Missing cooldown state"); p.SetValue(e, tick);
+            e.ReserveReaction(kind, tick);
         }
         internal static T Read<T>(object o, string name)
         { var p = o.GetType().GetProperty(name); Assert.That(p, Is.Not.Null, "Missing runtime API " + name); return (T)p.GetValue(o); }

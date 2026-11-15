@@ -108,6 +108,22 @@ namespace Veilward.Presentation
 
         public BattleSimulation CreateSimulation()
         {
+            return CreateSimulationCore(null, historical: false);
+        }
+
+        internal BattleSimulation CreateSimulation(ReactionCatalog reactionCatalog)
+        {
+            if (reactionCatalog == null)
+            {
+                throw new ArgumentNullException(nameof(reactionCatalog));
+            }
+
+            return CreateSimulationCore(reactionCatalog,
+                historical: ReferenceEquals(reactionCatalog, ReactionCatalog.Empty));
+        }
+
+        private BattleSimulation CreateSimulationCore(ReactionCatalog reactionCatalog, bool historical)
+        {
             var shared = sharedScenario != null ? sharedScenario : this;
             var gridPoints = new GridCoordinate[shared.waypoints.Length];
             for (var index = 0; index < shared.waypoints.Length; index++)
@@ -152,6 +168,23 @@ namespace Veilward.Presentation
             }
 
             var towerCatalog = CreateTowerCatalog(shared, towerLevels);
+            if (historical)
+            {
+                // Только явный test path Empty выбирает прежние objects из уже validated каталога.
+                var previous = new List<TowerArchetypeDefinition>(5);
+                for (var index = 0; index < towerCatalog.Archetypes.Count; index++)
+                {
+                    var archetype = towerCatalog.Archetypes[index];
+                    var id = archetype.Id.Value;
+                    if (id == shared.towerId || id == "flame" || id == "tide" || id == "gale" || id == "stone")
+                    {
+                        previous.Add(archetype);
+                    }
+                }
+
+                towerCatalog = new TowerCatalog(previous);
+            }
+
             if (waves == null || waves.Length == 0)
             {
                 var legacyWave = new WaveDefinition(
@@ -165,7 +198,8 @@ namespace Veilward.Presentation
                     legacyWave,
                     towerCatalog,
                     shared.baseHealth,
-                    shared.startingGold);
+                    shared.startingGold,
+                    reactionCatalog);
             }
 
             var sequence = new WaveDefinition[waves.Length];
@@ -186,7 +220,8 @@ namespace Veilward.Presentation
                 towerCatalog,
                 shared.baseHealth,
                 shared.startingGold,
-                waveCompletionBonus);
+                waveCompletionBonus,
+                reactionCatalog);
         }
 
         private static TowerCatalog CreateTowerCatalog(
