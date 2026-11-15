@@ -42,7 +42,7 @@ Docs/
 ## 3. Simulation rules
 
 - Fixed simulation step: **30 Hz** (`SimulationTiming.TicksPerSecond`). `IBattleSimulation.Step()` explicitly called by orchestration. Presentation синхронизирует views с текущим read-only state; визуальная интерполяция между тиками — отдельная задача. Доменное состояние не использует `Time.deltaTime`.
-- Seeded deterministic RNG wrapped by `IRandomSource`; preserve RNG state in save/replay checkpoint.
+- В текущем EightWave RNG отсутствует: fixed spawn schedule, First targeting и стабильные IDs. `IRandomSource` и сохранение RNG state — будущий контракт, если появится случайность.
 - Currency and health: integer arithmetic; event ordering strictly defined.
 - Path distance as scalar progression along precomputed segments/waypoints; no per-enemy NavMesh or runtime path search for fixed lanes.
 - Enemy targeting strategies: first (distance to exit), last, strongest, weakest. Ties resolve stable by enemy ID.
@@ -130,6 +130,18 @@ New Game сначала удаляет stale temp и копирует primary (�
 `WaveCheckpointStore.CurrentSchemaVersion = 2`; каждая tower entry содержит обязательный `towerTypeId`. Physical slot name остаётся `wave-checkpoint-v1.json` вместе с `.bak/.tmp`. Совместимый schema 1 envelope мигрируется через deep copy, каждая башня явно получает `test-tower`, затем результат проходит current Domain validation. Load не перезаписывает source JSON; primary и backup проверяются независимо, а следующий обычный Save атомарно записывает schema 2.
 
 P2.1b не создаёт active `StatusInstance`, не применяет Wet/Gust/Crack/Burn, не запускает timers/DoT и не использует Armor/ArmorPenetration в damage pipeline; новый Build UI относится к следующему PR. Контракт — `Docs/P2.1A_ELEMENTAL_TOWERS.md`, regression scenarios — REG-BATTLE-090…099.
+
+### P2.1c–e: реализованные статусы, каталог и интеграционная проверка
+
+P2.1c добавил active `StatusInstance` в `EnemyState.Statuses`: один экземпляр Kind, Power/RemainingTicks/NextDamageTick/DamageIntervalTicks/SourceTowerId. Актуальный порядок тика заменяет исторический порядок P1.3: **Advance Tick → Spawn → Status Damage/Expiry → Movement/Leaks → Tower Attacks → Death/Removal/rewards → Defeat/WaveComplete/Victory**. Due Burn выполняется до decrement/expiry, включая последний активный тик; погибшая цель не двигается и не атакуется. Reapply продлевает duration через max и сохраняет due tick; более сильный или равный Power обновляет параметры/источник. Pause не выполняет тики.
+
+Прямой урон: Crack → ArmorPenetration → min 1 damage → Gust (floor, saturating int) → HP → статус только выжившей цели. Burn учитывает Crack/armor, но не penetration/Gust; Wet влияет на последующее Movement и удаляется до движения в тик истечения. Все смерти и награды проходят единый `RemoveDefeatedEnemies`. `AttackEvent.Damage` остаётся номинальным Damage definition; событие не является журналом эффективного damage и не публикует DoT. Контракт событий для статистики не менялся.
+
+P2.1d предоставляет FLAME/TIDE/GALE/STONE selection до Confirm, числовые stats/range preview, typed placement, per-type Upgrade/MAX/Sell и read-only Combat. Legacy Test Tower скрыта. Новые панели учитывают `Screen.safeArea`/Canvas scale; Pause/Sell modal блокируют сквозной ввод. Реальные Editor Play Mode кадры: [каталог](review/P2.1d/01-catalog.png), [preview](review/P2.1d/02-preview.png), [бой](review/P2.1d/03-status-combat.png), [Upgrade](review/P2.1d/04-upgraded-panel.png), [Sell](review/P2.1d/05-sell-confirmation.png), [Continue](review/P2.1d/06-continued-tower.png); [QA log](review/P2.1d/qa.log).
+
+Schema 2 сохраняет тип/уровень/вложения/cooldown/next IDs, но не enemies/statuses. Прерванный Combat откатывается к сохранённой Preparation вместе с HP/Gold/Kills попытки. WaveComplete уже содержит reward; Load и Next Wave повторно его не начисляют. Terminal checkpoint сохраняет итог и башни, но не оставшихся при Defeat врагов; сравнение live terminal enemies с восстановленным terminal не является контрактом Continue.
+
+P2.1e **ожидает независимого review/merge**: `BattleElementalReplayTests` использует сохранённый EightWave/shared TestWave, реальные 150 Gold/20 HP и public API. Повторные полные timelines, статусы, public AttackEvents, выводимые из due Burn смерти и дальнейший replay после файлового Continue совпадают. Зафиксирован Defeat на волне 8, tick 3997, HP 0/Gold 112/Kills 46, 8 DoT kills; баланс не изменялся. [Измерения и ограничения](review/P2.1e/balance-review.md), [проверяемый JSON](review/P2.1e/replay-summary.json); REG-BATTLE-125…127. Это Editor regression evidence, не physical iPhone/performance/balance approval.
 
 ### P0.3 quality gates contract
 

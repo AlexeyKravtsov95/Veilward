@@ -183,6 +183,14 @@ Checkpoint содержит только safe-wave state. Combat не сериа
 | REG-BATTLE-123 | Реальный PlayMode flow с active status, Upgrade/Sell/Menu/Continue всех типов. | `BattleTowerCatalogPlayModeTests.RegBattle123_CatalogStatusEconomyAndContinue_RestoresEveryType`; `Docs/review/P2.1d/qa.log` и реальные кадры |
 | REG-BATTLE-124 | Прежние UI-тесты сохраняют проверки экономики/паузы/save при явном выборе типа. | Полные EditMode/PlayMode suites; прежние PlayMode purchase flows явно выбирают TIDE/FLAME; legacy проверен отдельным schema 1 Continue |
 
+## P2.1e — интеграционный EightWave replay (ожидает review)
+
+| ID | Сценарий и ожидаемый результат | Автоматизация |
+|---|---|---|
+| REG-BATTLE-125 | Saved EightWave, реальные 150 Gold/20 HP, только public commands: смешанный каталог, Upgrade, Sell/Rebuild с новым ID, Burn/Wet/Gust/Crack и DoT kill; два запуска совпадают по каждому snapshot/status/event и естественному terminal. Файловый schema 2 round-trip сохраняет типы/уровни/вложения/cooldown/next IDs; repeated Continue не платит; прерванный Combat с активными статусами и наградами откатывается к Preparation и повторяет контрольный результат. | `BattleElementalReplayTests.RegBattle125_MixedReplay_IsDeterministicThroughNaturalTerminal`; `RegBattle125_CheckpointContinueAndInterruptedCombat_MatchControl` |
+| REG-BATTLE-126 | Проверяемый JSON отчёт воспроизводится из того же replay: HP/Gold/Kills/leaks, состав и уровни, покупки/продажи, DoT kills и исход каждой достигнутой волны. Victory не является обязательным assertion; баланс остаётся гипотезой. | `BattleElementalReplayTests.RegBattle126_CommittedBalanceEvidence_MatchesReplay`; `Docs/review/P2.1e/balance-review.md`; `replay-summary.json` |
+| REG-BATTLE-127 | Полные static/EditMode/PlayMode и diff gates: положительные непустые totals, 0 failed/inconclusive/skipped; docs разделяют VERIFIED / NOT VERIFIED. | Обязательные runners; точные команды и итоговые totals в `Docs/review/P2.1e/balance-review.md` |
+
 ## CI-сценарии
 
 | ID | Сценарий и ожидаемый результат | Автоматизация |
