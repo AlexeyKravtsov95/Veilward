@@ -11,7 +11,8 @@ namespace Veilward.Domain
             float fireRate,
             int damage,
             StatusEffectDefinition statusEffect = null,
-            int armorPenetration = 0)
+            int armorPenetration = 0,
+            ReactionPayload intrinsicReaction = null)
         {
             if (string.IsNullOrWhiteSpace(id.Value))
             {
@@ -34,6 +35,12 @@ namespace Veilward.Domain
                     nameof(armorPenetration), "Armor penetration cannot be negative.");
             }
 
+            if (statusEffect != null && intrinsicReaction != null)
+            {
+                throw new ArgumentException(
+                    "A tower cannot have both a status effect and an intrinsic reaction.", nameof(intrinsicReaction));
+            }
+
             ValidatePositiveFinite(range, nameof(range), "Range");
             ValidatePositiveFinite(fireRate, nameof(fireRate), "Fire rate");
             Id = id;
@@ -42,6 +49,7 @@ namespace Veilward.Domain
             FireRate = fireRate;
             Damage = damage;
             StatusEffect = statusEffect;
+            IntrinsicReaction = intrinsicReaction;
             ArmorPenetration = armorPenetration;
 
             // Decimal сохраняет midpoint сериализованных FireRate (например, 30 / 0.8 = 37.5).
@@ -68,6 +76,7 @@ namespace Veilward.Domain
         public float FireRate { get; }
         public int Damage { get; }
         public StatusEffectDefinition StatusEffect { get; }
+        public ReactionPayload IntrinsicReaction { get; }
         public int ArmorPenetration { get; }
         public int AttackIntervalTicks { get; }
 
