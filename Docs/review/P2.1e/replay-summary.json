@@ -1,0 +1,295 @@
+{
+    "unityVersion": "6000.3.28f1 (8f082d2fe476)",
+    "sourceCommit": "6b26a87cf1bd7e4b52cc8e9b756a1a23be2379f5",
+    "scenario": "Assets/_Game/Configs/EightWave.asset",
+    "commandSource": "BattleElementalReplayTests.Prepare; fixed coverage commands by wave, after affordability pilots; no RNG",
+    "rng": "Absent: BattleSimulation uses fixed spawn schedule and stable IDs; no seed",
+    "ticksPerSecond": 30,
+    "startingHealth": 20,
+    "startingGold": 150,
+    "statusOrder": [
+        "Burn",
+        "Wet",
+        "Gust",
+        "Crack"
+    ],
+    "statusApplications": [
+        106,
+        68,
+        277,
+        24
+    ],
+    "dotKills": 8,
+    "observedStatuses": [
+        "Burn",
+        "Crack",
+        "Gust",
+        "Wet"
+    ],
+    "enemyReward": 5,
+    "waveCompletionBonus": 20,
+    "terminal": "Defeat",
+    "terminalTick": 3997,
+    "waves": [
+        {
+            "wave": 1,
+            "phase": "WaveComplete",
+            "tick": 399,
+            "health": 18,
+            "gold": 35,
+            "kills": 3,
+            "waveKills": 3,
+            "nextEnemyId": 6,
+            "nextTowerId": 3,
+            "remainingEnemies": [],
+            "leaks": 2,
+            "dotKills": 0,
+            "statusApplications": [
+                10,
+                0,
+                26,
+                0
+            ],
+            "towers": [
+                "1:flame:L1:cell=-2,-1:invested=70:nextAttack=304",
+                "2:gale:L1:cell=1,0:invested=80:nextAttack=366"
+            ],
+            "commands": [
+                "Place 1 flame (-2,-1) cost=70 gold=80",
+                "Place 2 gale (1,0) cost=80 gold=0"
+            ],
+            "leakDetails": [
+                "tick=369 beforeStep=4:shade:hp=50:distance=13.9500351:Gust,20,3,0,0,2",
+                "tick=399 beforeStep=5:shade:hp=50:distance=13.9500351:Gust,20,3,0,0,2"
+            ]
+        },
+        {
+            "wave": 2,
+            "phase": "WaveComplete",
+            "tick": 828,
+            "health": 15,
+            "gold": 70,
+            "kills": 6,
+            "waveKills": 3,
+            "nextEnemyId": 12,
+            "nextTowerId": 3,
+            "remainingEnemies": [],
+            "leaks": 3,
+            "dotKills": 0,
+            "statusApplications": [
+                11,
+                0,
+                29,
+                0
+            ],
+            "towers": [
+                "1:flame:L1:cell=-2,-1:invested=70:nextAttack=733",
+                "2:gale:L1:cell=1,0:invested=80:nextAttack=795"
+            ],
+            "commands": [],
+            "leakDetails": [
+                "tick=768 beforeStep=9:shade:hp=50:distance=13.9500351:Gust,20,3,0,0,2",
+                "tick=798 beforeStep=10:shade:hp=50:distance=13.9500351:Gust,20,3,0,0,2",
+                "tick=828 beforeStep=11:shade:hp=50:distance=13.9500351:Gust,20,3,0,0,2"
+            ]
+        },
+        {
+            "wave": 3,
+            "phase": "WaveComplete",
+            "tick": 1287,
+            "health": 12,
+            "gold": 50,
+            "kills": 10,
+            "waveKills": 4,
+            "nextEnemyId": 19,
+            "nextTowerId": 4,
+            "remainingEnemies": [],
+            "leaks": 3,
+            "dotKills": 2,
+            "statusApplications": [
+                12,
+                10,
+                32,
+                0
+            ],
+            "towers": [
+                "1:flame:L1:cell=-2,-1:invested=70:nextAttack=1192",
+                "2:gale:L1:cell=1,0:invested=80:nextAttack=1257",
+                "3:tide:L1:cell=-1,0:invested=60:nextAttack=1231"
+            ],
+            "commands": [
+                "Place 3 tide (-1,0) cost=60 gold=10"
+            ],
+            "leakDetails": [
+                "tick=1239 beforeStep=16:shade:hp=10:distance=13.9600239:Gust,20,4,0,0,2",
+                "tick=1269 beforeStep=17:shade:hp=40:distance=13.9600239:Gust,20,4,0,0,2",
+                "tick=1287 beforeStep=18:shade:hp=57:distance=13.9500351:Gust,20,6,0,0,2"
+            ]
+        },
+        {
+            "wave": 4,
+            "phase": "WaveComplete",
+            "tick": 1788,
+            "health": 8,
+            "gold": 90,
+            "kills": 14,
+            "waveKills": 4,
+            "nextEnemyId": 27,
+            "nextTowerId": 4,
+            "remainingEnemies": [],
+            "leaks": 4,
+            "dotKills": 2,
+            "statusApplications": [
+                13,
+                11,
+                36,
+                0
+            ],
+            "towers": [
+                "1:flame:L1:cell=-2,-1:invested=70:nextAttack=1681",
+                "2:gale:L1:cell=1,0:invested=80:nextAttack=1756",
+                "3:tide:L1:cell=-1,0:invested=60:nextAttack=1728"
+            ],
+            "commands": [],
+            "leakDetails": [
+                "tick=1698 beforeStep=23:shade:hp=10:distance=13.9600239:Gust,20,4,0,0,2",
+                "tick=1728 beforeStep=24:shade:hp=40:distance=13.9600239:Gust,20,4,0,0,2",
+                "tick=1746 beforeStep=25:shade:hp=57:distance=13.9500351:Gust,20,6,0,0,2",
+                "tick=1788 beforeStep=26:shade:hp=33:distance=13.9600239:Gust,20,4,0,0,2"
+            ]
+        },
+        {
+            "wave": 5,
+            "phase": "WaveComplete",
+            "tick": 2289,
+            "health": 6,
+            "gold": 55,
+            "kills": 21,
+            "waveKills": 7,
+            "nextEnemyId": 36,
+            "nextTowerId": 5,
+            "remainingEnemies": [],
+            "leaks": 2,
+            "dotKills": 1,
+            "statusApplications": [
+                13,
+                11,
+                36,
+                5
+            ],
+            "towers": [
+                "1:flame:L1:cell=-2,-1:invested=70:nextAttack=2212",
+                "2:gale:L1:cell=1,0:invested=80:nextAttack=2284",
+                "3:tide:L1:cell=-1,0:invested=60:nextAttack=2267",
+                "4:stone:L1:cell=-3,-1:invested=90:nextAttack=2149"
+            ],
+            "commands": [
+                "Place 4 stone (-3,-1) cost=90 gold=0"
+            ],
+            "leakDetails": [
+                "tick=2247 beforeStep=33:shade:hp=3:distance=13.9500351:Gust,20,3,0,0,2",
+                "tick=2289 beforeStep=34:shade:hp=33:distance=13.9600239:Gust,20,1,0,0,2"
+            ]
+        },
+        {
+            "wave": 6,
+            "phase": "WaveComplete",
+            "tick": 2850,
+            "health": 3,
+            "gold": 110,
+            "kills": 28,
+            "waveKills": 7,
+            "nextEnemyId": 46,
+            "nextTowerId": 5,
+            "remainingEnemies": [],
+            "leaks": 3,
+            "dotKills": 1,
+            "statusApplications": [
+                14,
+                12,
+                39,
+                5
+            ],
+            "towers": [
+                "1:flame:L1:cell=-2,-1:invested=70:nextAttack=2743",
+                "2:gale:L1:cell=1,0:invested=80:nextAttack=2815",
+                "3:tide:L1:cell=-1,0:invested=60:nextAttack=2806",
+                "4:stone:L1:cell=-3,-1:invested=90:nextAttack=2650"
+            ],
+            "commands": [],
+            "leakDetails": [
+                "tick=2748 beforeStep=42:shade:hp=3:distance=13.9500351:Gust,20,3,0,0,2",
+                "tick=2790 beforeStep=43:shade:hp=33:distance=13.9600239:Gust,20,1,0,0,2",
+                "tick=2850 beforeStep=45:shade:hp=40:distance=13.9600239:Gust,20,1,0,0,2"
+            ]
+        },
+        {
+            "wave": 7,
+            "phase": "WaveComplete",
+            "tick": 3429,
+            "health": 1,
+            "gold": 67,
+            "kills": 37,
+            "waveKills": 9,
+            "nextEnemyId": 57,
+            "nextTowerId": 6,
+            "remainingEnemies": [],
+            "leaks": 2,
+            "dotKills": 1,
+            "statusApplications": [
+                16,
+                11,
+                38,
+                7
+            ],
+            "towers": [
+                "1:flame:L1:cell=-2,-1:invested=70:nextAttack=3334",
+                "2:gale:L1:cell=1,0:invested=80:nextAttack=3395",
+                "4:stone:L1:cell=-3,-1:invested=90:nextAttack=3271",
+                "5:tide:L2:cell=-1,0:invested=150:nextAttack=3368"
+            ],
+            "commands": [
+                "Sell 3 tide refund=42 gold=152",
+                "Place 5 tide (-1,0) cost=60 gold=92",
+                "Upgrade 5 tide L2 cost=90 gold=2"
+            ],
+            "leakDetails": [
+                "tick=3418 beforeStep=55:shade:hp=13:distance=13.9750528",
+                "tick=3429 beforeStep=56:shade:hp=17:distance=13.9500351:Gust,20,2,0,0,2"
+            ]
+        },
+        {
+            "wave": 8,
+            "phase": "Defeat",
+            "tick": 3997,
+            "health": 0,
+            "gold": 112,
+            "kills": 46,
+            "waveKills": 9,
+            "nextEnemyId": 69,
+            "nextTowerId": 6,
+            "remainingEnemies": [
+                "67:shade:hp=17:distance=13.4500332:Gust,20,12,0,0,2",
+                "68:shade:hp=23:distance=11.325037:Burn,3,6,4003,15,1:Wet,25,58,0,0,5:Gust,20,42,0,0,2"
+            ],
+            "leaks": 1,
+            "dotKills": 1,
+            "statusApplications": [
+                17,
+                13,
+                41,
+                7
+            ],
+            "towers": [
+                "1:flame:L1:cell=-2,-1:invested=70:nextAttack=3943",
+                "2:gale:L1:cell=1,0:invested=80:nextAttack=4004",
+                "4:stone:L1:cell=-3,-1:invested=90:nextAttack=3850",
+                "5:tide:L2:cell=-1,0:invested=150:nextAttack=4013"
+            ],
+            "commands": [],
+            "leakDetails": [
+                "tick=3997 beforeStep=66:shade:hp=13:distance=13.9750528"
+            ]
+        }
+    ]
+}

@@ -30,6 +30,10 @@
 
 **P2.1a status:** подготовлены спецификация FLAME/TIDE/GALE/STONE, детерминированный status/tick/checkpoint contract, REG-BATTLE-090…127 и план PR P2.1b–P2.1e в `Docs/P2.1A_ELEMENTAL_TOWERS.md` и `Docs/P2.1A_IMPLEMENTATION_PLAN.md`. Все числа обозначены как гипотезы для плейтестов; реализация, reactions, hybrids и element unlocks в этот документационный scope не входят.
 
+**P2.1b–d status:** definitions/schema 2, active status runtime и каталог/UI находятся в `main`; база P2.1e — merge PR #16 (`6b26a87`, 2026-11-15). Реальные Play Mode кадры каталога, боя, Upgrade/Sell/Continue и ограничения сохранены в [P2.1d QA](review/P2.1d/qa.log).
+
+**P2.1e status: ожидает независимого review/merge, не DONE.** REG-BATTLE-125…127 проверяют интеграцию saved EightWave, четырёх статусов, экономики и файлового Continue/Combat rollback. Естественный результат фиксированной стратегии: Defeat на волне 8, HP 0, Gold 112, Kills 46, 8 DoT kills; [balance review](review/P2.1e/balance-review.md), [replay JSON](review/P2.1e/replay-summary.json). Локальные gates: static 38/38, EditMode 317/317, PlayMode 15/15, 0 failed/inconclusive/skipped; `git diff --check` PASS. Эти проверки не закрывают G2: внешние плейтесты, physical iPhone/touch/safe area/performance и утверждение баланса ещё не выполнены. Реакции/гибриды/unlocks в P2.1 не входят.
+
 ## Phase 3 — Expand to release content (4–6 недель)
 
 **P3.1:** remaining four hybrid towers, tests, VFX/audio. **P3.2:** 3 unique maps, enemy groups, boss phases. **P3.3:** 15-wave balance, Normal/Hard. **P3.4:** campaigns/results/stars, cosmetics/unlocks. **P3.5:** tutorial polish, status glossary, animation feedback, accessibility. **Deliverable:** content complete build.
