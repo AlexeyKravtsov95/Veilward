@@ -72,6 +72,18 @@ namespace Veilward.Domain
                         $"Elemental archetype {id} requires a status on every level.", nameof(levels));
                 }
 
+                if (requireThreeLevels && (id.Value == "steam" || id.Value == "storm"))
+                {
+                    var requiredKind = id.Value == "steam" ? ReactionKind.Steam : ReactionKind.Storm;
+                    if (level.StatusEffect != null || level.IntrinsicReaction == null ||
+                        level.IntrinsicReaction.Kind != requiredKind)
+                    {
+                        throw new ArgumentException(
+                            $"Hybrid archetype {id} requires a matching intrinsic reaction and no status on every level.",
+                            nameof(levels));
+                    }
+                }
+
                 copiedLevels[index] = level;
             }
 

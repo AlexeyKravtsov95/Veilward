@@ -1,0 +1,78 @@
+{
+  "base_commit": "7f603774ffe69f25ced327f509370223085db363",
+  "branch": "feature/p2-2b-reaction-definitions",
+  "environment": {
+    "unity": "6000.3.28f1",
+    "revision": "8f082d2fe476",
+    "os": "macOS 27.0.1 (26A434)",
+    "architecture": "arm64",
+    "runner": "auto -> batch, -nographics, -buildTarget iOS",
+    "project_player_settings": "IL2CPP / ARM64 / iOS 17.0 (player build not run)"
+  },
+  "static": {
+    "command": "./Scripts/run-static-checks.sh",
+    "exit_code": 0,
+    "self_tests_total": 38,
+    "self_tests_passed": 38,
+    "project_checks": "PASS: version, packages, .meta, GUID, Assembly Definitions"
+  },
+  "suites": {
+    "EditMode": {
+      "command": "./Scripts/run-edit-mode-tests.sh",
+      "exit_code": 0,
+      "xml_sha256": "3755e136c85c65d0f873f647cb68f1aa2ab3f35dae7daa95e0316a48a42aec28",
+      "result": "Passed",
+      "total": "378",
+      "passed": "378",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-15 12:51:54Z",
+      "end-time": "2026-11-15 12:52:05Z",
+      "duration": "10.971453",
+      "new_reaction_cases": 61
+    },
+    "PlayMode": {
+      "command": "./Scripts/run-play-mode-tests.sh",
+      "exit_code": 0,
+      "xml_sha256": "958383bca7740b74e7fbf848800c8cf52364f85a0f19b3200bceeaebf9bf8baa",
+      "result": "Passed",
+      "total": "15",
+      "passed": "15",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-15 12:52:21Z",
+      "end-time": "2026-11-15 12:52:28Z",
+      "duration": "7.0051986"
+    }
+  },
+  "diff_check": {
+    "command": "git diff --check",
+    "exit_code": 0
+  },
+  "tested_source_sha256": {
+    "Assets/_Game/Scripts/Domain/ReactionKind.cs": "9cf330b9f7cea7e16acd579c2a956081c48cacf6097b4424293f32832ddf014f",
+    "Assets/_Game/Scripts/Domain/ReactionKind.cs.meta": "7ba9e74a30030301bbd25457bdbacc37b9d9d529ebb43b21eaf638e24463005c",
+    "Assets/_Game/Scripts/Domain/ReactionPayload.cs": "484fee7b1e36231d8319c45788b48bc69ff8d37c13798441879a2506f53e9036",
+    "Assets/_Game/Scripts/Domain/ReactionPayload.cs.meta": "ae0a65e6c0ca59b10d51306d907e94d667b3138418ffa812e2b30e9797833247",
+    "Assets/_Game/Scripts/Domain/ReactionDefinition.cs": "07f6e433c1906feea50b2ec9d7864402ed792c2f9a15b2cb7436d76fc5485ce6",
+    "Assets/_Game/Scripts/Domain/ReactionDefinition.cs.meta": "89c29c3fa3f3af904ebf164967946ca833d37b53d8758d61a9a2fe49c5dab794",
+    "Assets/_Game/Scripts/Domain/ReactionCatalog.cs": "5ce6dc9b5d0e4e7fa2005127e1b4402f8a0caecde994fe30ede6a19a75823919",
+    "Assets/_Game/Scripts/Domain/ReactionCatalog.cs.meta": "093d326889d3248306fb5d890a218f2e9864a776da5e12216928288bc953cfbd",
+    "Assets/_Game/Scripts/Domain/ReactionEvent.cs": "6b09afd8f064fa24d7802597152b09d4f8346cd8c8a7c40e8eeb7d82eba26a1e",
+    "Assets/_Game/Scripts/Domain/ReactionEvent.cs.meta": "dbe0ee47f303d082b0987b9d8b39327091fecb63792e17c81c8c4acbdc5f5ef0",
+    "Assets/_Game/Scripts/Domain/DamageResolvedEvent.cs": "6055334ad886c53f5d3380bc7266bfc37208bdde6adc38f2cac250310ab5b46f",
+    "Assets/_Game/Scripts/Domain/DamageResolvedEvent.cs.meta": "c9318c64ade0afbd9158406a8d2d6556cbe7e08750950003278b005fd3890572",
+    "Assets/_Game/Scripts/Domain/TowerDefinition.cs": "7533b30fe6e292938ef60ae4a06837af09c68cb78bc1f95c5d410bf8ac0e649c",
+    "Assets/_Game/Scripts/Domain/TowerArchetypeDefinition.cs": "731a44fdeb391e89b56a19be789750d56c13e01b09be782d8b0763f0e7cde69a",
+    "Assets/_Game/Tests/EditMode/BattleReactionDefinitionTests.cs": "0cfebd57299d0ab58e1906875cd6521f9ed4f85c81b93390e7e7dfc06cc2c195",
+    "Assets/_Game/Tests/EditMode/BattleReactionDefinitionTests.cs.meta": "8f45dd80f269335ec63951ac3cc0c35feeed3bd90613eb4a567ebaee8363fec0"
+  },
+  "not_verified": [
+    "Reaction runtime, arithmetic saturation, event producers and buffers",
+    "Production configs/hybrids/save integration/UI/VFX",
+    "Player build and physical iPhone",
+    "Unity CI, performance, playtests, balance approval"
+  ]
+}
