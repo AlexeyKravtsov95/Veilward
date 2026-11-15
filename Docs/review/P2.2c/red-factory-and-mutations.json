@@ -1,0 +1,58 @@
+{
+  "factoryRed": {
+    "totals": {
+      "total": 418,
+      "passed": 417,
+      "failed": 1,
+      "inconclusive": 0,
+      "skipped": 0
+    },
+    "xmlSha256": "3a31af13a5897b908472be98da5c372e271c71c53ec3c19e96eb63c30d9386b1",
+    "failures": [
+      {
+        "name": "RegBattle145_HistoricalFactoryExplicitEmptyAndInjectedCatalog",
+        "message": "  Missing historical test factory\n  Expected: not null\n  But was:  null\n"
+      }
+    ]
+  },
+  "nearestToFirstMutation": {
+    "totals": {
+      "total": 430,
+      "passed": 427,
+      "failed": 3,
+      "inconclusive": 0,
+      "skipped": 0
+    },
+    "xmlSha256": "9924c7afda4a87852fdd4e9f7aaba3939211e4f44816f8a1d4677ea378b2dd6c",
+    "failures": [
+      {
+        "name": "RegBattle139_SteamNearestThreeInclusiveRadiusAndEnemyIdTies",
+        "message": "  Expected is <System.Int32[4]>, actual is <System.Collections.Generic.List`1[System.Int32]> with 4 elements\n  Values differ at index [1]\n  Expected: 4\n  But was:  5\n"
+      },
+      {
+        "name": "RegBattle140_StormFoldedPathNearestBeatsFirstAndSecondHopLeavesPrimaryRange",
+        "message": "  Expected is <System.Int32[2]>, actual is <System.Collections.Generic.List`1[System.Int32]> with 1 elements\n  Values differ at index [0]\n  Expected: 2\n  But was:  3\n"
+      },
+      {
+        "name": "RegBattle141_StormSkipsDeadLeakedLockedAndVisitedWithIdTie",
+        "message": "  Expected is <System.Int32[2]>, actual is <System.Collections.Generic.List`1[System.Int32]> with 2 elements\n  Values differ at index [0]\n  Expected: 4\n  But was:  5\n"
+      }
+    ]
+  },
+  "floatRoundingMutation": {
+    "totals": {
+      "total": 430,
+      "passed": 429,
+      "failed": 1,
+      "inconclusive": 0,
+      "skipped": 0
+    },
+    "xmlSha256": "5fa2741f46b104fb026d33b8f64c5d66b2daa85b0b170987cf9efe126df3949d",
+    "failures": [
+      {
+        "name": "RegBattle139_DoubleConversionBeforeSubtractionRejectsRoundedOutsideBoundary",
+        "message": "  Expected: 1\n  But was:  2\n"
+      }
+    ]
+  }
+}

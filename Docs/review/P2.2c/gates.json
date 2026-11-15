@@ -1,0 +1,63 @@
+{
+  "sourceCommit": "df3ba4614e82e873414576c498eaeebeea5e5ffa",
+  "rulesLabel": "p2.2-steam-storm-v1",
+  "productionReactionsEnabled": false,
+  "environment": {
+    "unity": "6000.3.28f1 (8f082d2fe476)",
+    "macOS": "27.0.1 (26A434)",
+    "architecture": "arm64",
+    "buildTarget": "iOS",
+    "testRuntime": "Editor/Mono, batchmode, nographics",
+    "clientTimezone": "Asia/Novosibirsk"
+  },
+  "static": {
+    "command": "./Scripts/run-static-checks.sh",
+    "total": 38,
+    "passed": 38,
+    "result": "PASS",
+    "logSha256": "e991702bcd33655fde8cdc3d07329573c8e33e3efd92ef96bd5dc467e9ba5f45"
+  },
+  "unity": {
+    "EditMode": {
+      "command": "./Scripts/run-edit-mode-tests.sh",
+      "backend": "batch",
+      "totals": {
+        "total": 430,
+        "passed": 430,
+        "failed": 0,
+        "inconclusive": 0,
+        "skipped": 0
+      },
+      "startUtc": "2026-11-15 13:59:19Z",
+      "endUtc": "2026-11-15 13:59:32Z",
+      "xmlSha256": "2141eaaeb7d42f641fc237dfeeb6f94bf43d801508ad2c1365ef26c91ab431f4",
+      "logSha256": "99e9396a8a2fdf64e8f9782ce940ebf6ada99af42de340327ea606212659b457"
+    },
+    "PlayMode": {
+      "command": "./Scripts/run-play-mode-tests.sh",
+      "backend": "batch",
+      "totals": {
+        "total": 15,
+        "passed": 15,
+        "failed": 0,
+        "inconclusive": 0,
+        "skipped": 0
+      },
+      "startUtc": "2026-11-15 13:59:41Z",
+      "endUtc": "2026-11-15 13:59:49Z",
+      "xmlSha256": "819e13c541f9140aa352cfcbffcc269984047fdc47f2209f4fcf819db508bbe2",
+      "logSha256": "21f4eb00203a3c1d1cb4780b5bc6f4b63a5187fb40e67cd3756ecc74cdc67220"
+    }
+  },
+  "diffCheck": {
+    "command": "git diff --check",
+    "exitCode": 0
+  },
+  "protectedPaths": {
+    "command": "git diff --exit-code origin/main -- Assets/_Game/Configs Assets/_Game/Scenes Assets/_Game/Prefabs Assets/_Game/Art Assets/Settings Packages ProjectSettings Docs/review/P2.1e",
+    "exitCode": 0
+  },
+  "historicalJsonByteComparison": "PASS",
+  "newReactionTestCases": 52,
+  "addedCodeKnownSecretPatterns": "0 matches; дополнительно source review"
+}

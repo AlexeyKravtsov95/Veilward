@@ -143,6 +143,16 @@ Schema 2 сохраняет тип/уровень/вложения/cooldown/next
 
 P2.1e **ожидает независимого review/merge**: `BattleElementalReplayTests` использует сохранённый EightWave/shared TestWave, реальные 150 Gold/20 HP и public API. Повторные полные timelines, статусы, public AttackEvents, выводимые из due Burn смерти и дальнейший replay после файлового Continue совпадают. Зафиксирован Defeat на волне 8, tick 3997, HP 0/Gold 112/Kills 46, 8 DoT kills; баланс не изменялся. [Измерения и ограничения](review/P2.1e/balance-review.md), [проверяемый JSON](review/P2.1e/replay-summary.json); REG-BATTLE-125…127. Это Editor regression evidence, не physical iPhone/performance/balance approval.
 
+### P2.2c: additive runtime и damage telemetry
+
+`BattleSimulation` принимает optional `ReactionCatalog` в catalog constructors (null — совместимый Empty). Все уровни с intrinsic payload требуют соответствующую global definition, включая compatibility constructors. Production config пока передаёт Empty; отдельный internal `BattleScenarioConfig.CreateSimulation(ReactionCatalog)` доступен через friend assembly только EditMode tests. Только explicit Empty test path выбирает неизменённые basic+legacy objects из validated каталога; все пути historical P2.1e replay используют его.
+
+Primary attack: direct HP damage → `DamageResolvedEvent` → обычный status только выжившей цели → синхронный `ReactionResolver` → tower cooldown/прежний `AttackEvent`. Lethal direct не расходует reaction window. Incoming Burn допускает Steam, Wet — Steam, затем Storm fallback, Gust — Storm; intrinsic допускает только свой вид. STONE, DoT и secondary не входят в resolver. Реакция не потребляет/обновляет статусы.
+
+Resolver переиспользует буфер максимум четырёх целей/позиций. Steam: primary + nearest три по Euclidean distance²/EnemyId, inclusive 1.25; Storm: максимум два дополнительных greedy hop по inclusive 2.0 от предыдущего узла, вся цепь планируется до damage. Nullable read-only timestamps per enemy/kind резервируются всем участникам до damage; разница ticks проверяет окно 60 без сложения. Secondary: long scale/floor и saturation, armor с Crack, min 1, HP clamp; Gust/penetration/statuses/recursion отсутствуют. Death/removal/rewards/bonus остаются едиными.
+
+Reused read-only `ReactionEvents`/`DamageEvents` хранят captured positions, configured/raw/resolved/applied damage и общий zero-based sequence на Step; reaction hits коррелируют по sequence инициирующего event. Burn публикуется до Movement/expiry, со старым SourceTowerId даже без башни. Явные `ClearReactionEvents()`/`ClearDamageEvents()` не меняют State; нет auto-clear между Step. SceneController пока отбрасывает новую telemetry без отображения и очищает все потоки в одном `finally` после каждого Step. Успешный Restore очищает потоки/sequence вместе со сменой State; rejected Restore ничего не меняет. Формат checkpoint и старый AttackEvent не изменены. [REG-132…145/evidence](review/P2.2c/README.md).
+
 ### P0.3 quality gates contract
 
 `Scripts/check_unity_project.py` — независимый stdlib gate для Unity version/revision, direct package baseline/lock, paired/orphan `.meta`, 32-hex GUID, duplicate GUID и Assembly Definitions. `Veilward.Domain` сохраняет `noEngineReferences: true`; Editor и EditMode test assemblies остаются Editor-only, PlayMode test assembly может компилироваться для player test targets.

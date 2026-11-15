@@ -108,6 +108,12 @@ Burn наносит DoT, Wet замедляет движение, Gust усил�
 
 Сохранено визуальное evidence P2.1d: [каталог](Docs/review/P2.1d/01-catalog.png), [preview](Docs/review/P2.1d/02-preview.png), [статус в бою](Docs/review/P2.1d/03-status-combat.png), [Upgrade](Docs/review/P2.1d/04-upgraded-panel.png), [Sell](Docs/review/P2.1d/05-sell-confirmation.png), [Continue](Docs/review/P2.1d/06-continued-tower.png), [QA log](Docs/review/P2.1d/qa.log). Новые визуальные изменения в P2.1e отсутствуют. Editor tests/screenshots не подтверждают iPhone, реальные touch/safe area/background, производительность или готовность баланса.
 
+## P2.2c: runtime реакций (без production включения)
+
+Pure C# `ReactionResolver` разрешает Steam/Storm после direct damage event и обычного статуса выжившей primary. Он планирует ограниченный набор целей, резервирует общие primary/secondary окна по виду на 60 ticks, затем наносит secondary damage через long floor/saturation и armor/Crack. Смерти и награды остаются в существующем pipeline. `EnemyState.LastSteamTick/LastStormTick` доступны только для чтения.
+
+`BattleSimulation` принимает optional `ReactionCatalog`, сохраняет прежние constructors и предоставляет read-only `ReactionEvents`/`DamageEvents` с явными clear methods. `BattleSceneController` очищает все три потока в `finally` после каждого fixed Step; новая telemetry пока отбрасывается без VFX. Успешный Restore очищает transient state, rejected Restore его сохраняет. Public config пока использует Empty; internal factory с явным Empty сохраняет historical P2.1e fixture. Saved configs, сцены, UI, schema и баланс не менялись. [Проверки и ограничения](Docs/review/P2.2c/README.md); независимый PR review обязателен до merge.
+
 ## Настройки репозитория
 
 - Asset Serialization: **Force Text**.

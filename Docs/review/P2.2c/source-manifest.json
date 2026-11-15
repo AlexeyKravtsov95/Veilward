@@ -1,0 +1,34 @@
+{
+  "testedCommit": "df3ba4614e82e873414576c498eaeebeea5e5ffa",
+  "baseCommit": "2b75d2172e2ad1eb38ac1a4b47bf01b76c290cd5",
+  "sourceTreeGitIds": {
+    "Assets/_Game/Scripts": "2288104c30d38c33b938edfaa792c5e88b4610b6",
+    "Assets/_Game/Tests": "7534008103be18047cc1efe6ff68181e8f029b59",
+    "Assets/_Game/Configs": "825788ed07a5a52a2cb008907efe19330896f955",
+    "Packages": "b65db5755220f30fc7fc670e9500944e03d1ae82",
+    "ProjectSettings": "440b100237428f8ec6b59f8e226b7ecead7ba6e7"
+  },
+  "changedSourceSha256": {
+    "Assets/_Game/Scripts/AssemblyInfo.cs": "4293db4e1b64f2009a26127285e9fd01ac2953e9ea715b1d5dcae362d93f31b0",
+    "Assets/_Game/Scripts/AssemblyInfo.cs.meta": "b22819954533e31cc03d93e01ac502d481cc05ff0a2306a7bdacaebf052e71ea",
+    "Assets/_Game/Scripts/Domain/BattleSimulation.cs": "e962ae55c48fabb2f0998d36ba473aa3a00e0f6a74a94ef64458acf9014967a1",
+    "Assets/_Game/Scripts/Domain/EnemyState.cs": "2088466781dcc4f830f697e3098754ad548a55ab0ed4645e9d642a4152e92e03",
+    "Assets/_Game/Scripts/Domain/ReactionResolver.cs": "b839f38bcbb427e321bf36b802a2b1ce38edade768f38e3471281f0bb0b1310b",
+    "Assets/_Game/Scripts/Domain/ReactionResolver.cs.meta": "a31c7e6835ab4582ef0d8c797ce8ae01e7e605c07b94413592bac3d7d827cb31",
+    "Assets/_Game/Scripts/Presentation/BattleScenarioConfig.cs": "8ffba689d366c6a14f4a1d361e3736a9a05d0b305c6f678ef14a256fd10b5138",
+    "Assets/_Game/Scripts/Presentation/BattleSceneController.cs": "aea954698cf6b54b527dcd7427f66e15a601ee429ed1b061b7f0203a5f46e43d",
+    "Assets/_Game/Tests/EditMode/BattleElementalReplayTests.cs": "8bf7e4be1618edc3e2915f99bc6cb69cd9e0100ace08ce909fa1bfda2ac8c4c7",
+    "Assets/_Game/Tests/EditMode/BattleReactionEventTests.cs": "ba62167f9c1f646d3facd35fda84493e62ac05df15de13dc22853eeb3d51bbb5",
+    "Assets/_Game/Tests/EditMode/BattleReactionEventTests.cs.meta": "ad81714c6556b8c8b650d7b2ebbe8307cdf058c77cbcf1bff764a90452e54609",
+    "Assets/_Game/Tests/EditMode/BattleReactionTests.cs": "bde4bad2c931f0a204955eebddffcd2660564fd105c354c7308bfdf3cbd158c0",
+    "Assets/_Game/Tests/EditMode/BattleReactionTests.cs.meta": "ae269f0ec3aac0b0367d242ad3462a7282a0f13df8e0550adbb2103c1764656f"
+  },
+  "configSha256": {
+    "Assets/_Game/Configs/EightWave.asset": "e8ae4a9278569c41d4264790485e5e9f0b63aa3d02aeac26b7bf08a3b1610ff3",
+    "Assets/_Game/Configs/TestWave.asset": "d1179d7f0157c4422e0dfee5cef7618d862fe60d24438bcf00b8facf9de1ccc4"
+  },
+  "historicalEvidenceSha256": {
+    "Docs/review/P2.1e/balance-review.md": "e26fc449792fe21bba139d34506fc0b00a6be5c5c2f7b2f5af9706eccbaac46b",
+    "Docs/review/P2.1e/replay-summary.json": "1c8fc2523b2f7bbcef6c53984401edc9904be68d75cd4465224d190857db4f57"
+  }
+}
