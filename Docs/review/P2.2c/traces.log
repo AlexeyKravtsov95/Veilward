@@ -1,0 +1,123 @@
+# NUnit TestContext output; промежуточные direct-only ticks опущены. Полный вывод — повтор EditMode suite.
+
+## RegBattle145_MixedLethalOriginsPayOnceAndDefeatSuppressesBonus(False,32)
+TRACE mixed-lethal-defeat-False tick=1 phase=Victory hp=20 gold=32 kills=4
+reaction tick=1 seq=3 kind=Steam trigger=StatusPair source=2 primary=1
+damage tick=1 seq=0 origin=Burn source=99 victim=2 from=(4.75,0) to=(4.75,0) base=3 raw=3 resolved=3 applied=3 hp=0 lethal=True reaction= correlation= hit=0
+damage tick=1 seq=1 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=15 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=2 origin=Direct source=2 victim=1 from=(1,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=5 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=4 origin=Reaction source=2 victim=1 from=(5,0) to=(5,0) base=10 raw=10 resolved=10 applied=5 hp=0 lethal=True reaction=Steam correlation=3 hit=0
+damage tick=1 seq=5 origin=Reaction source=2 victim=3 from=(5,0) to=(4.5,0) base=10 raw=10 resolved=10 applied=7 hp=0 lethal=True reaction=Steam correlation=3 hit=1
+damage tick=1 seq=6 origin=Reaction source=2 victim=4 from=(5,0) to=(4,0) base=10 raw=10 resolved=10 applied=10 hp=90 lethal=False reaction=Steam correlation=3 hit=2
+damage tick=1 seq=7 origin=Direct source=3 victim=4 from=(2,2) to=(4,0) base=100 raw=100 resolved=100 applied=90 hp=0 lethal=True reaction= correlation= hit=0
+
+## RegBattle145_MixedLethalOriginsPayOnceAndDefeatSuppressesBonus(True,22)
+TRACE mixed-lethal-defeat-True tick=1 phase=Defeat hp=0 gold=22 kills=4
+reaction tick=1 seq=3 kind=Steam trigger=StatusPair source=2 primary=1
+damage tick=1 seq=0 origin=Burn source=99 victim=2 from=(4.75,0) to=(4.75,0) base=3 raw=3 resolved=3 applied=3 hp=0 lethal=True reaction= correlation= hit=0
+damage tick=1 seq=1 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=15 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=2 origin=Direct source=2 victim=1 from=(1,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=5 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=4 origin=Reaction source=2 victim=1 from=(5,0) to=(5,0) base=10 raw=10 resolved=10 applied=5 hp=0 lethal=True reaction=Steam correlation=3 hit=0
+damage tick=1 seq=5 origin=Reaction source=2 victim=3 from=(5,0) to=(4.5,0) base=10 raw=10 resolved=10 applied=7 hp=0 lethal=True reaction=Steam correlation=3 hit=1
+damage tick=1 seq=6 origin=Reaction source=2 victim=4 from=(5,0) to=(4,0) base=10 raw=10 resolved=10 applied=10 hp=90 lethal=False reaction=Steam correlation=3 hit=2
+damage tick=1 seq=7 origin=Direct source=3 victim=4 from=(2,2) to=(4,0) base=100 raw=100 resolved=100 applied=90 hp=0 lethal=True reaction= correlation= hit=0
+
+## RegBattle132_133_BothPairOrders(Burn,Wet,Steam,970)
+TRACE pair-Burn-Wet tick=1 phase=Combat hp=20 gold=0 kills=0
+enemy=1 hp=970 Steam=1 Storm=
+enemy=2 hp=990 Steam=1 Storm=
+reaction tick=1 seq=2 kind=Steam trigger=StatusPair source=2 primary=1
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=990 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=1 origin=Direct source=2 victim=1 from=(1,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=980 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=3 origin=Reaction source=2 victim=1 from=(5,0) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=970 lethal=False reaction=Steam correlation=2 hit=0
+damage tick=1 seq=4 origin=Reaction source=2 victim=2 from=(5,0) to=(4.5,0) base=10 raw=10 resolved=10 applied=10 hp=990 lethal=False reaction=Steam correlation=2 hit=1
+
+## RegBattle132_133_BothPairOrders(Wet,Burn,Steam,970)
+TRACE pair-Wet-Burn tick=1 phase=Combat hp=20 gold=0 kills=0
+enemy=1 hp=970 Steam=1 Storm=
+enemy=2 hp=990 Steam=1 Storm=
+reaction tick=1 seq=2 kind=Steam trigger=StatusPair source=2 primary=1
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=990 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=1 origin=Direct source=2 victim=1 from=(1,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=980 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=3 origin=Reaction source=2 victim=1 from=(5,0) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=970 lethal=False reaction=Steam correlation=2 hit=0
+damage tick=1 seq=4 origin=Reaction source=2 victim=2 from=(5,0) to=(4.5,0) base=10 raw=10 resolved=10 applied=10 hp=990 lethal=False reaction=Steam correlation=2 hit=1
+
+## RegBattle132_133_BothPairOrders(Wet,Gust,Storm,980)
+TRACE pair-Wet-Gust tick=1 phase=Combat hp=20 gold=0 kills=0
+enemy=1 hp=980 Steam= Storm=1
+enemy=2 hp=993 Steam= Storm=1
+reaction tick=1 seq=2 kind=Storm trigger=StatusPair source=2 primary=1
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=990 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=1 origin=Direct source=2 victim=1 from=(1,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=980 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=3 origin=Reaction source=2 victim=2 from=(5,0) to=(4.5,0) base=10 raw=7 resolved=7 applied=7 hp=993 lethal=False reaction=Storm correlation=2 hit=1
+
+## RegBattle132_133_BothPairOrders(Gust,Wet,Storm,978)
+TRACE pair-Gust-Wet tick=1 phase=Combat hp=20 gold=0 kills=0
+enemy=1 hp=978 Steam= Storm=1
+enemy=2 hp=993 Steam= Storm=1
+reaction tick=1 seq=2 kind=Storm trigger=StatusPair source=2 primary=1
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=990 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=1 origin=Direct source=2 victim=1 from=(1,2) to=(5,0) base=10 raw=10 resolved=12 applied=12 hp=978 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=3 origin=Reaction source=2 victim=2 from=(5,0) to=(4.5,0) base=10 raw=7 resolved=7 applied=7 hp=993 lethal=False reaction=Storm correlation=2 hit=1
+
+## RegBattle136_FirstProcAndExactCooldownBoundary(Steam)
+TRACE Steam-t+59 tick=60 phase=Combat hp=20 gold=0 kills=0
+enemy=1 hp=9390 Steam=1 Storm=
+enemy=2 hp=9990 Steam=1 Storm=
+reaction tick=1 seq=1 kind=Steam trigger=StatusPair source=1 primary=1
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=9990 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=2 origin=Reaction source=1 victim=1 from=(5,0) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=9980 lethal=False reaction=Steam correlation=1 hit=0
+damage tick=1 seq=3 origin=Reaction source=1 victim=2 from=(5,0) to=(4.5,0) base=10 raw=10 resolved=10 applied=10 hp=9990 lethal=False reaction=Steam correlation=1 hit=1
+damage tick=60 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=9390 lethal=False reaction= correlation= hit=0
+TRACE Steam-t+60 tick=61 phase=Combat hp=20 gold=0 kills=0
+enemy=1 hp=9370 Steam=61 Storm=
+enemy=2 hp=9980 Steam=61 Storm=
+reaction tick=1 seq=1 kind=Steam trigger=StatusPair source=1 primary=1
+reaction tick=61 seq=1 kind=Steam trigger=StatusPair source=1 primary=1
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=9990 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=2 origin=Reaction source=1 victim=1 from=(5,0) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=9980 lethal=False reaction=Steam correlation=1 hit=0
+damage tick=1 seq=3 origin=Reaction source=1 victim=2 from=(5,0) to=(4.5,0) base=10 raw=10 resolved=10 applied=10 hp=9990 lethal=False reaction=Steam correlation=1 hit=1
+damage tick=61 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=9380 lethal=False reaction= correlation= hit=0
+damage tick=61 seq=2 origin=Reaction source=1 victim=1 from=(5,0) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=9370 lethal=False reaction=Steam correlation=1 hit=0
+damage tick=61 seq=3 origin=Reaction source=1 victim=2 from=(5,0) to=(4.5,0) base=10 raw=10 resolved=10 applied=10 hp=9980 lethal=False reaction=Steam correlation=1 hit=1
+
+## RegBattle136_FirstProcAndExactCooldownBoundary(Storm)
+TRACE Storm-t+59 tick=60 phase=Combat hp=20 gold=0 kills=0
+enemy=1 hp=9282 Steam= Storm=1
+enemy=2 hp=9993 Steam= Storm=1
+reaction tick=1 seq=1 kind=Storm trigger=StatusPair source=1 primary=1
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=9990 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=2 origin=Reaction source=1 victim=2 from=(5,0) to=(4.5,0) base=10 raw=7 resolved=7 applied=7 hp=9993 lethal=False reaction=Storm correlation=1 hit=1
+damage tick=60 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=12 applied=12 hp=9282 lethal=False reaction= correlation= hit=0
+TRACE Storm-t+60 tick=61 phase=Combat hp=20 gold=0 kills=0
+enemy=1 hp=9270 Steam= Storm=61
+enemy=2 hp=9986 Steam= Storm=61
+reaction tick=1 seq=1 kind=Storm trigger=StatusPair source=1 primary=1
+reaction tick=61 seq=1 kind=Storm trigger=StatusPair source=1 primary=1
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=9990 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=2 origin=Reaction source=1 victim=2 from=(5,0) to=(4.5,0) base=10 raw=7 resolved=7 applied=7 hp=9993 lethal=False reaction=Storm correlation=1 hit=1
+damage tick=61 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=12 applied=12 hp=9270 lethal=False reaction= correlation= hit=0
+damage tick=61 seq=2 origin=Reaction source=1 victim=2 from=(5,0) to=(4.5,0) base=10 raw=7 resolved=7 applied=7 hp=9986 lethal=False reaction=Storm correlation=1 hit=1
+
+## RegBattle140_StormPlansChainBeforeLethalIntermediateAndCapturesPreviousOrigin
+TRACE storm-lethal-chain tick=1 phase=Combat hp=20 gold=5 kills=1
+enemy=1 hp=990 Steam= Storm=1
+enemy=3 hp=993 Steam= Storm=1
+enemy=4 hp=1000 Steam= Storm=
+reaction tick=1 seq=1 kind=Storm trigger=StatusPair source=1 primary=1
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=990 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=2 origin=Reaction source=1 victim=2 from=(5,0) to=(3,0) base=10 raw=7 resolved=7 applied=7 hp=0 lethal=True reaction=Storm correlation=1 hit=1
+damage tick=1 seq=3 origin=Reaction source=1 victim=3 from=(3,0) to=(1,0) base=10 raw=7 resolved=7 applied=7 hp=993 lethal=False reaction=Storm correlation=1 hit=2
+
+## RegBattle141_StormZeroOrOneNeighborDoesNotInventHits(0)
+TRACE storm-neighbors-0 tick=1 phase=Combat hp=20 gold=0 kills=0
+enemy=1 hp=990 Steam= Storm=
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=990 lethal=False reaction= correlation= hit=0
+
+## RegBattle141_StormZeroOrOneNeighborDoesNotInventHits(1)
+TRACE storm-neighbors-1 tick=1 phase=Combat hp=20 gold=0 kills=0
+enemy=1 hp=990 Steam= Storm=1
+enemy=2 hp=993 Steam= Storm=1
+reaction tick=1 seq=1 kind=Storm trigger=StatusPair source=1 primary=1
+damage tick=1 seq=0 origin=Direct source=1 victim=1 from=(0,2) to=(5,0) base=10 raw=10 resolved=10 applied=10 hp=990 lethal=False reaction= correlation= hit=0
+damage tick=1 seq=2 origin=Reaction source=1 victim=2 from=(5,0) to=(3,0) base=10 raw=7 resolved=7 applied=7 hp=993 lethal=False reaction=Storm correlation=1 hit=1

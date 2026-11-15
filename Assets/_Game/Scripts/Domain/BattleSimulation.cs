@@ -11,6 +11,10 @@ namespace Veilward.Domain
         private readonly bool _legacySingleWave;
         private readonly int _initialBaseHealth;
         private readonly List<AttackEvent> _attackEvents = new List<AttackEvent>();
+        private readonly List<ReactionEvent> _reactionEvents = new List<ReactionEvent>(32);
+        private readonly List<DamageResolvedEvent> _damageEvents = new List<DamageResolvedEvent>(128);
+        private readonly ReactionResolver _reactionResolver = new ReactionResolver();
+        private int _sequenceInTick;
         private int _nextEnemyId = 1;
         private int _nextTowerId = 1;
         private int _nextSpawnIndex;
@@ -108,7 +112,8 @@ namespace Veilward.Domain
             WaveDefinition wave,
             TowerCatalog towerCatalog,
             int baseHealth,
-            int startingGold)
+            int startingGold,
+            ReactionCatalog reactionCatalog = null)
             : this(
                 map,
                 path,
@@ -117,7 +122,8 @@ namespace Veilward.Domain
                 baseHealth,
                 startingGold,
                 waveCompletionBonus: 0,
-                legacySingleWave: true)
+                legacySingleWave: true,
+                reactionCatalog)
         {
         }
 
@@ -128,7 +134,8 @@ namespace Veilward.Domain
             TowerCatalog towerCatalog,
             int baseHealth,
             int startingGold,
-            int waveCompletionBonus)
+            int waveCompletionBonus,
+            ReactionCatalog reactionCatalog = null)
             : this(
                 map,
                 path,
@@ -137,7 +144,8 @@ namespace Veilward.Domain
                 baseHealth,
                 startingGold,
                 waveCompletionBonus,
-                legacySingleWave: false)
+                legacySingleWave: false,
+                reactionCatalog)
         {
         }
 
@@ -170,7 +178,8 @@ namespace Veilward.Domain
             int baseHealth,
             int startingGold,
             int waveCompletionBonus,
-            bool legacySingleWave)
+            bool legacySingleWave,
+            ReactionCatalog reactionCatalog = null)
         {
             if (map == null)
             {
@@ -196,6 +205,21 @@ namespace Veilward.Domain
 
             _path = path ?? throw new ArgumentNullException(nameof(path));
             TowerCatalog = towerCatalog ?? throw new ArgumentNullException(nameof(towerCatalog));
+            ReactionCatalog = reactionCatalog ?? ReactionCatalog.Empty;
+            for (var archetypeIndex = 0; archetypeIndex < towerCatalog.Archetypes.Count; archetypeIndex++)
+            {
+                var levels = towerCatalog.Archetypes[archetypeIndex].Levels;
+                for (var levelIndex = 0; levelIndex < levels.Count; levelIndex++)
+                {
+                    var intrinsic = levels[levelIndex].IntrinsicReaction;
+                    if (intrinsic != null && !ReactionCatalog.TryGet(intrinsic.Kind, out _))
+                    {
+                        throw new ArgumentException(
+                            "Intrinsic reaction requires a matching global definition.", nameof(reactionCatalog));
+                    }
+                }
+            }
+
             TowerLevels = towerCatalog.Archetypes[0].Levels;
             _waves = new WaveDefinition[waves.Count];
             for (var index = 0; index < waves.Count; index++)
@@ -211,6 +235,8 @@ namespace Veilward.Domain
             Grid = new BattleGrid(map, path);
             State = BattleState.CreateInitial(baseHealth, startingGold, _waves.Length);
             AttackEvents = _attackEvents.AsReadOnly();
+            ReactionEvents = _reactionEvents.AsReadOnly();
+            DamageEvents = _damageEvents.AsReadOnly();
         }
 
         public BattleState State { get; private set; }
@@ -220,6 +246,9 @@ namespace Veilward.Domain
         public IReadOnlyList<TowerDefinition> TowerLevels { get; }
         public TowerDefinition TowerDefinition => TowerLevels[0];
         public IReadOnlyList<AttackEvent> AttackEvents { get; }
+        public ReactionCatalog ReactionCatalog { get; }
+        public IReadOnlyList<ReactionEvent> ReactionEvents { get; }
+        public IReadOnlyList<DamageResolvedEvent> DamageEvents { get; }
         private WaveDefinition CurrentWave => _waves[State.WaveIndex];
 
         public BattleCheckpoint ExportCheckpoint()
@@ -255,6 +284,9 @@ namespace Veilward.Domain
             _nextSpawnIndex = 0;
             _waveStartTick = checkpoint.tick;
             _attackEvents.Clear();
+            _reactionEvents.Clear();
+            _damageEvents.Clear();
+            _sequenceInTick = 0;
         }
 
         private bool TryBuildRestoredState(
@@ -610,6 +642,7 @@ namespace Veilward.Domain
                 return;
             }
 
+            _sequenceInTick = 0;
             State.AdvanceTick();
             SpawnDueEnemies();
             ProcessStatusDamageAndExpiry();
@@ -636,6 +669,16 @@ namespace Veilward.Domain
             _attackEvents.Clear();
         }
 
+        public void ClearReactionEvents()
+        {
+            _reactionEvents.Clear();
+        }
+
+        public void ClearDamageEvents()
+        {
+            _damageEvents.Clear();
+        }
+
         private void ProcessStatusDamageAndExpiry()
         {
             // Spawn и удаление сохраняют возрастание EnemyId в этом списке.
@@ -643,10 +686,16 @@ namespace Veilward.Domain
             {
                 var enemy = State.Enemies[index];
                 var burn = enemy.Burn;
-                if (burn != null && burn.NextDamageTick == State.Tick)
+                if (enemy.IsAlive && burn != null && burn.NextDamageTick == State.Tick)
                 {
-                    var effectiveArmor = EffectiveArmor(enemy);
-                    enemy.ApplyDamage(ApplyArmor(burn.Power, effectiveArmor, penetration: 0));
+                    var position = _path.GetPosition(enemy.DistanceAlongPath);
+                    var resolved = ApplyArmor(burn.Power, EffectiveArmor(enemy), penetration: 0);
+                    var healthBefore = enemy.Health;
+                    var wasLethal = enemy.ApplyDamage(resolved);
+                    _damageEvents.Add(new DamageResolvedEvent(
+                        State.Tick, _sequenceInTick++, DamageOrigin.Burn, burn.SourceTowerId, enemy.Id,
+                        position, position, burn.Power, burn.Power, resolved,
+                        healthBefore - enemy.Health, enemy.Health, wasLethal, null, null, 0));
                     burn.ScheduleNextDamage(State.Tick);
                 }
 
@@ -712,10 +761,21 @@ namespace Veilward.Domain
                     EffectiveArmor(target),
                     tower.Definition.ArmorPenetration);
                 var directDamage = ApplyGust(afterArmor, target.Gust);
+                var healthBefore = target.Health;
                 var wasLethal = target.ApplyDamage(directDamage);
-                if (!wasLethal && tower.Definition.StatusEffect != null)
+                _damageEvents.Add(new DamageResolvedEvent(
+                    State.Tick, _sequenceInTick++, DamageOrigin.Direct, tower.Id, target.Id,
+                    center, targetPosition, tower.Definition.Damage, tower.Definition.Damage, directDamage,
+                    healthBefore - target.Health, target.Health, wasLethal, null, null, 0));
+                if (!wasLethal)
                 {
-                    target.ApplyStatus(tower.Definition.StatusEffect, tower.Id, State.Tick);
+                    if (tower.Definition.StatusEffect != null)
+                    {
+                        target.ApplyStatus(tower.Definition.StatusEffect, tower.Id, State.Tick);
+                    }
+
+                    _reactionResolver.TryResolve(State, _path, tower, target, targetPosition,
+                        ReactionCatalog, _reactionEvents, _damageEvents, ref _sequenceInTick);
                 }
 
                 tower.MarkAttacked(State.Tick);

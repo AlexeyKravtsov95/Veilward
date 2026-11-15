@@ -314,6 +314,9 @@ namespace Veilward.Presentation
             finally
             {
                 _simulation.ClearAttackEvents();
+                // P2.2c пока не отображает новую telemetry; её lifetime уже ограничен одним Step.
+                _simulation.ClearReactionEvents();
+                _simulation.ClearDamageEvents();
             }
         }
 

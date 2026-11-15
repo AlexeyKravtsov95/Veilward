@@ -43,6 +43,21 @@ namespace Veilward.Domain
         public StatusInstance Gust => GetStatus(StatusKind.Gust);
         public StatusInstance Crack => GetStatus(StatusKind.Crack);
 
+        public long? LastSteamTick { get; private set; }
+        public long? LastStormTick { get; private set; }
+
+        internal void ReserveReaction(ReactionKind kind, long tick)
+        {
+            if (kind == ReactionKind.Steam)
+            {
+                LastSteamTick = tick;
+            }
+            else
+            {
+                LastStormTick = tick;
+            }
+        }
+
         internal void Advance(float distanceAlongPath)
         {
             if (distanceAlongPath < DistanceAlongPath || float.IsNaN(distanceAlongPath) || float.IsInfinity(distanceAlongPath))

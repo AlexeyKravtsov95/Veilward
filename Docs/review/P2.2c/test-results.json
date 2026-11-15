@@ -1,0 +1,400 @@
+{
+  "reports": {
+    "EditMode": {
+      "command": "./Scripts/run-edit-mode-tests.sh",
+      "backend": "batch",
+      "totals": {
+        "total": 430,
+        "passed": 430,
+        "failed": 0,
+        "inconclusive": 0,
+        "skipped": 0
+      },
+      "startUtc": "2026-11-15 13:59:19Z",
+      "endUtc": "2026-11-15 13:59:32Z",
+      "xmlSha256": "2141eaaeb7d42f641fc237dfeeb6f94bf43d801508ad2c1365ef26c91ab431f4",
+      "logSha256": "99e9396a8a2fdf64e8f9782ce940ebf6ada99af42de340327ea606212659b457"
+    },
+    "PlayMode": {
+      "command": "./Scripts/run-play-mode-tests.sh",
+      "backend": "batch",
+      "totals": {
+        "total": 15,
+        "passed": 15,
+        "failed": 0,
+        "inconclusive": 0,
+        "skipped": 0
+      },
+      "startUtc": "2026-11-15 13:59:41Z",
+      "endUtc": "2026-11-15 13:59:49Z",
+      "xmlSha256": "819e13c541f9140aa352cfcbffcc269984047fdc47f2209f4fcf819db508bbe2",
+      "logSha256": "21f4eb00203a3c1d1cb4780b5bc6f4b63a5187fb40e67cd3756ecc74cdc67220"
+    }
+  },
+  "fixtureTotals": {
+    "EditMode": {
+      "Veilward.Tests.EditMode.BattleAssetValidationTests": 11,
+      "Veilward.Tests.EditMode.BattleCheckpointControllerTests": 4,
+      "Veilward.Tests.EditMode.BattleCheckpointTests": 15,
+      "Veilward.Tests.EditMode.BattleCombatTests": 24,
+      "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(0": 1,
+      "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(1": 2,
+      "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(2": 1,
+      "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(30": 1,
+      "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(60": 1,
+      "Veilward.Tests.EditMode.BattleCombatVisualTests": 9,
+      "Veilward.Tests.EditMode.BattleElementalReplayTests": 3,
+      "Veilward.Tests.EditMode.BattleGameplayReplayTests": 3,
+      "Veilward.Tests.EditMode.BattleGridTests": 12,
+      "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(0,8,1": 1,
+      "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(-1,8,1": 1,
+      "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(12,0,1": 1,
+      "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(12,8,0": 1,
+      "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(12,8,-1": 1,
+      "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(12,8,float": 2,
+      "Veilward.Tests.EditMode.BattleGridTests.TryGetCoordinate_RespectsMapBoundaries(-6.5f,-4": 1,
+      "Veilward.Tests.EditMode.BattleGridTests.TryGetCoordinate_RespectsMapBoundaries(5.49f,3": 1,
+      "Veilward.Tests.EditMode.BattleGridTests.TryGetCoordinate_RespectsMapBoundaries(5.5f,0": 1,
+      "Veilward.Tests.EditMode.BattleGridTests.TryGetCoordinate_RespectsMapBoundaries(0.0f,3": 1,
+      "Veilward.Tests.EditMode.BattlePauseTests": 13,
+      "Veilward.Tests.EditMode.BattlePlacementVisualTests": 2,
+      "Veilward.Tests.EditMode.BattleReactionDefinitionTests": 48,
+      "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Definition_RejectsNonpositiveCooldown(int": 1,
+      "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Steam,int": 2,
+      "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Storm,int": 2,
+      "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsNonpositivePercent(Steam,int": 1,
+      "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsNonpositivePercent(Storm,int": 1,
+      "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsUnknownKind(int": 1,
+      "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DefinitionsAndEvents_ExposeOnlyImmutableData(Veilward.Domain": 5,
+      "Veilward.Tests.EditMode.BattleReactionEventTests": 12,
+      "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_ReactionKillsRewardAndWaveBonusExactlyOnce(2147483646,int": 1,
+      "Veilward.Tests.EditMode.BattleReactionTests": 38,
+      "Veilward.Tests.EditMode.BattleReactionTests.RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(int.MaxValue,int.MaxValue,0,0,7,int.MaxValue,int": 1,
+      "Veilward.Tests.EditMode.BattleRegressionTests": 5,
+      "Veilward.Tests.EditMode.BattleScenarioConfigTests": 7,
+      "Veilward.Tests.EditMode.BattleSceneBuilderTests": 5,
+      "Veilward.Tests.EditMode.BattleSellConfirmationTests": 5,
+      "Veilward.Tests.EditMode.BattleSimulationTests": 24,
+      "Veilward.Tests.EditMode.BattleStateTests": 5,
+      "Veilward.Tests.EditMode.BattleStatusEffectTests": 17,
+      "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests": 9,
+      "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle117_EachType_PreviewsAndPurchasesExactlyOnce(\"flame\",70,3.0f,\"Burn\",\"3 damage / 0": 1,
+      "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle117_EachType_PreviewsAndPurchasesExactlyOnce(\"tide\",60,3": 1,
+      "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle117_EachType_PreviewsAndPurchasesExactlyOnce(\"gale\",80,3": 1,
+      "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle117_EachType_PreviewsAndPurchasesExactlyOnce(\"stone\",90,2": 1,
+      "Veilward.Tests.EditMode.BattleTowerCatalogTests": 16,
+      "Veilward.Tests.EditMode.BattleTowerEconomyTests": 19,
+      "Veilward.Tests.EditMode.BattleTowerLevelConfigTests": 2,
+      "Veilward.Tests.EditMode.BattleWaveLifecycleTests": 12,
+      "Veilward.Tests.EditMode.EnemyDefinitionTests": 9,
+      "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_InvalidSpeed_Throws(0": 1,
+      "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_InvalidSpeed_Throws(-1": 1,
+      "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_InvalidSpeed_Throws(float": 2,
+      "Veilward.Tests.EditMode.EnemyStateTests": 6,
+      "Veilward.Tests.EditMode.GridCoordinateTests": 2,
+      "Veilward.Tests.EditMode.MainMenuControllerTests": 9,
+      "Veilward.Tests.EditMode.PathDefinitionTests": 4,
+      "Veilward.Tests.EditMode.PathGeometryTests": 3,
+      "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_NonFiniteDistance_Throws(float": 3,
+      "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_OutsidePath_ClampsToEndpoints(-1.0f,0.0f,0": 1,
+      "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_OutsidePath_ClampsToEndpoints(10.0f,2.0f,2": 1,
+      "Veilward.Tests.EditMode.ProjectBootstrapTests": 4,
+      "Veilward.Tests.EditMode.SimulationContractTests": 1,
+      "Veilward.Tests.EditMode.TowerPlacementTests": 16,
+      "Veilward.Tests.EditMode.WaveCheckpointStoreTests": 11
+    },
+    "PlayMode": {
+      "Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests": 3,
+      "Veilward.Tests.PlayMode.BattlePausePlayModeTests": 6,
+      "Veilward.Tests.PlayMode.BattleSellConfirmationPlayModeTests": 1,
+      "Veilward.Tests.PlayMode.BattleSmokeTests": 2,
+      "Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests": 3
+    }
+  },
+  "cases": {
+    "EditMode": [
+      {
+        "name": "Veilward.Tests.EditMode.BattleElementalReplayTests.RegBattle125_CheckpointContinueAndInterruptedCombat_MatchControl",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleElementalReplayTests.RegBattle125_MixedReplay_IsDeterministicThroughNaturalTerminal",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleElementalReplayTests.RegBattle126_CommittedBalanceEvidence_MatchesReplay",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_BurnPrecedesDirectWithAbsentSourceAndSequenceRestartsEachTick",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_DamageTelemetryKeepsConfiguredRawAndResolvedArmorModifiersSeparate",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_DirectThenReactionUsesSharedSequenceCorrelationAndCapturedPositions",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_SceneControllerClearsAllStreamsAfterEachStepIncludingConsumerException(False)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_SceneControllerClearsAllStreamsAfterEachStepIncludingConsumerException(True)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_SceneControllerUpdateRunsMultipleFixedStepsBeforeRenderAndDrainsStreams",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_ExplicitClearsKeepStateAndRejectedRestorePreservesTransientState",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_HistoricalFactoryExplicitEmptyAndInjectedCatalog",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_MixedLethalOriginsPayOnceAndDefeatSuppressesBonus(False,32)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_MixedLethalOriginsPayOnceAndDefeatSuppressesBonus(True,22)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_ReactionKillsRewardAndWaveBonusExactlyOnce(0,17)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_ReactionKillsRewardAndWaveBonusExactlyOnce(2147483646,int.MaxValue)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_SuccessfulRestoreClearsAllUnconsumedStreams",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_BothPairOrders(Burn,Wet,Steam,970)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_BothPairOrders(Wet,Burn,Steam,970)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_BothPairOrders(Wet,Gust,Storm,980)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_BothPairOrders(Gust,Wet,Storm,978)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_OneElementDoesNotProc(Burn)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_OneElementDoesNotProc(Wet)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_OneElementDoesNotProc(Gust)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle134_IncomingExpiredKindReappliesBeforeReactionWithoutConsumingComplement",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle134_StoneIgnoresReadyPairsAndExpiredComplementCannotProc",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle135_DueBurnKillsBeforeMovementAndNeverTriggersPairs",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle135_LethalDirectDoesNotProcOrReserveCooldown",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle136_CooldownNearLongLimitCannotWrapIntoReady",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle136_FirstProcAndExactCooldownBoundary(Steam)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle136_FirstProcAndExactCooldownBoundary(Storm)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle137_SecondaryCannotInitiateSameKindLaterInSameTick(Steam,4,980)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle137_SecondaryCannotInitiateSameKindLaterInSameTick(Storm,3,983)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle137_SecondarySharesPrimaryWindowAndOtherKindIsIndependent(Steam)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle137_SecondarySharesPrimaryWindowAndOtherKindIsIndependent(Storm)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle138_MissingSteamDefinitionAllowsStormFallback",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle138_SteamPriorityThenStormFallbackAndRestoredTowerIdOrder",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle139_DoubleConversionBeforeSubtractionRejectsRoundedOutsideBoundary",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle139_SteamExcludesLockedVictim",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle139_SteamNearestThreeInclusiveRadiusAndEnemyIdTies",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle140_FoldedPathUsesEuclideanRatherThanProgressDistance",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle140_StormFoldedPathNearestBeatsFirstAndSecondHopLeavesPrimaryRange",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle140_StormPlansChainBeforeLethalIntermediateAndCapturesPreviousOrigin",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle141_NoNeighborCanRetryNextTickWithoutCooldownConsumption",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle141_StormSkipsDeadLeakedLockedAndVisitedWithIdTie",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle141_StormZeroOrOneNeighborDoesNotInventHits(0)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle141_StormZeroOrOneNeighborDoesNotInventHits(1)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(6,75,5,2,1,4,1)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(25,125,5,2,7,31,28)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(int.MaxValue,int.MaxValue,0,0,7,int.MaxValue,int.MaxValue)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(1,1,10,0,1,1,1)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle144_HybridRequiresMatchingGlobalDefinitionIncludingCompatibilityConstructor",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle144_IntrinsicIgnoresForeignPairsAndDoesNotRefreshThem",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle144_IntrinsicOnlyRequestsOwnKindWithoutStatuses(Steam)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle144_IntrinsicOnlyRequestsOwnKindWithoutStatuses(Storm)",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle144_SecondaryDoesNotApplyRefreshStatusesOrRecurse",
+        "result": "Passed"
+      }
+    ],
+    "PlayMode": [
+      {
+        "name": "Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests.DirectBattle_DoesNotReadOrWriteCheckpointStore",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests.InterruptedCombat_MenuContinue_RestoresPreparationViewsAndClearsTransients",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests.WaveComplete_RepeatedMenuContinue_DoesNotDuplicateRewards",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_PauseClearsPendingActions",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_PausedCommandsAndButtons_CannotMutateMatch",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_PauseFreezesSimulationAcrossFrames",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_Reload_DoesNotDuplicatePauseListeners",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_Resume_ContinuesWithoutCatchUp",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_ResumeClick_DoesNotPassThroughOverlay",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattleSellConfirmationPlayModeTests.Battle_SellConfirmation_EnforcesModalContract",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattleSmokeTests.Battle_LoadsIntoPreparation",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattleSmokeTests.Battle_TowerEconomyFlow_UpgradesSellsAndRebuilds",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle120_CombatPauseAndPointers_BlockMutationAndClickThrough",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle121_LegacyContinue_MigratesAndKeepsHiddenCatalogAndEconomy",
+        "result": "Passed"
+      },
+      {
+        "name": "Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle123_CatalogStatusEconomyAndContinue_RestoresEveryType",
+        "result": "Passed"
+      }
+    ]
+  }
+}
