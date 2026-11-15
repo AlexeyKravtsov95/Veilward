@@ -1,0 +1,170 @@
+{
+  "base": "2b75d2172e2ad1eb38ac1a4b47bf01b76c290cd5",
+  "command": "./Scripts/run-edit-mode-tests.sh",
+  "totals": {
+    "id": "2",
+    "testcasecount": "415",
+    "result": "Failed(Child)",
+    "total": "415",
+    "passed": "378",
+    "failed": "37",
+    "inconclusive": "0",
+    "skipped": "0",
+    "asserts": "0",
+    "engine-version": "3.5.0.0",
+    "clr-version": "4.0.30319.42000",
+    "start-time": "2026-11-15 13:20:03Z",
+    "end-time": "2026-11-15 13:20:15Z",
+    "duration": "12.2615402"
+  },
+  "failures": [
+    {
+      "name": "RegBattle143_BurnPrecedesDirectWithAbsentSourceAndSequenceRestartsEachTick",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle143_DirectThenReactionUsesSharedSequenceCorrelationAndCapturedPositions",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle143_SceneControllerClearsAllStreamsAfterEachStepIncludingConsumerException(False)",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle143_SceneControllerClearsAllStreamsAfterEachStepIncludingConsumerException(True)",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle145_ExplicitClearsKeepStateAndRejectedRestorePreservesTransientState",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle145_ReactionKillsRewardAndWaveBonusExactlyOnce(0,17)",
+      "message": "  Expected: Victory\n  But was:  Combat\n"
+    },
+    {
+      "name": "RegBattle145_ReactionKillsRewardAndWaveBonusExactlyOnce(2147483646,int.MaxValue)",
+      "message": "  Expected: Victory\n  But was:  Combat\n"
+    },
+    {
+      "name": "RegBattle145_SuccessfulRestoreClearsAllUnconsumedStreams",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle132_133_BothPairOrders(Burn,Wet,Steam,970)",
+      "message": "  Expected: 970\n  But was:  980\n"
+    },
+    {
+      "name": "RegBattle132_133_BothPairOrders(Wet,Burn,Steam,970)",
+      "message": "  Expected: 970\n  But was:  980\n"
+    },
+    {
+      "name": "RegBattle132_133_BothPairOrders(Wet,Gust,Storm,980)",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle132_133_BothPairOrders(Gust,Wet,Storm,978)",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle132_133_OneElementDoesNotProc(Burn)",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle132_133_OneElementDoesNotProc(Wet)",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle132_133_OneElementDoesNotProc(Gust)",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle134_IncomingExpiredKindReappliesBeforeReactionWithoutConsumingComplement",
+      "message": "  Expected: 980\n  But was:  990\n"
+    },
+    {
+      "name": "RegBattle134_StoneIgnoresReadyPairsAndExpiredComplementCannotProc",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle135_DueBurnKillsBeforeMovementAndNeverTriggersPairs",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle135_LethalDirectDoesNotProcOrReserveCooldown",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle136_FirstProcAndExactCooldownBoundary(Steam)",
+      "message": "  Missing runtime API LastSteamTick\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle136_FirstProcAndExactCooldownBoundary(Storm)",
+      "message": "  Missing runtime API LastStormTick\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle137_SecondarySharesPrimaryWindowAndOtherKindIsIndependent(Steam)",
+      "message": "  Missing runtime API LastSteamTick\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle137_SecondarySharesPrimaryWindowAndOtherKindIsIndependent(Storm)",
+      "message": "  Missing runtime API LastStormTick\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle138_SteamPriorityThenStormFallbackAndRestoredTowerIdOrder",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle139_SteamNearestThreeInclusiveRadiusAndEnemyIdTies",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle140_StormPlansChainBeforeLethalIntermediateAndCapturesPreviousOrigin",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle141_StormSkipsDeadLeakedLockedAndVisitedWithIdTie",
+      "message": "  Missing cooldown state\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle141_StormZeroOrOneNeighborDoesNotInventHits(0)",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle141_StormZeroOrOneNeighborDoesNotInventHits(1)",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(6,75,5,2,1,4,1)",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(25,125,5,2,7,31,28)",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(int.MaxValue,int.MaxValue,0,0,7,int.MaxValue,int.MaxValue)",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(1,1,10,0,1,1,1)",
+      "message": "  Missing runtime API DamageEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle144_HybridRequiresMatchingGlobalDefinitionIncludingCompatibilityConstructor",
+      "message": "  Expected: <System.ArgumentException>\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle144_IntrinsicOnlyRequestsOwnKindWithoutStatuses(Steam)",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle144_IntrinsicOnlyRequestsOwnKindWithoutStatuses(Storm)",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    },
+    {
+      "name": "RegBattle144_SecondaryDoesNotApplyRefreshStatusesOrRecurse",
+      "message": "  Missing runtime API ReactionEvents\n  Expected: not null\n  But was:  null\n"
+    }
+  ]
+}
