@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. Текущий статус — **P2.1e: интеграционная проверка, ожидает review/merge**. Реализованы 30 Hz симуляция, каталог FLAME/TIDE/GALE/STONE, Burn/Wet/Gust/Crack, Build/Upgrade/Sell UI и safe-wave checkpoint schema 2 с миграцией legacy. Реакции, гибриды, метапрогресс, IAP и Game Center ещё не реализованы; баланс остаётся гипотезой.
+Unity-проект мобильной tower defense игры для iOS. Текущий этап — **P2.2d / Task 3: интеграция гибридов, ожидает независимого review/merge**. Production config включает Steam/Storm и каталог FLAME/TIDE/GALE/STONE/STEAM/STORM; safe-wave saves остаются schema 2. Все шесть типов доступны с начала Preparation по утверждённому P-05, unlocks относятся к P2.3. Используется прежний generic UI; VFX/маркеры/инспектор реакций входят в P2.2e. Баланс остаётся гипотезой.
 
 ## Окружение
 
@@ -112,7 +112,7 @@ Burn наносит DoT, Wet замедляет движение, Gust усил�
 
 Pure C# `ReactionResolver` разрешает Steam/Storm после direct damage event и обычного статуса выжившей primary. Он планирует ограниченный набор целей, резервирует общие primary/secondary окна по виду на 60 ticks, затем наносит secondary damage через long floor/saturation и armor/Crack. Смерти и награды остаются в существующем pipeline. `EnemyState.LastSteamTick/LastStormTick` доступны только для чтения.
 
-`BattleSimulation` принимает optional `ReactionCatalog`, сохраняет прежние constructors и предоставляет read-only `ReactionEvents`/`DamageEvents` с явными clear methods. `BattleSceneController` очищает все три потока в `finally` после каждого fixed Step; новая telemetry пока отбрасывается без VFX. Успешный Restore очищает transient state, rejected Restore его сохраняет. Public config пока использует Empty; internal factory с явным Empty сохраняет historical P2.1e fixture. Saved configs, сцены, UI, schema и баланс не менялись. [Проверки и ограничения](Docs/review/P2.2c/README.md); независимый PR review обязателен до merge.
+`BattleSimulation` принимает optional `ReactionCatalog`, сохраняет прежние constructors и предоставляет read-only `ReactionEvents`/`DamageEvents` с явными clear methods. `BattleSceneController` очищает все три потока в `finally` после каждого fixed Step; новая telemetry пока отбрасывается без VFX. Успешный Restore очищает transient state, rejected Restore его сохраняет. До P2.2d public config использовал Empty; internal factory с явным Empty сохраняет historical P2.1e fixture. Saved configs, сцены, UI, schema и баланс не менялись. [Проверки и ограничения](Docs/review/P2.2c/README.md); независимый PR review обязателен до merge.
 
 ## Настройки репозитория
 
@@ -147,3 +147,10 @@ Unity создаёт Xcode project для iOS. Apple signing, provisioning и у
 P1.5b проверен в настоящем Editor Play Mode через реальные `Button.onClick.Invoke` и Presentation placement API: New Game → Build/Upgrade → interrupted Combat с Gold 45/Kills 1 → MainMenu Continue → restored Preparation с Tick 0/Gold 40/Kills 0/Tower Level 2, затем отдельный New Game flow до WaveComplete с Gold 135/Kills 5. Три кадра **1600×900**, точная команда, telemetry и ограничения находятся в `Docs/review/P1.5b/qa.log`. Scenario Console listener записал **0 errors** и 6 Editor rendering warnings; временный QA-код и raw Editor log не входят в изменения.
 
 **Физический iPhone не проверялся.** Force quit/relaunch, built-player touch, signing, safe area, производительность, Simulator и реальные iOS background/focus для P1.5b также не проверялись. Ветка передаётся на независимый review; self-merge не выполняется.
+
+
+## P2.2d — гибриды и production config
+
+Shared `TestWave.asset` содержит global Steam/Storm (60 ticks) и три уровня `steam`/`storm` по §6 [спецификации](Docs/P2.2A_REACTIONS.md). Каждый гибрид делает обычный direct hit и единственный intrinsic запрос общего resolver, без StatusEffect/ArmorPenetration. `EightWave.asset` хранит ссылку на TestWave без собственных копий tower/reaction catalogs. Invalid/частичные данные отклоняются; builder расширяет только полный прежний набор четырёх типов и сохраняет корректные данные при повторном запуске.
+
+Schema version **2**, content IDs и Store/migration API сохранены: payload определяется типом/уровнем, transient бой не сериализуется. Historical P2.1e replay использует явный internal Empty и прежние expectations/evidence. Новые данные, экономика/отказы, совместимость saves и публичная production factory покрыты REG-BATTLE-146…153. [Evidence, реальные Play Mode кадры и ограничения](Docs/review/P2.2d/README.md). Physical device, performance, balance и причинная визуализация ещё не подтверждены; G2 открыт.
