@@ -390,6 +390,7 @@ namespace Veilward.Tests.EditMode
             serialized.FindProperty("confirmSellButton").objectReferenceValue = CreateButton("Confirm Sell");
             serialized.FindProperty("cancelSellButton").objectReferenceValue = CreateButton("Cancel Sell");
             serialized.ApplyModifiedPropertiesWithoutUndo();
+            BattleTowerCatalogPresentationTests.WireCatalog(new SerializedObject(_placement), _root.transform);
             Invoke(_placement, "Start");
         }
 

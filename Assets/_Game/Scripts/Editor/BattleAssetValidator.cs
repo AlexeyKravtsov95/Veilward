@@ -138,6 +138,7 @@ namespace Veilward.Editor
                     placements[0],
                     new[]
                     {
+                        "catalogRoot", "catalogButtonTemplate", "buildStatsText", "sellConfirmationText",
                         "battle", "worldCamera", "selectionHighlight", "towerPreview",
                         "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview",
                         "towerPanel", "towerStatsText", "upgradeButton", "sellButton", "sellConfirmationPanel", "confirmSellButton", "cancelSellButton"

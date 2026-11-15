@@ -36,8 +36,13 @@ namespace Veilward.Tests.PlayMode
 
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             var placement = Object.FindFirstObjectByType<BattlePlacementController>();
+            // Изолированный economy fixture позволяет пройти MAX без изменения saved balance.
+            var initial = battle.Simulation.ExportCheckpoint();
+            initial.gold = 500;
+            battle.Simulation.RestoreCheckpoint(initial);
             var cell = new GridCoordinate(-1, 0);
             Assert.That(placement.TrySelectCell(cell), Is.True);
+            placement.SelectTowerType(new TowerDefinitionId("tide"));
             placement.ConfirmSelection();
             yield return null;
             var soldId = battle.Simulation.State.Towers[0].Id;
@@ -45,14 +50,14 @@ namespace Veilward.Tests.PlayMode
             Assert.That(placement.TrySelectCell(cell), Is.True);
             Assert.That(placement.SelectedTowerId, Is.EqualTo(soldId));
             Assert.That(placement.TowerStatsText.text, Does.Contain("Level: 1"));
-            Assert.That(placement.TowerStatsText.text, Does.Contain("Damage: 25"));
-            Assert.That(placement.TowerStatsText.text, Does.Contain("Upgrade: 50"));
+            Assert.That(placement.TowerStatsText.text, Does.Contain("Damage: 10"));
+            Assert.That(placement.TowerStatsText.text, Does.Contain("Upgrade: 90"));
             Assert.That(placement.TowerStatsText.text, Does.Contain("Sell refund: 42"));
             Assert.That(placement.UpgradeButton.interactable, Is.True);
 
             CompleteCurrentWave(battle);
             Assert.That(battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
-            Assert.That(battle.Simulation.State.Kills, Is.EqualTo(5));
+            Assert.That(battle.Simulation.State.Kills, Is.EqualTo(0));
             battle.ContinueToNextWave();
             yield return null;
             Assert.That(placement.TrySelectCell(cell), Is.True);
@@ -61,16 +66,16 @@ namespace Veilward.Tests.PlayMode
             Assert.That(levelTwo.Success, Is.True, levelTwo.FailureReason.ToString());
             yield return null;
             Assert.That(placement.TowerStatsText.text, Does.Contain("Level: 2"));
-            Assert.That(placement.TowerStatsText.text, Does.Contain("Damage: 35"));
-            Assert.That(placement.TowerStatsText.text, Does.Contain("Sell refund: 77"));
+            Assert.That(placement.TowerStatsText.text, Does.Contain("Damage: 14"));
+            Assert.That(placement.TowerStatsText.text, Does.Contain("Sell refund: 105"));
 
             var levelThree = placement.UpgradeSelectedTower();
             Assert.That(levelThree.Success, Is.True, levelThree.FailureReason.ToString());
             yield return null;
             Assert.That(placement.TowerStatsText.text, Does.Contain("Level: 3"));
-            Assert.That(placement.TowerStatsText.text, Does.Contain("Damage: 50"));
+            Assert.That(placement.TowerStatsText.text, Does.Contain("Damage: 18"));
             Assert.That(placement.TowerStatsText.text, Does.Contain("Upgrade: MAX"));
-            Assert.That(placement.TowerStatsText.text, Does.Contain("Sell refund: 133"));
+            Assert.That(placement.TowerStatsText.text, Does.Contain("Sell refund: 189"));
             Assert.That(placement.UpgradeButton.interactable, Is.False);
 
             placement.RequestSellSelectedTower();
@@ -82,21 +87,22 @@ namespace Veilward.Tests.PlayMode
             placement.RequestSellSelectedTower();
             var sale = placement.ConfirmSellSelectedTower();
             Assert.That(sale.Success, Is.True, sale.FailureReason.ToString());
-            Assert.That(sale.Refund, Is.EqualTo(133));
+            Assert.That(sale.Refund, Is.EqualTo(189));
             yield return null;
-            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(138));
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(439));
             Assert.That(battle.Simulation.State.Towers, Is.Empty);
             Assert.That(battle.Simulation.Grid.GetState(cell), Is.EqualTo(GridCellState.Available));
             Assert.That(placement.HasSelection, Is.False);
             Assert.That(GameObject.Find($"Tower {soldId.Value}"), Is.Null);
 
             Assert.That(placement.TrySelectCell(cell), Is.True);
+            placement.SelectTowerType(new TowerDefinitionId("tide"));
             placement.ConfirmSelection();
             yield return null;
             Assert.That(battle.Simulation.State.Towers.Count, Is.EqualTo(1));
             Assert.That(battle.Simulation.State.Towers[0].Id.Value, Is.GreaterThan(soldId.Value));
             Assert.That(battle.Simulation.State.Towers[0].Level, Is.EqualTo(1));
-            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(78));
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(379));
             Assert.That(GameObject.Find($"Tower {battle.Simulation.State.Towers[0].Id.Value}"), Is.Not.Null);
         }
 

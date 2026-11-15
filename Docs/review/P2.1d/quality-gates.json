@@ -1,0 +1,39 @@
+{
+  "unity": "6000.3.28f1",
+  "base": "a19f188",
+  "date": "2026-11-15",
+  "static": {
+    "passed": 38,
+    "total": 38,
+    "projectChecks": "PASS"
+  },
+  "suites": {
+    "EditMode": {
+      "total": 314,
+      "passed": 314,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "reportSha256": "c3cd36d26056da04b40265475b944ed81ce0f9e991441c79adadd541bfc7129f"
+    },
+    "PlayMode": {
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "reportSha256": "aa08ffe053c9c7cf77fb798a5f05ef22f8c4c132adf9fddc3f49f670d7bdbf98"
+    },
+    "VisualQA": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "reportSha256": "b8f5e4cc5625520a8bda5682d43990eafb9686c3187a8e23a7b00c3a1c6f7f8f"
+    }
+  },
+  "diffCheck": "PASS",
+  "physicalDeviceVerified": false,
+  "simulatedLandscapeInsetsTested": true
+}

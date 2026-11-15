@@ -120,6 +120,19 @@ namespace Veilward.Tests.EditMode
             serializedPlacement.FindProperty("sellConfirmationPanel").objectReferenceValue = sellConfirmation;
             serializedPlacement.FindProperty("confirmSellButton").objectReferenceValue = CreateButton("Confirm Sell");
             serializedPlacement.FindProperty("cancelSellButton").objectReferenceValue = CreateButton("Cancel Sell");
+            var catalogRoot = new GameObject("Catalog", typeof(RectTransform));
+            catalogRoot.transform.SetParent(_root.transform, false);
+            var buildStats = new GameObject("Build Stats", typeof(RectTransform), typeof(Text));
+            buildStats.transform.SetParent(_root.transform, false);
+            var sellText = new GameObject("Sell Text", typeof(RectTransform), typeof(Text));
+            sellText.transform.SetParent(_root.transform, false);
+            serializedPlacement.FindProperty("catalogRoot").objectReferenceValue = catalogRoot.GetComponent<RectTransform>();
+            var template = CreateButton("Catalog Template");
+            var label = new GameObject("Label", typeof(RectTransform), typeof(Text));
+            label.transform.SetParent(template.transform, false);
+            serializedPlacement.FindProperty("catalogButtonTemplate").objectReferenceValue = template;
+            serializedPlacement.FindProperty("buildStatsText").objectReferenceValue = buildStats.GetComponent<Text>();
+            serializedPlacement.FindProperty("sellConfirmationText").objectReferenceValue = sellText.GetComponent<Text>();
             serializedPlacement.ApplyModifiedPropertiesWithoutUndo();
             Invoke(placement, "Start");
 

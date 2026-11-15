@@ -20,6 +20,9 @@ namespace Veilward.Tests.PlayMode
 
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             var placement = Object.FindFirstObjectByType<BattlePlacementController>();
+            var initial = battle.Simulation.ExportCheckpoint();
+            initial.gold = 500;
+            battle.Simulation.RestoreCheckpoint(initial);
             var firstCell = new GridCoordinate(-1, 0);
             var secondCell = new GridCoordinate(1, 0);
             PlaceTower(placement, firstCell);
@@ -30,7 +33,7 @@ namespace Veilward.Tests.PlayMode
             var bypass = placement.ConfirmSellSelectedTower();
 
             Assert.That(bypass.Success, Is.False);
-            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(90));
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(440));
             Assert.That(battle.Simulation.State.Towers.Count, Is.EqualTo(1));
             Assert.That(battle.Simulation.Grid.GetState(firstCell), Is.EqualTo(GridCellState.Occupied));
 
@@ -45,44 +48,49 @@ namespace Veilward.Tests.PlayMode
             Assert.That(placement.UpgradeSelectedTower().Success, Is.False);
             placement.StartWave();
             Assert.That(battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
-            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(90));
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(440));
 
             FindButton("Cancel Sell Button").onClick.Invoke();
 
             Assert.That(placement.IsSellConfirmationVisible, Is.False);
-            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(90));
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(440));
             Assert.That(battle.Simulation.State.Towers.Count, Is.EqualTo(1));
             Assert.That(placement.UpgradeButton.interactable, Is.True);
             Assert.That(FindButton("Sell Button").interactable, Is.True);
             Assert.That(FindButton("Start Wave Button").interactable, Is.True);
             Assert.That(placement.UpgradeSelectedTower().Success, Is.True);
-            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(40));
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(350));
 
             CompleteCurrentWave(battle);
+            var waveGold = 370 + 5 * battle.Simulation.State.Kills;
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(waveGold));
             battle.ContinueToNextWave();
             yield return null;
             PlaceTower(placement, secondCell);
             yield return null;
             var secondId = battle.Simulation.State.Towers.Single(tower => tower.Id != firstId).Id;
-            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(25));
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(waveGold - 60));
 
             Assert.That(placement.TrySelectCell(firstCell), Is.True);
             placement.RequestSellSelectedTower();
+            Assert.That(placement.TrySelectCell(secondCell), Is.False);
+            Assert.That(placement.SelectedTowerId, Is.EqualTo(firstId));
+            placement.CancelSellConfirmation();
             Assert.That(placement.TrySelectCell(secondCell), Is.True);
             var wrongTowerSale = placement.ConfirmSellSelectedTower();
 
             Assert.That(wrongTowerSale.Success, Is.False);
             Assert.That(placement.SelectedTowerId, Is.EqualTo(secondId));
             Assert.That(battle.Simulation.State.Towers.Count, Is.EqualTo(2));
-            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(25));
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(waveGold - 60));
 
             Assert.That(placement.TrySelectCell(firstCell), Is.True);
             placement.RequestSellSelectedTower();
             var sale = placement.ConfirmSellSelectedTower();
 
             Assert.That(sale.Success, Is.True, sale.FailureReason.ToString());
-            Assert.That(sale.Refund, Is.EqualTo(77));
-            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(102));
+            Assert.That(sale.Refund, Is.EqualTo(105));
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(waveGold - 60 + 105));
             Assert.That(battle.Simulation.State.Towers.Single().Id, Is.EqualTo(secondId));
             Assert.That(battle.Simulation.Grid.GetState(firstCell), Is.EqualTo(GridCellState.Available));
             Assert.That(battle.Simulation.Grid.GetState(secondCell), Is.EqualTo(GridCellState.Occupied));
@@ -94,6 +102,7 @@ namespace Veilward.Tests.PlayMode
         private static void PlaceTower(BattlePlacementController placement, GridCoordinate coordinate)
         {
             Assert.That(placement.TrySelectCell(coordinate), Is.True);
+            placement.SelectTowerType(new TowerDefinitionId("tide"));
             placement.ConfirmSelection();
         }
 

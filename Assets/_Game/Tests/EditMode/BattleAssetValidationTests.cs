@@ -15,6 +15,32 @@ namespace Veilward.Tests.EditMode
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
 
+        [TestCase("catalogRoot")]
+        [TestCase("catalogButtonTemplate")]
+        [TestCase("buildStatsText")]
+        [TestCase("sellConfirmationText")]
+        public void RegBattle122_MissingCatalogReference_IsRejectedWithoutSaving(string propertyName)
+        {
+            var scene = EditorSceneManager.OpenScene(BattleScenePath);
+            var placement = UnityEngine.Object.FindFirstObjectByType<BattlePlacementController>();
+            var serialized = new SerializedObject(placement);
+            var property = serialized.FindProperty(propertyName);
+            var original = property.objectReferenceValue;
+            Assert.That(original, Is.Not.Null);
+            try
+            {
+                property.objectReferenceValue = null;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                Assert.That(BattleAssetValidator.ValidateSavedBattle().Any(error => error.Contains(propertyName)), Is.True);
+            }
+            finally
+            {
+                property.objectReferenceValue = original;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                EditorSceneManager.OpenScene(BattleScenePath);
+            }
+        }
+
         [Test]
         public void SavedBattleScene_PauseOverlayAndReferences_AreValid()
         {
@@ -108,7 +134,8 @@ namespace Veilward.Tests.EditMode
             {
                 temporary = (UnityEngine.GameObject)UnityEngine.Object.Instantiate(stats.gameObject, measurementScene);
                 var copy = temporary.GetComponent<UnityEngine.UI.Text>();
-                copy.text = "Level: 3\nDamage: 50\nRange: 3\nFireRate: 2/s\nUpgrade: MAX\nSell refund: 133 gold";
+                copy.text = "STONE — Level: 3\nDamage: 75    Range: 3 units\nFireRate: 0.6/s\n" +
+                    "Status: Crack — Power: -4 armor\nDuration: 4 s    Armor pierce: 8\nUpgrade: MAX\nSell refund: 283 gold";
 
                 Assert.That(
                     stats.rectTransform.rect.height,
