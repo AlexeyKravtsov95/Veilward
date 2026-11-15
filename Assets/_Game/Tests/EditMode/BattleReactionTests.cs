@@ -290,6 +290,61 @@ namespace Veilward.Tests.EditMode
             Assert.That(Last(p, ReactionKind.Steam), Is.Null); foreach (var status in p.Statuses) Assert.That(status.RemainingTicks, Is.EqualTo(999));
         }
 
+        [TestCase(ReactionKind.Steam, 4, 980)] [TestCase(ReactionKind.Storm, 3, 983)]
+        public void RegBattle137_SecondaryCannotInitiateSameKindLaterInSameTick(ReactionKind kind, int secondX, int health)
+        {
+            var status = Tower("unused", kind == ReactionKind.Steam ? StatusKind.Burn : StatusKind.Gust).StatusEffect;
+            var a = new TowerDefinition(new TowerDefinitionId("a"), 0, 2, .01f, 10, status);
+            var b = new TowerDefinition(new TowerDefinitionId("b"), 0, 2, .01f, 10, status);
+            var s = Create(new[] { a, b }); Place(s, "a", 5); Place(s, "b", secondX); s.StartWave();
+            var primary = s.State.Enemies[0]; primary.Advance(5); Status(primary, StatusKind.Wet);
+            var secondary = Add(s, 2, secondX); Status(secondary, StatusKind.Wet);
+            s.Step(); Assert.That(Reactions(s).Count, Is.EqualTo(1));
+            Assert.That(s.AttackEvents.Count, Is.EqualTo(2)); Assert.That(s.AttackEvents[1].TargetEnemyId.Value, Is.EqualTo(2));
+            Assert.That(secondary.Health, Is.EqualTo(health)); Assert.That(Last(secondary, kind), Is.EqualTo(1));
+        }
+
+        [Test]
+        public void RegBattle139_DoubleConversionBeforeSubtractionRejectsRoundedOutsideBoundary()
+        {
+            var path = new PathDefinition(new[] { new GridCoordinate(0, 0), new GridCoordinate(8, 0) });
+            var definition = new EnemyDefinition(new EnemyDefinitionId("e"), 100, 1, 1, 0);
+            var primary = new EnemyState(new EnemyId(1), definition, 100, 1.35f);
+            var outside = new EnemyState(new EnemyId(2), definition, 100, .1f);
+            Status(primary, StatusKind.Burn); Status(primary, StatusKind.Wet);
+            var state = new BattleState(BattlePhase.Combat, 1, 0, 20, 0, new[] { primary, outside });
+            var reactions = new List<ReactionEvent>(); var damages = new List<DamageResolvedEvent>(); var sequence = 0;
+            new ReactionResolver().TryResolve(state, path,
+                new TowerState(new TowerId(1), Tower("a", StatusKind.Burn), new GridCoordinate(0, 2)),
+                primary, path.GetPosition(1.35f), Catalog(), reactions, damages, ref sequence);
+            // Float subtraction округляет delta до 1.25; точная разница этих float в double больше радиуса.
+            Assert.That(damages.Count, Is.EqualTo(1)); Assert.That(outside.Health, Is.EqualTo(100));
+            Assert.That(outside.LastSteamTick, Is.Null);
+        }
+
+        [Test]
+        public void RegBattle140_StormFoldedPathNearestBeatsFirstAndSecondHopLeavesPrimaryRange()
+        {
+            var path = new PathDefinition(new[] { new GridCoordinate(0, 0), new GridCoordinate(8, 0),
+                new GridCoordinate(8, 1), new GridCoordinate(0, 1) });
+            var definition = new EnemyDefinition(new EnemyDefinitionId("e"), 100, 1, 1, 0);
+            var primary = new EnemyState(new EnemyId(1), definition, 100, 15);
+            var near = new EnemyState(new EnemyId(2), definition, 100, 2);
+            var fartherProgress = new EnemyState(new EnemyId(3), definition, 100, 13.25f);
+            var chainEnd = new EnemyState(new EnemyId(4), definition, 100, .25f);
+            Status(primary, StatusKind.Wet); Status(primary, StatusKind.Gust);
+            var state = new BattleState(BattlePhase.Combat, 1, 0, 20, 0, new[] { primary, fartherProgress, chainEnd, near });
+            var reactions = new List<ReactionEvent>(); var damages = new List<DamageResolvedEvent>(); var sequence = 0;
+            new ReactionResolver().TryResolve(state, path,
+                new TowerState(new TowerId(1), Tower("a", StatusKind.Gust), new GridCoordinate(0, 2)),
+                primary, path.GetPosition(15), Catalog(), reactions, damages, ref sequence);
+            Assert.That(damages.ConvertAll(d => d.TargetEnemyId.Value), Is.EqualTo(new[] { 2, 4 }));
+            Assert.That(primary.Health, Is.EqualTo(100)); Assert.That(fartherProgress.Health, Is.EqualTo(100));
+            Assert.That(near.Health, Is.EqualTo(93)); Assert.That(chainEnd.Health, Is.EqualTo(93));
+            Assert.That(damages[1].FromPosition.X, Is.EqualTo(2)); Assert.That(damages[1].FromPosition.Y, Is.Zero);
+            Assert.That(damages[1].TargetPosition.X, Is.EqualTo(.25f)); Assert.That(damages[1].TargetPosition.Y, Is.Zero);
+        }
+
         internal static void Trace(BattleSimulation s, string label)
         {
             TestContext.WriteLine("TRACE " + label + " tick=" + s.State.Tick + " phase=" + s.State.Phase +
