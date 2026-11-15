@@ -61,6 +61,8 @@ namespace Veilward.Editor
                 AssetDatabase.CreateAsset(config, ConfigPath);
             }
 
+            EnsureSharedCatalogReference(config, legacyConfig);
+
             SetScenarioContentId(legacyConfig, "legacy-single-wave-v1");
             SetScenarioContentId(config, "eight-wave-v1");
 
@@ -134,23 +136,50 @@ namespace Veilward.Editor
         {
             var serialized = new SerializedObject(config);
             var catalog = serialized.FindProperty("towerArchetypes");
-            if (catalog != null && catalog.arraySize > 0)
+            if (catalog.arraySize != 4)
             {
+                // Пустые/частичные данные не являются запросом на reset.
+                config.CreateSimulation();
                 return;
             }
 
+            var candidate = Object.Instantiate(config);
+            candidate.name = config.name;
             var defaults = BattleScenarioConfig.CreateDefault();
             try
             {
+                var candidateSerialized = new SerializedObject(candidate);
+                candidateSerialized.FindProperty("towerArchetypes").arraySize = 6;
+                candidateSerialized.ApplyModifiedPropertiesWithoutUndo();
                 var defaultCatalog = new SerializedObject(defaults).FindProperty("towerArchetypes");
-                serialized.CopyFromSerializedProperty(defaultCatalog);
-                serialized.ApplyModifiedPropertiesWithoutUndo();
+                for (var index = 4; index < 6; index++)
+                    candidateSerialized.CopyFromSerializedProperty(defaultCatalog.GetArrayElementAtIndex(index));
+                candidateSerialized.ApplyModifiedPropertiesWithoutUndo();
+                candidate.CreateSimulation();
+                // Публикуем расширение только после validation полного набора, старые уровни сохранены.
+                EditorUtility.CopySerialized(candidate, config);
                 EditorUtility.SetDirty(config);
             }
             finally
             {
+                Object.DestroyImmediate(candidate);
                 Object.DestroyImmediate(defaults);
             }
+        }
+
+        private static void EnsureSharedCatalogReference(BattleScenarioConfig config, BattleScenarioConfig shared)
+        {
+            var serialized = new SerializedObject(config);
+            if (serialized.FindProperty("sharedScenario").objectReferenceValue != shared)
+                throw new System.ArgumentException("EightWave must reference the shared TestWave scenario.");
+            config.CreateSimulation();
+            var catalog = serialized.FindProperty("towerArchetypes");
+            var reactions = serialized.FindProperty("reactions");
+            if (catalog.arraySize == 0 && reactions.arraySize == 0) return;
+            catalog.arraySize = 0;
+            reactions.arraySize = 0;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            EditorUtility.SetDirty(config);
         }
 
         private static void SetScenarioContentId(BattleScenarioConfig config, string contentId)

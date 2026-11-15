@@ -15,6 +15,30 @@ namespace Veilward.Tests.EditMode
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
 
+        [Test]
+        public void RegBattle153_DuplicateLocalCatalog_IsRejectedWithoutSaving()
+        {
+            const string path = "Assets/_Game/Configs/EightWave.asset";
+            var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(path);
+            var bytes = File.ReadAllBytes(path);
+            var originalJson = EditorJsonUtility.ToJson(config);
+            try
+            {
+                var serialized = new SerializedObject(config);
+                Assert.That(serialized.FindProperty("towerArchetypes").arraySize, Is.Zero);
+                Assert.That(serialized.FindProperty("reactions").arraySize, Is.Zero);
+                serialized.FindProperty("towerArchetypes").arraySize = 1;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                Assert.That(BattleAssetValidator.ValidateSavedBattle().Any(e => e.Contains("local copies")), Is.True);
+                CollectionAssert.AreEqual(bytes, File.ReadAllBytes(path));
+            }
+            finally
+            {
+                EditorJsonUtility.FromJsonOverwrite(originalJson, config);
+                EditorUtility.ClearDirty(config);
+            }
+        }
+
         [TestCase("catalogRoot")]
         [TestCase("catalogButtonTemplate")]
         [TestCase("buildStatsText")]

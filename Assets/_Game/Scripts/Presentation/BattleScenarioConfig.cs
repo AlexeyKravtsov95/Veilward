@@ -48,6 +48,15 @@ namespace Veilward.Presentation
         [Header("Elemental Tower Catalog")]
         [SerializeField] private TowerArchetypeSettings[] towerArchetypes = CreateDefaultTowerArchetypes();
 
+        [Header("Global Reactions (shared scenario)")]
+        [SerializeField] private ReactionSettings[] reactions =
+        {
+            new ReactionSettings { kind = ReactionKind.Steam, cooldownTicks = 60, damagePercent = 100,
+                range = 1.25f, targetLimit = 4, priority = 0 },
+            new ReactionSettings { kind = ReactionKind.Storm, cooldownTicks = 60, damagePercent = 75,
+                range = 2f, targetLimit = 2, priority = 1 }
+        };
+
         [Header("Wave Sequence")]
         [SerializeField] private BattleScenarioConfig sharedScenario;
         [SerializeField, Min(0)] private int enemyReward;
@@ -87,6 +96,8 @@ namespace Veilward.Presentation
             [Min(0.01f)] public float range;
             [Min(0.01f)] public float fireRate;
             public StatusEffectSettings statusEffect;
+            public bool hasIntrinsicReaction;
+            public ReactionPayloadSettings intrinsicReaction;
             [Min(0)] public int armorPenetration;
         }
 
@@ -97,6 +108,26 @@ namespace Veilward.Presentation
             [Min(1)] public int power;
             [Min(1)] public int durationTicks;
             [Min(0)] public int damageIntervalTicks;
+        }
+
+        [Serializable]
+        public sealed class ReactionPayloadSettings
+        {
+            public ReactionKind kind;
+            public int damagePercent;
+            public float range;
+            public int targetLimit;
+        }
+
+        [Serializable]
+        public sealed class ReactionSettings
+        {
+            public ReactionKind kind;
+            public int cooldownTicks;
+            public int damagePercent;
+            public float range;
+            public int targetLimit;
+            public int priority;
         }
 
         public string ScenarioContentId => scenarioContentId;
@@ -125,6 +156,9 @@ namespace Veilward.Presentation
         private BattleSimulation CreateSimulationCore(ReactionCatalog reactionCatalog, bool historical)
         {
             var shared = sharedScenario != null ? sharedScenario : this;
+            // Даже historical override сначала проверяет production data, без fallback на Empty.
+            var productionReactions = CreateReactionCatalog(shared);
+            reactionCatalog = reactionCatalog ?? productionReactions;
             var gridPoints = new GridCoordinate[shared.waypoints.Length];
             for (var index = 0; index < shared.waypoints.Length; index++)
             {
@@ -228,71 +262,83 @@ namespace Veilward.Presentation
             BattleScenarioConfig shared,
             IReadOnlyList<TowerDefinition> legacyLevels)
         {
-            if (shared.towerArchetypes == null || shared.towerArchetypes.Length != 4)
+            var requiredIds = new[] { "flame", "tide", "gale", "stone", "steam", "storm" };
+            if (shared.towerArchetypes == null || shared.towerArchetypes.Length != requiredIds.Length)
             {
-                throw new ArgumentException(
-                    "Exactly four elemental tower archetypes are required.",
-                    nameof(towerArchetypes));
+                throw new ArgumentException("Exactly six visible tower archetypes are required.", nameof(towerArchetypes));
             }
 
-            var archetypes = new List<TowerArchetypeDefinition>(5)
+            var archetypes = new List<TowerArchetypeDefinition>(7)
             {
-                new TowerArchetypeDefinition(
-                    new TowerDefinitionId(shared.towerId),
-                    showInCatalog: false,
-                    legacyLevels)
+                new TowerArchetypeDefinition(new TowerDefinitionId(shared.towerId), false, legacyLevels)
             };
-            foreach (var settings in shared.towerArchetypes)
+            for (var archetypeIndex = 0; archetypeIndex < requiredIds.Length; archetypeIndex++)
             {
-                if (settings == null)
+                var settings = shared.towerArchetypes[archetypeIndex];
+                if (settings == null || settings.id != requiredIds[archetypeIndex] || !settings.showInCatalog)
                 {
-                    throw new ArgumentException(
-                        "Elemental tower archetypes cannot contain null entries.",
+                    throw new ArgumentException("Tower catalog must use FLAME/TIDE/GALE/STONE/STEAM/STORM order and visibility.",
                         nameof(towerArchetypes));
                 }
 
+                var hybrid = archetypeIndex >= 4;
                 var levels = new TowerDefinition[settings.levels?.Length ?? 0];
                 for (var index = 0; index < levels.Length; index++)
                 {
-                    var level = settings.levels[index] ?? throw new ArgumentException(
-                        "Elemental tower levels cannot contain null entries.",
-                        nameof(towerArchetypes));
-                    var status = level.statusEffect ?? throw new ArgumentException(
-                        $"Elemental tower {settings.id} requires a status definition.",
-                        nameof(towerArchetypes));
-                    var statusDefinition = new StatusEffectDefinition(
-                        status.kind,
-                        status.power,
-                        status.durationTicks,
-                        status.damageIntervalTicks);
-                    levels[index] = new TowerDefinition(
-                        new TowerDefinitionId(settings.id),
-                        level.price,
-                        level.range,
-                        level.fireRate,
-                        level.damage,
-                        statusDefinition,
-                        level.armorPenetration);
+                    var level = settings.levels[index] ?? throw new ArgumentException("Tower level cannot be null.", nameof(towerArchetypes));
+                    StatusEffectDefinition statusDefinition = null;
+                    ReactionPayload intrinsic = null;
+                    if (hybrid)
+                    {
+                        var requiredKind = settings.id == "steam" ? ReactionKind.Steam : ReactionKind.Storm;
+                        if (!level.hasIntrinsicReaction || level.intrinsicReaction == null ||
+                            level.intrinsicReaction.kind != requiredKind || level.armorPenetration != 0 ||
+                            !IsEmptyStatus(level.statusEffect))
+                        {
+                            throw new ArgumentException($"Hybrid {settings.id} requires only its matching intrinsic payload.", nameof(towerArchetypes));
+                        }
+                        var payload = level.intrinsicReaction;
+                        intrinsic = new ReactionPayload(payload.kind, payload.damagePercent, payload.range, payload.targetLimit);
+                    }
+                    else
+                    {
+                        var status = level.statusEffect;
+                        if (level.hasIntrinsicReaction || !IsEmptyPayload(level.intrinsicReaction) ||
+                            status == null || (int)status.kind != archetypeIndex)
+                        {
+                            throw new ArgumentException($"Basic {settings.id} requires its matching status and no intrinsic payload.", nameof(towerArchetypes));
+                        }
+                        statusDefinition = new StatusEffectDefinition(status.kind, status.power, status.durationTicks, status.damageIntervalTicks);
+                    }
+                    levels[index] = new TowerDefinition(new TowerDefinitionId(settings.id), level.price,
+                        level.range, level.fireRate, level.damage, statusDefinition, level.armorPenetration, intrinsic);
                 }
-
-                archetypes.Add(new TowerArchetypeDefinition(
-                    new TowerDefinitionId(settings.id),
-                    settings.showInCatalog,
-                    levels));
+                archetypes.Add(new TowerArchetypeDefinition(new TowerDefinitionId(settings.id), true, levels));
             }
+            return new TowerCatalog(archetypes);
+        }
 
-            var catalog = new TowerCatalog(archetypes);
-            foreach (var requiredId in new[] { "flame", "tide", "gale", "stone" })
+        // Unity inline serialization представляет null class как объект с нулевыми полями.
+        private static bool IsEmptyStatus(StatusEffectSettings status) => status == null ||
+            (status.kind == default && status.power == 0 && status.durationTicks == 0 && status.damageIntervalTicks == 0);
+
+        private static bool IsEmptyPayload(ReactionPayloadSettings payload) => payload == null ||
+            (payload.kind == default && payload.damagePercent == 0 && payload.range == 0f && payload.targetLimit == 0);
+
+        private static ReactionCatalog CreateReactionCatalog(BattleScenarioConfig shared)
+        {
+            if (shared.reactions == null || shared.reactions.Length != 2)
+                throw new ArgumentException("Both production reaction definitions are required.", nameof(reactions));
+            var definitions = new ReactionDefinition[2];
+            for (var index = 0; index < definitions.Length; index++)
             {
-                if (!catalog.TryGet(new TowerDefinitionId(requiredId), out _))
-                {
-                    throw new ArgumentException(
-                        $"Elemental tower catalog is missing {requiredId}.",
-                        nameof(towerArchetypes));
-                }
+                var settings = shared.reactions[index];
+                if (settings == null || (int)settings.kind != index || settings.priority != index)
+                    throw new ArgumentException("Production reactions require Steam/Storm with priorities 0/1.", nameof(reactions));
+                definitions[index] = new ReactionDefinition(new ReactionPayload(settings.kind, settings.damagePercent,
+                    settings.range, settings.targetLimit), settings.cooldownTicks, settings.priority);
             }
-
-            return catalog;
+            return new ReactionCatalog(definitions);
         }
 
         private static TowerArchetypeSettings[] CreateDefaultTowerArchetypes()
@@ -318,7 +364,15 @@ namespace Veilward.Presentation
                     "stone",
                     CreateLevel(90, 40, 2.5f, 0.5f, StatusKind.Crack, 2, 90, 0, 4),
                     CreateLevel(135, 55, 2.75f, 0.55f, StatusKind.Crack, 3, 105, 0, 6),
-                    CreateLevel(180, 75, 3f, 0.6f, StatusKind.Crack, 4, 120, 0, 8))
+                    CreateLevel(180, 75, 3f, 0.6f, StatusKind.Crack, 4, 120, 0, 8)),
+                CreateArchetype("steam",
+                    CreateHybridLevel(110, 18, 3f, .8f, ReactionKind.Steam, 100, 1.25f, 4),
+                    CreateHybridLevel(165, 25, 3.2f, .9f, ReactionKind.Steam, 125, 1.5f, 4),
+                    CreateHybridLevel(220, 34, 3.4f, 1f, ReactionKind.Steam, 150, 1.75f, 4)),
+                CreateArchetype("storm",
+                    CreateHybridLevel(110, 9, 3.5f, 1.5f, ReactionKind.Storm, 75, 2f, 2),
+                    CreateHybridLevel(165, 13, 3.5f, 1.7f, ReactionKind.Storm, 90, 2.25f, 2),
+                    CreateHybridLevel(220, 18, 3.75f, 2f, ReactionKind.Storm, 100, 2.5f, 2))
             };
         }
 
@@ -359,6 +413,18 @@ namespace Veilward.Presentation
                     durationTicks = durationTicks,
                     damageIntervalTicks = damageIntervalTicks
                 }
+            };
+        }
+
+        private static TowerLevelSettings CreateHybridLevel(int price, int damage, float range, float fireRate,
+            ReactionKind kind, int damagePercent, float reactionRange, int targetLimit)
+        {
+            return new TowerLevelSettings
+            {
+                price = price, damage = damage, range = range, fireRate = fireRate,
+                hasIntrinsicReaction = true,
+                intrinsicReaction = new ReactionPayloadSettings
+                { kind = kind, damagePercent = damagePercent, range = reactionRange, targetLimit = targetLimit }
             };
         }
 

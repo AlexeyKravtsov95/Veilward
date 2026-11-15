@@ -11,6 +11,53 @@ namespace Veilward.Tests.EditMode
 {
     public sealed class BattleSceneBuilderTests
     {
+        [TestCase(4, false)]
+        [TestCase(0, false)] [TestCase(3, false)] [TestCase(5, false)]
+        [TestCase(4, true)] [TestCase(6, true)]
+        public void RegBattle153_BuilderExtendsOnlyCompleteLegacyCatalog_RejectsMalformedWithoutWriting(int count, bool malformed)
+        {
+            const string path = "Assets/_Game/Configs/TestWave.asset";
+            var before = File.ReadAllBytes(path);
+            var scene = File.ReadAllBytes("Assets/_Game/Scenes/Battle.unity");
+            var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(path);
+            var originalName = config.name;
+            try
+            {
+                var serialized = new SerializedObject(config);
+                var catalog = serialized.FindProperty("towerArchetypes");
+                catalog.arraySize = count;
+                if (malformed) catalog.GetArrayElementAtIndex(0).FindPropertyRelative("id").stringValue = "unknown";
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                EditorUtility.SetDirty(config); AssetDatabase.SaveAssets();
+                var damagedBytes = File.ReadAllBytes(path);
+                if (count == 4 && !malformed)
+                {
+                    var basicBefore = catalog.GetArrayElementAtIndex(1).FindPropertyRelative("levels")
+                        .GetArrayElementAtIndex(0).FindPropertyRelative("damage").intValue;
+                    BattleSceneBuilder.Build();
+                    Assert.That(config.name, Is.EqualTo(originalName));
+                    Assert.That(config.CreateSimulation().TowerCatalog.Archetypes.Count, Is.EqualTo(7));
+                    Assert.That(config.CreateSimulation().TowerCatalog.Get(new Domain.TowerDefinitionId("tide"))
+                        .Levels[0].Damage, Is.EqualTo(basicBefore));
+                    var extended = File.ReadAllBytes(path);
+                    BattleSceneBuilder.Build();
+                    CollectionAssert.AreEqual(extended, File.ReadAllBytes(path));
+                }
+                else
+                {
+                    Assert.Catch<System.ArgumentException>(() => BattleSceneBuilder.Build());
+                    CollectionAssert.AreEqual(damagedBytes, File.ReadAllBytes(path));
+                    CollectionAssert.AreEqual(scene, File.ReadAllBytes("Assets/_Game/Scenes/Battle.unity"));
+                }
+            }
+            finally
+            {
+                File.WriteAllBytes(path, before); AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
+                File.WriteAllBytes("Assets/_Game/Scenes/Battle.unity", scene);
+                AssetDatabase.Refresh();
+            }
+        }
+
         [Test]
         public void RegBattle122_BuildTwice_PreservesSavedConfigBytesAndCatalogReferences()
         {

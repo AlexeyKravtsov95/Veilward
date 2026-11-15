@@ -59,6 +59,12 @@ MonoBehaviour:
         power: 3
         durationTicks: 90
         damageIntervalTicks: 15
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 0
     - price: 105
       damage: 16
@@ -69,6 +75,12 @@ MonoBehaviour:
         power: 4
         durationTicks: 105
         damageIntervalTicks: 15
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 0
     - price: 140
       damage: 22
@@ -79,6 +91,12 @@ MonoBehaviour:
         power: 6
         durationTicks: 120
         damageIntervalTicks: 15
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 0
   - id: tide
     showInCatalog: 1
@@ -92,6 +110,12 @@ MonoBehaviour:
         power: 20
         durationTicks: 60
         damageIntervalTicks: 0
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 0
     - price: 90
       damage: 14
@@ -102,6 +126,12 @@ MonoBehaviour:
         power: 25
         durationTicks: 75
         damageIntervalTicks: 0
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 0
     - price: 120
       damage: 18
@@ -112,6 +142,12 @@ MonoBehaviour:
         power: 30
         durationTicks: 90
         damageIntervalTicks: 0
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 0
   - id: gale
     showInCatalog: 1
@@ -125,6 +161,12 @@ MonoBehaviour:
         power: 20
         durationTicks: 45
         damageIntervalTicks: 0
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 0
     - price: 120
       damage: 8
@@ -135,6 +177,12 @@ MonoBehaviour:
         power: 30
         durationTicks: 60
         damageIntervalTicks: 0
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 0
     - price: 160
       damage: 10
@@ -145,6 +193,12 @@ MonoBehaviour:
         power: 40
         durationTicks: 75
         damageIntervalTicks: 0
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 0
   - id: stone
     showInCatalog: 1
@@ -158,6 +212,12 @@ MonoBehaviour:
         power: 2
         durationTicks: 90
         damageIntervalTicks: 0
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 4
     - price: 135
       damage: 55
@@ -168,6 +228,12 @@ MonoBehaviour:
         power: 3
         durationTicks: 105
         damageIntervalTicks: 0
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 6
     - price: 180
       damage: 75
@@ -178,7 +244,128 @@ MonoBehaviour:
         power: 4
         durationTicks: 120
         damageIntervalTicks: 0
+      hasIntrinsicReaction: 0
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 0
+        range: 0
+        targetLimit: 0
       armorPenetration: 8
+  - id: steam
+    showInCatalog: 1
+    levels:
+    - price: 110
+      damage: 18
+      range: 3
+      fireRate: 0.8
+      statusEffect:
+        kind: 0
+        power: 0
+        durationTicks: 0
+        damageIntervalTicks: 0
+      hasIntrinsicReaction: 1
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 100
+        range: 1.25
+        targetLimit: 4
+      armorPenetration: 0
+    - price: 165
+      damage: 25
+      range: 3.2
+      fireRate: 0.9
+      statusEffect:
+        kind: 0
+        power: 0
+        durationTicks: 0
+        damageIntervalTicks: 0
+      hasIntrinsicReaction: 1
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 125
+        range: 1.5
+        targetLimit: 4
+      armorPenetration: 0
+    - price: 220
+      damage: 34
+      range: 3.4
+      fireRate: 1
+      statusEffect:
+        kind: 0
+        power: 0
+        durationTicks: 0
+        damageIntervalTicks: 0
+      hasIntrinsicReaction: 1
+      intrinsicReaction:
+        kind: 0
+        damagePercent: 150
+        range: 1.75
+        targetLimit: 4
+      armorPenetration: 0
+  - id: storm
+    showInCatalog: 1
+    levels:
+    - price: 110
+      damage: 9
+      range: 3.5
+      fireRate: 1.5
+      statusEffect:
+        kind: 0
+        power: 0
+        durationTicks: 0
+        damageIntervalTicks: 0
+      hasIntrinsicReaction: 1
+      intrinsicReaction:
+        kind: 1
+        damagePercent: 75
+        range: 2
+        targetLimit: 2
+      armorPenetration: 0
+    - price: 165
+      damage: 13
+      range: 3.5
+      fireRate: 1.7
+      statusEffect:
+        kind: 0
+        power: 0
+        durationTicks: 0
+        damageIntervalTicks: 0
+      hasIntrinsicReaction: 1
+      intrinsicReaction:
+        kind: 1
+        damagePercent: 90
+        range: 2.25
+        targetLimit: 2
+      armorPenetration: 0
+    - price: 220
+      damage: 18
+      range: 3.75
+      fireRate: 2
+      statusEffect:
+        kind: 0
+        power: 0
+        durationTicks: 0
+        damageIntervalTicks: 0
+      hasIntrinsicReaction: 1
+      intrinsicReaction:
+        kind: 1
+        damagePercent: 100
+        range: 2.5
+        targetLimit: 2
+      armorPenetration: 0
+  reactions:
+  - kind: 0
+    cooldownTicks: 60
+    damagePercent: 100
+    range: 1.25
+    targetLimit: 4
+    priority: 0
+  - kind: 1
+    cooldownTicks: 60
+    damagePercent: 75
+    range: 2
+    targetLimit: 2
+    priority: 1
   sharedScenario: {fileID: 0}
   enemyReward: 0
   waveCompletionBonus: 0

@@ -16,6 +16,7 @@ MonoBehaviour:
   baseHealth: 20
   enemyId: shade
   maxHealth: 100
+  enemyArmor: 0
   speed: 1.5
   leakDamage: 1
   enemyCount: 5
@@ -45,6 +46,8 @@ MonoBehaviour:
     range: 3
     fireRate: 2
     damage: 50
+  towerArchetypes: []
+  reactions: []
   sharedScenario: {fileID: 11400000, guid: 43af8410231b84d758a17683659e9e7a, type: 2}
   enemyReward: 5
   waveCompletionBonus: 20

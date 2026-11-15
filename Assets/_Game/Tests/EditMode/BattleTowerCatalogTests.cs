@@ -50,7 +50,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(config, Is.Not.Null);
             var simulation = config.CreateSimulation();
 
-            Assert.That(simulation.TowerCatalog.Archetypes.Count, Is.EqualTo(5));
+            Assert.That(simulation.TowerCatalog.Archetypes.Count, Is.EqualTo(7));
             foreach (var id in new[] { "flame", "tide", "gale", "stone" })
             {
                 var archetype = simulation.TowerCatalog.Get(new TowerDefinitionId(id));

@@ -37,7 +37,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(_battle.Simulation.State.Gold, Is.EqualTo(150));
             Assert.That(_battle.Simulation.State.Towers, Is.Empty);
             Assert.That(_placement.CatalogButtons.Select(b => b.GetComponentInChildren<Text>().text),
-                Is.EquivalentTo(new[] { "FLAME", "TIDE", "GALE", "STONE" }));
+                Is.EqualTo(new[] { "FLAME", "TIDE", "GALE", "STONE", "STEAM", "STORM" }));
             Assert.That(Button("Confirm Button").interactable, Is.False);
             _placement.SelectTowerType(new TowerDefinitionId("test-tower"));
             _placement.ConfirmSelection();

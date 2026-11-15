@@ -128,7 +128,7 @@ namespace Veilward.Tests.EditMode
             var injected = Catalog();
             var enabled = config.CreateSimulation(injected);
             Assert.That(Read<ReactionCatalog>(enabled, "ReactionCatalog"), Is.SameAs(injected));
-            Assert.That(Read<ReactionCatalog>(config.CreateSimulation(), "ReactionCatalog"), Is.SameAs(ReactionCatalog.Empty));
+            Assert.That(config.CreateSimulation().ReactionCatalog.Definitions.Count, Is.EqualTo(2));
         }
 
         [TestCase(false, 32)] [TestCase(true, 22)]

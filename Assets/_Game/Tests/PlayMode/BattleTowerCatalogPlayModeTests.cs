@@ -42,6 +42,43 @@ namespace Veilward.Tests.PlayMode
         }
 
         [UnityTest]
+        public IEnumerator RegBattle150_HybridPauseBlocksAllEconomyAndRepeatedSellPaysOnce()
+        {
+            foreach (var id in new[] { "steam", "storm" })
+            {
+                yield return SceneManager.LoadSceneAsync("Battle");
+                yield return null;
+                var battle = Object.FindFirstObjectByType<BattleSceneController>();
+                var placement = Object.FindFirstObjectByType<BattlePlacementController>();
+                Assert.That(placement.CatalogButtons.Select(b => b.GetComponentInChildren<Text>().text),
+                    Is.EqualTo(new[] { "FLAME", "TIDE", "GALE", "STONE", "STEAM", "STORM" }));
+                placement.TrySelectCell(Cell); placement.SelectTowerType(new TowerDefinitionId(id));
+                Button("Pause Button").onClick.Invoke();
+                placement.ConfirmSelection();
+                Assert.That(battle.Simulation.State.Towers, Is.Empty);
+                Button("Resume Button").onClick.Invoke(); yield return null;
+                placement.TrySelectCell(Cell); placement.SelectTowerType(new TowerDefinitionId(id));
+                placement.ConfirmSelection(); yield return null;
+                Assert.That(battle.Simulation.State.Gold, Is.EqualTo(40));
+                placement.TrySelectCell(Cell);
+                Button("Pause Button").onClick.Invoke();
+                Assert.That(battle.UpgradeTower(new TowerId(1)).Success, Is.False);
+                Assert.That(battle.SellTower(new TowerId(1)).Success, Is.False);
+                Assert.That(battle.PlaceTower(new TowerDefinitionId(id), new GridCoordinate(-3, 0)).Success, Is.False);
+                Assert.That(battle.Simulation.State.Gold, Is.EqualTo(40));
+                Assert.That(battle.Simulation.State.Towers.Single().Level, Is.EqualTo(1));
+                Assert.That(battle.Simulation.AttackEvents, Is.Empty);
+                Assert.That(battle.Simulation.ReactionEvents, Is.Empty);
+                Assert.That(battle.Simulation.DamageEvents, Is.Empty);
+                Button("Resume Button").onClick.Invoke(); yield return null;
+                placement.TrySelectCell(Cell); placement.RequestSellSelectedTower();
+                Assert.That(placement.ConfirmSellSelectedTower().Refund, Is.EqualTo(77));
+                Assert.That(placement.ConfirmSellSelectedTower().Success, Is.False);
+                Assert.That(battle.Simulation.State.Gold, Is.EqualTo(117));
+            }
+        }
+
+        [UnityTest]
         public IEnumerator RegBattle120_CombatPauseAndPointers_BlockMutationAndClickThrough()
         {
             yield return SceneManager.LoadSceneAsync("Battle");

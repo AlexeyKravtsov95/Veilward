@@ -8,6 +8,47 @@ namespace Veilward.Tests.EditMode
 {
     public sealed class BattleScenarioConfigTests
     {
+        [TestCase("cooldownTicks", 0)]
+        [TestCase("damagePercent", 0)]
+        [TestCase("range", 0)]
+        [TestCase("range", -1)]
+        [TestCase("range", float.NaN)]
+        [TestCase("range", float.PositiveInfinity)]
+        [TestCase("targetLimit", 5)]
+        [TestCase("priority", 1)]
+        public void RegBattle153_InvalidGlobalReactionData_RejectsInsteadOfUsingEmpty(string field, float value)
+        {
+            var config = BattleScenarioConfig.CreateDefault();
+            try
+            {
+                var serialized = new SerializedObject(config);
+                var reactions = serialized.FindProperty("reactions");
+                Assert.That(reactions, Is.Not.Null, "Production reactions must be serialized.");
+                var property = reactions.GetArrayElementAtIndex(0).FindPropertyRelative(field);
+                if (field == "range") property.floatValue = value;
+                else property.intValue = (int)value;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                Assert.Catch<System.ArgumentException>(() => config.CreateSimulation());
+            }
+            finally { Object.DestroyImmediate(config); }
+        }
+
+        [TestCase(0)] [TestCase(1)]
+        public void RegBattle153_MissingReactionDefinitions_AreRejected(int count)
+        {
+            var config = BattleScenarioConfig.CreateDefault();
+            try
+            {
+                var serialized = new SerializedObject(config);
+                var reactions = serialized.FindProperty("reactions");
+                Assert.That(reactions, Is.Not.Null);
+                reactions.arraySize = count;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                Assert.Catch<System.ArgumentException>(() => config.CreateSimulation());
+            }
+            finally { Object.DestroyImmediate(config); }
+        }
+
         [Test]
         public void CreateSimulation_UsesSerializedScenarioValues()
         {
