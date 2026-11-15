@@ -176,6 +176,19 @@ namespace Veilward.Editor
             var catalog = serialized.FindProperty("towerArchetypes");
             var reactions = serialized.FindProperty("reactions");
             if (catalog.arraySize == 0 && reactions.arraySize == 0) return;
+            var defaults = BattleScenarioConfig.CreateDefault();
+            try
+            {
+                var defaultSerialized = new SerializedObject(defaults);
+                // Допустимая миграция только неизменённых initializer copies старого shared asset.
+                if (!SerializedProperty.DataEquals(catalog, defaultSerialized.FindProperty("towerArchetypes")) ||
+                    !SerializedProperty.DataEquals(reactions, defaultSerialized.FindProperty("reactions")))
+                    throw new System.ArgumentException("EightWave local catalogs are malformed or customized; expected empty shared data or complete default copies.");
+            }
+            finally
+            {
+                Object.DestroyImmediate(defaults);
+            }
             catalog.arraySize = 0;
             reactions.arraySize = 0;
             serialized.ApplyModifiedPropertiesWithoutUndo();
