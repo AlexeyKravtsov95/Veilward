@@ -6,6 +6,7 @@ namespace Veilward.Domain
         Continued,
         RejectedInvalidPhase,
         RejectedNoNextWave,
-        RejectedIdExhausted
+        RejectedIdExhausted,
+        RejectedPendingElementChoice
     }
 }

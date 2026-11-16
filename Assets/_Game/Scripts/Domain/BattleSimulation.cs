@@ -10,6 +10,7 @@ namespace Veilward.Domain
         private readonly int _waveCompletionBonus;
         private readonly bool _legacySingleWave;
         private readonly int _initialBaseHealth;
+        private readonly ElementUnlockRules _elementUnlockRules;
         private readonly List<AttackEvent> _attackEvents = new List<AttackEvent>();
         private readonly List<ReactionEvent> _reactionEvents = new List<ReactionEvent>(32);
         private readonly List<DamageResolvedEvent> _damageEvents = new List<DamageResolvedEvent>(128);
@@ -113,7 +114,8 @@ namespace Veilward.Domain
             TowerCatalog towerCatalog,
             int baseHealth,
             int startingGold,
-            ReactionCatalog reactionCatalog = null)
+            ReactionCatalog reactionCatalog = null,
+            ElementUnlockRules elementUnlockRules = null)
             : this(
                 map,
                 path,
@@ -123,7 +125,7 @@ namespace Veilward.Domain
                 startingGold,
                 waveCompletionBonus: 0,
                 legacySingleWave: true,
-                reactionCatalog)
+                reactionCatalog, elementUnlockRules)
         {
         }
 
@@ -135,7 +137,8 @@ namespace Veilward.Domain
             int baseHealth,
             int startingGold,
             int waveCompletionBonus,
-            ReactionCatalog reactionCatalog = null)
+            ReactionCatalog reactionCatalog = null,
+            ElementUnlockRules elementUnlockRules = null)
             : this(
                 map,
                 path,
@@ -145,7 +148,7 @@ namespace Veilward.Domain
                 startingGold,
                 waveCompletionBonus,
                 legacySingleWave: false,
-                reactionCatalog)
+                reactionCatalog, elementUnlockRules)
         {
         }
 
@@ -179,7 +182,8 @@ namespace Veilward.Domain
             int startingGold,
             int waveCompletionBonus,
             bool legacySingleWave,
-            ReactionCatalog reactionCatalog = null)
+            ReactionCatalog reactionCatalog = null,
+            ElementUnlockRules elementUnlockRules = null)
         {
             if (map == null)
             {
@@ -220,6 +224,12 @@ namespace Veilward.Domain
                 }
             }
 
+            _elementUnlockRules = elementUnlockRules;
+            if (elementUnlockRules != null)
+            {
+                elementUnlockRules.ValidateWaveCount(waves.Count);
+                foreach (var archetype in towerCatalog.Archetypes) archetype.ValidateNativeRequirements();
+            }
             TowerLevels = towerCatalog.Archetypes[0].Levels;
             _waves = new WaveDefinition[waves.Count];
             for (var index = 0; index < waves.Count; index++)
@@ -234,6 +244,7 @@ namespace Veilward.Domain
             _initialBaseHealth = baseHealth;
             Grid = new BattleGrid(map, path);
             State = BattleState.CreateInitial(baseHealth, startingGold, _waves.Length);
+            State.SetElementProgression(ElementProgressionState.CreateInitial(elementUnlockRules != null));
             AttackEvents = _attackEvents.AsReadOnly();
             ReactionEvents = _reactionEvents.AsReadOnly();
             DamageEvents = _damageEvents.AsReadOnly();
@@ -253,6 +264,8 @@ namespace Veilward.Domain
 
         public BattleCheckpoint ExportCheckpoint()
         {
+            if (_elementUnlockRules != null)
+                throw new NotSupportedException("Native element progression checkpoint export is unsupported until P2.3c.");
             switch (State.Phase)
             {
                 case BattlePhase.Preparation:
@@ -298,6 +311,11 @@ namespace Veilward.Domain
             restoredState = null;
             restoredGrid = null;
             error = null;
+            if (_elementUnlockRules != null)
+            {
+                error = "Native element progression checkpoint restore is unsupported until P2.3c.";
+                return false;
+            }
             if (checkpoint == null)
             {
                 error = "Checkpoint is required.";
@@ -472,45 +490,76 @@ namespace Veilward.Domain
             return true;
         }
 
-        public PlaceTowerResult PlaceTower(PlaceTowerCommand command)
+        public TowerAvailability GetTowerAvailability(PlaceTowerCommand command)
         {
             if (State.Phase != BattlePhase.Preparation)
             {
-                return PlaceTowerResult.Failed(PlaceTowerFailureReason.InvalidPhase);
+                return new TowerAvailability(PlaceTowerFailureReason.InvalidPhase);
             }
+
+            if (State.ElementProgression.HasPendingChoice)
+                return new TowerAvailability(PlaceTowerFailureReason.PendingElementChoice);
 
             if (!TowerCatalog.TryGet(command.DefinitionId, out var archetype))
             {
-                return PlaceTowerResult.Failed(PlaceTowerFailureReason.UnknownTowerDefinition);
+                return new TowerAvailability(PlaceTowerFailureReason.UnknownTowerDefinition);
+            }
+
+            if (State.ElementProgression.IsNative)
+            {
+                if (archetype.Id.Value == "test-tower")
+                    return new TowerAvailability(PlaceTowerFailureReason.LegacyTowerUnavailable);
+                var missing = MissingElements(archetype);
+                if (missing.Count > 0) return new TowerAvailability(PlaceTowerFailureReason.ElementLocked, missing);
             }
 
             if (!Grid.Map.Contains(command.Coordinate))
             {
-                return PlaceTowerResult.Failed(PlaceTowerFailureReason.OutsideMap);
+                return new TowerAvailability(PlaceTowerFailureReason.OutsideMap);
             }
 
             var cellState = Grid.GetState(command.Coordinate);
             if (cellState == GridCellState.Blocked)
             {
-                return PlaceTowerResult.Failed(PlaceTowerFailureReason.Blocked);
+                return new TowerAvailability(PlaceTowerFailureReason.Blocked);
             }
 
             if (cellState == GridCellState.Occupied)
             {
-                return PlaceTowerResult.Failed(PlaceTowerFailureReason.Occupied);
+                return new TowerAvailability(PlaceTowerFailureReason.Occupied);
             }
 
             var definition = archetype.Levels[0];
             if (State.Gold < definition.Price)
             {
-                return PlaceTowerResult.Failed(PlaceTowerFailureReason.InsufficientGold);
+                return new TowerAvailability(PlaceTowerFailureReason.InsufficientGold);
             }
 
             if (_nextTowerId >= int.MaxValue - 1)
             {
-                return PlaceTowerResult.Failed(PlaceTowerFailureReason.IdentifierExhausted);
+                return new TowerAvailability(PlaceTowerFailureReason.IdentifierExhausted);
             }
 
+            return new TowerAvailability(PlaceTowerFailureReason.None);
+        }
+
+        private IReadOnlyList<ElementKind> MissingElements(TowerArchetypeDefinition archetype)
+        {
+            List<ElementKind> missing = null;
+            foreach (var element in archetype.RequiredElements)
+            {
+                if (State.ElementProgression.IsUnlocked(element)) continue;
+                if (missing == null) missing = new List<ElementKind>();
+                missing.Add(element);
+            }
+            return missing == null ? Array.Empty<ElementKind>() : (IReadOnlyList<ElementKind>)missing;
+        }
+
+        public PlaceTowerResult PlaceTower(PlaceTowerCommand command)
+        {
+            var availability = GetTowerAvailability(command);
+            if (!availability.CanPlace) return PlaceTowerResult.Failed(availability.FailureReason);
+            var definition = TowerCatalog.Get(command.DefinitionId).Levels[0];
             var tower = new TowerState(new TowerId(_nextTowerId), definition, command.Coordinate);
             if (!Grid.TryOccupy(command.Coordinate))
             {
@@ -530,6 +579,9 @@ namespace Veilward.Domain
                 return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
             }
 
+            if (State.ElementProgression.HasPendingChoice)
+                return TowerOperationResult.Failed(TowerOperationFailureReason.PendingElementChoice);
+
             var towerIndex = FindTowerIndex(towerId);
             if (towerIndex < 0)
             {
@@ -537,7 +589,11 @@ namespace Veilward.Domain
             }
 
             var tower = State.Towers[towerIndex];
-            var levels = TowerCatalog.Get(tower.Definition.Id).Levels;
+            var archetype = TowerCatalog.Get(tower.Definition.Id);
+            if (State.ElementProgression.IsNative &&
+                (archetype.Id.Value == "test-tower" || MissingElements(archetype).Count > 0))
+                return TowerOperationResult.Failed(TowerOperationFailureReason.ElementLocked);
+            var levels = archetype.Levels;
             if (tower.Level >= levels.Count)
             {
                 return TowerOperationResult.Failed(TowerOperationFailureReason.MaxLevel);
@@ -565,6 +621,9 @@ namespace Veilward.Domain
             {
                 return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
             }
+
+            if (State.ElementProgression.HasPendingChoice)
+                return TowerOperationResult.Failed(TowerOperationFailureReason.PendingElementChoice);
 
             var towerIndex = FindTowerIndex(towerId);
             if (towerIndex < 0)
@@ -599,18 +658,28 @@ namespace Veilward.Domain
             return -1;
         }
 
-        public WaveTransitionResult StartWave()
+        public WaveTransitionResult CheckStartWave()
         {
             if (State.Phase != BattlePhase.Preparation)
             {
                 return WaveTransitionResult.RejectedInvalidPhase;
             }
 
+            if (State.ElementProgression.HasPendingChoice)
+                return WaveTransitionResult.RejectedPendingElementChoice;
+
             if (CurrentWave.Count > int.MaxValue - 1 - _nextEnemyId)
             {
                 return WaveTransitionResult.RejectedIdExhausted;
             }
 
+            return WaveTransitionResult.Started;
+        }
+
+        public WaveTransitionResult StartWave()
+        {
+            var check = CheckStartWave();
+            if (check != WaveTransitionResult.Started) return check;
             _waveStartTick = State.Tick;
             _nextSpawnIndex = 0;
             State.SetPhase(BattlePhase.Combat);
@@ -618,21 +687,73 @@ namespace Veilward.Domain
             return WaveTransitionResult.Started;
         }
 
-        public WaveTransitionResult ContinueToNextWave()
+        public WaveTransitionResult CheckContinueToNextWave()
         {
             if (State.Phase != BattlePhase.WaveComplete)
             {
                 return WaveTransitionResult.RejectedInvalidPhase;
             }
 
+            if (State.ElementProgression.HasPendingChoice)
+                return WaveTransitionResult.RejectedPendingElementChoice;
+
             if (State.WaveIndex + 1 >= State.WaveCount)
             {
                 return WaveTransitionResult.RejectedNoNextWave;
             }
 
+            return WaveTransitionResult.Continued;
+        }
+
+        public WaveTransitionResult ContinueToNextWave()
+        {
+            var check = CheckContinueToNextWave();
+            if (check != WaveTransitionResult.Continued) return check;
             State.AdvanceWave();
             State.SetPhase(BattlePhase.Preparation);
             return WaveTransitionResult.Continued;
+        }
+
+        public ElementChoiceResult ChooseElement(ChooseElementCommand command)
+        {
+            var progression = State.ElementProgression;
+            if (State.Phase != BattlePhase.Preparation && State.Phase != BattlePhase.WaveComplete)
+                return new ElementChoiceResult(ElementChoiceFailureReason.InvalidPhase);
+            if (progression.HasPendingChoice &&
+                (progression.PendingChoiceId == "start-resonance"
+                    ? State.Phase != BattlePhase.Preparation || State.WaveIndex != 0
+                    : State.Phase != BattlePhase.WaveComplete ||
+                      progression.PendingChoiceId != "after-wave-" + (State.WaveIndex + 1)))
+                return new ElementChoiceResult(ElementChoiceFailureReason.InvalidPhase);
+            if (_elementUnlockRules == null)
+                return new ElementChoiceResult(ElementChoiceFailureReason.ProgressionDisabled);
+            if (!progression.HasPendingChoice)
+                return new ElementChoiceResult(ElementChoiceFailureReason.NoPendingChoice);
+            if (!string.Equals(command.ChoiceId, progression.PendingChoiceId, StringComparison.Ordinal))
+                return new ElementChoiceResult(ElementChoiceFailureReason.ChoiceMismatch);
+            ElementKind element;
+            switch (command.OptionId)
+            {
+                case "flame": element = ElementKind.Flame; break;
+                case "tide": element = ElementKind.Tide; break;
+                case "gale": element = ElementKind.Gale; break;
+                case "stone": element = ElementKind.Stone; break;
+                default: return new ElementChoiceResult(ElementChoiceFailureReason.InvalidOption);
+            }
+            var start = progression.PendingChoiceId == "start-resonance";
+            if (start)
+            {
+                var valid = false;
+                foreach (var option in _elementUnlockRules.StartingOptions)
+                    if (option == element) valid = true;
+                if (!valid) return new ElementChoiceResult(ElementChoiceFailureReason.InvalidOption);
+            }
+            if (progression.IsUnlocked(element))
+                return new ElementChoiceResult(ElementChoiceFailureReason.AlreadyUnlocked);
+            if (!start && progression.ChoicesEarned <= progression.ChoicesSpent)
+                return new ElementChoiceResult(ElementChoiceFailureReason.NoChoiceCredit);
+            State.SetElementProgression(progression.Confirm(element, command.OptionId));
+            return new ElementChoiceResult(ElementChoiceFailureReason.None);
         }
 
         public void Step()
@@ -661,6 +782,8 @@ namespace Veilward.Domain
                     !_legacySingleWave && State.WaveIndex == State.WaveCount - 1
                         ? BattlePhase.Victory
                         : BattlePhase.WaveComplete);
+                if (_elementUnlockRules != null && _elementUnlockRules.IsChoiceWave(State.WaveIndex + 1))
+                    State.SetElementProgression(State.ElementProgression.AwardChoice(State.WaveIndex + 1));
             }
         }
 

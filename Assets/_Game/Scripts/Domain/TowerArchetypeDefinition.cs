@@ -10,8 +10,9 @@ namespace Veilward.Domain
         public TowerArchetypeDefinition(
             TowerDefinitionId id,
             bool showInCatalog,
-            IReadOnlyList<TowerDefinition> levels)
-            : this(id, showInCatalog, levels, requireThreeLevels: true)
+            IReadOnlyList<TowerDefinition> levels,
+            IReadOnlyList<ElementKind> requiredElements = null)
+            : this(id, showInCatalog, levels, requireThreeLevels: true, requiredElements)
         {
         }
 
@@ -37,7 +38,8 @@ namespace Veilward.Domain
             TowerDefinitionId id,
             bool showInCatalog,
             IReadOnlyList<TowerDefinition> levels,
-            bool requireThreeLevels)
+            bool requireThreeLevels,
+            IReadOnlyList<ElementKind> requiredElements = null)
         {
             if (string.IsNullOrWhiteSpace(id.Value))
             {
@@ -87,6 +89,17 @@ namespace Veilward.Domain
                 copiedLevels[index] = level;
             }
 
+            var elements = new ElementKind[requiredElements?.Count ?? 0];
+            var uniqueElements = new HashSet<ElementKind>();
+            for (var index = 0; index < elements.Length; index++)
+            {
+                var element = requiredElements[index];
+                if (!Enum.IsDefined(typeof(ElementKind), element) || !uniqueElements.Add(element))
+                    throw new ArgumentException("Required elements must be known and unique.", nameof(requiredElements));
+                elements[index] = element;
+            }
+            Array.Sort(elements);
+            RequiredElements = Array.AsReadOnly(elements);
             Id = id;
             ShowInCatalog = showInCatalog;
             Levels = Array.AsReadOnly(copiedLevels);
@@ -99,7 +112,33 @@ namespace Veilward.Domain
         }
 
         public TowerDefinitionId Id { get; }
+        public IReadOnlyList<ElementKind> RequiredElements { get; }
         public bool ShowInCatalog { get; }
+
+        internal static IReadOnlyList<ElementKind> NativeRequirements(TowerDefinitionId id)
+        {
+            switch (id.Value)
+            {
+                case "flame": return Array.AsReadOnly(new[] { ElementKind.Flame });
+                case "tide": return Array.AsReadOnly(new[] { ElementKind.Tide });
+                case "gale": return Array.AsReadOnly(new[] { ElementKind.Gale });
+                case "stone": return Array.AsReadOnly(new[] { ElementKind.Stone });
+                case "steam": return Array.AsReadOnly(new[] { ElementKind.Flame, ElementKind.Tide });
+                case "storm": return Array.AsReadOnly(new[] { ElementKind.Tide, ElementKind.Gale });
+                default: throw new ArgumentException("Unknown native tower archetype.", nameof(id));
+            }
+        }
+
+        internal void ValidateNativeRequirements()
+        {
+            if (Id.Value == "test-tower") return;
+            var expected = NativeRequirements(Id);
+            if (RequiredElements.Count != expected.Count)
+                throw new ArgumentException("Native tower requirements do not match the explicit element table.");
+            for (var index = 0; index < expected.Count; index++)
+                if (RequiredElements[index] != expected[index])
+                    throw new ArgumentException("Native tower requirements do not match the explicit element table.");
+        }
         public IReadOnlyList<TowerDefinition> Levels { get; }
     }
 }

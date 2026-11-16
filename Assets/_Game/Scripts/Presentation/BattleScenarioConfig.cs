@@ -153,7 +153,18 @@ namespace Veilward.Presentation
                 historical: ReferenceEquals(reactionCatalog, ReactionCatalog.Empty));
         }
 
-        private BattleSimulation CreateSimulationCore(ReactionCatalog reactionCatalog, bool historical)
+        internal BattleSimulation CreateSimulation(ElementUnlockRules rules)
+        {
+            if (rules == null) throw new ArgumentNullException(nameof(rules));
+            if (waves == null || waves.Length != 8 || rules.StartingOptions.Count != 2 ||
+                rules.StartingOptions[0] != ElementKind.Flame || rules.StartingOptions[1] != ElementKind.Gale ||
+                rules.ChoiceWaves.Count != 2 || rules.ChoiceWaves[0] != 3 || rules.ChoiceWaves[1] != 6)
+                throw new ArgumentException("Native MVP requires Flame/Gale, milestones 3/6 and eight waves.", nameof(rules));
+            return CreateSimulationCore(null, historical: false, rules);
+        }
+
+        private BattleSimulation CreateSimulationCore(ReactionCatalog reactionCatalog, bool historical,
+            ElementUnlockRules rules = null)
         {
             var shared = sharedScenario != null ? sharedScenario : this;
             // Даже historical override сначала проверяет production data, без fallback на Empty.
@@ -255,7 +266,7 @@ namespace Veilward.Presentation
                 shared.baseHealth,
                 shared.startingGold,
                 waveCompletionBonus,
-                reactionCatalog);
+                reactionCatalog, rules);
         }
 
         private static TowerCatalog CreateTowerCatalog(
@@ -263,6 +274,12 @@ namespace Veilward.Presentation
             IReadOnlyList<TowerDefinition> legacyLevels)
         {
             var requiredIds = new[] { "flame", "tide", "gale", "stone", "steam", "storm" };
+            var requirements = new[]
+            {
+                new[] { ElementKind.Flame }, new[] { ElementKind.Tide },
+                new[] { ElementKind.Gale }, new[] { ElementKind.Stone },
+                new[] { ElementKind.Flame, ElementKind.Tide }, new[] { ElementKind.Tide, ElementKind.Gale }
+            };
             if (shared.towerArchetypes == null || shared.towerArchetypes.Length != requiredIds.Length)
             {
                 throw new ArgumentException("Exactly six visible tower archetypes are required.", nameof(towerArchetypes));
@@ -313,7 +330,9 @@ namespace Veilward.Presentation
                     levels[index] = new TowerDefinition(new TowerDefinitionId(settings.id), level.price,
                         level.range, level.fireRate, level.damage, statusDefinition, level.armorPenetration, intrinsic);
                 }
-                archetypes.Add(new TowerArchetypeDefinition(new TowerDefinitionId(settings.id), true, levels));
+                var id = new TowerDefinitionId(settings.id);
+                archetypes.Add(new TowerArchetypeDefinition(id, true, levels,
+                    requirements[archetypeIndex]));
             }
             return new TowerCatalog(archetypes);
         }
