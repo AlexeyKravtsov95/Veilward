@@ -228,3 +228,15 @@ Source-of-truth: designer-accessible ScriptableObjects or checked-in JSON conver
 ## 10. Agent engineering rules
 
 Commit `.meta` files, use Force Text and Visible Meta Files. Prefer prefab variants to 10 near-identical prefabs. Avoid changing serialized Unity assets blindly through string substitutions. Do not silently import third-party assets or packages. Never commit provisioning profiles, API keys, personal Apple credentials or proprietary models. A green CLI test is not proof that the scene looks correct on a device.
+
+### P2.2e: transient reaction presentation
+
+`ReactionPresentationState` связывает только Reaction-origin hits по tick/reaction sequence/kind/source. HUD и инспектор используют фактический AppliedHpLoss и hit count; configured/direct Damage не является суммой реакции. Память на живого врага хранит последние объяснения обоих видов; общий HUD сохраняет lethal результат. Domain, damage, definitions, цены и balance configs не меняются.
+
+`BattleSceneController` потребляет все события после каждого fixed Step, включая несколько Step до render, и очищает все три stream в одном finally. Ограниченный pool из 24 `ReactionEffectView` переиспользует oldest slot; Steam ring/impacts и Storm hop order используют исключительно captured geometry. Отдельный unlit material/PropertyBlock задаёт цвета; callbacks не вызывают симуляцию.
+
+Enemy prefab имеет ровно два слота: cause cue на 0.5 s active presentation time с Steam tie priority, затем status priority Burn/Wet/Gust/Crack с учётом ready-pair cooldown. Intrinsic подписан отдельно. Локальный layout разводит существующие подписи плотной группы, не добавляя badges. `EnemyInspectorController` выбирает живой EnemyId и читает все statuses/power/ticks, оба remaining CD и оба последних объяснения. Смерть закрывает selection.
+
+Pause/background замораживают clock/VFX и обнуляют accumulator/первый delta при Resume. Placement сначала проверяет UI/modals, затем enemy hit area; inspector поглощает world taps до явного закрытия. Успешный controller Restore очищает pool/cues/selection и пересоздаёт enemy/tower views; rejected Restore не вызывает reset. Continue/New Game создают новую сцену. Schema 2 неизменна.
+
+Preview и occupied panel показывают intrinsic percent/range/limit/global cooldown и условия (surviving primary, Storm neighbor); FLAME/TIDE/GALE объясняют пары. Builder создаёт refs/два slots/material; validator проверяет новые refs, missing scripts и inspector layout. [Проверки, реальные Editor Play Mode кадры и ограничения](review/P2.2e/README.md). Physical iPhone, performance, баланс и G2 не подтверждены; полный replay/impact — P2.2f.

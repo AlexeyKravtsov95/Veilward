@@ -65,6 +65,41 @@ namespace Veilward.Tests.EditMode
             }
         }
 
+        [TestCase("enemyInspector")]
+        [TestCase("reactionSummaryText")]
+        public void RegBattle159_MissingReactionReferenceIsRejected(string field)
+        {
+            EditorSceneManager.OpenScene(BattleScenePath);
+            var serialized = new SerializedObject(UnityEngine.Object.FindFirstObjectByType<BattleSceneController>());
+            var property = serialized.FindProperty(field);
+            var original = property.objectReferenceValue;
+            Assert.That(original, Is.Not.Null);
+            try
+            {
+                property.objectReferenceValue = null; serialized.ApplyModifiedPropertiesWithoutUndo();
+                Assert.That(BattleAssetValidator.ValidateSavedBattle().Any(e => e.Contains(field)), Is.True);
+            }
+            finally { EditorSceneManager.OpenScene(BattleScenePath); }
+        }
+
+        [Test]
+        public void RegBattle159_InspectorLayoutAndMissingReferenceAreRejected()
+        {
+            EditorSceneManager.OpenScene(BattleScenePath);
+            var inspector = UnityEngine.Object.FindFirstObjectByType<EnemyInspectorController>();
+            var serialized = new SerializedObject(inspector);
+            var panel = (GameObject)serialized.FindProperty("panel").objectReferenceValue;
+            var close = (UnityEngine.UI.Button)serialized.FindProperty("closeButton").objectReferenceValue;
+            Assert.That(close.GetComponent<RectTransform>().rect.height, Is.GreaterThanOrEqualTo(56));
+            Assert.That(panel.GetComponent<UnityEngine.UI.Image>().raycastTarget, Is.True);
+            try
+            {
+                serialized.FindProperty("detailsText").objectReferenceValue = null; serialized.ApplyModifiedPropertiesWithoutUndo();
+                Assert.That(BattleAssetValidator.ValidateSavedBattle().Any(e => e.Contains("detailsText")), Is.True);
+            }
+            finally { EditorSceneManager.OpenScene(BattleScenePath); }
+        }
+
         [Test]
         public void SavedBattleScene_PauseOverlayAndReferences_AreValid()
         {

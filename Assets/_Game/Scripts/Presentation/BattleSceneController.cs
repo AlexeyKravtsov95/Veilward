@@ -19,13 +19,23 @@ namespace Veilward.Presentation
         [SerializeField] private UnityEngine.UI.Text hudText;
         [SerializeField] private Camera worldCamera;
         [SerializeField] private Material attackBeamMaterial;
+        [SerializeField] private Material reactionEffectMaterial;
         [SerializeField] private BattlePauseController pauseController;
         [SerializeField] private BattlePlacementController placementController;
         [SerializeField] private BattleCheckpointController checkpointController;
+        [SerializeField] private EnemyInspectorController enemyInspector;
+        [SerializeField] private UnityEngine.UI.Text reactionSummaryText;
+        private const int ReactionPoolCapacity = 24;
+        private readonly ReactionEffectView[] _reactionPool = new ReactionEffectView[ReactionPoolCapacity];
+        private int _nextReactionEffect;
+        private Vector2 _reactionSummaryOrigin;
+        private Canvas _summaryCanvas;
+        public ReactionPresentationState Presentation { get; } = new ReactionPresentationState();
 
         private readonly Dictionary<EnemyId, EnemyView> _enemyViews = new Dictionary<EnemyId, EnemyView>();
         private readonly Dictionary<TowerId, int> _towerViewLevels = new Dictionary<TowerId, int>();
         private readonly Dictionary<TowerId, Transform> _towerViews = new Dictionary<TowerId, Transform>();
+        private readonly List<Rect> _statusRects = new List<Rect>();
         private readonly List<EnemyId> _staleEnemyIds = new List<EnemyId>();
         private readonly List<TowerId> _staleTowerIds = new List<TowerId>();
         private BattleSimulation _simulation;
@@ -68,6 +78,19 @@ namespace Veilward.Presentation
             }
 
             _simulation = scenario.CreateSimulation();
+            if (reactionSummaryText != null)
+            {
+                _reactionSummaryOrigin = reactionSummaryText.rectTransform.anchoredPosition;
+                _summaryCanvas = reactionSummaryText.GetComponentInParent<Canvas>();
+            }
+            for (var i = 0; i < _reactionPool.Length; i++)
+            {
+                var effect = new GameObject("Reaction effect " + i).AddComponent<ReactionEffectView>();
+                effect.transform.SetParent(transform, false);
+                effect.Initialize(reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial);
+                _reactionPool[i] = effect;
+            }
+            if (checkpointController != null) checkpointController.Restored += ResetPresentation;
             _accumulator = 0f;
             _skipNextDelta = true;
             var session = BattleSessionContext.Consume();
@@ -260,7 +283,11 @@ namespace Veilward.Presentation
                 return;
             }
 
-            _accumulator += Mathf.Min(Time.deltaTime, 0.25f);
+            var activeDelta = Mathf.Min(Time.deltaTime, 0.25f);
+            Presentation.Advance(activeDelta);
+            for (var i = 0; i < _reactionPool.Length; i++)
+                if (_reactionPool[i] != null) _reactionPool[i].Advance(activeDelta);
+            _accumulator += activeDelta;
             var steps = 0;
             while (_accumulator >= StepSeconds && steps < MaxStepsPerFrame)
             {
@@ -285,12 +312,28 @@ namespace Veilward.Presentation
 
             SynchronizeViews();
             UpdateHud();
+            if (reactionSummaryText != null && _summaryCanvas != null && _summaryCanvas.scaleFactor > 0)
+            {
+                var area = Screen.safeArea;
+                reactionSummaryText.rectTransform.anchoredPosition = _reactionSummaryOrigin + new Vector2(
+                    area.center.x - Screen.width * .5f, -Mathf.Max(0, Screen.height - area.yMax)) / _summaryCanvas.scaleFactor;
+            }
         }
 
         private void ProcessAttackEvents()
         {
             try
             {
+                var reactions = _simulation.ReactionEvents;
+                var damages = _simulation.DamageEvents;
+                for (var i = 0; i < reactions.Count; i++)
+                {
+                    Presentation.Consume(reactions[i], damages);
+                    var effect = _reactionPool[_nextReactionEffect];
+                    if (effect != null) effect.Play(reactions[i], damages);
+                    _nextReactionEffect = (_nextReactionEffect + 1) % _reactionPool.Length;
+                }
+                if (reactionSummaryText != null) reactionSummaryText.text = Presentation.LastSummary;
                 var attacks = _simulation.AttackEvents;
                 for (var index = 0; index < attacks.Count; index++)
                 {
@@ -314,7 +357,7 @@ namespace Veilward.Presentation
             finally
             {
                 _simulation.ClearAttackEvents();
-                // P2.2c пока не отображает новую telemetry; её lifetime уже ограничен одним Step.
+                // Все consumer используют один Step; очистка обязательна и при исключении.
                 _simulation.ClearReactionEvents();
                 _simulation.ClearDamageEvents();
             }
@@ -340,6 +383,31 @@ namespace Veilward.Presentation
 
             position = default;
             return false;
+        }
+
+        private void OnDestroy()
+        {
+            if (checkpointController != null) checkpointController.Restored -= ResetPresentation;
+        }
+
+        public void FreezePresentationClock() { _accumulator = 0; _skipNextDelta = true; }
+
+        public void ResetPresentation()
+        {
+            Presentation.Reset(); _accumulator = 0; _skipNextDelta = true; _nextReactionEffect = 0;
+            for (var i = 0; i < _reactionPool.Length; i++) if (_reactionPool[i] != null) _reactionPool[i].Clear();
+            foreach (var beam in GetComponentsInChildren<AttackBeamView>())
+                if (UnityEngine.Application.isPlaying) Destroy(beam.gameObject); else DestroyImmediate(beam.gameObject);
+            foreach (var view in _enemyViews.Values)
+                if (UnityEngine.Application.isPlaying) Destroy(view.Transform.gameObject); else DestroyImmediate(view.Transform.gameObject);
+            _enemyViews.Clear();
+            foreach (var view in _towerViews.Values)
+                if (UnityEngine.Application.isPlaying) Destroy(view.gameObject); else DestroyImmediate(view.gameObject);
+            _towerViews.Clear(); _towerViewLevels.Clear();
+            if (enemyInspector != null) enemyInspector.Close();
+            if (placementController != null) placementController.CancelSelection();
+            if (reactionSummaryText != null) reactionSummaryText.text = string.Empty;
+            SynchronizeViews();
         }
 
         private void SynchronizeViews()
@@ -415,7 +483,9 @@ namespace Veilward.Presentation
 
         private void SynchronizeEnemyViews()
         {
+            Presentation.Prune(_simulation.State.Enemies);
             var state = _simulation.State;
+            _statusRects.Clear();
             for (var index = 0; index < state.Enemies.Count; index++)
             {
                 var enemy = state.Enemies[index];
@@ -428,6 +498,10 @@ namespace Veilward.Presentation
                 var position = _simulation.Path.GetPosition(enemy.DistanceAlongPath);
                 view.Transform.position = new Vector3(position.X, 0.6f, position.Y);
                 view.SeenTick = state.Tick;
+                if (view.Status != null)
+                    view.Status.Refresh(enemy, state.Tick, _simulation.ReactionCatalog,
+                        Presentation.GetMemory(enemy.Id), Presentation.ActiveTime, worldCamera);
+                if (view.Status != null) view.Status.Layout(worldCamera, _statusRects);
                 if (view.HealthBar != null)
                 {
                     view.HealthBar.SetNormalizedHealth((float)enemy.Health / enemy.Definition.MaxHealth);
@@ -484,10 +558,12 @@ namespace Veilward.Presentation
             {
                 Transform = transform;
                 HealthBar = transform.GetComponentInChildren<EnemyHealthBarView>(true);
+                Status = transform.GetComponent<EnemyStatusView>();
             }
 
             public Transform Transform { get; }
             public EnemyHealthBarView HealthBar { get; }
+            public EnemyStatusView Status { get; }
             public long SeenTick { get; set; }
         }
     }

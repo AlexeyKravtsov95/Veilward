@@ -1,0 +1,181 @@
+{
+  "status": "completed",
+  "duration": 11.38,
+  "summary": {
+    "total": 24,
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0,
+    "inconclusive": 0
+  },
+  "results": [
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests.DirectBattle_DoesNotReadOrWriteCheckpointStore",
+      "Status": "Passed",
+      "Duration": 0.4569001,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests.InterruptedCombat_MenuContinue_RestoresPreparationViewsAndClearsTransients",
+      "Status": "Passed",
+      "Duration": 0.8488566,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests.WaveComplete_RepeatedMenuContinue_DoesNotDuplicateRewards",
+      "Status": "Passed",
+      "Duration": 1.1605086,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_PauseClearsPendingActions",
+      "Status": "Passed",
+      "Duration": 0.1702753,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_PausedCommandsAndButtons_CannotMutateMatch",
+      "Status": "Passed",
+      "Duration": 0.1716066,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_PauseFreezesSimulationAcrossFrames",
+      "Status": "Passed",
+      "Duration": 0.1778161,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_Reload_DoesNotDuplicatePauseListeners",
+      "Status": "Passed",
+      "Duration": 0.3315071,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_Resume_ContinuesWithoutCatchUp",
+      "Status": "Passed",
+      "Duration": 0.3292175,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_ResumeClick_DoesNotPassThroughOverlay",
+      "Status": "Passed",
+      "Duration": 0.1710093,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle154_HybridPreviewAndOccupiedPanelStayCompact",
+      "Status": "Passed",
+      "Duration": 0.1806435,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle156_InspectorShowsEveryStatusCooldownAndClosesOnDeath",
+      "Status": "Passed",
+      "Duration": 0.1703773,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle157_MultipleFixedStepsDrainEveryStreamAndRestoreClearsVisuals",
+      "Status": "Passed",
+      "Duration": 0.1687242,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle157_RestoreSameIdAndLevelRebuildsChangedTowerTypeAndCell",
+      "Status": "Passed",
+      "Duration": 0.1713848,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle157_SyntheticBurstReusesBoundedPoolAndConsumerExceptionClearsStreams",
+      "Status": "Passed",
+      "Duration": 0.1748394,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle158_PauseBackgroundResumeAndInspectorTapDoNotClickThrough",
+      "Status": "Passed",
+      "Duration": 0.3199706,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle158_SyntheticCueAndVfxFreezeAcrossManualAndBackgroundPause",
+      "Status": "Passed",
+      "Duration": 0.4716022,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle159_ContinueAndNewGameDiscardOldSelectionCuesAndEffects",
+      "Status": "Passed",
+      "Duration": 0.9781322,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleSellConfirmationPlayModeTests.Battle_SellConfirmation_EnforcesModalContract",
+      "Status": "Passed",
+      "Duration": 0.1712264,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleSmokeTests.Battle_LoadsIntoPreparation",
+      "Status": "Passed",
+      "Duration": 0.162727,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleSmokeTests.Battle_TowerEconomyFlow_UpgradesSellsAndRebuilds",
+      "Status": "Passed",
+      "Duration": 0.1725269,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle120_CombatPauseAndPointers_BlockMutationAndClickThrough",
+      "Status": "Passed",
+      "Duration": 0.3207926,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle121_LegacyContinue_MigratesAndKeepsHiddenCatalogAndEconomy",
+      "Status": "Passed",
+      "Duration": 0.6703021,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle123_CatalogStatusEconomyAndContinue_RestoresEveryType",
+      "Status": "Passed",
+      "Duration": 2.8864845,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle150_HybridPauseBlocksAllEconomyAndRepeatedSellPaysOnce",
+      "Status": "Passed",
+      "Duration": 0.4990861,
+      "Message": null,
+      "StackTrace": null
+    }
+  ]
+}

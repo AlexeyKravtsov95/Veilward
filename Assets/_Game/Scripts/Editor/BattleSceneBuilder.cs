@@ -77,6 +77,7 @@ namespace Veilward.Editor
             var selectionMaterial = CreateOrUpdateMaterial("GrayboxSelection", new Color(1f, 0.9f, 0.2f));
             var previewMaterial = CreateOrUpdateMaterial("GrayboxTowerPreview", new Color(0.3f, 0.9f, 0.95f));
             var beamMaterial = CreateOrUpdateUnlitMaterial("AttackBeam", new Color(1f, 0.85f, 0.25f));
+            CreateOrUpdateUnlitMaterial("ReactionEffect", Color.white);
             var healthBackgroundMaterial = CreateOrUpdateUnlitMaterial("HealthBackground", new Color(0.12f, 0.03f, 0.04f));
             var healthFillMaterial = CreateOrUpdateUnlitMaterial("HealthFill", new Color(0.25f, 0.9f, 0.35f));
             var rangeMaterial = CreateOrUpdateUnlitMaterial("RangePreview", new Color(0.3f, 0.9f, 0.95f));
@@ -85,6 +86,7 @@ namespace Veilward.Editor
             enemy.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
             enemy.GetComponent<Renderer>().sharedMaterial = enemyMaterial;
             AddHealthBar(enemy, healthBackgroundMaterial, healthFillMaterial);
+            AddStatusSlots(enemy);
             var enemyPrefab = PrefabUtility.SaveAsPrefabAsset(enemy, EnemyPrefabPath);
             Object.DestroyImmediate(enemy);
             var towerPrefab = CreateTowerPrefab(towerMaterial);
@@ -385,6 +387,32 @@ namespace Veilward.Editor
             serialized.ApplyModifiedPropertiesWithoutUndo();
         }
 
+        private static void AddStatusSlots(GameObject enemy)
+        {
+            var status = enemy.AddComponent<EnemyStatusView>();
+            var root = new GameObject("Status slots", typeof(RectTransform), typeof(Canvas));
+            root.transform.SetParent(enemy.transform, false);
+            root.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+            root.transform.localPosition = new Vector3(0, 2.2f, 0);
+            root.transform.localScale = Vector3.one * .014f;
+            var first = CreateText("Status slot 1", root.transform, 28, TextAnchor.MiddleCenter);
+            var second = CreateText("Status slot 2", root.transform, 28, TextAnchor.MiddleCenter);
+            SetRect(first.rectTransform, new Vector2(.5f, .5f), new Vector2(0, 22), new Vector2(540, 76));
+            SetRect(second.rectTransform, new Vector2(.5f, .5f), new Vector2(0, -38), new Vector2(240, 40));
+            foreach (var text in new[] { first, second })
+            {
+                text.raycastTarget = false;
+                var outline = text.gameObject.AddComponent<UnityEngine.UI.Outline>();
+                outline.effectColor = new Color(.02f, .03f, .04f, 1);
+                outline.effectDistance = new Vector2(1.5f, -1.5f);
+                text.gameObject.SetActive(false);
+            }
+            var serialized = new SerializedObject(status);
+            serialized.FindProperty("firstSlot").objectReferenceValue = first;
+            serialized.FindProperty("secondSlot").objectReferenceValue = second;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+        }
+
         private static Transform CreateSelection(Material material, float cellSize)
         {
             var selection = CreatePrimitive(PrimitiveType.Cube, "Selection Highlight");
@@ -430,7 +458,7 @@ namespace Veilward.Editor
             var propertyNames = new[]
             {
                 "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
-                "pauseController", "placementController", "checkpointController"
+                "pauseController", "placementController", "checkpointController", "enemyInspector", "reactionSummaryText", "reactionEffectMaterial"
             };
             foreach (var propertyName in propertyNames)
             {
@@ -445,7 +473,7 @@ namespace Veilward.Editor
             var placementSerialized = new SerializedObject(placement);
             var placementProperties = new[]
             {
-                "catalogRoot", "catalogButtonTemplate", "buildStatsText", "sellConfirmationText",
+                "catalogRoot", "catalogButtonTemplate", "buildStatsText", "sellConfirmationText", "enemyInspector",
                 "battle", "worldCamera", "selectionHighlight", "towerPreview",
                 "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview",
                 "towerPanel", "towerStatsText", "upgradeButton", "sellButton", "sellConfirmationPanel", "confirmSellButton", "cancelSellButton"
@@ -731,6 +759,18 @@ namespace Veilward.Editor
             var resume = CreateButton("Resume Button", pauseOverlay.transform, "Resume", new Vector2(0f, -30f));
             pauseOverlay.SetActive(false);
 
+            var inspectorPanel = CreateUiObject("Enemy Inspector Panel", canvasObject.transform);
+            inspectorPanel.AddComponent<UnityEngine.UI.Image>().color = new Color(.02f, .03f, .05f, .94f);
+            SetRect(inspectorPanel.GetComponent<RectTransform>(), new Vector2(1, 0), new Vector2(-24, 24), new Vector2(720, 390));
+            var inspectorText = CreateText("Enemy Inspector Details", inspectorPanel.transform, 22, TextAnchor.UpperLeft);
+            inspectorText.raycastTarget = false;
+            SetRect(inspectorText.rectTransform, new Vector2(0, 1), new Vector2(20, -16), new Vector2(680, 300));
+            var closeInspector = CreateButton("Close Inspector Button", inspectorPanel.transform, "Закрыть", new Vector2(0, -155));
+            inspectorPanel.SetActive(false);
+            var reactionSummary = CreateText("Reaction Summary", canvasObject.transform, 26, TextAnchor.MiddleCenter);
+            reactionSummary.raycastTarget = false;
+            SetRect(reactionSummary.rectTransform, new Vector2(.5f, 1), new Vector2(0, -24), new Vector2(680, 48));
+
             var saveStatus = CreateText("Save Status", canvasObject.transform, 18, TextAnchor.UpperRight);
             saveStatus.raycastTarget = false;
             SetRect(
@@ -742,6 +782,10 @@ namespace Veilward.Editor
 
             return new HudReferences
             {
+                InspectorPanel = inspectorPanel,
+                InspectorText = inspectorText,
+                CloseInspectorButton = closeInspector,
+                ReactionSummaryText = reactionSummary,
                 StatsText = stats,
                 SaveStatusText = saveStatus,
                 CatalogRoot = catalog,
@@ -844,7 +888,9 @@ namespace Veilward.Editor
                 typeof(BattleSceneController),
                 typeof(BattlePlacementController),
                 typeof(BattlePauseController),
-                typeof(BattleCheckpointController));
+                typeof(BattleCheckpointController),
+                typeof(EnemyInspectorController));
+            var inspector = controllerObject.GetComponent<EnemyInspectorController>();
             var battle = controllerObject.GetComponent<BattleSceneController>();
             var placement = controllerObject.GetComponent<BattlePlacementController>();
             var pause = controllerObject.GetComponent<BattlePauseController>();
@@ -856,9 +902,12 @@ namespace Veilward.Editor
             serialized.FindProperty("hudText").objectReferenceValue = hud.StatsText;
             serialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
             serialized.FindProperty("attackBeamMaterial").objectReferenceValue = beamMaterial;
+            serialized.FindProperty("reactionEffectMaterial").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Material>(MaterialsFolder + "/ReactionEffect.mat");
             serialized.FindProperty("pauseController").objectReferenceValue = pause;
             serialized.FindProperty("placementController").objectReferenceValue = placement;
             serialized.FindProperty("checkpointController").objectReferenceValue = checkpoint;
+            serialized.FindProperty("enemyInspector").objectReferenceValue = inspector;
+            serialized.FindProperty("reactionSummaryText").objectReferenceValue = hud.ReactionSummaryText;
             serialized.ApplyModifiedPropertiesWithoutUndo();
 
             var checkpointSerialized = new SerializedObject(checkpoint);
@@ -867,6 +916,7 @@ namespace Veilward.Editor
 
             var placementSerialized = new SerializedObject(placement);
             placementSerialized.FindProperty("battle").objectReferenceValue = battle;
+            placementSerialized.FindProperty("enemyInspector").objectReferenceValue = inspector;
             placementSerialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
             placementSerialized.FindProperty("selectionHighlight").objectReferenceValue = selection;
             placementSerialized.FindProperty("towerPreview").objectReferenceValue = preview;
@@ -889,6 +939,15 @@ namespace Veilward.Editor
             placementSerialized.FindProperty("cancelSellButton").objectReferenceValue = hud.CancelSellButton;
             placementSerialized.ApplyModifiedPropertiesWithoutUndo();
 
+            var inspectorSerialized = new SerializedObject(inspector);
+            inspectorSerialized.FindProperty("battle").objectReferenceValue = battle;
+            inspectorSerialized.FindProperty("placement").objectReferenceValue = placement;
+            inspectorSerialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
+            inspectorSerialized.FindProperty("panel").objectReferenceValue = hud.InspectorPanel;
+            inspectorSerialized.FindProperty("detailsText").objectReferenceValue = hud.InspectorText;
+            inspectorSerialized.FindProperty("closeButton").objectReferenceValue = hud.CloseInspectorButton;
+            inspectorSerialized.ApplyModifiedPropertiesWithoutUndo();
+
             var pauseSerialized = new SerializedObject(pause);
             pauseSerialized.FindProperty("battle").objectReferenceValue = battle;
             pauseSerialized.FindProperty("placement").objectReferenceValue = placement;
@@ -900,6 +959,10 @@ namespace Veilward.Editor
 
         private sealed class HudReferences
         {
+            public GameObject InspectorPanel;
+            public UnityEngine.UI.Text InspectorText;
+            public UnityEngine.UI.Button CloseInspectorButton;
+            public UnityEngine.UI.Text ReactionSummaryText;
             public UnityEngine.UI.Text StatsText;
             public UnityEngine.UI.Text SaveStatusText;
             public RectTransform CatalogRoot;

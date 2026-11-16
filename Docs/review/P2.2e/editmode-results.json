@@ -1,0 +1,3657 @@
+{
+  "Summary": {
+    "Total": 520,
+    "Passed": 520,
+    "Failed": 0,
+    "Skipped": 0,
+    "Inconclusive": 0
+  },
+  "Results": [
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.BattleBuilder_TwoConsecutiveBuilds_ProduceIdenticalContentAndRestoreOriginals",
+      "Status": "Passed",
+      "Duration": 2.1652373,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.RegBattle090_InvalidSavedElementalDefinition_ReturnsValidationError",
+      "Status": "Passed",
+      "Duration": 0.4184217,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.RegBattle122_MissingCatalogReference_IsRejectedWithoutSaving(\"catalogRoot\")",
+      "Status": "Passed",
+      "Duration": 0.3062768,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.RegBattle122_MissingCatalogReference_IsRejectedWithoutSaving(\"catalogButtonTemplate\")",
+      "Status": "Passed",
+      "Duration": 0.3086133,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.RegBattle122_MissingCatalogReference_IsRejectedWithoutSaving(\"buildStatsText\")",
+      "Status": "Passed",
+      "Duration": 0.3026013,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.RegBattle122_MissingCatalogReference_IsRejectedWithoutSaving(\"sellConfirmationText\")",
+      "Status": "Passed",
+      "Duration": 0.316749,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.RegBattle153_DuplicateLocalCatalog_IsRejectedWithoutSaving",
+      "Status": "Passed",
+      "Duration": 0.0018088,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.RegBattle159_InspectorLayoutAndMissingReferenceAreRejected",
+      "Status": "Passed",
+      "Duration": 0.3068094,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.RegBattle159_MissingReactionReferenceIsRejected(\"enemyInspector\")",
+      "Status": "Passed",
+      "Duration": 0.3008792,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.RegBattle159_MissingReactionReferenceIsRejected(\"reactionSummaryText\")",
+      "Status": "Passed",
+      "Duration": 0.3014948,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.SavedBattleScene_ConfigReferencesPrefabsAndMaterials_AreValid",
+      "Status": "Passed",
+      "Duration": 0.0008281,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.SavedBattleScene_PauseOverlayAndReferences_AreValid",
+      "Status": "Passed",
+      "Duration": 0.1524254,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.SavedBattleScene_TowerStatsMeasurement_DoesNotMutateScene",
+      "Status": "Passed",
+      "Duration": 0.3042971,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.SavedBattleScene_TowerStatsRect_FitsAllEconomyLines",
+      "Status": "Passed",
+      "Duration": 0.1518603,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleAssetValidationTests.SavedMainMenu_NewGameContinueAndCanvas_AreValid",
+      "Status": "Passed",
+      "Duration": 0.1483423,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointControllerTests.DirectBattleWithoutStore_StartsWaveInMemory",
+      "Status": "Passed",
+      "Duration": 0.0032788,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointControllerTests.StartWaveWriteFailure_BlocksTransitionAndKeepsPreparation",
+      "Status": "Passed",
+      "Duration": 0.0026995,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointControllerTests.SuccessfulCommands_SaveAndRejectedCommand_DoesNotRewriteCheckpoint",
+      "Status": "Passed",
+      "Duration": 0.0055846,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointControllerTests.WaveCompleteAndNextWave_SaveRewardedStableStatesOnlyOnce",
+      "Status": "Passed",
+      "Duration": 0.0041684,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.Build_RoundTrip_RestoresConsistentPreparation",
+      "Status": "Passed",
+      "Duration": 0.001184,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.CombatCheckpointExport_IsRejected",
+      "Status": "Passed",
+      "Duration": 0.000453,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.EconomyAndRejectedCommands_SaveOnlySuccessfulMutations",
+      "Status": "Passed",
+      "Duration": 0.0005581,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.EnemyIdExhaustion_RejectsStartWaveWithoutMutation",
+      "Status": "Passed",
+      "Duration": 0.0001729,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.InterruptedWave_RestoresPreparationBeforeAttempt",
+      "Status": "Passed",
+      "Duration": 0.0004448,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.InvalidScalarsAndPhases_AreRejectedWithoutMutation",
+      "Status": "Passed",
+      "Duration": 0.0023082,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.InvalidTowers_AreRejectedWithoutPublishingPartialState",
+      "Status": "Passed",
+      "Duration": 0.0010234,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.LastSafeEnemyId_CompletesRestorableWaveAndRejectsFollowingWave",
+      "Status": "Passed",
+      "Duration": 0.0002721,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.NextWave_RoundTrip_PreservesRewardAndRequiresExplicitStart",
+      "Status": "Passed",
+      "Duration": 0.0003291,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.RestoredRun_MatchesContinuousDeterministicTimeline",
+      "Status": "Passed",
+      "Duration": 0.0338723,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.SellRestoreRebuild_DoesNotReuseSoldTowerId",
+      "Status": "Passed",
+      "Duration": 0.0005234,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.TerminalStates_RemainTerminalAfterRestore(Victory)",
+      "Status": "Passed",
+      "Duration": 0.0004513,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.TerminalStates_RemainTerminalAfterRestore(Defeat)",
+      "Status": "Passed",
+      "Duration": 0.0002242,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.TowerIdExhaustion_RejectsPlacementWithoutMutation",
+      "Status": "Passed",
+      "Duration": 0.0003027,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCheckpointTests.WaveComplete_RepeatedLoads_DoNotDuplicateRewards",
+      "Status": "Passed",
+      "Duration": 0.0005666,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.ApplyDamage_NonPositiveDamage_Throws(0)",
+      "Status": "Passed",
+      "Duration": 0.000231,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.ApplyDamage_NonPositiveDamage_Throws(-1)",
+      "Status": "Passed",
+      "Duration": 2.75e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.ApplyDamage_Overkill_ClampsHealthToZeroAndReturnsLethalOnce",
+      "Status": "Passed",
+      "Duration": 0.0001123,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.ClearAttackEvents_ClearsOnlyEventLifetime",
+      "Status": "Passed",
+      "Duration": 0.0006229,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.SelectFirst_DeadEnemy_IsNotSelected",
+      "Status": "Passed",
+      "Duration": 0.0001628,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.SelectFirst_EnemyAtRangeBoundary_IsSelected",
+      "Status": "Passed",
+      "Duration": 0.0001305,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.SelectFirst_EnemyOutsideRange_IsNotSelected",
+      "Status": "Passed",
+      "Duration": 6.48e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.SelectFirst_EqualProgress_ReturnsLowestEnemyId",
+      "Status": "Passed",
+      "Duration": 9.66e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.SelectFirst_ReturnsEnemyWithMaximumProgress",
+      "Status": "Passed",
+      "Duration": 8.42e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_AfterDefeat_DoesNotAttackOrAdvance",
+      "Status": "Passed",
+      "Duration": 0.0001912,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_AfterWaveComplete_DoesNotAttackOrAdvance",
+      "Status": "Passed",
+      "Duration": 0.0001573,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_AttackEvent_ContainsCombatFacts",
+      "Status": "Passed",
+      "Duration": 0.0005423,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_Cooldown_AttacksOnExactTicks",
+      "Status": "Passed",
+      "Duration": 0.0009919,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_Damage_DecreasesHealthByExpectedValue",
+      "Status": "Passed",
+      "Duration": 8.19e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_DeathRemoval_PreservesRemainingEnemyIdOrder",
+      "Status": "Passed",
+      "Duration": 0.000571,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_FireRateAboveThirty_AttacksOnlyOncePerTick",
+      "Status": "Passed",
+      "Duration": 9.81e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_IdenticalCombatRuns_ProduceIdenticalResults",
+      "Status": "Passed",
+      "Duration": 0.0008405,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_KilledEnemy_DiesAndIncreasesKillsExactlyOnce",
+      "Status": "Passed",
+      "Duration": 0.0001704,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_KilledEnemy_DoesNotLeakDamage",
+      "Status": "Passed",
+      "Duration": 0.0001314,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_LethalAttackEvent_PreservesConfiguredOverkillDamage",
+      "Status": "Passed",
+      "Duration": 9.15e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_LethalAttackEvent_PreservesTargetPositionAfterEnemyRemoval",
+      "Status": "Passed",
+      "Duration": 0.00018,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_PreparationAndStartWave_DoNotAttackBeforeFirstAdvanceTick",
+      "Status": "Passed",
+      "Duration": 0.0001291,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_TwoTowers_AttackInTowerIdOrderAndSkipDeadTarget",
+      "Status": "Passed",
+      "Duration": 0.0004476,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.Step_WithoutTarget_DoesNotDamageOrStartCooldown",
+      "Status": "Passed",
+      "Duration": 0.0001125,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(0.5f,60)",
+      "Status": "Passed",
+      "Duration": 9.14e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(1.0f,30)",
+      "Status": "Passed",
+      "Duration": 1.77e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(1.6f,19)",
+      "Status": "Passed",
+      "Duration": 1.93e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(2.0f,15)",
+      "Status": "Passed",
+      "Duration": 1.67e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(30.0f,1)",
+      "Status": "Passed",
+      "Duration": 2e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatTests.TowerDefinition_ConvertsFireRateToTickInterval(60.0f,1)",
+      "Status": "Passed",
+      "Duration": 1.76e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatVisualTests.AttackEvent_CreatesBeamAndClearsProcessedEvents",
+      "Status": "Passed",
+      "Duration": 0.0111347,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatVisualTests.AttackEvent_LethalBeforeFirstEnemyView_CreatesBeamAtEventPosition",
+      "Status": "Passed",
+      "Duration": 0.0044127,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatVisualTests.AttackEvents_MultipleFixedStepsBeforeRender_UsePerAttackPositions",
+      "Status": "Passed",
+      "Duration": 0.0053975,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatVisualTests.LateUpdate_Defeat_DisplaysResultFeedback",
+      "Status": "Passed",
+      "Duration": 0.0033111,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatVisualTests.LateUpdate_DisplaysCurrentWaveAndWaveCount",
+      "Status": "Passed",
+      "Duration": 0.0016616,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatVisualTests.LateUpdate_HealthBarMatchesDomainDamage",
+      "Status": "Passed",
+      "Duration": 0.0022552,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatVisualTests.LateUpdate_LethalDamageIncreasesKillsWithoutBaseDamage",
+      "Status": "Passed",
+      "Duration": 0.0018821,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatVisualTests.NextWaveButton_WaveComplete_TransitionsToSecondPreparation",
+      "Status": "Passed",
+      "Duration": 0.0072687,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleCombatVisualTests.Selection_ShowsConfiguredRangeAndCancelHidesIt",
+      "Status": "Passed",
+      "Duration": 0.0039227,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleElementalReplayTests.RegBattle125_CheckpointContinueAndInterruptedCombat_MatchControl",
+      "Status": "Passed",
+      "Duration": 0.4220247,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleElementalReplayTests.RegBattle125_MixedReplay_IsDeterministicThroughNaturalTerminal",
+      "Status": "Passed",
+      "Duration": 0.3949708,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleElementalReplayTests.RegBattle126_CommittedBalanceEvidence_MatchesReplay",
+      "Status": "Passed",
+      "Duration": 0.2081644,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGameplayReplayTests.SavedFlexibleReplay_ProducesIdenticalCompleteTimelines",
+      "Status": "Passed",
+      "Duration": 0.2045463,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGameplayReplayTests.SavedFlexibleReplay_RebuildsSoldCellWithNewTowerId",
+      "Status": "Passed",
+      "Duration": 0.1174164,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGameplayReplayTests.SavedStrategies_ProduceReproducibleMechanicalResults",
+      "Status": "Passed",
+      "Duration": 0.6304514,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.Constructor_DiagonalCornerBlocksBothAdjacentCells",
+      "Status": "Passed",
+      "Duration": 0.0001753,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.Constructor_DiagonalPathBlocksEveryTraversedCell",
+      "Status": "Passed",
+      "Duration": 0.0001762,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.Constructor_HalfSizeCells_BlockWorldSpacePathAtMatchingCoordinates",
+      "Status": "Passed",
+      "Duration": 0.0001245,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.Constructor_PathBlocksIntermediateCells",
+      "Status": "Passed",
+      "Duration": 9.76e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.CoordinateConversion_RoundTripsCellCenter",
+      "Status": "Passed",
+      "Duration": 0.0003135,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.GetState_OutsideMap_Throws(-7,-4)",
+      "Status": "Passed",
+      "Duration": 0.0001927,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.GetState_OutsideMap_Throws(6,-4)",
+      "Status": "Passed",
+      "Duration": 2.24e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.GetState_OutsideMap_Throws(-6,-5)",
+      "Status": "Passed",
+      "Duration": 1.55e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.GetState_OutsideMap_Throws(-6,4)",
+      "Status": "Passed",
+      "Duration": 0.0001806,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(0,8,1.0f)",
+      "Status": "Passed",
+      "Duration": 0.0002429,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(-1,8,1.0f)",
+      "Status": "Passed",
+      "Duration": 3.12e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(12,0,1.0f)",
+      "Status": "Passed",
+      "Duration": 3.25e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(12,8,0.0f)",
+      "Status": "Passed",
+      "Duration": 2.99e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(12,8,-1.0f)",
+      "Status": "Passed",
+      "Duration": 3.04e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(12,8,float.NaN)",
+      "Status": "Passed",
+      "Duration": 3.06e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.MapDefinition_InvalidDimensionsOrCellSize_Throws(12,8,float.PositiveInfinity)",
+      "Status": "Passed",
+      "Duration": 2.97e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.Release_IsInternalToDomain",
+      "Status": "Passed",
+      "Duration": 0.0001709,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.Release_OnlyOccupiedCell_Succeeds",
+      "Status": "Passed",
+      "Duration": 0.000289,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.TryGetCoordinate_RespectsMapBoundaries(-6.5f,-4.5f,-6,-4,True)",
+      "Status": "Passed",
+      "Duration": 0.0001652,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.TryGetCoordinate_RespectsMapBoundaries(5.49f,3.49f,5,3,True)",
+      "Status": "Passed",
+      "Duration": 2.59e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.TryGetCoordinate_RespectsMapBoundaries(5.5f,0.0f,0,0,False)",
+      "Status": "Passed",
+      "Duration": 1.92e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.TryGetCoordinate_RespectsMapBoundaries(0.0f,3.5f,0,0,False)",
+      "Status": "Passed",
+      "Duration": 2.31e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleGridTests.TryOccupy_IsInternalToDomain",
+      "Status": "Passed",
+      "Duration": 8.36e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle146_SavedHybridLevels_MatchSpec(\"steam\",1,110,18,3.0f,0.8f,38,100,1.25f,4)",
+      "Status": "Passed",
+      "Duration": 0.0017403,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle146_SavedHybridLevels_MatchSpec(\"steam\",2,165,25,3.2f,0.9f,33,125,1.5f,4)",
+      "Status": "Passed",
+      "Duration": 0.0002424,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle146_SavedHybridLevels_MatchSpec(\"steam\",3,220,34,3.4f,1.0f,30,150,1.75f,4)",
+      "Status": "Passed",
+      "Duration": 0.0002187,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle146_SavedHybridLevels_MatchSpec(\"storm\",1,110,9,3.5f,1.5f,20,75,2.0f,2)",
+      "Status": "Passed",
+      "Duration": 0.0002137,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle146_SavedHybridLevels_MatchSpec(\"storm\",2,165,13,3.5f,1.7f,18,90,2.25f,2)",
+      "Status": "Passed",
+      "Duration": 0.0002198,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle146_SavedHybridLevels_MatchSpec(\"storm\",3,220,18,3.75f,2.0f,15,100,2.5f,2)",
+      "Status": "Passed",
+      "Duration": 0.0002067,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle147_IntrinsicUsesProductionResolver_OnlyOwnKindWithoutAddingStatuses(\"steam\",False)",
+      "Status": "Passed",
+      "Duration": 0.0058807,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle147_IntrinsicUsesProductionResolver_OnlyOwnKindWithoutAddingStatuses(\"steam\",True)",
+      "Status": "Passed",
+      "Duration": 0.0006946,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle147_IntrinsicUsesProductionResolver_OnlyOwnKindWithoutAddingStatuses(\"storm\",False)",
+      "Status": "Passed",
+      "Duration": 0.0004606,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle147_IntrinsicUsesProductionResolver_OnlyOwnKindWithoutAddingStatuses(\"storm\",True)",
+      "Status": "Passed",
+      "Duration": 0.0003993,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle147_SuppressionLeavesOnlyDirectAndDoesNotSpendReactionWindow(\"steam\",\"lethal\")",
+      "Status": "Passed",
+      "Duration": 0.0016285,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle147_SuppressionLeavesOnlyDirectAndDoesNotSpendReactionWindow(\"storm\",\"lethal\")",
+      "Status": "Passed",
+      "Duration": 0.0003109,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle147_SuppressionLeavesOnlyDirectAndDoesNotSpendReactionWindow(\"steam\",\"locked\")",
+      "Status": "Passed",
+      "Duration": 0.000318,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle147_SuppressionLeavesOnlyDirectAndDoesNotSpendReactionWindow(\"storm\",\"locked\")",
+      "Status": "Passed",
+      "Duration": 0.0002823,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle147_SuppressionLeavesOnlyDirectAndDoesNotSpendReactionWindow(\"storm\",\"isolated\")",
+      "Status": "Passed",
+      "Duration": 0.0002498,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle148_UpgradeAndSell_PreserveIdentityCellCooldownAndExactInvestment(\"steam\",1,110,77)",
+      "Status": "Passed",
+      "Duration": 0.0033704,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle148_UpgradeAndSell_PreserveIdentityCellCooldownAndExactInvestment(\"steam\",2,275,192)",
+      "Status": "Passed",
+      "Duration": 0.0006951,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle148_UpgradeAndSell_PreserveIdentityCellCooldownAndExactInvestment(\"steam\",3,495,346)",
+      "Status": "Passed",
+      "Duration": 0.0005621,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle148_UpgradeAndSell_PreserveIdentityCellCooldownAndExactInvestment(\"storm\",1,110,77)",
+      "Status": "Passed",
+      "Duration": 0.0004604,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle148_UpgradeAndSell_PreserveIdentityCellCooldownAndExactInvestment(\"storm\",2,275,192)",
+      "Status": "Passed",
+      "Duration": 0.0004141,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle148_UpgradeAndSell_PreserveIdentityCellCooldownAndExactInvestment(\"storm\",3,495,346)",
+      "Status": "Passed",
+      "Duration": 0.0003742,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle149_SellRebuild_OnlyReleasesOwnCellAndNeverReusesIdentity(\"steam\")",
+      "Status": "Passed",
+      "Duration": 0.0010131,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle149_SellRebuild_OnlyReleasesOwnCellAndNeverReusesIdentity(\"storm\")",
+      "Status": "Passed",
+      "Duration": 0.0003425,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle150_InvalidRepeatedAndCombatCommands_AreAtomic(\"steam\")",
+      "Status": "Passed",
+      "Duration": 0.004406,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle150_InvalidRepeatedAndCombatCommands_AreAtomic(\"storm\")",
+      "Status": "Passed",
+      "Duration": 0.0008727,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle151_Schema2_MixedArmyAndPreviousTypesRemainCompatible",
+      "Status": "Passed",
+      "Duration": 0.0068381,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle151_Schema2_RoundTripsEachHybridLevelWithoutRewritingBytes(\"steam\",1)",
+      "Status": "Passed",
+      "Duration": 0.0024856,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle151_Schema2_RoundTripsEachHybridLevelWithoutRewritingBytes(\"steam\",2)",
+      "Status": "Passed",
+      "Duration": 0.0019707,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle151_Schema2_RoundTripsEachHybridLevelWithoutRewritingBytes(\"steam\",3)",
+      "Status": "Passed",
+      "Duration": 0.0018845,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle151_Schema2_RoundTripsEachHybridLevelWithoutRewritingBytes(\"storm\",1)",
+      "Status": "Passed",
+      "Duration": 0.0016629,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle151_Schema2_RoundTripsEachHybridLevelWithoutRewritingBytes(\"storm\",2)",
+      "Status": "Passed",
+      "Duration": 0.0015339,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle151_Schema2_RoundTripsEachHybridLevelWithoutRewritingBytes(\"storm\",3)",
+      "Status": "Passed",
+      "Duration": 0.0017136,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle152_InvalidPrimaryLoadsValidHybridBackupWithoutMutationOrWrites(\"type\")",
+      "Status": "Passed",
+      "Duration": 0.0109438,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle152_InvalidPrimaryLoadsValidHybridBackupWithoutMutationOrWrites(\"level\")",
+      "Status": "Passed",
+      "Duration": 0.003852,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle152_InvalidPrimaryLoadsValidHybridBackupWithoutMutationOrWrites(\"investment\")",
+      "Status": "Passed",
+      "Duration": 0.0028062,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle152_InvalidPrimaryLoadsValidHybridBackupWithoutMutationOrWrites(\"content\")",
+      "Status": "Passed",
+      "Duration": 0.002871,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle152_V1MigrationStillMapsOnlyToHiddenLegacyWithoutWritingBytes",
+      "Status": "Passed",
+      "Duration": 0.0016631,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidCatalogIsRejected(\"empty\")",
+      "Status": "Passed",
+      "Duration": 0.0007165,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidCatalogIsRejected(\"partial\")",
+      "Status": "Passed",
+      "Duration": 0.000198,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidCatalogIsRejected(\"unknown\")",
+      "Status": "Passed",
+      "Duration": 0.0006339,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidCatalogIsRejected(\"hidden\")",
+      "Status": "Passed",
+      "Duration": 0.0004353,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidCatalogIsRejected(\"wrong-status\")",
+      "Status": "Passed",
+      "Duration": 0.000352,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidCatalogIsRejected(\"wrong-payload\")",
+      "Status": "Passed",
+      "Duration": 0.0002213,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidHybridPayloadIsNeverReplacedWithDefaults(\"percent\")",
+      "Status": "Passed",
+      "Duration": 0.0004948,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidHybridPayloadIsNeverReplacedWithDefaults(\"range\")",
+      "Status": "Passed",
+      "Duration": 0.0001656,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidHybridPayloadIsNeverReplacedWithDefaults(\"limit\")",
+      "Status": "Passed",
+      "Duration": 0.0002036,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidHybridPayloadIsNeverReplacedWithDefaults(\"disabled\")",
+      "Status": "Passed",
+      "Duration": 0.0001725,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidHybridPayloadIsNeverReplacedWithDefaults(\"status\")",
+      "Status": "Passed",
+      "Duration": 0.0001677,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidHybridPayloadIsNeverReplacedWithDefaults(\"penetration\")",
+      "Status": "Passed",
+      "Duration": 0.0001638,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_InvalidHybridPayloadIsNeverReplacedWithDefaults(\"levels\")",
+      "Status": "Passed",
+      "Duration": 0.0001986,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_PublicFactoryEnablesBasicStatusPairs(\"flame\",\"tide\",Steam,968)",
+      "Status": "Passed",
+      "Duration": 0.0023839,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_PublicFactoryEnablesBasicStatusPairs(\"tide\",\"gale\",Storm,984)",
+      "Status": "Passed",
+      "Duration": 0.0006287,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleHybridTowerTests.RegBattle153_PublicFactoryIncludesProductionReactionsAndSixVisibleTypesFromPreparation",
+      "Status": "Passed",
+      "Duration": 0.0018514,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.Beams_FreezeAndResumeWithoutGlobalTimeScale",
+      "Status": "Passed",
+      "Duration": 0.0073119,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.LifecycleCallbacks_OverlapWithoutAutomaticResume",
+      "Status": "Passed",
+      "Duration": 0.0038797,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.ManualPause_AllActivePhases_PreservesBattleState(Preparation)",
+      "Status": "Passed",
+      "Duration": 0.0112455,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.ManualPause_AllActivePhases_PreservesBattleState(Combat)",
+      "Status": "Passed",
+      "Duration": 0.0045905,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.ManualPause_AllActivePhases_PreservesBattleState(WaveComplete)",
+      "Status": "Passed",
+      "Duration": 0.0061153,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.Pause_ClearsPendingPlacementAndSellConfirmation",
+      "Status": "Passed",
+      "Duration": 0.0043526,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.Pause_DisablesGameplayButtons",
+      "Status": "Passed",
+      "Duration": 0.0031986,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.PauseAndResume_TerminalStates_RemainTerminal(Victory)",
+      "Status": "Passed",
+      "Duration": 0.0047237,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.PauseAndResume_TerminalStates_RemainTerminal(Defeat)",
+      "Status": "Passed",
+      "Duration": 0.0040958,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.PausedCommands_AreRejectedWithoutMutation",
+      "Status": "Passed",
+      "Duration": 0.0028468,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.RegBattle112_PauseAndBackground_FreezeStatusTimersWithoutCatchUp",
+      "Status": "Passed",
+      "Duration": 0.0028427,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.Resume_DoesNotCatchUpAndPreservesDeterministicContinuation",
+      "Status": "Passed",
+      "Duration": 0.0027205,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePauseTests.Resume_RequiresActiveFocusedApplication",
+      "Status": "Passed",
+      "Duration": 0.0024877,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePlacementVisualTests.Placement_HalfSizeCells_ScalesSelectionAndPreview",
+      "Status": "Passed",
+      "Duration": 0.0038867,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattlePlacementVisualTests.Towers_HalfSizeCells_AdjacentFootprintsDoNotIntersect",
+      "Status": "Passed",
+      "Duration": 0.0024997,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle128_Catalog_CopiesDefinitionsAndSupportsLookupAndEmpty",
+      "Status": "Passed",
+      "Duration": 0.0007861,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle128_CatalogAndDefinition_RejectNullAndDuplicateData",
+      "Status": "Passed",
+      "Duration": 0.0002296,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle128_GlobalExamples_PreserveEveryConfiguredValue",
+      "Status": "Passed",
+      "Duration": 0.0001664,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Definition_RejectsNonpositiveCooldown(int.MinValue)",
+      "Status": "Passed",
+      "Duration": 0.0001347,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Definition_RejectsNonpositiveCooldown(-1)",
+      "Status": "Passed",
+      "Duration": 3.13e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Definition_RejectsNonpositiveCooldown(0)",
+      "Status": "Passed",
+      "Duration": 3.2e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Steam,int.MinValue)",
+      "Status": "Passed",
+      "Duration": 0.000147,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Steam,-1)",
+      "Status": "Passed",
+      "Duration": 7.23e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Steam,0)",
+      "Status": "Passed",
+      "Duration": 6.38e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Steam,5)",
+      "Status": "Passed",
+      "Duration": 6.02e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Steam,int.MaxValue)",
+      "Status": "Passed",
+      "Duration": 5.6e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Storm,int.MinValue)",
+      "Status": "Passed",
+      "Duration": 5.68e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Storm,-1)",
+      "Status": "Passed",
+      "Duration": 5.81e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Storm,0)",
+      "Status": "Passed",
+      "Duration": 5.45e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Storm,3)",
+      "Status": "Passed",
+      "Duration": 5.6e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsInvalidTargetLimit(Storm,int.MaxValue)",
+      "Status": "Passed",
+      "Duration": 5.54e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsNonpositiveAndNonfiniteRange(Steam)",
+      "Status": "Passed",
+      "Duration": 0.0012739,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsNonpositiveAndNonfiniteRange(Storm)",
+      "Status": "Passed",
+      "Duration": 0.0003243,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsNonpositivePercent(Steam,int.MinValue)",
+      "Status": "Passed",
+      "Duration": 0.0004608,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsNonpositivePercent(Steam,-1)",
+      "Status": "Passed",
+      "Duration": 0.000125,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsNonpositivePercent(Steam,0)",
+      "Status": "Passed",
+      "Duration": 0.000113,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsNonpositivePercent(Storm,int.MinValue)",
+      "Status": "Passed",
+      "Duration": 0.0001181,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsNonpositivePercent(Storm,-1)",
+      "Status": "Passed",
+      "Duration": 0.0001119,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsNonpositivePercent(Storm,0)",
+      "Status": "Passed",
+      "Duration": 0.0001189,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsUnknownKind(-1)",
+      "Status": "Passed",
+      "Duration": 0.0007586,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsUnknownKind(2)",
+      "Status": "Passed",
+      "Duration": 0.0002114,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_Payload_RejectsUnknownKind(int.MaxValue)",
+      "Status": "Passed",
+      "Duration": 0.0001368,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_ValidBoundaries_DoNotHardcodeProductionValues(Steam,1)",
+      "Status": "Passed",
+      "Duration": 0.0003162,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_ValidBoundaries_DoNotHardcodeProductionValues(Steam,2)",
+      "Status": "Passed",
+      "Duration": 0.0001646,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_ValidBoundaries_DoNotHardcodeProductionValues(Steam,3)",
+      "Status": "Passed",
+      "Duration": 0.0001328,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_ValidBoundaries_DoNotHardcodeProductionValues(Steam,4)",
+      "Status": "Passed",
+      "Duration": 0.0001156,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_ValidBoundaries_DoNotHardcodeProductionValues(Storm,1)",
+      "Status": "Passed",
+      "Duration": 0.0001011,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle129_ValidBoundaries_DoNotHardcodeProductionValues(Storm,2)",
+      "Status": "Passed",
+      "Duration": 9.79e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle130_BasicArchetypes_StillRequireSingleStatus(\"flame\",Burn)",
+      "Status": "Passed",
+      "Duration": 0.0024238,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle130_BasicArchetypes_StillRequireSingleStatus(\"tide\",Wet)",
+      "Status": "Passed",
+      "Duration": 0.0002025,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle130_BasicArchetypes_StillRequireSingleStatus(\"gale\",Gust)",
+      "Status": "Passed",
+      "Duration": 0.0001695,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle130_BasicArchetypes_StillRequireSingleStatus(\"stone\",Crack)",
+      "Status": "Passed",
+      "Duration": 0.0001357,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle130_HybridArchetype_RequiresMatchingPayloadOnEveryLevel(\"steam\",Steam)",
+      "Status": "Passed",
+      "Duration": 0.0016946,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle130_HybridArchetype_RequiresMatchingPayloadOnEveryLevel(\"storm\",Storm)",
+      "Status": "Passed",
+      "Duration": 0.0003253,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle130_LegacyConstructors_PreserveStatusPenetrationAndInterval",
+      "Status": "Passed",
+      "Duration": 0.0009271,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle130_Tower_RejectsStatusAndIntrinsicTogether(Steam)",
+      "Status": "Passed",
+      "Duration": 0.0018801,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle130_Tower_RejectsStatusAndIntrinsicTogether(Storm)",
+      "Status": "Passed",
+      "Duration": 0.0002566,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DamageEvent_PreservesDistinctDamageStagesAndCapturedPositions(Direct,null,null,0,True)",
+      "Status": "Passed",
+      "Duration": 0.0022225,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DamageEvent_PreservesDistinctDamageStagesAndCapturedPositions(Direct,null,null,0,False)",
+      "Status": "Passed",
+      "Duration": 0.0002525,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DamageEvent_PreservesDistinctDamageStagesAndCapturedPositions(Burn,null,null,0,True)",
+      "Status": "Passed",
+      "Duration": 0.0002161,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DamageEvent_PreservesDistinctDamageStagesAndCapturedPositions(Burn,null,null,0,False)",
+      "Status": "Passed",
+      "Duration": 0.0001871,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DamageEvent_PreservesDistinctDamageStagesAndCapturedPositions(Reaction,Steam,7,0,True)",
+      "Status": "Passed",
+      "Duration": 0.0002405,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DamageEvent_PreservesDistinctDamageStagesAndCapturedPositions(Reaction,Steam,7,0,False)",
+      "Status": "Passed",
+      "Duration": 0.0002054,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DamageEvent_PreservesDistinctDamageStagesAndCapturedPositions(Reaction,Storm,7,1,True)",
+      "Status": "Passed",
+      "Duration": 0.0001714,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DamageEvent_PreservesDistinctDamageStagesAndCapturedPositions(Reaction,Storm,7,1,False)",
+      "Status": "Passed",
+      "Duration": 0.00016,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DamageEvent_PreservesDistinctDamageStagesAndCapturedPositions(Reaction,Storm,7,2,True)",
+      "Status": "Passed",
+      "Duration": 0.0001632,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DamageEvent_PreservesDistinctDamageStagesAndCapturedPositions(Reaction,Storm,7,2,False)",
+      "Status": "Passed",
+      "Duration": 0.0001744,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DefinitionsAndEvents_ExposeOnlyImmutableData(Veilward.Domain.ReactionPayload)",
+      "Status": "Passed",
+      "Duration": 0.0013023,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DefinitionsAndEvents_ExposeOnlyImmutableData(Veilward.Domain.ReactionDefinition)",
+      "Status": "Passed",
+      "Duration": 0.0002427,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DefinitionsAndEvents_ExposeOnlyImmutableData(Veilward.Domain.ReactionCatalog)",
+      "Status": "Passed",
+      "Duration": 0.0002037,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DefinitionsAndEvents_ExposeOnlyImmutableData(Veilward.Domain.ReactionEvent)",
+      "Status": "Passed",
+      "Duration": 0.0001823,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_DefinitionsAndEvents_ExposeOnlyImmutableData(Veilward.Domain.DamageResolvedEvent)",
+      "Status": "Passed",
+      "Duration": 0.0002212,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_LegacyCombat_KeepsConfiguredAttackDamageAndDirectLethal(100,False,82)",
+      "Status": "Passed",
+      "Duration": 0.0015592,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_LegacyCombat_KeepsConfiguredAttackDamageAndDirectLethal(3,True,0)",
+      "Status": "Passed",
+      "Duration": 0.0001524,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_ReactionEvent_PreservesCauseSourceGeometryAndSequence(Steam,StatusPair,Burn,Wet)",
+      "Status": "Passed",
+      "Duration": 0.0021236,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionDefinitionTests.RegBattle131_ReactionEvent_PreservesCauseSourceGeometryAndSequence(Storm,Intrinsic,Wet,Gust)",
+      "Status": "Passed",
+      "Duration": 0.0002854,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_BurnPrecedesDirectWithAbsentSourceAndSequenceRestartsEachTick",
+      "Status": "Passed",
+      "Duration": 0.0017198,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_DamageTelemetryKeepsConfiguredRawAndResolvedArmorModifiersSeparate",
+      "Status": "Passed",
+      "Duration": 0.0009189,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_DirectThenReactionUsesSharedSequenceCorrelationAndCapturedPositions",
+      "Status": "Passed",
+      "Duration": 0.0014875,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_SceneControllerClearsAllStreamsAfterEachStepIncludingConsumerException(False)",
+      "Status": "Passed",
+      "Duration": 0.0057099,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_SceneControllerClearsAllStreamsAfterEachStepIncludingConsumerException(True)",
+      "Status": "Passed",
+      "Duration": 0.0010028,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle143_SceneControllerUpdateRunsMultipleFixedStepsBeforeRenderAndDrainsStreams",
+      "Status": "Passed",
+      "Duration": 0.0011472,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_ExplicitClearsKeepStateAndRejectedRestorePreservesTransientState",
+      "Status": "Passed",
+      "Duration": 0.0013087,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_HistoricalFactoryExplicitEmptyAndInjectedCatalog",
+      "Status": "Passed",
+      "Duration": 0.0012225,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_MixedLethalOriginsPayOnceAndDefeatSuppressesBonus(False,32)",
+      "Status": "Passed",
+      "Duration": 0.0026913,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_MixedLethalOriginsPayOnceAndDefeatSuppressesBonus(True,22)",
+      "Status": "Passed",
+      "Duration": 0.000153,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_ReactionKillsRewardAndWaveBonusExactlyOnce(0,17)",
+      "Status": "Passed",
+      "Duration": 0.0020072,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_ReactionKillsRewardAndWaveBonusExactlyOnce(2147483646,int.MaxValue)",
+      "Status": "Passed",
+      "Duration": 0.0001942,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionEventTests.RegBattle145_SuccessfulRestoreClearsAllUnconsumedStreams",
+      "Status": "Passed",
+      "Duration": 0.0007901,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle154_AllLevelsExplainIntrinsicAndConditionalDirectDamage(\"steam\")",
+      "Status": "Passed",
+      "Duration": 0.0043419,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle154_AllLevelsExplainIntrinsicAndConditionalDirectDamage(\"storm\")",
+      "Status": "Passed",
+      "Duration": 0.0009853,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle154_BasicPanelsExplainPairsAndStillFit(\"flame\",\"Пламя + Прилив → Пар\")",
+      "Status": "Passed",
+      "Duration": 0.1819572,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle154_BasicPanelsExplainPairsAndStillFit(\"tide\",\"Прилив + Ветер → Шторм\")",
+      "Status": "Passed",
+      "Duration": 0.1520508,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle154_BasicPanelsExplainPairsAndStillFit(\"gale\",\"Прилив + Ветер → Шторм\")",
+      "Status": "Passed",
+      "Duration": 0.1513269,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle155_DenseLayoutSeparatesExistingTwoSlots",
+      "Status": "Passed",
+      "Duration": 0.1562869,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle155_IntrinsicDoesNotPretendStatusesExistAndBothCausesRemain",
+      "Status": "Passed",
+      "Duration": 0.0010661,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle155_TwoSlotsPriorityCooldownAndExactActiveLifetime",
+      "Status": "Passed",
+      "Duration": 0.0003211,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle156_CorrelationCountsOnlyActualHitsAndHpLossRetainsLethalSummary",
+      "Status": "Passed",
+      "Duration": 0.0006297,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle157_CapturedGeometryBoundedPoolFreezeAndReset(Steam)",
+      "Status": "Passed",
+      "Duration": 0.0028707,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle157_CapturedGeometryBoundedPoolFreezeAndReset(Storm)",
+      "Status": "Passed",
+      "Duration": 0.0002142,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle158_PresentationClockOnlyAdvancesExplicitActiveTimeAndResetClearsEverything",
+      "Status": "Passed",
+      "Duration": 0.0005177,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle159_SavedSceneHasInspectorTwoSlotsAndValidatedReferences",
+      "Status": "Passed",
+      "Duration": 0.0011894,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionPresentationTests.RegBattle159_StatusFontProjectsToAtLeastTwelvePixelsAtReferenceHeight",
+      "Status": "Passed",
+      "Duration": 0.1589279,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_BothPairOrders(Burn,Wet,Steam,970)",
+      "Status": "Passed",
+      "Duration": 0.0004181,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_BothPairOrders(Wet,Burn,Steam,970)",
+      "Status": "Passed",
+      "Duration": 6.82e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_BothPairOrders(Wet,Gust,Storm,980)",
+      "Status": "Passed",
+      "Duration": 5.7e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_BothPairOrders(Gust,Wet,Storm,978)",
+      "Status": "Passed",
+      "Duration": 5.51e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_OneElementDoesNotProc(Burn)",
+      "Status": "Passed",
+      "Duration": 0.0003323,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_OneElementDoesNotProc(Wet)",
+      "Status": "Passed",
+      "Duration": 4.68e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle132_133_OneElementDoesNotProc(Gust)",
+      "Status": "Passed",
+      "Duration": 4.06e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle134_IncomingExpiredKindReappliesBeforeReactionWithoutConsumingComplement",
+      "Status": "Passed",
+      "Duration": 0.0002379,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle134_StoneIgnoresReadyPairsAndExpiredComplementCannotProc",
+      "Status": "Passed",
+      "Duration": 0.0002483,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle135_DueBurnKillsBeforeMovementAndNeverTriggersPairs",
+      "Status": "Passed",
+      "Duration": 0.0002302,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle135_LethalDirectDoesNotProcOrReserveCooldown",
+      "Status": "Passed",
+      "Duration": 0.0002132,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle136_CooldownNearLongLimitCannotWrapIntoReady",
+      "Status": "Passed",
+      "Duration": 0.000178,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle136_FirstProcAndExactCooldownBoundary(Steam)",
+      "Status": "Passed",
+      "Duration": 0.00089,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle136_FirstProcAndExactCooldownBoundary(Storm)",
+      "Status": "Passed",
+      "Duration": 0.0005085,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle137_SecondaryCannotInitiateSameKindLaterInSameTick(Steam,4,980)",
+      "Status": "Passed",
+      "Duration": 0.0011008,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle137_SecondaryCannotInitiateSameKindLaterInSameTick(Storm,3,983)",
+      "Status": "Passed",
+      "Duration": 9.83e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle137_SecondarySharesPrimaryWindowAndOtherKindIsIndependent(Steam)",
+      "Status": "Passed",
+      "Duration": 0.0004125,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle137_SecondarySharesPrimaryWindowAndOtherKindIsIndependent(Storm)",
+      "Status": "Passed",
+      "Duration": 7.22e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle138_MissingSteamDefinitionAllowsStormFallback",
+      "Status": "Passed",
+      "Duration": 0.00036,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle138_SteamPriorityThenStormFallbackAndRestoredTowerIdOrder",
+      "Status": "Passed",
+      "Duration": 0.000453,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle139_DoubleConversionBeforeSubtractionRejectsRoundedOutsideBoundary",
+      "Status": "Passed",
+      "Duration": 0.0010672,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle139_SteamExcludesLockedVictim",
+      "Status": "Passed",
+      "Duration": 0.0011558,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle139_SteamNearestThreeInclusiveRadiusAndEnemyIdTies",
+      "Status": "Passed",
+      "Duration": 0.0005333,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle140_FoldedPathUsesEuclideanRatherThanProgressDistance",
+      "Status": "Passed",
+      "Duration": 0.0005161,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle140_StormFoldedPathNearestBeatsFirstAndSecondHopLeavesPrimaryRange",
+      "Status": "Passed",
+      "Duration": 0.0007306,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle140_StormPlansChainBeforeLethalIntermediateAndCapturesPreviousOrigin",
+      "Status": "Passed",
+      "Duration": 0.000534,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle141_NoNeighborCanRetryNextTickWithoutCooldownConsumption",
+      "Status": "Passed",
+      "Duration": 0.0002652,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle141_StormSkipsDeadLeakedLockedAndVisitedWithIdTie",
+      "Status": "Passed",
+      "Duration": 0.000306,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle141_StormZeroOrOneNeighborDoesNotInventHits(0)",
+      "Status": "Passed",
+      "Duration": 0.0014234,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle141_StormZeroOrOneNeighborDoesNotInventHits(1)",
+      "Status": "Passed",
+      "Duration": 0.0002575,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(6,75,5,2,1,4,1)",
+      "Status": "Passed",
+      "Duration": 0.0009912,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(25,125,5,2,7,31,28)",
+      "Status": "Passed",
+      "Duration": 0.0001388,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(int.MaxValue,int.MaxValue,0,0,7,int.MaxValue,int.MaxValue)",
+      "Status": "Passed",
+      "Duration": 0.0001794,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle142_SecondaryFloorArmorCrackOverkillSaturation(1,1,10,0,1,1,1)",
+      "Status": "Passed",
+      "Duration": 8.8e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle144_HybridRequiresMatchingGlobalDefinitionIncludingCompatibilityConstructor",
+      "Status": "Passed",
+      "Duration": 0.0006084,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle144_IntrinsicIgnoresForeignPairsAndDoesNotRefreshThem",
+      "Status": "Passed",
+      "Duration": 0.0005056,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle144_IntrinsicOnlyRequestsOwnKindWithoutStatuses(Steam)",
+      "Status": "Passed",
+      "Duration": 0.0016241,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle144_IntrinsicOnlyRequestsOwnKindWithoutStatuses(Storm)",
+      "Status": "Passed",
+      "Duration": 0.0002523,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleReactionTests.RegBattle144_SecondaryDoesNotApplyRefreshStatusesOrRecurse",
+      "Status": "Passed",
+      "Duration": 0.0008511,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleRegressionTests.IdenticalSavedScenarioRuns_ProduceIdenticalCompleteTimelines",
+      "Status": "Passed",
+      "Duration": 0.0104755,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleRegressionTests.InitialState_SavedScenario_MatchesRegressionContract",
+      "Status": "Passed",
+      "Duration": 0.0006623,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleRegressionTests.NoTowerWave_MovesLeaksAndCompletes",
+      "Status": "Passed",
+      "Duration": 0.0025789,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleRegressionTests.NoTowerWave_SpawnsFiveUniqueShadeOnSchedule",
+      "Status": "Passed",
+      "Duration": 0.001743,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleRegressionTests.PlacementAndRejectedCommands_PreserveEconomyAndGrid",
+      "Status": "Passed",
+      "Duration": 0.0005913,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.CreateSimulation_ExposesConfiguredPathForPresentation",
+      "Status": "Passed",
+      "Duration": 0.0010788,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.CreateSimulation_UsesDefaultGridAndEconomyValues",
+      "Status": "Passed",
+      "Duration": 0.0008713,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.CreateSimulation_UsesDefaultSpawnSchedule",
+      "Status": "Passed",
+      "Duration": 0.0007402,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.CreateSimulation_UsesSerializedGridAndTowerValues",
+      "Status": "Passed",
+      "Duration": 0.0020225,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.CreateSimulation_UsesSerializedScenarioValues",
+      "Status": "Passed",
+      "Duration": 0.0008921,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.CreateSimulation_UsesSerializedWaveSequenceAndRewards",
+      "Status": "Passed",
+      "Duration": 0.0016239,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.EightWaveAsset_UsesSharedMapAndConfiguredWaveSequence",
+      "Status": "Passed",
+      "Duration": 0.0007729,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.RegBattle153_InvalidGlobalReactionData_RejectsInsteadOfUsingEmpty(\"cooldownTicks\",0)",
+      "Status": "Passed",
+      "Duration": 0.0007263,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.RegBattle153_InvalidGlobalReactionData_RejectsInsteadOfUsingEmpty(\"damagePercent\",0)",
+      "Status": "Passed",
+      "Duration": 0.000231,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.RegBattle153_InvalidGlobalReactionData_RejectsInsteadOfUsingEmpty(\"range\",0)",
+      "Status": "Passed",
+      "Duration": 0.0002069,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.RegBattle153_InvalidGlobalReactionData_RejectsInsteadOfUsingEmpty(\"range\",-1)",
+      "Status": "Passed",
+      "Duration": 0.0001997,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.RegBattle153_InvalidGlobalReactionData_RejectsInsteadOfUsingEmpty(\"range\",float.NaN)",
+      "Status": "Passed",
+      "Duration": 0.0001952,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.RegBattle153_InvalidGlobalReactionData_RejectsInsteadOfUsingEmpty(\"range\",float.PositiveInfinity)",
+      "Status": "Passed",
+      "Duration": 0.0001955,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.RegBattle153_InvalidGlobalReactionData_RejectsInsteadOfUsingEmpty(\"targetLimit\",5)",
+      "Status": "Passed",
+      "Duration": 0.0001892,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.RegBattle153_InvalidGlobalReactionData_RejectsInsteadOfUsingEmpty(\"priority\",1)",
+      "Status": "Passed",
+      "Duration": 0.0001606,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.RegBattle153_MissingReactionDefinitions_AreRejected(0)",
+      "Status": "Passed",
+      "Duration": 0.0018503,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleScenarioConfigTests.RegBattle153_MissingReactionDefinitions_AreRejected(1)",
+      "Status": "Passed",
+      "Duration": 0.0004825,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.Build_ExistingConfigs_PreserveCombatAndWaveParametersAcrossRepeatedGeneration",
+      "Status": "Passed",
+      "Duration": 1.6501918,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.CreateGridGeometry_DefaultConfig_MatchesDomainCells",
+      "Status": "Passed",
+      "Duration": 0.0019272,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.CreateGridGeometry_HalfSizeCells_MatchesVisiblePath",
+      "Status": "Passed",
+      "Duration": 0.001505,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.CreatePathGeometry_ModifiedConfig_MatchesDomainPath",
+      "Status": "Passed",
+      "Duration": 0.0007656,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.RegBattle122_BuildTwice_PreservesSavedConfigBytesAndCatalogReferences",
+      "Status": "Passed",
+      "Duration": 1.354899,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.RegBattle153_BuilderExtendsOnlyCompleteLegacyCatalog_RejectsMalformedWithoutWriting(4,False)",
+      "Status": "Passed",
+      "Duration": 1.4635623,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.RegBattle153_BuilderExtendsOnlyCompleteLegacyCatalog_RejectsMalformedWithoutWriting(0,False)",
+      "Status": "Passed",
+      "Duration": 0.2190744,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.RegBattle153_BuilderExtendsOnlyCompleteLegacyCatalog_RejectsMalformedWithoutWriting(3,False)",
+      "Status": "Passed",
+      "Duration": 0.2202491,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.RegBattle153_BuilderExtendsOnlyCompleteLegacyCatalog_RejectsMalformedWithoutWriting(5,False)",
+      "Status": "Passed",
+      "Duration": 0.2205764,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.RegBattle153_BuilderExtendsOnlyCompleteLegacyCatalog_RejectsMalformedWithoutWriting(4,True)",
+      "Status": "Passed",
+      "Duration": 0.2696568,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.RegBattle153_BuilderExtendsOnlyCompleteLegacyCatalog_RejectsMalformedWithoutWriting(6,True)",
+      "Status": "Passed",
+      "Duration": 0.3278533,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.RegBattle153_BuilderMigratesOnlyCompleteDefaultWrapperCopies",
+      "Status": "Passed",
+      "Duration": 0.6981911,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.RegBattle153_BuilderRejectsPartialSharedWrapperWithoutWriting(\"towerArchetypes\")",
+      "Status": "Passed",
+      "Duration": 0.2205715,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSceneBuilderTests.RegBattle153_BuilderRejectsPartialSharedWrapperWithoutWriting(\"reactions\")",
+      "Status": "Passed",
+      "Duration": 0.2158733,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSellConfirmationTests.CancelSellConfirmation_RestoresActionsAndPreservesCombatStats",
+      "Status": "Passed",
+      "Duration": 0.00391,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSellConfirmationTests.ConfirmedSell_ClearsSelectionAndConfirmation",
+      "Status": "Passed",
+      "Duration": 0.0020379,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSellConfirmationTests.ConfirmSell_AfterSelectionChange_DoesNotSellAnotherTower",
+      "Status": "Passed",
+      "Duration": 0.0021377,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSellConfirmationTests.ConfirmSell_WithoutRequest_DoesNotMutateDomain",
+      "Status": "Passed",
+      "Duration": 0.0021173,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSellConfirmationTests.SellConfirmation_BlocksConflictingActionsAndButtons",
+      "Status": "Passed",
+      "Duration": 0.0023448,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Constructor_CreatesPreparationState",
+      "Status": "Passed",
+      "Duration": 0.000225,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.StartWave_SpawnsFirstEnemyAndIsIdempotent",
+      "Status": "Passed",
+      "Duration": 0.0001156,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_AcrossCorner_UsesPathDistanceInterpolation",
+      "Status": "Passed",
+      "Duration": 0.0001226,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_AfterDefeat_DoesNotSpawnOrAdvanceTick",
+      "Status": "Passed",
+      "Duration": 8.75e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_AfterLeak_DoesNotApplyDamageTwice",
+      "Status": "Passed",
+      "Duration": 7.6e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_AssignsStableSequentialEnemyIds",
+      "Status": "Passed",
+      "Duration": 0.0001024,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_BeforeStartWave_DoesNothing",
+      "Status": "Passed",
+      "Duration": 6.17e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_LastLeakCompletesWaveWithFifteenHealthAndFreezesState",
+      "Status": "Passed",
+      "Duration": 0.000191,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_LeadingLeakCompletesTestWave",
+      "Status": "Passed",
+      "Duration": 5.62e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_LethalLeak_ClampsHealthAndEntersDefeat",
+      "Status": "Passed",
+      "Duration": 4.77e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_MovesEnemyBySpeedPerFixedTick",
+      "Status": "Passed",
+      "Duration": 4.75e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_SpawnsAtConfiguredTicks(0,1)",
+      "Status": "Passed",
+      "Duration": 0.0001406,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_SpawnsAtConfiguredTicks(29,1)",
+      "Status": "Passed",
+      "Duration": 4.24e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_SpawnsAtConfiguredTicks(30,2)",
+      "Status": "Passed",
+      "Duration": 3.65e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_SpawnsAtConfiguredTicks(60,3)",
+      "Status": "Passed",
+      "Duration": 4.75e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_SpawnsAtConfiguredTicks(90,4)",
+      "Status": "Passed",
+      "Duration": 5.91e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_SpawnsAtConfiguredTicks(120,5)",
+      "Status": "Passed",
+      "Duration": 8.16e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.Step_WithIdenticalInputs_ProducesIdenticalState",
+      "Status": "Passed",
+      "Duration": 0.0004289,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.WaveDefinition_NegativeFirstSpawnTick_Throws",
+      "Status": "Passed",
+      "Duration": 0.0001934,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.WaveDefinition_NonPositiveCount_Throws(0)",
+      "Status": "Passed",
+      "Duration": 8.88e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.WaveDefinition_NonPositiveCount_Throws(-1)",
+      "Status": "Passed",
+      "Duration": 2.59e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.WaveDefinition_NonPositiveInterval_Throws(0)",
+      "Status": "Passed",
+      "Duration": 0.0002775,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.WaveDefinition_NonPositiveInterval_Throws(-1)",
+      "Status": "Passed",
+      "Duration": 5.07e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleSimulationTests.WaveDefinition_NullEnemy_Throws",
+      "Status": "Passed",
+      "Duration": 0.0001764,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStateTests.Constructor_DuplicateEnemyIds_Throws",
+      "Status": "Passed",
+      "Duration": 0.000355,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStateTests.CreateInitial_NegativeGold_Throws",
+      "Status": "Passed",
+      "Duration": 0.0002454,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStateTests.CreateInitial_NonPositiveBaseHealth_Throws(0)",
+      "Status": "Passed",
+      "Duration": 0.0008225,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStateTests.CreateInitial_NonPositiveBaseHealth_Throws(-1)",
+      "Status": "Passed",
+      "Duration": 0.0001504,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStateTests.CreateInitial_WithValidArguments_StartsInCleanPreparationState",
+      "Status": "Passed",
+      "Duration": 0.000641,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle100_Burn_AppliesWithoutImmediateDamageAndTicksOnExactSchedule",
+      "Status": "Passed",
+      "Duration": 0.0021662,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle101_ReappliedBurn_ExtendsDurationWithoutStackingOrDelayingDueTick",
+      "Status": "Passed",
+      "Duration": 0.000576,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle102_Wet_UsesExactMultiplierAndExpiresBeforeMovement",
+      "Status": "Passed",
+      "Duration": 0.0004471,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle103_ExtremeGust_SaturatesDamageWithoutOverflow",
+      "Status": "Passed",
+      "Duration": 0.0003434,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle103_Gust_UsesFloorRoundingOnLaterDirectDamageOnly",
+      "Status": "Passed",
+      "Duration": 0.000459,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle104_StoneAndCrack_ApplyPenetrationThenReduceDirectAndBurnArmor",
+      "Status": "Passed",
+      "Duration": 0.0003209,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle105_Reapplication_PreservesStrongestPowerAndUsesMaximumDuration",
+      "Status": "Passed",
+      "Duration": 0.0006706,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle106_LastActiveTick_DealsBurnBeforeExpiryAndExpiredModifiersSkipAttacks",
+      "Status": "Passed",
+      "Duration": 0.0004674,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle107_LethalDirectHit_DoesNotApplyStatusOrBecomeLaterTarget",
+      "Status": "Passed",
+      "Duration": 0.0003161,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle108_DotKillBeforeMovement_DoesNotLeakAndPaysExactlyOnce",
+      "Status": "Passed",
+      "Duration": 0.0003478,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle109_DotReward_SaturatesGoldWithoutOverflowOrDuplication",
+      "Status": "Passed",
+      "Duration": 0.0001697,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle109_OverkillAndRepeatedDeathProcessing_DoNotDuplicateReward",
+      "Status": "Passed",
+      "Duration": 0.0002038,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle110_BurnWithAbsentSource_StillKillsAndPaysExactlyOnce",
+      "Status": "Passed",
+      "Duration": 0.0001961,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle111_RestoredTowers_KeepTowerIdAttackOrder",
+      "Status": "Passed",
+      "Duration": 0.0005651,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle111_SameTickStatusEffects_AreVisibleOnlyToLaterTowerIds",
+      "Status": "Passed",
+      "Duration": 0.0007169,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle113_CheckpointRollback_DiscardsPartialDotAttemptAndRewards",
+      "Status": "Passed",
+      "Duration": 0.0004243,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleStatusEffectTests.RegBattle114_IdenticalMixedStatusRuns_ProduceIdenticalCompleteTimelines",
+      "Status": "Passed",
+      "Duration": 0.0561661,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle116_FirstTap_OpensOnlyVisibleCatalogWithoutPurchase",
+      "Status": "Passed",
+      "Duration": 0.1877341,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle117_EachType_PreviewsAndPurchasesExactlyOnce(\"flame\",70,3.0f,\"Burn\",\"3 damage / 0.5 s\")",
+      "Status": "Passed",
+      "Duration": 0.175407,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle117_EachType_PreviewsAndPurchasesExactlyOnce(\"tide\",60,3.5f,\"Wet\",\"20% slow\")",
+      "Status": "Passed",
+      "Duration": 0.1759434,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle117_EachType_PreviewsAndPurchasesExactlyOnce(\"gale\",80,3.0f,\"Gust\",\"+20% direct damage\")",
+      "Status": "Passed",
+      "Duration": 0.1741559,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle117_EachType_PreviewsAndPurchasesExactlyOnce(\"stone\",90,2.5f,\"Crack\",\"-2 armor\")",
+      "Status": "Passed",
+      "Duration": 0.1813761,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle118_CancelChangeCellInsufficientAndRepeat_DoNotPurchase",
+      "Status": "Passed",
+      "Duration": 0.1758418,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle119_PanelUpgradeMaxAndSell_UseSelectedArchetype(\"flame\")",
+      "Status": "Passed",
+      "Duration": 0.1759412,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle119_PanelUpgradeMaxAndSell_UseSelectedArchetype(\"tide\")",
+      "Status": "Passed",
+      "Duration": 0.1788206,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle119_PanelUpgradeMaxAndSell_UseSelectedArchetype(\"gale\")",
+      "Status": "Passed",
+      "Duration": 0.1827884,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle119_PanelUpgradeMaxAndSell_UseSelectedArchetype(\"stone\")",
+      "Status": "Passed",
+      "Duration": 0.1780054,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle120_SellModal_RejectsPublicCellSelection",
+      "Status": "Passed",
+      "Duration": 0.1748809,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle121_LegacyRestore_HasNoneStatusAndOwnEconomyButIsHidden",
+      "Status": "Passed",
+      "Duration": 0.1851605,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogPresentationTests.RegBattle122_LandscapeInsets_OffsetCatalogAndTowerPanelsInsideSafeArea",
+      "Status": "Passed",
+      "Duration": 0.1811872,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle090_Catalog_RejectsDuplicateNullAndIncompleteArchetypes",
+      "Status": "Passed",
+      "Duration": 0.0006581,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle090_InvalidDefinitions_AreRejectedByDomainAndSavedConfigContract",
+      "Status": "Passed",
+      "Duration": 0.0005479,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle090_SavedCatalog_ContainsExactDefinitionsAndLegacyCompatibility",
+      "Status": "Passed",
+      "Duration": 0.0007869,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle091_PlaceTower_EachElementalType_CreatesCorrectLevelAndDebitsPrice",
+      "Status": "Passed",
+      "Duration": 0.0003736,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle092_UpgradeTower_PreservesTypeIdentityCellAndCooldown",
+      "Status": "Passed",
+      "Duration": 0.000635,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle093_SellTower_UsesSelectedTypeInvestmentAndPaysOnlyOnce",
+      "Status": "Passed",
+      "Duration": 0.0005094,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle094_RejectedCommands_DoNotPartiallyMutateState",
+      "Status": "Passed",
+      "Duration": 0.0004262,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle095_Schema2RoundTrip_RestoresEveryTypeWithoutChangingIdentity",
+      "Status": "Passed",
+      "Duration": 0.0011763,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle096_Schema1_MigratesExplicitlyToLegacyWithoutRewritingSource(True)",
+      "Status": "Passed",
+      "Duration": 0.0012043,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle096_Schema1_MigratesExplicitlyToLegacyWithoutRewritingSource(False)",
+      "Status": "Passed",
+      "Duration": 0.0005256,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle097_InvalidPrimaryType_FallsBackToValidatedBackup(null)",
+      "Status": "Passed",
+      "Duration": 0.0036489,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle097_InvalidPrimaryType_FallsBackToValidatedBackup(\"\")",
+      "Status": "Passed",
+      "Duration": 0.0021634,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle097_InvalidPrimaryType_FallsBackToValidatedBackup(\"unknown\")",
+      "Status": "Passed",
+      "Duration": 0.0020099,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle097_UnknownSchemaOrContent_IsRejected(3,\"test-scenario-v1\")",
+      "Status": "Passed",
+      "Duration": 0.0008219,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle097_UnknownSchemaOrContent_IsRejected(2,\"other-scenario-v1\")",
+      "Status": "Passed",
+      "Duration": 0.0005286,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerCatalogTests.RegBattle098_InterruptedCombatAfterMigration_RestoresPreparationWithoutRewardsOrIdReuse",
+      "Status": "Passed",
+      "Duration": 0.0010039,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Commands_Combat_AreRejectedWithoutMutation",
+      "Status": "Passed",
+      "Duration": 0.0026822,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Commands_TerminalPhases_AreRejectedWithoutMutation",
+      "Status": "Passed",
+      "Duration": 0.0007995,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Commands_UnknownTowerId_AreRejectedWithoutMutation",
+      "Status": "Passed",
+      "Duration": 0.0003497,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.EconomyOperations_CannotOverflow",
+      "Status": "Passed",
+      "Duration": 0.0006785,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.IdenticalFullMatchesWithEconomy_ProduceIdenticalTimelines",
+      "Status": "Passed",
+      "Duration": 0.067641,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.RejectedCommands_PreserveCompleteState",
+      "Status": "Passed",
+      "Duration": 0.0003956,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Sell_AllLevels_GrantsExactFloorRefund(1,42,182)",
+      "Status": "Passed",
+      "Duration": 0.0002667,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Sell_AllLevels_GrantsExactFloorRefund(2,77,167)",
+      "Status": "Passed",
+      "Duration": 3.17e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Sell_AllLevels_GrantsExactFloorRefund(3,133,143)",
+      "Status": "Passed",
+      "Duration": 2.23e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Sell_ReleasesOnlyOwnedCell",
+      "Status": "Passed",
+      "Duration": 0.0001415,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Sell_Repeated_DoesNotGrantRefundTwice",
+      "Status": "Passed",
+      "Duration": 0.0002046,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.SellThenPlace_RebuildsOnReleasedCell",
+      "Status": "Passed",
+      "Duration": 0.0002094,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.TowerLevels_InvalidConfiguration_IsRejectedAtConstruction",
+      "Status": "Passed",
+      "Duration": 0.0001442,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Upgrade_InsufficientGold_IsRejectedWithoutMutation",
+      "Status": "Passed",
+      "Duration": 0.0001668,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Upgrade_LevelOneToTwo_UpdatesStatsAndInvestment",
+      "Status": "Passed",
+      "Duration": 0.0002311,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Upgrade_LevelTwoToThree_UpdatesStatsAndInvestment",
+      "Status": "Passed",
+      "Duration": 0.0001481,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Upgrade_MaxLevel_IsRejectedWithoutMutation",
+      "Status": "Passed",
+      "Duration": 0.0001539,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Upgrade_PreservesCooldownBetweenWaves",
+      "Status": "Passed",
+      "Duration": 0.0001312,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerEconomyTests.Upgrade_SubsequentAttack_UsesNewDamage",
+      "Status": "Passed",
+      "Duration": 0.000186,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerLevelConfigTests.CreateSimulation_UsesSerializedUpgradeValues",
+      "Status": "Passed",
+      "Duration": 0.0005076,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleTowerLevelConfigTests.SavedScenario_HasThreeConfiguredLevelsAndPreservesLegacyBaseFields",
+      "Status": "Passed",
+      "Duration": 0.0005018,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.BetweenWaves_PreservesMatchStateAndAllowsPlacement",
+      "Status": "Passed",
+      "Duration": 0.0010109,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.DefeatAndVictory_AreTerminalAndDefeatPaysNoBonus",
+      "Status": "Passed",
+      "Duration": 0.0008645,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.EightWaves_CompleteInOrderAndFinishWithVictory",
+      "Status": "Passed",
+      "Duration": 0.0003945,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.IdenticalFullMatches_ProduceIdenticalSnapshotsAndEvents",
+      "Status": "Passed",
+      "Duration": 0.0016575,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.Ids_RemainUniqueAcrossAllWaves",
+      "Status": "Passed",
+      "Duration": 0.0016086,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.KillReward_IsGrantedExactlyOnce",
+      "Status": "Passed",
+      "Duration": 0.0002295,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.LeakAndWaveBonuses_FollowEconomyInvariants",
+      "Status": "Passed",
+      "Duration": 0.0001822,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.LegacySingleWave_ContinueHasNoNextWaveAndDoesNotMutate",
+      "Status": "Passed",
+      "Duration": 0.0001629,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.RejectedCommands_PreserveCompleteState",
+      "Status": "Passed",
+      "Duration": 0.0002172,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.Rewards_CannotOverflowGold",
+      "Status": "Passed",
+      "Duration": 0.0002069,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.SecondWave_UsesSpawnTicksRelativeToWaveStart",
+      "Status": "Passed",
+      "Duration": 0.0003789,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.BattleWaveLifecycleTests.WaveCommands_AreIdempotentAndRejectedCommandsDoNotMutate",
+      "Status": "Passed",
+      "Duration": 0.0002357,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_DefaultId_Throws",
+      "Status": "Passed",
+      "Duration": 0.0001898,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_InvalidId_Throws(null)",
+      "Status": "Passed",
+      "Duration": 0.0003055,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_InvalidId_Throws(\"\")",
+      "Status": "Passed",
+      "Duration": 4.47e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_InvalidId_Throws(\" \")",
+      "Status": "Passed",
+      "Duration": 3.77e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_InvalidSpeed_Throws(0.0f)",
+      "Status": "Passed",
+      "Duration": 0.0003194,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_InvalidSpeed_Throws(-1.0f)",
+      "Status": "Passed",
+      "Duration": 3.97e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_InvalidSpeed_Throws(float.NaN)",
+      "Status": "Passed",
+      "Duration": 4.15e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_InvalidSpeed_Throws(float.PositiveInfinity)",
+      "Status": "Passed",
+      "Duration": 3.78e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_NegativeReward_Throws",
+      "Status": "Passed",
+      "Duration": 0.0001405,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_NonPositiveLeakDamage_Throws(0)",
+      "Status": "Passed",
+      "Duration": 0.0005956,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_NonPositiveLeakDamage_Throws(-1)",
+      "Status": "Passed",
+      "Duration": 0.0001393,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_NonPositiveMaxHealth_Throws(0)",
+      "Status": "Passed",
+      "Duration": 0.00036,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyDefinitionTests.Constructor_NonPositiveMaxHealth_Throws(-1)",
+      "Status": "Passed",
+      "Duration": 5.3e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyStateTests.Constructor_DefaultId_Throws",
+      "Status": "Passed",
+      "Duration": 0.0010333,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyStateTests.Constructor_HealthAboveMaximum_Throws",
+      "Status": "Passed",
+      "Duration": 0.0002368,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyStateTests.Constructor_NegativeHealth_Throws",
+      "Status": "Passed",
+      "Duration": 0.0001888,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyStateTests.CreateInitial_UsesDefinitionHealthAndZeroPathDistance",
+      "Status": "Passed",
+      "Duration": 0.0002765,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyStateTests.EnemyId_NonPositiveValue_Throws(0)",
+      "Status": "Passed",
+      "Duration": 0.000277,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.EnemyStateTests.EnemyId_NonPositiveValue_Throws(-1)",
+      "Status": "Passed",
+      "Duration": 3.91e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.GridCoordinateTests.Equality_DifferentCoordinates_ReturnsFalse",
+      "Status": "Passed",
+      "Duration": 0.0007409,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.GridCoordinateTests.Equality_SameCoordinates_ReturnsTrueAndSameHashCode",
+      "Status": "Passed",
+      "Duration": 0.0003875,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.MainMenuControllerTests.ContinueAvailability_DependsOnStableNonTerminalCheckpoint(Preparation,True)",
+      "Status": "Passed",
+      "Duration": 0.0075554,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.MainMenuControllerTests.ContinueAvailability_DependsOnStableNonTerminalCheckpoint(WaveComplete,True)",
+      "Status": "Passed",
+      "Duration": 0.0028304,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.MainMenuControllerTests.ContinueAvailability_DependsOnStableNonTerminalCheckpoint(Victory,False)",
+      "Status": "Passed",
+      "Duration": 0.0020697,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.MainMenuControllerTests.ContinueAvailability_DependsOnStableNonTerminalCheckpoint(Defeat,False)",
+      "Status": "Passed",
+      "Duration": 0.0017463,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.MainMenuControllerTests.DamagedPrimary_CompatibleBackup_EnablesContinueSession",
+      "Status": "Passed",
+      "Duration": 0.0044741,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.MainMenuControllerTests.MissingCheckpoint_DisablesContinueWithoutCreatingSession",
+      "Status": "Passed",
+      "Duration": 0.0009153,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.MainMenuControllerTests.NewGame_DeletesSlotAndCreatesFreshSession",
+      "Status": "Passed",
+      "Duration": 0.003087,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.MainMenuControllerTests.NewGameBackupDeleteFailure_RestoresPrimaryAndContinueSession",
+      "Status": "Passed",
+      "Duration": 0.004831,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.MainMenuControllerTests.NewGameResetFailure_PreservesCheckpointAndContinueSession",
+      "Status": "Passed",
+      "Duration": 0.0039217,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathDefinitionTests.Constructor_FewerThanTwoPoints_Throws(0)",
+      "Status": "Passed",
+      "Duration": 0.000237,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathDefinitionTests.Constructor_FewerThanTwoPoints_Throws(1)",
+      "Status": "Passed",
+      "Duration": 0.0001786,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathDefinitionTests.Constructor_RepeatedAdjacentPoints_Throws",
+      "Status": "Passed",
+      "Duration": 0.0001265,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathDefinitionTests.Constructor_ValidPoints_PreservesSequenceAndCopiesInput",
+      "Status": "Passed",
+      "Duration": 0.0003588,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_AcrossCorner_InterpolatesSecondSegment",
+      "Status": "Passed",
+      "Duration": 0.0004615,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_Diagonal_UsesEuclideanLength",
+      "Status": "Passed",
+      "Duration": 0.0002773,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_ExactSegmentBoundary_ReturnsCorner",
+      "Status": "Passed",
+      "Duration": 0.0001967,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_NonFiniteDistance_Throws(float.NaN)",
+      "Status": "Passed",
+      "Duration": 0.000211,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_NonFiniteDistance_Throws(float.PositiveInfinity)",
+      "Status": "Passed",
+      "Duration": 4.45e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_NonFiniteDistance_Throws(float.NegativeInfinity)",
+      "Status": "Passed",
+      "Duration": 3.56e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_OutsidePath_ClampsToEndpoints(-1.0f,0.0f,0.0f)",
+      "Status": "Passed",
+      "Duration": 0.0006063,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.PathGeometryTests.GetPosition_OutsidePath_ClampsToEndpoints(10.0f,2.0f,2.0f)",
+      "Status": "Passed",
+      "Duration": 8.76e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.ProjectBootstrapTests.EditorAssembly_ExcludesBattleBuilderFromPlayerCompilation",
+      "Status": "Passed",
+      "Duration": 0.0782048,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.ProjectBootstrapTests.EditorSettings_UseForceTextAndVisibleMetaFiles",
+      "Status": "Passed",
+      "Duration": 0.0003101,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.ProjectBootstrapTests.GameScenes_ArePresentAndEnabledInLaunchOrder",
+      "Status": "Passed",
+      "Duration": 0.0004379,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.ProjectBootstrapTests.SavedIosSettings_UseLandscapeIl2CppArm64AndMinimumIos17",
+      "Status": "Passed",
+      "Duration": 0.0005713,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.SimulationContractTests.FixedSimulationFrequency_Is30Hz",
+      "Status": "Passed",
+      "Duration": 0.0001736,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_DuringCombat_IsRejectedWithoutChanges",
+      "Status": "Passed",
+      "Duration": 0.0003288,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_ExactGoldBalance_NeverBecomesNegative",
+      "Status": "Passed",
+      "Duration": 0.0001019,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_FreeCell_Succeeds",
+      "Status": "Passed",
+      "Duration": 0.0001467,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_InsufficientGold_IsRejectedWithoutChanges",
+      "Status": "Passed",
+      "Duration": 4.19e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_OccupiedCell_IsRejectedWithoutChanges",
+      "Status": "Passed",
+      "Duration": 8.14e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_OutsideMap_IsRejectedWithoutChanges",
+      "Status": "Passed",
+      "Duration": 4.38e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_RepeatedCommand_DoesNotDebitTwice",
+      "Status": "Passed",
+      "Duration": 6.69e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_RoadCell_IsRejectedWithoutChanges",
+      "Status": "Passed",
+      "Duration": 3.53e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_Success_DebitsGoldExactlyOnce",
+      "Status": "Passed",
+      "Duration": 4.27e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_Success_DoesNotChangeRoute",
+      "Status": "Passed",
+      "Duration": 0.0001291,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_TwoTowers_AssignsUniqueIds",
+      "Status": "Passed",
+      "Duration": 0.0001007,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.PlaceTower_UnknownDefinition_IsRejectedWithoutChanges",
+      "Status": "Passed",
+      "Duration": 5.13e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.TowerDefinition_InvalidValues_AreRejected",
+      "Status": "Passed",
+      "Duration": 0.0002428,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.TowerId_NonPositiveValue_Throws(0)",
+      "Status": "Passed",
+      "Duration": 0.000222,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.TowerId_NonPositiveValue_Throws(-1)",
+      "Status": "Passed",
+      "Duration": 2.96e-05,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.TowerPlacementTests.TowerState_DefaultId_Throws",
+      "Status": "Passed",
+      "Duration": 0.000129,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.CorruptPrimaryAndBackup_ReturnsCorrupt",
+      "Status": "Passed",
+      "Duration": 0.0036162,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.InvalidCheckpoint_IsRejectedBeforeCreatingFiles",
+      "Status": "Passed",
+      "Duration": 0.0004916,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.InvalidNextIdInPrimary_LoadsCompatibleBackup(True,False)",
+      "Status": "Passed",
+      "Duration": 0.0068181,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.InvalidNextIdInPrimary_LoadsCompatibleBackup(False,True)",
+      "Status": "Passed",
+      "Duration": 0.0031565,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.MissingAndDelete_ReportSlotStateAndRemoveAllFiles",
+      "Status": "Passed",
+      "Duration": 0.0024658,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.SaveTwoCheckpoints_ReplacesPrimaryAndPreservesPreviousAsBackup",
+      "Status": "Passed",
+      "Duration": 0.0027944,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.SaveWithDamagedPrimary_DoesNotOverwriteValidBackup",
+      "Status": "Passed",
+      "Duration": 0.0035693,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.TruncatedPrimary_LoadsCompatibleBackup",
+      "Status": "Passed",
+      "Duration": 0.0027072,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.UnknownSchemaOrContent_IsIncompatible(3,\"test-scenario-v1\")",
+      "Status": "Passed",
+      "Duration": 0.0013578,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.UnknownSchemaOrContent_IsIncompatible(2,\"other-scenario-v1\")",
+      "Status": "Passed",
+      "Duration": 0.0010952,
+      "Message": null,
+      "StackTrace": null
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.WaveCheckpointStoreTests.WriteFailure_KeepsPrimaryAndBackupByteIdentical",
+      "Status": "Passed",
+      "Duration": 0.0026881,
+      "Message": null,
+      "StackTrace": null
+    }
+  ],
+  "Duration": 26.39,
+  "StatusPath": null,
+  "Mode": "EditMode",
+  "FilterApplied": null,
+  "success": true,
+  "result": null
+}

@@ -14,6 +14,8 @@ namespace Veilward.Presentation
         private string _scenarioContentId;
         private BattlePhase _observedPhase;
 
+        public event Action Restored;
+
         public UnityEngine.UI.Text StatusText => saveStatusText;
         public bool LastSaveSucceeded { get; private set; } = true;
 
@@ -46,6 +48,7 @@ namespace Veilward.Presentation
             _observedPhase = _simulation.State.Phase;
             LastSaveSucceeded = true;
             SetStatus("Checkpoint restored.");
+            Restored?.Invoke();
         }
 
         public bool SaveCurrentState()
