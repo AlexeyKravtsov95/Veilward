@@ -36,3 +36,5 @@ iPhone texture override — ASTC 4×4; фактическое качество/�
 Island jitter имеет фиксированный Python random seed 101. Других случайных входов нет. Исходники — редактируемые meshes, отдельные connected components и UVMap; ручные изменения выполняются в .blend с повторным export, не в FBX. Source-specific scripts не являются общим exporter framework. Git LFS не включался.
 
 Основная оценка читаемости — в сохранённой Battle camera. Closeups увеличивают масштаб только для рассмотрения формы. Физический iPhone, thermal/memory/frame timing, built-player quality и правовая/продуктовая приёмка не подтверждены.
+
+Review correction 2026-11-16: у Shoulder/CrownHorn Shade исправлен mirrored winding и явно выбрана диагональ неплоской грани рога. Изменены только source/FBX Shade; positions/UV, 183 runtime triangles, 2 slots и provenance прежние. Проверки source/FBX/Unity и отрицательный контроль экспортера описаны в [review fixes](review-fixes.md).

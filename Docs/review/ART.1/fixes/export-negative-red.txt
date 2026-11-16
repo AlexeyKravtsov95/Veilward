@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_python_exception_aborts_before_comparison_or_positive_evidence (__main__.ReexportFailureTests.test_python_exception_aborts_before_comparison_or_positive_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1/Veilward/ArtSource/Blender/ART1/tests/test_reexport_failure.py", line 41, in test_python_exception_aborts_before_comparison_or_positive_evidence
+    with self.assertRaises(subprocess.CalledProcessError) as error:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: CalledProcessError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 5.363s
+
+FAILED (failures=1)

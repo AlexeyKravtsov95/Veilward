@@ -1,0 +1,14 @@
+00:00.422  blend            | Read blend: "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1/Veilward/ArtSource/Blender/ART1/Enemy_Shade.blend"
+Traceback (most recent call last):
+  File "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1/Veilward/ArtSource/Blender/ART1/tests/check_shade_winding.py", line 33, in <module>
+    check('saved blend')
+    ~~~~~^^^^^^^^^^^^^^^
+  File "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1/Veilward/ArtSource/Blender/ART1/tests/check_shade_winding.py", line 27, in check
+    assert direction>1e-7,(label,color,side,i,'inward winding',direction)
+           ^^^^^^^^^^^^^^
+AssertionError: ('saved blend', 17, -1, 0, 'inward winding', -0.005019993921450805)
+
+Error: script failed, file: 'ArtSource/Blender/ART1/tests/check_shade_winding.py', exiting.
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:21)
+
+Blender quit

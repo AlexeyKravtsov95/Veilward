@@ -44,7 +44,7 @@ before=snapshot()
 for source in sorted((ROOT/'ArtSource/Blender/ART1').glob('*.blend')):
     log=ROOT/'Temp'/('art1-reexport-'+source.stem+'.log'); log.parent.mkdir(exist_ok=True)
     with log.open('w') as f:
-        subprocess.run([BLENDER,'--background',str(source),'--python',str(ROOT/'ArtSource/Blender/ART1/export_art1.py')],stdout=f,stderr=subprocess.STDOUT,check=True)
+        subprocess.run([BLENDER,'--background',str(source),'--python-exit-code','1','--python',str(ROOT/'ArtSource/Blender/ART1/export_art1.py')],stdout=f,stderr=subprocess.STDOUT,check=True)
     print('reexported',source.name,flush=True)
 after=snapshot()
 EVIDENCE.mkdir(parents=True,exist_ok=True)

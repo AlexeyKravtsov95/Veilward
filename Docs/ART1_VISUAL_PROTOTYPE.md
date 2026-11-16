@@ -29,3 +29,12 @@
 ## Риски и тесты
 
 Мелкие элементы могут теряться при ortho 8.5; геометрия/контраст важнее детализации. Не добавляем bloom, realtime point lights или прозрачные оболочки. Pool ограничен; material assets общие. EditMode проверяет import/scene/reference contract, PlayMode — combat/pause/pool. Физический iPhone требуется для touch/safe area, читаемости, ASTC качества, memory/frame time/thermal. Правовая/продуктовая оценка оригинальных AI-assisted assets остаётся владельцу.
+
+## Исправления review — exporter exception и winding Shade
+
+Scope: Python exit handling в source-specific verifier и наружный winding mirrored Shoulder/CrownHorn; без изменения стиля, Domain, Battle/MainMenu или баланса.
+
+- ART1-07: намеренный Python exception перед FBX export обязан завершить verifier ненулевым кодом, без `PASS`, второго snapshot или публикации positive evidence; старые FBX остаются побайтово прежними. Контроль использует настоящий Blender, неизменный snapshot имитирует случай старых FBX.
+- ART1-08: обе стороны Shoulder/CrownHorn имеют наружный winding; convex face normals направлены от центра компонента, signed volume положительный. Проверить редактируемый `.blend` и импортированный Unity mesh; backface culling не отключать. Позиции, UV, slots/counts, GUID/local IDs и prefab/scene references сохраняются.
+
+Риск: изменение только vertex normals без winding скроет дефект в lighting, но не устранит culling. Regression использует геометрический cross product индексов треугольника. После обновления source/FBX повторить gates, настоящий Play Mode capture и round-trip.

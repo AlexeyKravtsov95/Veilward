@@ -9,7 +9,7 @@
 `create_art1.py` — воспроизводимая исходная конструкция из оригинальной геометрии. Её повторный запуск **пересоздаёт source**; для ручных правок использовать только `export_art1.py`, который читает сохранённую модель. Операции bevel применены в mesh, а не скрыты в Unity. Никакого Blender runtime dependency у Unity нет.
 
 ```sh
-/Applications/Blender.app/Contents/MacOS/Blender --background ArtSource/Blender/ART1/Tower_FlameLantern.blend --python ArtSource/Blender/ART1/export_art1.py
+/Applications/Blender.app/Contents/MacOS/Blender --background ArtSource/Blender/ART1/Tower_FlameLantern.blend --python-exit-code 1 --python ArtSource/Blender/ART1/export_art1.py
 ```
 
 Экспорт всегда в прежний путь FBX; `.meta` не трогать. При изменении mesh/material names или структуры submeshes повторить reference audit; такие изменения не обещаны автоматически совместимыми.
@@ -36,3 +36,14 @@ python3 ArtSource/Blender/ART1/verify_reexport.py
 Скрипт сохраняет imported GUID/local IDs, vertex/normal/UV/index hash, prefab dependencies и hashes `.meta`, prefab/scene YAML. Затем открывает **все восемь сохранённых .blend**, экспортирует в те же FBX и повторно импортирует Unity. Сравнение before/after должно быть точным. Отчёты — `Docs/review/ART.1/reexport-{before,after}.json`.
 
 Unity scene/prefab authoring: меню `VEILWARD → ART.1 → Build ArtReference`. Builder работает только с ART.1 assets; не изменяет Build Settings, production balance или рабочие сцены. Для просмотра открыть `Assets/_Game/Scenes/ArtReference.unity`, Play. Showcase повторяет saved первую волну с одним FLAME; после завершения пауза 2 s и новый цикл. Inspector/context eval `SetPaused(true)`, `AdvanceForReview(n)`, `RestartShowcase()` позволяют зафиксировать реальное состояние. Lifecycle focus/background latch требует явного Resume через `SetPaused(false)` после возврата; нового игрового UI нет, это reference scene для Editor review.
+
+## Контроли ошибок и winding
+
+```sh
+python3 ArtSource/Blender/ART1/tests/test_reexport_failure.py
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python ArtSource/Blender/ART1/tests/check_shade_winding.py
+```
+
+Первый контроль запускает настоящий Blender с намеренно падающим экспортным Python script. Только Unity snapshot подменён неизменной фикстурой: это воспроизводит ложное сравнение старых FBX. Проверяются exit 1, отсутствие PASS/второго snapshot/записи golden evidence и неизменные SHA всех FBX. В production verifier `--python-exit-code 1` стоит перед `--python`.
+
+Второй проверяет по четыре hulls в сохранённом `.blend` и экспортированном FBX: обе стороны Shoulder/CrownHorn, по 5 vertices/6 triangles, normals от центра и положительный signed volume. Unity EditMode повторяет проверку по индексам импортированного mesh. Неплоская грань рога задана двумя явными треугольниками; обратный winding не маскируется shader culling settings или пересчётом только vertex normals.

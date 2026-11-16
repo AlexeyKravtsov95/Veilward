@@ -1,5 +1,5 @@
 """Original ART.1 geometry, deterministic; Blender 5.3. No downloaded inputs.
-Run: Blender --background --python ArtSource/Blender/ART1/create_art1.py
+Run: Blender --background --python-exit-code 1 --python ArtSource/Blender/ART1/create_art1.py
 Editing saved .blend and running export_art1.py preserves mesh/material names.
 """
 import bpy, math, random, json
@@ -52,7 +52,8 @@ def box(name, loc, dims, color, bevel=.015):
 def cone(name,loc,r1,r2,depth,color,n=8,glow=False):
     bpy.ops.mesh.primitive_cone_add(vertices=n,radius1=r1,radius2=r2,depth=depth,location=loc); o=bpy.context.object; o.name=name
     return finish(o,color,glow)
-def mesh(name, verts, faces, color, glow=False):
+def mesh(name, verts, faces, color, glow=False, reverse_winding=False):
+    if reverse_winding: faces=[tuple(reversed(f)) for f in faces]
     if name in ('IvoryVoidMask','EyeSocket','ColdEye','MaskSplit','TornFold'):
         faces=[tuple(reversed(f)) if (Vector(verts[f[1]])-Vector(verts[f[0]])).cross(Vector(verts[f[2]])-Vector(verts[f[0]])).y>0 else f for f in faces]
     me=bpy.data.meshes.new(name); me.from_pydata(verts,[],faces); me.update(); o=bpy.data.objects.new(name,me); bpy.context.collection.objects.link(o)
@@ -147,10 +148,11 @@ fs=[]
 for k in range(4):
     for j in range(n):fs.append((k*n+j,k*n+(j+1)%n,(k+1)*n+(j+1)%n,(k+1)*n+j))
 fs.extend([tuple(reversed(range(n))),tuple(range(40,50))]);mesh('BrokenMantle',vs,fs,16)
-# Broad shoulder blades and asymmetric hanging tails.
+# Отражение по X меняет handedness. Исходные +X faces направлены внутрь;
+# переворачиваем +X, тогда обе стороны outward после зеркалирования.
 for s in (-1,1):
-    mesh('Shoulder',[(s*.14,.03,.86),(s*.42,.05,.72),(s*.34,-.04,.44),(s*.22,-.15,.71),(s*.20,.14,.68)],[(0,1,3),(1,2,3),(0,4,1),(1,4,2),(0,3,4),(2,4,3)],17)
-    mesh('CrownHorn',[(s*.08,.01,.99),(s*.20,.04,1.31),(s*.26,.08,1.35),(s*.22,.02,1.02),(s*.13,-.08,1.06)],[(0,1,4),(1,2,4),(2,3,4),(0,3,2,1),(0,4,3)],18)
+    mesh('Shoulder',[(s*.14,.03,.86),(s*.42,.05,.72),(s*.34,-.04,.44),(s*.22,-.15,.71),(s*.20,.14,.68)],[(0,1,3),(1,2,3),(0,4,1),(1,4,2),(0,3,4),(2,4,3)],17,reverse_winding=s>0)
+    mesh('CrownHorn',[(s*.08,.01,.99),(s*.20,.04,1.31),(s*.26,.08,1.35),(s*.22,.02,1.02),(s*.13,-.08,1.06)],[(0,1,4),(1,2,4),(2,3,4),(0,3,2),(0,2,1),(0,4,3)],18,reverse_winding=s>0)
     beam('ColdCrownEdge',(s*.12,-.07,1.04),(s*.21,-.015,1.27),.025,20)
 # convex ivory mask, with directional nose point below.
 mesh('IvoryVoidMask',[(-.18,-.176,1.03),(.18,-.176,1.03),(.13,-.239,.80),(0,-.30,.70),(-.13,-.239,.80),(0,-.28,.99)],[(0,1,5),(1,2,5),(2,3,5),(3,4,5),(4,0,5)],22)

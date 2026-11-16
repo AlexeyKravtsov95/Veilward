@@ -1,5 +1,5 @@
 """Reexport edited source, without regenerating geometry. Run with an open .blend:
-Blender --background <source.blend> --python ArtSource/Blender/ART1/export_art1.py
+Blender --background <source.blend> --python-exit-code 1 --python ArtSource/Blender/ART1/export_art1.py
 """
 import bpy
 from pathlib import Path

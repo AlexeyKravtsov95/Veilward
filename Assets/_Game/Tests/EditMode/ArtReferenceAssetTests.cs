@@ -92,6 +92,44 @@ namespace Veilward.Tests.EditMode
             Assert.That(face.Average(), Is.GreaterThan(.17f), "Shade face must point +Z in Unity.");
         }
 
+        [TestCase(17, -1)]
+        [TestCase(17, 1)]
+        [TestCase(18, -1)]
+        [TestCase(18, 1)]
+        public void ShadeShouldersAndHorns_HaveOutwardTriangleWinding(int swatch, int side)
+        {
+            var mesh = AssetDatabase.LoadAssetAtPath<GameObject>(ArtReferenceBuilder.ModelFolder+"Enemy_Shade.fbx")
+                .GetComponentInChildren<MeshFilter>().sharedMesh;
+            var vertices=mesh.vertices; var uv=mesh.uv; var indices=mesh.triangles;
+            var triangles=new System.Collections.Generic.List<int>();
+            var points=new System.Collections.Generic.HashSet<Vector3>();
+            for(var i=0;i<indices.Length;i+=3)
+            {
+                var a=indices[i]; var b=indices[i+1]; var c=indices[i+2];
+                bool Matches(int index) => Mathf.Abs(uv[index].x-(swatch%8+.5f)/8)<.001f &&
+                    Mathf.Abs(uv[index].y-(swatch/8+.5f)/4)<.001f && vertices[index].x*side>0 &&
+                    (swatch==17 || vertices[index].y>.98f);
+                if(!Matches(a)||!Matches(b)||!Matches(c)) continue;
+                triangles.Add(a);triangles.Add(b);triangles.Add(c);
+                points.Add(vertices[a]);points.Add(vertices[b]);points.Add(vertices[c]);
+            }
+            Assert.That(points.Count, Is.EqualTo(5), "Проверяем полный hull, а не пустой набор.");
+            Assert.That(triangles.Count/3, Is.EqualTo(6));
+            var center=Vector3.zero;
+            foreach(var p in points) center+=p;
+            center/=points.Count;
+            var volume=0f;
+            for(var i=0;i<triangles.Count;i+=3)
+            {
+                var a=vertices[triangles[i]];var b=vertices[triangles[i+1]];var c=vertices[triangles[i+2]];
+                var normal=Vector3.Cross(b-a,c-a);
+                Assert.That(Vector3.Dot(normal,(a+b+c)/3-center), Is.GreaterThan(1e-7f),
+                    $"Shade swatch {swatch}, side {side}, triangle {i/3}: inward winding");
+                volume+=Vector3.Dot(a-center,Vector3.Cross(b-center,c-center))/6;
+            }
+            Assert.That(volume, Is.GreaterThan(1e-6f));
+        }
+
         [Test]
         public void ArtScene_UsesSavedBattleCameraAndScenarioWithoutReleaseRegistration()
         {

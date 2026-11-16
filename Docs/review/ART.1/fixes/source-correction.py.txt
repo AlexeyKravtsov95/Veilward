@@ -1,0 +1,18 @@
+import bpy,bmesh,runpy
+from pathlib import Path
+root=Path.cwd()
+path=root/'ArtSource/Blender/ART1/Enemy_Shade.blend'
+bpy.ops.wm.open_mainfile(filepath=str(path))
+obj=bpy.context.scene.objects['Enemy_Shade'];bm=bmesh.new();bm.from_mesh(obj.data)
+uv=bm.loops.layers.uv.active
+def swatch(face,color):
+    return all(abs(l[uv].uv.x-(color%8+.5)/8)<.001 and abs(l[uv].uv.y-(color//8+.5)/4)<.001 for l in face.loops)
+horn_quads=[f for f in bm.faces if len(f.verts)==4 and swatch(f,18) and all(v.co.z>.98 for v in f.verts)]
+assert len(horn_quads)==2
+bmesh.ops.triangulate(bm,faces=horn_quads,quad_method='FIXED',ngon_method='EAR_CLIP')
+inside=[f for f in bm.faces if all(v.co.x<0 for v in f.verts) and (swatch(f,17) or (swatch(f,18) and all(v.co.z>.98 for v in f.verts)))]
+assert len(inside)==12,len(inside)
+bmesh.ops.reverse_faces(bm,faces=inside)
+bm.to_mesh(obj.data);bm.free();obj.data.update()
+bpy.ops.wm.save_as_mainfile(filepath=str(path),compress=True)
+runpy.run_path(str(root/'ArtSource/Blender/ART1/export_art1.py'),run_name='__main__')
