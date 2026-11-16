@@ -1,10 +1,9 @@
-Traceback (most recent call last):
-  File "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1/Veilward/ArtSource/Blender/ART1/verify_reexport.py", line 43, in <module>
-    before=snapshot()
-           ^^^^^^^^^^
-  File "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1/Veilward/ArtSource/Blender/ART1/verify_reexport.py", line 39, in snapshot
-    if p.returncode: raise RuntimeError(p.stdout+'\n'+p.stderr)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: 
-'script eval' did not complete within its 30 s timeout. It may still be running and its effects may still land. Pass a larger --timeout (seconds).
-
+reexported Enemy_Shade.blend
+reexported Environment_BuildPad.blend
+reexported Environment_FloatingIsland.blend
+reexported Environment_PathTile.blend
+reexported Prop_MossRock.blend
+reexported Prop_RitualShrub.blend
+reexported Prop_Waystone.blend
+reexported Tower_FlameLantern.blend
+PASS: 8 edited sources reexported; geometry, GUID/local IDs, .meta, prefab and scene references preserved.

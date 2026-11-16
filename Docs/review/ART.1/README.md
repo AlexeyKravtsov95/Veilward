@@ -22,7 +22,7 @@
 
 ## VERIFIED — Editor
 
-- Unity 6000.3.28f1 (`8f082d2fe476`), URP 17.3.0, Unity CLI 1.0.0, macOS Apple Silicon, active target iOS. Blender 5.3.0 (`02f0899d78e3`), original deterministic geometry.
+- Unity 6000.3.28f1 (`8f082d2fe476`), URP 17.3.0, Unity CLI 1.0.0, macOS Apple Silicon, active Editor target StandaloneOSX (iOS settings/import override сохранены). Blender 5.3.0 (`02f0899d78e3`), original deterministic geometry.
 - **Static 38/38, EditMode 540/540, PlayMode 29/29**, 0 failed/skipped/inconclusive в финальных сохранённых результатах. [Static](static-checks.txt), [EditMode JSON](EditMode.json), [PlayMode JSON](PlayMode.json).
 - ART1-01…05: 11 EditMode и 4 PlayMode regression tests проверяют camera/scenario, budgets, pivots/face, imported IDs, реальные movement/HP/AttackEvents, pause и bounded reuse. Общие suites сохраняют экономические/checkpoint/reaction проверки.
 - Все восемь сохранённых `.blend` реально открыты, reexported и force-reimported; geometry hashes, GUID/local IDs, `.meta`, prefab/scene hashes и dependencies совпали. [Before](reexport-before.json), [after](reexport-after.json), [результат](reexport.txt).

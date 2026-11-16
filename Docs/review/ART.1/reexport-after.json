@@ -9,7 +9,16 @@
         "MeshRenderer:Tower_FlameLantern:5ed6584cd505a4f869dd1c0e7cefb762:-7511558181221131132",
         "Transform:Tower_FlameLantern:5ed6584cd505a4f869dd1c0e7cefb762:-8679921383154817045"
       ],
-      "geometrySha256": "1B-76-91-A4-0C-08-CD-89-9B-B8-4D-31-34-5C-CC-91-3E-10-18-B0-FC-3A-5A-10-D0-45-53-F0-DD-A5-F0-1C",
+      "geometrySha256": "1E-91-04-CF-3F-93-78-62-F9-CC-BA-77-76-F8-85-F1-10-6F-33-65-6C-2B-43-97-44-8B-10-22-B2-2B-CD-F3",
+      "materialSlots": 2,
+      "indexCounts": [
+        3336,
+        360
+      ],
+      "materials": [
+        "MAT_Art1_Surface",
+        "MAT_Art1_Glow"
+      ],
       "dependencies": [
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
@@ -30,7 +39,16 @@
         "MeshRenderer:Enemy_Shade:6f4ac4c2cedae4599ac89c66933ac64b:-7511558181221131132",
         "Transform:Enemy_Shade:6f4ac4c2cedae4599ac89c66933ac64b:-8679921383154817045"
       ],
-      "geometrySha256": "CF-A7-09-A0-84-0C-E4-19-5F-65-83-97-84-39-FC-89-4A-0D-3F-5F-9C-97-EA-4B-C1-33-19-36-42-E4-34-9E",
+      "geometrySha256": "43-8C-D4-AA-E4-8E-22-A8-33-A6-8D-7E-FA-3C-66-56-F9-2D-C9-8C-7F-CA-EA-B3-31-E8-DB-4F-2D-6D-72-1E",
+      "materialSlots": 2,
+      "indexCounts": [
+        537,
+        12
+      ],
+      "materials": [
+        "MAT_Art1_Surface",
+        "MAT_Art1_Glow"
+      ],
       "dependencies": [
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
@@ -55,6 +73,13 @@
         "Transform:Environment_FloatingIsland:9a424ad79390d41b6b03d6c266ca6870:-8679921383154817045"
       ],
       "geometrySha256": "55-43-DA-CE-8F-C1-F4-9D-AD-4D-58-67-42-0D-F1-4C-FA-27-8F-3F-B6-85-09-F8-B6-EC-A7-92-42-E9-95-E5",
+      "materialSlots": 1,
+      "indexCounts": [
+        2796
+      ],
+      "materials": [
+        "MAT_Art1_Surface"
+      ],
       "dependencies": [
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
@@ -76,6 +101,13 @@
         "Transform:Environment_PathTile:803efa3d8e5cd4c8c90135cba1b53e11:-8679921383154817045"
       ],
       "geometrySha256": "45-F4-E4-74-44-40-12-7F-84-10-6C-89-42-12-E8-6E-4B-ED-86-13-D5-6D-BC-3D-8D-0D-F9-FC-5B-74-EF-5C",
+      "materialSlots": 1,
+      "indexCounts": [
+        336
+      ],
+      "materials": [
+        "MAT_Art1_Surface"
+      ],
       "dependencies": [
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
@@ -97,6 +129,13 @@
         "Transform:Environment_BuildPad:b499e24e1800241949560781d42f2e46:-8679921383154817045"
       ],
       "geometrySha256": "25-4F-D6-93-4A-EE-7C-5F-8F-3A-A7-06-6A-EE-1C-2B-91-9C-23-E5-F5-16-E7-EA-0B-A7-32-DB-D8-52-4B-FB",
+      "materialSlots": 1,
+      "indexCounts": [
+        960
+      ],
+      "materials": [
+        "MAT_Art1_Surface"
+      ],
       "dependencies": [
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
@@ -118,6 +157,13 @@
         "Transform:Prop_Waystone:551fdc5097bd5414d8f1d37e7753e7a8:-8679921383154817045"
       ],
       "geometrySha256": "21-E3-8C-C4-AE-FB-5A-D0-87-16-AE-73-FB-BA-8F-41-B1-F8-99-DD-E1-16-1D-2B-05-B3-C0-D6-61-42-C7-A8",
+      "materialSlots": 1,
+      "indexCounts": [
+        660
+      ],
+      "materials": [
+        "MAT_Art1_Surface"
+      ],
       "dependencies": [
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
@@ -139,6 +185,13 @@
         "Transform:Prop_MossRock:19e61726aa5534d239dc8fab1377af92:-8679921383154817045"
       ],
       "geometrySha256": "81-9D-CA-F2-E9-BC-09-A1-5A-EC-AB-29-57-00-D1-A6-1B-CF-FD-35-FC-CF-A0-C3-3F-35-F3-44-AD-3D-06-35",
+      "materialSlots": 1,
+      "indexCounts": [
+        216
+      ],
+      "materials": [
+        "MAT_Art1_Surface"
+      ],
       "dependencies": [
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
@@ -160,6 +213,13 @@
         "Transform:Prop_RitualShrub:a6ca7c650be074a16be32b673b3ce904:-8679921383154817045"
       ],
       "geometrySha256": "9A-96-E2-60-C3-F2-94-48-36-B5-5F-EE-0E-05-28-7A-08-9D-21-D5-AC-33-C4-9B-5A-89-33-B0-C1-72-92-4F",
+      "materialSlots": 1,
+      "indexCounts": [
+        414
+      ],
+      "materials": [
+        "MAT_Art1_Surface"
+      ],
       "dependencies": [
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
         "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
@@ -271,7 +331,7 @@
     },
     {
       "path": "Assets/_Game/Scenes/ArtReference.unity",
-      "sha256": "41-F9-2E-FF-10-E8-86-9C-01-06-8D-F1-2B-26-B7-19-78-C7-CD-A2-5E-45-67-4E-D2-19-61-3C-93-0F-04-EF"
+      "sha256": "1E-7D-16-1C-2F-24-1B-23-77-07-3C-15-7C-D8-27-E2-4B-3F-4E-6C-A9-D1-8D-63-45-B2-83-C9-ED-AB-32-C8"
     },
     {
       "path": "Assets/_Game/Scenes/ArtReference.unity.meta",

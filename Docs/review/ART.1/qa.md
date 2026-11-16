@@ -18,7 +18,7 @@
 
 Дополнительный импортный аудит/review выявил потерю Glow assignments при `materials.clear()` в Blender source generation и первый resumed delta без skip. Исправлено сохранение/восстановление polygon indices; новый regression требует **ровно два** slots и Glow для FLAME/Shade. Добавлен imported-count manifest regression (source и runtime counts разделены) и отдельный PlayMode regression первого resumed `.25 s` кадра: tick/VFX не меняются, следующий normal delta даёт один tick. После исправлений повторены полный импорт, round trip, suites и визуальный capture. Первые screenshots/отчёты заменены актуальными.
 
-Unity 6000.3.28f1 / 8f082d2fe476; URP 17.3.0, CLI 1.0.0; active target iOS; macOS Apple Silicon. Blender 5.3.0 / 02f0899d78e3. Packages и версия Editor не менялись. При импорте Unity автоматически сериализовал URP asset, а существующие builder tests — graybox assets/scenes; эти побочные diff восстановлены **только в новом worktree**. В финальном PR они отсутствуют. В новых Unity YAML удалены только trailing whitespace для diff gate; GUID не генерировались вручную.
+Unity 6000.3.28f1 / 8f082d2fe476; URP 17.3.0, CLI 1.0.0; active Editor target StandaloneOSX (iOS settings/import override сохранены); macOS Apple Silicon. Blender 5.3.0 / 02f0899d78e3. Packages и версия Editor не менялись. При импорте Unity автоматически сериализовал URP asset, а существующие builder tests — graybox assets/scenes; эти побочные diff восстановлены **только в новом worktree**. В финальном PR они отсутствуют. В новых Unity YAML удалены только trailing whitespace для diff gate; GUID не генерировались вручную.
 
 ## Capture
 
@@ -34,6 +34,8 @@ ffmpeg -y -framerate 30 -i Temp/Art1Video/%04d.png -c:v libx264 -pix_fmt yuv420p
 Still capture фиксирует **реальный** Play Mode на выбранном public simulation tick (`SetPaused(true)` + `AdvanceForReview`); models, HP и VFX от настоящих events. Главная камера остаётся pose `(8,11,8)`, orthographic 8.5. Supplemental closeups меняют framing и открыто помечены в README/capture-log.
 
 Видео — 180 camera frames реального player loop, Unity frame 32431→32611, tick 0→179, 6 атак; `Time.captureFramerate=30`, H.264 / 1280×720 / 30 fps / 6 s. Это offline-paced Editor recording, не realtime/device performance measurement. Предварительная остановившаяся запись (background override был сброшен после suites) заменена полной advancing записью. `Time.captureFramerate` восстановлен; Editor run-in-background override выключен после capture. В build настройки не добавлены.
+
+Повторный round-trip после нормализации YAML сначала остановился по timeout: Unity показывал модальный запрос Reload для изменённой извне ArtReference. Этот запуск не является PASS. После Reload через UI выполнен новый полный round-trip; финальные before/after и reexport.txt относятся к успешному запуску.
 
 Console audit относится к отдельному capture session после `console clear`, включая informational capture log. Ошибок/предупреждений нет. Это не утверждение об отсутствии ошибок во всех возможных игровых сценариях.
 
