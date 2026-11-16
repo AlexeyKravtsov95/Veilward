@@ -1,6 +1,6 @@
 # P2.3c — schema 3, legacy compatibility и safe snapshots
 
-Проверено 2026-11-17 (Asia/Novosibirsk). База — merged PR #27, `59f07e27a566ef2c6f5b5fa28c3453bf9394453b`. Проверенный source commit — `14432c689addb9c5a0f8e98ccfb6fb5dcee24254`; следующий evidence commit не меняет runtime/tests. Изолированный worktree `p23c-checkpoints`, ветка `codex/p2.3c-checkpoints`. Unity **6000.3.28f1 (8f082d2fe476)**, macOS **27.0.1 (26A434), arm64**. Backend: Hub executable, **batchmode / -nographics / buildTarget iOS**, Editor Mono; это не iOS player/device run.
+Проверено 2026-11-17 (Asia/Novosibirsk). База — merged PR #27, `59f07e27a566ef2c6f5b5fa28c3453bf9394453b`. Проверенный финальный source commit — `6e10486e438c64b2ba21e161b9ed033d5d35ff63` (исходная реализация `14432c689addb9c5a0f8e98ccfb6fb5dcee24254`); следующий evidence commit не меняет runtime/tests. Изолированный worktree `p23c-checkpoints`, ветка `codex/p2.3c-checkpoints`. Unity **6000.3.28f1 (8f082d2fe476)**, macOS **27.0.1 (26A434), arm64**. Backend: Hub executable, **batchmode / -nographics / buildTarget iOS**, Editor Mono; это не iOS player/device run.
 
 ## VERIFIED
 
@@ -28,7 +28,8 @@ git diff --check
 |---|---:|---:|---:|---:|---:|---|
 | Начальный RED до реализации | 591 | 589 | 2 | 0 | 0 | [XML](red-initial.xml.gz) |
 | Presence sensitivity RED + exact-ID probe | 702 | 689 | 13 | 0 | 0 | [XML](red-presence.xml) |
-| **Полный EditMode** | **713** | **713** | **0** | **0** | **0** | [XML](EditMode.xml) |
+| RED исправления review | 717 | 715 | 2 | 0 | 0 | [XML gzip](red-save-retry.xml.gz) |
+| **Полный EditMode** | **717** | **717** | **0** | **0** | **0** | [XML](EditMode.xml) |
 | **Полный PlayMode** | **32** | **32** | **0** | **0** | **0** | [XML](PlayMode.xml) |
 | **Static self-tests** | **38** | **38** | **0** | **0** | **0** | [stdout](static-checks.txt) |
 
@@ -37,6 +38,12 @@ Static project checks: PASS (Unity version/revision, frozen package baseline/loc
 Начальный RED: `RegBattle174_NativeInitialCheckpoint_RoundTripsProgression` упал на предусмотренном P2.3b `NotSupportedException`, `RegBattle178_NextSaveFailure_PreservesWaveCompleteBeforeTransition` — `Continued` вместо rejection. Затем реализован контракт. Дополнительно временно отключена **только** read-shape validation: 12 probes стали принимать missing zero fields, numeric overflow/coercion и duplicate key; ещё один новый probe выявил cross-content bypass старого validator overload. Shape validator восстановлен, exact-ID bypass исправлен, полный GREEN повторён. Mutation не входит в PR.
 
 Промежуточные runs не считались PASS: один compile run без XML выявил недоступный из Presentation constructor результата выбора (исправлен); расширенные suites выявляли устаревшие schema2 expectations, тестовую сериализацию combat-only state, JsonUtility materialization отсутствующего nested object и неверную тестовую клетку на path. Исправлены fixtures/helpers и source normalization, raw migration fixtures и combat outcomes не ослаблялись.
+
+## Независимое review и fix
+
+[Read-only review](review.md) исходного PR head нашло 1 Important и 0 Critical/Minor: LastSaveSucceeded запрещал новую попытку safe save после transient IO. Два новых regression cases дали ожидаемый RED **715/717** ([исходный XML gzip](red-save-retry.xml.gz)). Early latch удалён: eligibility остаётся первым, Start/Next снова могут попытаться сохранить текущий snapshot и переходят только после успешной записи. Отдельный Retry SaveCurrentState по-прежнему не вызывает Domain-команду. FaultWriter теперь сохраняет ongoing write failure до явного восстановления, поэтому отрицательные failure tests не становятся ложноположительными на следующей попытке.
+
+Также добавлены положительные raw schema1/2 SingleWave controls без progression key: валидный файл читается как одна волна и отдельно отклоняется requested EightWave. Финальный полный GREEN после fix: **717/717 EditMode**, PlayMode и static — в таблице выше. Исходный reviewed head имел 713/713 EditMode; fix проверен автором через RED→GREEN и полные gates, повторное независимое approval не заявляется.
 
 ## Architecture notes
 
@@ -51,6 +58,6 @@ Static project checks: PASS (Unity version/revision, frozen package baseline/loc
 - Natural eight-wave unlock replay и balance approval с обоими стартами — P2.3e. Synthetic progression fixtures и rollback с реальными saved combat data не доказывают проходимость.
 - Физический iPhone, built-player force quit/background/touch/safe area, performance/allocations/thermal, iOS player export/signing/TestFlight и hosted Unity CI этого head не проверены. Apple credentials не использовались.
 - Изменений визуального оформления нет, новые screenshots не создавались. PlayMode reports доказывают исполнение сцен, не device readability. G2 и ART approval не закрываются.
-- Независимое техническое review выполняется после открытия PR; merge/release требуют пользовательского approval и не выполняются автором.
+- Независимое техническое review исходного PR head: WITH FIXES, 1 Important исправлен с RED→GREEN; повторное независимое approval не заявляется. Пользовательское PR approval/merge/release не выполнялись.
 
 Начальный RED XML сохранён gzip без изменения исходных bytes (stack-trace Unity содержит trailing spaces). gates.json содержит hashes compressed и исходного XML.
