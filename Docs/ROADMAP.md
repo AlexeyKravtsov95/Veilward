@@ -34,7 +34,9 @@
 
 **P2.1 status: DONE после merge P2.1e.** [PR #17](https://github.com/AlexeyKravtsov95/Veilward/pull/17) merged в `main` 2026-11-15, merge commit `5e8f541`. Последовательность P2.1a–e завершена: definitions/schema 2, четыре базовых статуса, каталог/UI и интеграционная проверка. REG-BATTLE-125…127 проверяют saved EightWave, экономику и файловый Continue/Combat rollback. Естественный результат фиксированной стратегии: Defeat на волне 8, tick 3997, HP 0, Gold 112, Kills 46, 8 DoT kills; [balance review](review/P2.1e/balance-review.md), [replay JSON](review/P2.1e/replay-summary.json). Зафиксированные локальные gates P2.1e: static 38/38, EditMode 317/317, PlayMode 15/15, 0 failed/inconclusive/skipped; `git diff --check` PASS. Это завершение технического scope P2.1. **G2 и готовность баланса остаются открытыми:** внешние плейтесты, physical iPhone/touch/safe area/performance и утверждение баланса ещё не выполнены. Реакции/гибриды/unlocks в P2.1 не входят; прежние формулировки «ожидает merge» в отчёте P2.1e относятся к моменту его подготовки.
 
-**P2.2 status: P2.2b–e merged, P2.2f на независимое review; P2.2 ещё не DONE.** Definitions, resolver Steam/Storm, production гибриды/schema 2 и graybox presentation находятся в `main`; последняя база — [PR #22](https://github.com/AlexeyKravtsov95/Veilward/pull/22), `8159f4c`. Task 5 проверяет replay, файловый rollback/Continue и измеряет impact отдельно от balance approval: [отчёт](review/P2.2f/impact-review.md), [JSON](review/P2.2f/replay-summary.json). Все шесть типов доступны с Preparation по утверждённому временному P-05 до P2.3. Закрыть технический P2.2 можно только после независимого review и merge P2.2f. **G2, external playtests, device/performance QA и balance approval остаются открытыми.**
+**P2.2 status: технический scope DONE после review и merge P2.2f.** [PR #23](https://github.com/AlexeyKravtsov95/Veilward/pull/23) merged, merge commit `a506bed`. Definitions, resolver Steam/Storm, production гибриды/schema 2, graybox presentation и детерминированные replay/rollback/impact measurement завершены. Все шесть типов доступны с Preparation по утверждённому временному P-05 до P2.3. [Impact review](review/P2.2f/impact-review.md) не является утверждением баланса. **G2, external playtests, физический iPhone/performance QA, balance approval и TestFlight остаются открытыми.**
+
+**ART.1 status: первый визуальный прототип подготовлен для review владельцем; направление НЕ утверждено.** Отдельная `ArtReference` использует сохранённую игровую камеру/масштаб, оригинальные Blender sources → FBX, фрагмент парящего святилища, FLAME «Фонарь углей», Shade и event-driven FLAME stroke. [Спецификация](ART1_VISUAL_PROTOTYPE.md), [материалы просмотра и ограничения](review/ART.1/README.md), [asset manifest](review/ART.1/asset-manifest.md). Проверки Editor и source round trip перечислены в evidence; это не device/performance PASS. Массовое производство и художественная приёмка ожидают решения владельца и проверки на физическом iPhone.
 
 ### Последовательность до первой TestFlight
 
@@ -42,8 +44,8 @@
 
 | Этап | Результат и условие перехода | Статус |
 |---|---|---|
-| P2.2f | Детерминированные матчи/rollback и измерения, затем независимое review/merge | На review, технический P2.2 пока открыт |
-| Эталон арта | Фрагмент карты, одна башня, один враг и эффект в едином направлении; Blender `.blend` → FBX → Unity по [ART_PIPELINE](ART_PIPELINE.md) | Не выполнен; утверждает владелец |
+| P2.2f | Детерминированные матчи/rollback и измерения, независимое review/merge | DONE: PR #23 / a506bed |
+| Эталон арта | Фрагмент карты, одна башня, один враг и эффект в едином направлении; Blender `.blend` → FBX → Unity по [ART_PIPELINE](ART_PIPELINE.md) | ART.1 подготовлен для визуального/технического review; утверждение владельца и iPhone check открыты |
 | P2.3 | Настоящее открытие стихий/требования гибридов в Domain и UI | Не выполнен |
 | P2.4 | Базовая способность и босс, проверяемая интеграция восьми волн | Не выполнен |
 | Оформление первого среза | Одна оформленная карта, все шесть башен, враги/босс и согласованные UI/VFX/звук | Не выполнено |
@@ -51,7 +53,7 @@
 | Device QA | Физический iPhone: touch/safe area, background/force quit/Continue, allocations/frame time/memory/thermal | Не выполнен |
 | Первая TestFlight | Одна оформленная карта, шесть башен, восемь волн, босс, обучение и согласованные UI/VFX/звук | Не выполнена; отдельное approval |
 
-Подбор художественного направления может идти параллельно технической проверке P2.2f. Массовое производство начинается только после утверждения эталона владельцем и проверки его в Unity **и на физическом iPhone**. Происхождение/лицензии, source, `.meta`, budgets и import checks — по ART_PIPELINE. В этом PR новые механики и арт не создаются.
+Технический P2.2 завершён; ART.1 проверяет художественную гипотезу, не закрывая G2 и баланс. Массовое производство начинается только после утверждения эталона владельцем и проверки его в Unity **и на физическом iPhone**. Происхождение/лицензии, source, `.meta`, budgets и import checks — по ART_PIPELINE. ART.1 не добавляет механики или оформление остальных юнитов.
 
 **Обязательное условие владельца для первой TestFlight — готовый арт первого среза.** Graybox с зелёными тестами этого условия не выполняет. Первая TestFlight — ограниченный вертикальный срез, а **полный релиз остаётся отдельной целью**: десять башен, три карты, пятнадцать волн и остальной release scope GDD/Phase 3–5. Ни первая TestFlight, ни полный релиз не отмечены выполненными.
 
