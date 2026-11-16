@@ -4,7 +4,7 @@
 
 ## VERIFIED
 
-- REG-BATTLE-154…159: full local static **38/38**, EditMode **520/520**, PlayMode **24/24**; failed/inconclusive/skipped **0**. [EditMode](editmode-results.json), [PlayMode](playmode-results.json). Все прежние suites сохранены. Финальный batch/XML прогон и source commit записываются в `qa.log`.
+- REG-BATTLE-154…159: full local static **38/38**, EditMode **520/520**, PlayMode **24/24**; failed/inconclusive/skipped **0**. [EditMode](editmode-results.json), [PlayMode](playmode-results.json). Все прежние suites сохранены. Повторный batch/XML прогон на commit **`0b542abdcec85b62e638dbb7517767bf97ada2dd`** также PASS: [totals/SHA](gates.json), [EditMode XML](EditMode.xml), [PlayMode XML](PlayMode.xml). Последующие commits меняют только evidence/docs. [Source manifest](source-sha256.txt) вычислен из git blobs этого commit и совпадает с чистой итоговой worktree.
 - Pooled captured Steam ring/impacts и Storm chain; direct beam отличается цветом/толщиной/высотой. Geometry не ищет исчезнувшие Views. Pool ограничен 24 элементами, при насыщении переиспользует oldest slot; stress regression подаёт 100 events.
 - Два overhead slots, Steam tie priority, 0.5 s active-time cue, cooldown-aware pair readiness, intrinsic label отдельно; локальный layout разводит уже существующие slots. Inspector показывает все statuses/power/ticks, оба CD и последние объяснения обоих видов с реальным AppliedHpLoss; смерть закрывает selection, HUD сохраняет lethal итог.
 - Pause/background, Resume без catch-up; UI/modals/inspector без build click-through; Restore/Continue/New Game очищают transient presentation. Same-ID/level Restore обновляет type/cell/attack origin. Builder/validator проверяют refs/missing scripts/layout.

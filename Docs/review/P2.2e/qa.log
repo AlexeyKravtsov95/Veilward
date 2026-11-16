@@ -190,3 +190,6 @@ git diff --check => PASS after discarding unintended Unity material/URP/MainMenu
 Source SHA manifest verifies final committed Assets/Scripts/Packages/ProjectSettings bytes. No Domain/config/package/version diff against origin/main. qa.log explicitly force-added despite *.log.
 Final scenario Console audit: 0 errors, 0 warnings; compilationFailed=false. Native Screen 1641x1007, full safe area; exported PNGs 1600x900.
 NOT VERIFIED: physical iPhone readability/touch/safe area/background, built-player IL2CPP/Metal, performance/allocations/thermal, signing, Unity CI, external playtests/balance/G2. Full replay/impact: P2.2f. No self-merge/release.
+
+SHA manifest finalization: the first live-filesystem manifest included Unity material import rewrites during Editor shutdown. It was replaced with SHA256 of git blobs from verified source commit 0b542abdcec85b62e638dbb7517767bf97ada2dd. All 331 source entries now match both that commit and the clean final worktree. Only evidence/docs changed after source verification.
+Manifest SHA256: b485ec74aa521a87808ee4b002336e2a16bc79c9c4aa00694a00030f260b7809
