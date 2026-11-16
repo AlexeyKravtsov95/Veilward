@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="24" result="Passed" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-16 10:55:28Z" end-time="2026-11-16 10:55:38Z" duration="10.0657708">
+  <test-suite type="TestSuite" id="1038" name="VEILWARD: Spirit Defense" fullname="VEILWARD: Spirit Defense" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-11-16 10:55:28Z" end-time="2026-11-16 10:55:38Z" duration="10.065771" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1034" name="Veilward.Tests.PlayMode.dll" fullname="/Users/alexeykravtsov/Desktop/workspace/Veilward-p2.2e/Library/ScriptAssemblies/Veilward.Tests.PlayMode.dll" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-11-16 10:55:28Z" end-time="2026-11-16 10:55:38Z" duration="10.062914" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="69820" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1035" name="Veilward" fullname="Veilward" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-11-16 10:55:28Z" end-time="2026-11-16 10:55:38Z" duration="10.062791" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1036" name="Tests" fullname="Veilward.Tests" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-11-16 10:55:28Z" end-time="2026-11-16 10:55:38Z" duration="10.062724" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1037" name="PlayMode" fullname="Veilward.Tests.PlayMode" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-11-16 10:55:28Z" end-time="2026-11-16 10:55:38Z" duration="10.062619" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1004" name="BattleCheckpointPlayModeTests" fullname="Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests" classname="Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-16 10:55:28Z" end-time="2026-11-16 10:55:30Z" duration="2.097519" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1007" name="DirectBattle_DoesNotReadOrWriteCheckpointStore" fullname="Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests.DirectBattle_DoesNotReadOrWriteCheckpointStore" methodname="DirectBattle_DoesNotReadOrWriteCheckpointStore" classname="Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests" runstate="Runnable" seed="190271670" result="Passed" start-time="2026-11-16 10:55:28Z" end-time="2026-11-16 10:55:28Z" duration="0.363749" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="InterruptedCombat_MenuContinue_RestoresPreparationViewsAndClearsTransients" fullname="Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests.InterruptedCombat_MenuContinue_RestoresPreparationViewsAndClearsTransients" methodname="InterruptedCombat_MenuContinue_RestoresPreparationViewsAndClearsTransients" classname="Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests" runstate="Runnable" seed="2076605366" result="Passed" start-time="2026-11-16 10:55:28Z" end-time="2026-11-16 10:55:29Z" duration="0.732424" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="WaveComplete_RepeatedMenuContinue_DoesNotDuplicateRewards" fullname="Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests.WaveComplete_RepeatedMenuContinue_DoesNotDuplicateRewards" methodname="WaveComplete_RepeatedMenuContinue_DoesNotDuplicateRewards" classname="Veilward.Tests.PlayMode.BattleCheckpointPlayModeTests" runstate="Runnable" seed="390634047" result="Passed" start-time="2026-11-16 10:55:29Z" end-time="2026-11-16 10:55:30Z" duration="0.996110" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1008" name="BattlePausePlayModeTests" fullname="Veilward.Tests.PlayMode.BattlePausePlayModeTests" classname="Veilward.Tests.PlayMode.BattlePausePlayModeTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-16 10:55:30Z" end-time="2026-11-16 10:55:31Z" duration="1.203740" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1011" name="Battle_PauseClearsPendingActions" fullname="Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_PauseClearsPendingActions" methodname="Battle_PauseClearsPendingActions" classname="Veilward.Tests.PlayMode.BattlePausePlayModeTests" runstate="Runnable" seed="1764411690" result="Passed" start-time="2026-11-16 10:55:30Z" end-time="2026-11-16 10:55:30Z" duration="0.150746" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1010" name="Battle_PausedCommandsAndButtons_CannotMutateMatch" fullname="Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_PausedCommandsAndButtons_CannotMutateMatch" methodname="Battle_PausedCommandsAndButtons_CannotMutateMatch" classname="Veilward.Tests.PlayMode.BattlePausePlayModeTests" runstate="Runnable" seed="2076404646" result="Passed" start-time="2026-11-16 10:55:30Z" end-time="2026-11-16 10:55:30Z" duration="0.146848" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1009" name="Battle_PauseFreezesSimulationAcrossFrames" fullname="Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_PauseFreezesSimulationAcrossFrames" methodname="Battle_PauseFreezesSimulationAcrossFrames" classname="Veilward.Tests.PlayMode.BattlePausePlayModeTests" runstate="Runnable" seed="878010979" result="Passed" start-time="2026-11-16 10:55:30Z" end-time="2026-11-16 10:55:30Z" duration="0.147028" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1014" name="Battle_Reload_DoesNotDuplicatePauseListeners" fullname="Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_Reload_DoesNotDuplicatePauseListeners" methodname="Battle_Reload_DoesNotDuplicatePauseListeners" classname="Veilward.Tests.PlayMode.BattlePausePlayModeTests" runstate="Runnable" seed="174522936" result="Passed" start-time="2026-11-16 10:55:30Z" end-time="2026-11-16 10:55:30Z" duration="0.289268" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="Battle_Resume_ContinuesWithoutCatchUp" fullname="Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_Resume_ContinuesWithoutCatchUp" methodname="Battle_Resume_ContinuesWithoutCatchUp" classname="Veilward.Tests.PlayMode.BattlePausePlayModeTests" runstate="Runnable" seed="1876651923" result="Passed" start-time="2026-11-16 10:55:30Z" end-time="2026-11-16 10:55:31Z" duration="0.289589" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="Battle_ResumeClick_DoesNotPassThroughOverlay" fullname="Veilward.Tests.PlayMode.BattlePausePlayModeTests.Battle_ResumeClick_DoesNotPassThroughOverlay" methodname="Battle_ResumeClick_DoesNotPassThroughOverlay" classname="Veilward.Tests.PlayMode.BattlePausePlayModeTests" runstate="Runnable" seed="1273081870" result="Passed" start-time="2026-11-16 10:55:31Z" end-time="2026-11-16 10:55:31Z" duration="0.166609" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1015" name="BattleReactionPlayModeTests" fullname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests" classname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-11-16 10:55:31Z" end-time="2026-11-16 10:55:33Z" duration="2.355601" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1016" name="RegBattle154_HybridPreviewAndOccupiedPanelStayCompact" fullname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle154_HybridPreviewAndOccupiedPanelStayCompact" methodname="RegBattle154_HybridPreviewAndOccupiedPanelStayCompact" classname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests" runstate="Runnable" seed="1061542814" result="Passed" start-time="2026-11-16 10:55:31Z" end-time="2026-11-16 10:55:31Z" duration="0.155051" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1017" name="RegBattle156_InspectorShowsEveryStatusCooldownAndClosesOnDeath" fullname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle156_InspectorShowsEveryStatusCooldownAndClosesOnDeath" methodname="RegBattle156_InspectorShowsEveryStatusCooldownAndClosesOnDeath" classname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests" runstate="Runnable" seed="890705614" result="Passed" start-time="2026-11-16 10:55:31Z" end-time="2026-11-16 10:55:31Z" duration="0.148669" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1018" name="RegBattle157_MultipleFixedStepsDrainEveryStreamAndRestoreClearsVisuals" fullname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle157_MultipleFixedStepsDrainEveryStreamAndRestoreClearsVisuals" methodname="RegBattle157_MultipleFixedStepsDrainEveryStreamAndRestoreClearsVisuals" classname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests" runstate="Runnable" seed="1426453030" result="Passed" start-time="2026-11-16 10:55:31Z" end-time="2026-11-16 10:55:31Z" duration="0.148275" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1023" name="RegBattle157_RestoreSameIdAndLevelRebuildsChangedTowerTypeAndCell" fullname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle157_RestoreSameIdAndLevelRebuildsChangedTowerTypeAndCell" methodname="RegBattle157_RestoreSameIdAndLevelRebuildsChangedTowerTypeAndCell" classname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests" runstate="Runnable" seed="1891162004" result="Passed" start-time="2026-11-16 10:55:31Z" end-time="2026-11-16 10:55:31Z" duration="0.146955" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1021" name="RegBattle157_SyntheticBurstReusesBoundedPoolAndConsumerExceptionClearsStreams" fullname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle157_SyntheticBurstReusesBoundedPoolAndConsumerExceptionClearsStreams" methodname="RegBattle157_SyntheticBurstReusesBoundedPoolAndConsumerExceptionClearsStreams" classname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests" runstate="Runnable" seed="258924054" result="Passed" start-time="2026-11-16 10:55:31Z" end-time="2026-11-16 10:55:32Z" duration="0.145717" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1019" name="RegBattle158_PauseBackgroundResumeAndInspectorTapDoNotClickThrough" fullname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle158_PauseBackgroundResumeAndInspectorTapDoNotClickThrough" methodname="RegBattle158_PauseBackgroundResumeAndInspectorTapDoNotClickThrough" classname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests" runstate="Runnable" seed="1491554553" result="Passed" start-time="2026-11-16 10:55:32Z" end-time="2026-11-16 10:55:32Z" duration="0.299554" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1020" name="RegBattle158_SyntheticCueAndVfxFreezeAcrossManualAndBackgroundPause" fullname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle158_SyntheticCueAndVfxFreezeAcrossManualAndBackgroundPause" methodname="RegBattle158_SyntheticCueAndVfxFreezeAcrossManualAndBackgroundPause" classname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests" runstate="Runnable" seed="405536386" result="Passed" start-time="2026-11-16 10:55:32Z" end-time="2026-11-16 10:55:32Z" duration="0.451050" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1022" name="RegBattle159_ContinueAndNewGameDiscardOldSelectionCuesAndEffects" fullname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests.RegBattle159_ContinueAndNewGameDiscardOldSelectionCuesAndEffects" methodname="RegBattle159_ContinueAndNewGameDiscardOldSelectionCuesAndEffects" classname="Veilward.Tests.PlayMode.BattleReactionPlayModeTests" runstate="Runnable" seed="441275311" result="Passed" start-time="2026-11-16 10:55:32Z" end-time="2026-11-16 10:55:33Z" duration="0.859406" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1024" name="BattleSellConfirmationPlayModeTests" fullname="Veilward.Tests.PlayMode.BattleSellConfirmationPlayModeTests" classname="Veilward.Tests.PlayMode.BattleSellConfirmationPlayModeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-16 10:55:33Z" end-time="2026-11-16 10:55:33Z" duration="0.148302" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1025" name="Battle_SellConfirmation_EnforcesModalContract" fullname="Veilward.Tests.PlayMode.BattleSellConfirmationPlayModeTests.Battle_SellConfirmation_EnforcesModalContract" methodname="Battle_SellConfirmation_EnforcesModalContract" classname="Veilward.Tests.PlayMode.BattleSellConfirmationPlayModeTests" runstate="Runnable" seed="1382379156" result="Passed" start-time="2026-11-16 10:55:33Z" end-time="2026-11-16 10:55:33Z" duration="0.147985" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1026" name="BattleSmokeTests" fullname="Veilward.Tests.PlayMode.BattleSmokeTests" classname="Veilward.Tests.PlayMode.BattleSmokeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-16 10:55:33Z" end-time="2026-11-16 10:55:34Z" duration="0.293432" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1027" name="Battle_LoadsIntoPreparation" fullname="Veilward.Tests.PlayMode.BattleSmokeTests.Battle_LoadsIntoPreparation" methodname="Battle_LoadsIntoPreparation" classname="Veilward.Tests.PlayMode.BattleSmokeTests" runstate="Runnable" seed="183095355" result="Passed" start-time="2026-11-16 10:55:33Z" end-time="2026-11-16 10:55:34Z" duration="0.144999" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1028" name="Battle_TowerEconomyFlow_UpgradesSellsAndRebuilds" fullname="Veilward.Tests.PlayMode.BattleSmokeTests.Battle_TowerEconomyFlow_UpgradesSellsAndRebuilds" methodname="Battle_TowerEconomyFlow_UpgradesSellsAndRebuilds" classname="Veilward.Tests.PlayMode.BattleSmokeTests" runstate="Runnable" seed="1115693051" result="Passed" start-time="2026-11-16 10:55:34Z" end-time="2026-11-16 10:55:34Z" duration="0.147965" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1029" name="BattleTowerCatalogPlayModeTests" fullname="Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests" classname="Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-16 10:55:34Z" end-time="2026-11-16 10:55:38Z" duration="3.963385" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1031" name="RegBattle120_CombatPauseAndPointers_BlockMutationAndClickThrough" fullname="Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle120_CombatPauseAndPointers_BlockMutationAndClickThrough" methodname="RegBattle120_CombatPauseAndPointers_BlockMutationAndClickThrough" classname="Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests" runstate="Runnable" seed="547829147" result="Passed" start-time="2026-11-16 10:55:34Z" end-time="2026-11-16 10:55:34Z" duration="0.282560" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1033" name="RegBattle121_LegacyContinue_MigratesAndKeepsHiddenCatalogAndEconomy" fullname="Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle121_LegacyContinue_MigratesAndKeepsHiddenCatalogAndEconomy" methodname="RegBattle121_LegacyContinue_MigratesAndKeepsHiddenCatalogAndEconomy" classname="Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests" runstate="Runnable" seed="2058660282" result="Passed" start-time="2026-11-16 10:55:34Z" end-time="2026-11-16 10:55:35Z" duration="0.575894" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1032" name="RegBattle123_CatalogStatusEconomyAndContinue_RestoresEveryType" fullname="Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle123_CatalogStatusEconomyAndContinue_RestoresEveryType" methodname="RegBattle123_CatalogStatusEconomyAndContinue_RestoresEveryType" classname="Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests" runstate="Runnable" seed="87293404" result="Passed" start-time="2026-11-16 10:55:35Z" end-time="2026-11-16 10:55:37Z" duration="2.651771" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1030" name="RegBattle150_HybridPauseBlocksAllEconomyAndRepeatedSellPaysOnce" fullname="Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests.RegBattle150_HybridPauseBlocksAllEconomyAndRepeatedSellPaysOnce" methodname="RegBattle150_HybridPauseBlocksAllEconomyAndRepeatedSellPaysOnce" classname="Veilward.Tests.PlayMode.BattleTowerCatalogPlayModeTests" runstate="Runnable" seed="1932379139" result="Passed" start-time="2026-11-16 10:55:37Z" end-time="2026-11-16 10:55:38Z" duration="0.452521" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: /Users/alexeykravtsov/Library/Application Support/DefaultCompany/VEILWARD_ Spirit Defense/TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

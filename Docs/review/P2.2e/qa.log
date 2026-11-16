@@ -178,3 +178,15 @@ FINAL QA will overwrite the same screenshot filenames after visual fixes. Earlie
 {"command": ["unity", "command", "script eval", "--caller", "plugin", "--skill", "unity-cli", "--project-path", "/Users/alexeykravtsov/Desktop/workspace/Veilward-p2.2e", "--format", "json", "--", "--file", "/tmp/p22e-eval.cs"], "result": {"output": null, "diagnostics": [], "success": true, "result": "New Game"}}
 {"command": ["unity", "command", "script eval", "--caller", "plugin", "--skill", "unity-cli", "--project-path", "/Users/alexeykravtsov/Desktop/workspace/Veilward-p2.2e", "--format", "json", "--", "--file", "/tmp/p22e-eval.cs"], "result": {"output": null, "diagnostics": [], "success": true, "result": "TIDE — Movement control\nPrice: 60 gold\nDamage: 10    Range: 3.5 units\nFireRate: 0.8/s\nStatus: Wet — Power: 20% slow\nDuration: 2 s\nПламя + Прилив → Пар; Прилив + Ветер → Шторм\nПосле нелетального direct по паре; CD врага: 60 ticks"}}
 {"command": ["unity", "command", "capture game_view", "--caller", "plugin", "--skill", "unity-cli", "--project-path", "/Users/alexeykravtsov/Desktop/workspace/Veilward-p2.2e", "--format", "json", "--", "--source", "screen", "--width", "1600", "--height", "900", "--output-path", "/Users/alexeykravtsov/Desktop/workspace/Veilward-p2.2e/Docs/review/P2.2e/14-basic-pairs-preview.png"], "result": {"width": 1600, "height": 900, "encoding": "png", "bytes": 218987, "source": "screen", "savedPath": "/Users/alexeykravtsov/Desktop/workspace/Veilward-p2.2e/Docs/review/P2.2e/14-basic-pairs-preview.png", "message": ""}}
+
+FINAL COMMITTED-SOURCE VERIFICATION
+source commit: 0b542abdcec85b62e638dbb7517767bf97ada2dd
+macOS 27.0.1 (26A434) arm64; Unity 6000.3.28f1 (8f082d2fe476); build target iOS
+Final gates run after closing Editor gracefully; default wrappers selected batch -nographics. Editor tests run managed Mono, not an IL2CPP/Metal player.
+./Scripts/run-static-checks.sh => 38/38 PASS
+./Scripts/run-edit-mode-tests.sh => {"command": "./Scripts/run-edit-mode-tests.sh", "total": 520, "passed": 520, "failed": 0, "skipped": 0, "inconclusive": 0, "xmlSha256": "8864171e36f5c345ff846b285bf024f53d7945b895555b45d99746b12c51edea"}
+./Scripts/run-play-mode-tests.sh => {"command": "./Scripts/run-play-mode-tests.sh", "total": 24, "passed": 24, "failed": 0, "skipped": 0, "inconclusive": 0, "xmlSha256": "30ebea338452eb07968b56f8e784c679ff6367166bda35190821c828ec09390d"}
+git diff --check => PASS after discarding unintended Unity material/URP/MainMenu reserialization and restoring committed builder assets.
+Source SHA manifest verifies final committed Assets/Scripts/Packages/ProjectSettings bytes. No Domain/config/package/version diff against origin/main. qa.log explicitly force-added despite *.log.
+Final scenario Console audit: 0 errors, 0 warnings; compilationFailed=false. Native Screen 1641x1007, full safe area; exported PNGs 1600x900.
+NOT VERIFIED: physical iPhone readability/touch/safe area/background, built-player IL2CPP/Metal, performance/allocations/thermal, signing, Unity CI, external playtests/balance/G2. Full replay/impact: P2.2f. No self-merge/release.

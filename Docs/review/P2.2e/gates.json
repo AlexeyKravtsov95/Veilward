@@ -1,0 +1,32 @@
+{
+  "sourceCommit": "0b542abdcec85b62e638dbb7517767bf97ada2dd",
+  "unity": "6000.3.28f1 (8f082d2fe476)",
+  "os": "macOS 27.0.1 (26A434), arm64",
+  "buildTarget": "iOS",
+  "testBackend": "batchmode -nographics; Unity Editor Mono; no built-player run",
+  "static": {
+    "command": "./Scripts/run-static-checks.sh",
+    "total": 38,
+    "passed": 38
+  },
+  "suites": {
+    "EditMode": {
+      "command": "./Scripts/run-edit-mode-tests.sh",
+      "total": 520,
+      "passed": 520,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "xmlSha256": "8864171e36f5c345ff846b285bf024f53d7945b895555b45d99746b12c51edea"
+    },
+    "PlayMode": {
+      "command": "./Scripts/run-play-mode-tests.sh",
+      "total": 24,
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "xmlSha256": "30ebea338452eb07968b56f8e784c679ff6367166bda35190821c828ec09390d"
+    }
+  }
+}
