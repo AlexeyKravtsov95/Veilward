@@ -1,19 +1,22 @@
 {
-    "wave": 0,
-    "health": 0,
-    "gold": 0,
+    "wave": 1,
+    "health": 20,
+    "gold": 40,
     "kills": 0,
     "leaks": 0,
-    "spawned": 0,
-    "live": 0,
-    "investment": 0,
+    "spawned": 3,
+    "live": 3,
+    "investment": 110,
     "purchases": 110,
     "refunds": 0,
     "startTick": 0,
-    "tick": 0,
-    "ticks": 0,
-    "outcome": "",
-    "commands": [],
+    "tick": 100,
+    "ticks": 100,
+    "outcome": "Combat",
+    "commands": [
+        "C|w=1|t=0|Place storm (0,1)=accepted id=1|gold=40",
+        "C|w=1|t=0|Start=Started|gold=40"
+    ],
     "applied": [
         10,
         0,
@@ -62,6 +65,6 @@
         0
     ],
     "leakedRemainingHp": 0,
-    "liveRemainingHp": 0,
+    "liveRemainingHp": 2989,
     "enemyHp": 1000
 }

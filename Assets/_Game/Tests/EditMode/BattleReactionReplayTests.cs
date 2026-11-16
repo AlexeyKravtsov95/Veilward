@@ -103,6 +103,11 @@ namespace Veilward.Tests.EditMode
             Assert.That(w.noNeighborSuppressions[1], Is.EqualTo(strategy == "storm" ? 2 : 0));
             Assert.That(w.applied[0], Is.EqualTo(strategy == "steam" ? 33 : 10));
             Assert.That(w.applied[2], Is.EqualTo(strategy == "steam" ? 44 : 1));
+            w.wave = 1; w.tick = s.State.Tick; w.ticks = w.tick; w.outcome = s.State.Phase.ToString();
+            w.health = s.State.BaseHealth; w.gold = s.State.Gold; w.kills = s.State.Kills;
+            w.spawned = 3; w.live = s.State.Enemies.Count; w.liveRemainingHp = s.State.Enemies.Sum(e => e.Health);
+            w.investment = s.State.Towers.Sum(t => t.InvestedGold); w.commands = r.receipts.ToArray();
+            Assert.That(w.applied.Sum() + w.liveRemainingHp, Is.EqualTo(3000));
             WriteTrace("synthetic-armor-" + strategy, r.lines);
             File.WriteAllText(Output + "/synthetic-armor-" + strategy + ".json", JsonUtility.ToJson(w, true) + "\n");
         }
