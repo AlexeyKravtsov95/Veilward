@@ -20,7 +20,7 @@
 ## Regression scenarios (спецификация до реализации)
 
 - ART1-01: saved scene загружается, camera совпадает с Battle, links/materials/shaders valid, release scenes/configs не изменены.
-- ART1-02: imported meshes укладываются в budgets, основание tower/enemy на Y=0, face +Z; без negative scale и missing slots.
+- ART1-02: imported meshes укладываются в budgets, основание tower/enemy на Y=0, face +Z; без negative scale и missing slots; FLAME/Shade имеют ровно два импортированных Surface/Glow slots, manifest совпадает с фактическими Unity index counts.
 - ART1-03: reexport каждого .blend → FBX, force reimport: GUID/local IDs и prefab dependencies прежние, serialized links не missing.
 - ART1-04: Play Mode использует saved simulation: FLAME покупается public command за saved price, enemies двигаются по saved path, атака/HP/kills происходят от настоящего combat; VFX запускается только по AttackEvent.
 - ART1-05: остановка showcase замораживает simulation и VFX; resume без catch-up; повторный цикл не накапливает views/effects.

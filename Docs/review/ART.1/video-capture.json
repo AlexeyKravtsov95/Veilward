@@ -1,9 +1,9 @@
 {
     "frames": 180,
-    "firstUnityFrame": 38487,
-    "lastUnityFrame": 38667,
+    "firstUnityFrame": 32431,
+    "lastUnityFrame": 32611,
     "firstTick": 0,
-    "lastTick": 180,
+    "lastTick": 179,
     "observedAttacks": 6,
     "playMode": true
 }

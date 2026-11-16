@@ -6,18 +6,18 @@
 
 ## Фактические meshes
 
-| Asset | Triangles | Material slots | Source / runtime |
-|---|---:|---:|---|
-| Tower_FlameLantern | 1264 | 2 | `ArtSource/Blender/ART1/Tower_FlameLantern.blend` → `Assets/_Game/Art/Models/ART1/Tower_FlameLantern.fbx` |
-| Enemy_Shade | 183 | 2 | `ArtSource/Blender/ART1/Enemy_Shade.blend` → `Assets/_Game/Art/Models/ART1/Enemy_Shade.fbx` |
-| Environment_FloatingIsland | 932 | 1 | `ArtSource/Blender/ART1/Environment_FloatingIsland.blend` → `Assets/_Game/Art/Models/ART1/Environment_FloatingIsland.fbx` |
-| Environment_PathTile | 112 | 1 | `ArtSource/Blender/ART1/Environment_PathTile.blend` → `Assets/_Game/Art/Models/ART1/Environment_PathTile.fbx` |
-| Environment_BuildPad | 352 | 1 | `ArtSource/Blender/ART1/Environment_BuildPad.blend` → `Assets/_Game/Art/Models/ART1/Environment_BuildPad.fbx` |
-| Prop_Waystone | 220 | 1 | `ArtSource/Blender/ART1/Prop_Waystone.blend` → `Assets/_Game/Art/Models/ART1/Prop_Waystone.fbx` |
-| Prop_MossRock | 72 | 1 | `ArtSource/Blender/ART1/Prop_MossRock.blend` → `Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx` |
-| Prop_RitualShrub | 138 | 1 | `ArtSource/Blender/ART1/Prop_RitualShrub.blend` → `Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx` |
+| Asset | Blender triangles | Unity triangles | Unity slots | Source / runtime |
+|---|---:|---:|---:|---|
+| Tower_FlameLantern | 1264 | 1232 | 2 | `ArtSource/Blender/ART1/Tower_FlameLantern.blend` → `Assets/_Game/Art/Models/ART1/Tower_FlameLantern.fbx` |
+| Enemy_Shade | 183 | 183 | 2 | `ArtSource/Blender/ART1/Enemy_Shade.blend` → `Assets/_Game/Art/Models/ART1/Enemy_Shade.fbx` |
+| Environment_FloatingIsland | 932 | 932 | 1 | `ArtSource/Blender/ART1/Environment_FloatingIsland.blend` → `Assets/_Game/Art/Models/ART1/Environment_FloatingIsland.fbx` |
+| Environment_PathTile | 112 | 112 | 1 | `ArtSource/Blender/ART1/Environment_PathTile.blend` → `Assets/_Game/Art/Models/ART1/Environment_PathTile.fbx` |
+| Environment_BuildPad | 352 | 320 | 1 | `ArtSource/Blender/ART1/Environment_BuildPad.blend` → `Assets/_Game/Art/Models/ART1/Environment_BuildPad.fbx` |
+| Prop_Waystone | 220 | 220 | 1 | `ArtSource/Blender/ART1/Prop_Waystone.blend` → `Assets/_Game/Art/Models/ART1/Prop_Waystone.fbx` |
+| Prop_MossRock | 72 | 72 | 1 | `ArtSource/Blender/ART1/Prop_MossRock.blend` → `Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx` |
+| Prop_RitualShrub | 138 | 138 | 1 | `ArtSource/Blender/ART1/Prop_RitualShrub.blend` → `Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx` |
 
-Все цифры — triangulated LOD0 из Blender, подтверждаются imported mesh index counts в EditMode. Prefabs: `Assets/_Game/Prefabs/ART1/P_<asset>.prefab`. Каждая обычная модель <5000 triangles и <=2 slots. LOD/skinning/animation отсутствуют; Shade движется/поворачивается root transform по Domain path.
+Runtime-цифры получены из импортированных Unity meshes (`GetIndexCount/3`, `subMeshCount`), сохранены в [imported-models.json](imported-models.json) и проверяются отдельным EditMode regression. Blender source counts приведены отдельно: Unity удаляет 32 вырожденных triangles у Tower/BuildPad; это не влияет на видимую поверхность. Prefabs: `Assets/_Game/Prefabs/ART1/P_<asset>.prefab`. Обычные модели <5000 triangles и <=2 slots. LOD/skinning/animation отсутствуют; Shade движется/поворачивается root transform по Domain path.
 
 ## Textures / materials / VFX
 

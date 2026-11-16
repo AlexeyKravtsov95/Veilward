@@ -25,7 +25,10 @@ namespace Veilward.Tests.EditMode
             var triangles = 0L;
             for (var i=0; i<mesh.subMeshCount; i++) triangles += (long)mesh.GetIndexCount(i)/3;
             Assert.That(triangles, Is.InRange(1,5000), name);
-            Assert.That(mesh.subMeshCount, Is.InRange(1,2));
+            var expectedSlots = name == "Tower_FlameLantern" || name == "Enemy_Shade" ? 2 : 1;
+            Assert.That(mesh.subMeshCount, Is.EqualTo(expectedSlots), "Surface/Glow assignments must survive export.");
+            Assert.That(model.GetComponentInChildren<MeshRenderer>().sharedMaterials.Any(m=>m.name == "MAT_Art1_Glow"),
+                Is.EqualTo(expectedSlots == 2));
             Assert.That(model.transform.localScale, Is.EqualTo(Vector3.one));
             Assert.That(model.transform.rotation, Is.EqualTo(Quaternion.identity));
             var importer = (ModelImporter)AssetImporter.GetAtPath(path);
@@ -49,6 +52,25 @@ namespace Veilward.Tests.EditMode
             Assert.That(AssetDatabase.LoadAllAssetsAtPath(path).Select(Id).OrderBy(x=>x).ToArray(), Is.EqualTo(before));
             Assert.That(AssetDatabase.GetDependencies(prefabPath).OrderBy(x=>x).ToArray(), Is.EqualTo(deps));
             Assert.That(prefab.GetComponentsInChildren<MeshFilter>().All(f=>f.sharedMesh != null), Is.True);
+        }
+
+        [Serializable] private sealed class ImportManifest { public ImportEntry[] models; }
+        [Serializable] private sealed class ImportEntry { public string name; public int triangles; public int materialSlots; }
+
+        [Test]
+        public void Manifest_ReportsActualImportedCounts()
+        {
+            var manifest = JsonUtility.FromJson<ImportManifest>(System.IO.File.ReadAllText("Docs/review/ART.1/imported-models.json"));
+            Assert.That(manifest.models.Select(m=>m.name), Is.EquivalentTo(ArtReferenceBuilder.ModelNames));
+            foreach (var entry in manifest.models)
+            {
+                var mesh = AssetDatabase.LoadAssetAtPath<GameObject>(ArtReferenceBuilder.ModelFolder+entry.name+".fbx")
+                    .GetComponentInChildren<MeshFilter>().sharedMesh;
+                var count=0L;
+                for (var i=0;i<mesh.subMeshCount;i++) count+=(long)mesh.GetIndexCount(i)/3;
+                Assert.That(count, Is.EqualTo(entry.triangles), entry.name);
+                Assert.That(mesh.subMeshCount, Is.EqualTo(entry.materialSlots), entry.name);
+            }
         }
 
         [Test]

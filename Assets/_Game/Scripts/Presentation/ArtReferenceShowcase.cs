@@ -25,6 +25,7 @@ namespace Veilward.Presentation
         private Transform _tower;
         private float _accumulator;
         private float _terminalTime;
+        private bool _skipNextDelta = true;
         private int _nextStrike;
         private bool _applicationPaused;
         private bool _focused = true;
@@ -72,7 +73,7 @@ namespace Veilward.Presentation
             if (!result.Success) throw new InvalidOperationException("ArtReference FLAME placement failed.");
             var center = Simulation.Grid.Map.GetCellCenter(cell);
             _tower.position = new Vector3(center.X, .16f, center.Y);
-            ObservedAttacks = 0; _nextStrike = 0; _accumulator = 0; _terminalTime = 0;
+            ObservedAttacks = 0; _nextStrike = 0; _accumulator = 0; _terminalTime = 0; _skipNextDelta = true;
             foreach (var strike in _strikes) strike.Clear();
             Simulation.StartWave();
             SynchronizeViews();
@@ -83,6 +84,7 @@ namespace Veilward.Presentation
             if (!paused && (_applicationPaused || !_focused)) return;
             IsPaused = paused;
             _accumulator = 0;
+            _skipNextDelta = true;
         }
 
         private void OnApplicationPause(bool paused)
@@ -97,10 +99,18 @@ namespace Veilward.Presentation
             if (!focused) SetPaused(true);
         }
 
-        private void Update()
+        private void Update() => AdvanceFrame(Time.deltaTime);
+
+        private void AdvanceFrame(float deltaSeconds)
         {
             if (Simulation == null || IsPaused) return;
-            var delta = Mathf.Min(Time.deltaTime, .25f);
+            if (_skipNextDelta)
+            {
+                _skipNextDelta = false;
+                _accumulator = 0;
+                return;
+            }
+            var delta = Mathf.Min(deltaSeconds, .25f);
             foreach (var s in _strikes) s.Advance(delta);
             if (Simulation.State.Phase != BattlePhase.Combat)
             {

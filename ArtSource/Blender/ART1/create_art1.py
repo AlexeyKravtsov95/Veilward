@@ -85,13 +85,14 @@ def save(name):
     if name in ('Enemy_Shade', 'Tower_FlameLantern'):
         for v in o.data.vertices: v.co.x *= -1; v.co.y *= -1
     # Consolidate duplicate material slots created by join; stable named submeshes.
-    old=list(o.data.materials); used=[]
+    old=list(o.data.materials); used=[]; assignments=[]
     for p in o.data.polygons:
         m=old[p.material_index]
         if m not in used: used.append(m)
-        p.material_index=used.index(m)
+        assignments.append(used.index(m))
     o.data.materials.clear()
     for m in used:o.data.materials.append(m)
+    for p,index in zip(o.data.polygons,assignments):p.material_index=index
     bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE/(name+'.blend')),compress=True)
     export(name,o)
     o.data.calc_loop_triangles()

@@ -24,7 +24,7 @@ var models = ArtReferenceBuilder.ModelNames.Select(name => {
     var mesh=AssetDatabase.LoadAssetAtPath<GameObject>(path).GetComponentInChildren<MeshFilter>().sharedMesh;
     var text=string.Join(";",mesh.vertices.Select(v=>v.ToString("R")))+string.Join(";",mesh.normals.Select(v=>v.ToString("R")))+string.Join(";",mesh.uv.Select(v=>v.ToString("R")))+string.Join(",",mesh.triangles);
     var hash=Convert.ToHexString(System.Security.Cryptography.SHA256.Create().ComputeHash(System.Text.Encoding.UTF8.GetBytes(text)));
-    return new { name, ids, geometrySha256=hash, dependencies=AssetDatabase.GetDependencies(ArtReferenceBuilder.PrefabFolder+"P_"+name+".prefab").OrderBy(x=>x).ToArray() };
+    return new { name, ids, geometrySha256=hash, materialSlots=mesh.subMeshCount, indexCounts=Enumerable.Range(0,mesh.subMeshCount).Select(i=>mesh.GetIndexCount(i)).ToArray(), materials=AssetDatabase.LoadAssetAtPath<GameObject>(path).GetComponentInChildren<MeshRenderer>().sharedMaterials.Select(m=>m.name).ToArray(), dependencies=AssetDatabase.GetDependencies(ArtReferenceBuilder.PrefabFolder+"P_"+name+".prefab").OrderBy(x=>x).ToArray() };
 }).ToArray();
 var files=Directory.GetFiles(ArtReferenceBuilder.PrefabFolder,"*",SearchOption.AllDirectories)
     .Concat(Directory.GetFiles(ArtReferenceBuilder.ModelFolder,"*.meta"))
@@ -32,7 +32,7 @@ var files=Directory.GetFiles(ArtReferenceBuilder.PrefabFolder,"*",SearchOption.A
     .Select(p=>new {path=p.Replace('\\','/'),sha256=Convert.ToHexString(System.Security.Cryptography.SHA256.Create().ComputeHash(File.ReadAllBytes(p)))}).ToArray();
 return new { models, files };
 '''
-# Unity's bundled .NET profile predates Convert.ToHexString.
+# Bundled .NET в Unity ещё не предоставляет Convert.ToHexString.
 CODE=CODE.replace('Convert.ToHexString(', 'BitConverter.ToString(')
 def snapshot():
     p=subprocess.run(['unity','command','script eval','--caller','plugin','--skill','unity-cli','--format','json','--','--code',CODE],capture_output=True,text=True)

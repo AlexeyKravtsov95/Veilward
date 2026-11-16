@@ -71,6 +71,30 @@ namespace Veilward.Tests.PlayMode
         }
 
         [UnityTest]
+        public IEnumerator Resume_FirstLongFramePreservesTickAndStrike()
+        {
+            yield return Load();
+            var s = Object.FindFirstObjectByType<ArtReferenceShowcase>();
+            s.SetPaused(true); s.RestartShowcase();
+            var guard = 0;
+            while (s.ObservedAttacks == 0 && guard++ < 300) s.AdvanceForReview(1);
+            Assert.That(s.ActiveStrikeCount, Is.EqualTo(1));
+            var tick = s.Simulation.State.Tick;
+            s.SendMessage("OnApplicationPause",true);
+            s.SendMessage("OnApplicationPause",false);
+            s.SendMessage("OnApplicationFocus",true);
+            Assert.That(s.IsPaused, Is.True, "Lifecycle pause remains latched after foreground.");
+            s.SetPaused(false);
+            // Первый resumed delta включает stall/background и целиком отбрасывается.
+            s.SendMessage("AdvanceFrame",.25f);
+            Assert.That(s.Simulation.State.Tick, Is.EqualTo(tick));
+            Assert.That(s.ActiveStrikeCount, Is.EqualTo(1));
+            s.SendMessage("AdvanceFrame",1f/SimulationTiming.TicksPerSecond);
+            Assert.That(s.Simulation.State.Tick, Is.EqualTo(tick+1));
+            Assert.That(s.ActiveStrikeCount, Is.EqualTo(1));
+        }
+
+        [UnityTest]
         public IEnumerator Restart_ReusesBoundedViewsAndClearsEffects()
         {
             yield return Load();
