@@ -8,7 +8,7 @@
 - Pooled captured Steam ring/impacts и Storm chain; direct beam отличается цветом/толщиной/высотой. Geometry не ищет исчезнувшие Views. Pool ограничен 24 элементами, при насыщении переиспользует oldest slot; stress regression подаёт 100 events.
 - Два overhead slots, Steam tie priority, 0.5 s active-time cue, cooldown-aware pair readiness, intrinsic label отдельно; локальный layout разводит уже существующие slots. Inspector показывает все statuses/power/ticks, оба CD и последние объяснения обоих видов с реальным AppliedHpLoss; смерть закрывает selection, HUD сохраняет lethal итог.
 - Pause/background, Resume без catch-up; UI/modals/inspector без build click-through; Restore/Continue/New Game очищают transient presentation. Same-ID/level Restore обновляет type/cell/attack origin. Builder/validator проверяют refs/missing scripts/layout.
-- [Независимый локальный code review](review.md): оба найденных P2 исправлены с RED → GREEN. GitHub PR передаётся на дальнейшее независимое review, без self-merge/release.
+- [Независимый локальный code review](review.md): оба найденных P2 исправлены с RED → GREEN. [GitHub PR #22](https://github.com/AlexeyKravtsov95/Veilward/pull/22) открыт для дальнейшего независимого review, без self-merge/release.
 
 ## Реальный Editor Play Mode QA
 

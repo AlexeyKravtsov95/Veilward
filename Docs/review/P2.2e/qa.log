@@ -193,3 +193,6 @@ NOT VERIFIED: physical iPhone readability/touch/safe area/background, built-play
 
 SHA manifest finalization: the first live-filesystem manifest included Unity material import rewrites during Editor shutdown. It was replaced with SHA256 of git blobs from verified source commit 0b542abdcec85b62e638dbb7517767bf97ada2dd. All 331 source entries now match both that commit and the clean final worktree. Only evidence/docs changed after source verification.
 Manifest SHA256: b485ec74aa521a87808ee4b002336e2a16bc79c9c4aa00694a00030f260b7809
+
+PR #22 opened for independent review: https://github.com/AlexeyKravtsov95/Veilward/pull/22
+Task 4 steps 1–5 completed; Task 5 untouched. No merge/release. Final source tree remains byte-identical to verified commit 0b542ab per source manifest.
