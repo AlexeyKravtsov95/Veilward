@@ -98,7 +98,7 @@ namespace Veilward.Presentation
         public bool SaveForStartWave()
         {
             EnsureConfigured();
-            if (_simulation.CheckStartWave() != WaveTransitionResult.Started || !LastSaveSucceeded)
+            if (_simulation.CheckStartWave() != WaveTransitionResult.Started)
                 return false;
 
             if (SaveCurrentState())
@@ -113,7 +113,7 @@ namespace Veilward.Presentation
         public bool SaveForNextWave()
         {
             EnsureConfigured();
-            if (_simulation.CheckContinueToNextWave() != WaveTransitionResult.Continued || !LastSaveSucceeded)
+            if (_simulation.CheckContinueToNextWave() != WaveTransitionResult.Continued)
                 return false;
             return SaveCurrentState();
         }

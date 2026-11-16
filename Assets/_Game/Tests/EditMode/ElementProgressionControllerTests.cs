@@ -99,6 +99,7 @@ namespace Veilward.Tests.EditMode
             var live = JsonUtility.ToJson(s.ExportCheckpoint());
             Assert.That(s.State.ElementProgression.PendingChoiceId, Is.EqualTo("none"));
             Assert.That(File.ReadAllBytes(_store.PrimaryPath), Is.EqualTo(durable));
+            LogAssert.Expect(LogType.Error, new Regex("Checkpoint save failed:.*"));
             Assert.That(battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.RejectedInvalidPhase));
             var restart = BattleElementUnlockTests.Native(); restart.RestoreCheckpoint(Load(s).state);
             Assert.That(restart.State.ElementProgression.PendingChoiceId, Is.EqualTo("after-wave-" + wave));
@@ -153,6 +154,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(s.State.Phase, Is.EqualTo(BattlePhase.Preparation)); Assert.That(s.State.WaveIndex, Is.EqualTo(3));
             Assert.That(Load(s).state.phase, Is.EqualTo(BattlePhase.WaveComplete));
             var before = JsonUtility.ToJson(s.ExportCheckpoint()); var bytes = File.ReadAllBytes(_store.PrimaryPath);
+            LogAssert.Expect(LogType.Error, new Regex("Checkpoint save failed:.*"));
             Assert.That(battle.StartWave(), Is.EqualTo(WaveTransitionResult.RejectedInvalidPhase));
             Assert.That(battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.RejectedInvalidPhase));
             Assert.That(File.ReadAllBytes(_store.PrimaryPath), Is.EqualTo(bytes));
@@ -210,7 +212,7 @@ namespace Veilward.Tests.EditMode
             public void WriteTemporary(string path, string json)
             {
                 Writes++;
-                if (Writes == FailAtWrite && Failure == "write") throw new IOException("Injected temporary write failure");
+                if (Writes >= FailAtWrite && Failure == "write") throw new IOException("Injected temporary write failure");
                 _real.WriteTemporary(path, Writes == FailAtWrite && Failure == "readback" ? "{broken" : json);
             }
             public void Commit(string temporary, string primary, string backup)

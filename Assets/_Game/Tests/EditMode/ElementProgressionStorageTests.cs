@@ -222,5 +222,24 @@ namespace Veilward.Tests.EditMode
             File.WriteAllText(_store.PrimaryPath, json);
             Assert.That(_store.TryLoad(NativeId, Config().CreateSimulationForCheckpoint, out _), Is.False);
         }
+
+        [TestCase(1)] [TestCase(2)]
+        public void RegBattle181_ValidRawSingleWave_LoadsOnlyAsSingleWaveWithoutProgressionFallback(int schema)
+        {
+            var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/TestWave.asset");
+            var single = config.CreateSimulation();
+            var e = new WaveCheckpointEnvelope { schemaVersion = schema, scenarioContentId = "legacy-single-wave-v1", state = single.ExportCheckpoint() };
+            var json = JsonUtility.ToJson(e);
+            // Настоящий старый shape: progression key отсутствует, все scalar zero fields присутствуют.
+            json = json.Substring(0, json.IndexOf(",\"elementProgression\":", StringComparison.Ordinal)) + "}}";
+            File.WriteAllText(_store.PrimaryPath, json); var bytes = File.ReadAllBytes(_store.PrimaryPath);
+            Assert.That(_store.TryLoad("legacy-single-wave-v1", config.CreateSimulationForCheckpoint, out var load), Is.True, load.Error);
+            Assert.That(load.Envelope.scenarioContentId, Is.EqualTo("legacy-single-wave-v1"));
+            var restored = config.CreateSimulationForCheckpoint(load.Envelope); restored.RestoreCheckpoint(load.Envelope.state);
+            Assert.That(restored.State.WaveCount, Is.EqualTo(1));
+            Assert.That(restored.State.ElementProgression.RulesId, Is.EqualTo("legacy-all-open-v1"));
+            Assert.That(_store.TryLoad(NativeId, Config().CreateSimulationForCheckpoint, out _), Is.False);
+            Assert.That(File.ReadAllBytes(_store.PrimaryPath), Is.EqualTo(bytes));
+        }
     }
 }

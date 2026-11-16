@@ -134,6 +134,28 @@ namespace Veilward.Tests.EditMode
             Assert.That(checkpoint.LastSaveSucceeded, Is.True);
         }
 
+        [TestCase(false)] [TestCase(true)]
+        public void RegBattle178_TransientSaveFailure_StartAndNextCanRetryAfterStorageRecovers(bool next)
+        {
+            var store = new WaveCheckpointStore(_root); var s = CreateSimulation(waveCount: 2, maxHealth: 10);
+            var battle = CreateBattle(s, store, out var cp);
+            battle.PlaceTower(TowerCell);
+            if (next) { battle.StartWave(); s.Step(); }
+            var before = s.ExportCheckpoint();
+            Directory.CreateDirectory(store.TempPath);
+            LogAssert.Expect(LogType.Error, new Regex("Checkpoint save failed:.*"));
+            Assert.That(cp.SaveCurrentState(), Is.False);
+            Assert.That(cp.LastSaveSucceeded, Is.False);
+            Directory.Delete(store.TempPath);
+            Assert.That(next ? battle.ContinueToNextWave() : battle.StartWave(),
+                Is.EqualTo(next ? WaveTransitionResult.Continued : WaveTransitionResult.Started));
+            Assert.That(cp.LastSaveSucceeded, Is.True);
+            Assert.That(s.State.Gold, Is.EqualTo(before.gold)); Assert.That(s.State.Kills, Is.EqualTo(before.kills));
+            var durable = Load(store);
+            Assert.That(durable.state.phase, Is.EqualTo(BattlePhase.Preparation));
+            Assert.That(durable.state.waveIndex, Is.EqualTo(next ? 1 : 0));
+        }
+
         private BattleSceneController CreateBattle(
             BattleSimulation simulation,
             WaveCheckpointStore store,
