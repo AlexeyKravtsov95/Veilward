@@ -191,6 +191,12 @@ namespace Veilward.Editor
             {
                 try
                 {
+                    var serialized = new SerializedObject(config);
+                    RequireAssetPath(serialized.FindProperty("sharedScenario").objectReferenceValue,
+                        "Assets/_Game/Configs/TestWave.asset", "sharedScenario", errors);
+                    if (serialized.FindProperty("towerArchetypes").arraySize != 0 ||
+                        serialized.FindProperty("reactions").arraySize != 0)
+                        errors.Add("EightWave must use the shared tower/reaction catalog without local copies.");
                     var simulation = config.CreateSimulation();
                     if (simulation == null)
                     {

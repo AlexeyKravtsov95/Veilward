@@ -1,0 +1,145 @@
+{
+  "sourceCommit": "60d20393b226a00d6cfa04d70fa14a73e601e4a9",
+  "baseCommit": "d68f770c2e71a76ae6a5e53ab4d1469d4bf6d893",
+  "documentationOnlyCommitsMayFollow": true,
+  "rulesLabel": "p2.2-steam-storm-v1",
+  "environment": {
+    "unity": "6000.3.28f1",
+    "revision": "8f082d2fe476",
+    "cli": "1.0.0",
+    "pipeline": "0.10.0-exp.1",
+    "os": "27.0.1",
+    "architecture": "arm64",
+    "buildTarget": "iOS",
+    "projectScriptingBackend": "IL2CPP",
+    "projectTargetArchitecture": "ARM64",
+    "execution": "OSXEditor",
+    "suiteBackend": "auto -> batch -nographics; closed Editor"
+  },
+  "commands": [
+    "./Scripts/run-static-checks.sh",
+    "./Scripts/run-edit-mode-tests.sh",
+    "./Scripts/run-play-mode-tests.sh",
+    "git diff --check",
+    "git diff d68f770 --check",
+    "python3 Docs/review/P2.2d/visual-qa.py"
+  ],
+  "static": {
+    "selfTests": 38,
+    "passed": 38,
+    "projectChecks": "PASS",
+    "logSha256": "e1204fb44fd4435a0c46946587c0f4151064e7d0c65b492c021c488e87fa45b3"
+  },
+  "suites": {
+    "edit": {
+      "counts": {
+        "total": 503,
+        "passed": 503,
+        "failed": 0,
+        "inconclusive": 0,
+        "skipped": 0
+      },
+      "xmlSha256": "d3790d1b8a3f060d44be1c1eceafe650e83642f0d7109ce4fa338439cca737df",
+      "artifact": "edit-mode-results.xml.gz",
+      "startUtc": "2026-11-15 19:04:38Z",
+      "endUtc": "2026-11-15 19:04:53Z"
+    },
+    "play": {
+      "counts": {
+        "total": 16,
+        "passed": 16,
+        "failed": 0,
+        "inconclusive": 0,
+        "skipped": 0
+      },
+      "xmlSha256": "c74fc580fa137f68dd04dda52aa2e82b88efc2b87e53f487305d0957a0dbb453",
+      "artifact": "play-mode-results.xml.gz",
+      "startUtc": "2026-11-15 19:05:02Z",
+      "endUtc": "2026-11-15 19:05:10Z"
+    }
+  },
+  "diffCheck": "PASS after removing generated scene/material/prefab serialization noise; no intended source changes",
+  "unchangedPathsComparedWithBase": [
+    "Assets/_Game/Scripts/Domain",
+    "Assets/_Game/Scripts/Infrastructure",
+    "Assets/_Game/Tests/EditMode/BattleElementalReplayTests.cs",
+    "Docs/review/P2.1e",
+    "Packages",
+    "ProjectSettings"
+  ],
+  "sourceSha256": {
+    "Assets/_Game/Configs/EightWave.asset": "2e2cd23aa7ccc9ac4c3b0a50176733aa0af38334ff9f3e26beb1a6261b371fe3",
+    "Assets/_Game/Configs/TestWave.asset": "4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3",
+    "Assets/_Game/Scripts/Editor/BattleAssetValidator.cs": "dd33eafde6ca9457aa2a6eed520f11a5a2611c684ac0a247a7af5177be2ad567",
+    "Assets/_Game/Scripts/Editor/BattleSceneBuilder.cs": "ec4abcc668911a1f24f9692f8ba461dae6bd8b35d7601c7b9dcc848b9115a2de",
+    "Assets/_Game/Scripts/Presentation/BattleScenarioConfig.cs": "e688b9eb1670051f3012a6697c419b19c568a26c1a5983da34257ef925478738",
+    "Assets/_Game/Tests/EditMode/BattleAssetValidationTests.cs": "5e764b81cd9a83aab645ef834a4f6e5a52930212e57783340f6eb7ffa0d06401",
+    "Assets/_Game/Tests/EditMode/BattleHybridTowerTests.cs": "0c36b067ce52513387a7bf4e96476cf0340380ee6213de9637e3caf7b8bea03f",
+    "Assets/_Game/Tests/EditMode/BattleHybridTowerTests.cs.meta": "3b8456b691330b90c3ce599a756877c5f76084a48a3841ce947f19aea689952a",
+    "Assets/_Game/Tests/EditMode/BattleReactionEventTests.cs": "b43ae7ffd8bbc52a0a1202dcb9672e21496c2b798bff31d81bf1682702a68ea5",
+    "Assets/_Game/Tests/EditMode/BattleScenarioConfigTests.cs": "a8eab37014f7d12240ddf7c55906159b2770874f16738bfbf6a2cb8f6b25665a",
+    "Assets/_Game/Tests/EditMode/BattleSceneBuilderTests.cs": "c8d0c09668da161e44736c8e08f8a729e6bbf60ba1dc2d18e2d605b6968edb7e",
+    "Assets/_Game/Tests/EditMode/BattleTowerCatalogPresentationTests.cs": "898e9afdc7657cde8387b31c901050c70195c66869ac21f569e923c5afd4ee6e",
+    "Assets/_Game/Tests/EditMode/BattleTowerCatalogTests.cs": "dfb16527120290a6c9b0ad2f858978736b36382a663a914a0afd2772d4d62120",
+    "Assets/_Game/Tests/PlayMode/BattleTowerCatalogPlayModeTests.cs": "403b4460c2e37f6c2f97d4455039c6399d84c07fb94d68b1fc5359ea4fe07b44"
+  },
+  "configSha256": {
+    "Assets/_Game/Configs/TestWave.asset": "4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3",
+    "Assets/_Game/Configs/EightWave.asset": "2e2cd23aa7ccc9ac4c3b0a50176733aa0af38334ff9f3e26beb1a6261b371fe3"
+  },
+  "visual": {
+    "scriptSha256": "12995665811457ab9c1e9f8302b477720dd0bbe53d0791996b59e3445c9ce0ca",
+    "qaLogSha256": "45fad3ba7e4ddcbf9d5ceee9b3997bee547d88258fa260b81f725521a01cc3d3",
+    "fixtureGold": 1000,
+    "productionDefaultGold": 150,
+    "size": [
+      1600,
+      900
+    ],
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "compilationFailed": false,
+    "images": {
+      "01-catalog.png": "aed7f798ff1eb50ea0b0ef888fd5f64acefa1ae8afeddcb4a502241d39522a03",
+      "02-steam-preview.png": "6da701e833be3df08a1a47aa28c1662500c64db7a2ed1a40580ba4f73939f775",
+      "03-storm-preview.png": "fe0c6dd842a171ddf0292508d44471bc2f98cdeacae9401093dd85f4cfffb838",
+      "04-steam-upgraded.png": "9f3403dbc80ccd59b24d00a846dd1dd7d2e2083e6aa794cae0fede709b63f6cd",
+      "05-storm-upgraded.png": "06f4f2bad8956808b51a32f7971cc584e0c7f641b78dd01ee1c82d3bdf3b79d9",
+      "06-hybrid-combat.png": "6cf319228e4cb8357c701e2244832287c7ccba0f5f15ffe7bdaa1fd01b1e157d",
+      "07-continue-menu.png": "409d0f81b9d28649d8fe881fdd7207483d0773c16ea5ab5aaabc95761ba7b492",
+      "08-continued-hybrids.png": "4c31b150ff6d5188d9596b69e7df84b5a7f27c0b750b0c54f1d0a2a2edb8ba31",
+      "09-sell-confirmation.png": "7663ba9d7de92df8999c81217fd68c7ed0ad2e2f0e0fba3ee55490a60f50600d",
+      "10-after-sell.png": "335be273ebc936c1d977a48d905b2741847bbfa03c6f5e090a03e9b41c2f055b"
+    }
+  },
+  "notVerified": [
+    "physical iPhone/touch/safe area/background/force quit",
+    "performance/allocations/thermal",
+    "balance/G2/external playtests",
+    "causal visualization/VFX/status markers/inspector P2.2e",
+    "full impact/replay P2.2f",
+    "iOS export/signing/release/Simulator",
+    "Unity CI"
+  ],
+  "red": {
+    "baselineEdit": {
+      "total": 430,
+      "passed": 430
+    },
+    "expandedEdit": {
+      "total": 488,
+      "passed": 435,
+      "failed": 53
+    },
+    "play": {
+      "total": 16,
+      "passed": 15,
+      "failed": 1
+    },
+    "reviewRegression": {
+      "total": 502,
+      "passed": 500,
+      "failed": 2
+    }
+  }
+}

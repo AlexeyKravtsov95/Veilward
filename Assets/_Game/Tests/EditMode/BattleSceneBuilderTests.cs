@@ -11,6 +11,106 @@ namespace Veilward.Tests.EditMode
 {
     public sealed class BattleSceneBuilderTests
     {
+        [TestCase(4, false)]
+        [TestCase(0, false)] [TestCase(3, false)] [TestCase(5, false)]
+        [TestCase(4, true)] [TestCase(6, true)]
+        public void RegBattle153_BuilderExtendsOnlyCompleteLegacyCatalog_RejectsMalformedWithoutWriting(int count, bool malformed)
+        {
+            const string path = "Assets/_Game/Configs/TestWave.asset";
+            var before = File.ReadAllBytes(path);
+            var scene = File.ReadAllBytes("Assets/_Game/Scenes/Battle.unity");
+            var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(path);
+            var originalName = config.name;
+            try
+            {
+                var serialized = new SerializedObject(config);
+                var catalog = serialized.FindProperty("towerArchetypes");
+                catalog.arraySize = count;
+                if (malformed) catalog.GetArrayElementAtIndex(0).FindPropertyRelative("id").stringValue = "unknown";
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                EditorUtility.SetDirty(config); AssetDatabase.SaveAssets();
+                var damagedBytes = File.ReadAllBytes(path);
+                if (count == 4 && !malformed)
+                {
+                    var basicBefore = catalog.GetArrayElementAtIndex(1).FindPropertyRelative("levels")
+                        .GetArrayElementAtIndex(0).FindPropertyRelative("damage").intValue;
+                    BattleSceneBuilder.Build();
+                    Assert.That(config.name, Is.EqualTo(originalName));
+                    Assert.That(config.CreateSimulation().TowerCatalog.Archetypes.Count, Is.EqualTo(7));
+                    Assert.That(config.CreateSimulation().TowerCatalog.Get(new Domain.TowerDefinitionId("tide"))
+                        .Levels[0].Damage, Is.EqualTo(basicBefore));
+                    var extended = File.ReadAllBytes(path);
+                    BattleSceneBuilder.Build();
+                    CollectionAssert.AreEqual(extended, File.ReadAllBytes(path));
+                }
+                else
+                {
+                    Assert.Catch<System.ArgumentException>(() => BattleSceneBuilder.Build());
+                    CollectionAssert.AreEqual(damagedBytes, File.ReadAllBytes(path));
+                    CollectionAssert.AreEqual(scene, File.ReadAllBytes("Assets/_Game/Scenes/Battle.unity"));
+                }
+            }
+            finally
+            {
+                File.WriteAllBytes(path, before); AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
+                File.WriteAllBytes("Assets/_Game/Scenes/Battle.unity", scene);
+                AssetDatabase.Refresh();
+            }
+        }
+
+        [Test]
+        public void RegBattle153_BuilderMigratesOnlyCompleteDefaultWrapperCopies()
+        {
+            const string path = "Assets/_Game/Configs/EightWave.asset";
+            var before = File.ReadAllBytes(path);
+            var defaults = BattleScenarioConfig.CreateDefault();
+            try
+            {
+                var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(path);
+                var serialized = new SerializedObject(config);
+                var source = new SerializedObject(defaults);
+                serialized.CopyFromSerializedProperty(source.FindProperty("towerArchetypes"));
+                serialized.CopyFromSerializedProperty(source.FindProperty("reactions"));
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                EditorUtility.SetDirty(config); AssetDatabase.SaveAssets();
+                BattleSceneBuilder.Build();
+                serialized.Update();
+                Assert.That(serialized.FindProperty("towerArchetypes").arraySize, Is.Zero);
+                Assert.That(serialized.FindProperty("reactions").arraySize, Is.Zero);
+                Assert.That(config.CreateSimulation().TowerCatalog.Archetypes.Count, Is.EqualTo(7));
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(defaults);
+                File.WriteAllBytes(path, before); AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
+            }
+        }
+
+        [TestCase("towerArchetypes")] [TestCase("reactions")]
+        public void RegBattle153_BuilderRejectsPartialSharedWrapperWithoutWriting(string field)
+        {
+            const string path = "Assets/_Game/Configs/EightWave.asset";
+            var before = File.ReadAllBytes(path);
+            var scene = File.ReadAllBytes("Assets/_Game/Scenes/Battle.unity");
+            try
+            {
+                var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(path);
+                var serialized = new SerializedObject(config);
+                serialized.FindProperty(field).arraySize = 1;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                EditorUtility.SetDirty(config); AssetDatabase.SaveAssets();
+                var damaged = File.ReadAllBytes(path);
+                Assert.Catch<System.ArgumentException>(() => BattleSceneBuilder.Build());
+                CollectionAssert.AreEqual(damaged, File.ReadAllBytes(path));
+                CollectionAssert.AreEqual(scene, File.ReadAllBytes("Assets/_Game/Scenes/Battle.unity"));
+            }
+            finally
+            {
+                File.WriteAllBytes(path, before); AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
+                File.WriteAllBytes("Assets/_Game/Scenes/Battle.unity", scene); AssetDatabase.Refresh();
+            }
+        }
+
         [Test]
         public void RegBattle122_BuildTwice_PreservesSavedConfigBytesAndCatalogReferences()
         {
