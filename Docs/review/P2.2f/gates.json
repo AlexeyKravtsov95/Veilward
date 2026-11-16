@@ -1,0 +1,52 @@
+{
+  "sourceCommit": "fd2b3d65b4620703e3285ff1db1113e31531fe2b",
+  "unity": "6000.3.28f1 (8f082d2fe476)",
+  "os": "macOS 27.0.1 (26A434), arm64",
+  "buildTarget": "iOS",
+  "testBackend": "batchmode -nographics; Editor Mono; player settings IL2CPP/ARM64 not executed",
+  "rules": "p2.2-steam-storm-v1",
+  "sourceSha256Manifest": "source-sha256.txt",
+  "sourceFilesRechecked": 333,
+  "static": {
+    "command": "./Scripts/run-static-checks.sh",
+    "total": 38,
+    "passed": 38,
+    "failed": 0
+  },
+  "suites": {
+    "EditMode": {
+      "command": "./Scripts/run-edit-mode-tests.sh",
+      "total": 528,
+      "passed": 528,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "startUtc": "2026-11-16 11:25:22Z",
+      "endUtc": "2026-11-16 11:25:41Z",
+      "xmlSha256": "4795d0553b61ac0cd97c0905b9d3395b68defbdf2abca30c22a03a8f75d7fc06"
+    },
+    "PlayMode": {
+      "command": "./Scripts/run-play-mode-tests.sh",
+      "total": 25,
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "startUtc": "2026-11-16 11:25:49Z",
+      "endUtc": "2026-11-16 11:26:02Z",
+      "xmlSha256": "4537a9f35b4ecbe8eeba027b0e95ce05f3b5a856cf261908580aad2b117961eb"
+    }
+  },
+  "diffCheck": {
+    "command": "git diff --check origin/main",
+    "exitCode": 0
+  },
+  "historicalEvidenceAndCommandSourceUnchanged": true,
+  "productionAssetsPackagesAndRuntimeUnchanged": true,
+  "limitations": [
+    "Physical iPhone/touch/safe area/background/force quit not run",
+    "iOS player/IL2CPP/performance/allocations/thermal not run",
+    "Unity CI/external playtests/G2/balance approval open",
+    "P2.2 open until independent review/merge"
+  ]
+}
