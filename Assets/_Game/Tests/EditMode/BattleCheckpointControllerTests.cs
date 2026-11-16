@@ -107,6 +107,23 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void RegBattle178_NextSaveFailure_PreservesWaveCompleteBeforeTransition()
+        {
+            var store = new WaveCheckpointStore(_root);
+            var simulation = CreateSimulation(waveCount: 2, maxHealth: 10);
+            var battle = CreateBattle(simulation, store, out var checkpoint);
+            battle.PlaceTower(TowerCell);
+            battle.StartWave();
+            simulation.Step();
+            checkpoint.ObservePhaseTransition();
+            Directory.CreateDirectory(store.TempPath);
+            LogAssert.Expect(LogType.Error, new Regex("Checkpoint save failed:.*"));
+            Assert.That(battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.RejectedInvalidPhase));
+            Assert.That(simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
+            Assert.That(simulation.State.WaveIndex, Is.Zero);
+        }
+
+        [Test]
         public void DirectBattleWithoutStore_StartsWaveInMemory()
         {
             var battle = CreateBattle(CreateSimulation(), store: null, out var checkpoint);

@@ -13,6 +13,7 @@ namespace Veilward.Presentation
         private BattleSimulation _simulation;
         private string _scenarioContentId;
         private BattlePhase _observedPhase;
+        private Func<WaveCheckpointEnvelope, BattleSimulation> _simulationFactory;
 
         public event Action Restored;
 
@@ -22,8 +23,10 @@ namespace Veilward.Presentation
         public void Configure(
             WaveCheckpointStore store,
             BattleSimulation simulation,
-            string scenarioContentId)
+            string scenarioContentId,
+            Func<WaveCheckpointEnvelope, BattleSimulation> simulationFactory = null)
         {
+            _simulationFactory = simulationFactory;
             _store = store;
             _simulation = simulation ?? throw new ArgumentNullException(nameof(simulation));
             _scenarioContentId = scenarioContentId;
@@ -39,12 +42,13 @@ namespace Veilward.Presentation
         {
             EnsureConfigured();
             if (envelope == null || envelope.schemaVersion != WaveCheckpointStore.CurrentSchemaVersion ||
-                !string.Equals(envelope.scenarioContentId, _scenarioContentId, StringComparison.Ordinal))
+                !WaveCheckpointCompatibility.TryNormalize(envelope, _scenarioContentId, _simulationFactory == null, out _, out _))
             {
                 throw new ArgumentException("Checkpoint envelope is incompatible with this Battle.", nameof(envelope));
             }
 
             _simulation.RestoreCheckpoint(envelope.state);
+            _scenarioContentId = envelope.scenarioContentId;
             _observedPhase = _simulation.State.Phase;
             LastSaveSucceeded = true;
             SetStatus("Checkpoint restored.");
@@ -79,10 +83,10 @@ namespace Veilward.Presentation
                 scenarioContentId = _scenarioContentId,
                 state = state
             };
-            LastSaveSucceeded = _store.TrySave(envelope, _simulation.TryValidateCheckpoint, out var error);
+            LastSaveSucceeded = _store.TrySave(envelope, _simulation.TryValidateCheckpoint, out var error, _simulationFactory);
             if (!LastSaveSucceeded)
             {
-                SetStatus("Save failed — previous checkpoint kept.");
+                SetStatus("Save failed — live changes unsaved; exit may roll back. Retry Save.");
                 Debug.LogError(error);
                 return false;
             }
@@ -94,10 +98,8 @@ namespace Veilward.Presentation
         public bool SaveForStartWave()
         {
             EnsureConfigured();
-            if (_simulation.State.Phase != BattlePhase.Preparation)
-            {
-                return true;
-            }
+            if (_simulation.CheckStartWave() != WaveTransitionResult.Started || !LastSaveSucceeded)
+                return false;
 
             if (SaveCurrentState())
             {
@@ -106,6 +108,14 @@ namespace Veilward.Presentation
 
             SetStatus("Start Wave requires a successful checkpoint save.");
             return false;
+        }
+
+        public bool SaveForNextWave()
+        {
+            EnsureConfigured();
+            if (_simulation.CheckContinueToNextWave() != WaveTransitionResult.Continued || !LastSaveSucceeded)
+                return false;
+            return SaveCurrentState();
         }
 
         public bool ObservePhaseTransition()

@@ -240,7 +240,7 @@ namespace Veilward.Tests.EditMode
             var bytes = File.ReadAllBytes(store.PrimaryPath);
             var restored = config.CreateSimulation(ReactionCatalog.Empty);
             Assert.That(store.TryLoad(config.ScenarioContentId, restored.TryValidateCheckpoint, out var load), Is.True);
-            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(2));
+            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(3));
             checkpoint.Configure(store, restored, config.ScenarioContentId);
             checkpoint.RestoreCheckpoint(load.Envelope);
             Assert.That(Snapshot(restored), Is.EqualTo(expected));

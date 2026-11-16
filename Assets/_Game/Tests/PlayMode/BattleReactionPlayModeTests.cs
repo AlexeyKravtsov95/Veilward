@@ -115,7 +115,7 @@ namespace Veilward.Tests.PlayMode
             var state = typeof(BattleSceneController).GetProperty("Presentation").GetValue(battle);
             Assert.That((string)state.GetType().GetProperty("LastSummary").GetValue(state), Does.Contain("HP"));
             Object.FindFirstObjectByType<BattleCheckpointController>().RestoreCheckpoint(new WaveCheckpointEnvelope {
-                schemaVersion = 2, scenarioContentId = "eight-wave-v1", state = cp });
+                schemaVersion = WaveCheckpointStore.CurrentSchemaVersion, scenarioContentId = "eight-wave-v1", state = cp });
             Assert.That((string)state.GetType().GetProperty("LastSummary").GetValue(state), Is.Empty);
             Assert.That(battle.GetComponentsInChildren(Required("ReactionEffectView"), false), Is.Empty);
         }
@@ -235,7 +235,7 @@ namespace Veilward.Tests.PlayMode
             var checkpoint = battle.Simulation.ExportCheckpoint();
             checkpoint.towers[0].towerTypeId = "storm"; checkpoint.towers[0].x = -3;
             Object.FindFirstObjectByType<BattleCheckpointController>().RestoreCheckpoint(new WaveCheckpointEnvelope {
-                schemaVersion = 2, scenarioContentId = "eight-wave-v1", state = checkpoint });
+                schemaVersion = WaveCheckpointStore.CurrentSchemaVersion, scenarioContentId = "eight-wave-v1", state = checkpoint });
             yield return null;
             var restored = GameObject.Find("Tower 1").transform;
             Assert.That(restored.position, Is.EqualTo(battle.GetCellCenter(new GridCoordinate(-3, 0))));

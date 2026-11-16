@@ -323,7 +323,7 @@ namespace Veilward.Tests.EditMode
 
             Assert.That(store.TryLoad("test-scenario-v1", simulation.TryValidateCheckpoint, out var load),
                 Is.True, load.Error);
-            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(2));
+            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(3));
             Assert.That(load.Envelope.state.towers.Length, Is.EqualTo(legacyState.towers.Length));
             for (var index = 0; index < load.Envelope.state.towers.Length; index++)
             {
@@ -347,10 +347,10 @@ namespace Veilward.Tests.EditMode
         {
             var simulation = CreateSimulation(500);
             var store = CreateCheckpointStore();
-            var valid = CreateEnvelope(simulation.ExportCheckpoint(), 2);
+            var valid = CreateEnvelope(simulation.ExportCheckpoint(), WaveCheckpointStore.CurrentSchemaVersion);
             Assert.That(store.TrySave(valid, simulation.TryValidateCheckpoint, out var saveError), Is.True, saveError);
             simulation.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId("test-tower"), TowerCells[0]));
-            var second = CreateEnvelope(simulation.ExportCheckpoint(), 2);
+            var second = CreateEnvelope(simulation.ExportCheckpoint(), WaveCheckpointStore.CurrentSchemaVersion);
             Assert.That(store.TrySave(second, simulation.TryValidateCheckpoint, out saveError), Is.True, saveError);
 
             second.state.towers[0].towerTypeId = towerTypeId;
@@ -365,7 +365,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(JsonUtility.ToJson(simulation.ExportCheckpoint()), Is.EqualTo(before));
         }
 
-        [TestCase(3, "test-scenario-v1")]
+        [TestCase(4, "test-scenario-v1")]
         [TestCase(2, "other-scenario-v1")]
         public void RegBattle097_UnknownSchemaOrContent_IsRejected(int schemaVersion, string contentId)
         {

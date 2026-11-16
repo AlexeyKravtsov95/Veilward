@@ -448,6 +448,7 @@ namespace Veilward.Tests.EditMode
         {
             var clone = new BattleCheckpoint
             {
+                elementProgression = source.elementProgression?.DeepCopy(),
                 phase = source.phase,
                 waveIndex = source.waveIndex,
                 tick = source.tick,

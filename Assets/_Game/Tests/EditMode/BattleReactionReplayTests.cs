@@ -529,7 +529,12 @@ namespace Veilward.Tests.EditMode
                 .Append(',').Append(d.TargetEnemyId.Value).Append(',').Append(P(d.FromPosition)).Append(',').Append(P(d.TargetPosition)).Append(',').Append(d.ConfiguredBaseDamage)
                 .Append(',').Append(d.RawDamage).Append(',').Append(d.ResolvedDamage).Append(',').Append(d.AppliedHpLoss).Append(',').Append(d.HealthAfter).Append(',').Append(d.WasLethal)
                 .Append(',').Append(d.ReactionKind).Append(',').Append(d.ReactionSequenceInTick).Append(',').Append(d.HitIndex);
-            if (s.State.Phase != BattlePhase.Combat) b.Append("|CP:").Append(JsonUtility.ToJson(s.ExportCheckpoint()));
+            if (s.State.Phase != BattlePhase.Combat)
+            {
+                // Исторический trace хранит schema 2 shape; progression проверяется отдельным suite P2.3c.
+                var json = JsonUtility.ToJson(s.ExportCheckpoint());
+                b.Append("|CP:").Append(json.Substring(0, json.IndexOf(",\"elementProgression\":", StringComparison.Ordinal))).Append('}');
+            }
             return b.ToString();
         }
         private static string Hash(byte[] bytes) { using (var sha = SHA256.Create()) return BitConverter.ToString(sha.ComputeHash(bytes)).Replace("-", "").ToLowerInvariant(); }

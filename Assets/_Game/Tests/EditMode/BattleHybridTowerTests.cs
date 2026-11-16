@@ -240,7 +240,7 @@ namespace Veilward.Tests.EditMode
             var bytes = File.ReadAllBytes(store.PrimaryPath);
             Assert.That(store.TryLoad("eight-wave-v1", s.TryValidateCheckpoint, out var load), Is.True, load.Error);
             Assert.That(load.Envelope.state.towers.Single().towerTypeId, Is.EqualTo("test-tower"));
-            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(2));
+            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(3));
             CollectionAssert.AreEqual(bytes, File.ReadAllBytes(store.PrimaryPath));
         }
 
@@ -336,10 +336,10 @@ namespace Veilward.Tests.EditMode
             Directory.CreateDirectory(_root); return new WaveCheckpointStore(_root);
         }
         private static WaveCheckpointEnvelope Envelope(BattleCheckpoint cp) => new WaveCheckpointEnvelope
-            { schemaVersion = 2, scenarioContentId = "eight-wave-v1", state = cp };
+            { schemaVersion = WaveCheckpointStore.CurrentSchemaVersion, scenarioContentId = "eight-wave-v1", state = cp };
         private void RoundTrip(BattleSimulation s, BattleCheckpoint cp)
         {
-            Assert.That(WaveCheckpointStore.CurrentSchemaVersion, Is.EqualTo(2));
+            Assert.That(WaveCheckpointStore.CurrentSchemaVersion, Is.EqualTo(3));
             var store = Store(); Assert.That(store.TrySave(Envelope(cp), s.TryValidateCheckpoint, out var error), Is.True, error);
             var bytes = File.ReadAllBytes(store.PrimaryPath);
             Assert.That(store.TryLoad("eight-wave-v1", s.TryValidateCheckpoint, out var load), Is.True, load.Error);
