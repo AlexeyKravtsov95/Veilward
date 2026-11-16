@@ -21,3 +21,11 @@
 ## NOT VERIFIED / OPEN
 
 Reviewer не запускал общий Unity Editor повторно, оценивал исходники, реальные сохранённые артефакты и reports. iOS build, физический iPhone, performance/allocations/thermal не проверены. Художественное утверждение владельца, device QA, коммерческая/правовая приёмка AI-assisted оригиналов и массовое производство остаются OPEN. Self-merge/release не выполнялись.
+
+## R4 — ebd20abd0d61d471f7644e08fb37e04ef62e1d53
+
+После новых замечаний владельца исправлены fail-open handling Blender Python exception и mirrored winding Shade. **Независимый read-only reviewer технически одобрил оба исправления; оставшихся actionable defects в диапазоне d23d7ae..ebd20ab не выявлено.**
+
+Проверены production flags/check=True, реальный negative control и red/green, generator и сохранённые source/FBX/Unity winding reports, новый closeup. Дополнительный независимый расчёт generator подтвердил outward четырёх hulls. Сохранённые gates: static 38/38, EditMode 544/544, PlayMode 29/29; before/after/current hashes и исторические IDs/dependencies совпадают. Из моделей изменён только Shade. [Подробности и команды](review-fixes.md).
+
+Reviewer не перезапускал Unity/Blender; оценивал исходники, собственный расчёт и сохранённые артефакты. iPhone/performance/художественное утверждение остаются OPEN. Это не GitHub approval и не разрешение на merge/release.

@@ -32,4 +32,4 @@ Source correction только Shade воспроизводима по [скри
 
 ## NOT VERIFIED / OPEN
 
-Физический iPhone, iOS player build, performance/thermal/allocations, художественное утверждение и коммерческая/правовая приёмка оригиналов остаются открытыми. Старый R2 отчёт исторический; повторное техническое review выполняется на новом commit. Self-merge/release не выполняются.
+Физический iPhone, iOS player build, performance/thermal/allocations, художественное утверждение и коммерческая/правовая приёмка оригиналов остаются открытыми. Старый R2 отчёт исторический; повторное независимое read-only R4 review для `ebd20ab` одобрило оба исправления без оставшихся замечаний; заключение — [technical-review.md](technical-review.md). Self-merge/release не выполняются.
