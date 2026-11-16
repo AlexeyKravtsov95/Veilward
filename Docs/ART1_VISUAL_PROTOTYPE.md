@@ -38,3 +38,7 @@ Scope: Python exit handling в source-specific verifier и наружный wind
 - ART1-08: обе стороны Shoulder/CrownHorn имеют наружный winding; convex face normals направлены от центра компонента, signed volume положительный. Проверить редактируемый `.blend` и импортированный Unity mesh; backface culling не отключать. Позиции, UV, slots/counts, GUID/local IDs и prefab/scene references сохраняются.
 
 Риск: изменение только vertex normals без winding скроет дефект в lighting, но не устранит culling. Regression использует геометрический cross product индексов треугольника. После обновления source/FBX повторить gates, настоящий Play Mode capture и round-trip.
+
+## Продолжение ART.1.1
+
+ART.1 merged PR #24 (`e33142a`). [Уточнение острова, FLAME и Shade](ART1_1_VISUAL_REFINEMENT.md) сохраняет направление и production contract. [Исходное evidence ART.1](review/ART.1/README.md) остаётся историей; новые сравнения/проверки — [ART.1.1](review/ART.1.1/README.md). Стиль и device readability по-прежнему ожидают владельца и физический iPhone.

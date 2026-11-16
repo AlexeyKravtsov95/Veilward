@@ -60,7 +60,7 @@ namespace Veilward.Tests.EditMode
         [Test]
         public void Manifest_ReportsActualImportedCounts()
         {
-            var manifest = JsonUtility.FromJson<ImportManifest>(System.IO.File.ReadAllText("Docs/review/ART.1/imported-models.json"));
+            var manifest = JsonUtility.FromJson<ImportManifest>(System.IO.File.ReadAllText("Docs/review/ART.1.1/imported-models.json"));
             Assert.That(manifest.models.Select(m=>m.name), Is.EquivalentTo(ArtReferenceBuilder.ModelNames));
             foreach (var entry in manifest.models)
             {
@@ -159,6 +159,92 @@ namespace Veilward.Tests.EditMode
                 if (setup.Any(s=>s.isLoaded && s.isActive && !string.IsNullOrEmpty(s.path)))
                     EditorSceneManager.RestoreSceneManagerSetup(setup);
                 else EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            }
+        }
+
+        private static Mesh ModelMesh(string name) => AssetDatabase.LoadAssetAtPath<GameObject>(ArtReferenceBuilder.ModelFolder+name+".fbx")
+            .GetComponentInChildren<MeshFilter>().sharedMesh;
+
+        [Test]
+        public void Art11Flame_ReducedRoofRetainsFullSizeBaseAndFire()
+        {
+            var mesh=ModelMesh("Tower_FlameLantern");var v=mesh.vertices;var uv=mesh.uv;
+            var roof=v.Where(p=>p.y>=1.49f-.00001f && p.y<1.96f).ToArray();
+            Assert.That(roof.Length, Is.GreaterThan(100));
+            Assert.That(roof.Max(p=>Mathf.Abs(p.x)), Is.LessThan(.405f));
+            Assert.That(roof.Max(p=>Mathf.Abs(p.z)), Is.LessThan(.365f));
+            Assert.That(mesh.bounds.size.x, Is.EqualTo(.94f).Within(.002));
+            Assert.That(mesh.bounds.size.z, Is.EqualTo(.94f).Within(.002));
+            var fire=Enumerable.Range(0,v.Length).Where(i=>uv[i].y>.25f && uv[i].y<.5f && v[i].y<1.46f && v[i].y>.44f).Select(i=>v[i]).ToArray();
+            Assert.That(fire.Length,Is.GreaterThan(20));
+            Assert.That(fire.Max(p=>p.y),Is.EqualTo(1.45f).Within(.002));
+            Assert.That(fire.Max(p=>p.x)-fire.Min(p=>p.x),Is.GreaterThan(.4f));
+        }
+
+        [Test]
+        public void Art11Shade_ColdBroadHemHasOutwardWindingAndCulling()
+        {
+            var mesh=ModelMesh("Enemy_Shade");var v=mesh.vertices;var uv=mesh.uv;var indices=mesh.triangles;
+            var hem=Enumerable.Range(0,v.Length).Where(i=>v[i].y<.13f).ToArray();
+            Assert.That(hem.Max(i=>Mathf.Abs(v[i].x)),Is.GreaterThan(.245f));
+            var cold=0;var volume=0f;var mantleTriangles=0;
+            for(var i=0;i<indices.Length;i+=3)
+            {
+                var a=indices[i];var b=indices[i+1];var c=indices[i+2];
+                bool Body(int j)
+                {
+                    var color=Mathf.FloorToInt(uv[j].x*8)+8*Mathf.FloorToInt(uv[j].y*4);
+                    if(color!=16 && color!=18 && color!=19)return false;
+                    var p=v[j];var radial=p.x*p.x+p.z*p.z/.64f;
+                    bool Ring(float height,float radius)=>Mathf.Abs(p.y-height)<.0001f && Mathf.Abs(radial-radius*radius)<.0001f;
+                    return Ring(.04f,0)||Ring(0,.2646f)||Ring(.12f,.2646f)||Ring(.23f,.34f)||Ring(.65f,.29f)||Ring(.91f,.23f)||Ring(1.04f,.16f);
+                }
+                if(!Body(a)||!Body(b)||!Body(c))continue;
+                var x=v[a];var y=v[b];var z=v[c];
+                Assert.That(Vector3.Dot(Vector3.Cross(y-x,z-x),(x+y+z)/3-new Vector3(0,.53f,0)),Is.GreaterThan(1e-8f), $"Inward mantle {i/3}: {x}, {y}, {z}; UV {uv[a]}");
+                volume+=Vector3.Dot(x,Vector3.Cross(y,z))/6;mantleTriangles++;
+                if(Mathf.Max(x.y,Mathf.Max(y.y,z.y))<.26f) {Assert.That(uv[a].y,Is.GreaterThan(.5f));cold++;}
+            }
+            Assert.That(mantleTriangles,Is.EqualTo(98),"Проверяется весь экспортированный mantle, включая крышки.");
+            Assert.That(cold,Is.GreaterThanOrEqualTo(20));Assert.That(volume,Is.GreaterThan(.05f));
+            foreach(var r in ArtReferenceBuilder.Prefab("Enemy_Shade").GetComponentsInChildren<MeshRenderer>())
+                foreach(var m in r.sharedMaterials)if(m.HasProperty("_Cull"))Assert.That(m.GetFloat("_Cull"),Is.EqualTo(2));
+        }
+
+        [Test]
+        public void Art11Island_DeepSeparateMassesAndSupportUnderUnchangedRoute()
+        {
+            var mesh=ModelMesh("Environment_FloatingIsland");var v=mesh.vertices;var triangles=mesh.triangles;
+            Assert.That(mesh.bounds.min.y,Is.LessThan(-4.2f));
+            // Weld по positions: Unity разделяет vertices по UV/flat normals, поэтому vertex count не является числом масс.
+            var edges=new System.Collections.Generic.Dictionary<Vector3,System.Collections.Generic.HashSet<Vector3>>();
+            void Link(Vector3 a,Vector3 b){if(!edges.ContainsKey(a))edges[a]=new System.Collections.Generic.HashSet<Vector3>();edges[a].Add(b);}
+            for(int i=0;i<triangles.Length;i+=3)for(int k=0;k<3;k++)
+            {var a=v[triangles[i+k]];var b=v[triangles[i+(k+1)%3]];Link(a,b);Link(b,a);}
+            var unseen=new System.Collections.Generic.HashSet<Vector3>(edges.Keys);var masses=0;
+            while(unseen.Count>0)
+            {
+                var stack=new System.Collections.Generic.Stack<Vector3>();var first=unseen.First();unseen.Remove(first);stack.Push(first);
+                var min=first.y;var max=first.y;
+                while(stack.Count>0){var a=stack.Pop();min=Mathf.Min(min,a.y);max=Mathf.Max(max,a.y);foreach(var b in edges[a])if(unseen.Remove(b))stack.Push(b);}
+                if(min<-2 && max-min>1.5f)masses++;
+            }
+            Assert.That(masses,Is.GreaterThanOrEqualTo(3));
+            var path=AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/TestWave.asset").CreateSimulation().Path;
+            for(float d=0;d<=path.TotalLength;d+=.25f)
+            {
+                var p=path.GetPosition(d);var point=new Vector2(p.X,p.Y);bool supported=false;
+                for(int i=0;i<triangles.Length;i+=3)
+                {
+                    var a=v[triangles[i]];var b=v[triangles[i+1]];var c=v[triangles[i+2]];
+                    if(a.y<-.12f||b.y<-.12f||c.y<-.12f)continue;
+                    float Cross(Vector2 x,Vector2 y)=>x.x*y.y-x.y*y.x;
+                    var x=new Vector2(a.x,a.z);var y=new Vector2(b.x,b.z);var z=new Vector2(c.x,c.z);
+                    if(Mathf.Abs(Cross(y-x,z-x))<1e-6f)continue;
+                    var u=Cross(y-x,point-x);var w=Cross(z-y,point-y);var t=Cross(x-z,point-z);
+                    if((u>=-1e-5f&&w>=-1e-5f&&t>=-1e-5f)||(u<=1e-5f&&w<=1e-5f&&t<=1e-5f)){supported=true;break;}
+                }
+                Assert.That(supported,Is.True,$"Route unsupported at {d}: {point}");
             }
         }
 

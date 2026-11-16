@@ -1,0 +1,9 @@
+reexported Enemy_Shade.blend
+reexported Environment_BuildPad.blend
+reexported Environment_FloatingIsland.blend
+reexported Environment_PathTile.blend
+reexported Prop_MossRock.blend
+reexported Prop_RitualShrub.blend
+reexported Prop_Waystone.blend
+reexported Tower_FlameLantern.blend
+PASS: 8 edited sources reexported; geometry, GUID/local IDs, .meta, prefab and scene references preserved.

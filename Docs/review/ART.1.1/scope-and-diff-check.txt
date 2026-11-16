@@ -1,0 +1,10 @@
+$ git diff --exit-code e33142a -- Assets/_Game/Scripts/Domain Assets/_Game/Scripts/Infrastructure Assets/_Game/Configs Assets/_Game/Scenes/Battle.unity Assets/_Game/Scenes/MainMenu.unity Packages ProjectSettings
+exit=0
+
+
+$ git diff --exit-code e33142a -- :(glob)**/*.meta Docs/review/ART.1
+exit=0
+
+
+$ git diff --check
+exit=0

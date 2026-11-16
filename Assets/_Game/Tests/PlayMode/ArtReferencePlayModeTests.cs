@@ -20,6 +20,27 @@ namespace Veilward.Tests.PlayMode
         }
 
         [UnityTest]
+        public IEnumerator Art11_OriginalCameraTowerScaleAndPadPositionsSurvivePlayMode()
+        {
+            yield return Load();var s=Object.FindFirstObjectByType<ArtReferenceShowcase>();s.SetPaused(true);s.RestartShowcase();
+            Assert.That(s.WorldCamera.transform.position,Is.EqualTo(new Vector3(8,11,8)));
+            Assert.That(s.WorldCamera.orthographicSize,Is.EqualTo(8.5f));
+            Assert.That(s.TowerView.position,Is.EqualTo(new Vector3(-2,.16f,-1)));
+            Assert.That(s.TowerView.localScale,Is.EqualTo(Vector3.one));
+            Assert.That(s.FirstEnemyView.localScale,Is.EqualTo(Vector3.one));
+            var tower=s.TowerView.GetComponentInChildren<MeshRenderer>().bounds;
+            Assert.That(tower.size.x,Is.EqualTo(.94f).Within(.002));Assert.That(tower.size.y,Is.EqualTo(2.285f).Within(.002));
+            var expected=new[]{new Vector3(-2,0,-1),new Vector3(2,0,-1),new Vector3(-3,0,1),new Vector3(2,0,3)};
+            var count=0;
+            foreach(Transform child in s.EnvironmentRoot)
+            {
+                if(child.name!="P_Environment_BuildPad")continue;
+                CollectionAssert.Contains(expected,child.position);Assert.That(child.localScale,Is.EqualTo(Vector3.one));count++;
+            }
+            Assert.That(count,Is.EqualTo(4));
+        }
+
+        [UnityTest]
         public IEnumerator SavedCombat_DrivesHealthMovementAndAttackPool()
         {
             yield return Load();

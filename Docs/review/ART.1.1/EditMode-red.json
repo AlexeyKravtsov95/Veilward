@@ -1,0 +1,18 @@
+{
+  "Summary": {
+    "Total": 547,
+    "Passed": 546,
+    "Failed": 1,
+    "Skipped": 0,
+    "Inconclusive": 0
+  },
+  "Results": [
+    {
+      "FullName": "Veilward.Tests.EditMode.ArtReferenceAssetTests.Art11Shade_ColdBroadHemHasOutwardWindingAndCulling",
+      "Status": "Failed",
+      "Duration": 0.004597,
+      "Message": "  Expected: greater than 9.99999994E-09f\n  But was:  -0.00123648974f\n",
+      "StackTrace": "at Veilward.Tests.EditMode.ArtReferenceAssetTests.Art11Shade_ColdBroadHemHasOutwardWindingAndCulling () [0x000f7] in /Users/alexeykravtsov/.codex/worktrees/veilward-art-1-1/Veilward/Assets/_Game/Tests/EditMode/ArtReferenceAssetTests.cs:204\n"
+    }
+  ]
+}

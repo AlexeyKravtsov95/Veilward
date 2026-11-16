@@ -36,7 +36,9 @@
 
 **P2.2 status: технический scope DONE после review и merge P2.2f.** [PR #23](https://github.com/AlexeyKravtsov95/Veilward/pull/23) merged, merge commit `a506bed`. Definitions, resolver Steam/Storm, production гибриды/schema 2, graybox presentation и детерминированные replay/rollback/impact measurement завершены. Все шесть типов доступны с Preparation по утверждённому временному P-05 до P2.3. [Impact review](review/P2.2f/impact-review.md) не является утверждением баланса. **G2, external playtests, физический iPhone/performance QA, balance approval и TestFlight остаются открытыми.**
 
-**ART.1 status: первый визуальный прототип подготовлен для review владельцем; направление НЕ утверждено.** Отдельная `ArtReference` использует сохранённую игровую камеру/масштаб, оригинальные Blender sources → FBX, фрагмент парящего святилища, FLAME «Фонарь углей», Shade и event-driven FLAME stroke. [Спецификация](ART1_VISUAL_PROTOTYPE.md), [материалы просмотра и ограничения](review/ART.1/README.md), [asset manifest](review/ART.1/asset-manifest.md). Проверки Editor и source round trip перечислены в evidence; это не device/performance PASS. Массовое производство и художественная приёмка ожидают решения владельца и проверки на физическом iPhone.
+**ART.1 status: технический прототип влит PR #24 (`e33142a`); направление НЕ утверждено владельцем.** Отдельная `ArtReference` использует сохранённую игровую камеру/масштаб, оригинальные Blender sources → FBX, фрагмент парящего святилища, FLAME «Фонарь углей», Shade и event-driven FLAME stroke. [Спецификация](ART1_VISUAL_PROTOTYPE.md), [материалы просмотра и ограничения](review/ART.1/README.md), [asset manifest](review/ART.1/asset-manifest.md). Проверки Editor и source round trip перечислены в evidence; это не device/performance PASS. Массовое производство и художественная приёмка ожидают решения владельца и проверки на физическом iPhone.
+
+**ART.1.1 status: технические gates пройдены, визуальная доработка передана на review владельцу.** Объём/характер острова, уменьшенные свесы FLAME и контраст нижнего плаща Shade при прежних gameplay coordinates, камере и масштабе. [Спецификация и регрессии](ART1_1_VISUAL_REFINEMENT.md), [before/after, бой и проверки](review/ART.1.1/README.md). Static 38/38, EditMode 547/547, PlayMode 30/30; round trip 8/8 и отрицательный exporter control PASS. [Независимое техническое review](review/ART.1.1/technical-review.md): без открытых блокирующих замечаний. История ART.1 сохранена. Финальное утверждение стиля и device readability остаются открытыми до просмотра владельцем и физического iPhone; массовое производство, self-merge и release не выполняются.
 
 ### Последовательность до первой TestFlight
 
@@ -45,7 +47,7 @@
 | Этап | Результат и условие перехода | Статус |
 |---|---|---|
 | P2.2f | Детерминированные матчи/rollback и измерения, независимое review/merge | DONE: PR #23 / a506bed |
-| Эталон арта | Фрагмент карты, одна башня, один враг и эффект в едином направлении; Blender `.blend` → FBX → Unity по [ART_PIPELINE](ART_PIPELINE.md) | ART.1 подготовлен для визуального/технического review; утверждение владельца и iPhone check открыты |
+| Эталон арта | Фрагмент карты, одна башня, один враг и эффект в едином направлении; Blender `.blend` → FBX → Unity по [ART_PIPELINE](ART_PIPELINE.md) | ART.1 merged PR #24; ART.1.1 передаётся на визуальное/техническое review; утверждение владельца и iPhone check открыты |
 | P2.3 | Настоящее открытие стихий/требования гибридов в Domain и UI | Не выполнен |
 | P2.4 | Базовая способность и босс, проверяемая интеграция восьми волн | Не выполнен |
 | Оформление первого среза | Одна оформленная карта, все шесть башен, враги/босс и согласованные UI/VFX/звук | Не выполнено |
@@ -56,6 +58,8 @@
 Технический P2.2 завершён; ART.1 проверяет художественную гипотезу, не закрывая G2 и баланс. Массовое производство начинается только после утверждения эталона владельцем и проверки его в Unity **и на физическом iPhone**. Происхождение/лицензии, source, `.meta`, budgets и import checks — по ART_PIPELINE. ART.1 не добавляет механики или оформление остальных юнитов.
 
 **Обязательное условие владельца для первой TestFlight — готовый арт первого среза.** Graybox с зелёными тестами этого условия не выполняет. Первая TestFlight — ограниченный вертикальный срез, а **полный релиз остаётся отдельной целью**: десять башен, три карты, пятнадцать волн и остальной release scope GDD/Phase 3–5. Ни первая TestFlight, ни полный релиз не отмечены выполненными.
+
+Будущие крупные multi-island карты с мостами/камерой/отдельным балансом, выбор и последовательное открытие миссий, рекорды/звёзды, финальные миссии с боссами и отдельный campaign progress записаны в [BACKLOG](BACKLOG.md). Открытие секторов внутри забега — самостоятельная исследовательская идея. В ART.1.1 эти механики не реализуются; первая TestFlight сохраняет одну законченную миссию с готовым артом.
 
 ## Phase 3 — Expand to release content (4–6 недель)
 

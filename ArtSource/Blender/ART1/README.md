@@ -33,7 +33,7 @@
 python3 ArtSource/Blender/ART1/verify_reexport.py
 ```
 
-Скрипт сохраняет imported GUID/local IDs, vertex/normal/UV/index hash, prefab dependencies и hashes `.meta`, prefab/scene YAML. Затем открывает **все восемь сохранённых .blend**, экспортирует в те же FBX и повторно импортирует Unity. Сравнение before/after должно быть точным. Отчёты — `Docs/review/ART.1/reexport-{before,after}.json`.
+Скрипт сохраняет imported GUID/local IDs, vertex/normal/UV/index hash, prefab dependencies и hashes `.meta`, prefab/scene YAML. Затем открывает **все восемь сохранённых .blend**, экспортирует в те же FBX и повторно импортирует Unity. Сравнение before/after должно быть точным. Актуальные отчёты — `Docs/review/ART.1.1/reexport-{before,after}.json`; история ART.1 не перезаписывается. Verifier явно адресует текущий worktree, даже при нескольких Editor. Альтернативная папка задаётся `ART1_EVIDENCE_DIR`.
 
 Unity scene/prefab authoring: меню `VEILWARD → ART.1 → Build ArtReference`. Builder работает только с ART.1 assets; не изменяет Build Settings, production balance или рабочие сцены. Для просмотра открыть `Assets/_Game/Scenes/ArtReference.unity`, Play. Showcase повторяет saved первую волну с одним FLAME; после завершения пауза 2 s и новый цикл. Inspector/context eval `SetPaused(true)`, `AdvanceForReview(n)`, `RestartShowcase()` позволяют зафиксировать реальное состояние. Lifecycle focus/background latch требует явного Resume через `SetPaused(false)` после возврата; нового игрового UI нет, это reference scene для Editor review.
 
@@ -47,3 +47,13 @@ python3 ArtSource/Blender/ART1/tests/test_reexport_failure.py
 Первый контроль запускает настоящий Blender с намеренно падающим экспортным Python script. Только Unity snapshot подменён неизменной фикстурой: это воспроизводит ложное сравнение старых FBX. Проверяются exit 1, отсутствие PASS/второго snapshot/записи golden evidence и неизменные SHA всех FBX. В production verifier `--python-exit-code 1` стоит перед `--python`.
 
 Второй проверяет по четыре hulls в сохранённом `.blend` и экспортированном FBX: обе стороны Shoulder/CrownHorn, по 5 vertices/6 triangles, normals от центра и положительный signed volume. Unity EditMode повторяет проверку по индексам импортированного mesh. Неплоская грань рога задана двумя явными треугольниками; обратный winding не маскируется shader culling settings или пересчётом только vertex normals.
+
+## ART.1.1 — продолжение существующих sources
+
+`refine_art11.py` фиксирует однократную правку трёх sources относительно merge PR #24 (`e33142a`): неровный остров с тремя глубокими массами/уступами, узкая крыша с увеличенным просветом FLAME, более широкий холодный низ Shade. Повторное применение к уже помеченному source запрещено. Скрипт не экспортирует FBX; редактируемый `.blend` сохраняется первым, затем `export_art1.py`. `create_art1.py` остаётся исторической конструкцией ART.1 и при запуске затрёт refinements; для текущей работы его не запускать. Путь/площадки, transform/scale юнитов и saved camera прежние.
+
+```sh
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python ArtSource/Blender/ART1/tests/check_art11_geometry.py
+```
+
+Проверка читает реальные saved meshes: глубину/отдельные connected rock masses, footprint крыши, полный нижний ряд плаща и наружный winding цельного mantle. Unity suite проверяет импортированные triangles, support под saved route, UV/форму подола, culling и прежние camera/tower/pad transforms в Play Mode. Фактические source counts — `geometry-manifest.json`, Unity counts и владельческий просмотр — `Docs/review/ART.1.1/`.
