@@ -21,6 +21,8 @@
     "inconclusive": 0,
     "osOnlyDifferenceAccepted": true,
     "hpDriftRejected": true,
-    "actualMetadataPreserved": true
+    "actualMetadataPreserved": true,
+    "sourceCommit": "dcdf4d2acc1cda4a5f81c1cbdd1dd7ab2c13917a",
+    "xmlSha256": "f57e2bf8a934b7d048e0ba8f4adf296700d3433a3cf1b9716aeafb40fcf4b57e"
   }
 }

@@ -169,4 +169,4 @@ Graybox Presentation показывает captured Steam ring/impacts и Storm c
 
 [План до первой TestFlight](Docs/ROADMAP.md): после P2.2f — утверждённый на iPhone эталон арта, P2.3, P2.4, оформление среза, P2.5 и device QA. Обязательное условие владельца — готовый арт первого среза: одна оформленная карта, шесть башен, восемь волн, босс, обучение и согласованные UI/VFX/звук. Полный релиз (10 башен/3 карты/15 волн) — отдельная цель. Физические device/performance, external playtests, balance approval и G2 открыты.
 
-Финальные локальные gates P2.2f: **38/38 static**, **528/528 EditMode**, **25/25 PlayMode**, 0 failed/skipped/inconclusive; `git diff --check` PASS. [XML, SHA256 и commit проверенных исходников](Docs/review/P2.2f/gates.json).
+Финальные локальные gates P2.2f: **38/38 static**, **529/529 EditMode**, **25/25 PlayMode**, 0 failed/skipped/inconclusive; `git diff --check` PASS. [XML, SHA256 и commit проверенных исходников](Docs/review/P2.2f/gates.json).

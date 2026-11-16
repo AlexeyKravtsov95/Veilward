@@ -21,3 +21,5 @@ Reviewer **Declined to judge**, принято implementer как явно не�
 - Готовность арта/TestFlight/release — будущий scope и approval владельца, не выполнены этим PR.
 
 Риск всех этих ограничений: технические Editor regression результаты не доказывают готовность среза к пользователям/устройствам; ROADMAP сохраняет соответствующие gates открытыми.
+
+Исправление подтверждено implementer: source `dcdf4d2acc1cda4a5f81c1cbdd1dd7ab2c13917a`, static 38/38, EditMode 529/529, PlayMode 25/25, diff-check PASS; фактические команды/XML/SHA — gates.json. Авторское исправление проверено regression suite, не вторым независимым review; approval/merge владельца ожидаются.

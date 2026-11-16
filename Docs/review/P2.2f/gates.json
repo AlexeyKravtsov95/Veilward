@@ -1,5 +1,5 @@
 {
-  "sourceCommit": "fd2b3d65b4620703e3285ff1db1113e31531fe2b",
+  "sourceCommit": "dcdf4d2acc1cda4a5f81c1cbdd1dd7ab2c13917a",
   "unity": "6000.3.28f1 (8f082d2fe476)",
   "os": "macOS 27.0.1 (26A434), arm64",
   "buildTarget": "iOS",
@@ -16,14 +16,14 @@
   "suites": {
     "EditMode": {
       "command": "./Scripts/run-edit-mode-tests.sh",
-      "total": 528,
-      "passed": 528,
+      "total": 529,
+      "passed": 529,
       "failed": 0,
       "skipped": 0,
       "inconclusive": 0,
-      "startUtc": "2026-11-16 11:25:22Z",
-      "endUtc": "2026-11-16 11:25:41Z",
-      "xmlSha256": "4795d0553b61ac0cd97c0905b9d3395b68defbdf2abca30c22a03a8f75d7fc06"
+      "startUtc": "2026-11-16 11:58:46Z",
+      "endUtc": "2026-11-16 11:59:10Z",
+      "xmlSha256": "f57e2bf8a934b7d048e0ba8f4adf296700d3433a3cf1b9716aeafb40fcf4b57e"
     },
     "PlayMode": {
       "command": "./Scripts/run-play-mode-tests.sh",
@@ -32,9 +32,9 @@
       "failed": 0,
       "skipped": 0,
       "inconclusive": 0,
-      "startUtc": "2026-11-16 11:25:49Z",
-      "endUtc": "2026-11-16 11:26:02Z",
-      "xmlSha256": "4537a9f35b4ecbe8eeba027b0e95ce05f3b5a856cf261908580aad2b117961eb"
+      "startUtc": "2026-11-16 11:59:27Z",
+      "endUtc": "2026-11-16 11:59:44Z",
+      "xmlSha256": "b8eff299b55c498e3ec608db33f8cc97196c4f46f1189112642f6210882045bc"
     }
   },
   "diffCheck": {
