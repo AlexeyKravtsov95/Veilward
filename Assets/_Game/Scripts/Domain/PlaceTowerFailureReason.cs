@@ -9,6 +9,9 @@ namespace Veilward.Domain
         Blocked = 4,
         Occupied = 5,
         InsufficientGold = 6,
-        IdentifierExhausted = 7
+        IdentifierExhausted = 7,
+        PendingElementChoice = 8,
+        ElementLocked = 9,
+        LegacyTowerUnavailable = 10
     }
 }

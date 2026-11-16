@@ -9,6 +9,8 @@ namespace Veilward.Domain
         InsufficientGold = 4,
         InvestmentOverflow = 5,
         InvalidGridState = 6,
-        ConfirmationRequired = 7
+        ConfirmationRequired = 7,
+        PendingElementChoice = 8,
+        ElementLocked = 9
     }
 }

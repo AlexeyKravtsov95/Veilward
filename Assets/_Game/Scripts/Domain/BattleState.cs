@@ -115,6 +115,8 @@ namespace Veilward.Domain
         public int BaseHealth { get; private set; }
         public int Gold { get; private set; }
         public int Kills { get; private set; }
+        public ElementProgressionState ElementProgression { get; private set; } = ElementProgressionState.CreateInitial(false);
+        internal void SetElementProgression(ElementProgressionState progression) => ElementProgression = progression;
         public IReadOnlyList<EnemyState> Enemies { get; }
         public IReadOnlyList<TowerState> Towers { get; }
 
