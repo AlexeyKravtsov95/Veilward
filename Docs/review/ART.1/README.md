@@ -29,6 +29,8 @@
 - Реальные Play Mode camera captures с tick/frame/attack metadata: [capture log](capture-log.jsonl). PNG не являются Blender renders или concept images. [Console audit](console-audit.json) собран после capture.
 - `git diff --check` и проверка отсутствия изменений production scenes/configs/Domain/packages выполняются перед PR; точные команды — [QA](qa.md).
 
+[Независимое техническое review R1/R2](technical-review.md): оба замечания закрыты, R2 технически одобрен; это не художественное утверждение.
+
 ## NOT VERIFIED / OPEN
 
 - Решение владельца о направлении, исключительных правах/коммерческой пригодности AI-assisted оригиналов и запуске массового производства.
