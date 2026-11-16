@@ -1,0 +1,66 @@
+[
+  {
+    "asset": "Tower_FlameLantern",
+    "triangles": 1264,
+    "materialSlots": 2,
+    "vertices": 708,
+    "source": "ArtSource/Blender/ART1/Tower_FlameLantern.blend",
+    "fbx": "Assets/_Game/Art/Models/ART1/Tower_FlameLantern.fbx"
+  },
+  {
+    "asset": "Enemy_Shade",
+    "triangles": 183,
+    "materialSlots": 2,
+    "vertices": 132,
+    "source": "ArtSource/Blender/ART1/Enemy_Shade.blend",
+    "fbx": "Assets/_Game/Art/Models/ART1/Enemy_Shade.fbx"
+  },
+  {
+    "asset": "Environment_FloatingIsland",
+    "triangles": 932,
+    "materialSlots": 1,
+    "vertices": 504,
+    "source": "ArtSource/Blender/ART1/Environment_FloatingIsland.blend",
+    "fbx": "Assets/_Game/Art/Models/ART1/Environment_FloatingIsland.fbx"
+  },
+  {
+    "asset": "Environment_PathTile",
+    "triangles": 112,
+    "materialSlots": 1,
+    "vertices": 64,
+    "source": "ArtSource/Blender/ART1/Environment_PathTile.blend",
+    "fbx": "Assets/_Game/Art/Models/ART1/Environment_PathTile.fbx"
+  },
+  {
+    "asset": "Environment_BuildPad",
+    "triangles": 352,
+    "materialSlots": 1,
+    "vertices": 192,
+    "source": "ArtSource/Blender/ART1/Environment_BuildPad.blend",
+    "fbx": "Assets/_Game/Art/Models/ART1/Environment_BuildPad.fbx"
+  },
+  {
+    "asset": "Prop_Waystone",
+    "triangles": 220,
+    "materialSlots": 1,
+    "vertices": 120,
+    "source": "ArtSource/Blender/ART1/Prop_Waystone.blend",
+    "fbx": "Assets/_Game/Art/Models/ART1/Prop_Waystone.fbx"
+  },
+  {
+    "asset": "Prop_MossRock",
+    "triangles": 72,
+    "materialSlots": 1,
+    "vertices": 42,
+    "source": "ArtSource/Blender/ART1/Prop_MossRock.blend",
+    "fbx": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx"
+  },
+  {
+    "asset": "Prop_RitualShrub",
+    "triangles": 138,
+    "materialSlots": 1,
+    "vertices": 89,
+    "source": "ArtSource/Blender/ART1/Prop_RitualShrub.blend",
+    "fbx": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx"
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "models": [
+    {
+      "name": "Tower_FlameLantern",
+      "triangles": 1232,
+      "materialSlots": 2,
+      "bounds": "Center: (0.00, 1.14, 0.00), Extents: (0.59, 1.14, 0.59)"
+    },
+    {
+      "name": "Enemy_Shade",
+      "triangles": 183,
+      "materialSlots": 2,
+      "bounds": "Center: (0.00, 0.68, 0.02), Extents: (0.42, 0.68, 0.28)"
+    },
+    {
+      "name": "Environment_FloatingIsland",
+      "triangles": 932,
+      "materialSlots": 1,
+      "bounds": "Center: (-0.03, -1.41, 0.09), Extents: (6.65, 1.49, 4.50)"
+    },
+    {
+      "name": "Environment_PathTile",
+      "triangles": 112,
+      "materialSlots": 1,
+      "bounds": "Center: (0.00, 0.02, 0.00), Extents: (0.47, 0.08, 0.47)"
+    },
+    {
+      "name": "Environment_BuildPad",
+      "triangles": 320,
+      "materialSlots": 1,
+      "bounds": "Center: (0.00, 0.07, 0.00), Extents: (0.46, 0.10, 0.46)"
+    },
+    {
+      "name": "Prop_Waystone",
+      "triangles": 220,
+      "materialSlots": 1,
+      "bounds": "Center: (0.00, 0.38, 0.00), Extents: (0.24, 0.38, 0.23)"
+    },
+    {
+      "name": "Prop_MossRock",
+      "triangles": 72,
+      "materialSlots": 1,
+      "bounds": "Center: (0.00, 0.18, 0.02), Extents: (0.42, 0.24, 0.41)"
+    },
+    {
+      "name": "Prop_RitualShrub",
+      "triangles": 138,
+      "materialSlots": 1,
+      "bounds": "Center: (0.02, 0.31, 0.02), Extents: (0.34, 0.31, 0.28)"
+    }
+  ]
+}

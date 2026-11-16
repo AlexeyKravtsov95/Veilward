@@ -1,0 +1,15 @@
+[
+  {
+    "flags": [],
+    "returncode": 0,
+    "exceptionObserved": true
+  },
+  {
+    "flags": [
+      "--python-exit-code",
+      "1"
+    ],
+    "returncode": 1,
+    "exceptionObserved": true
+  }
+]
