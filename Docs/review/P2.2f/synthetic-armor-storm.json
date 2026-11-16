@@ -1,0 +1,67 @@
+{
+    "wave": 0,
+    "health": 0,
+    "gold": 0,
+    "kills": 0,
+    "leaks": 0,
+    "spawned": 0,
+    "live": 0,
+    "investment": 0,
+    "purchases": 110,
+    "refunds": 0,
+    "startTick": 0,
+    "tick": 0,
+    "ticks": 0,
+    "outcome": "",
+    "commands": [],
+    "applied": [
+        10,
+        0,
+        1
+    ],
+    "overkill": [
+        0,
+        0,
+        0
+    ],
+    "lethal": [
+        0,
+        0,
+        0
+    ],
+    "procs": [
+        0,
+        1
+    ],
+    "targets": [
+        0,
+        1
+    ],
+    "intrinsicProcs": [
+        0,
+        1
+    ],
+    "cooldownSuppressions": [
+        0,
+        2
+    ],
+    "noNeighborSuppressions": [
+        0,
+        2
+    ],
+    "reactionLethal": [
+        0,
+        0
+    ],
+    "reactionApplied": [
+        0,
+        1
+    ],
+    "reactionOverkill": [
+        0,
+        0
+    ],
+    "leakedRemainingHp": 0,
+    "liveRemainingHp": 0,
+    "enemyHp": 1000
+}

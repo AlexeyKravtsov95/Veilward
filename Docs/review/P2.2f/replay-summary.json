@@ -1,0 +1,1852 @@
+{
+    "rules": "p2.2-steam-storm-v1",
+    "baseCommit": "8159f4c530bea98ec8bc495f3168299342e12831",
+    "os": "Mac OS X 27.0.1",
+    "buildTarget": "iOS; Editor Mono tests; player configured IL2CPP/ARM64, not executed",
+    "originOrder": [
+        "Direct",
+        "Burn",
+        "Reaction"
+    ],
+    "reactionOrder": [
+        "Steam",
+        "Storm"
+    ],
+    "unity": "6000.3.28f1 (8f082d2fe476)",
+    "rng": "Absent; fixed 30 Hz, stable IDs, First",
+    "commandSource": "BattleReactionReplayTests.Prepare; historical/matched = BattleElementalReplayTests.Prepare commands including repeated Sell",
+    "configHashes": [
+        "Assets/_Game/Configs/EightWave.asset:2e2cd23aa7ccc9ac4c3b0a50176733aa0af38334ff9f3e26beb1a6261b371fe3",
+        "Assets/_Game/Configs/TestWave.asset:4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3"
+    ],
+    "identicalReceiptPrefix": 10,
+    "identicalAvailabilityPrefix": 30,
+    "historicalReceiptCount": 30,
+    "matchedReceiptCount": 30,
+    "firstReceiptDivergence": [
+        "C|w=4|t=1287|Next=Continued|gold=50",
+        "C|w=4|t=1287|Next=Continued|gold=60"
+    ],
+    "series": [
+        {
+            "strategy": "historical",
+            "terminal": "Defeat",
+            "timelineSha256": "f0fbc28918a16a344873d1a6df8dbdfd98bea7239f58284b4088be9f4e1603d0",
+            "startingGold": 150,
+            "startingHealth": 20,
+            "timelineEntries": 4058,
+            "receipts": [
+                "C|w=1|t=0|Place flame (-2,-1)=accepted id=1|gold=80",
+                "C|w=1|t=0|Place gale (1,0)=accepted id=2|gold=0",
+                "C|w=1|t=0|Start=Started|gold=0",
+                "C|w=2|t=399|Next=Continued|gold=35",
+                "C|w=2|t=399|Next=RejectedInvalidPhase|gold=35",
+                "C|w=2|t=399|Start=Started|gold=35",
+                "C|w=3|t=828|Next=Continued|gold=70",
+                "C|w=3|t=828|Next=RejectedInvalidPhase|gold=70",
+                "C|w=3|t=828|Place tide (-1,0)=accepted id=3|gold=10",
+                "C|w=3|t=828|Start=Started|gold=10",
+                "C|w=4|t=1287|Next=Continued|gold=50",
+                "C|w=4|t=1287|Next=RejectedInvalidPhase|gold=50",
+                "C|w=4|t=1287|Start=Started|gold=50",
+                "C|w=5|t=1788|Next=Continued|gold=90",
+                "C|w=5|t=1788|Next=RejectedInvalidPhase|gold=90",
+                "C|w=5|t=1788|Place stone (-3,-1)=accepted id=4|gold=0",
+                "C|w=5|t=1788|Start=Started|gold=0",
+                "C|w=6|t=2289|Next=Continued|gold=55",
+                "C|w=6|t=2289|Next=RejectedInvalidPhase|gold=55",
+                "C|w=6|t=2289|Start=Started|gold=55",
+                "C|w=7|t=2850|Next=Continued|gold=110",
+                "C|w=7|t=2850|Next=RejectedInvalidPhase|gold=110",
+                "C|w=7|t=2850|Sell 3=accepted refund=42|gold=152",
+                "C|w=7|t=2850|Sell 3=rejected TowerNotFound|gold=152",
+                "C|w=7|t=2850|Place tide (-1,0)=accepted id=5|gold=92",
+                "C|w=7|t=2850|Upgrade 5=accepted|gold=2",
+                "C|w=7|t=2850|Start=Started|gold=2",
+                "C|w=8|t=3429|Next=Continued|gold=67",
+                "C|w=8|t=3429|Next=RejectedInvalidPhase|gold=67",
+                "C|w=8|t=3429|Start=Started|gold=67"
+            ],
+            "waves": [
+                {
+                    "wave": 1,
+                    "health": 18,
+                    "gold": 35,
+                    "kills": 3,
+                    "leaks": 2,
+                    "spawned": 5,
+                    "live": 0,
+                    "investment": 150,
+                    "purchases": 150,
+                    "refunds": 0,
+                    "startTick": 0,
+                    "tick": 399,
+                    "ticks": 399,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=1|t=0|Place flame (-2,-1)=accepted id=1|gold=80",
+                        "C|w=1|t=0|Place gale (1,0)=accepted id=2|gold=0",
+                        "C|w=1|t=0|Start=Started|gold=0"
+                    ],
+                    "applied": [
+                        316,
+                        84,
+                        0
+                    ],
+                    "overkill": [
+                        10,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        3,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        0
+                    ],
+                    "targets": [
+                        0,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 100,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 2,
+                    "health": 15,
+                    "gold": 70,
+                    "kills": 6,
+                    "leaks": 3,
+                    "spawned": 6,
+                    "live": 0,
+                    "investment": 150,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 399,
+                    "tick": 828,
+                    "ticks": 429,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=2|t=399|Start=Started|gold=35"
+                    ],
+                    "applied": [
+                        348,
+                        102,
+                        0
+                    ],
+                    "overkill": [
+                        10,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        3,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        0
+                    ],
+                    "targets": [
+                        0,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 150,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 3,
+                    "health": 12,
+                    "gold": 50,
+                    "kills": 10,
+                    "leaks": 3,
+                    "spawned": 7,
+                    "live": 0,
+                    "investment": 210,
+                    "purchases": 60,
+                    "refunds": 0,
+                    "startTick": 828,
+                    "tick": 1287,
+                    "ticks": 459,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=3|t=828|Place tide (-1,0)=accepted id=3|gold=10",
+                        "C|w=3|t=828|Start=Started|gold=10"
+                    ],
+                    "applied": [
+                        496,
+                        97,
+                        0
+                    ],
+                    "overkill": [
+                        3,
+                        2,
+                        0
+                    ],
+                    "lethal": [
+                        2,
+                        2,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        0
+                    ],
+                    "targets": [
+                        0,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 107,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 4,
+                    "health": 8,
+                    "gold": 90,
+                    "kills": 14,
+                    "leaks": 4,
+                    "spawned": 8,
+                    "live": 0,
+                    "investment": 210,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 1287,
+                    "tick": 1788,
+                    "ticks": 501,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=4|t=1287|Start=Started|gold=50"
+                    ],
+                    "applied": [
+                        545,
+                        115,
+                        0
+                    ],
+                    "overkill": [
+                        3,
+                        2,
+                        0
+                    ],
+                    "lethal": [
+                        2,
+                        2,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        0
+                    ],
+                    "targets": [
+                        0,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 140,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 5,
+                    "health": 6,
+                    "gold": 55,
+                    "kills": 21,
+                    "leaks": 2,
+                    "spawned": 9,
+                    "live": 0,
+                    "investment": 300,
+                    "purchases": 90,
+                    "refunds": 0,
+                    "startTick": 1788,
+                    "tick": 2289,
+                    "ticks": 501,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=5|t=1788|Place stone (-3,-1)=accepted id=4|gold=0",
+                        "C|w=5|t=1788|Start=Started|gold=0"
+                    ],
+                    "applied": [
+                        761,
+                        103,
+                        0
+                    ],
+                    "overkill": [
+                        58,
+                        2,
+                        0
+                    ],
+                    "lethal": [
+                        6,
+                        1,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        0
+                    ],
+                    "targets": [
+                        0,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 36,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 6,
+                    "health": 3,
+                    "gold": 110,
+                    "kills": 28,
+                    "leaks": 3,
+                    "spawned": 10,
+                    "live": 0,
+                    "investment": 300,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 2289,
+                    "tick": 2850,
+                    "ticks": 561,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=6|t=2289|Start=Started|gold=55"
+                    ],
+                    "applied": [
+                        803,
+                        121,
+                        0
+                    ],
+                    "overkill": [
+                        58,
+                        2,
+                        0
+                    ],
+                    "lethal": [
+                        6,
+                        1,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        0
+                    ],
+                    "targets": [
+                        0,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 76,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 7,
+                    "health": 1,
+                    "gold": 67,
+                    "kills": 37,
+                    "leaks": 2,
+                    "spawned": 11,
+                    "live": 0,
+                    "investment": 390,
+                    "purchases": 150,
+                    "refunds": 42,
+                    "startTick": 2850,
+                    "tick": 3429,
+                    "ticks": 579,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=7|t=2850|Sell 3=accepted refund=42|gold=152",
+                        "C|w=7|t=2850|Sell 3=rejected TowerNotFound|gold=152",
+                        "C|w=7|t=2850|Place tide (-1,0)=accepted id=5|gold=92",
+                        "C|w=7|t=2850|Upgrade 5=accepted|gold=2",
+                        "C|w=7|t=2850|Start=Started|gold=2"
+                    ],
+                    "applied": [
+                        965,
+                        105,
+                        0
+                    ],
+                    "overkill": [
+                        37,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        8,
+                        1,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        0
+                    ],
+                    "targets": [
+                        0,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 30,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 8,
+                    "health": 0,
+                    "gold": 112,
+                    "kills": 46,
+                    "leaks": 1,
+                    "spawned": 12,
+                    "live": 2,
+                    "investment": 390,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 3429,
+                    "tick": 3997,
+                    "ticks": 568,
+                    "outcome": "Defeat",
+                    "commands": [
+                        "C|w=8|t=3429|Start=Started|gold=67"
+                    ],
+                    "applied": [
+                        1027,
+                        120,
+                        0
+                    ],
+                    "overkill": [
+                        37,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        8,
+                        1,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        0
+                    ],
+                    "targets": [
+                        0,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 13,
+                    "liveRemainingHp": 40,
+                    "enemyHp": 100
+                }
+            ]
+        },
+        {
+            "strategy": "matched",
+            "terminal": "Victory",
+            "timelineSha256": "308538ef9bca8c0f5f31845e76a4570f89a71c16ecc202c920d1715769a3f6a5",
+            "startingGold": 150,
+            "startingHealth": 20,
+            "timelineEntries": 3848,
+            "receipts": [
+                "C|w=1|t=0|Place flame (-2,-1)=accepted id=1|gold=80",
+                "C|w=1|t=0|Place gale (1,0)=accepted id=2|gold=0",
+                "C|w=1|t=0|Start=Started|gold=0",
+                "C|w=2|t=399|Next=Continued|gold=35",
+                "C|w=2|t=399|Next=RejectedInvalidPhase|gold=35",
+                "C|w=2|t=399|Start=Started|gold=35",
+                "C|w=3|t=828|Next=Continued|gold=70",
+                "C|w=3|t=828|Next=RejectedInvalidPhase|gold=70",
+                "C|w=3|t=828|Place tide (-1,0)=accepted id=3|gold=10",
+                "C|w=3|t=828|Start=Started|gold=10",
+                "C|w=4|t=1287|Next=Continued|gold=60",
+                "C|w=4|t=1287|Next=RejectedInvalidPhase|gold=60",
+                "C|w=4|t=1287|Start=Started|gold=60",
+                "C|w=5|t=1788|Next=Continued|gold=110",
+                "C|w=5|t=1788|Next=RejectedInvalidPhase|gold=110",
+                "C|w=5|t=1788|Place stone (-3,-1)=accepted id=4|gold=20",
+                "C|w=5|t=1788|Start=Started|gold=20",
+                "C|w=6|t=2229|Next=Continued|gold=85",
+                "C|w=6|t=2229|Next=RejectedInvalidPhase|gold=85",
+                "C|w=6|t=2229|Start=Started|gold=85",
+                "C|w=7|t=2778|Next=Continued|gold=150",
+                "C|w=7|t=2778|Next=RejectedInvalidPhase|gold=150",
+                "C|w=7|t=2778|Sell 3=accepted refund=42|gold=192",
+                "C|w=7|t=2778|Sell 3=rejected TowerNotFound|gold=192",
+                "C|w=7|t=2778|Place tide (-1,0)=accepted id=5|gold=132",
+                "C|w=7|t=2778|Upgrade 5=accepted|gold=42",
+                "C|w=7|t=2778|Start=Started|gold=42",
+                "C|w=8|t=3235|Next=Continued|gold=117",
+                "C|w=8|t=3235|Next=RejectedInvalidPhase|gold=117",
+                "C|w=8|t=3235|Start=Started|gold=117"
+            ],
+            "waves": [
+                {
+                    "wave": 1,
+                    "health": 18,
+                    "gold": 35,
+                    "kills": 3,
+                    "leaks": 2,
+                    "spawned": 5,
+                    "live": 0,
+                    "investment": 150,
+                    "purchases": 150,
+                    "refunds": 0,
+                    "startTick": 0,
+                    "tick": 399,
+                    "ticks": 399,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=1|t=0|Place flame (-2,-1)=accepted id=1|gold=80",
+                        "C|w=1|t=0|Place gale (1,0)=accepted id=2|gold=0",
+                        "C|w=1|t=0|Start=Started|gold=0"
+                    ],
+                    "applied": [
+                        316,
+                        84,
+                        0
+                    ],
+                    "overkill": [
+                        10,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        3,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        0
+                    ],
+                    "targets": [
+                        0,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 100,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 2,
+                    "health": 15,
+                    "gold": 70,
+                    "kills": 6,
+                    "leaks": 3,
+                    "spawned": 6,
+                    "live": 0,
+                    "investment": 150,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 399,
+                    "tick": 828,
+                    "ticks": 429,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=2|t=399|Start=Started|gold=35"
+                    ],
+                    "applied": [
+                        348,
+                        102,
+                        0
+                    ],
+                    "overkill": [
+                        10,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        3,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        0
+                    ],
+                    "targets": [
+                        0,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 150,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 3,
+                    "health": 14,
+                    "gold": 60,
+                    "kills": 12,
+                    "leaks": 1,
+                    "spawned": 7,
+                    "live": 0,
+                    "investment": 210,
+                    "purchases": 60,
+                    "refunds": 0,
+                    "startTick": 828,
+                    "tick": 1287,
+                    "ticks": 459,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=3|t=828|Place tide (-1,0)=accepted id=3|gold=10",
+                        "C|w=3|t=828|Start=Started|gold=10"
+                    ],
+                    "applied": [
+                        471,
+                        72,
+                        122
+                    ],
+                    "overkill": [
+                        23,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        4,
+                        1,
+                        1
+                    ],
+                    "procs": [
+                        6,
+                        4
+                    ],
+                    "targets": [
+                        8,
+                        7
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        5,
+                        16
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        1,
+                        0
+                    ],
+                    "reactionApplied": [
+                        88,
+                        34
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 35,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 4,
+                    "health": 12,
+                    "gold": 110,
+                    "kills": 18,
+                    "leaks": 2,
+                    "spawned": 8,
+                    "live": 0,
+                    "investment": 210,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 1287,
+                    "tick": 1788,
+                    "ticks": 501,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=4|t=1287|Start=Started|gold=60"
+                    ],
+                    "applied": [
+                        520,
+                        90,
+                        140
+                    ],
+                    "overkill": [
+                        23,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        4,
+                        1,
+                        1
+                    ],
+                    "procs": [
+                        7,
+                        5
+                    ],
+                    "targets": [
+                        9,
+                        9
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        5,
+                        19
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        1,
+                        0
+                    ],
+                    "reactionApplied": [
+                        98,
+                        42
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 50,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 5,
+                    "health": 12,
+                    "gold": 85,
+                    "kills": 27,
+                    "leaks": 0,
+                    "spawned": 9,
+                    "live": 0,
+                    "investment": 300,
+                    "purchases": 90,
+                    "refunds": 0,
+                    "startTick": 1788,
+                    "tick": 2229,
+                    "ticks": 441,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=5|t=1788|Place stone (-3,-1)=accepted id=4|gold=20",
+                        "C|w=5|t=1788|Start=Started|gold=20"
+                    ],
+                    "applied": [
+                        738,
+                        51,
+                        111
+                    ],
+                    "overkill": [
+                        40,
+                        0,
+                        7
+                    ],
+                    "lethal": [
+                        8,
+                        0,
+                        1
+                    ],
+                    "procs": [
+                        8,
+                        4
+                    ],
+                    "targets": [
+                        8,
+                        7
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        4,
+                        9
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        1,
+                        0
+                    ],
+                    "reactionApplied": [
+                        77,
+                        34
+                    ],
+                    "reactionOverkill": [
+                        7,
+                        0
+                    ],
+                    "leakedRemainingHp": 0,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 6,
+                    "health": 11,
+                    "gold": 150,
+                    "kills": 36,
+                    "leaks": 1,
+                    "spawned": 10,
+                    "live": 0,
+                    "investment": 300,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 2229,
+                    "tick": 2778,
+                    "ticks": 549,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=6|t=2229|Start=Started|gold=85"
+                    ],
+                    "applied": [
+                        763,
+                        89,
+                        116
+                    ],
+                    "overkill": [
+                        77,
+                        1,
+                        0
+                    ],
+                    "lethal": [
+                        8,
+                        1,
+                        0
+                    ],
+                    "procs": [
+                        7,
+                        4
+                    ],
+                    "targets": [
+                        8,
+                        8
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        4,
+                        15
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        84,
+                        32
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 32,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 7,
+                    "health": 11,
+                    "gold": 117,
+                    "kills": 47,
+                    "leaks": 0,
+                    "spawned": 11,
+                    "live": 0,
+                    "investment": 390,
+                    "purchases": 150,
+                    "refunds": 42,
+                    "startTick": 2778,
+                    "tick": 3235,
+                    "ticks": 457,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=7|t=2778|Sell 3=accepted refund=42|gold=192",
+                        "C|w=7|t=2778|Sell 3=rejected TowerNotFound|gold=192",
+                        "C|w=7|t=2778|Place tide (-1,0)=accepted id=5|gold=132",
+                        "C|w=7|t=2778|Upgrade 5=accepted|gold=42",
+                        "C|w=7|t=2778|Start=Started|gold=42"
+                    ],
+                    "applied": [
+                        890,
+                        45,
+                        165
+                    ],
+                    "overkill": [
+                        26,
+                        3,
+                        7
+                    ],
+                    "lethal": [
+                        6,
+                        3,
+                        2
+                    ],
+                    "procs": [
+                        9,
+                        4
+                    ],
+                    "targets": [
+                        11,
+                        8
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        8,
+                        16
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        1
+                    ],
+                    "reactionLethal": [
+                        2,
+                        0
+                    ],
+                    "reactionApplied": [
+                        133,
+                        32
+                    ],
+                    "reactionOverkill": [
+                        7,
+                        0
+                    ],
+                    "leakedRemainingHp": 0,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 8,
+                    "health": 11,
+                    "gold": 197,
+                    "kills": 59,
+                    "leaks": 0,
+                    "spawned": 12,
+                    "live": 0,
+                    "investment": 390,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 3235,
+                    "tick": 3787,
+                    "ticks": 552,
+                    "outcome": "Victory",
+                    "commands": [
+                        "C|w=8|t=3235|Start=Started|gold=117"
+                    ],
+                    "applied": [
+                        918,
+                        58,
+                        224
+                    ],
+                    "overkill": [
+                        114,
+                        2,
+                        12
+                    ],
+                    "lethal": [
+                        10,
+                        1,
+                        1
+                    ],
+                    "procs": [
+                        9,
+                        4
+                    ],
+                    "targets": [
+                        14,
+                        8
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        6,
+                        13
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        4
+                    ],
+                    "reactionLethal": [
+                        1,
+                        0
+                    ],
+                    "reactionApplied": [
+                        168,
+                        56
+                    ],
+                    "reactionOverkill": [
+                        12,
+                        0
+                    ],
+                    "leakedRemainingHp": 0,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                }
+            ]
+        },
+        {
+            "strategy": "steam",
+            "terminal": "Defeat",
+            "timelineSha256": "d02b5d53eccb75612f0122a7016412d45661cd030bf78b978b61e2cc61329310",
+            "startingGold": 150,
+            "startingHealth": 20,
+            "timelineEntries": 1747,
+            "receipts": [
+                "C|w=1|t=0|Place steam (-2,-1)=accepted id=1|gold=40",
+                "C|w=1|t=0|Start=Started|gold=40",
+                "C|w=2|t=399|Next=Continued|gold=65",
+                "C|w=2|t=399|Next=RejectedInvalidPhase|gold=65",
+                "C|w=2|t=399|Sell 1=accepted refund=77|gold=142",
+                "C|w=2|t=399|Sell 1=rejected TowerNotFound|gold=142",
+                "C|w=2|t=399|Place steam (-2,-1)=accepted id=2|gold=32",
+                "C|w=2|t=399|Start=Started|gold=32",
+                "C|w=3|t=828|Next=Continued|gold=57",
+                "C|w=3|t=828|Next=RejectedInvalidPhase|gold=57",
+                "C|w=3|t=828|Upgrade 2=rejected InsufficientGold|gold=57",
+                "C|w=3|t=828|Start=Started|gold=57",
+                "C|w=4|t=1287|Next=Continued|gold=82",
+                "C|w=4|t=1287|Next=RejectedInvalidPhase|gold=82",
+                "C|w=4|t=1287|Start=Started|gold=82"
+            ],
+            "waves": [
+                {
+                    "wave": 1,
+                    "health": 16,
+                    "gold": 65,
+                    "kills": 1,
+                    "leaks": 4,
+                    "spawned": 5,
+                    "live": 0,
+                    "investment": 110,
+                    "purchases": 110,
+                    "refunds": 0,
+                    "startTick": 0,
+                    "tick": 399,
+                    "ticks": 399,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=1|t=0|Place steam (-2,-1)=accepted id=1|gold=40",
+                        "C|w=1|t=0|Start=Started|gold=40"
+                    ],
+                    "applied": [
+                        136,
+                        0,
+                        108
+                    ],
+                    "overkill": [
+                        8,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        1,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        6,
+                        0
+                    ],
+                    "targets": [
+                        6,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        6,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        1,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        108,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 256,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 2,
+                    "health": 11,
+                    "gold": 57,
+                    "kills": 2,
+                    "leaks": 5,
+                    "spawned": 6,
+                    "live": 0,
+                    "investment": 110,
+                    "purchases": 110,
+                    "refunds": 77,
+                    "startTick": 399,
+                    "tick": 828,
+                    "ticks": 429,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=2|t=399|Sell 1=accepted refund=77|gold=142",
+                        "C|w=2|t=399|Sell 1=rejected TowerNotFound|gold=142",
+                        "C|w=2|t=399|Place steam (-2,-1)=accepted id=2|gold=32",
+                        "C|w=2|t=399|Start=Started|gold=32"
+                    ],
+                    "applied": [
+                        154,
+                        0,
+                        126
+                    ],
+                    "overkill": [
+                        8,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        1,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        7,
+                        0
+                    ],
+                    "targets": [
+                        7,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        7,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        1,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        126,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 320,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 3,
+                    "health": 5,
+                    "gold": 82,
+                    "kills": 3,
+                    "leaks": 6,
+                    "spawned": 7,
+                    "live": 0,
+                    "investment": 110,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 828,
+                    "tick": 1287,
+                    "ticks": 459,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=3|t=828|Upgrade 2=rejected InsufficientGold|gold=57",
+                        "C|w=3|t=828|Start=Started|gold=57"
+                    ],
+                    "applied": [
+                        154,
+                        0,
+                        126
+                    ],
+                    "overkill": [
+                        8,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        1,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        7,
+                        0
+                    ],
+                    "targets": [
+                        7,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        7,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        1,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        126,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 420,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 4,
+                    "health": 0,
+                    "gold": 87,
+                    "kills": 4,
+                    "leaks": 5,
+                    "spawned": 8,
+                    "live": 2,
+                    "investment": 110,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 1287,
+                    "tick": 1716,
+                    "ticks": 429,
+                    "outcome": "Defeat",
+                    "commands": [
+                        "C|w=4|t=1287|Start=Started|gold=82"
+                    ],
+                    "applied": [
+                        172,
+                        0,
+                        144
+                    ],
+                    "overkill": [
+                        8,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        1,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        8,
+                        0
+                    ],
+                    "targets": [
+                        8,
+                        0
+                    ],
+                    "intrinsicProcs": [
+                        8,
+                        0
+                    ],
+                    "cooldownSuppressions": [
+                        1,
+                        0
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        0
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        144,
+                        0
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 320,
+                    "liveRemainingHp": 164,
+                    "enemyHp": 100
+                }
+            ]
+        },
+        {
+            "strategy": "storm",
+            "terminal": "Defeat",
+            "timelineSha256": "6875f34540467bb6ec5cd9a620cd0bf831eeb3cf4ff54c445fcd9d0e0b68db4a",
+            "startingGold": 150,
+            "startingHealth": 20,
+            "timelineEntries": 1627,
+            "receipts": [
+                "C|w=1|t=0|Place storm (-2,-1)=accepted id=1|gold=40",
+                "C|w=1|t=0|Start=Started|gold=40",
+                "C|w=2|t=399|Next=Continued|gold=60",
+                "C|w=2|t=399|Next=RejectedInvalidPhase|gold=60",
+                "C|w=2|t=399|Sell 1=accepted refund=77|gold=137",
+                "C|w=2|t=399|Sell 1=rejected TowerNotFound|gold=137",
+                "C|w=2|t=399|Place storm (-2,-1)=accepted id=2|gold=27",
+                "C|w=2|t=399|Start=Started|gold=27",
+                "C|w=3|t=828|Next=Continued|gold=47",
+                "C|w=3|t=828|Next=RejectedInvalidPhase|gold=47",
+                "C|w=3|t=828|Upgrade 2=rejected InsufficientGold|gold=47",
+                "C|w=3|t=828|Start=Started|gold=47",
+                "C|w=4|t=1287|Next=Continued|gold=67",
+                "C|w=4|t=1287|Next=RejectedInvalidPhase|gold=67",
+                "C|w=4|t=1287|Start=Started|gold=67"
+            ],
+            "waves": [
+                {
+                    "wave": 1,
+                    "health": 15,
+                    "gold": 60,
+                    "kills": 0,
+                    "leaks": 5,
+                    "spawned": 5,
+                    "live": 0,
+                    "investment": 110,
+                    "purchases": 110,
+                    "refunds": 0,
+                    "startTick": 0,
+                    "tick": 399,
+                    "ticks": 399,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=1|t=0|Place storm (-2,-1)=accepted id=1|gold=40",
+                        "C|w=1|t=0|Start=Started|gold=40"
+                    ],
+                    "applied": [
+                        135,
+                        0,
+                        48
+                    ],
+                    "overkill": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        5
+                    ],
+                    "targets": [
+                        0,
+                        8
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        5
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        8
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        2
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        48
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 317,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 2,
+                    "health": 9,
+                    "gold": 47,
+                    "kills": 0,
+                    "leaks": 6,
+                    "spawned": 6,
+                    "live": 0,
+                    "investment": 110,
+                    "purchases": 110,
+                    "refunds": 77,
+                    "startTick": 399,
+                    "tick": 828,
+                    "ticks": 429,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=2|t=399|Sell 1=accepted refund=77|gold=137",
+                        "C|w=2|t=399|Sell 1=rejected TowerNotFound|gold=137",
+                        "C|w=2|t=399|Place storm (-2,-1)=accepted id=2|gold=27",
+                        "C|w=2|t=399|Start=Started|gold=27"
+                    ],
+                    "applied": [
+                        153,
+                        0,
+                        66
+                    ],
+                    "overkill": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        6
+                    ],
+                    "targets": [
+                        0,
+                        11
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        6
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        9
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        2
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        66
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 381,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 3,
+                    "health": 2,
+                    "gold": 67,
+                    "kills": 0,
+                    "leaks": 7,
+                    "spawned": 7,
+                    "live": 0,
+                    "investment": 110,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 828,
+                    "tick": 1287,
+                    "ticks": 459,
+                    "outcome": "WaveComplete",
+                    "commands": [
+                        "C|w=3|t=828|Upgrade 2=rejected InsufficientGold|gold=47",
+                        "C|w=3|t=828|Start=Started|gold=47"
+                    ],
+                    "applied": [
+                        162,
+                        0,
+                        66
+                    ],
+                    "overkill": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        6
+                    ],
+                    "targets": [
+                        0,
+                        11
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        6
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        9
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        3
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        66
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 472,
+                    "liveRemainingHp": 0,
+                    "enemyHp": 100
+                },
+                {
+                    "wave": 4,
+                    "health": 0,
+                    "gold": 67,
+                    "kills": 0,
+                    "leaks": 2,
+                    "spawned": 8,
+                    "live": 6,
+                    "investment": 110,
+                    "purchases": 0,
+                    "refunds": 0,
+                    "startTick": 1287,
+                    "tick": 1596,
+                    "ticks": 309,
+                    "outcome": "Defeat",
+                    "commands": [
+                        "C|w=4|t=1287|Start=Started|gold=67"
+                    ],
+                    "applied": [
+                        144,
+                        0,
+                        66
+                    ],
+                    "overkill": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "lethal": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "procs": [
+                        0,
+                        6
+                    ],
+                    "targets": [
+                        0,
+                        11
+                    ],
+                    "intrinsicProcs": [
+                        0,
+                        6
+                    ],
+                    "cooldownSuppressions": [
+                        0,
+                        8
+                    ],
+                    "noNeighborSuppressions": [
+                        0,
+                        2
+                    ],
+                    "reactionLethal": [
+                        0,
+                        0
+                    ],
+                    "reactionApplied": [
+                        0,
+                        66
+                    ],
+                    "reactionOverkill": [
+                        0,
+                        0
+                    ],
+                    "leakedRemainingHp": 71,
+                    "liveRemainingHp": 519,
+                    "enemyHp": 100
+                }
+            ]
+        }
+    ]
+}

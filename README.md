@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. Текущий этап — **P2.2d / Task 3: интеграция гибридов, ожидает независимого review/merge**. Production config включает Steam/Storm и каталог FLAME/TIDE/GALE/STONE/STEAM/STORM; safe-wave saves остаются schema 2. Все шесть типов доступны с начала Preparation по утверждённому P-05, unlocks относятся к P2.3. Используется прежний generic UI; VFX/маркеры/инспектор реакций входят в P2.2e. Баланс остаётся гипотезой.
+Unity-проект мобильной tower defense игры для iOS. Текущий этап — **P2.2f / Task 5: replay, файловый rollback и impact evidence, ожидает независимого review/merge**. P2.2b–e находятся в `main`: Steam/Storm, шесть башен, VFX/два маркера/инспектор и safe-wave schema 2. Все шесть типов доступны с Preparation по утверждённому временному P-05; unlocks — P2.3. P2.2 не закрыт до review/merge P2.2f; баланс и G2 открыты.
 
 ## Окружение
 
@@ -104,7 +104,7 @@ Checkpoint schema 2 добавляет обязательный `towerTypeId`. �
 
 Burn наносит DoT, Wet замедляет движение, Gust усиливает последующие прямые атаки, Crack уменьшает броню. Каталог показывает четыре типа, уровни/статусы/цену Upgrade и refund Sell; Combat read-only, Pause и подтверждение продажи блокируют действия. Сохраняются типы, уровни, вложения, cooldown и next IDs; прерванный Combat повторяется с сохранённой Preparation без наград попытки.
 
-`BattleElementalReplayTests` воспроизводит saved EightWave через public commands. Зафиксирована стратегия со всеми четырьмя статусами, Upgrade и Sell/Rebuild: **Defeat, волна 8, tick 3997, HP 0, Gold 112, Kills 46, 8 DoT kills**. Победа не является условием теста. Два полных прогона и прохождение с файловым Continue/rollback совпадают. [Balance review](Docs/review/P2.1e/balance-review.md) и [JSON по волнам](Docs/review/P2.1e/replay-summary.json) отделяют измерения от гипотез; P2.1e ожидает независимого review/merge.
+`BattleElementalReplayTests` воспроизводит saved EightWave через public commands. Зафиксирована стратегия со всеми четырьмя статусами, Upgrade и Sell/Rebuild: **Defeat, волна 8, tick 3997, HP 0, Gold 112, Kills 46, 8 DoT kills**. Победа не является условием теста. Два полных прогона и прохождение с файловым Continue/rollback совпадают. [Balance review](Docs/review/P2.1e/balance-review.md) и [JSON по волнам](Docs/review/P2.1e/replay-summary.json) отделяют измерения от гипотез; P2.1e merged в PR #17.
 
 Сохранено визуальное evidence P2.1d: [каталог](Docs/review/P2.1d/01-catalog.png), [preview](Docs/review/P2.1d/02-preview.png), [статус в бою](Docs/review/P2.1d/03-status-combat.png), [Upgrade](Docs/review/P2.1d/04-upgraded-panel.png), [Sell](Docs/review/P2.1d/05-sell-confirmation.png), [Continue](Docs/review/P2.1d/06-continued-tower.png), [QA log](Docs/review/P2.1d/qa.log). Новые визуальные изменения в P2.1e отсутствуют. Editor tests/screenshots не подтверждают iPhone, реальные touch/safe area/background, производительность или готовность баланса.
 
@@ -112,7 +112,7 @@ Burn наносит DoT, Wet замедляет движение, Gust усил�
 
 Pure C# `ReactionResolver` разрешает Steam/Storm после direct damage event и обычного статуса выжившей primary. Он планирует ограниченный набор целей, резервирует общие primary/secondary окна по виду на 60 ticks, затем наносит secondary damage через long floor/saturation и armor/Crack. Смерти и награды остаются в существующем pipeline. `EnemyState.LastSteamTick/LastStormTick` доступны только для чтения.
 
-`BattleSimulation` принимает optional `ReactionCatalog`, сохраняет прежние constructors и предоставляет read-only `ReactionEvents`/`DamageEvents` с явными clear methods. `BattleSceneController` очищает все три потока в `finally` после каждого fixed Step; новая telemetry пока отбрасывается без VFX. Успешный Restore очищает transient state, rejected Restore его сохраняет. До P2.2d public config использовал Empty; internal factory с явным Empty сохраняет historical P2.1e fixture. Saved configs, сцены, UI, schema и баланс не менялись. [Проверки и ограничения](Docs/review/P2.2c/README.md); независимый PR review обязателен до merge.
+`BattleSimulation` принимает optional `ReactionCatalog`, сохраняет прежние constructors и предоставляет read-only `ReactionEvents`/`DamageEvents` с явными clear methods. `BattleSceneController` очищает все три потока в `finally` после каждого fixed Step; на этапе P2.2c новая telemetry отбрасывалась без VFX; P2.2e добавил её отображение. Успешный Restore очищает transient state, rejected Restore его сохраняет. До P2.2d public config использовал Empty; internal factory с явным Empty сохраняет historical P2.1e fixture. Saved configs, сцены, UI, schema и баланс не менялись. [Проверки и ограничения](Docs/review/P2.2c/README.md); независимый PR review обязателен до merge.
 
 ## Настройки репозитория
 
@@ -153,10 +153,18 @@ P1.5b проверен в настоящем Editor Play Mode через реа�
 
 Shared `TestWave.asset` содержит global Steam/Storm (60 ticks) и три уровня `steam`/`storm` по §6 [спецификации](Docs/P2.2A_REACTIONS.md). Каждый гибрид делает обычный direct hit и единственный intrinsic запрос общего resolver, без StatusEffect/ArmorPenetration. `EightWave.asset` хранит ссылку на TestWave без собственных копий tower/reaction catalogs. Invalid/частичные данные отклоняются; builder расширяет только полный прежний набор четырёх типов и сохраняет корректные данные при повторном запуске.
 
-Schema version **2**, content IDs и Store/migration API сохранены: payload определяется типом/уровнем, transient бой не сериализуется. Historical P2.1e replay использует явный internal Empty и прежние expectations/evidence. Новые данные, экономика/отказы, совместимость saves и публичная production factory покрыты REG-BATTLE-146…153. [Evidence, реальные Play Mode кадры и ограничения](Docs/review/P2.2d/README.md). Physical device, performance, balance и причинная визуализация ещё не подтверждены; G2 открыт.
+Schema version **2**, content IDs и Store/migration API сохранены: payload определяется типом/уровнем, transient бой не сериализуется. Historical P2.1e replay использует явный internal Empty и прежние expectations/evidence. Новые данные, экономика/отказы, совместимость saves и публичная production factory покрыты REG-BATTLE-146…153. [Evidence, реальные Play Mode кадры и ограничения](Docs/review/P2.2d/README.md). Причинная визуализация проверена в P2.2e; physical device, performance и balance не подтверждены; G2 открыт.
 
 ## P2.2e — читаемость реакций и inspector
 
 Graybox Presentation показывает captured Steam ring/impacts и Storm chain, два overhead slots с cause/intrinsic cue, read-only enemy inspector и общий итог фактических hits/AppliedHpLoss. Preview/panel объясняют intrinsic параметры/условия и базовые пары. Pool ограничен, fixed-Step events очищаются в finally, Pause и Restore/Continue/New Game покрыты regressions. Domain/balance/configs/packages не менялись.
 
-Локальные gates: static 38/38, EditMode 520/520, PlayMode 24/24, 0 failed/skipped/inconclusive. [14 реальных Editor Play Mode кадров, Console audit, source SHA и ограничения](Docs/review/P2.2e/README.md). Synthetic fixtures явно обозначены; physical iPhone/performance/баланс/G2 не подтверждены, полный replay/impact остаётся P2.2f. PR требует независимого review; self-merge/release не выполняются.
+Локальные gates: static 38/38, EditMode 520/520, PlayMode 24/24, 0 failed/skipped/inconclusive. [14 реальных Editor Play Mode кадров, Console audit, source SHA и ограничения](Docs/review/P2.2e/README.md). Synthetic fixtures явно обозначены; physical iPhone/performance/баланс/G2 не подтверждены, полный replay/impact проверяется в P2.2f. PR требует независимого review; self-merge/release не выполняются.
+
+## P2.2f — полные replay и файловый rollback
+
+`BattleReactionReplayTests` сравнивает каждый tick/receipt/event полного матча дважды: явный internal `ReactionCatalog.Empty` сохраняет исторический P2.1e JSON; matched использует тот же basic command script с production реакциями; STEAM/STORM имеют отдельные scripts с обычными 150 Gold / 20 HP. HP loss/overkill/lethal сверяются по enemy ID с реальным HP и единственной reward. Suppressions вычисляет test-only observer по snapshots/events, без production log. Synthetic armor fixture сохранён отдельно от saved матчей.
+
+Файловый Store/CheckpointController rollback после настоящего reaction kill возвращает Preparation, HP/Gold/Kills/IDs/cooldown/Grid и очищает enemies/statuses/timestamps/events. Два повторения prefix и последующий полный матч совпадают с control; настоящий MainMenu Continue/Next в PlayMode не повторяет наград. [Результаты, команды, SHA и ограничения](Docs/review/P2.2f/impact-review.md), [проверяемый JSON](Docs/review/P2.2f/replay-summary.json). Runtime/цены/волны не изменены.
+
+[План до первой TestFlight](Docs/ROADMAP.md): после P2.2f — утверждённый на iPhone эталон арта, P2.3, P2.4, оформление среза, P2.5 и device QA. Обязательное условие владельца — готовый арт первого среза: одна оформленная карта, шесть башен, восемь волн, босс, обучение и согласованные UI/VFX/звук. Полный релиз (10 башен/3 карты/15 волн) — отдельная цель. Физические device/performance, external playtests, balance approval и G2 открыты.

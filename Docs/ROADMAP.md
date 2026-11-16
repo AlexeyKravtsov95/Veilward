@@ -34,7 +34,26 @@
 
 **P2.1 status: DONE после merge P2.1e.** [PR #17](https://github.com/AlexeyKravtsov95/Veilward/pull/17) merged в `main` 2026-11-15, merge commit `5e8f541`. Последовательность P2.1a–e завершена: definitions/schema 2, четыре базовых статуса, каталог/UI и интеграционная проверка. REG-BATTLE-125…127 проверяют saved EightWave, экономику и файловый Continue/Combat rollback. Естественный результат фиксированной стратегии: Defeat на волне 8, tick 3997, HP 0, Gold 112, Kills 46, 8 DoT kills; [balance review](review/P2.1e/balance-review.md), [replay JSON](review/P2.1e/replay-summary.json). Зафиксированные локальные gates P2.1e: static 38/38, EditMode 317/317, PlayMode 15/15, 0 failed/inconclusive/skipped; `git diff --check` PASS. Это завершение технического scope P2.1. **G2 и готовность баланса остаются открытыми:** внешние плейтесты, physical iPhone/touch/safe area/performance и утверждение баланса ещё не выполнены. Реакции/гибриды/unlocks в P2.1 не входят; прежние формулировки «ожидает merge» в отчёте P2.1e относятся к моменту его подготовки.
 
-**P2.2a status: проект спецификации для утверждения.** [Steam/Storm и две гибридные башни](P2.2A_REACTIONS.md), [последовательный план P2.2b–f](P2.2A_IMPLEMENTATION_PLAN.md) и REG-BATTLE-128…163 подготовлены только как документы. P-01…P-07 явно выделяют новые продуктовые предложения, все новые числа — гипотезы. Игровая реализация начинается после утверждения спецификации; P2.2, G2 и баланс не объявлены завершёнными. Временная доступность гибридов до P2.3 также требует утверждения.
+**P2.2 status: P2.2b–e merged, P2.2f на независимое review; P2.2 ещё не DONE.** Definitions, resolver Steam/Storm, production гибриды/schema 2 и graybox presentation находятся в `main`; последняя база — [PR #22](https://github.com/AlexeyKravtsov95/Veilward/pull/22), `8159f4c`. Task 5 проверяет replay, файловый rollback/Continue и измеряет impact отдельно от balance approval: [отчёт](review/P2.2f/impact-review.md), [JSON](review/P2.2f/replay-summary.json). Все шесть типов доступны с Preparation по утверждённому временному P-05 до P2.3. Закрыть технический P2.2 можно только после независимого review и merge P2.2f. **G2, external playtests, device/performance QA и balance approval остаются открытыми.**
+
+### Последовательность до первой TestFlight
+
+**P2.2f → эталон арта → P2.3 открытие стихий → P2.4 способность и босс → оформление первого среза → P2.5 обучение/баланс → device QA → первая TestFlight.** Это план будущих работ, а не перечень выполненных этапов.
+
+| Этап | Результат и условие перехода | Статус |
+|---|---|---|
+| P2.2f | Детерминированные матчи/rollback и измерения, затем независимое review/merge | На review, технический P2.2 пока открыт |
+| Эталон арта | Фрагмент карты, одна башня, один враг и эффект в едином направлении; Blender `.blend` → FBX → Unity по [ART_PIPELINE](ART_PIPELINE.md) | Не выполнен; утверждает владелец |
+| P2.3 | Настоящее открытие стихий/требования гибридов в Domain и UI | Не выполнен |
+| P2.4 | Базовая способность и босс, проверяемая интеграция восьми волн | Не выполнен |
+| Оформление первого среза | Одна оформленная карта, все шесть башен, враги/босс и согласованные UI/VFX/звук | Не выполнено |
+| P2.5 | Обучение, объяснения, внешние плейтесты и согласование баланса; G2 остаётся gate | Не выполнен |
+| Device QA | Физический iPhone: touch/safe area, background/force quit/Continue, allocations/frame time/memory/thermal | Не выполнен |
+| Первая TestFlight | Одна оформленная карта, шесть башен, восемь волн, босс, обучение и согласованные UI/VFX/звук | Не выполнена; отдельное approval |
+
+Подбор художественного направления может идти параллельно технической проверке P2.2f. Массовое производство начинается только после утверждения эталона владельцем и проверки его в Unity **и на физическом iPhone**. Происхождение/лицензии, source, `.meta`, budgets и import checks — по ART_PIPELINE. В этом PR новые механики и арт не создаются.
+
+**Обязательное условие владельца для первой TestFlight — готовый арт первого среза.** Graybox с зелёными тестами этого условия не выполняет. Первая TestFlight — ограниченный вертикальный срез, а **полный релиз остаётся отдельной целью**: десять башен, три карты, пятнадцать волн и остальной release scope GDD/Phase 3–5. Ни первая TestFlight, ни полный релиз не отмечены выполненными.
 
 ## Phase 3 — Expand to release content (4–6 недель)
 
@@ -42,7 +61,7 @@
 
 ## Phase 4 — Platform quality (2–4 недели)
 
-**P4.1:** iPhone/iPad landscape layout + safe areas. **P4.2:** asset budgets, IL2CPP/Metal, profiled stress test. **P4.3:** save migrations, interrupted session, airplane mode. **P4.4:** localization, sound, user settings. **P4.5:** App Store artwork/privacy/terms and IAP product + Restore if paid unlock is selected. **Deliverable:** stable TestFlight candidate.
+**P4.1:** iPhone/iPad landscape layout + safe areas. **P4.2:** asset budgets, IL2CPP/Metal, profiled stress test. **P4.3:** save migrations, interrupted session, airplane mode. **P4.4:** localization, sound, user settings. **P4.5:** App Store artwork/privacy/terms and IAP product + Restore if paid unlock is selected. **Deliverable:** platform quality для release scope; первая TestFlight вертикального среза имеет отдельную последовательность выше.
 
 ## Phase 5 — External beta & App Store (2–3 недели)
 
