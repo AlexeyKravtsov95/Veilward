@@ -244,6 +244,122 @@ namespace Veilward.Tests.PlayMode
             Assert.That(original == null, Is.True, "Old view must not survive Restore.");
         }
 
+        [UnityTest]
+        public IEnumerator RegBattle160_ReactionKill_FileContinueAndRepeatedNextDoNotPay()
+        {
+            yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
+            Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke(); yield return null; yield return null;
+            var battle = Object.FindFirstObjectByType<BattleSceneController>(); battle.enabled = false;
+            var store = new WaveCheckpointStore(_slot);
+            BattleCheckpoint preparation = null;
+            string expected = null;
+            var prefix = new System.Collections.Generic.List<string>();
+            var found = false;
+            // Прежний basic script, настоящий бюджет и saved EightWave; без injection HP/Gold/status.
+            for (var wave = 1; wave <= 8 && !found; wave++)
+            {
+                if (wave == 1)
+                {
+                    Assert.That(battle.PlaceTower(new TowerDefinitionId("flame"), new GridCoordinate(-2, -1)).Success, Is.True);
+                    Assert.That(battle.PlaceTower(new TowerDefinitionId("gale"), new GridCoordinate(1, 0)).Success, Is.True);
+                }
+                if (wave == 3) Assert.That(battle.PlaceTower(new TowerDefinitionId("tide"), new GridCoordinate(-1, 0)).Success, Is.True);
+                if (wave == 5) Assert.That(battle.PlaceTower(new TowerDefinitionId("stone"), new GridCoordinate(-3, -1)).Success, Is.True);
+                preparation = battle.Simulation.ExportCheckpoint(); expected = FileState(battle.Simulation);
+                Assert.That(battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+                var bytes = File.ReadAllBytes(store.PrimaryPath); prefix.Clear();
+                prefix.Add(FileState(battle.Simulation));
+                var sawTimestamp = false;
+                for (var tick = 0; tick < 20000 && battle.Simulation.State.Phase == BattlePhase.Combat; tick++)
+                {
+                    battle.Simulation.Step(); prefix.Add(FileState(battle.Simulation));
+                    sawTimestamp = battle.Simulation.State.Enemies.Any(e => e.LastSteamTick.HasValue || e.LastStormTick.HasValue);
+                    found = battle.Simulation.DamageEvents.Any(d => d.Origin == DamageOrigin.Reaction && d.WasLethal) &&
+                        sawTimestamp && battle.Simulation.State.Phase == BattlePhase.Combat;
+                    if (found) break;
+                    Drain(battle);
+                }
+                if (found)
+                {
+                    Assert.That(battle.Simulation.State.Gold, Is.GreaterThan(preparation.gold));
+                    Assert.That(battle.Simulation.State.Kills, Is.GreaterThan(preparation.kills));
+                    Assert.That(File.ReadAllBytes(store.PrimaryPath), Is.EqualTo(bytes));
+                    Assert.That(battle.Simulation.ReactionEvents, Is.Not.Empty);
+                    break;
+                }
+                Drain(battle);
+                Assert.That(Object.FindFirstObjectByType<BattleCheckpointController>().ObservePhaseTransition(), Is.True);
+                if (battle.Simulation.State.Phase != BattlePhase.WaveComplete) break;
+                Assert.That(battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.Continued));
+            }
+            Assert.That(found, Is.True, "Требуется реальный reaction kill в saved матче");
+            Assert.That(preparation.towers.Any(t => t.nextAttackTick > 0), Is.True);
+            // Два настоящих menu Continue + полное повторение prefix, затем третий Continue для завершения волны.
+            for (var repeat = 0; repeat < 3; repeat++)
+            {
+                yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
+                var menu = Object.FindFirstObjectByType<MainMenuController>();
+                Assert.That(menu.ContinueButton.interactable, Is.True);
+                menu.ContinueButton.onClick.Invoke(); yield return null; yield return null;
+                battle = Object.FindFirstObjectByType<BattleSceneController>(); battle.enabled = false;
+                Assert.That(FileState(battle.Simulation), Is.EqualTo(expected));
+                Assert.That(JsonUtility.ToJson(battle.Simulation.ExportCheckpoint()), Is.EqualTo(JsonUtility.ToJson(preparation)));
+                AssertClean(); Assert.That(battle.Simulation.State.Enemies, Is.Empty);
+                Assert.That(battle.Simulation.AttackEvents, Is.Empty); Assert.That(battle.Simulation.ReactionEvents, Is.Empty); Assert.That(battle.Simulation.DamageEvents, Is.Empty);
+                Assert.That(battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+                Assert.That(FileState(battle.Simulation), Is.EqualTo(prefix[0]));
+                for (var i = 1; i < prefix.Count; i++)
+                {
+                    battle.Simulation.Step(); Assert.That(FileState(battle.Simulation), Is.EqualTo(prefix[i])); Drain(battle);
+                }
+            }
+            for (var guard = 0; guard < 20000 && battle.Simulation.State.Phase == BattlePhase.Combat; guard++) { battle.Simulation.Step(); Drain(battle); }
+            Assert.That(battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
+            var checkpoint = Object.FindFirstObjectByType<BattleCheckpointController>();
+            Assert.That(checkpoint.ObservePhaseTransition(), Is.True);
+            var completed = JsonUtility.ToJson(battle.Simulation.ExportCheckpoint());
+            var gold = battle.Simulation.State.Gold; var kills = battle.Simulation.State.Kills;
+            for (var i = 0; i < 2; i++)
+            {
+                yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
+                Object.FindFirstObjectByType<MainMenuController>().ContinueButton.onClick.Invoke(); yield return null; yield return null;
+                battle = Object.FindFirstObjectByType<BattleSceneController>(); battle.enabled = false;
+                Assert.That(JsonUtility.ToJson(battle.Simulation.ExportCheckpoint()), Is.EqualTo(completed));
+            }
+            Assert.That(battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.Continued));
+            var stable = FileState(battle.Simulation);
+            Assert.That(battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.RejectedInvalidPhase));
+            Assert.That(FileState(battle.Simulation), Is.EqualTo(stable));
+            Assert.That(battle.Simulation.State.Gold, Is.EqualTo(gold)); Assert.That(battle.Simulation.State.Kills, Is.EqualTo(kills));
+        }
+        private static void Drain(BattleSceneController battle) => typeof(BattleSceneController).GetMethod("ProcessAttackEvents", Flags).Invoke(battle, null);
+        private static string FileState(BattleSimulation s)
+        {
+            // JsonUtility не сериализует read-only properties событий, поэтому поля перечислены явно.
+            var b = new System.Text.StringBuilder().Append(s.State.Phase).Append('|').Append(s.State.Tick).Append('|').Append(s.State.WaveIndex)
+                .Append('|').Append(s.State.BaseHealth).Append('|').Append(s.State.Gold).Append('|').Append(s.State.Kills);
+            if (s.State.Phase != BattlePhase.Combat) b.Append('|').Append(JsonUtility.ToJson(s.ExportCheckpoint()));
+            foreach (var t in s.State.Towers) b.Append("|T:").Append(t.Id.Value).Append(',').Append(t.Definition.Id.Value).Append(',').Append(t.Level)
+                .Append(',').Append(t.Coordinate.X).Append(',').Append(t.Coordinate.Y).Append(',').Append(t.InvestedGold).Append(',').Append(t.NextAttackTick);
+            foreach (var e in s.State.Enemies)
+            {
+                b.Append("|E:").Append(e.Id.Value).Append(',').Append(e.Health).Append(',').Append(e.DistanceAlongPath.ToString("R", System.Globalization.CultureInfo.InvariantCulture))
+                    .Append(',').Append(e.LastSteamTick).Append(',').Append(e.LastStormTick);
+                foreach (var st in e.Statuses) b.Append(';').Append(st.Kind).Append(',').Append(st.Power).Append(',').Append(st.RemainingTicks)
+                    .Append(',').Append(st.NextDamageTick).Append(',').Append(st.DamageIntervalTicks).Append(',').Append(st.SourceTowerId.Value);
+            }
+            for (var y = s.Grid.Map.Origin.Y; y < s.Grid.Map.Origin.Y + s.Grid.Map.Height; y++)
+                for (var x = s.Grid.Map.Origin.X; x < s.Grid.Map.Origin.X + s.Grid.Map.Width; x++) b.Append('|').Append(s.Grid.GetState(new GridCoordinate(x, y)));
+            foreach (var a in s.AttackEvents) b.Append("|A:").Append(a.Tick).Append(',').Append(a.AttackerTowerId.Value).Append(',').Append(a.TargetEnemyId.Value)
+                .Append(',').Append(a.Damage).Append(',').Append(a.WasLethal).Append(',').Append(a.TargetPosition.X).Append(',').Append(a.TargetPosition.Y);
+            foreach (var e in s.ReactionEvents) b.Append("|R:").Append(e.Tick).Append(',').Append(e.SequenceInTick).Append(',').Append(e.Kind).Append(',').Append(e.TriggerKind)
+                .Append(',').Append(e.SourceTowerId.Value).Append(',').Append(e.PrimaryEnemyId.Value).Append(',').Append(e.RadiusOrHopRange).Append(',').Append(e.TargetLimit);
+            foreach (var d in s.DamageEvents) b.Append("|D:").Append(d.Tick).Append(',').Append(d.SequenceInTick).Append(',').Append(d.Origin).Append(',').Append(d.SourceTowerId.Value)
+                .Append(',').Append(d.TargetEnemyId.Value).Append(',').Append(d.AppliedHpLoss).Append(',').Append(d.HealthAfter).Append(',').Append(d.WasLethal)
+                .Append(',').Append(d.ReactionKind).Append(',').Append(d.ReactionSequenceInTick).Append(',').Append(d.HitIndex);
+            return b.ToString();
+        }
+
         private static void AssertClean()
         {
             var battle = Object.FindFirstObjectByType<BattleSceneController>();

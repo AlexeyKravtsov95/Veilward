@@ -1,0 +1,70 @@
+{
+    "wave": 1,
+    "health": 20,
+    "gold": 40,
+    "kills": 0,
+    "leaks": 0,
+    "spawned": 3,
+    "live": 3,
+    "investment": 110,
+    "purchases": 110,
+    "refunds": 0,
+    "startTick": 0,
+    "tick": 100,
+    "ticks": 100,
+    "outcome": "Combat",
+    "commands": [
+        "C|w=1|t=0|Place steam (0,1)=accepted id=1|gold=40",
+        "C|w=1|t=0|Start=Started|gold=40"
+    ],
+    "applied": [
+        33,
+        0,
+        44
+    ],
+    "overkill": [
+        0,
+        0,
+        0
+    ],
+    "lethal": [
+        0,
+        0,
+        0
+    ],
+    "procs": [
+        2,
+        0
+    ],
+    "targets": [
+        4,
+        0
+    ],
+    "intrinsicProcs": [
+        2,
+        0
+    ],
+    "cooldownSuppressions": [
+        1,
+        0
+    ],
+    "noNeighborSuppressions": [
+        0,
+        0
+    ],
+    "reactionLethal": [
+        0,
+        0
+    ],
+    "reactionApplied": [
+        44,
+        0
+    ],
+    "reactionOverkill": [
+        0,
+        0
+    ],
+    "leakedRemainingHp": 0,
+    "liveRemainingHp": 2923,
+    "enemyHp": 1000
+}
