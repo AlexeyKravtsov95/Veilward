@@ -1,0 +1,11 @@
+00:00.663  blend            | Read blend: "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1-1/Veilward/ArtSource/Blender/ART1/Environment_FloatingIsland.blend"
+Traceback (most recent call last):
+  File "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1-1/Veilward/ArtSource/Blender/ART1/tests/check_art11_geometry.py", line 29, in <module>
+    assert min(p.z for p in points)<-4.2, 'Недостаточная глубина скального основания'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Недостаточная глубина скального основания
+
+Error: script failed, file: 'ArtSource/Blender/ART1/tests/check_art11_geometry.py', exiting.
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:21)
+
+Blender quit

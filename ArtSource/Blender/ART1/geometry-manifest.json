@@ -9,17 +9,17 @@
   },
   {
     "asset": "Enemy_Shade",
-    "triangles": 183,
+    "triangles": 185,
     "materialSlots": 2,
-    "vertices": 132,
+    "vertices": 133,
     "source": "ArtSource/Blender/ART1/Enemy_Shade.blend",
     "fbx": "Assets/_Game/Art/Models/ART1/Enemy_Shade.fbx"
   },
   {
     "asset": "Environment_FloatingIsland",
-    "triangles": 932,
+    "triangles": 776,
     "materialSlots": 1,
-    "vertices": 504,
+    "vertices": 434,
     "source": "ArtSource/Blender/ART1/Environment_FloatingIsland.blend",
     "fbx": "Assets/_Game/Art/Models/ART1/Environment_FloatingIsland.fbx"
   },

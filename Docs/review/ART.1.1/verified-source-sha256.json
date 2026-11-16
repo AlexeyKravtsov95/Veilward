@@ -1,0 +1,24 @@
+{
+  "base": "e33142a",
+  "files": {
+    "ArtSource/Blender/ART1/Enemy_Shade.blend": "0a34cd9a97af423826e2eb9c22a813004d558c23c88f09dc93a66027d4e0f0af",
+    "ArtSource/Blender/ART1/Environment_FloatingIsland.blend": "0c6f472ee2d4bdeee631f9b7c08cbd4574b3ce70ba98decbc723519cc8024630",
+    "ArtSource/Blender/ART1/README.md": "a14bb9e4788a294e0e482a8a9a7d529a47b53917259c518d501f729cf59d064f",
+    "ArtSource/Blender/ART1/Tower_FlameLantern.blend": "8b6eeba85854b34d14fd94a31362537feb19f6052d7620ccf911209c76145d69",
+    "ArtSource/Blender/ART1/geometry-manifest.json": "65749ce21ac475675ac7dfb9d8859129abef776272b51fed98f6d883e5613474",
+    "ArtSource/Blender/ART1/refine_art11.py": "f167fc926aebb2516779161640175fe0563180beef86398c6046a97b56db0cc4",
+    "ArtSource/Blender/ART1/tests/check_art11_geometry.py": "c43aecb614b6e27fed1d60859e6b0b50111b88c72197373c5c204096676020a8",
+    "ArtSource/Blender/ART1/verify_reexport.py": "41e219b2e6fbe451f45a026b2dc717b5152f03d7212b3f8c511edb59d5675a3e",
+    "ArtSource/Review/AuditArt11.cs": "b4f0fcfb9f147e735e6e2416ab52f9cb393ad05b2a1aa4bd39aa03cefe9bb013",
+    "ArtSource/Review/CaptureArt11.cs": "19b2cef24d38af18cc73c23706526013afebebcb13437f3d8382d0f43e6809e0",
+    "ArtSource/Review/ExportBaselineMeshes.py": "eb8f9473bcbe4bb53f86a63cb4a8cc6812d0394c1e9c5c5e9fec12c0faae27f2",
+    "ArtSource/Review/MeasureArt11Occlusion.cs": "f9bf16bf4e05a1613c9b8ec2e43d14b8a01c28159d5323f282ababe3e95ef283",
+    "Assets/_Game/Art/Models/ART1/Enemy_Shade.fbx": "b72e8db4331e9c1222ef85936b459160b5ad7c7274881b7351d6062efbc6ecea",
+    "Assets/_Game/Art/Models/ART1/Environment_FloatingIsland.fbx": "ec67528f36b78cb4ee524572d8729f37e710f00794cdebecb67b15bee4cc52c5",
+    "Assets/_Game/Art/Models/ART1/Tower_FlameLantern.fbx": "e6983107bc7b535ef9d727f2f1b9e467df107c7adcb11c5e6b39354d87d0c7e3",
+    "Assets/_Game/Scenes/ArtReference.unity": "760340f24d84c2dba746dc9f522bc28109a75b68f741824238af7724730b075b",
+    "Assets/_Game/Scripts/Editor/ArtReferenceBuilder.cs": "5cb24a9326d77de62df7a1df693ad4f39e923db14bc50fcb1d6a1e479b7e90bc",
+    "Assets/_Game/Tests/EditMode/ArtReferenceAssetTests.cs": "ced9267566899920857e4a98ca484264c552a3ebaca3433e86cc8ad250be36b5",
+    "Assets/_Game/Tests/PlayMode/ArtReferencePlayModeTests.cs": "9e55b03044d0a7d624043e70fc5f86addbd67be29a10615a28377fa3732cd35e"
+  }
+}

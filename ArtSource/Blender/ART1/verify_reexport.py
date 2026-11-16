@@ -6,7 +6,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
 os.chdir(ROOT)
 BLENDER='/Applications/Blender.app/Contents/MacOS/Blender'
-EVIDENCE=ROOT/'Docs/review/ART.1'
+EVIDENCE=ROOT/os.environ.get('ART1_EVIDENCE_DIR','Docs/review/ART.1.1')
 CODE=r'''
 using System;
 using System.Linq;
@@ -35,7 +35,7 @@ return new { models, files };
 # Bundled .NET в Unity ещё не предоставляет Convert.ToHexString.
 CODE=CODE.replace('Convert.ToHexString(', 'BitConverter.ToString(')
 def snapshot():
-    p=subprocess.run(['unity','command','script eval','--caller','plugin','--skill','unity-cli','--format','json','--','--code',CODE],capture_output=True,text=True)
+    p=subprocess.run(['unity','command','script eval','--caller','plugin','--skill','unity-cli','--project-path',str(ROOT),'--format','json','--','--code',CODE],capture_output=True,text=True)
     if p.returncode: raise RuntimeError(p.stdout+'\n'+p.stderr)
     data=json.loads(p.stdout)
     if data.get('success') is not True or not data.get('result'): raise RuntimeError(p.stdout)

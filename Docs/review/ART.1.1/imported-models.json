@@ -1,0 +1,112 @@
+{
+  "models": [
+    {
+      "name": "Tower_FlameLantern",
+      "triangles": 1232,
+      "materialSlots": 2,
+      "vertices": 2624,
+      "bounds": "Center: (0.0000, 1.1425, 0.0000), Extents: (0.4700, 1.1425, 0.4700)",
+      "guid": "5ed6584cd505a4f869dd1c0e7cefb762",
+      "meshLocalId": 973283117290633173,
+      "materials": [
+        "MAT_Art1_Surface",
+        "MAT_Art1_Glow"
+      ]
+    },
+    {
+      "name": "Enemy_Shade",
+      "triangles": 185,
+      "materialSlots": 2,
+      "vertices": 431,
+      "bounds": "Center: (0.0000, 0.6750, 0.0227), Extents: (0.4200, 0.6750, 0.2813)",
+      "guid": "6f4ac4c2cedae4599ac89c66933ac64b",
+      "meshLocalId": 4368878645962747373,
+      "materials": [
+        "MAT_Art1_Surface",
+        "MAT_Art1_Glow"
+      ]
+    },
+    {
+      "name": "Environment_FloatingIsland",
+      "triangles": 776,
+      "materialSlots": 1,
+      "vertices": 1490,
+      "bounds": "Center: (-0.2141, -3.5725, 0.1022), Extents: (6.7613, 3.6275, 4.3477)",
+      "guid": "9a424ad79390d41b6b03d6c266ca6870",
+      "meshLocalId": 7146208916481253746,
+      "materials": [
+        "MAT_Art1_Surface"
+      ]
+    },
+    {
+      "name": "Environment_PathTile",
+      "triangles": 112,
+      "materialSlots": 1,
+      "vertices": 240,
+      "bounds": "Center: (0.0000, 0.0185, 0.0000), Extents: (0.4700, 0.0785, 0.4700)",
+      "guid": "803efa3d8e5cd4c8c90135cba1b53e11",
+      "meshLocalId": -3136899023574187942,
+      "materials": [
+        "MAT_Art1_Surface"
+      ]
+    },
+    {
+      "name": "Environment_BuildPad",
+      "triangles": 320,
+      "materialSlots": 1,
+      "vertices": 704,
+      "bounds": "Center: (0.0000, 0.0700, 0.0000), Extents: (0.4600, 0.1000, 0.4600)",
+      "guid": "b499e24e1800241949560781d42f2e46",
+      "meshLocalId": 3846852441865900260,
+      "materials": [
+        "MAT_Art1_Surface"
+      ]
+    },
+    {
+      "name": "Prop_Waystone",
+      "triangles": 220,
+      "materialSlots": 1,
+      "vertices": 480,
+      "bounds": "Center: (0.0000, 0.3750, 0.0000), Extents: (0.2400, 0.3750, 0.2250)",
+      "guid": "551fdc5097bd5414d8f1d37e7753e7a8",
+      "meshLocalId": 2760773810585272177,
+      "materials": [
+        "MAT_Art1_Surface"
+      ]
+    },
+    {
+      "name": "Prop_MossRock",
+      "triangles": 72,
+      "materialSlots": 1,
+      "vertices": 126,
+      "bounds": "Center: (0.0000, 0.1838, 0.0213), Extents: (0.4192, 0.2388, 0.4087)",
+      "guid": "19e61726aa5534d239dc8fab1377af92",
+      "meshLocalId": -9021969563481760453,
+      "materials": [
+        "MAT_Art1_Surface"
+      ]
+    },
+    {
+      "name": "Prop_RitualShrub",
+      "triangles": 138,
+      "materialSlots": 1,
+      "vertices": 276,
+      "bounds": "Center: (0.0237, 0.3053, 0.0250), Extents: (0.3428, 0.3097, 0.2750)",
+      "guid": "a6ca7c650be074a16be32b673b3ce904",
+      "meshLocalId": -392653988015225297,
+      "materials": [
+        "MAT_Art1_Surface"
+      ]
+    }
+  ],
+  "texture": {
+    "width": 128,
+    "height": 64,
+    "filter": "Point",
+    "mipmaps": false,
+    "iosOverride": true,
+    "iosFormat": "ASTC_4x4"
+  },
+  "unity": "6000.3.28f1",
+  "platform": "OSXEditor"
+}

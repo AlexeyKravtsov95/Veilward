@@ -1,0 +1,9 @@
+00:00.253  blend            | Read blend: "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1-1/Veilward/ArtSource/Blender/ART1/Environment_FloatingIsland.blend"
+00:00.265  blend            | Read blend: "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1-1/Veilward/ArtSource/Blender/ART1/Tower_FlameLantern.blend"
+00:00.274  blend            | Read blend: "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1-1/Veilward/ArtSource/Blender/ART1/Enemy_Shade.blend"
+PASS island: deep underside, 3 distinct rock masses
+PASS FLAME: reduced roof footprint, original pivot/height
+PASS Shade: complete cold hem, broad torn silhouette, outward mantle; volume 0.18925539263485303
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:21)
+
+Blender quit

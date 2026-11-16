@@ -1,0 +1,13 @@
+00:00.269  blend            | Read blend: "/Users/alexeykravtsov/.codex/worktrees/veilward-art-1-1/Veilward/ArtSource/Blender/ART1/Enemy_Shade.blend"
+PASS saved blend swatch 17 side -1 6 outward triangles; volume 0.004704333496192703
+PASS saved blend swatch 17 side 1 6 outward triangles; volume 0.004704333328845678
+PASS saved blend swatch 18 side -1 6 outward triangles; volume 0.0010584996956216248
+PASS saved blend swatch 18 side 1 6 outward triangles; volume 0.001058499704716572
+FBX version: 7400
+PASS exported FBX swatch 17 side -1 6 outward triangles; volume 0.004704333870904519
+PASS exported FBX swatch 17 side 1 6 outward triangles; volume 0.00470433359684345
+PASS exported FBX swatch 18 side -1 6 outward triangles; volume 0.0010584997286665991
+PASS exported FBX swatch 18 side 1 6 outward triangles; volume 0.0010584997601957489
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:21)
+
+Blender quit

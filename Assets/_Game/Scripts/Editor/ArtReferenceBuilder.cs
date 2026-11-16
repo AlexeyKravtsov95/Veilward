@@ -108,6 +108,7 @@ namespace Veilward.Editor
                 var rock = Place("Prop_MossRock",rocks[i],environment); rock.localScale *= .7f + (i%3)*.15f;
                 Place("Prop_RitualShrub",rocks[i]+new Vector3(.22f,0,-.08f),environment);
             }
+            AddArt11Clusters(environment);
             var showcase = new GameObject("ArtReference Showcase").AddComponent<ArtReferenceShowcase>();
             var so = new SerializedObject(showcase);
             so.FindProperty("scenario").objectReferenceValue = scenario;
@@ -120,6 +121,33 @@ namespace Veilward.Editor
             so.ApplyModifiedPropertiesWithoutUndo();
             EditorSceneManager.SaveScene(scene, ScenePath); AssetDatabase.SaveAssets();
             Debug.Log("ART.1 ArtReference built; Battle/MainMenu/configs/build settings unchanged.");
+        }
+
+        // Фиксированные кластеры эталона: kit instances, без runtime генерации/новой карты.
+        private static void AddArt11Clusters(Transform environment)
+        {
+            var group=new GameObject("ART.1.1 Sanctuary Clusters").transform;group.SetParent(environment,false);
+            foreach(var p in new[]{new Vector3(-3.9f,0,.7f),new Vector3(2.9f,0,-.6f),
+                new Vector3(1.4f,0,3.8f),new Vector3(-2.9f,0,-.25f)})
+            {
+                var rock=Place("Prop_MossRock",p,group);rock.localScale=Vector3.one*.85f;
+                var shrub=Place("Prop_RitualShrub",p+new Vector3(-.2f,0,.16f),group);shrub.localScale=Vector3.one*.8f;
+            }
+            // Низкие парные знаки у входа/выхода повторяют язык дорожки и свободных sockets.
+            foreach(var p in new[]{new Vector3(-5.5f,0,-1.2f),new Vector3(5.25f,0,1.2f)})
+            {var marker=Place("Prop_Waystone",p,group);marker.localScale=Vector3.one*.75f;}
+        }
+
+        [MenuItem("VEILWARD/ART.1/Apply ART.1.1 Environment Clusters")]
+        public static void RefineEnvironment()
+        {
+            if(UnityEngine.Application.isPlaying)throw new InvalidOperationException("Stop Play Mode first.");
+            if(SceneManager.GetActiveScene().path!=ScenePath)throw new InvalidOperationException("Open ArtReference only.");
+            var environment=GameObject.Find("Sanctuary Fragment").transform;
+            var previous=environment.Find("ART.1.1 Sanctuary Clusters");
+            if(previous!=null)UnityEngine.Object.DestroyImmediate(previous.gameObject);
+            AddArt11Clusters(environment);EditorSceneManager.MarkSceneDirty(environment.gameObject.scene);
+            EditorSceneManager.SaveScene(environment.gameObject.scene);
         }
 
         public static GameObject Prefab(string name) => AssetDatabase.LoadAssetAtPath<GameObject>(PrefabFolder + "P_" + name + ".prefab");
