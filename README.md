@@ -154,3 +154,9 @@ P1.5b проверен в настоящем Editor Play Mode через реа�
 Shared `TestWave.asset` содержит global Steam/Storm (60 ticks) и три уровня `steam`/`storm` по §6 [спецификации](Docs/P2.2A_REACTIONS.md). Каждый гибрид делает обычный direct hit и единственный intrinsic запрос общего resolver, без StatusEffect/ArmorPenetration. `EightWave.asset` хранит ссылку на TestWave без собственных копий tower/reaction catalogs. Invalid/частичные данные отклоняются; builder расширяет только полный прежний набор четырёх типов и сохраняет корректные данные при повторном запуске.
 
 Schema version **2**, content IDs и Store/migration API сохранены: payload определяется типом/уровнем, transient бой не сериализуется. Historical P2.1e replay использует явный internal Empty и прежние expectations/evidence. Новые данные, экономика/отказы, совместимость saves и публичная production factory покрыты REG-BATTLE-146…153. [Evidence, реальные Play Mode кадры и ограничения](Docs/review/P2.2d/README.md). Physical device, performance, balance и причинная визуализация ещё не подтверждены; G2 открыт.
+
+## P2.2e — читаемость реакций и inspector
+
+Graybox Presentation показывает captured Steam ring/impacts и Storm chain, два overhead slots с cause/intrinsic cue, read-only enemy inspector и общий итог фактических hits/AppliedHpLoss. Preview/panel объясняют intrinsic параметры/условия и базовые пары. Pool ограничен, fixed-Step events очищаются в finally, Pause и Restore/Continue/New Game покрыты regressions. Domain/balance/configs/packages не менялись.
+
+Локальные gates: static 38/38, EditMode 520/520, PlayMode 24/24, 0 failed/skipped/inconclusive. [14 реальных Editor Play Mode кадров, Console audit, source SHA и ограничения](Docs/review/P2.2e/README.md). Synthetic fixtures явно обозначены; physical iPhone/performance/баланс/G2 не подтверждены, полный replay/impact остаётся P2.2f. PR требует независимого review; self-merge/release не выполняются.

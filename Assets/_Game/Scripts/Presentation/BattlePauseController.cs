@@ -57,6 +57,7 @@ namespace Veilward.Presentation
             }
 
             _isPaused = true;
+            if (battle != null) battle.FreezePresentationClock();
             if (placement != null)
             {
                 placement.CancelSelection();
@@ -73,6 +74,7 @@ namespace Veilward.Presentation
             }
 
             _isPaused = false;
+            if (battle != null) battle.FreezePresentationClock();
             if (placement != null)
             {
                 placement.SuppressPointerForCurrentFrame();

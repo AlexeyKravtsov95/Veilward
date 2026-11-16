@@ -138,7 +138,7 @@ namespace Veilward.Editor
                     placements[0],
                     new[]
                     {
-                        "catalogRoot", "catalogButtonTemplate", "buildStatsText", "sellConfirmationText",
+                        "catalogRoot", "catalogButtonTemplate", "buildStatsText", "sellConfirmationText", "enemyInspector",
                         "battle", "worldCamera", "selectionHighlight", "towerPreview",
                         "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview",
                         "towerPanel", "towerStatsText", "upgradeButton", "sellButton", "sellConfirmationPanel", "confirmSellButton", "cancelSellButton"
@@ -152,6 +152,19 @@ namespace Veilward.Editor
                     pauses[0],
                     new[] { "battle", "placement", "pauseOverlay", "pauseButton", "resumeButton" },
                     errors);
+            }
+
+            var inspectors = FindComponents<EnemyInspectorController>(roots);
+            if (inspectors.Count != 1) errors.Add("Battle requires exactly one EnemyInspectorController.");
+            else
+            {
+                var refs = RequireReferences(inspectors[0], new[] { "battle", "placement", "worldCamera", "panel", "detailsText", "closeButton" }, errors);
+                if (refs["panel"] is GameObject panel && (panel.GetComponent<UnityEngine.UI.Image>() == null || !panel.GetComponent<UnityEngine.UI.Image>().raycastTarget))
+                    errors.Add("Enemy inspector panel must block raycasts.");
+                if (refs["closeButton"] is UnityEngine.UI.Button close && close.GetComponent<RectTransform>().rect.height < 56)
+                    errors.Add("Enemy inspector closeButton must preserve 56px target.");
+                if (refs["detailsText"] is UnityEngine.UI.Text details && (details.fontSize < 22 || details.rectTransform.rect.height < 300))
+                    errors.Add("Enemy inspector detailsText layout is too small.");
             }
 
             var checkpoints = FindComponents<BattleCheckpointController>(roots);
@@ -180,7 +193,7 @@ namespace Veilward.Editor
                 new[]
                 {
                     "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
-                    "pauseController", "placementController", "checkpointController"
+                    "pauseController", "placementController", "checkpointController", "enemyInspector", "reactionSummaryText", "reactionEffectMaterial"
                 },
                 errors);
             RequireAssetPath(references["scenario"], ConfigPath, "scenario", errors);
@@ -210,6 +223,7 @@ namespace Veilward.Editor
             }
 
             ValidateMaterial(references["attackBeamMaterial"] as Material, "attackBeamMaterial", errors);
+            ValidateMaterial(references["reactionEffectMaterial"] as Material, "reactionEffectMaterial", errors);
         }
 
         private static Dictionary<string, UnityEngine.Object> RequireReferences(
@@ -260,6 +274,17 @@ namespace Veilward.Editor
                 return;
             }
 
+            if (path == EnemyPrefabPath)
+            {
+                var status = prefab.GetComponent<EnemyStatusView>();
+                if (status == null) errors.Add("Enemy prefab requires EnemyStatusView.");
+                else
+                {
+                    var refs = RequireReferences(status, new[] { "firstSlot", "secondSlot" }, errors);
+                    if (refs["firstSlot"] == refs["secondSlot"] || prefab.GetComponentsInChildren<UnityEngine.UI.Text>(true).Length != 2)
+                        errors.Add("EnemyStatusView must have exactly two distinct overhead slots.");
+                }
+            }
             ValidateMissingScripts(prefab, path, errors);
             ValidateRenderers(prefab.GetComponentsInChildren<Renderer>(true), path, errors);
         }

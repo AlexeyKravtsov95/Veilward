@@ -14,6 +14,7 @@ namespace Veilward.Presentation
     {
         [SerializeField] private BattleSceneController battle;
         [SerializeField] private Camera worldCamera;
+        [SerializeField] private EnemyInspectorController enemyInspector;
         [SerializeField] private Transform selectionHighlight;
         [SerializeField] private Transform towerPreview;
         [SerializeField] private GameObject confirmationPanel;
@@ -274,7 +275,7 @@ namespace Veilward.Presentation
                 SelectedTowerTypeId = id;
                 _selectedDefinition = archetype.Levels[0];
                 buildStatsText.text = $"{TowerDisplay.Name(id)} — {TowerDisplay.Role(_selectedDefinition)}\n" +
-                    $"Price: {_selectedDefinition.Price} gold\n" + TowerDisplay.Stats(_selectedDefinition);
+                    $"Price: {_selectedDefinition.Price} gold\n" + TowerDisplay.Stats(_selectedDefinition, battle.Simulation.ReactionCatalog);
                 ShowSelectionVisual(SelectedCell, _selectedDefinition.Range, isPlacement: true);
                 TowerDisplay.ApplyVisual(towerPreview, _selectedDefinition, 1);
                 RefreshUi();
@@ -533,7 +534,7 @@ namespace Veilward.Presentation
             {
                 _displayedTowerDefinition = tower.Definition;
                 towerStatsText.text = $"{TowerDisplay.Name(tower.Definition.Id)} — Level: {tower.Level}\n" +
-                    TowerDisplay.Stats(tower.Definition) + "\n" +
+                    TowerDisplay.Stats(tower.Definition, battle.Simulation.ReactionCatalog) + "\n" +
                     (hasNextLevel ? $"Upgrade: {nextLevel.Price} gold" : "Upgrade: MAX") +
                     $"\nSell refund: {refund} gold";
             }
@@ -594,6 +595,12 @@ namespace Veilward.Presentation
                 if (_uiHits.Count > 0) return;
             }
 
+            if (enemyInspector != null)
+            {
+                if (enemyInspector.TrySelectAt(screenPosition)) return;
+                // Открытый инспектор поглощает world tap; закрытие — отдельная кнопка.
+                if (enemyInspector.SelectedEnemyId.HasValue) return;
+            }
             var ray = worldCamera.ScreenPointToRay(screenPosition);
             var plane = new Plane(Vector3.up, Vector3.zero);
             if (!plane.Raycast(ray, out var distance))

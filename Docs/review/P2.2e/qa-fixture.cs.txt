@@ -1,0 +1,109 @@
+// Выполняется через Unity Pipeline `script eval --file` в настоящем Play Mode.
+// Synthetic fixtures — только readability/lifecycle, не баланс. Не импортировать в Assets.
+using System;
+using System.Linq;
+using System.Reflection;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using Veilward.Domain;
+using Veilward.Presentation;
+using Veilward.Infrastructure;
+
+public static class P22eQa
+{
+    const BindingFlags F = BindingFlags.Instance | BindingFlags.NonPublic;
+    static BattleSceneController B => UnityEngine.Object.FindFirstObjectByType<BattleSceneController>();
+    static BattlePlacementController P => UnityEngine.Object.FindFirstObjectByType<BattlePlacementController>();
+    static void Invoke(object o, string method) => o.GetType().GetMethod(method, F).Invoke(o, null);
+    static void Status(EnemyState enemy, StatusKind kind) => typeof(EnemyState).GetMethod("ApplyStatus", F).Invoke(enemy,
+        new object[] { new StatusEffectDefinition(kind, kind == StatusKind.Burn ? 3 : 20, 120, kind == StatusKind.Burn ? 30 : 0), new TowerId(99), 0L });
+    public static object Execute(string mode)
+    {
+        if (mode == "setup")
+        {
+            MainMenuController.CheckpointStoreFactory = () => new WaveCheckpointStore(System.IO.Path.Combine(UnityEngine.Application.temporaryCachePath, "p22e-visual-qa"));
+            UnityEngine.Time.timeScale = 1;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            return "temporary slot, MainMenu";
+        }
+        if (mode == "new")
+        {
+            UnityEngine.Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke();
+            return "New Game";
+        }
+        if (mode == "menu") { Time.timeScale = 1; UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu"); return "MainMenu"; }
+        if (mode == "continue") { UnityEngine.Object.FindFirstObjectByType<MainMenuController>().ContinueButton.onClick.Invoke(); return "Continue"; }
+        if (mode == "catalog") { P.TrySelectCell(new GridCoordinate(-4, 0)); return "6 catalog entries, no purchase"; }
+        if (mode == "steam-preview" || mode == "storm-preview" || mode == "tide-preview")
+        { P.TrySelectCell(new GridCoordinate(-4, 0)); P.SelectTowerType(new TowerDefinitionId(mode.Split('-')[0])); return P.BuildStatsText.text; }
+        if (mode == "build") { P.ConfirmSelection(); return "Confirmed one hybrid"; }
+        if (mode == "occupied") { P.TrySelectCell(new GridCoordinate(-4, 0)); return P.TowerStatsText.text; }
+        if (mode == "live") { Time.timeScale = 1; P.CancelSelection(); P.StartWave(); return "Production live Combat"; }
+        if (mode == "pause") { UnityEngine.Object.FindFirstObjectByType<BattlePauseController>().Pause(); return "Pause overlay"; }
+        if (mode == "resume") { return UnityEngine.Object.FindFirstObjectByType<BattlePauseController>().Resume(); }
+        if (mode == "inspector")
+        {
+            var enemy = B.Simulation.State.Enemies.First();
+            return UnityEngine.Object.FindFirstObjectByType<EnemyInspectorController>().Select(enemy.Id);
+        }
+        if (mode == "report")
+        {
+            var inspector = UnityEngine.Object.FindFirstObjectByType<EnemyInspectorController>();
+            var effects = B.GetComponentsInChildren<ReactionEffectView>(true);
+            var markers = UnityEngine.Object.FindObjectsByType<EnemyStatusView>(FindObjectsSortMode.None);
+            return new { frame = Time.frameCount, screen = new[] { Screen.width, Screen.height }, safeArea = Screen.safeArea.ToString(),
+                tick = B.Simulation.State.Tick, phase = B.Simulation.State.Phase.ToString(), gold = B.Simulation.State.Gold, kills = B.Simulation.State.Kills,
+                summary = B.Presentation.LastSummary, inspector = inspector.Details, selection = inspector.SelectedEnemyId?.Value,
+                activeTime = B.Presentation.ActiveTime, remainingEffects = effects.Where(e => e.gameObject.activeSelf).Select(e => e.RemainingSeconds).ToArray(), pool = effects.Length, activeEffects = effects.Count(e => e.gameObject.activeSelf), markerSlots = markers.Select(m => m.VisibleSlotCount).ToArray() };
+        }
+        // Каждый synthetic сценарий заменяет только in-memory simulation. Saved configs не изменяются.
+        Time.timeScale = 0;
+        var kind = mode.Contains("storm") ? ReactionKind.Storm : ReactionKind.Steam;
+        var intrinsic = mode.Contains("intrinsic");
+        var lethal = mode.Contains("lethal");
+        var dense = mode == "dense";
+        var definition = new TowerDefinition(new TowerDefinitionId("qa-" + kind), 0, 20, .01f, 10,
+            intrinsic ? null : new StatusEffectDefinition(kind == ReactionKind.Steam ? StatusKind.Wet : StatusKind.Gust, 20, 120, 0),
+            0, intrinsic ? new ReactionPayload(kind, 100, kind == ReactionKind.Steam ? 1.25f : 2, kind == ReactionKind.Steam ? 4 : 2) : null);
+        var archetype = new TowerArchetypeDefinition(definition.Id, true, new[] { definition, definition, definition });
+        var secondDefinition = new TowerDefinition(new TowerDefinitionId("qa-storm-pair"), 0, 20, .01f, 10,
+            new StatusEffectDefinition(StatusKind.Gust, 20, 120, 0));
+        var secondArchetype = new TowerArchetypeDefinition(secondDefinition.Id, true, new[] {secondDefinition, secondDefinition, secondDefinition});
+        var catalog = new TowerCatalog(dense ? new[] { archetype, secondArchetype } : new[] { archetype });
+        var reactions = new ReactionCatalog(new[] {
+            new ReactionDefinition(new ReactionPayload(ReactionKind.Steam, 100, 1.25f, 4), 60, 0),
+            new ReactionDefinition(new ReactionPayload(ReactionKind.Storm, 75, 2, 2), 60, 1) });
+        var path = B.Simulation.Path; var map = B.Simulation.Grid.Map;
+        var enemyDefinition = new EnemyDefinition(new EnemyDefinitionId("qa-target"), lethal ? 15 : 1000, .001f, 1, 5);
+        var sim = new BattleSimulation(map, path, new[] { new WaveDefinition(enemyDefinition, 1, 0, 1) }, catalog, 20, 0, 0, reactions);
+        sim.PlaceTower(new PlaceTowerCommand(definition.Id, new GridCoordinate(-4, 0)));
+        if (dense) sim.PlaceTower(new PlaceTowerCommand(secondDefinition.Id, new GridCoordinate(-3, 0)));
+        typeof(BattleSceneController).GetField("_simulation", F).SetValue(B, sim);
+        var checkpoint = UnityEngine.Object.FindFirstObjectByType<BattleCheckpointController>();
+        checkpoint.Configure(null, sim, "qa-synthetic");
+        B.ResetPresentation();
+        sim.StartWave();
+        var primary = sim.State.Enemies[0];
+        typeof(EnemyState).GetMethod("Advance", F).Invoke(primary, new object[] { 7f });
+        if (!intrinsic) { Status(primary, kind == ReactionKind.Steam ? StatusKind.Burn : StatusKind.Wet); }
+        for (var i = 0; i < (dense ? 3 : 2); i++)
+        {
+            // Цепь: primary distance 7 → 5.5 → 4; lethal промежуточная цель удаляется до render.
+            var distance = kind == ReactionKind.Storm ? 5.5f - i * 1.5f : 6.55f - i * .3f;
+            var extra = new EnemyState(new EnemyId(i + 2), enemyDefinition, lethal ? 5 : 1000, distance);
+            typeof(BattleState).GetMethod("AddEnemy", F).Invoke(sim.State, new object[] { extra });
+        }
+        if (dense)
+            foreach (var enemy in sim.State.Enemies)
+                foreach (StatusKind status in Enum.GetValues(typeof(StatusKind))) Status(enemy, status);
+        sim.Step();
+        var trace = sim.ReactionEvents.Select(r => new { kind = r.Kind.ToString(), r.Tick, r.SequenceInTick, trigger = r.TriggerKind.ToString() }).ToArray();
+        var hits = sim.DamageEvents.Select(d => new { origin = d.Origin.ToString(), id = d.TargetEnemyId.Value, d.HitIndex, d.AppliedHpLoss, d.WasLethal, d.ReactionSequenceInTick }).ToArray();
+        Invoke(B, "ProcessAttackEvents"); Invoke(B, "SynchronizeViews"); Invoke(B, "UpdateHud");
+        // Ring на 60% радиуса и impacts ещё активны; cue 0.5 s. Время capture зафиксировано явно.
+        foreach (var effect in B.GetComponentsInChildren<ReactionEffectView>()) effect.Advance(.2f);
+        if (dense || mode == "steam-inspector") UnityEngine.Object.FindFirstObjectByType<EnemyInspectorController>().Select(primary.Id);
+        return new { fixture = mode, trace, hits, summary = B.Presentation.LastSummary, alive = sim.State.Enemies.Count };
+    }
+}
