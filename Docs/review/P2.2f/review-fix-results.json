@@ -1,0 +1,26 @@
+{
+  "finding": "P2: golden depended on host OS metadata",
+  "red": {
+    "command": "./Scripts/run-edit-mode-tests.sh",
+    "test": "Veilward.Tests.EditMode.BattleReactionReplayTests.RegBattle162_EvidenceComparison_AllowsHostOsButRejectsGameplayDrift",
+    "total": 529,
+    "passed": 528,
+    "failed": 1,
+    "skipped": 0,
+    "inconclusive": 0,
+    "testSourceSha256BeforeFix": "740b2e12ab8556e58c07be8cac158d268cf392c24b22b0bdaddeb06c2850bfb3",
+    "xmlSha256": "99b3636a6b9ee741466e4be6be1f5193ea18ade7411faea5bfc182e98324a0ae",
+    "failure": "OS-only difference: Another macOS runner vs Mac OS X 27.0.1"
+  },
+  "green": {
+    "command": "./Scripts/run-edit-mode-tests.sh",
+    "total": 529,
+    "passed": 529,
+    "failed": 0,
+    "skipped": 0,
+    "inconclusive": 0,
+    "osOnlyDifferenceAccepted": true,
+    "hpDriftRejected": true,
+    "actualMetadataPreserved": true
+  }
+}

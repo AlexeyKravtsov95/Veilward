@@ -81,7 +81,29 @@ namespace Veilward.Tests.EditMode
             var json = JsonUtility.ToJson(report, true) + "\n";
             Directory.CreateDirectory(Output); File.WriteAllText(Output + "/replay-summary.actual.json", json);
             Assert.That(File.Exists(Evidence), Is.True, "Сначала сохранить фактические измерения, без изменения исхода");
-            Assert.That(File.ReadAllText(Evidence).Replace("\r\n", "\n"), Is.EqualTo(json));
+            AssertMeasurementsEqual(JsonUtility.FromJson<Report>(File.ReadAllText(Evidence)), report);
+        }
+
+        [Test]
+        public void RegBattle162_EvidenceComparison_AllowsHostOsButRejectsGameplayDrift()
+        {
+            var expected = new Report { series = new[] { Run("matched", false).summary } };
+            var actual = JsonUtility.FromJson<Report>(JsonUtility.ToJson(expected));
+            actual.os = "Another macOS runner";
+            AssertMeasurementsEqual(expected, actual);
+            Assert.That(actual.os, Is.EqualTo("Another macOS runner"), "Comparison must not rewrite actual host metadata");
+            actual.series[0].waves[0].health--;
+            Assert.Throws<AssertionException>(() => AssertMeasurementsEqual(expected, actual), "HP drift must still fail");
+        }
+
+        private static void AssertMeasurementsEqual(Report expected, Report actual)
+        {
+            Assert.That(actual.os, Is.Not.Empty, "Actual evidence must retain the measured host OS");
+            // ОС — metadata измерения, не часть deterministic combat contract. Копии сохраняют actual report.
+            var expectedCopy = JsonUtility.FromJson<Report>(JsonUtility.ToJson(expected));
+            var actualCopy = JsonUtility.FromJson<Report>(JsonUtility.ToJson(actual));
+            expectedCopy.os = actualCopy.os = string.Empty;
+            Assert.That(JsonUtility.ToJson(actualCopy, true), Is.EqualTo(JsonUtility.ToJson(expectedCopy, true)));
         }
 
         [TestCase("steam")]
