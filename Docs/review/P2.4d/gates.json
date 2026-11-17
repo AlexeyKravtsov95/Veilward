@@ -1,0 +1,111 @@
+{
+  "baseCommit": "5af212101d8528a6756197765268a7f6c1220835",
+  "sourceCommit": "2ad43c5dd7d8c8aec206b7610d562a6416f614b7",
+  "environment": {
+    "unity": "6000.3.28f1 (8f082d2fe476)",
+    "unityCli": "1.0.1",
+    "os": "macOS-27.0.1-arm64-arm-64bit",
+    "backend": "Editor Mono",
+    "activeBuildTarget": "iOS",
+    "physicalDevice": false
+  },
+  "commands": [
+    "git fetch origin",
+    "git merge-base --is-ancestor dc99a5258567ba2382ae86d56ad0c936606a4e5e origin/main",
+    "git worktree add -b codex/p2.4d-ability-ui /Users/alexeykravtsov/.codex/worktrees/p24d-ability-ui/Veilward origin/main",
+    "./Scripts/run-static-checks.sh",
+    "./Scripts/run-edit-mode-tests.sh",
+    "./Scripts/run-play-mode-tests.sh",
+    "P24D_CAPTURE=1 /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -projectPath /Users/alexeykravtsov/.codex/worktrees/p24d-ability-ui/Veilward -buildTarget iOS -runTests -testPlatform PlayMode -testFilter RegBattle208_Visual -testResults /Users/alexeykravtsov/.codex/worktrees/p24d-ability-ui/Veilward/TestResults/Visual.xml -logFile /tmp/p24d-visual.log",
+    "python3 Docs/review/P2.4d/verify-evidence.py",
+    "git diff --check"
+  ],
+  "suites": {
+    "BaselineEditMode": {
+      "result": "Passed",
+      "total": "901",
+      "passed": "901",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-17 18:35:58Z",
+      "end-time": "2026-11-17 18:36:39Z",
+      "sha256": "ff8207a3eb7136969b98bc5ca40a3a5c9b1e9edd270676895541536d544cbc3b"
+    },
+    "BaselinePlayMode": {
+      "result": "Passed",
+      "total": "45",
+      "passed": "45",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-17 18:36:49Z",
+      "end-time": "2026-11-17 18:37:21Z",
+      "sha256": "bc71f2da232b39729d2bb16f4f8a45333a0517762d69a292fc33ce14c5475d84"
+    },
+    "RedEditMode": {
+      "result": "Failed(Child)",
+      "total": "915",
+      "passed": "901",
+      "failed": "14",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-17 18:37:54Z",
+      "end-time": "2026-11-17 18:38:33Z",
+      "sha256": "dfd8a0905395a408ea2eac74f8298a43259cbeb25540ce7aa72718e25c2070f1"
+    },
+    "RedPlayMode": {
+      "result": "Failed(Child)",
+      "total": "46",
+      "passed": "45",
+      "failed": "1",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-17 18:38:42Z",
+      "end-time": "2026-11-17 18:39:13Z",
+      "sha256": "56bb4ca4facbd7e4bbefd7600f6a6a1549269ea786a2834f777faf3294227b08"
+    },
+    "EditMode": {
+      "result": "Passed",
+      "total": "922",
+      "passed": "922",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-17 18:54:55Z",
+      "end-time": "2026-11-17 18:55:35Z",
+      "sha256": "304c44629d0197834b0c8bbc3ec6c6197717bc3de124b108ccea05f0b5d547d2"
+    },
+    "PlayMode": {
+      "result": "Passed",
+      "total": "54",
+      "passed": "54",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-17 18:55:44Z",
+      "end-time": "2026-11-17 18:56:21Z",
+      "sha256": "d887cc287dc875434bee33cbcdbc561fa1b7db1675ad270748903c65935ce218"
+    },
+    "Visual": {
+      "result": "Passed",
+      "total": "2",
+      "passed": "2",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-17 18:57:32Z",
+      "end-time": "2026-11-17 18:57:34Z",
+      "sha256": "5addb41a2d6727ad3470e59c215021486bd2d36bf2b44a36078e06497614865e"
+    }
+  },
+  "static": {
+    "total": 38,
+    "passed": 38,
+    "sha256": "2761c06bb51b60c4a922f2c88aab5989811b96df60f883da0fe038b82cfaa10c"
+  },
+  "historicalAudit": {
+    "files": 711,
+    "unchanged": true
+  }
+}

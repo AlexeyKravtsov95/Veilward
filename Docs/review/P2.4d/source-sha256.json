@@ -1,0 +1,18 @@
+{
+  "Assets/_Game/Scenes/Battle.unity": "af397d4920331ce818516e8d312b747cbe9481f38d848714cd6f69b7f90b822e",
+  "Assets/_Game/Scripts/Domain/BattleSimulation.cs": "bc96f264ddeb37f273b6c82f60863210d499ed29c25dcb0864c7eb1b1b6458ce",
+  "Assets/_Game/Scripts/Editor/BattleAssetValidator.cs": "18053ae9222e1a1b51b061c0c553984e4935a7d7261341f6d5958cdfdf821bbe",
+  "Assets/_Game/Scripts/Editor/BattleSceneBuilder.cs": "43e7ec9936ed7d19690559e7869c328f5f12c59ba0210e26f3d6e7b1f542da31",
+  "Assets/_Game/Scripts/Presentation/AbilityController.cs": "e39fb02cc37401d775d05cbe99f0d31c2430f49e4698d5f5281840085fcd3b5e",
+  "Assets/_Game/Scripts/Presentation/AbilityController.cs.meta": "86f58afbb225b22b04a604f6d761c9b92a15702116d0c81ddad002811366f3ff",
+  "Assets/_Game/Scripts/Presentation/AbilityEffectView.cs": "774d02c5b3b38616bbbe7bacfd2dcec3d84991360ff7a263222e9a0a8c9264d3",
+  "Assets/_Game/Scripts/Presentation/AbilityEffectView.cs.meta": "0a26f91120d2ab2fd71f363f01b7cf288ecebc4d7242a3aa19309ef4f7ced510",
+  "Assets/_Game/Scripts/Presentation/AbilityPreviewView.cs": "7677ce913b0a341b4736d11783f49b60715193c4f1179cdc857e14aa5c92df2e",
+  "Assets/_Game/Scripts/Presentation/AbilityPreviewView.cs.meta": "22d955fd4c5b5313ed136d62238460e417d94c9b73ca2f767bd7aa9b4c8ac4df",
+  "Assets/_Game/Scripts/Presentation/BattlePlacementController.cs": "d8d7c7607376db95b55bf2a97ad7ef19abedca1b6b85dccd8d51f24235719a8d",
+  "Assets/_Game/Scripts/Presentation/BattleSceneController.cs": "28cc07acd4ffeffec9ba9dee0546e2c313a48f4e44c21d456e9274ab88a45e7d",
+  "Assets/_Game/Tests/EditMode/AbilityPresentationTests.cs": "f546911fb6a84a28a708f6574a8382c99d9b933116e7d494d64d8ae4cadf1d94",
+  "Assets/_Game/Tests/EditMode/AbilityPresentationTests.cs.meta": "25b02ef6635c4c20a61a14308e8d5eefa5f3d16f18ddda7b70132286b785741d",
+  "Assets/_Game/Tests/PlayMode/AbilityPlayModeTests.cs": "5a2cffa48aab9cf97a7ebc9507b850d6b666dec8a7307a9ad77b1bece6582213",
+  "Assets/_Game/Tests/PlayMode/AbilityPlayModeTests.cs.meta": "f361f998f2244b6afdc3dedcf0f3448b22a1042ad846bbeac14f346abc12f22e"
+}
