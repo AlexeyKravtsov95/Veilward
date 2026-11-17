@@ -4,6 +4,7 @@ using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
 using Veilward.Domain;
+using Veilward.Infrastructure;
 
 namespace Veilward.Tests.EditMode
 {
@@ -166,7 +167,8 @@ namespace Veilward.Tests.EditMode
         {
             var cp = s.ExportCheckpoint(); var json = JsonUtility.ToJson(cp);
             var restored = BattleElementUnlockTests.Native();
-            restored.RestoreCheckpoint(JsonUtility.FromJson<BattleCheckpoint>(json));
+            var wire = WaveCheckpointJson.Serialize(new WaveCheckpointEnvelope { schemaVersion = 4, scenarioContentId = "eight-wave-unlocks-v1", state = cp });
+            restored.RestoreCheckpoint(WaveCheckpointJson.Deserialize(wire).state);
             Assert.That(JsonUtility.ToJson(restored.ExportCheckpoint()), Is.EqualTo(json));
             Assert.That(restored.State.ElementProgression.PendingChoiceId, Is.EqualTo(s.State.ElementProgression.PendingChoiceId));
             Assert.That(restored.State.ElementProgression.UnlockedElements, Is.EqualTo(s.State.ElementProgression.UnlockedElements));

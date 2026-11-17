@@ -160,6 +160,8 @@ namespace Veilward.Presentation
             }
 
             if (mainMenuButton != null) mainMenuButton.onClick.AddListener(ReturnToMenu);
+            // Синхронный Cast может завершить волну в кадре без fixed Step.
+            if (checkpointController != null) checkpointController.ObserveCommandCompletion();
             SynchronizeViews();
             UpdateHud();
         }
@@ -359,6 +361,8 @@ namespace Veilward.Presentation
                 return;
             }
 
+            // Синхронный Cast может завершить волну в кадре без fixed Step.
+            if (checkpointController != null) checkpointController.ObserveCommandCompletion();
             SynchronizeViews();
             UpdateHud();
             if (reactionSummaryText != null && _summaryCanvas != null && _summaryCanvas.scaleFactor > 0)

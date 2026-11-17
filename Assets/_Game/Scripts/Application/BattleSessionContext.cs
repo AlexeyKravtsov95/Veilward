@@ -30,6 +30,8 @@ namespace Veilward.Application
 
         public static void SetNewGame(WaveCheckpointStore store, string scenarioContentId)
         {
+            if (!WaveCheckpointCompatibility.IsProductionContent(scenarioContentId))
+                throw new ArgumentException("Unsupported production content.", nameof(scenarioContentId));
             _pending = new BattleSessionContext(store, scenarioContentId, checkpoint: null);
         }
 
@@ -40,7 +42,9 @@ namespace Veilward.Application
                 throw new ArgumentNullException(nameof(checkpoint));
             }
 
-            _pending = new BattleSessionContext(store, checkpoint.scenarioContentId, checkpoint);
+            if (!WaveCheckpointCompatibility.TryNormalize(checkpoint, checkpoint.scenarioContentId,
+                    out var normalized, out var error)) throw new ArgumentException(error, nameof(checkpoint));
+            _pending = new BattleSessionContext(store, normalized.scenarioContentId, normalized);
         }
 
         public static BattleSessionContext Consume()

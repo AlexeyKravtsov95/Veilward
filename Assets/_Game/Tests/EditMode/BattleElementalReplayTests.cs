@@ -240,7 +240,7 @@ namespace Veilward.Tests.EditMode
             var bytes = File.ReadAllBytes(store.PrimaryPath);
             var restored = config.CreateHistoricalAllOpenSimulation(ReactionCatalog.Empty);
             Assert.That(store.TryLoad("eight-wave-v1", restored.TryValidateCheckpoint, out var load), Is.True);
-            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(3));
+            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(4));
             checkpoint.Configure(store, restored, "eight-wave-v1");
             checkpoint.RestoreCheckpoint(load.Envelope);
             Assert.That(Snapshot(restored), Is.EqualTo(expected));

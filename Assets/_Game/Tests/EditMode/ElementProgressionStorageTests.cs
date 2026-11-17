@@ -20,7 +20,17 @@ namespace Veilward.Tests.EditMode
         internal static BattleScenarioConfig Config() => AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset");
         private static BattleSimulation Native() => Config().CreateSimulation(BattleElementUnlockTests.Rules());
         private static WaveCheckpointEnvelope Envelope(BattleSimulation s, bool native = true) => new WaveCheckpointEnvelope
-        { schemaVersion = 3, scenarioContentId = native ? NativeId : LegacyId, state = s.ExportCheckpoint() };
+        { schemaVersion = WaveCheckpointStore.CurrentSchemaVersion, scenarioContentId = native ? NativeId : LegacyId, state = s.ExportCheckpoint() };
+        private static string Wire(object value)
+        {
+            if (!(value is WaveCheckpointEnvelope e)) return JsonUtility.ToJson(value);
+            if (e.schemaVersion == 4) return WaveCheckpointJson.Serialize(e);
+            var json = JsonUtility.ToJson(e);
+            // Реальный legacy shape: нет progression, а не inline defaults от Unity null serialization.
+            if (e.schemaVersion < 3 && e.state.elementProgression == null)
+                json = json.Substring(0, json.IndexOf(",\"elementProgression\":", StringComparison.Ordinal)) + "}}";
+            return json;
+        }
         [SetUp] public void SetUp()
         {
             _root = Path.GetFullPath(Path.Combine("TestResults", "ElementProgressionStorage", Guid.NewGuid().ToString("N")));
@@ -32,7 +42,7 @@ namespace Veilward.Tests.EditMode
         [TestCase("phase")] [TestCase("waveIndex")] [TestCase("tick")] [TestCase("kills")]
         public void RegBattle175_MissingZeroField_IsRejected(string field)
         {
-            var s = Native(); var json = JsonUtility.ToJson(Envelope(s));
+            var s = Native(); var json = Wire(Envelope(s));
             json = Regex.Replace(json, "\\\"" + field + "\\\":0,", "");
             File.WriteAllText(_store.PrimaryPath, json);
             Assert.That(_store.TryLoad(NativeId, s.TryValidateCheckpoint, out var load), Is.False);
@@ -40,17 +50,17 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
-        public void RegBattle181_Schema2Migration_LoadIsReadOnlyAndNextSaveIsSchema3()
+        public void RegBattle181_Schema2Migration_LoadIsReadOnlyAndNextSaveIsSchema4()
         {
             var s = Config().CreateHistoricalAllOpenSimulation(); var e = Envelope(s, false); e.schemaVersion = 2;
-            File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(e));
+            File.WriteAllText(_store.PrimaryPath, Wire(e));
             var bytes = File.ReadAllBytes(_store.PrimaryPath);
             Assert.That(_store.TryLoad(LegacyId, s.TryValidateCheckpoint, out var load), Is.True, load.Error);
-            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(3));
+            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(4));
             Assert.That(load.Envelope.state.elementProgression.rulesId, Is.EqualTo("legacy-all-open-v1"));
             Assert.That(File.ReadAllBytes(_store.PrimaryPath), Is.EqualTo(bytes));
             Assert.That(_store.TrySave(load.Envelope, s.TryValidateCheckpoint, out var error), Is.True, error);
-            Assert.That(File.ReadAllText(_store.PrimaryPath), Does.Contain("\"schemaVersion\": 3"));
+            Assert.That(File.ReadAllText(_store.PrimaryPath), Does.Contain("\"schemaVersion\": 4"));
             Assert.That(File.ReadAllBytes(_store.BackupPath), Is.EqualTo(bytes));
         }
 
@@ -70,8 +80,8 @@ namespace Veilward.Tests.EditMode
             bad.state.elementProgression = null;
             if (!nativeBackup) bad.state.gold = -1;
             else bad.state.towers[0].investedGold++;
-            File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(bad));
-            File.WriteAllText(_store.BackupPath, JsonUtility.ToJson(backup));
+            File.WriteAllText(_store.PrimaryPath, Wire(bad));
+            File.WriteAllText(_store.BackupPath, Wire(backup));
             var primaryBytes = File.ReadAllBytes(_store.PrimaryPath); var backupBytes = File.ReadAllBytes(_store.BackupPath);
             for (var repeat = 0; repeat < 2; repeat++)
             {
@@ -94,13 +104,13 @@ namespace Veilward.Tests.EditMode
             Assert.That(File.ReadAllBytes(_store.BackupPath), Is.EqualTo(backupBytes));
         }
 
-        [TestCase(1, NativeId)] [TestCase(2, NativeId)] [TestCase(4, NativeId)]
+        [TestCase(1, NativeId)] [TestCase(2, NativeId)] [TestCase(5, NativeId)]
         [TestCase(3, "unknown")] [TestCase(2, "unknown")]
         [TestCase(2, "legacy-single-wave-v1")]
         public void RegBattle181_UnknownOrWrongContent_IsRejectedWithoutFallback(int schema, string content)
         {
             var e = Envelope(Native()); e.schemaVersion = schema; e.scenarioContentId = content;
-            File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(e));
+            File.WriteAllText(_store.PrimaryPath, Wire(e));
             File.WriteAllText(_store.BackupPath, "{}");
             Assert.That(_store.TryLoad(NativeId, Config().CreateSimulationForCheckpoint, out _), Is.False);
         }
@@ -124,11 +134,11 @@ namespace Veilward.Tests.EditMode
                 var e = Envelope(simulation, false); e.schemaVersion = 2;
                 e.state.elementProgression = null; e.state.phase = phase; e.state.waveIndex = wave;
                 e.state.baseHealth = phase == BattlePhase.Defeat ? 0 : 20; e.state.towers[0].nextAttackTick = 77;
-                File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(e)); var bytes = File.ReadAllBytes(_store.PrimaryPath);
+                File.WriteAllText(_store.PrimaryPath, Wire(e)); var bytes = File.ReadAllBytes(_store.PrimaryPath);
                 Assert.That(_store.TryLoad(NativeId, Config().CreateSimulationForCheckpoint, out var load), Is.True, load.Error);
                 var restored = Config().CreateSimulationForCheckpoint(load.Envelope); restored.RestoreCheckpoint(load.Envelope.state);
                 var actual = restored.ExportCheckpoint();
-                Assert.That(JsonUtility.ToJson(actual.towers[0]), Is.EqualTo(JsonUtility.ToJson(e.state.towers[0])));
+                Assert.That(Wire(actual.towers[0]), Is.EqualTo(Wire(e.state.towers[0])));
                 Assert.That(actual.elementProgression.unlockedElementIds, Is.EqualTo(new[] { "flame", "tide", "gale", "stone" }));
                 Assert.That(actual.elementProgression.choicesEarned, Is.Zero); Assert.That(actual.elementProgression.choicesSpent, Is.Zero);
                 Assert.That(actual.elementProgression.spentChoices, Is.Empty); Assert.That(actual.elementProgression.pendingChoiceId, Is.EqualTo("none"));
@@ -144,9 +154,9 @@ namespace Veilward.Tests.EditMode
             if (withTower) legacy.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId("test-tower"), new GridCoordinate(-5, -3)));
             var e = Envelope(legacy, false); e.schemaVersion = 1; e.state.elementProgression = null;
             if (withTower) e.state.towers[0].towerTypeId = null;
-            var source = JsonUtility.ToJson(e);
+            var source = Wire(e);
             Assert.That(WaveCheckpointCompatibility.TryNormalize(e, NativeId, out var normalized, out var error), Is.True, error);
-            Assert.That(JsonUtility.ToJson(e), Is.EqualTo(source));
+            Assert.That(Wire(e), Is.EqualTo(source));
             Assert.That(normalized.state, Is.Not.SameAs(e.state));
             if (withTower) { Assert.That(normalized.state.towers[0], Is.Not.SameAs(e.state.towers[0])); Assert.That(normalized.state.towers[0].towerTypeId, Is.EqualTo("test-tower")); }
             File.WriteAllText(_store.PrimaryPath, source);
@@ -160,7 +170,7 @@ namespace Veilward.Tests.EditMode
         [TestCase("choicesSpent", "0,\"choicesSpent\":0")]
         public void RegBattle175_MalformedNumericField_RejectsBeforeJsonDefaults(string field, string value)
         {
-            var json = JsonUtility.ToJson(Envelope(Native())).Replace("\"" + field + "\":0", "\"" + field + "\":" + value);
+            var json = Wire(Envelope(Native())).Replace("\"" + field + "\":0", "\"" + field + "\":" + value);
             File.WriteAllText(_store.PrimaryPath, json);
             Assert.That(_store.TryLoad(NativeId, Config().CreateSimulationForCheckpoint, out _), Is.False);
         }
@@ -168,8 +178,8 @@ namespace Veilward.Tests.EditMode
         [TestCase(false)] [TestCase(true)]
         public void RegBattle181_FactoryException_TriesBackupIndependently(bool returnNull)
         {
-            var e = Envelope(Native()); File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(e));
-            var legacy = Envelope(Config().CreateHistoricalAllOpenSimulation(), false); File.WriteAllText(_store.BackupPath, JsonUtility.ToJson(legacy));
+            var e = Envelope(Native()); File.WriteAllText(_store.PrimaryPath, Wire(e));
+            var legacy = Envelope(Config().CreateHistoricalAllOpenSimulation(), false); File.WriteAllText(_store.BackupPath, Wire(legacy));
             BattleSimulation Factory(WaveCheckpointEnvelope candidate)
             {
                 if (candidate.scenarioContentId == NativeId)
@@ -184,7 +194,7 @@ namespace Veilward.Tests.EditMode
         public void RegBattle181_ValidatorOverload_RetainsExactContentRestriction()
         {
             var legacy = Config().CreateHistoricalAllOpenSimulation();
-            File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(Envelope(legacy, false)));
+            File.WriteAllText(_store.PrimaryPath, Wire(Envelope(legacy, false)));
             Assert.That(_store.TryLoad(NativeId, legacy.TryValidateCheckpoint, out _), Is.False);
         }
 
@@ -207,7 +217,7 @@ namespace Veilward.Tests.EditMode
             var s = Config().CreateHistoricalAllOpenSimulation();
             s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId("test-tower"), new GridCoordinate(-5, -3)));
             var e = Envelope(s, false); e.schemaVersion = schema; e.state.towers[0].towerTypeId = "unknown";
-            File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(e));
+            File.WriteAllText(_store.PrimaryPath, Wire(e));
             Assert.That(_store.TryLoad(NativeId, Config().CreateSimulationForCheckpoint, out _), Is.False);
         }
 
@@ -216,7 +226,7 @@ namespace Veilward.Tests.EditMode
         [TestCase("state")] [TestCase("towers")]
         public void RegBattle175_MissingObjectsStringsOrArrays_Rejects(string field)
         {
-            var json = JsonUtility.ToJson(Envelope(Native()));
+            var json = Wire(Envelope(Native()));
             // Переименование key сохраняет валидный JSON, но обязательное поле отсутствует.
             json = json.Replace("\"" + field + "\":", "\"absent_" + field + "\":");
             File.WriteAllText(_store.PrimaryPath, json);
@@ -229,7 +239,7 @@ namespace Veilward.Tests.EditMode
             var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/TestWave.asset");
             var single = config.CreateSimulation();
             var e = new WaveCheckpointEnvelope { schemaVersion = schema, scenarioContentId = "legacy-single-wave-v1", state = single.ExportCheckpoint() };
-            var json = JsonUtility.ToJson(e);
+            var json = Wire(e);
             // Настоящий старый shape: progression key отсутствует, все scalar zero fields присутствуют.
             json = json.Substring(0, json.IndexOf(",\"elementProgression\":", StringComparison.Ordinal)) + "}}";
             File.WriteAllText(_store.PrimaryPath, json); var bytes = File.ReadAllBytes(_store.PrimaryPath);

@@ -38,10 +38,10 @@ namespace Veilward.Tests.EditMode
             NativeEightWaveReplayTests.Replay(route, (run, point) =>
             {
                 var s = run.sim; var wave = s.State.WaveIndex + 1;
-                Save(s); var expected = JsonUtility.ToJson(s.ExportCheckpoint());
+                Save(s); var expected = Wire(s.ExportCheckpoint());
                 for (var repeat = 0; repeat < 2; repeat++)
                 {
-                    var restored = Load(); Assert.That(JsonUtility.ToJson(restored.ExportCheckpoint()), Is.EqualTo(expected));
+                    var restored = Load(); Assert.That(Wire(restored.ExportCheckpoint()), Is.EqualTo(expected));
                     audit.Add("PASS full snapshot Load/no write " + route + " wave=" + wave + " point=" + point + " repeat=" + repeat + " state=" + expected);
                 }
                 if (point == "completed" && s.State.Phase == BattlePhase.WaveComplete && (wave == 3 || wave == 6))
@@ -72,7 +72,7 @@ namespace Veilward.Tests.EditMode
                 audit.Add("PASS actual safe restore into replay wave=" + (s.State.WaveIndex + 1) + " point=" + point);
             });
             Assert.That(continued.trace, Is.EqualTo(control.trace));
-            Assert.That(JsonUtility.ToJson(continued.report), Is.EqualTo(JsonUtility.ToJson(control.report)));
+            Assert.That(Wire(continued.report), Is.EqualTo(Wire(control.report)));
             audit.Add("PASS full continued trace SHA256=" + continued.report.traceSha256);
         }
         [Test] public void RegBattle186_NaturalEconomyUpgradeSell_UsesActualInvestment()
@@ -89,9 +89,9 @@ namespace Veilward.Tests.EditMode
                 NativeEightWaveReplayTests.Execute(r, new NativeEightWaveReplayTests.Command { op = "upgrade", id = 1 });
                 Assert.That(s.State.Towers.Single().Level, Is.EqualTo(2));
                 NativeEightWaveReplayTests.Execute(r, new NativeEightWaveReplayTests.Command { op = "sell", id = 1 });
-                var before = JsonUtility.ToJson(s.ExportCheckpoint());
+                var before = Wire(s.ExportCheckpoint());
                 NativeEightWaveReplayTests.Execute(r, new NativeEightWaveReplayTests.Command { op = "sell", id = 1 });
-                Assert.That(JsonUtility.ToJson(s.ExportCheckpoint()), Is.EqualTo(before));
+                Assert.That(Wire(s.ExportCheckpoint()), Is.EqualTo(before));
                 audit.AddRange(r.receipts); covered = true;
             });
             Assert.That(covered, Is.True);
@@ -99,30 +99,30 @@ namespace Veilward.Tests.EditMode
         private void FailedConfirm(BattleSimulation source, string option)
         {
             var s = Load(); var battle = Controller(s, out var cp);
-            var durable = File.ReadAllBytes(store.PrimaryPath); var old = JsonUtility.ToJson(source.ExportCheckpoint());
+            var durable = File.ReadAllBytes(store.PrimaryPath); var old = Wire(source.ExportCheckpoint());
             Directory.CreateDirectory(store.TempPath);
             LogAssert.Expect(LogType.Error, new Regex("Checkpoint save failed:.*"));
             Assert.That(battle.ChooseElement(new ChooseElementCommand(s.State.ElementProgression.PendingChoiceId, option)).Success, Is.True);
             Assert.That(cp.LastSaveSucceeded, Is.False);
             Assert.That(File.ReadAllBytes(store.PrimaryPath), Is.EqualTo(durable));
-            Assert.That(JsonUtility.ToJson(Load().ExportCheckpoint()), Is.EqualTo(old), "Restart получает полный durable pending");
-            var live = JsonUtility.ToJson(s.ExportCheckpoint());
+            Assert.That(Wire(Load().ExportCheckpoint()), Is.EqualTo(old), "Restart получает полный durable pending");
+            var live = Wire(s.ExportCheckpoint());
             LogAssert.Expect(LogType.Error, new Regex("Checkpoint save failed:.*"));
             Assert.That(battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.RejectedInvalidPhase));
             Directory.Delete(store.TempPath); Assert.That(cp.RetrySave(), Is.True);
-            Assert.That(JsonUtility.ToJson(s.ExportCheckpoint()), Is.EqualTo(live));
-            Assert.That(JsonUtility.ToJson(Load().ExportCheckpoint()), Is.EqualTo(live));
+            Assert.That(Wire(s.ExportCheckpoint()), Is.EqualTo(live));
+            Assert.That(Wire(Load().ExportCheckpoint()), Is.EqualTo(live));
             Assert.That(battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.Continued));
-            var next = JsonUtility.ToJson(s.ExportCheckpoint()); var bytes = File.ReadAllBytes(store.PrimaryPath);
+            var next = Wire(s.ExportCheckpoint()); var bytes = File.ReadAllBytes(store.PrimaryPath);
             Assert.That(battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.RejectedInvalidPhase));
-            Assert.That(JsonUtility.ToJson(s.ExportCheckpoint()), Is.EqualTo(next));
+            Assert.That(Wire(s.ExportCheckpoint()), Is.EqualTo(next));
             Assert.That(File.ReadAllBytes(store.PrimaryPath), Is.EqualTo(bytes));
             audit.Add("PASS failed Confirm/restart/retry-only/Next-once wave=" + (source.State.WaveIndex + 1) + " durable=" + old + " live=" + live);
             Save(source);
         }
         private bool Rollback(BattleSimulation preparation)
         {
-            var s = Load(); var battle = Controller(s, out var cp); var expected = JsonUtility.ToJson(s.ExportCheckpoint());
+            var s = Load(); var battle = Controller(s, out var cp); var expected = Wire(s.ExportCheckpoint());
             var envelope = LoadEnvelope(); var first = new List<string>(); var second = new List<string>();
             bool covered = false;
             for (var repeat = 0; repeat < 2; repeat++)
@@ -140,9 +140,9 @@ namespace Veilward.Tests.EditMode
                 if (!covered) return false;
                 Assert.That(cp.ObservePhaseTransition(), Is.True); Assert.That(File.ReadAllBytes(store.PrimaryPath), Is.EqualTo(bytes));
                 cp.RestoreCheckpoint(envelope);
-                Assert.That(JsonUtility.ToJson(s.ExportCheckpoint()), Is.EqualTo(expected));
+                Assert.That(Wire(s.ExportCheckpoint()), Is.EqualTo(expected));
                 Assert.That(s.State.Enemies, Is.Empty); Assert.That(s.AttackEvents, Is.Empty); Assert.That(s.DamageEvents, Is.Empty); Assert.That(s.ReactionEvents, Is.Empty);
-                Assert.That(JsonUtility.ToJson(Load().ExportCheckpoint()), Is.EqualTo(expected));
+                Assert.That(Wire(Load().ExportCheckpoint()), Is.EqualTo(expected));
             }
             Assert.That(second, Is.EqualTo(first));
             audit.Add("PASS Combat rollback wave=" + (s.State.WaveIndex + 1) + " prefix entries=" + first.Count + " two identical attempts; whole state=" + expected);
@@ -161,9 +161,9 @@ namespace Veilward.Tests.EditMode
             {
                 var s = run.sim; var wave = s.State.WaveIndex + 1;
                 if (s.State.Phase == BattlePhase.Victory) return;
-                Save(s); var expected = JsonUtility.ToJson(s.ExportCheckpoint());
+                Save(s); var expected = Wire(s.ExportCheckpoint());
                 for (var repeat=0; repeat<2; repeat++)
-                    Assert.That(JsonUtility.ToJson(Load().ExportCheckpoint()), Is.EqualTo(expected));
+                    Assert.That(Wire(Load().ExportCheckpoint()), Is.EqualTo(expected));
                 audit.Add("PASS no-write whole snapshot wave="+wave+" point="+point+" state="+expected);
                 if (point == "completed" && (wave == 3 || wave == 6))
                 {
@@ -176,7 +176,7 @@ namespace Veilward.Tests.EditMode
                     reached.Add("rollback"+wave);
                 }
                 var envelope=LoadEnvelope(); var battle=Controller(s,out var cp); cp.RestoreCheckpoint(envelope);
-                Assert.That(JsonUtility.ToJson(s.ExportCheckpoint()),Is.EqualTo(expected));
+                Assert.That(Wire(s.ExportCheckpoint()),Is.EqualTo(expected));
             });
             Assert.That(continued.trace,Is.EqualTo(control.trace));
             foreach(var key in new[]{"pending3","confirmed3","pending6","confirmed6","rollback"+earlyWave,"rollback7"})
@@ -194,24 +194,34 @@ namespace Veilward.Tests.EditMode
             foreach (var type in schema == 1 ? new[] { "test-tower" } : new[] { "steam", "storm" })
                 Assert.That(legacy.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId(type), new GridCoordinate(-5 + legacy.State.Towers.Count, -3))).Success, Is.True);
             Assert.That(legacy.UpgradeTower(new TowerId(1)).Success, Is.True);
-            var expected = JsonUtility.ToJson(legacy.ExportCheckpoint());
+            var expected = Wire(legacy.ExportCheckpoint());
             e.state = legacy.ExportCheckpoint(); e.state.elementProgression = null;
             if (schema == 1) foreach (var t in e.state.towers) t.towerTypeId = null;
-            File.WriteAllText(store.PrimaryPath, JsonUtility.ToJson(e));
-            Assert.That(JsonUtility.ToJson(Load().ExportCheckpoint()), Is.EqualTo(expected));
+            File.WriteAllText(store.PrimaryPath, Wire(e));
+            Assert.That(Wire(Load().ExportCheckpoint()), Is.EqualTo(expected));
             var native = Config.CreateSimulation(); native.ChooseElement(new ChooseElementCommand("start-resonance", "gale"));
             foreach (var backupNative in new[] { false, true })
             {
                 var backup = backupNative ? Envelope(native) : e;
-                File.WriteAllText(store.BackupPath, JsonUtility.ToJson(backup));
-                var primary = JsonUtility.FromJson<WaveCheckpointEnvelope>(JsonUtility.ToJson(backupNative ? e : Envelope(native)));
-                primary.state.gold = -1; File.WriteAllText(store.PrimaryPath, JsonUtility.ToJson(primary));
+                File.WriteAllText(store.BackupPath, Wire(backup));
+                var primary = WaveCheckpointJson.Deserialize(Wire(backupNative ? e : Envelope(native)));
+                primary.state.gold = -1; File.WriteAllText(store.PrimaryPath, Wire(primary));
                 var load = LoadEnvelope(); Assert.That(load.scenarioContentId, Is.EqualTo(backup.scenarioContentId));
-                Assert.That(JsonUtility.ToJson(Load().ExportCheckpoint()), Is.EqualTo(backupNative ? JsonUtility.ToJson(native.ExportCheckpoint()) : expected));
-                audit.Add("PASS synthetic schema=" + schema + " corrupt primary -> " + (backupNative ? "native" : "legacy") + " whole backup=" + JsonUtility.ToJson(load));
+                Assert.That(Wire(Load().ExportCheckpoint()), Is.EqualTo(backupNative ? Wire(native.ExportCheckpoint()) : expected));
+                audit.Add("PASS synthetic schema=" + schema + " corrupt primary -> " + (backupNative ? "native" : "legacy") + " whole backup=" + Wire(load));
             }
         }
-        private WaveCheckpointEnvelope Envelope(BattleSimulation s) => new WaveCheckpointEnvelope { schemaVersion = 3, scenarioContentId = s.State.ElementProgression.RulesId == "wave-unlocks-v1" ? Native : "eight-wave-v1", state = s.ExportCheckpoint() };
+        private static string Wire(object value)
+        {
+            if (!(value is WaveCheckpointEnvelope e)) return JsonUtility.ToJson(value);
+            if (e.schemaVersion == 4) return WaveCheckpointJson.Serialize(e);
+            var json = JsonUtility.ToJson(e);
+            // Реальный legacy shape: нет progression, а не inline defaults от Unity null serialization.
+            if (e.schemaVersion < 3 && e.state.elementProgression == null)
+                json = json.Substring(0, json.IndexOf(",\"elementProgression\":", StringComparison.Ordinal)) + "}}";
+            return json;
+        }
+        private WaveCheckpointEnvelope Envelope(BattleSimulation s) => new WaveCheckpointEnvelope { schemaVersion = WaveCheckpointStore.CurrentSchemaVersion, scenarioContentId = s.State.ElementProgression.RulesId == "wave-unlocks-v1" ? Native : "eight-wave-v1", state = s.ExportCheckpoint() };
         private void Save(BattleSimulation s) => Assert.That(store.TrySave(Envelope(s), s.TryValidateCheckpoint, out var error, Config.CreateSimulationForCheckpoint), Is.True, error);
         private WaveCheckpointEnvelope LoadEnvelope()
         {

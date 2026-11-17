@@ -52,13 +52,20 @@ namespace Veilward.Presentation
         public void RestoreCheckpoint(WaveCheckpointEnvelope envelope)
         {
             EnsureConfigured();
-            if (envelope == null || envelope.schemaVersion != WaveCheckpointStore.CurrentSchemaVersion ||
-                !WaveCheckpointCompatibility.TryNormalize(envelope, _scenarioContentId, _simulationFactory == null, out _, out _))
+            if (!WaveCheckpointCompatibility.TryNormalize(envelope, _scenarioContentId, _simulationFactory == null,
+                    out var normalized, out _))
             {
                 throw new ArgumentException("Checkpoint envelope is incompatible with this Battle.", nameof(envelope));
             }
 
-            _simulation.RestoreCheckpoint(envelope.state);
+            // Factory validation выполняется до любой live mutation; активный simulation дополнительно проверяет свой mode.
+            if (_simulationFactory != null)
+            {
+                var candidate = _simulationFactory(normalized);
+                if (candidate == null || !candidate.TryValidateCheckpoint(normalized.state, out _))
+                    throw new ArgumentException("Checkpoint factory rejected state.", nameof(envelope));
+            }
+            _simulation.RestoreCheckpoint(normalized.state);
             _scenarioContentId = envelope.scenarioContentId;
             _observedPhase = _simulation.State.Phase;
             LastSaveSucceeded = true;
@@ -129,6 +136,9 @@ namespace Veilward.Presentation
             return SaveCurrentState();
         }
 
+        // Вызывается после successful command, в том числе Cast без следующего Step.
+        public bool ObserveCommandCompletion() => ObservePhaseTransition();
+
         public bool ObservePhaseTransition()
         {
             EnsureConfigured();
@@ -138,10 +148,8 @@ namespace Veilward.Presentation
                 return true;
             }
 
-            var previous = _observedPhase;
             _observedPhase = phase;
-            if (previous == BattlePhase.Combat &&
-                (phase == BattlePhase.WaveComplete || phase == BattlePhase.Victory || phase == BattlePhase.Defeat))
+            if (phase == BattlePhase.WaveComplete || phase == BattlePhase.Victory || phase == BattlePhase.Defeat)
             {
                 return SaveCurrentState();
             }

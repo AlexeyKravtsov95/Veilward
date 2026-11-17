@@ -11,7 +11,7 @@ namespace Veilward.Infrastructure
 
     public sealed class WaveCheckpointStore
     {
-        public const int CurrentSchemaVersion = 3;
+        public const int CurrentSchemaVersion = 4;
         private readonly IWaveCheckpointWriter _writer;
         private const string PrimaryFileName = "wave-checkpoint-v1.json";
 
@@ -64,7 +64,7 @@ namespace Veilward.Infrastructure
             try
             {
                 Directory.CreateDirectory(RootDirectory);
-                var json = JsonUtility.ToJson(envelope, prettyPrint: true);
+                var json = WaveCheckpointJson.Serialize(envelope, pretty: true);
                 _writer.WriteTemporary(TempPath, json);
 
                 if (ReadEnvelope(TempPath, requestedId, validator, simulationFactory, out _, out error) !=
@@ -194,7 +194,7 @@ namespace Veilward.Infrastructure
                 var json = File.ReadAllText(path);
                 if (!WaveCheckpointJson.HasRequiredFields(json, out error)) return FileReadStatus.Corrupt;
                 WaveCheckpointEnvelope candidate;
-                try { candidate = JsonUtility.FromJson<WaveCheckpointEnvelope>(json); }
+                try { candidate = WaveCheckpointJson.Deserialize(json); }
                 catch (ArgumentException e) { error = e.Message; return FileReadStatus.Corrupt; }
                 if (factory == null && candidate.scenarioContentId != requestedId)
                 { error = "Checkpoint scenario content is incompatible."; return FileReadStatus.Incompatible; }
@@ -240,7 +240,7 @@ namespace Veilward.Infrastructure
             }
 
             if (!WaveCheckpointCompatibility.TryNormalize(envelope, scenarioContentId, true, out _, out error) ||
-                !WaveCheckpointJson.HasRequiredFields(JsonUtility.ToJson(envelope), out error)) return false;
+                !WaveCheckpointJson.HasRequiredFields(WaveCheckpointJson.Serialize(envelope), out error)) return false;
             try { return validator(envelope.state, out error); }
             catch (Exception e) when (IsValidationException(e)) { error = e.Message; return false; }
         }

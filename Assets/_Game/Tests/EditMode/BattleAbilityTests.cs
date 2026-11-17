@@ -56,6 +56,18 @@ namespace Veilward.Tests.EditMode
 
         // Снимок всех публичных полей state/events и orchestration counters.
         // Проверяет optional attribution/status поля, которые event.ToString() не отражает.
+        internal static BattleSimulation CheckpointDirtyFixture()
+        {
+            var s = Create(reactionTower: true); s.StartWave();
+            s.State.AddTower(new TowerState(new TowerId(1), s.TowerDefinition, new GridCoordinate(0, 1)));
+            s.Grid.TryOccupy(new GridCoordinate(0, 1));
+            s.State.Enemies[0].ApplyStatus(new StatusEffectDefinition(StatusKind.Burn, 1, 1000, 100), new TowerId(1), 0);
+            s.Step(); Assert.That(s.CastAbility(Command(s)).Succeeded, Is.True);
+            return s;
+        }
+
+        internal static string FullSnapshot(BattleSimulation s) => Snapshot(s);
+
         private static string Snapshot(BattleSimulation s)
         {
             var result = new StringBuilder(BattleElementUnlockTests.Snapshot(s));
@@ -410,7 +422,7 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
-        public void RegBattle191_EnabledRestoreExplicitlyUnsupportedAndAtomicUntilPersistenceTask()
+        public void RegBattle191_DisabledSnapshotRejectedByEnabledRestoreAtomically()
         {
             var disabled = Create(enabled: false); var checkpoint = disabled.ExportCheckpoint();
             var s = Create(); s.StartWave(); s.CastAbility(Command(s)); var before = Snapshot(s);
@@ -421,13 +433,15 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
-        public void RegBattle191_ProductionDisabledAndEnabledExportUnsupported()
+        public void RegBattle191_ProductionDisabledAndEnabledSafeExportSupported()
         {
             var production = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset").CreateSimulation();
             Assert.That(production.AbilityState.RulesId, Is.EqualTo("ability-disabled-v1"));
             Assert.That(production.AbilityState.CooldownRemainingTicks, Is.Zero); Assert.That(production.AbilityState.NextCastSequence, Is.EqualTo(1));
             Assert.DoesNotThrow(() => production.ExportCheckpoint());
-            var enabled = Create(); Assert.Throws<NotSupportedException>(() => enabled.ExportCheckpoint());
+            var enabled = Create();
+            Assert.That(enabled.ExportCheckpoint().ability.RulesId, Is.EqualTo("rift-seal-v1"));
+            enabled.StartWave(); Assert.Throws<InvalidOperationException>(() => enabled.ExportCheckpoint());
         }
     }
 }

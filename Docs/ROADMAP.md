@@ -108,3 +108,5 @@ Playtest comprehension: >=70% discover or execute first reaction following the t
 
 
 **P2.4b/#36: Review, не merged.** Pure Domain «Печати Разрыва» и REG190–197 реализованы после merge #65 от свежего main; production ability-disabled, enabled только internal synthetic fixture. Сохранения/schema4/UI/boss/wave8 — следующие #37–40. D-01…D-07 приняты владельцем как исходные правила, не final balance/G2/device/ART approval. [Фактические gates и независимое review](review/P2.4b/validation.md).
+
+**P2.4c/#37:** schema4, immutable ability checkpoint, старые content IDs/миграции, независимая проверка slots и полный Combat rollback реализованы, ожидают review/merge. Production ability-disabled; enabled persistence только internal synthetic fixture. [Evidence](review/P2.4c/validation.md). UI/final mission/boss остаются #38–40; physical device/G2/ART/release не подтверждаются.

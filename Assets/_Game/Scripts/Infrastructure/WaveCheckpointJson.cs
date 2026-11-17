@@ -13,6 +13,26 @@ namespace Veilward.Infrastructure
         private WaveCheckpointJson(string json) { _json = json; }
         private sealed class Number { public string Text; }
 
+        internal static string Serialize(WaveCheckpointEnvelope envelope, bool pretty = false) => WaveCheckpointWire.Serialize(envelope, pretty);
+        internal static WaveCheckpointEnvelope Deserialize(string json)
+        {
+            var envelope = WaveCheckpointWire.Deserialize(json);
+            if (envelope.schemaVersion < 4 && envelope.state != null) envelope.state.ability = null;
+            if (envelope.schemaVersion < 3 && envelope.state != null)
+            {
+                var reader = new WaveCheckpointJson(json);
+                var state = Object(Field(Object(reader.Read(0)), "state"));
+                if (!state.TryGetValue("elementProgression", out var progression) || progression == null)
+                    envelope.state.elementProgression = null;
+            }
+            return envelope;
+        }
+
+        private static void Keys(Dictionary<string, object> obj, params string[] allowed)
+        {
+            foreach (var key in obj.Keys) if (System.Array.IndexOf(allowed, key) < 0) throw new FormatException();
+        }
+
         internal static bool HasRequiredFields(string json, out string error)
         {
             try
@@ -20,26 +40,39 @@ namespace Veilward.Infrastructure
                 var reader = new WaveCheckpointJson(json);
                 var root = Object(reader.Read(0)); reader.White();
                 if (reader._position != json.Length) throw new FormatException();
+                Keys(root, "schemaVersion", "scenarioContentId", "state");
                 Int(root, "schemaVersion"); String(root, "scenarioContentId");
                 var schema = long.Parse(((Number)root["schemaVersion"]).Text, CultureInfo.InvariantCulture);
                 var state = Object(Field(root, "state"));
+                // Старые test fixtures могут явно содержать null progression; его непустая форма тоже валидируется.
+                Keys(state, "phase", "waveIndex", "tick", "baseHealth", "gold", "kills", "nextEnemyId", "nextTowerId", "towers", "elementProgression", "ability");
+                if (schema < 4 && state.ContainsKey("ability")) throw new FormatException();
                 foreach (var key in new[] { "phase", "waveIndex", "baseHealth", "gold", "kills", "nextEnemyId", "nextTowerId" }) Int(state, key);
                 Int(state, "tick", true);
                 foreach (var value in Array(Field(state, "towers")))
                 {
                     var tower = Object(value);
+                    Keys(tower, "towerId", "towerTypeId", "x", "y", "level", "investedGold", "nextAttackTick");
+                    if (schema == 1 && tower.TryGetValue("towerTypeId", out var type) && type != null && !(type is string)) throw new FormatException();
                     foreach (var key in new[] { "towerId", "x", "y", "level", "investedGold" }) Int(tower, key);
                     Int(tower, "nextAttackTick", true);
                     if (schema != 1) String(tower, "towerTypeId");
                 }
-                if (schema == 3)
+                if (schema == 4)
+                {
+                    var a = Object(Field(state, "ability"));
+                    Keys(a, "rulesId", "abilityId", "cooldownRemainingTicks", "nextCastSequence");
+                    String(a, "rulesId"); String(a, "abilityId"); Int(a, "cooldownRemainingTicks"); Int(a, "nextCastSequence", true);
+                }
+                if (schema >= 3 || state.TryGetValue("elementProgression", out var oldProgression) && oldProgression != null)
                 {
                     var p = Object(Field(state, "elementProgression"));
+                    Keys(p, "rulesId", "startResonanceId", "pendingChoiceId", "choicesEarned", "choicesSpent", "unlockedElementIds", "spentChoices");
                     foreach (var key in new[] { "rulesId", "startResonanceId", "pendingChoiceId" }) String(p, key);
                     Int(p, "choicesEarned"); Int(p, "choicesSpent");
                     foreach (var id in Array(Field(p, "unlockedElementIds"))) if (!(id is string)) throw new FormatException();
                     foreach (var choice in Array(Field(p, "spentChoices")))
-                    { var c = Object(choice); String(c, "choiceId"); String(c, "elementId"); }
+                    { var c = Object(choice); Keys(c, "choiceId", "elementId"); String(c, "choiceId"); String(c, "elementId"); }
                 }
                 error = null;
                 return true;

@@ -326,3 +326,9 @@ Production остаётся ability-disabled. Новые сценарии исп
 | REG-BATTLE-197 | `BattleAbilityTests.RegBattle197_*` | Attribution/correlation/captured lethal position, общий sequence Ability/Reaction/Damage, Clear без reset, нет fake AttackEvent. |
 
 Результаты/RED→GREEN/полные totals/hashes и ограничения: [P2.4b evidence](review/P2.4b/validation.md). Статус VERIFIED указывается только по фактическому финальному прогону в evidence.
+
+### P2.4c — #37 regression contract
+
+REG198: deep safe-boundary/terminal round trips и dirty restore; REG199: strict schema4 ability shape/scalars/cross-field reject-before-mutate; REG200: точная migration matrix1/2/3→4 без смены content; REG201: независимые mixed-mode primary/backup, no-write Load и backup preservation; REG202: completion от Cast/Step, failed-save/Retry без повторной команды; REG203: whole-state pre-Start rollback после cast+kill+positive proc, две попытки и continued trace.
+
+Production ability-disabled; enabled только internal exact-ID synthetic-p24-ability-v1; final mission/UI/boss — #38–40. Ожидаемый RED: отсутствующие AbilityCheckpoint/WaveCheckpointJson.Serialize/ObserveCommandCompletion API, затем behavioral RED enabled Export/Restore и schema4. Фактические команды, totals, XML и ограничения — [P2.4c evidence](review/P2.4c/validation.md). Реализованные suites: AbilityCheckpointTests, AbilityCheckpointStorageTests, AbilityCheckpointControllerTests; прежние schema/IO/menu/PlayMode suites сохранены с технической schema4 wire-проекцией. REG198/201 для final ID остаются #39.
