@@ -1,0 +1,48 @@
+{
+  "source_dabc9cc_scenario": {
+    "entries": [],
+    "cursor": 0,
+    "session": "e8ef354857b447c9ace1ef1639ce37d8",
+    "returned": 0,
+    "dropped": false,
+    "reset": false,
+    "counts": {
+      "error": 0,
+      "warn": 0,
+      "log": 0
+    },
+    "groundTruth": {
+      "sampledUtc": "2026-11-17T06:51:42.255747Z",
+      "ageMs": 121,
+      "compilationFailed": false,
+      "compiling": false,
+      "consoleErrors": 0,
+      "consoleWarnings": 0,
+      "consoleLogs": 0,
+      "seeded": true
+    }
+  },
+  "source_18874fb_final_legacy": {
+    "entries": [],
+    "cursor": 0,
+    "session": "85cb5e12831b4d85a7273f5bfcb8d426",
+    "returned": 0,
+    "dropped": false,
+    "reset": false,
+    "counts": {
+      "error": 0,
+      "warn": 0,
+      "log": 0
+    },
+    "groundTruth": {
+      "sampledUtc": "2026-11-17T07:03:06.863524Z",
+      "ageMs": 225,
+      "compilationFailed": false,
+      "compiling": false,
+      "consoleErrors": 0,
+      "consoleWarnings": 0,
+      "consoleLogs": 0,
+      "seeded": true
+    }
+  }
+}

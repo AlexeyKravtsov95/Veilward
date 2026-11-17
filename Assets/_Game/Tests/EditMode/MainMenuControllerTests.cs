@@ -171,7 +171,7 @@ namespace Veilward.Tests.EditMode
             var serialized = new SerializedObject(_scenario);
             serialized.FindProperty("scenarioContentId").stringValue = "eight-wave-unlocks-v1";
             serialized.ApplyModifiedPropertiesWithoutUndo();
-            var s = native ? _scenario.CreateSimulation(BattleElementUnlockTests.Rules()) : _scenario.CreateSimulation();
+            var s = native ? _scenario.CreateSimulation(BattleElementUnlockTests.Rules()) : _scenario.CreateHistoricalAllOpenSimulation();
             if (native) s.ChooseElement(new ChooseElementCommand("start-resonance", "gale"));
             else s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId("storm"), new GridCoordinate(-5, -3)));
             var e = new WaveCheckpointEnvelope

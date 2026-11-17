@@ -1,0 +1,11 @@
+{
+  "commit": "aed5f687fbab37c280286a338f22551031210c46",
+  "files": {
+    "Assets/_Game/Scripts/Presentation/BattlePlacementController.cs": "fd9e9318474d09bd6a05486b0284fd50bc8035e08977fda47134aeb8f57f5b3d",
+    "Assets/_Game/Scripts/Presentation/BattleSceneController.cs": "ff1af37babf6e22588d1c9fb5a772d72355235329b577344d52dd246ce4d3906",
+    "Assets/_Game/Tests/PlayMode/BattleEnemyInspectorWorldTapTests.cs": "bb774ca9aeead70dc1db36736421338122e840f7d9406df4a7edee84c9848910",
+    "Assets/_Game/Tests/PlayMode/BattleEnemyInspectorWorldTapTests.cs.meta": "fff12561ce1e1f9455c8c8905765b7261b89974e9366db0cf753af50dadf67b8",
+    "Docs/REGRESSION.md": "47107c70b9cfa05c6336abb941f49d70759c0f080fb369b341a40c9739288b45",
+    "Docs/TECH_DESIGN.md": "a24d9dba4af111b51a7e014cb5f25f5cbf3af497d6e4e299b11506e6db2f1aca"
+  }
+}

@@ -8,6 +8,17 @@ namespace Veilward.Presentation
     public sealed class BattleCheckpointController : MonoBehaviour
     {
         [SerializeField] private UnityEngine.UI.Text saveStatusText;
+        [SerializeField] private UnityEngine.UI.Button retrySaveButton;
+        [SerializeField] private BattleSceneController battle;
+
+        private void Start() { if (retrySaveButton != null) retrySaveButton.onClick.AddListener(HandleRetrySave); }
+        private void OnDestroy() { if (retrySaveButton != null) retrySaveButton.onClick.RemoveListener(HandleRetrySave); }
+        private void HandleRetrySave() => RetrySave();
+        public bool RetrySave()
+        {
+            if (battle != null && !battle.CanAcceptInput(BattleInputOwner.ElementChoice)) return false;
+            return SaveCurrentState();
+        }
 
         private WaveCheckpointStore _store;
         private BattleSimulation _simulation;
@@ -148,6 +159,7 @@ namespace Veilward.Presentation
 
         private void SetStatus(string message)
         {
+            if (retrySaveButton != null) retrySaveButton.gameObject.SetActive(!LastSaveSucceeded);
             if (saveStatusText != null)
             {
                 saveStatusText.text = message;

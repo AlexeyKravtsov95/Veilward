@@ -8,7 +8,7 @@ using Veilward.Presentation;
 
 namespace Veilward.Tests.PlayMode
 {
-    public sealed class BattleSmokeTests
+    public sealed class BattleSmokeTests : HistoricalAllOpenPlayModeFixture
     {
         [UnityTest]
         public IEnumerator Battle_LoadsIntoPreparation()
@@ -108,6 +108,7 @@ namespace Veilward.Tests.PlayMode
 
         private static void CompleteCurrentWave(BattleSceneController battle)
         {
+            Object.FindFirstObjectByType<BattlePlacementController>().CancelSelection();
             battle.StartWave();
             var guard = 0;
             while (battle.Simulation.State.Phase == BattlePhase.Combat && guard++ < 20000)

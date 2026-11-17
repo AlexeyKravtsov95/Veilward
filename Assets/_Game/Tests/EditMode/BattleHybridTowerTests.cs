@@ -247,7 +247,7 @@ namespace Veilward.Tests.EditMode
         [Test]
         public void RegBattle153_PublicFactoryIncludesProductionReactionsAndSixVisibleTypesFromPreparation()
         {
-            var config = Config(); var s = config.CreateSimulation();
+            var config = Config(); var s = config.CreateHistoricalAllOpenSimulation();
             Assert.That(s.TowerCatalog.Archetypes.Where(a => a.ShowInCatalog).Select(a => a.Id.Value),
                 Is.EqualTo(new[] { "flame", "tide", "gale", "stone", "steam", "storm" }));
             Assert.That(s.State.Phase, Is.EqualTo(BattlePhase.Preparation));
@@ -260,7 +260,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(steam.Payload.TargetLimit, Is.EqualTo(4));
             Assert.That(storm.Payload.DamagePercent, Is.EqualTo(75)); Assert.That(storm.Payload.Range, Is.EqualTo(2f));
             Assert.That(storm.Payload.TargetLimit, Is.EqualTo(2));
-            var historical = config.CreateSimulation(ReactionCatalog.Empty);
+            var historical = config.CreateHistoricalAllOpenSimulation(ReactionCatalog.Empty);
             Assert.That(historical.ReactionCatalog, Is.SameAs(ReactionCatalog.Empty));
             Assert.That(historical.TowerCatalog.Archetypes.Count, Is.EqualTo(5));
         }

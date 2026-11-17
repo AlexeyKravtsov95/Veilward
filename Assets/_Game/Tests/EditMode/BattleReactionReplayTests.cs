@@ -110,7 +110,7 @@ namespace Veilward.Tests.EditMode
         [TestCase("storm")]
         public void RegBattle162_SuppressionObserver_DistinguishesCooldownAndNoNeighbor(string strategy)
         {
-            var production = Config().CreateSimulation();
+            var production = Config().CreateHistoricalAllOpenSimulation();
             var enemy = new EnemyDefinition(new EnemyDefinitionId("synthetic-armored"), 1000, .1f, 1, 5, 7);
             var s = new BattleSimulation(new GridMapDefinition(10, 3, new GridCoordinate(0, -1), 1),
                 new PathDefinition(new[] { new GridCoordinate(0, 0), new GridCoordinate(100, 0) }),
@@ -182,7 +182,7 @@ namespace Veilward.Tests.EditMode
 
         private static BattleScenarioConfig Config() => AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath);
         private static BattleSimulation Create(string strategy) => strategy == "historical"
-            ? Config().CreateSimulation(ReactionCatalog.Empty) : Config().CreateSimulation();
+            ? Config().CreateHistoricalAllOpenSimulation(ReactionCatalog.Empty) : Config().CreateHistoricalAllOpenSimulation();
 
         private static Replay Run(string strategy, bool restore)
         {
@@ -192,7 +192,7 @@ namespace Veilward.Tests.EditMode
             var root = Path.Combine(Path.GetTempPath(), "veilward-p22f-" + Guid.NewGuid().ToString("N"));
             var store = new WaveCheckpointStore(root);
             var owner = new GameObject("P2.2f file checkpoint");
-            var cp = owner.AddComponent<BattleCheckpointController>(); cp.Configure(store, s, Config().ScenarioContentId);
+            var cp = owner.AddComponent<BattleCheckpointController>(); cp.Configure(store, s, "eight-wave-v1");
             var waves = new List<Wave>();
             try
             {
@@ -444,8 +444,8 @@ namespace Veilward.Tests.EditMode
         {
             var expected = Snapshot(s); var bytes = File.ReadAllBytes(store.PrimaryPath);
             var restored = Create(strategy);
-            Assert.That(store.TryLoad(Config().ScenarioContentId, restored.TryValidateCheckpoint, out var loaded), Is.True);
-            cp.Configure(store, restored, Config().ScenarioContentId); cp.RestoreCheckpoint(loaded.Envelope);
+            Assert.That(store.TryLoad("eight-wave-v1", restored.TryValidateCheckpoint, out var loaded), Is.True);
+            cp.Configure(store, restored, "eight-wave-v1"); cp.RestoreCheckpoint(loaded.Envelope);
             Assert.That(Snapshot(restored), Is.EqualTo(expected));
             Assert.That(File.ReadAllBytes(store.PrimaryPath), Is.EqualTo(bytes)); r.roundTrips++;
             return restored;
@@ -472,7 +472,7 @@ namespace Veilward.Tests.EditMode
                 Assert.That(cp.ObservePhaseTransition(), Is.True); Assert.That(File.ReadAllBytes(store.PrimaryPath), Is.EqualTo(bytes));
                 var interruptedAt = s.State.Tick;
                 // Restore на грязной simulation должен очистить все stream и transient enemies.
-                Assert.That(store.TryLoad(Config().ScenarioContentId, s.TryValidateCheckpoint, out var loaded), Is.True);
+                Assert.That(store.TryLoad("eight-wave-v1", s.TryValidateCheckpoint, out var loaded), Is.True);
                 cp.RestoreCheckpoint(loaded.Envelope); Assert.That(Snapshot(s), Is.EqualTo(preparation)); AssertTransientClean(s);
                 for (var repeat = 0; repeat < 2; repeat++)
                 {
@@ -492,7 +492,7 @@ namespace Veilward.Tests.EditMode
             }
             else
             {
-                Assert.That(store.TryLoad(Config().ScenarioContentId, s.TryValidateCheckpoint, out var loaded), Is.True);
+                Assert.That(store.TryLoad("eight-wave-v1", s.TryValidateCheckpoint, out var loaded), Is.True);
                 cp.RestoreCheckpoint(loaded.Envelope); Assert.That(Snapshot(s), Is.EqualTo(preparation));
             }
         }
@@ -538,7 +538,19 @@ namespace Veilward.Tests.EditMode
             return b.ToString();
         }
         private static string Hash(byte[] bytes) { using (var sha = SHA256.Create()) return BitConverter.ToString(sha.ComputeHash(bytes)).Replace("-", "").ToLowerInvariant(); }
-        private static string HashFile(string path) => path + ":" + Hash(File.ReadAllBytes(path));
+        private static string HashFile(string path)
+        {
+            var bytes = File.ReadAllBytes(path);
+            if (path == ConfigPath)
+            {
+                // Исторический combat hash исключает только новую progression metadata/content ID.
+                var yaml = Encoding.UTF8.GetString(bytes).Replace("eight-wave-unlocks-v1", "eight-wave-v1");
+                var progression = yaml.IndexOf("  progression:\n", StringComparison.Ordinal);
+                if (progression >= 0) yaml = yaml.Substring(0, progression);
+                bytes = Encoding.UTF8.GetBytes(yaml);
+            }
+            return path + ":" + Hash(bytes);
+        }
         private static void WriteTrace(string strategy, List<string> lines)
         {
             Directory.CreateDirectory(Output);

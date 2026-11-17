@@ -1,0 +1,39 @@
+{
+  "Assets/_Game/Configs/EightWave.asset": {
+    "baseSha256": "2e2cd23aa7ccc9ac4c3b0a50176733aa0af38334ff9f3e26beb1a6261b371fe3",
+    "headRawSha256": "5f0c013d73dfa34a1ea2fcc0360baceb0ff36b4196b6e0ef9c700c665caf4182",
+    "combatProjectionSha256": "2e2cd23aa7ccc9ac4c3b0a50176733aa0af38334ff9f3e26beb1a6261b371fe3",
+    "combatBytesEqual": true
+  },
+  "Assets/_Game/Configs/TestWave.asset": {
+    "baseSha256": "4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3",
+    "headRawSha256": "4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3",
+    "combatProjectionSha256": "4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3",
+    "combatBytesEqual": true
+  },
+  "Assets/_Game/Configs/EightWave.asset.meta": {
+    "baseSha256": "1d1d536c705b97071bb01f3407891ab0e23cd23e2f918e4713c3f2f6021fb118",
+    "headSha256": "1d1d536c705b97071bb01f3407891ab0e23cd23e2f918e4713c3f2f6021fb118",
+    "bytesEqual": true
+  },
+  "Assets/_Game/Configs/TestWave.asset.meta": {
+    "baseSha256": "360ae937e4f6aa11f5a65ee749a3ed09198eb4e25cfe43cc5784879e5270a0c7",
+    "headSha256": "360ae937e4f6aa11f5a65ee749a3ed09198eb4e25cfe43cc5784879e5270a0c7",
+    "bytesEqual": true
+  },
+  "Assets/_Game/Scenes/MainMenu.unity": {
+    "baseSha256": "985feedeb0671d172ca2a370172d4204f4942db76d41788fa49d54f9a98e46ae",
+    "headSha256": "985feedeb0671d172ca2a370172d4204f4942db76d41788fa49d54f9a98e46ae",
+    "bytesEqual": true
+  },
+  "Packages/manifest.json": {
+    "baseSha256": "a78d2c59e34818add54d16dc5954518d2da7db5675de2581d98290da49ef6eef",
+    "headSha256": "a78d2c59e34818add54d16dc5954518d2da7db5675de2581d98290da49ef6eef",
+    "bytesEqual": true
+  },
+  "Packages/packages-lock.json": {
+    "baseSha256": "aa3863f6781ab09d3883c846faec36322a393dae4955ff3cc9b6b5faa5d9b67e",
+    "headSha256": "aa3863f6781ab09d3883c846faec36322a393dae4955ff3cc9b6b5faa5d9b67e",
+    "bytesEqual": true
+  }
+}

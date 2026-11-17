@@ -167,6 +167,27 @@ namespace Veilward.Editor
                     errors.Add("Enemy inspector detailsText layout is too small.");
             }
 
+            var safeAreas = FindComponents<BattleHudSafeArea>(roots);
+            if (safeAreas.Count != 1) errors.Add("Battle requires exactly one BattleHudSafeArea.");
+            else
+            {
+                var controls = new SerializedObject(safeAreas[0]).FindProperty("edgeControls");
+                if (controls.arraySize != 8) errors.Add("HUD requires eight safe-area edge controls.");
+                for (var i = 0; i < controls.arraySize; i++)
+                    if (controls.GetArrayElementAtIndex(i).objectReferenceValue == null) errors.Add("Missing HUD safe-area reference.");
+            }
+            var choices = FindComponents<ElementChoiceController>(roots);
+            if (choices.Count != 1) errors.Add("Battle requires exactly one ElementChoiceController.");
+            else
+            {
+                var refs = RequireReferences(choices[0], new[] { "battle", "placement", "panel", "safeAreaRoot", "titleText", "summaryText", "confirmButton", "cancelButton" }, errors);
+                var options = new SerializedObject(choices[0]).FindProperty("optionButtons");
+                if (options.arraySize != 4) errors.Add("Choice requires four canonical buttons.");
+                for (var i = 0; i < options.arraySize; i++)
+                    if (options.GetArrayElementAtIndex(i).objectReferenceValue == null) errors.Add("Missing choice option reference.");
+                if (refs["panel"] is GameObject choicePanel && (choicePanel.GetComponent<UnityEngine.UI.Image>() == null || !choicePanel.GetComponent<UnityEngine.UI.Image>().raycastTarget))
+                    errors.Add("Choice overlay must block raycasts.");
+            }
             var checkpoints = FindComponents<BattleCheckpointController>(roots);
             if (checkpoints.Count != 1)
             {
@@ -174,7 +195,7 @@ namespace Veilward.Editor
             }
             else
             {
-                RequireReferences(checkpoints[0], new[] { "saveStatusText" }, errors);
+                RequireReferences(checkpoints[0], new[] { "saveStatusText", "retrySaveButton", "battle" }, errors);
             }
 
             foreach (var root in roots)
@@ -193,7 +214,7 @@ namespace Veilward.Editor
                 new[]
                 {
                     "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
-                    "pauseController", "placementController", "checkpointController", "enemyInspector", "reactionSummaryText", "reactionEffectMaterial"
+                    "pauseController", "placementController", "checkpointController", "enemyInspector", "elementChoice", "mainMenuButton", "reactionSummaryText", "reactionEffectMaterial"
                 },
                 errors);
             RequireAssetPath(references["scenario"], ConfigPath, "scenario", errors);

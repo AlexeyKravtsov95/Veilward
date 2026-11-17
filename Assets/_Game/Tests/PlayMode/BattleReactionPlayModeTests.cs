@@ -16,7 +16,7 @@ using Object = UnityEngine.Object;
 
 namespace Veilward.Tests.PlayMode
 {
-    public sealed class BattleReactionPlayModeTests
+    public sealed class BattleReactionPlayModeTests : HistoricalAllOpenPlayModeFixture
     {
         private string _slot;
         [SetUp] public void SetUp()

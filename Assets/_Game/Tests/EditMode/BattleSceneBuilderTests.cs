@@ -11,6 +11,37 @@ namespace Veilward.Tests.EditMode
 {
     public sealed class BattleSceneBuilderTests
     {
+        [Test]
+        public void RegBattle185_BuilderRecreatesMissingEightWaveWithNativeSettings()
+        {
+            const string path = "Assets/_Game/Configs/EightWave.asset";
+            var paths = new List<string> { path, path + ".meta", "Assets/_Game/Configs/TestWave.asset",
+                "Assets/_Game/Scenes/Battle.unity", "Assets/_Game/Scenes/MainMenu.unity",
+                "Assets/_Game/Prefabs/Shade.prefab", "Assets/_Game/Prefabs/TestTower.prefab" };
+            paths.AddRange(Directory.GetFiles("Assets/_Game/Art/Materials", "*.mat"));
+            var before = new Dictionary<string, byte[]>();
+            foreach (var file in paths) before[file] = File.ReadAllBytes(file);
+            try
+            {
+                Assert.That(AssetDatabase.DeleteAsset(path), Is.True);
+                Assert.DoesNotThrow(() => BattleSceneBuilder.Build());
+                var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(path);
+                Assert.That(config.ScenarioContentId, Is.EqualTo("eight-wave-unlocks-v1"));
+                var simulation = config.CreateSimulation();
+                Assert.That(simulation.State.WaveCount, Is.EqualTo(8));
+                Assert.That(simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
+                Assert.That(BattleAssetValidator.ValidateSavedBattle(), Is.Empty);
+                Assert.That(BattleAssetValidator.ValidateSavedMainMenu(), Is.Empty);
+            }
+            finally
+            {
+                foreach (var pair in before) File.WriteAllBytes(pair.Key, pair.Value);
+                AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+                EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity");
+                foreach (var pair in before) CollectionAssert.AreEqual(pair.Value, File.ReadAllBytes(pair.Key), pair.Key);
+            }
+        }
+
         [TestCase(4, false)]
         [TestCase(0, false)] [TestCase(3, false)] [TestCase(5, false)]
         [TestCase(4, true)] [TestCase(6, true)]
