@@ -1,0 +1,373 @@
+{
+    "rulesId": "wave-unlocks-v1",
+    "route": "A",
+    "outcome": "Defeat",
+    "traceSha256": "06a778da280a9e06e02374d2f8b00269ac5025502949278a43925d63d51dee0f",
+    "startingGold": 150,
+    "startingHp": 20,
+    "entries": 2351,
+    "receipts": [
+        "wave=1 tick=0|Choose start-resonance=flame",
+        "wave=1 tick=0|Confirm repeat/stale=rejected",
+        "wave=1 tick=0|Locked Place tide=ElementLocked",
+        "wave=1 tick=0|Locked Place gale=ElementLocked",
+        "wave=1 tick=0|Locked Place stone=ElementLocked",
+        "wave=1 tick=0|Locked Place steam=ElementLocked",
+        "wave=1 tick=0|Locked Place storm=ElementLocked",
+        "wave=1 tick=0|Locked Place tide=ElementLocked",
+        "wave=1 tick=0|Locked Place gale=ElementLocked",
+        "wave=1 tick=0|Locked Place stone=ElementLocked",
+        "wave=1 tick=0|Locked Place steam=ElementLocked",
+        "wave=1 tick=0|Locked Place storm=ElementLocked",
+        "wave=1 tick=0|place flame id=1 (-2,-1)=True/None gold=150->80 price=70 investment=0->70 refund=0",
+        "wave=1 tick=0|place flame id=2 (1,1)=True/None gold=80->10 price=70 investment=0->70 refund=0",
+        "wave=1 tick=0|Start=Started",
+        "wave=2 tick=399|Next=Continued",
+        "wave=2 tick=399|Next=repeat-rejected",
+        "wave=2 tick=399|Locked Place tide=ElementLocked",
+        "wave=2 tick=399|Locked Place gale=ElementLocked",
+        "wave=2 tick=399|Locked Place stone=ElementLocked",
+        "wave=2 tick=399|Locked Place steam=ElementLocked",
+        "wave=2 tick=399|Locked Place storm=ElementLocked",
+        "wave=2 tick=399|Start=Started",
+        "wave=3 tick=828|Next=Continued",
+        "wave=3 tick=828|Next=repeat-rejected",
+        "wave=3 tick=828|Locked Place tide=ElementLocked",
+        "wave=3 tick=828|Locked Place gale=ElementLocked",
+        "wave=3 tick=828|Locked Place stone=ElementLocked",
+        "wave=3 tick=828|Locked Place steam=ElementLocked",
+        "wave=3 tick=828|Locked Place storm=ElementLocked",
+        "wave=3 tick=828|Start=Started",
+        "wave=3 tick=1287|Next=pending-rejected",
+        "wave=3 tick=1287|Choose after-wave-3=tide",
+        "wave=3 tick=1287|Confirm repeat/stale=rejected",
+        "wave=3 tick=1287|Locked Place gale=InvalidPhase",
+        "wave=3 tick=1287|Locked Place stone=InvalidPhase",
+        "wave=3 tick=1287|Locked Place storm=InvalidPhase",
+        "wave=4 tick=1287|Next=Continued",
+        "wave=4 tick=1287|Next=repeat-rejected",
+        "wave=4 tick=1287|Locked Place gale=ElementLocked",
+        "wave=4 tick=1287|Locked Place stone=ElementLocked",
+        "wave=4 tick=1287|Locked Place storm=ElementLocked",
+        "wave=4 tick=1287|sell flame id=2 (1,1)=True/None gold=100->149 price=0 investment=70->0 refund=49",
+        "wave=4 tick=1287|place steam id=3 (-1,0)=True/None gold=149->39 price=110 investment=0->110 refund=0",
+        "wave=4 tick=1287|Start=Started",
+        "wave=5 tick=1776|Next=Continued",
+        "wave=5 tick=1776|Next=repeat-rejected",
+        "wave=5 tick=1776|Locked Place gale=ElementLocked",
+        "wave=5 tick=1776|Locked Place stone=ElementLocked",
+        "wave=5 tick=1776|Locked Place storm=ElementLocked",
+        "wave=5 tick=1776|place tide id=4 (1,1)=True/None gold=74->14 price=60 investment=0->60 refund=0",
+        "wave=5 tick=1776|Start=Started"
+    ],
+    "waves": [
+        {
+            "wave": 1,
+            "state": {
+                "phase": 4,
+                "waveIndex": 0,
+                "tick": 399,
+                "baseHealth": 17,
+                "gold": 40,
+                "kills": 2,
+                "nextEnemyId": 6,
+                "nextTowerId": 3,
+                "towers": [
+                    {
+                        "towerId": 1,
+                        "towerTypeId": "flame",
+                        "x": -2,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 304
+                    },
+                    {
+                        "towerId": 2,
+                        "towerTypeId": "flame",
+                        "x": 1,
+                        "y": 1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 404
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame"
+                    ],
+                    "choicesEarned": 0,
+                    "choicesSpent": 0,
+                    "spentChoices": [],
+                    "pendingChoiceId": "none"
+                }
+            },
+            "pair": [
+                0,
+                0
+            ],
+            "intrinsic": [
+                0,
+                0
+            ]
+        },
+        {
+            "wave": 2,
+            "state": {
+                "phase": 4,
+                "waveIndex": 1,
+                "tick": 828,
+                "baseHealth": 13,
+                "gold": 70,
+                "kills": 4,
+                "nextEnemyId": 12,
+                "nextTowerId": 3,
+                "towers": [
+                    {
+                        "towerId": 1,
+                        "towerTypeId": "flame",
+                        "x": -2,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 733
+                    },
+                    {
+                        "towerId": 2,
+                        "towerTypeId": "flame",
+                        "x": 1,
+                        "y": 1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 833
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame"
+                    ],
+                    "choicesEarned": 0,
+                    "choicesSpent": 0,
+                    "spentChoices": [],
+                    "pendingChoiceId": "none"
+                }
+            },
+            "pair": [
+                0,
+                0
+            ],
+            "intrinsic": [
+                0,
+                0
+            ]
+        },
+        {
+            "wave": 3,
+            "state": {
+                "phase": 4,
+                "waveIndex": 2,
+                "tick": 1287,
+                "baseHealth": 8,
+                "gold": 100,
+                "kills": 6,
+                "nextEnemyId": 19,
+                "nextTowerId": 3,
+                "towers": [
+                    {
+                        "towerId": 1,
+                        "towerTypeId": "flame",
+                        "x": -2,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 1192
+                    },
+                    {
+                        "towerId": 2,
+                        "towerTypeId": "flame",
+                        "x": 1,
+                        "y": 1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 1292
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame"
+                    ],
+                    "choicesEarned": 1,
+                    "choicesSpent": 0,
+                    "spentChoices": [],
+                    "pendingChoiceId": "after-wave-3"
+                }
+            },
+            "pair": [
+                0,
+                0
+            ],
+            "intrinsic": [
+                0,
+                0
+            ]
+        },
+        {
+            "wave": 4,
+            "state": {
+                "phase": 4,
+                "waveIndex": 3,
+                "tick": 1776,
+                "baseHealth": 3,
+                "gold": 74,
+                "kills": 9,
+                "nextEnemyId": 27,
+                "nextTowerId": 4,
+                "towers": [
+                    {
+                        "towerId": 1,
+                        "towerTypeId": "flame",
+                        "x": -2,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 1681
+                    },
+                    {
+                        "towerId": 3,
+                        "towerTypeId": "steam",
+                        "x": -1,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 110,
+                        "nextAttackTick": 1703
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame",
+                        "tide"
+                    ],
+                    "choicesEarned": 1,
+                    "choicesSpent": 1,
+                    "spentChoices": [
+                        {
+                            "choiceId": "after-wave-3",
+                            "elementId": "tide"
+                        }
+                    ],
+                    "pendingChoiceId": "none"
+                }
+            },
+            "pair": [
+                0,
+                0
+            ],
+            "intrinsic": [
+                6,
+                0
+            ]
+        },
+        {
+            "wave": 5,
+            "state": {
+                "phase": 3,
+                "waveIndex": 4,
+                "tick": 2246,
+                "baseHealth": 0,
+                "gold": 34,
+                "kills": 13,
+                "nextEnemyId": 36,
+                "nextTowerId": 5,
+                "towers": [
+                    {
+                        "towerId": 1,
+                        "towerTypeId": "flame",
+                        "x": -2,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 2200
+                    },
+                    {
+                        "towerId": 3,
+                        "towerTypeId": "steam",
+                        "x": -1,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 110,
+                        "nextAttackTick": 2230
+                    },
+                    {
+                        "towerId": 4,
+                        "towerTypeId": "tide",
+                        "x": 1,
+                        "y": 1,
+                        "level": 1,
+                        "investedGold": 60,
+                        "nextAttackTick": 2269
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame",
+                        "tide"
+                    ],
+                    "choicesEarned": 1,
+                    "choicesSpent": 1,
+                    "spentChoices": [
+                        {
+                            "choiceId": "after-wave-3",
+                            "elementId": "tide"
+                        }
+                    ],
+                    "pendingChoiceId": "none"
+                }
+            },
+            "pair": [
+                3,
+                0
+            ],
+            "intrinsic": [
+                5,
+                0
+            ]
+        }
+    ],
+    "firstProcs": [
+        {
+            "kind": "Steam",
+            "trigger": "Intrinsic",
+            "wave": 4,
+            "tick": 1323,
+            "tower": 3
+        },
+        {
+            "kind": "Steam",
+            "trigger": "StatusPair",
+            "wave": 5,
+            "tick": 2020,
+            "tower": 1
+        }
+    ],
+    "entitlements": [
+        "flame|wave=1|tick=0|Preparation",
+        "tide|wave=3|tick=1287|WaveComplete",
+        "steam|wave=3|tick=1287|WaveComplete"
+    ],
+    "coverage": [
+        "Steam/StatusPair:PASS",
+        "Storm/StatusPair:FAIL: zero production proc; reached wave 5",
+        "Steam/Intrinsic:PASS",
+        "Storm/Intrinsic:FAIL: zero production proc; reached wave 5"
+    ]
+}

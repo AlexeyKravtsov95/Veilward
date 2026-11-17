@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-17 09:19:55Z" end-time="2026-11-17 09:20:00Z" duration="5.1721377">
+  <test-suite type="TestSuite" id="1062" name="VEILWARD: Spirit Defense" fullname="VEILWARD: Spirit Defense" runstate="Runnable" testcasecount="43" result="Passed" start-time="2026-11-17 09:19:55Z" end-time="2026-11-17 09:20:00Z" duration="5.172138" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1058" name="Veilward.Tests.PlayMode.dll" fullname="/Users/alexeykravtsov/Desktop/workspace/Veilward-p23e/Library/ScriptAssemblies/Veilward.Tests.PlayMode.dll" runstate="Runnable" testcasecount="43" result="Passed" start-time="2026-11-17 09:19:55Z" end-time="2026-11-17 09:20:00Z" duration="5.157831" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="59574" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1059" name="Veilward" fullname="Veilward" runstate="Runnable" testcasecount="43" result="Passed" start-time="2026-11-17 09:19:55Z" end-time="2026-11-17 09:20:00Z" duration="5.154247" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1060" name="Tests" fullname="Veilward.Tests" runstate="Runnable" testcasecount="43" result="Passed" start-time="2026-11-17 09:19:55Z" end-time="2026-11-17 09:20:00Z" duration="5.152521" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1061" name="PlayMode" fullname="Veilward.Tests.PlayMode" runstate="Runnable" testcasecount="43" result="Passed" start-time="2026-11-17 09:19:55Z" end-time="2026-11-17 09:20:00Z" duration="5.151274" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1055" name="NativeEightWaveIntegrationPlayModeTests" fullname="Veilward.Tests.PlayMode.NativeEightWaveIntegrationPlayModeTests" classname="Veilward.Tests.PlayMode.NativeEightWaveIntegrationPlayModeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-17 09:19:55Z" end-time="2026-11-17 09:20:00Z" duration="5.148611" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1056" name="RegBattle187_ProductionMenuNaturalFlameContinue" fullname="Veilward.Tests.PlayMode.NativeEightWaveIntegrationPlayModeTests.RegBattle187_ProductionMenuNaturalFlameContinue" methodname="RegBattle187_ProductionMenuNaturalFlameContinue" classname="Veilward.Tests.PlayMode.NativeEightWaveIntegrationPlayModeTests" runstate="Runnable" seed="849892553" result="Passed" start-time="2026-11-17 09:19:55Z" end-time="2026-11-17 09:19:58Z" duration="2.691875" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+Checkpoint save failed: Access to the path '/var/folders/_4/yfc3qtdj5kng3lq7rn9170vw0000gn/T/veilward-p23e-menu-1ecbbcd2394443199f9d6b53c47b882c/wave-checkpoint-v1.json.tmp' is denied.
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+]]></output>
+              </test-case>
+              <test-case id="1057" name="RegBattle187_ProductionMenuNaturalGaleContinue" fullname="Veilward.Tests.PlayMode.NativeEightWaveIntegrationPlayModeTests.RegBattle187_ProductionMenuNaturalGaleContinue" methodname="RegBattle187_ProductionMenuNaturalGaleContinue" classname="Veilward.Tests.PlayMode.NativeEightWaveIntegrationPlayModeTests" runstate="Runnable" seed="1516241276" result="Passed" start-time="2026-11-17 09:19:58Z" end-time="2026-11-17 09:20:00Z" duration="2.449104" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+Checkpoint save failed: Access to the path '/var/folders/_4/yfc3qtdj5kng3lq7rn9170vw0000gn/T/veilward-p23e-menu-e423d6b2c3ed4bd1bc713cad868b7bc5/wave-checkpoint-v1.json.tmp' is denied.
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+Ignoring depth surface load action as it is memoryless
+Ignoring depth surface store action as it is memoryless
+Saving results to: /Users/alexeykravtsov/Library/Application Support/DefaultCompany/VEILWARD_ Spirit Defense/TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -52,7 +52,7 @@
 |---|---|---|
 | P2.2f | Детерминированные матчи/rollback и измерения, независимое review/merge | DONE: PR #23 / a506bed |
 | Эталон арта | Фрагмент карты, одна башня, один враг и эффект в едином направлении; Blender `.blend` → FBX → Unity по [ART_PIPELINE](ART_PIPELINE.md) | ART.1 merged PR #24; ART.1.1 передаётся на визуальное/техническое review; утверждение владельца и iPhone check открыты |
-| P2.3 | Настоящее открытие стихий/требования гибридов в Domain и UI | P2.3b/c merged #27/#28; P2.3d native UI/activation реализован и передаётся на review. P2.3e natural replay впереди |
+| P2.3 | Настоящее открытие стихий/требования гибридов в Domain и UI | P2.3b/c merged #27/#28; P2.3d merged #30. P2.3e: deterministic natural Defeat5 обоих стартов; собственные Steam/Storm pair+intrinsic PASS, after6/Combat7 и обе синергии в одном забеге BLOCKED; [evidence](review/P2.3e/validation.md). P2.3 НЕ DONE |
 | P2.4 | Базовая способность и босс, проверяемая интеграция восьми волн | Не выполнен |
 | Оформление первого среза | Одна оформленная карта, все шесть башен, враги/босс и согласованные UI/VFX/звук | Не выполнено |
 | P2.5 | Обучение, объяснения, внешние плейтесты и согласование баланса; G2 остаётся gate | Не выполнен |
@@ -98,3 +98,6 @@ For each PR: scope, docs updates, test commands+results, on-device evidence if U
 ## KPI / evaluation (not launch promises)
 
 Playtest comprehension: >=70% discover or execute first reaction following the tutorial; session objective 12–18 min; 3+ viable strategies per map; no reproducible blockers; no rewards duplicated on resume; good frame pacing on baseline iPhone. Store business metrics can only be estimated after testing positioning and discovery; do not invent expected revenue.
+
+
+**P2.3e фактический статус:** проверочный PR без gameplay/config/package/art изменений. A/B: Defeat5/tick2246/HP0/Kills13, Gold34/21. Детерминизм, экономика, ранние реакции и whole-snapshot file/menu restoration проверены; второй выбор6, второй гибрид/пара и Combat7 не достигнуты production scripts. Отдельное предложение владельцу: узкая проверка ранней обороны/бюджета до unlock6, затем отдельный согласованный balance/regression PR при необходимости. [Acceptance matrix](review/P2.3e/validation.md). P2.3 получает DONE только после полного acceptance, review и merge; этот PR этого статуса не присваивает. Device/G2, баланс, физический iPhone, ART approval и TestFlight остаются отдельными.

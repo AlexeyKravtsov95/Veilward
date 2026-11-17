@@ -1,0 +1,11 @@
+PASS actual safe restore into replay wave=1 point=preparation
+PASS actual safe restore into replay wave=1 point=completed
+PASS actual safe restore into replay wave=2 point=preparation
+PASS actual safe restore into replay wave=2 point=completed
+PASS actual safe restore into replay wave=3 point=preparation
+PASS actual safe restore into replay wave=3 point=completed
+PASS actual safe restore into replay wave=3 point=confirmed
+PASS actual safe restore into replay wave=4 point=preparation
+PASS actual safe restore into replay wave=4 point=completed
+PASS actual safe restore into replay wave=5 point=preparation
+PASS full continued trace SHA256=06a778da280a9e06e02374d2f8b00269ac5025502949278a43925d63d51dee0f

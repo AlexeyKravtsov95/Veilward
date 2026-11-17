@@ -1,0 +1,4 @@
+wave=4 tick=1287|sell flame id=2 (1,1)=True/None gold=100->149 price=0 investment=70->0 refund=49
+wave=4 tick=1287|upgrade flame id=1 (-2,-1)=True/None gold=149->44 price=105 investment=70->175 refund=0
+wave=4 tick=1287|sell flame id=1 (-2,-1)=True/None gold=44->166 price=0 investment=175->0 refund=122
+wave=4 tick=1287|sell  id=1 (0,0)=False/TowerNotFound gold=166->166 price=0 investment=0->0 refund=0
