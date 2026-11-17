@@ -4,6 +4,8 @@
 
 Fresh origin/main после PR #66: `9adc17f251ad98b72304753cc0b69173e502c9c8`, fetch/merge проверены через git и GitHub issue #36. Отдельный worktree `/Users/alexeykravtsov/.codex/worktrees/p24c-ability-checkpoint/Veilward`, branch `codex/p2.4c-ability-checkpoint`; пользовательские изменения исходного checkout не затрагивались. D-01…D-07 приняты владельцем17.11.2026.
 
+Reviewed implementation и final tested source: `d8a3c5447a0c6410cbd5930c9baaa9b8f6d1304a`. Initial reviewed implementation: `e8125ccd8b0c0a31483a0f6ab1d55ceec6991b74`. Между ними изменён только новый rollback test и docs/evidence, production code не менялся. Последующий final commit — только docs/evidence с independent verdict.
+
 Scope: immutable AbilityCheckpoint, schema4 strict wire validation, migrations1/2/3→4, shared exact-ID routing, full restore/rollback и safe-save orchestration. Acceptance REG198–203; риски — mixed mode slots, partial restore, repeated reward/cast при Retry. Specification/новые regression tests созданы до implementation. [Schema/content/phase/IO matrix](matrix.md).
 
 **Production ability-disabled.** Enabled saves проверяются только internal synthetic fixture `synthetic-p24-ability-v1`, вне production whitelist/MainMenu/New Game/Continue. Final mission/UI/boss не активированы — #38–40. Данные/баланс/волны/packages/исторические evidence не менялись.
@@ -48,7 +50,7 @@ Store/MainMenu/config/session/controller используют WaveCheckpointComp
 
 Restore валидирует полный candidate до публикации State/Grid/ability. Success чистит четыре stream, targets, cursor и event epoch; rejection сохраняет state и непустые streams. Controller Restored вызывает прежний Presentation reset только после success. Safe completion от Cast виден в explicit observer и LateUpdate без fixed Step; failed save не откатывает принятую команду. Start/Next eligibility проверяется до IO, Retry не dispatch-ит команду.
 
-Независимое fresh-context review после открытия PR: [review.md](review.md). Initial I-01 исправлен с RED→GREEN; окончательное закрытие связано с corrective commit и повторными full gates. Self-review не заменяет независимое заключение.
+Независимое fresh-context review после открытия PR: [review.md](review.md). **Final Critical0/Important(P1–P2)0/Suggestions0**, I-01 CLOSED после corrective commit и повторных full gates. Reviewer независимо сверил XML/source/traces/807byteaudit и выполнял project/diff/audit checks; собственный Unity run и завершённый independent full static не заявлял. Self-review не заменяет независимое заключение.
 
 ## NOT VERIFIED / BLOCKED
 

@@ -18,7 +18,19 @@ RED assertion перед Restore: **901=900passed/1failed**, Expected Combat / a
 
 Исправлен только новый regression: prefix stop после CastKill && positiveProc с обязательным PhaseCombat, dirty buffer не очищается; rejected controller restore оставляет state, successful controller restore в dirty/fresh simulation проверяет весь snapshot и четыре очищенных stream. Два prefix и полный остаток текущей волны + Continue до Victory сравниваются с независимым control. Сырые [prefix](rollback-prefix.trace.gz)/[control](rollback-control.trace.gz) traces и [SHA256/размеры](rollback-traces.json) приложены отдельно. Corrective final gates: static38/38, EditMode901/901, PlayMode45/45, failed/inconclusive/skipped0, diff/project check/audit807 PASS. EditMode повторён после восстановления baseline serialized assets; prefix/control traces совпали побайтово между прогонами. Source hash в gates.json.
 
-Reviewer повторно прочёл усиленный test: изменение устраняет I-01 по коду; окончательное закрытие ожидает final XML/source manifest и corrective head.
+## Final independent verdict
+
+Reviewed corrective head: `d8a3c5447a0c6410cbd5930c9baaa9b8f6d1304a`.
+
+**Critical:0. Important/P1–P2:0. Suggestions:0. I-01 CLOSED.**
+
+Reviewer повторно проверил correction, consolidated gates и committed source. Prefix действительно заканчивается в Combat: tick10092, Kills7, remaining600/sequence4, живой enemy HP210 со SteamTick10092; ability damage содержит lethal applied114 и nonlethal120. Prefix является точным byte-prefix полного control. Controller restore проверен в dirty/fresh simulation; два prefix и весь continued trace совпадают с независимым control.
+
+Независимо VERIFIED: specification/issue #37/full diff; Domain/schema/content/routing/orchestration; raw EditMode901/901 и PlayMode45/45 с0failed/skipped/inconclusive; XML/gzip/source28/test/traces SHA256; historical audit807; outcome goldens и прежние assertions не ослаблены. `check_unity_project.py`, `audit.py`, `git diff --check` reviewer выполнил самостоятельно — PASS. Авторский static log38/38 проверен по hash.
+
+Reviewer **не запускал Unity suites**; дополнительный independent full static был прерван по синхронизации, не PASS. GitHub review/comments, commit и merge reviewer не выполнял. Это независимый agent review, не human owner approval.
+
+Последующий финальный commit меняет только docs/evidence с этим заключением. Tested/reviewed Assets hashes неизменны.
 
 ## Ограничения
 
