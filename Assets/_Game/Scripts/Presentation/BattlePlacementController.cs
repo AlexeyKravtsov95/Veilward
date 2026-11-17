@@ -46,6 +46,11 @@ namespace Veilward.Presentation
         private Rect _lastSafeArea;
         private Vector2 _lastScreenSize;
         private float _lastCanvasScale;
+        private ElementProgressionState _catalogProgression;
+        private BattleSimulation _catalogSimulation;
+        private int _catalogGold = -1;
+        private BattlePhase _catalogPhase;
+        private GridCoordinate _catalogCell;
         private TowerDefinition _selectedDefinition;
         private TowerDefinition _displayedTowerDefinition;
         public TowerDefinitionId SelectedTowerTypeId { get; private set; }
@@ -229,7 +234,7 @@ namespace Veilward.Presentation
         public bool TrySelectCell(GridCoordinate coordinate)
         {
             var simulation = battle.Simulation;
-            if (battle.IsPaused || _isSellConfirmationVisible || simulation == null || !simulation.Grid.Map.Contains(coordinate))
+            if (!battle.CanAcceptInput(BattleInputOwner.Placement) || _isSellConfirmationVisible || simulation == null || !simulation.Grid.Map.Contains(coordinate))
             {
                 return false;
             }
@@ -267,7 +272,7 @@ namespace Veilward.Presentation
 
         public void SelectTowerType(TowerDefinitionId id)
         {
-            if (battle.IsPaused || !_hasSelection || _hasTowerSelection || _isSellConfirmationVisible ||
+            if (!battle.CanAcceptInput(BattleInputOwner.Placement) || !_hasSelection || _hasTowerSelection || _isSellConfirmationVisible ||
                 battle.Simulation.State.Phase != BattlePhase.Preparation) return;
             foreach (var archetype in battle.Simulation.TowerCatalog.Archetypes)
             {
@@ -276,8 +281,14 @@ namespace Veilward.Presentation
                 _selectedDefinition = archetype.Levels[0];
                 buildStatsText.text = $"{TowerDisplay.Name(id)} — {TowerDisplay.Role(_selectedDefinition)}\n" +
                     $"Price: {_selectedDefinition.Price} gold\n" + TowerDisplay.Stats(_selectedDefinition, battle.Simulation.ReactionCatalog);
+                var availability = battle.Simulation.GetTowerAvailability(new PlaceTowerCommand(id, SelectedCell));
+                buildStatsText.text += "\n" + AvailabilityText(archetype, availability);
+                var locked = MissingElements(archetype).Count > 0;
                 ShowSelectionVisual(SelectedCell, _selectedDefinition.Range, isPlacement: true);
-                TowerDisplay.ApplyVisual(towerPreview, _selectedDefinition, 1);
+                towerPreview.gameObject.SetActive(!locked);
+                rangePreview.gameObject.SetActive(!locked);
+                selectionHighlight.gameObject.SetActive(!locked);
+                if (!locked) TowerDisplay.ApplyVisual(towerPreview, _selectedDefinition, 1);
                 RefreshUi();
                 return;
             }
@@ -317,13 +328,13 @@ namespace Veilward.Presentation
 
         public void ConfirmSelection()
         {
-            if (battle.IsPaused || _isSellConfirmationVisible || !_hasSelection ||
+            if (!battle.CanAcceptInput(BattleInputOwner.Placement) || _isSellConfirmationVisible || !_hasSelection ||
                 _hasTowerSelection || _selectedDefinition == null || battle.Simulation == null)
             {
                 return;
             }
 
-            var result = battle.PlaceTower(SelectedTowerTypeId, SelectedCell);
+            var result = battle.PlaceTowerForOwner(SelectedTowerTypeId, SelectedCell, BattleInputOwner.Placement);
             if (result.Success)
             {
                 SuppressPointerForCurrentFrame();
@@ -333,7 +344,7 @@ namespace Veilward.Presentation
 
         public TowerOperationResult UpgradeSelectedTower()
         {
-            if (battle.IsPaused)
+            if (!battle.CanAcceptInput(BattleInputOwner.Placement))
             {
                 return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
             }
@@ -348,7 +359,7 @@ namespace Veilward.Presentation
                 return TowerOperationResult.Failed(TowerOperationFailureReason.TowerNotFound);
             }
 
-            var result = battle.UpgradeTower(SelectedTowerId.Value);
+            var result = battle.UpgradeTowerForOwner(SelectedTowerId.Value, BattleInputOwner.Placement);
             var tower = FindSelectedTower();
             if (result.Success && tower != null)
                 ShowSelectionVisual(tower.Coordinate, tower.Definition.Range, isPlacement: false);
@@ -358,7 +369,7 @@ namespace Veilward.Presentation
 
         public void RequestSellSelectedTower()
         {
-            if (battle.IsPaused || _isSellConfirmationVisible || !SelectedTowerId.HasValue ||
+            if (!battle.CanAcceptInput(BattleInputOwner.Placement) || _isSellConfirmationVisible || !SelectedTowerId.HasValue ||
                 battle.Simulation.State.Phase != BattlePhase.Preparation)
             {
                 return;
@@ -375,16 +386,16 @@ namespace Veilward.Presentation
 
         public TowerOperationResult ConfirmSellSelectedTower()
         {
-            if (!_isSellConfirmationVisible || !_sellConfirmationTowerId.HasValue ||
+            if (!battle.CanAcceptInput(BattleInputOwner.Sell) || !_isSellConfirmationVisible || !_sellConfirmationTowerId.HasValue ||
                 SelectedTowerId != _sellConfirmationTowerId)
             {
                 return TowerOperationResult.Failed(TowerOperationFailureReason.ConfirmationRequired);
             }
 
-            var result = battle.SellTower(_sellConfirmationTowerId.Value);
+            var result = battle.SellTowerForOwner(_sellConfirmationTowerId.Value, BattleInputOwner.Sell);
             if (result.Success)
             {
-                CancelSelection();
+                ClearSelection();
             }
             else
             {
@@ -397,6 +408,7 @@ namespace Veilward.Presentation
 
         public void CancelSellConfirmation()
         {
+            if (!battle.CanAcceptInput(BattleInputOwner.Sell)) return;
             SuppressPointerForCurrentFrame();
             _isSellConfirmationVisible = false;
             _sellConfirmationTowerId = null;
@@ -412,6 +424,12 @@ namespace Veilward.Presentation
         }
 
         public void CancelSelection()
+        {
+            if (battle != null && !battle.CanAcceptInput(BattleInputOwner.Placement)) return;
+            ClearSelection();
+        }
+
+        internal void ClearSelection()
         {
             SuppressPointerForCurrentFrame();
             SelectedTowerTypeId = default;
@@ -457,7 +475,7 @@ namespace Veilward.Presentation
 
         public void StartWave()
         {
-            if (battle.IsPaused || _isSellConfirmationVisible || battle.Simulation == null)
+            if (!battle.CanAcceptInput(BattleInputOwner.Placement) || _isSellConfirmationVisible || battle.Simulation == null)
             {
                 return;
             }
@@ -469,7 +487,7 @@ namespace Veilward.Presentation
 
         public void ContinueToNextWave()
         {
-            if (battle.IsPaused || _isSellConfirmationVisible || battle.Simulation == null)
+            if (!battle.CanAcceptInput(BattleInputOwner.Placement) || _isSellConfirmationVisible || battle.Simulation == null)
             {
                 return;
             }
@@ -481,11 +499,11 @@ namespace Veilward.Presentation
         private void RefreshUi()
         {
             var state = battle.Simulation.State;
-            var isPaused = battle.IsPaused;
+            var isPaused = !battle.CanAcceptInput(BattleInputOwner.Placement);
             var isPreparing = state.Phase == BattlePhase.Preparation;
             if (!isPreparing && _hasSelection && !_hasTowerSelection)
             {
-                CancelSelection();
+                ClearSelection();
             }
 
             var tower = FindSelectedTower();
@@ -501,19 +519,37 @@ namespace Veilward.Presentation
                 _sellConfirmationTowerId = null;
             }
 
-            var isSellConfirmationActive = !isPaused && isPreparing && tower != null &&
+            var isSellConfirmationActive = battle.CanAcceptInput(BattleInputOwner.Sell) && isPreparing && tower != null &&
                                            _isSellConfirmationVisible;
             confirmationPanel.SetActive(isPreparing && !isSellConfirmationActive &&
                                         _hasSelection && !_hasTowerSelection);
             confirmButton.interactable = !isPaused && isPreparing && !isSellConfirmationActive &&
                                          _hasSelection && !_hasTowerSelection && _selectedDefinition != null &&
-                                         state.Gold >= _selectedDefinition.Price;
-            foreach (var button in _catalogButtons) button.interactable = !isPaused && isPreparing && !isSellConfirmationActive;
+                                         battle.Simulation.GetTowerAvailability(new PlaceTowerCommand(SelectedTowerTypeId, SelectedCell)).CanPlace;
+            var refreshCatalog = _catalogSimulation != battle.Simulation || _catalogGold != state.Gold ||
+                _catalogPhase != state.Phase || _catalogCell != SelectedCell ||
+                !ReferenceEquals(_catalogProgression, state.ElementProgression);
+            var cardIndex = 0;
+            foreach (var archetype in battle.Simulation.TowerCatalog.Archetypes)
+            {
+                if (!archetype.ShowInCatalog || cardIndex >= _catalogButtons.Count) continue;
+                var button = _catalogButtons[cardIndex++];
+                button.interactable = !isPaused && isPreparing && !isSellConfirmationActive;
+                if (!refreshCatalog) continue;
+                var availability = battle.Simulation.GetTowerAvailability(new PlaceTowerCommand(archetype.Id, SelectedCell));
+                var label = $"{TowerDisplay.Name(archetype.Id)}\n{archetype.Levels[0].Price} gold\n" + AvailabilityText(archetype, availability);
+                var text = button.GetComponentInChildren<UnityEngine.UI.Text>(true);
+                if (text.text != label) text.text = label;
+            }
+            _catalogSimulation = battle.Simulation; _catalogGold = state.Gold; _catalogPhase = state.Phase;
+            _catalogCell = SelectedCell; _catalogProgression = state.ElementProgression;
             cancelButton.interactable = !isPaused && isPreparing && !isSellConfirmationActive &&
                                         _hasSelection && !_hasTowerSelection;
-            startWaveButton.interactable = !isPaused && isPreparing && !isSellConfirmationActive;
+            startWaveButton.interactable = !isPaused && isPreparing && !isSellConfirmationActive &&
+                battle.Simulation.CheckStartWave() == WaveTransitionResult.Started;
             nextWaveButton.interactable = !isPaused && state.Phase == BattlePhase.WaveComplete &&
-                                          state.WaveIndex + 1 < state.WaveCount && !isSellConfirmationActive;
+                                          state.WaveIndex + 1 < state.WaveCount && !isSellConfirmationActive &&
+                battle.Simulation.CheckContinueToNextWave() == WaveTransitionResult.Continued;
             towerPanel.SetActive(tower != null);
             upgradeButton.interactable = false;
             sellButton.interactable = !isPaused && isPreparing && tower != null && !isSellConfirmationActive;
@@ -540,6 +576,29 @@ namespace Veilward.Presentation
             }
             upgradeButton.interactable = !isPaused && isPreparing && !isSellConfirmationActive &&
                                          hasNextLevel && state.Gold >= nextLevel.Price;
+        }
+
+        private List<string> MissingElements(TowerArchetypeDefinition archetype)
+        {
+            var missing = new List<string>();
+            var unlocked = battle.Simulation.State.ElementProgression.UnlockedElements;
+            foreach (var required in archetype.RequiredElements)
+            {
+                var found = false;
+                foreach (var element in unlocked) if (element == required) { found = true; break; }
+                if (!found) missing.Add(required.ToString().ToUpperInvariant());
+            }
+            return missing;
+        }
+
+        private string AvailabilityText(TowerArchetypeDefinition archetype, TowerAvailability availability)
+        {
+            var missing = MissingElements(archetype);
+            if (missing.Count > 0) return "Locked — Missing: " + string.Join(" + ", missing);
+            if (availability.FailureReason == PlaceTowerFailureReason.InsufficientGold) return "Недостаточно Gold";
+            if (availability.CanPlace) return "Доступна";
+            return availability.FailureReason == PlaceTowerFailureReason.PendingElementChoice
+                ? "Сначала выберите стихию" : availability.FailureReason.ToString();
         }
 
         private TowerState FindSelectedTower()
@@ -584,7 +643,7 @@ namespace Veilward.Presentation
 
         private void TryHandlePointer(Vector2 screenPosition, int? pointerId)
         {
-            if (battle.IsPaused || _isSellConfirmationVisible || Time.frameCount <= _pointerSuppressedUntilFrame)
+            if (!battle.CanAcceptInput(BattleInputOwner.Placement) || _isSellConfirmationVisible || Time.frameCount <= _pointerSuppressedUntilFrame)
                 return;
             if (EventSystem.current != null)
             {

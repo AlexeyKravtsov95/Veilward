@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3ac9c767ec04a47a46fe8950941e7e, type: 3}
   m_Name: EightWave
   m_EditorClassIdentifier: Veilward::Veilward.Presentation.BattleScenarioConfig
-  scenarioContentId: eight-wave-v1
+  scenarioContentId: eight-wave-unlocks-v1
   baseHealth: 20
   enemyId: shade
   maxHealth: 100
@@ -76,3 +76,7 @@ MonoBehaviour:
   - enemyCount: 12
     firstSpawnTick: 0
     spawnIntervalTicks: 30
+  progression:
+    rulesId: wave-unlocks-v1
+    startingOptions: 0000000002000000
+    choiceWaves: 0300000006000000

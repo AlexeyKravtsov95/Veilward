@@ -14,7 +14,7 @@ using Object = UnityEngine.Object;
 
 namespace Veilward.Tests.PlayMode
 {
-    public sealed class BattleCheckpointPlayModeTests
+    public sealed class BattleCheckpointPlayModeTests : HistoricalAllOpenPlayModeFixture
     {
         private static readonly GridCoordinate TowerCell = new GridCoordinate(-1, 0);
         private string _root;

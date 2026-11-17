@@ -16,7 +16,7 @@ using Object = UnityEngine.Object;
 
 namespace Veilward.Tests.PlayMode
 {
-    public sealed class BattleTowerCatalogPlayModeTests
+    public sealed class BattleTowerCatalogPlayModeTests : HistoricalAllOpenPlayModeFixture
     {
         private string _root;
         private WaveCheckpointStore _store;
@@ -50,7 +50,7 @@ namespace Veilward.Tests.PlayMode
                 yield return null;
                 var battle = Object.FindFirstObjectByType<BattleSceneController>();
                 var placement = Object.FindFirstObjectByType<BattlePlacementController>();
-                Assert.That(placement.CatalogButtons.Select(b => b.GetComponentInChildren<Text>().text),
+                Assert.That(placement.CatalogButtons.Select(b => b.GetComponentInChildren<Text>().text.Split('\n')[0]),
                     Is.EqualTo(new[] { "FLAME", "TIDE", "GALE", "STONE", "STEAM", "STORM" }));
                 placement.TrySelectCell(Cell); placement.SelectTowerType(new TowerDefinitionId(id));
                 Button("Pause Button").onClick.Invoke();
@@ -141,7 +141,7 @@ namespace Veilward.Tests.PlayMode
                 var battle = Object.FindFirstObjectByType<BattleSceneController>();
                 var placement = Object.FindFirstObjectByType<BattlePlacementController>();
                 Assert.That(placement.TrySelectCell(Cell), Is.True);
-                placement.CatalogButtons.Single(b => b.GetComponentInChildren<Text>().text == id.ToUpperInvariant()).onClick.Invoke();
+                placement.CatalogButtons.Single(b => b.GetComponentInChildren<Text>().text.Split('\n')[0] == id.ToUpperInvariant()).onClick.Invoke();
                 var price = battle.Simulation.TowerCatalog.Get(new TowerDefinitionId(id)).Levels[0].Price;
                 Button("Confirm Button").onClick.Invoke();
                 Button("Confirm Button").onClick.Invoke();

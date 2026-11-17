@@ -16,7 +16,7 @@ using Veilward.Presentation;
 
 namespace Veilward.Tests.PlayMode
 {
-    public sealed class BattlePausePlayModeTests
+    public sealed class BattlePausePlayModeTests : HistoricalAllOpenPlayModeFixture
     {
         private static readonly GridCoordinate TowerCell = new GridCoordinate(-4, 0);
 

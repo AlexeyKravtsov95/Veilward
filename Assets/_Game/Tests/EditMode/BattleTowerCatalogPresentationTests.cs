@@ -24,6 +24,10 @@ namespace Veilward.Tests.EditMode
             _battle = Object.FindFirstObjectByType<BattleSceneController>();
             _placement = Object.FindFirstObjectByType<BattlePlacementController>();
             Invoke(_battle, "Start");
+            var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset");
+            var historical = config.CreateHistoricalAllOpenSimulation();
+            typeof(BattleSceneController).GetField("_simulation", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(_battle, historical);
+            _battle.GetComponent<BattleCheckpointController>().Configure(null, historical, "eight-wave-v1");
             Invoke(_placement, "Start");
         }
 
@@ -36,7 +40,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(_placement.TrySelectCell(Cell), Is.True);
             Assert.That(_battle.Simulation.State.Gold, Is.EqualTo(150));
             Assert.That(_battle.Simulation.State.Towers, Is.Empty);
-            Assert.That(_placement.CatalogButtons.Select(b => b.GetComponentInChildren<Text>().text),
+            Assert.That(_placement.CatalogButtons.Select(b => b.GetComponentInChildren<Text>().text.Split('\n')[0]),
                 Is.EqualTo(new[] { "FLAME", "TIDE", "GALE", "STONE", "STEAM", "STORM" }));
             Assert.That(Button("Confirm Button").interactable, Is.False);
             _placement.SelectTowerType(new TowerDefinitionId("test-tower"));
@@ -52,7 +56,7 @@ namespace Veilward.Tests.EditMode
             string id, int price, float range, string status, string effect)
         {
             _placement.TrySelectCell(Cell);
-            _placement.CatalogButtons.Single(b => b.GetComponentInChildren<Text>().text == id.ToUpperInvariant())
+            _placement.CatalogButtons.Single(b => b.GetComponentInChildren<Text>().text.Split('\n')[0] == id.ToUpperInvariant())
                 .onClick.Invoke();
             Assert.That(_placement.SelectedTowerTypeId.Value, Is.EqualTo(id));
             var definition = _battle.Simulation.TowerCatalog.Get(new TowerDefinitionId(id)).Levels[0];
