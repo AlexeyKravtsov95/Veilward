@@ -1,0 +1,18 @@
+{
+  "rollback-prefix.trace": {
+    "source": "TestResults/P2.4c/rollback-prefix.trace",
+    "raw_sha256": "24b7a5ab3395009fc7d3ab23a8f14d974ca264ba0bacb04972e6188a67dadbc5",
+    "gzip_sha256": "d1c44a6402bf53a154e2c5b495182fd5dc4d759fd31025ac5dfdf61f8e906405",
+    "raw_bytes": 3179032,
+    "gzip_bytes": 98955,
+    "lines": 1180
+  },
+  "rollback-control.trace": {
+    "source": "TestResults/P2.4c/rollback-control.trace",
+    "raw_sha256": "8272230dca0277cb2d1023f377440cdebfd13409589d37acf9169ed0cf257dd0",
+    "gzip_sha256": "7977d6583b8fe288f65f0473c475f49d30a93f95c77f7147d32d34343da149bc",
+    "raw_bytes": 18801846,
+    "gzip_bytes": 562471,
+    "lines": 7088
+  }
+}

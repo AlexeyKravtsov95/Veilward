@@ -11,7 +11,7 @@
     "total": 38,
     "passed": 38,
     "exit_code": 0,
-    "log_sha256": "887191bd0892f21ce0e173a44c0f9f689f5c97ef6f94bbebb8282361af2959c3"
+    "log_sha256": "aaf898861133066bd130db358c6ef77f1d98a9c68f1feb43be8db95da5c4b121"
   },
   "unity": {
     "edit-mode": {
@@ -29,12 +29,12 @@
         "asserts": "0",
         "engine-version": "3.5.0.0",
         "clr-version": "4.0.30319.42000",
-        "start-time": "2026-11-17 17:48:26Z",
-        "end-time": "2026-11-17 17:49:01Z",
-        "duration": "34.9574159"
+        "start-time": "2026-11-17 18:02:03Z",
+        "end-time": "2026-11-17 18:02:41Z",
+        "duration": "37.9863158"
       },
-      "raw_sha256": "045c56e14d8284f651f2dd8c7aafcad588061be7471c2b0402d0781a75580d20",
-      "gzip_sha256": "82535d86bbf9771fbf2078633c7d3c621dc27745918be70fdaac6efd29debd67"
+      "raw_sha256": "4afd82eb2aebcfc7d6b37bf1629a0a247bb6acd05b811e7d4e1a4f50e53004b8",
+      "gzip_sha256": "77eb0cd0dbbb33686a4dba3807f426cd463f7c3c45f454e39f4ef9578951ac41"
     },
     "play-mode": {
       "command": "./Scripts/run-play-mode-tests.sh",
@@ -51,12 +51,12 @@
         "asserts": "0",
         "engine-version": "3.5.0.0",
         "clr-version": "4.0.30319.42000",
-        "start-time": "2026-11-17 17:49:21Z",
-        "end-time": "2026-11-17 17:49:54Z",
-        "duration": "33.3143127"
+        "start-time": "2026-11-17 18:03:08Z",
+        "end-time": "2026-11-17 18:03:40Z",
+        "duration": "32.3158605"
       },
-      "raw_sha256": "e415487c86130194f273f7ddd5a08efe48ecb75a8ed166cc6976de9a78b979d5",
-      "gzip_sha256": "06a69449bbaa11acd32b08d0cda4d0c47e718ae7326e46428d02d94a8a17f881"
+      "raw_sha256": "99f0203440ee18d80488e274873e69bc7d9965c2e75479440022484538b65417",
+      "gzip_sha256": "c98a34e9f07ffb4a4a5e3907e693896b0a42584cc2007dfce963133b0172aa66"
     }
   },
   "new_edit_cases": [
@@ -357,7 +357,7 @@
     "raw_sha256": "36fbeac8ae296baeb21973dbaf64b68829e99e1170f7051151cda3c1a1304a41",
     "gzip_sha256": "9c19538fc5c65a5258e9c57c67e6ebfb2eb95d6029be094bf7051585f93f7dc9"
   },
-  "assets_manifest_sha256": "618fc0941f11f929357fef31d23cdf895bd8d18f144982739ab057dd82966b02",
+  "assets_manifest_sha256": "62b9547c12756ba16e04a948d5e4afca721a93304bc545456377c250fd9209ea",
   "historical_audit": {
     "base": "9adc17f251ad98b72304753cc0b69173e502c9c8",
     "files_compared_byte_for_byte": 807,
@@ -387,5 +387,49 @@
     "result": "PASS"
   },
   "diff_check_exit_code": 0,
-  "project_check_exit_code": 0
+  "project_check_exit_code": 0,
+  "review_red": {
+    "report": {
+      "id": "2",
+      "testcasecount": "901",
+      "result": "Failed(Child)",
+      "total": "901",
+      "passed": "900",
+      "failed": "1",
+      "inconclusive": "0",
+      "skipped": "0",
+      "asserts": "0",
+      "engine-version": "3.5.0.0",
+      "clr-version": "4.0.30319.42000",
+      "start-time": "2026-11-17 17:57:04Z",
+      "end-time": "2026-11-17 17:57:38Z",
+      "duration": "33.9568002"
+    },
+    "raw_sha256": "b64b2cba553d768ee878236dab6f19492e198f827c214da532e28542c0f7815b",
+    "gzip_sha256": "88191a06b9f2aeca854614706181ed85b9f1cfe17699f3a9f2e199097a00dccf"
+  },
+  "rollback_traces": {
+    "rollback-prefix.trace": {
+      "source": "TestResults/P2.4c/rollback-prefix.trace",
+      "raw_sha256": "24b7a5ab3395009fc7d3ab23a8f14d974ca264ba0bacb04972e6188a67dadbc5",
+      "gzip_sha256": "d1c44a6402bf53a154e2c5b495182fd5dc4d759fd31025ac5dfdf61f8e906405",
+      "raw_bytes": 3179032,
+      "gzip_bytes": 98955,
+      "lines": 1180
+    },
+    "rollback-control.trace": {
+      "source": "TestResults/P2.4c/rollback-control.trace",
+      "raw_sha256": "8272230dca0277cb2d1023f377440cdebfd13409589d37acf9169ed0cf257dd0",
+      "gzip_sha256": "7977d6583b8fe288f65f0473c475f49d30a93f95c77f7147d32d34343da149bc",
+      "raw_bytes": 18801846,
+      "gzip_bytes": 562471,
+      "lines": 7088
+    }
+  },
+  "review_correction": {
+    "only_asset_changed_after_initial_head": "Assets/_Game/Tests/EditMode/AbilityCheckpointControllerTests.cs",
+    "initial_head": "e8125ccd8b0c0a31483a0f6ab1d55ceec6991b74",
+    "test_sha256": "102118c118d17ae159fc371ce81dc7f7b574a573144d4de8f19e30bf4d0800cc",
+    "new_production_changes": false
+  }
 }

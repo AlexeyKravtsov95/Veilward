@@ -10,7 +10,7 @@ Scope: immutable AbilityCheckpoint, schema4 strict wire validation, migrations1/
 
 ## VERIFIED
 
-Финальные totals/UTC timestamps/XML+source SHA256 и список новых cases: [gates.json](gates.json). Static **38/38**, EditMode **901/901** (69 новых cases), PlayMode **45/45**; оба Unity suite имеют failed/inconclusive/skipped **0/0/0**, exit0. `git diff --check` и `check_unity_project.py` PASS. Независимо повторно проверены оба raw XML и совпадение source manifest с текущими28 changed Assets.
+Финальные totals/UTC timestamps/XML+source SHA256 и список новых cases: [gates.json](gates.json). Static **38/38**, EditMode **901/901** (69 новых cases), PlayMode **45/45**; оба Unity suite имеют failed/inconclusive/skipped **0/0/0**, exit0. `git diff --check` и `check_unity_project.py` PASS. Независимо повторно проверены оба raw XML и совпадение source manifest с текущими28 changed Assets. После I-01 повторены полные gates; EditMode также повторён на восстановленном serialized baseline.
 
 Byte audit: **807** прежних файлов совпали побайтово, включая все исторические evidence/raw goldens, serialized assets/packages/settings и tests вне девяти явно перечисленных technical projections. [Результат](historical-audit.json), [воспроизводимая проверка](audit.py). Новых C# файлов5, каждый с `.meta`; GUID/version/packages gates PASS. Scope/secrets audit: только разрешённые Domain/infrastructure/orchestration/tests/docs; credentials и новые dependencies не добавлялись.
 
@@ -20,6 +20,8 @@ Byte audit: **807** прежних файлов совпали побайтов�
 2. Промежуточные full runs выявили потерю required ability в прежних direct JsonUtility projections и Unity inline-null defaults. Исправлены явный wire DTO и технические legacy fixture writers, создающие настоящий schema1/2 JSON без progression. Повреждённые пустые source objects по-прежнему rejected.
 3. После компилируемой реализации отдельно воспроизведён прежний enabled Export unsupported guard: behavioral RED **894=843passed/51failed**, skipped/inconclusive0, все failures зависят от enabled export. Это replay старого guard после API RED, а не заявление, что готовая реализация отсутствовала к моменту прогона. [Raw XML gzip](red-edit.xml.gz), [runner](red-behavior.log).
 4. Guard удалён, полный GREEN **894/894**. Затем добавлены семь случаев: completion без наблюдавшегося Combat, write/read-back/commit failures, запрет synthetic/final/unknown production sessions. Final full EditMode **901/901**. Окончательные static/PlayMode/diff/audit и source hashes — gates.json.
+
+5. Независимый reviewer выявил I-01: старый Reg203 ошибочно восстанавливался после завершения волны. Новый assert дал **901=900passed/1failed** (Expected Combat, actual WaveComplete), [review RED XML](review-red-edit.xml.gz). Исправлен только новый regression: stop после cast kill + positive reaction при обязательном Combat, непустые buffers сохраняются; rejected controller restore оставляет dirty state, успешный controller restore в dirty/fresh заменяет snapshot; два prefix и весь continued trace (остаток той же волны + будущие волны) совпадают с отдельным control. Финальные raw prefix/control traces и hashes приложены отдельно. Production source не менялся. Повторные final gates заменяют прежние901/45 отчёты.
 
 ## Команды / среда
 
@@ -46,7 +48,7 @@ Store/MainMenu/config/session/controller используют WaveCheckpointComp
 
 Restore валидирует полный candidate до публикации State/Grid/ability. Success чистит четыре stream, targets, cursor и event epoch; rejection сохраняет state и непустые streams. Controller Restored вызывает прежний Presentation reset только после success. Safe completion от Cast виден в explicit observer и LateUpdate без fixed Step; failed save не откатывает принятую команду. Start/Next eligibility проверяется до IO, Retry не dispatch-ит команду.
 
-Независимое review будет приложено после открытия PR: [review.md](review.md). Self-review не заменяет его.
+Независимое fresh-context review после открытия PR: [review.md](review.md). Initial I-01 исправлен с RED→GREEN; окончательное закрытие связано с corrective commit и повторными full gates. Self-review не заменяет независимое заключение.
 
 ## NOT VERIFIED / BLOCKED
 

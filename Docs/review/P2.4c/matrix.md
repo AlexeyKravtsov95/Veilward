@@ -25,7 +25,7 @@ Production New Game прежний, ability-disabled. Enabled persistence тол
 | Combat Export / pause/background | Combat export rejected; нет отдельного ability save. Прежний durable Preparation остаётся recovery point. |
 | Dirty rejected restore | State/Grid/progression/ability/IDs/counters и четыре непустых buffers неизменны. |
 | Successful dirty restore | Весь snapshot заменён; enemies/statuses/cursors/event streams/sequence и существующие Presentation transients очищены. |
-| Cast+kill+positive proc rollback | Pre-Start remaining421/sequence3, экономика/IDs/army/progression восстановлены; dirty и fresh попытки совпали с control; full continued trace до Victory совпал. Synthetic150/20 balance proof не заявляется (fixture10000 gold/1000HP enemies). |
+| Cast+kill+positive proc rollback | Pre-Start remaining421/sequence3, экономика/IDs/army/progression восстановлены; restore через controller в dirty Combat и fresh simulation; два interrupted prefix при Phase==Combat совпали; остаток той же волны и full continued trace до Victory совпали с отдельным control. Natural150/20 balance proof не заявляется (fixture10000 gold/1000HP enemies). |
 | Recovery/reset | Прежние physical filesystem reset/recovery/backup-directory failure tests в полных suites; filenames прежние. |
 
 Точные новые cases и результаты извлекаются из final raw XML в `gates.json`. Старые tests менялись только в schema4/wire-проекции и для замены временного unsupported-контракта #36. Их outcome assertions не ослаблены. `audit.py` сохраняет все historical evidence/goldens и остальные tests побайтово.

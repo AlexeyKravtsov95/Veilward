@@ -18,6 +18,7 @@ namespace Veilward.Tests.EditMode
         public void RegBattle203_RollbackCastKillPositiveProcTwiceAndFullContinuedTrace()
         {
             var root = Path.Combine("TestResults", "AbilityRollback", Guid.NewGuid().ToString("N")); Directory.CreateDirectory(root);
+            var go = new GameObject("rollback checkpoint");
             try
             {
                 var s = AbilityCheckpointTests.Create(enemyHp: 1000); AbilityCheckpointTests.Choose(s);
@@ -27,21 +28,44 @@ namespace Veilward.Tests.EditMode
                 s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId("tide"), new GridCoordinate(1, 1)));
                 var cp = s.ExportCheckpoint(); cp.ability = new AbilityCheckpoint("rift-seal-v1", "rift-seal", 421, 3); s.RestoreCheckpoint(cp);
                 var store = new WaveCheckpointStore(root);
-                Assert.That(store.TrySave(AbilityCheckpointTests.Envelope(s), s.TryValidateCheckpoint, out var error), Is.True, error);
-                var durable = File.ReadAllBytes(store.PrimaryPath); var before = AbilityCheckpointTests.Snapshot(s); var first = Attempt(s, true);
+                var controller = go.AddComponent<BattleCheckpointController>(); controller.Configure(store, s, AbilityCheckpointTests.Content);
+                Assert.That(controller.SaveForStartWave(), Is.True);
+                var durable = File.ReadAllBytes(store.PrimaryPath); var before = AbilityCheckpointTests.Snapshot(s);
+                var control = AbilityCheckpointTests.Create(enemyHp: 1000); control.RestoreCheckpoint(cp);
+                var controlTrace = Attempt(control, true) + Continue(control);
+                var first = Attempt(s, true, stopAfterPrefix: true);
+                Assert.That(s.State.Phase, Is.EqualTo(BattlePhase.Combat));
+                Assert.That(s.State.Kills, Is.GreaterThan(cp.kills)); Assert.That(s.State.Gold, Is.GreaterThan(cp.gold));
+                Assert.That(s.AbilityState.NextCastSequence, Is.EqualTo(4)); Assert.That(s.AbilityEvents, Is.Not.Empty);
+                Assert.That(s.DamageEvents, Is.Not.Empty); Assert.That(s.State.Enemies, Is.Not.Empty);
+                Assert.That(controller.ObserveCommandCompletion(), Is.True);
+                Assert.That(File.ReadAllBytes(store.PrimaryPath), Is.EqualTo(durable), "Combat must not be saved");
                 for (var attempt = 0; attempt < 2; attempt++)
                 {
                     Assert.That(store.TryLoad(AbilityCheckpointTests.Content, s.TryValidateCheckpoint, out var load), Is.True, load.Error);
-                    if (attempt == 1) s = AbilityCheckpointTests.Create(enemyHp: 1000);
-                    s.RestoreCheckpoint(load.Envelope.state);
-                    Assert.That(AbilityCheckpointTests.Snapshot(s), Is.EqualTo(before));
-                    Assert.That(s.AbilityEvents, Is.Empty); Assert.That(s.DamageEvents, Is.Empty); Assert.That(s.ReactionEvents, Is.Empty);
-                    Assert.That(Attempt(s, true), Is.EqualTo(first)); Assert.That(File.ReadAllBytes(store.PrimaryPath), Is.EqualTo(durable));
+                    if (attempt == 0)
+                    {
+                        var bad = load.Envelope.state.DeepCopy(); bad.ability = new AbilityCheckpoint("rift-seal-v1", "rift-seal", 601, 4);
+                        var dirty = BattleAbilityTests.FullSnapshot(s);
+                        Assert.Throws<ArgumentException>(() => controller.RestoreCheckpoint(new WaveCheckpointEnvelope
+                        { schemaVersion = 4, scenarioContentId = AbilityCheckpointTests.Content, state = bad }));
+                        Assert.That(BattleAbilityTests.FullSnapshot(s), Is.EqualTo(dirty));
+                    }
+                    else { s = AbilityCheckpointTests.Create(enemyHp: 1000); controller.Configure(store, s, AbilityCheckpointTests.Content); }
+                    var restores = 0; void Restored() { restores++; }
+                    controller.Restored += Restored; controller.RestoreCheckpoint(load.Envelope); controller.Restored -= Restored;
+                    Assert.That(restores, Is.EqualTo(1)); Assert.That(AbilityCheckpointTests.Snapshot(s), Is.EqualTo(before));
+                    Assert.That(s.AbilityEvents, Is.Empty); Assert.That(s.DamageEvents, Is.Empty); Assert.That(s.ReactionEvents, Is.Empty); Assert.That(s.AttackEvents, Is.Empty);
+                    var prefix = Attempt(s, true, stopAfterPrefix: true); Assert.That(prefix, Is.EqualTo(first));
+                    var continued = prefix + Attempt(s, false, alreadyStarted: true, castAlready: true) + Continue(s);
+                    Assert.That(continued, Is.EqualTo(controlTrace)); Assert.That(s.State.Phase, Is.EqualTo(BattlePhase.Victory));
+                    Assert.That(File.ReadAllBytes(store.PrimaryPath), Is.EqualTo(durable));
                 }
-                var fresh = AbilityCheckpointTests.Create(enemyHp: 1000); fresh.RestoreCheckpoint(s.ExportCheckpoint());
-                Assert.That(Continue(fresh), Is.EqualTo(Continue(s))); Assert.That(s.State.Phase, Is.EqualTo(BattlePhase.Victory));
+                Directory.CreateDirectory("TestResults/P2.4c");
+                File.WriteAllText("TestResults/P2.4c/rollback-prefix.trace", first);
+                File.WriteAllText("TestResults/P2.4c/rollback-control.trace", controlTrace);
             }
-            finally { Directory.Delete(root, true); }
+            finally { UnityEngine.Object.DestroyImmediate(go); Directory.Delete(root, true); }
         }
         private static string Continue(BattleSimulation s)
         {
@@ -53,11 +77,12 @@ namespace Veilward.Tests.EditMode
             }
             return trace.ToString();
         }
-        private static string Attempt(BattleSimulation s, bool requireProc)
+        private static string Attempt(BattleSimulation s, bool requireProc, bool stopAfterPrefix = false,
+            bool alreadyStarted = false, bool castAlready = false)
         {
-            var trace = new System.Text.StringBuilder(); var castKill = false; var proc = false;
+            var trace = new System.Text.StringBuilder(); var castKill = castAlready; var proc = castAlready;
             s.ClearAttackEvents(); s.ClearReactionEvents(); s.ClearDamageEvents(); s.ClearAbilityEvents();
-            Assert.That(s.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+            if (!alreadyStarted) Assert.That(s.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
             for (var n = 0; n < 20000 && s.State.Phase == BattlePhase.Combat; n++)
             {
                 if (!castKill && s.AbilityState.CooldownRemainingTicks == 0 && s.State.Enemies.Any(e => e.Health <= 120))
@@ -69,8 +94,14 @@ namespace Veilward.Tests.EditMode
                 else s.Step();
                 proc |= s.DamageEvents.Any(e => e.Origin == DamageOrigin.Reaction && e.AppliedHpLoss > 0);
                 trace.Append(BattleAbilityTests.FullSnapshot(s)).Append('\n');
+                if (stopAfterPrefix && castKill && proc)
+                {
+                    Assert.That(s.State.Phase, Is.EqualTo(BattlePhase.Combat), "rollback evidence must interrupt live Combat");
+                    return trace.ToString();
+                }
                 s.ClearAttackEvents(); s.ClearReactionEvents(); s.ClearDamageEvents(); s.ClearAbilityEvents();
             }
+            Assert.That(stopAfterPrefix, Is.False, "required interrupted prefix was not reached");
             Assert.That(s.State.Phase, Is.Not.EqualTo(BattlePhase.Combat)); Assert.That(castKill, Is.True, "positive ability kill required");
             if (requireProc) Assert.That(proc, Is.True, "positive reaction required"); return trace.ToString();
         }
