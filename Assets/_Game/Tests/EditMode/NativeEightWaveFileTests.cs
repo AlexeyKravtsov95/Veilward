@@ -17,6 +17,7 @@ namespace Veilward.Tests.EditMode
     public sealed class NativeEightWaveFileTests
     {
         private const string Native = "eight-wave-unlocks-v1";
+        private string AuditOutput => TestContext.CurrentContext.Test.Name.StartsWith("RegBattle189", StringComparison.Ordinal) ? NativeStrategyReplayTests.Output : NativeEightWaveReplayTests.Output;
         private string root;
         private WaveCheckpointStore store;
         private readonly List<GameObject> objects = new List<GameObject>();
@@ -25,8 +26,8 @@ namespace Veilward.Tests.EditMode
         [SetUp] public void SetUp() { root = Path.Combine(Path.GetTempPath(), "veilward-p23e-" + Guid.NewGuid().ToString("N")); Directory.CreateDirectory(root); store = new WaveCheckpointStore(root); }
         [TearDown] public void TearDown()
         {
-            Directory.CreateDirectory(NativeEightWaveReplayTests.Output);
-            File.WriteAllLines(NativeEightWaveReplayTests.Output + "/" + TestContext.CurrentContext.Test.Name + ".audit.txt", audit);
+            Directory.CreateDirectory(AuditOutput);
+            File.WriteAllLines(AuditOutput + "/" + TestContext.CurrentContext.Test.Name + ".audit.txt", audit);
             foreach (var go in objects) Object.DestroyImmediate(go); objects.Clear(); audit.Clear();
             if (Directory.Exists(root)) Directory.Delete(root, true);
         }
@@ -131,7 +132,7 @@ namespace Veilward.Tests.EditMode
                 trace.Add(NativeEightWaveReplayTests.Snapshot(s));
                 while (s.State.Phase == BattlePhase.Combat && s.State.Tick < preparation.State.Tick + 20000)
                 {
-                    s.Step(); sawProc |= s.ReactionEvents.Count > 0;
+                    s.Step(); sawProc |= s.ReactionEvents.Count > 0 && s.DamageEvents.Any(d => d.Origin == DamageOrigin.Reaction && d.AppliedHpLoss > 0);
                     trace.Add(NativeEightWaveReplayTests.Snapshot(s));
                     if (s.State.Kills > preparation.State.Kills && sawProc && s.State.Phase == BattlePhase.Combat) { covered = true; break; }
                     NativeEightWaveReplayTests.Clear(s);
@@ -145,8 +146,42 @@ namespace Veilward.Tests.EditMode
             }
             Assert.That(second, Is.EqualTo(first));
             audit.Add("PASS Combat rollback wave=" + (s.State.WaveIndex + 1) + " prefix entries=" + first.Count + " two identical attempts; whole state=" + expected);
-            File.WriteAllLines(NativeEightWaveReplayTests.Output + "/" + TestContext.CurrentContext.Test.Name + ".rollback" + (s.State.WaveIndex + 1) + ".txt", first);
+            Directory.CreateDirectory(AuditOutput);
+            File.WriteAllLines(AuditOutput + "/" + TestContext.CurrentContext.Test.Name + ".rollback" + (s.State.WaveIndex + 1) + ".txt", first);
             return true;
+        }
+        [TestCase("A-coverage")] [TestCase("B-coverage")]
+        public void RegBattle189_NaturalLateMilestonesAndWholeContinuedTrace(string route)
+        {
+            var reached = new HashSet<string>();
+            var script = NativeStrategyReplayTests.Load(route);
+            var earlyWave = route.StartsWith("A", StringComparison.Ordinal) ? 4 : 5;
+            var control = NativeEightWaveReplayTests.ReplayScript(script);
+            var continued = NativeEightWaveReplayTests.ReplayScript(script, (run, point) =>
+            {
+                var s = run.sim; var wave = s.State.WaveIndex + 1;
+                if (s.State.Phase == BattlePhase.Victory) return;
+                Save(s); var expected = JsonUtility.ToJson(s.ExportCheckpoint());
+                for (var repeat=0; repeat<2; repeat++)
+                    Assert.That(JsonUtility.ToJson(Load().ExportCheckpoint()), Is.EqualTo(expected));
+                audit.Add("PASS no-write whole snapshot wave="+wave+" point="+point+" state="+expected);
+                if (point == "completed" && (wave == 3 || wave == 6))
+                {
+                    FailedConfirm(s,wave==3?script.after3:script.after6); reached.Add("pending"+wave);
+                }
+                if (point == "confirmed") reached.Add("confirmed"+wave);
+                if (point == "preparation" && (wave == earlyWave || wave == 7))
+                {
+                    Assert.That(Rollback(s), Is.True, "Обязательный natural kill+positive proc prefix");
+                    reached.Add("rollback"+wave);
+                }
+                var envelope=LoadEnvelope(); var battle=Controller(s,out var cp); cp.RestoreCheckpoint(envelope);
+                Assert.That(JsonUtility.ToJson(s.ExportCheckpoint()),Is.EqualTo(expected));
+            });
+            Assert.That(continued.trace,Is.EqualTo(control.trace));
+            foreach(var key in new[]{"pending3","confirmed3","pending6","confirmed6","rollback"+earlyWave,"rollback7"})
+            { Assert.That(reached,Does.Contain(key)); audit.Add("PASS required natural "+key); }
+            audit.Add("PASS full continued trace SHA256="+continued.report.traceSha256);
         }
         [TestCase(1)] [TestCase(2)]
         public void RegBattle187_LegacyMigrationAndBidirectionalBackup_PreserveWholeSnapshot(int schema)

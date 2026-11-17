@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-17 13:42:51Z" end-time="2026-11-17 13:42:57Z" duration="6.1559291">
+  <test-suite type="TestSuite" id="1065" name="VEILWARD: Spirit Defense" fullname="VEILWARD: Spirit Defense" runstate="Runnable" testcasecount="45" result="Passed" start-time="2026-11-17 13:42:51Z" end-time="2026-11-17 13:42:57Z" duration="6.155929" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1061" name="Veilward.Tests.PlayMode.dll" fullname="/Users/alexeykravtsov/Desktop/workspace/Veilward-p23e1/Library/ScriptAssemblies/Veilward.Tests.PlayMode.dll" runstate="Runnable" testcasecount="45" result="Passed" start-time="2026-11-17 13:42:51Z" end-time="2026-11-17 13:42:57Z" duration="6.152863" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="76002" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1062" name="Veilward" fullname="Veilward" runstate="Runnable" testcasecount="45" result="Passed" start-time="2026-11-17 13:42:51Z" end-time="2026-11-17 13:42:57Z" duration="6.152460" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1063" name="Tests" fullname="Veilward.Tests" runstate="Runnable" testcasecount="45" result="Passed" start-time="2026-11-17 13:42:51Z" end-time="2026-11-17 13:42:57Z" duration="6.152112" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1064" name="PlayMode" fullname="Veilward.Tests.PlayMode" runstate="Runnable" testcasecount="45" result="Passed" start-time="2026-11-17 13:42:51Z" end-time="2026-11-17 13:42:57Z" duration="6.151748" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1058" name="NativeStrategyIntegrationPlayModeTests" fullname="Veilward.Tests.PlayMode.NativeStrategyIntegrationPlayModeTests" classname="Veilward.Tests.PlayMode.NativeStrategyIntegrationPlayModeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-17 13:42:51Z" end-time="2026-11-17 13:42:57Z" duration="6.150822" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1059" name="RegBattle189_ProductionMenuNaturalFlameContinue" fullname="Veilward.Tests.PlayMode.NativeStrategyIntegrationPlayModeTests.RegBattle189_ProductionMenuNaturalFlameContinue" methodname="RegBattle189_ProductionMenuNaturalFlameContinue" classname="Veilward.Tests.PlayMode.NativeStrategyIntegrationPlayModeTests" runstate="Runnable" seed="12573422" result="Passed" start-time="2026-11-17 13:42:51Z" end-time="2026-11-17 13:42:55Z" duration="3.195044" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Checkpoint save failed: Access to the path '/var/folders/_4/yfc3qtdj5kng3lq7rn9170vw0000gn/T/veilward-p23e1-menu-4ccc3efe4c4441efb4d41c1cfaa44775/wave-checkpoint-v1.json.tmp' is denied.
+Checkpoint save failed: Access to the path '/var/folders/_4/yfc3qtdj5kng3lq7rn9170vw0000gn/T/veilward-p23e1-menu-4ccc3efe4c4441efb4d41c1cfaa44775/wave-checkpoint-v1.json.tmp' is denied.
+]]></output>
+              </test-case>
+              <test-case id="1060" name="RegBattle189_ProductionMenuNaturalGaleContinue" fullname="Veilward.Tests.PlayMode.NativeStrategyIntegrationPlayModeTests.RegBattle189_ProductionMenuNaturalGaleContinue" methodname="RegBattle189_ProductionMenuNaturalGaleContinue" classname="Veilward.Tests.PlayMode.NativeStrategyIntegrationPlayModeTests" runstate="Runnable" seed="1867154686" result="Passed" start-time="2026-11-17 13:42:55Z" end-time="2026-11-17 13:42:57Z" duration="2.951032" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Checkpoint save failed: Access to the path '/var/folders/_4/yfc3qtdj5kng3lq7rn9170vw0000gn/T/veilward-p23e1-menu-899c5ca0de834757a88d5bd47f35bbc8/wave-checkpoint-v1.json.tmp' is denied.
+Checkpoint save failed: Access to the path '/var/folders/_4/yfc3qtdj5kng3lq7rn9170vw0000gn/T/veilward-p23e1-menu-899c5ca0de834757a88d5bd47f35bbc8/wave-checkpoint-v1.json.tmp' is denied.
+Saving results to: /Users/alexeykravtsov/Library/Application Support/DefaultCompany/VEILWARD_ Spirit Defense/TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

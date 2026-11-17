@@ -1,0 +1,182 @@
+{
+  "baseCommit": "082ee6f6868b5e124e2bcc915f8c882557ff3a6a",
+  "sourceCommit": "be2a5b305325cca9cd8fd43c864895e79c1730b9",
+  "environment": {
+    "unity": "6000.3.28f1 (8f082d2fe476)",
+    "os": "macOS27.0.1 / arm64",
+    "backend": "Editor Mono",
+    "activeBuildTarget": "iOS",
+    "unityCli": "1.0.1",
+    "playerOrPhysicalDevice": false
+  },
+  "commands": [
+    "./Scripts/run-static-checks.sh",
+    "./Scripts/run-edit-mode-tests.sh",
+    "git restore -- Assets/Settings Assets/_Game/Art Assets/_Game/Prefabs Assets/_Game/Scenes  # generated drift in this worktree only",
+    "./Scripts/run-play-mode-tests.sh",
+    "P23E1_CAPTURE=1 /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -projectPath /Users/alexeykravtsov/Desktop/workspace/Veilward-p23e1 -buildTarget iOS -runTests -testPlatform PlayMode -testFilter Veilward.Tests.PlayMode.NativeStrategyIntegrationPlayModeTests -testResults /Users/alexeykravtsov/Desktop/workspace/Veilward-p23e1/TestResults/Visual.xml -logFile /Users/alexeykravtsov/Desktop/workspace/Veilward-p23e1-visual.log",
+    "python3 Docs/review/P2.3e.1/verify-evidence.py",
+    "python3 Docs/review/P2.3e/verify-evidence.py",
+    "git diff --check"
+  ],
+  "static": {
+    "total": 38,
+    "passed": 38,
+    "failed": 0,
+    "sha256": "e95294a640b654aa825d630d727c8e2d85063a1efebad9bf9a38c434467a9309"
+  },
+  "suites": {
+    "EditMode": {
+      "total": 761,
+      "passed": 761,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Passed",
+      "startUtc": "2026-11-17 13:44:34Z",
+      "endUtc": "2026-11-17 13:45:00Z",
+      "sha256": "a56fd4fb3acc811896adaa7847fb97f549003814afbb98698aa0826fdea6a65a"
+    },
+    "PlayMode": {
+      "total": 45,
+      "passed": 45,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Passed",
+      "startUtc": "2026-11-17 13:45:09Z",
+      "endUtc": "2026-11-17 13:45:39Z",
+      "sha256": "14caed340040e5985086e2869b8aeca51cdb99f8e45093469daa42d9512ddf8c"
+    },
+    "Visual": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Passed",
+      "startUtc": "2026-11-17 13:45:51Z",
+      "endUtc": "2026-11-17 13:45:59Z",
+      "sha256": "07db096462a00daff2ff9ef74dfdc41280b7edf96ad7d89561a55beb5e8cc65a"
+    },
+    "Standalone": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Passed",
+      "startUtc": "2026-11-17 13:42:51Z",
+      "endUtc": "2026-11-17 13:42:57Z",
+      "sha256": "f8e1141b055c266b501455d95ef15474c02cec7bf529a4c9709d6e98b9c4cee5"
+    }
+  },
+  "console": {
+    "A.console.txt": {
+      "warnings": 16,
+      "unexpectedErrors": 0,
+      "distinct": [
+        "Warning|Ignoring depth surface load action as it is memoryless",
+        "Warning|Ignoring depth surface store action as it is memoryless"
+      ],
+      "scope": "single testcase; SetUp clears console",
+      "sha256": "4f2bf79ba2b217ac78297139c4c08db7872fb4cea5259d3880b74ede00cb6d15",
+      "expectedInjectedSaveErrors": 2
+    },
+    "B.console.txt": {
+      "warnings": 16,
+      "unexpectedErrors": 0,
+      "distinct": [
+        "Warning|Ignoring depth surface load action as it is memoryless",
+        "Warning|Ignoring depth surface store action as it is memoryless"
+      ],
+      "scope": "single testcase; SetUp clears console",
+      "sha256": "4f2bf79ba2b217ac78297139c4c08db7872fb4cea5259d3880b74ede00cb6d15",
+      "expectedInjectedSaveErrors": 2
+    }
+  },
+  "screenshots": {
+    "B-coverage-confirmed6.png": "974db18858b667cd1642ca521635647c1ada08dee46de1b6d5ffa514f2c4e83d",
+    "A-coverage-preparation7.png": "68dc587a3f9df38401d4881f554907e7e1d9485612269dc105357353f8f6b2a4",
+    "B-coverage-natural-outcome.png": "2c638388765582f4646da2480cecf1f67b53eca6dc9a37fbee29790e7e90a90d",
+    "B-coverage-pending3.png": "d905d0848b635091e4c27d5458ea1e28a69b477d511519a5205c3948d45ac701",
+    "A-coverage-natural-outcome.png": "d1034dd975f9d52ba96f058ac31bac4306541efcc9eda0e935be245a4a35d54e",
+    "A-coverage-production-Storm-StatusPair.png": "0363200908398cc4bdcf83dc65a1c4fa8fcf23a3f689b8843f723357726dabc6",
+    "B-coverage-pending6.png": "9bf8794492a42bbc0bbc5e27dc285c15917e0116588483e81b970002e661aff7",
+    "A-coverage-production-Steam-StatusPair.png": "2d57b31d6dfc332d967c3e7b22e8ac485ba40b30dcd5e0890dea438a5d60e24f",
+    "B-coverage-confirmed3.png": "657c9bcf9cb39c566b0d5dca1c7e6a7bfb32db67131a645f935a23d3ef544819",
+    "A-coverage-confirmed3.png": "406b4109b02cb55092048ffe7529a694c7dbc50fe2710e1d75f841ea7f85de0c",
+    "B-coverage-production-Storm-StatusPair.png": "1fcb78999b6a0be4d219fdc2aab9b4c030d73b9948264889e9b0ec7a07894b43",
+    "B-coverage-production-Steam-StatusPair.png": "755302e996ed2e1227a782af4db44a273c72eff7bd938e9a41c1a3bb27452909",
+    "A-coverage-failed-confirm-restart3.png": "f27edc9c3fb9d84d47301500017f348c9449e05be1c81cf2f5b44c22b3306d8a",
+    "A-coverage-failed-confirm-restart6.png": "e2e8cebf5c1fe739f436bec9fbf2095eacda6a6aafc2a5f42643b911a57654cb",
+    "A-coverage-confirmed6.png": "60e2278874106beb09875771fd761271f94964ed37a3d907c54839eeab30193f",
+    "B-coverage-production-Storm-Intrinsic.png": "4d32b00c216712f480ae4a7e41968341628e5ca6dc70bcec03f1ed26dcad2dd3",
+    "B-coverage-production-Steam-Intrinsic.png": "0b518e560aa6e206e94c16c113247fd41cb053d653314758a25e4f8d9aa6189b",
+    "B-coverage-failed-confirm-restart3.png": "d905d0848b635091e4c27d5458ea1e28a69b477d511519a5205c3948d45ac701",
+    "A-coverage-pending6.png": "e2e8cebf5c1fe739f436bec9fbf2095eacda6a6aafc2a5f42643b911a57654cb",
+    "B-coverage-failed-confirm-restart6.png": "9bf8794492a42bbc0bbc5e27dc285c15917e0116588483e81b970002e661aff7",
+    "A-coverage-pending3.png": "f27edc9c3fb9d84d47301500017f348c9449e05be1c81cf2f5b44c22b3306d8a",
+    "A-coverage-production-Storm-Intrinsic.png": "b7a2674df5b7436662ee11fd860cfdfb5ddeea9e1b57bd922a8828ca445f4eef",
+    "A-coverage-production-Steam-Intrinsic.png": "69ff31b89e6da77a84947a5210384f06deac61eb244b5d705a04d69192e52478",
+    "B-coverage-preparation7.png": "b77a1ae58d5a15af2f6b2e69bd293c62283f7a9a3ecfe7db554ae2809b7c5e68",
+    "A-coverage-rollback7.png": "13531ad41fb0408ac73a46dd0ea6bbc0051f008909b8cddb65139496764810c6",
+    "A-coverage-rollback4.png": "c08a653613a71e5266fb0eb8352d3e61f6a4d470415e51a8434b0d1d7e03270e",
+    "B-coverage-rollback5.png": "35f9c2757a6555481bb47ccc1c14af1b54472c0a3d4f4fc0e835eb44014dd4b5",
+    "B-coverage-rollback7.png": "c8e9754da98c6bb08a3cfd1039dde0d7a0d6e7ace62622a7f89955e0d98af2aa"
+  },
+  "traces": {
+    "A-coverage": {
+      "uncompressedSha256": "8bc18b1d423c17bcc9222bd9d35872630196f621d50ff6c8b2be881099e9e518",
+      "firstGzipSha256": "6a9c4c883ef6135abe51da7ad77efd423fc3cd649021f7b591e8385c83bc1a5a",
+      "secondGzipSha256": "6a9c4c883ef6135abe51da7ad77efd423fc3cd649021f7b591e8385c83bc1a5a"
+    },
+    "B-coverage": {
+      "uncompressedSha256": "0535c9dc6d581a19ff7d133334196125995a30d72c303b3876878c93fb17deaf",
+      "firstGzipSha256": "14f22dfa070eb869da30aa911c000f128482ee9d57bef675a2e666888d999f0d",
+      "secondGzipSha256": "14f22dfa070eb869da30aa911c000f128482ee9d57bef675a2e666888d999f0d"
+    },
+    "B-survival": {
+      "uncompressedSha256": "19a7dea6a18167b496bd8918bba1defd8d2bf654c98af707d062e3c74bda4d36",
+      "firstGzipSha256": "4e0d044aa4f1648c185b93f22f2cf5f7855b80c950ce446e365783ef39eebae9",
+      "secondGzipSha256": "4e0d044aa4f1648c185b93f22f2cf5f7855b80c950ce446e365783ef39eebae9"
+    },
+    "A-survival": {
+      "uncompressedSha256": "ca97841d46e8529d4854a7e3042caf98c11391753bd2f44bc9edf2bb19cdfcbe",
+      "firstGzipSha256": "e4f85fbbc3529c7d9780373931c99f97641f158c41412ac10e8edced65dcb0cb",
+      "secondGzipSha256": "e4f85fbbc3529c7d9780373931c99f97641f158c41412ac10e8edced65dcb0cb"
+    }
+  },
+  "sourceAudit": {
+    "productionConfigArtPackagesScriptsChanged": false,
+    "historicalEvidenceChanged": false,
+    "metaGuidCompile": "PASS static + complete EditMode/PlayMode",
+    "diffCheck": "PASS"
+  },
+  "limitations": [
+    "Editor PlayMode public Step up to120 ticks/frame; not realtime VFX cadence/beam density/performance evidence",
+    "No physical iPhone, player IL2CPP/Metal/touch/safe area/background/force quit/performance, signing/TestFlight",
+    "G2/external playtests/balance/ART approval separate; P2.3 not marked DONE before review/approval"
+  ],
+  "standaloneOutputRegression": {
+    "precondition": "TestResults/P2.3e.1 absent; previous directory moved to ignored backup",
+    "sourceCommit": "be2a5b305325cca9cd8fd43c864895e79c1730b9",
+    "total": 2,
+    "passed": 2,
+    "report": "reports/Standalone.xml",
+    "command": "<Unity> -batchmode -nographics -projectPath <checkout> -buildTarget iOS -runTests -testPlatform PlayMode -testFilter Veilward.Tests.PlayMode.NativeStrategyIntegrationPlayModeTests -testResults <absolute Standalone.xml> -logFile <absolute log>"
+  },
+  "independentReview": {
+    "sourceCommit": "be2a5b305325cca9cd8fd43c864895e79c1730b9",
+    "verdict": "PASS",
+    "criticalOpen": 0,
+    "importantOpen": 0,
+    "minorOpen": 0,
+    "importantResolved": 1,
+    "minorResolved": 1,
+    "reviewerUnityRun": false,
+    "record": "review.md",
+    "ownerApproval": false,
+    "p23Done": false
+  }
+}

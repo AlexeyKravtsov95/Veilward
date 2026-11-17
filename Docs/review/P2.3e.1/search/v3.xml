@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="4" result="Passed" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-17 13:24:43Z" end-time="2026-11-17 13:26:38Z" duration="114.8237126">
+  <test-suite type="TestSuite" id="1000" name="VEILWARD: Spirit Defense" fullname="VEILWARD: Spirit Defense" runstate="Runnable" testcasecount="761" result="Passed" start-time="2026-11-17 13:24:43Z" end-time="2026-11-17 13:26:38Z" duration="114.823713" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1938" name="Veilward.Tests.EditMode.dll" fullname="/Users/alexeykravtsov/Desktop/workspace/Veilward-p23e1/Library/ScriptAssemblies/Veilward.Tests.EditMode.dll" runstate="Runnable" testcasecount="761" result="Passed" start-time="2026-11-17 13:24:43Z" end-time="2026-11-17 13:26:38Z" duration="114.809511" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="71943" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1939" name="Veilward" fullname="Veilward" runstate="Runnable" testcasecount="761" result="Passed" start-time="2026-11-17 13:24:43Z" end-time="2026-11-17 13:26:38Z" duration="114.804997" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1940" name="Tests" fullname="Veilward.Tests" runstate="Runnable" testcasecount="761" result="Passed" start-time="2026-11-17 13:24:43Z" end-time="2026-11-17 13:26:38Z" duration="114.799319" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1941" name="EditMode" fullname="Veilward.Tests.EditMode" runstate="Runnable" testcasecount="761" result="Passed" start-time="2026-11-17 13:24:43Z" end-time="2026-11-17 13:26:38Z" duration="114.795550" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1884" name="NativeStrategySearchTests" fullname="Veilward.Tests.EditMode.NativeStrategySearchTests" classname="Veilward.Tests.EditMode.NativeStrategySearchTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-17 13:24:43Z" end-time="2026-11-17 13:26:38Z" duration="114.790069" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="ParameterizedMethod" id="1889" name="RegBattle188_BoundedLegalSearch" fullname="Veilward.Tests.EditMode.NativeStrategySearchTests.RegBattle188_BoundedLegalSearch" classname="Veilward.Tests.EditMode.NativeStrategySearchTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-17 13:24:43Z" end-time="2026-11-17 13:26:38Z" duration="114.788430" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1885" name="RegBattle188_BoundedLegalSearch(&quot;A&quot;,False)" fullname="Veilward.Tests.EditMode.NativeStrategySearchTests.RegBattle188_BoundedLegalSearch(&quot;A&quot;,False)" methodname="RegBattle188_BoundedLegalSearch" classname="Veilward.Tests.EditMode.NativeStrategySearchTests" runstate="Runnable" seed="1260366804" result="Passed" start-time="2026-11-17 13:24:43Z" end-time="2026-11-17 13:25:13Z" duration="29.757594" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[EVALUATED hold=169 place=21384 sell=366 sell+place=39202 upgrade=106
+]]></output>
+                </test-case>
+                <test-case id="1886" name="RegBattle188_BoundedLegalSearch(&quot;B&quot;,False)" fullname="Veilward.Tests.EditMode.NativeStrategySearchTests.RegBattle188_BoundedLegalSearch(&quot;B&quot;,False)" methodname="RegBattle188_BoundedLegalSearch" classname="Veilward.Tests.EditMode.NativeStrategySearchTests" runstate="Runnable" seed="1253062911" result="Passed" start-time="2026-11-17 13:25:13Z" end-time="2026-11-17 13:25:40Z" duration="27.213627" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[EVALUATED hold=169 place=22830 sell=292 sell+place=34400 upgrade=86
+]]></output>
+                </test-case>
+                <test-case id="1887" name="RegBattle188_BoundedLegalSearch(&quot;A&quot;,True)" fullname="Veilward.Tests.EditMode.NativeStrategySearchTests.RegBattle188_BoundedLegalSearch(&quot;A&quot;,True)" methodname="RegBattle188_BoundedLegalSearch" classname="Veilward.Tests.EditMode.NativeStrategySearchTests" runstate="Runnable" seed="1516435957" result="Passed" start-time="2026-11-17 13:25:40Z" end-time="2026-11-17 13:26:10Z" duration="29.909682" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[EVALUATED hold=169 place=20272 sell=368 sell+place=40319 upgrade=101
+]]></output>
+                </test-case>
+                <test-case id="1888" name="RegBattle188_BoundedLegalSearch(&quot;B&quot;,True)" fullname="Veilward.Tests.EditMode.NativeStrategySearchTests.RegBattle188_BoundedLegalSearch(&quot;B&quot;,True)" methodname="RegBattle188_BoundedLegalSearch" classname="Veilward.Tests.EditMode.NativeStrategySearchTests" runstate="Runnable" seed="660809431" result="Passed" start-time="2026-11-17 13:26:10Z" end-time="2026-11-17 13:26:38Z" duration="27.903459" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[EVALUATED hold=169 place=21640 sell=296 sell+place=37180 upgrade=67
+Saving results to: /Users/alexeykravtsov/Library/Application Support/DefaultCompany/VEILWARD_ Spirit Defense/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

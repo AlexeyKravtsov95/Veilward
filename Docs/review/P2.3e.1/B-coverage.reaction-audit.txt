@@ -1,0 +1,50 @@
+wave=5 tick=1820 Storm/StatusPair positiveTargets=1 AppliedHpLoss=4
+wave=5 tick=1880 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=5 tick=1940 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=5 tick=2000 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=6 tick=2269 Storm/Intrinsic positiveTargets=1 AppliedHpLoss=6
+wave=6 tick=2329 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=6 tick=2389 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=6 tick=2449 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=6 tick=2509 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=6 tick=2569 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=6 tick=2629 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=7 tick=2761 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=7 tick=2794 Storm/Intrinsic positiveTargets=1 AppliedHpLoss=6
+wave=7 tick=2837 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=7 tick=2854 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=7 tick=2875 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=7 tick=2913 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=7 tick=2914 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=7 tick=2951 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=7 tick=2974 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=7 tick=2989 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=7 tick=3027 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=7 tick=3034 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=7 tick=3065 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=7 tick=3094 Storm/Intrinsic positiveTargets=1 AppliedHpLoss=6
+wave=7 tick=3103 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=7 tick=3141 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=8 tick=3150 Steam/Intrinsic positiveTargets=1 AppliedHpLoss=18
+wave=8 tick=3182 Storm/Intrinsic positiveTargets=1 AppliedHpLoss=6
+wave=8 tick=3217 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=8 tick=3226 Steam/Intrinsic positiveTargets=1 AppliedHpLoss=18
+wave=8 tick=3242 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=8 tick=3264 Steam/Intrinsic positiveTargets=1 AppliedHpLoss=18
+wave=8 tick=3293 Steam/StatusPair positiveTargets=1 AppliedHpLoss=4
+wave=8 tick=3302 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=8 tick=3302 Steam/Intrinsic positiveTargets=1 AppliedHpLoss=18
+wave=8 tick=3340 Steam/Intrinsic positiveTargets=1 AppliedHpLoss=18
+wave=8 tick=3362 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=8 tick=3378 Steam/Intrinsic positiveTargets=1 AppliedHpLoss=18
+wave=8 tick=3407 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+wave=8 tick=3416 Steam/Intrinsic positiveTargets=1 AppliedHpLoss=18
+wave=8 tick=3422 Storm/Intrinsic positiveTargets=2 AppliedHpLoss=12
+wave=8 tick=3454 Steam/Intrinsic positiveTargets=1 AppliedHpLoss=18
+wave=8 tick=3492 Steam/Intrinsic positiveTargets=1 AppliedHpLoss=18
+wave=8 tick=3496 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=8 tick=3559 Steam/StatusPair positiveTargets=1 AppliedHpLoss=10
+TOTAL Steam/Intrinsic positiveProcs=9 AppliedHpLoss=162
+TOTAL Steam/StatusPair positiveProcs=14 AppliedHpLoss=134
+TOTAL Storm/Intrinsic positiveProcs=18 AppliedHpLoss=192
+TOTAL Storm/StatusPair positiveProcs=5 AppliedHpLoss=36

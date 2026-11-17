@@ -1,0 +1,21 @@
+wave=5 tick=1839 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=5 tick=1915 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=5 tick=1991 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=5 tick=2051 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=5 tick=2111 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=6 tick=2278 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=6 tick=2354 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=6 tick=2430 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=6 tick=2490 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=6 tick=2550 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=7 tick=2763 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=7 tick=2839 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=7 tick=2915 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=7 tick=2975 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=7 tick=3035 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=8 tick=3298 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=8 tick=3374 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=8 tick=3450 Storm/StatusPair positiveTargets=2 AppliedHpLoss=14
+wave=8 tick=3510 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+wave=8 tick=3570 Storm/StatusPair positiveTargets=2 AppliedHpLoss=8
+TOTAL Storm/StatusPair positiveProcs=20 AppliedHpLoss=232
