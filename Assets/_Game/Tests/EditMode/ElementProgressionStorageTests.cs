@@ -42,7 +42,7 @@ namespace Veilward.Tests.EditMode
         [Test]
         public void RegBattle181_Schema2Migration_LoadIsReadOnlyAndNextSaveIsSchema3()
         {
-            var s = Config().CreateLegacyAllOpenSimulation(); var e = Envelope(s, false); e.schemaVersion = 2;
+            var s = Config().CreateHistoricalAllOpenSimulation(); var e = Envelope(s, false); e.schemaVersion = 2;
             File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(e));
             var bytes = File.ReadAllBytes(_store.PrimaryPath);
             Assert.That(_store.TryLoad(LegacyId, s.TryValidateCheckpoint, out var load), Is.True, load.Error);
@@ -57,7 +57,7 @@ namespace Veilward.Tests.EditMode
         [TestCase(true)] [TestCase(false)]
         public void RegBattle182_183_CrossModeBackup_RestoresWholeSnapshotWithoutWrites(bool nativeBackup)
         {
-            var legacy = Config().CreateLegacyAllOpenSimulation();
+            var legacy = Config().CreateHistoricalAllOpenSimulation();
             var cp = legacy.ExportCheckpoint(); cp.gold = 10000; legacy.RestoreCheckpoint(cp);
             foreach (var id in new[] { "steam", "storm" })
                 Assert.That(legacy.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId(id),
@@ -113,7 +113,7 @@ namespace Veilward.Tests.EditMode
         [TestCaseSource(nameof(LegacyTowers))]
         public void RegBattle181_Schema2_ExactTowerIdentityAtEverySafePhase(string type, int level)
         {
-            var simulation = Config().CreateLegacyAllOpenSimulation(); var initial = simulation.ExportCheckpoint();
+            var simulation = Config().CreateHistoricalAllOpenSimulation(); var initial = simulation.ExportCheckpoint();
             initial.gold = 10000; simulation.RestoreCheckpoint(initial);
             var tower = simulation.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId(type), new GridCoordinate(-5, -3))).Tower;
             for (var n = 1; n < level; n++) Assert.That(simulation.UpgradeTower(tower.Id).Success, Is.True);
@@ -140,7 +140,7 @@ namespace Veilward.Tests.EditMode
         [TestCase(false)] [TestCase(true)]
         public void RegBattle181_Schema1_DeepCopyMapsLegacyTowersAndPreservesSource(bool withTower)
         {
-            var legacy = Config().CreateLegacyAllOpenSimulation();
+            var legacy = Config().CreateHistoricalAllOpenSimulation();
             if (withTower) legacy.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId("test-tower"), new GridCoordinate(-5, -3)));
             var e = Envelope(legacy, false); e.schemaVersion = 1; e.state.elementProgression = null;
             if (withTower) e.state.towers[0].towerTypeId = null;
@@ -169,7 +169,7 @@ namespace Veilward.Tests.EditMode
         public void RegBattle181_FactoryException_TriesBackupIndependently(bool returnNull)
         {
             var e = Envelope(Native()); File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(e));
-            var legacy = Envelope(Config().CreateLegacyAllOpenSimulation(), false); File.WriteAllText(_store.BackupPath, JsonUtility.ToJson(legacy));
+            var legacy = Envelope(Config().CreateHistoricalAllOpenSimulation(), false); File.WriteAllText(_store.BackupPath, JsonUtility.ToJson(legacy));
             BattleSimulation Factory(WaveCheckpointEnvelope candidate)
             {
                 if (candidate.scenarioContentId == NativeId)
@@ -183,7 +183,7 @@ namespace Veilward.Tests.EditMode
         [Test]
         public void RegBattle181_ValidatorOverload_RetainsExactContentRestriction()
         {
-            var legacy = Config().CreateLegacyAllOpenSimulation();
+            var legacy = Config().CreateHistoricalAllOpenSimulation();
             File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(Envelope(legacy, false)));
             Assert.That(_store.TryLoad(NativeId, legacy.TryValidateCheckpoint, out _), Is.False);
         }
@@ -191,7 +191,7 @@ namespace Veilward.Tests.EditMode
         [TestCase(true)] [TestCase(false)]
         public void RegBattle182_183_SavePreservesValidatedPreviousPrimaryOfOtherMode(bool nativeFirst)
         {
-            var native = Native(); var legacy = Config().CreateLegacyAllOpenSimulation();
+            var native = Native(); var legacy = Config().CreateHistoricalAllOpenSimulation();
             var first = nativeFirst ? native : legacy; var second = nativeFirst ? legacy : native;
             Assert.That(_store.TrySave(Envelope(first, nativeFirst), first.TryValidateCheckpoint, out var error,
                 Config().CreateSimulationForCheckpoint), Is.True, error);
@@ -204,7 +204,7 @@ namespace Veilward.Tests.EditMode
         [TestCase(1)] [TestCase(2)] [TestCase(3)]
         public void RegBattle181_UnknownTowerType_IsRejectedInEverySchema(int schema)
         {
-            var s = Config().CreateLegacyAllOpenSimulation();
+            var s = Config().CreateHistoricalAllOpenSimulation();
             s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId("test-tower"), new GridCoordinate(-5, -3)));
             var e = Envelope(s, false); e.schemaVersion = schema; e.state.towers[0].towerTypeId = "unknown";
             File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(e));
@@ -227,7 +227,7 @@ namespace Veilward.Tests.EditMode
         public void RegBattle181_ValidRawSingleWave_LoadsOnlyAsSingleWaveWithoutProgressionFallback(int schema)
         {
             var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/TestWave.asset");
-            var single = config.CreateLegacyAllOpenSimulation();
+            var single = config.CreateSimulation();
             var e = new WaveCheckpointEnvelope { schemaVersion = schema, scenarioContentId = "legacy-single-wave-v1", state = single.ExportCheckpoint() };
             var json = JsonUtility.ToJson(e);
             // Настоящий старый shape: progression key отсутствует, все scalar zero fields присутствуют.

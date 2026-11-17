@@ -1,0 +1,211 @@
+// /tmp/p23d-army.cs
+var p = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattlePlacementController>();
+p.TrySelectCell(new Veilward.Domain.GridCoordinate(-4,0)); p.SelectTowerType(new Veilward.Domain.TowerDefinitionId("steam")); p.ConfirmSelection();
+return UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>().Simulation.ExportCheckpoint();
+
+
+// /tmp/p23d-close.cs
+UnityEditor.EditorApplication.delayCall += () => UnityEditor.EditorApplication.Exit(0);
+return "Closing this worktree Editor for batch tests";
+
+
+// /tmp/p23d-confirm3.cs
+var c = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.ElementChoiceController>();
+c.SelectOption("tide");
+var buttons = UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Button>(UnityEngine.FindObjectsInactive.Include, UnityEngine.FindObjectsSortMode.None);
+System.Array.Find(buttons, b => b.name == "Confirm Element Button").onClick.Invoke();
+return UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>().Simulation.ExportCheckpoint();
+
+
+// /tmp/p23d-confirm6.cs
+var c = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.ElementChoiceController>();
+c.SelectOption("gale");
+var buttons = UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Button>(UnityEngine.FindObjectsInactive.Include, UnityEngine.FindObjectsSortMode.None);
+System.Array.Find(buttons, b => b.name == "Confirm Element Button").onClick.Invoke();
+return UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>().Simulation.ExportCheckpoint();
+
+
+// /tmp/p23d-continue-legacy-final.cs
+var root = System.IO.Path.GetFullPath("TestResults/P23dVisualQA");
+Veilward.Presentation.MainMenuController.CheckpointStoreFactory = () => new Veilward.Infrastructure.WaveCheckpointStore(root);
+var menu = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.MainMenuController>();
+menu.ConfigureStore(new Veilward.Infrastructure.WaveCheckpointStore(root)); menu.ContinueButton.onClick.Invoke();
+return "Final source18874fb: actual legacy menu Continue";
+
+
+// /tmp/p23d-continue.cs
+var menu = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.MainMenuController>();
+menu.ContinueButton.onClick.Invoke(); return "Continue via real menu";
+
+
+// /tmp/p23d-exit-now.cs
+UnityEditor.EditorApplication.Exit(0);
+
+
+// /tmp/p23d-legacy-catalog.cs
+var p = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattlePlacementController>();
+p.TrySelectCell(new Veilward.Domain.GridCoordinate(-2,0));
+return UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>().Simulation.ExportCheckpoint();
+
+
+// /tmp/p23d-legacy.cs
+var b = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>();
+var config = (Veilward.Presentation.BattleScenarioConfig)typeof(Veilward.Presentation.BattleSceneController).GetField("scenario", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(b);
+var state = config.CreateSimulation().ExportCheckpoint(); state.gold = 500;
+state.elementProgression = Veilward.Domain.ElementProgressionCheckpoint.CreateLegacy();
+var e = new Veilward.Infrastructure.WaveCheckpointEnvelope {schemaVersion=3, scenarioContentId="eight-wave-v1",state=state};
+var legacy = config.CreateSimulationForCheckpoint(e); legacy.RestoreCheckpoint(state);
+legacy.PlaceTower(new Veilward.Domain.PlaceTowerCommand(new Veilward.Domain.TowerDefinitionId("steam"),new Veilward.Domain.GridCoordinate(-4,0)));
+legacy.PlaceTower(new Veilward.Domain.PlaceTowerCommand(new Veilward.Domain.TowerDefinitionId("storm"),new Veilward.Domain.GridCoordinate(-3,0)));
+e.state = legacy.ExportCheckpoint(); e.schemaVersion = 2; e.state.elementProgression = null;
+var root = System.IO.Path.GetFullPath("TestResults/P23dVisualQA");
+var store = new Veilward.Infrastructure.WaveCheckpointStore(root);
+System.IO.File.WriteAllText(store.PrimaryPath,UnityEngine.JsonUtility.ToJson(e));
+b.ReturnToMenu(); return "SYNTHETIC schema2 legacy army, fixture Gold500, no balance claim";
+
+
+// /tmp/p23d-locked-steam.cs
+var c = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.ElementChoiceController>();
+c.SelectOption("flame"); c.ConfirmChoice();
+var p = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattlePlacementController>();
+p.TrySelectCell(new Veilward.Domain.GridCoordinate(-4,0)); p.SelectTowerType(new Veilward.Domain.TowerDefinitionId("steam"));
+return p.BuildStatsText.text;
+
+
+// /tmp/p23d-locked-storm.cs
+var p = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattlePlacementController>();
+p.SelectTowerType(new Veilward.Domain.TowerDefinitionId("storm"));
+return p.BuildStatsText.text;
+
+
+// /tmp/p23d-menu.cs
+UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>().ReturnToMenu();
+return "MainMenu";
+
+
+// /tmp/p23d-newgame.cs
+var root = System.IO.Path.GetFullPath("TestResults/P23dVisualQA");
+System.IO.Directory.CreateDirectory(root);
+Veilward.Presentation.MainMenuController.CheckpointStoreFactory = () => new Veilward.Infrastructure.WaveCheckpointStore(root);
+var menu = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.MainMenuController>();
+menu.ConfigureStore(new Veilward.Infrastructure.WaveCheckpointStore(root));
+menu.NewGameButton.onClick.Invoke();
+return "New Game via real menu, isolated store";
+
+
+// /tmp/p23d-next.cs
+var buttons = UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Button>(UnityEngine.FindObjectsInactive.Include, UnityEngine.FindObjectsSortMode.None);
+System.Array.Find(buttons, b => b.name == "Next Wave Button").onClick.Invoke();
+return UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>().Simulation.ExportCheckpoint();
+
+
+// /tmp/p23d-pause.cs
+var c = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.ElementChoiceController>(); c.SelectOption("tide");
+UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattlePauseController>().Pause();
+return new {preview = c.PreviewOptionId, pending = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>().Simulation.State.ElementProgression.PendingChoiceId};
+
+
+// /tmp/p23d-pending3.cs
+var b = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>();
+var state = b.Simulation.ExportCheckpoint();
+state.phase = Veilward.Domain.BattlePhase.WaveComplete; state.waveIndex = 2; state.tick = 300;
+state.elementProgression.choicesEarned = 1; state.elementProgression.pendingChoiceId = "after-wave-3";
+var cp = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleCheckpointController>();
+cp.RestoreCheckpoint(new Veilward.Infrastructure.WaveCheckpointEnvelope {schemaVersion = 3, scenarioContentId = "eight-wave-unlocks-v1", state = state});
+cp.SaveCurrentState();
+UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.ElementChoiceController>().Refresh();
+return new { fixture = "SYNTHETIC pending3, saved production combat config", state };
+
+
+// /tmp/p23d-pending6.cs
+var b = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>();
+var state = b.Simulation.ExportCheckpoint();
+state.phase = Veilward.Domain.BattlePhase.WaveComplete; state.waveIndex = 5; state.tick = 600;
+state.elementProgression.choicesEarned = 2; state.elementProgression.pendingChoiceId = "after-wave-6";
+var cp = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleCheckpointController>();
+cp.RestoreCheckpoint(new Veilward.Infrastructure.WaveCheckpointEnvelope {schemaVersion = 3, scenarioContentId = "eight-wave-unlocks-v1", state = state});
+cp.SaveCurrentState();
+UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.ElementChoiceController>().Refresh();
+return new { fixture = "SYNTHETIC pending6, saved production combat config", state };
+
+
+// /tmp/p23d-resume.cs
+var p = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattlePauseController>();
+p.OnApplicationFocus(true); p.OnApplicationPause(false); p.Resume();
+var c = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.ElementChoiceController>(); c.Refresh();
+return new {paused = p.IsPaused, preview = c.PreviewOptionId, frame = UnityEngine.Time.frameCount};
+
+
+// /tmp/p23d-setup.cs
+UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity");
+UnityEditor.PlayerSettings.runInBackground = true;
+return "MainMenu ready";
+
+
+// /tmp/p23d-state.cs
+var b = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>();
+var c = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.ElementChoiceController>();
+return new { playing = UnityEditor.EditorApplication.isPlaying, UnityEngine.Screen.width, UnityEngine.Screen.height, area = UnityEngine.Screen.safeArea.ToString(), frame = UnityEngine.Time.frameCount, checkpoint = b.Simulation.ExportCheckpoint(), preview = c.PreviewOptionId };
+
+
+// /tmp/p23d-target.cs
+var t = typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.PlayModeView");
+var m = t.GetMethod("GetMainPlayModeViewTargetSize", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public);
+return new { target = m.Invoke(null,null).ToString(), frame = UnityEngine.Time.frameCount };
+
+
+// /tmp/p23d-view-tablet.cs
+var assembly = typeof(UnityEditor.Editor).Assembly;
+var sizesType = assembly.GetType("UnityEditor.GameViewSizes");
+var singleton = typeof(UnityEditor.ScriptableSingleton<>).MakeGenericType(sizesType);
+var sizes = singleton.GetProperty("instance").GetValue(null);
+var groupType = sizesType.GetProperty("currentGroupType").GetValue(sizes);
+var group = sizesType.GetMethod("GetGroup").Invoke(sizes, new[] { groupType });
+var sizeType = assembly.GetType("UnityEditor.GameViewSize");
+var kind = System.Enum.Parse(assembly.GetType("UnityEditor.GameViewSizeType"), "FixedResolution");
+var size = System.Activator.CreateInstance(sizeType, new object[] {kind, 1440, 1080, "P23d 1440x1080"});
+group.GetType().GetMethod("AddCustomSize").Invoke(group, new[] { size });
+var count = (int)group.GetType().GetMethod("GetTotalCount").Invoke(group, null);
+var view = UnityEditor.EditorWindow.GetWindow(assembly.GetType("UnityEditor.GameView"));
+view.GetType().GetProperty("selectedSizeIndex").SetValue(view, count - 1);
+view.Focus(); view.Repaint();
+UnityEngine.Application.runInBackground = true;
+return new { UnityEngine.Screen.width, UnityEngine.Screen.height, frame = UnityEngine.Time.frameCount };
+
+
+// /tmp/p23d-view-wide.cs
+var assembly = typeof(UnityEditor.Editor).Assembly;
+var sizesType = assembly.GetType("UnityEditor.GameViewSizes");
+var singleton = typeof(UnityEditor.ScriptableSingleton<>).MakeGenericType(sizesType);
+var sizes = singleton.GetProperty("instance").GetValue(null);
+var groupType = sizesType.GetProperty("currentGroupType").GetValue(sizes);
+var group = sizesType.GetMethod("GetGroup").Invoke(sizes, new[] { groupType });
+var sizeType = assembly.GetType("UnityEditor.GameViewSize");
+var kind = System.Enum.Parse(assembly.GetType("UnityEditor.GameViewSizeType"), "FixedResolution");
+var size = System.Activator.CreateInstance(sizeType, new object[] {kind, 2340, 1080, "P23d 2340x1080"});
+group.GetType().GetMethod("AddCustomSize").Invoke(group, new[] { size });
+var count = (int)group.GetType().GetMethod("GetTotalCount").Invoke(group, null);
+var view = UnityEditor.EditorWindow.GetWindow(assembly.GetType("UnityEditor.GameView"));
+view.GetType().GetProperty("selectedSizeIndex").SetValue(view, count - 1);
+view.Focus(); view.Repaint();
+UnityEngine.Application.runInBackground = true;
+return new { UnityEngine.Screen.width, UnityEngine.Screen.height, frame = UnityEngine.Time.frameCount };
+
+
+// /tmp/p23d-view.cs
+var assembly = typeof(UnityEditor.Editor).Assembly;
+var sizesType = assembly.GetType("UnityEditor.GameViewSizes");
+var singleton = typeof(UnityEditor.ScriptableSingleton<>).MakeGenericType(sizesType);
+var sizes = singleton.GetProperty("instance").GetValue(null);
+var groupType = sizesType.GetProperty("currentGroupType").GetValue(sizes);
+var group = sizesType.GetMethod("GetGroup").Invoke(sizes, new[] { groupType });
+var sizeType = assembly.GetType("UnityEditor.GameViewSize");
+var kind = System.Enum.Parse(assembly.GetType("UnityEditor.GameViewSizeType"), "FixedResolution");
+var size = System.Activator.CreateInstance(sizeType, new object[] {kind, 1920, 1080, "P23d 1920x1080"});
+group.GetType().GetMethod("AddCustomSize").Invoke(group, new[] { size });
+var count = (int)group.GetType().GetMethod("GetTotalCount").Invoke(group, null);
+var view = UnityEditor.EditorWindow.GetWindow(assembly.GetType("UnityEditor.GameView"));
+view.GetType().GetProperty("selectedSizeIndex").SetValue(view, count - 1);
+view.Focus(); view.Repaint();
+UnityEngine.Application.runInBackground = true;
+return new { UnityEngine.Screen.width, UnityEngine.Screen.height, frame = UnityEngine.Time.frameCount };

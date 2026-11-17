@@ -308,8 +308,7 @@ namespace Veilward.Tests.EditMode
             }
 
             serialized.ApplyModifiedPropertiesWithoutUndo();
-            typeof(BattleSceneController).GetField("_simulation", BindingFlags.Instance | BindingFlags.NonPublic)
-                .SetValue(_battle, _config.CreateLegacyAllOpenSimulation());
+            Invoke(_battle, "Start");
             if (phase != BattlePhase.Defeat)
             {
                 Assert.That(_battle.PlaceTower(new GridCoordinate(-4, 0)).Success, Is.True);
@@ -392,9 +391,6 @@ namespace Veilward.Tests.EditMode
             serialized.FindProperty("cancelSellButton").objectReferenceValue = CreateButton("Cancel Sell");
             serialized.ApplyModifiedPropertiesWithoutUndo();
             BattleTowerCatalogPresentationTests.WireCatalog(new SerializedObject(_placement), _root.transform);
-            var sceneRefs = new SerializedObject(_battle);
-            sceneRefs.FindProperty("placementController").objectReferenceValue = _placement;
-            sceneRefs.ApplyModifiedPropertiesWithoutUndo();
             Invoke(_placement, "Start");
         }
 

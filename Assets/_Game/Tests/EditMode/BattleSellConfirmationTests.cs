@@ -255,9 +255,6 @@ namespace Veilward.Tests.EditMode
             serialized.FindProperty("buildStatsText").objectReferenceValue = buildStats.GetComponent<Text>();
             serialized.FindProperty("sellConfirmationText").objectReferenceValue = sellText.GetComponent<Text>();
             serialized.ApplyModifiedPropertiesWithoutUndo();
-            var sceneRefs = new SerializedObject(_battle);
-            sceneRefs.FindProperty("placementController").objectReferenceValue = placement;
-            sceneRefs.ApplyModifiedPropertiesWithoutUndo();
             Invoke(placement, "Start");
             return placement;
         }

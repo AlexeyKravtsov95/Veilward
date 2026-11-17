@@ -64,9 +64,28 @@ namespace Veilward.Presentation
         [SerializeField, Min(0)] private int waveCompletionBonus;
         [SerializeField] private WaveSettings[] waves;
 
-        [Header("Native Element Progression (EightWave only)")]
-        [SerializeField] private ElementKind[] progressionStartingOptions;
-        [SerializeField] private int[] progressionChoiceWaves;
+        [Header("Element Progression (EightWave)")]
+        [SerializeField] private ElementProgressionSettings progression;
+
+        [Serializable]
+        public sealed class ElementProgressionSettings
+        {
+            public string rulesId;
+            public ElementKind[] startingOptions;
+            public int[] choiceWaves;
+        }
+
+        private ElementUnlockRules CreateProgressionRules()
+        {
+            if (scenarioContentId != WaveCheckpointCompatibility.NativeContentId || progression == null ||
+                progression.rulesId != "wave-unlocks-v1" || waves == null || waves.Length != 8 ||
+                progression.startingOptions == null || progression.startingOptions.Length != 2 ||
+                progression.startingOptions[0] != ElementKind.Flame || progression.startingOptions[1] != ElementKind.Gale ||
+                progression.choiceWaves == null || progression.choiceWaves.Length != 2 ||
+                progression.choiceWaves[0] != 3 || progression.choiceWaves[1] != 6)
+                throw new ArgumentException("Native EightWave requires wave-unlocks-v1, Flame/Gale, eight waves and choices after 3/6.");
+            return new ElementUnlockRules(progression.startingOptions, progression.choiceWaves);
+        }
 
         [Serializable]
         public sealed class WaveSettings
@@ -144,13 +163,10 @@ namespace Veilward.Presentation
 
         public BattleSimulation CreateSimulation()
         {
-            if (scenarioContentId == WaveCheckpointCompatibility.NativeContentId)
-                return CreateSimulation(CreateNativeRules());
-            if (waves != null && waves.Length > 0)
-                throw new ArgumentException("New multi-wave games require native progression content/settings.");
-            if (scenarioContentId != WaveCheckpointCompatibility.LegacySingleWaveContentId)
-                throw new ArgumentException("Unknown scenario content ID.");
-            return CreateSimulationCore(null, historical: false);
+            if (scenarioContentId == WaveCheckpointCompatibility.LegacySingleWaveContentId &&
+                sharedScenario == null)
+                return CreateSimulationCore(null, historical: false);
+            return CreateSimulationCore(null, historical: false, CreateProgressionRules());
         }
 
         public BattleSimulation CreateSimulationForCheckpoint(WaveCheckpointEnvelope normalized)
@@ -161,19 +177,13 @@ namespace Veilward.Presentation
                 !WaveCheckpointCompatibility.TryNormalize(normalized, requestedId, out _, out var error))
                 throw new ArgumentException("Checkpoint is incompatible with this scenario.", nameof(normalized));
             return normalized.scenarioContentId == WaveCheckpointCompatibility.NativeContentId
-                ? CreateSimulation(CreateNativeRules())
+                ? CreateSimulationCore(null, historical: false, CreateProgressionRules())
                 : CreateSimulationCore(null, historical: false);
         }
 
-        private ElementUnlockRules CreateNativeRules()
-        {
-            if (progressionStartingOptions == null || progressionChoiceWaves == null)
-                throw new ArgumentException("Native progression settings are required.");
-            return new ElementUnlockRules(progressionStartingOptions, progressionChoiceWaves);
-        }
-
-        // Явный historical/test control; не пользовательский переключатель режима.
-        internal BattleSimulation CreateLegacyAllOpenSimulation() => CreateSimulationCore(null, historical: false);
+        // Явный исторический test path; production New Game никогда его не вызывает.
+        internal BattleSimulation CreateHistoricalAllOpenSimulation(ReactionCatalog reactions = null) =>
+            CreateSimulationCore(reactions, historical: ReferenceEquals(reactions, ReactionCatalog.Empty));
 
         internal BattleSimulation CreateSimulation(ReactionCatalog reactionCatalog)
         {

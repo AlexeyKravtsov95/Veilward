@@ -34,8 +34,8 @@ namespace Veilward.Presentation
 
         public bool Select(EnemyId id)
         {
-            if (!battle.CanAcceptInput(BattleModalOwner.Inspector) || Find(id) == null) return false;
-            placement.CancelSelection();
+            if (!battle.CanAcceptInput(BattleInputOwner.Inspector) || Find(id) == null) return false;
+            placement.ClearSelection();
             SelectedEnemyId = id;
             _displayedTick = -1;
             Refresh();
@@ -43,7 +43,7 @@ namespace Veilward.Presentation
         }
         public bool TrySelectAt(Vector2 screenPosition)
         {
-            if (!battle.CanAcceptInput(BattleModalOwner.Inspector)) return false;
+            if (!battle.CanAcceptInput(BattleInputOwner.Inspector)) return false;
             var enemies = battle.Simulation.State.Enemies;
             EnemyState nearest = null; var best = 32f * 32f;
             for (var i = 0; i < enemies.Count; i++)
@@ -60,7 +60,7 @@ namespace Veilward.Presentation
         }
         public void Close()
         {
-            if (battle != null && !battle.CanAcceptInput(BattleModalOwner.Inspector)) return;
+            if (battle != null && !battle.CanAcceptInput(BattleInputOwner.Inspector)) return;
             ClearSelection();
         }
         internal void ClearSelection()

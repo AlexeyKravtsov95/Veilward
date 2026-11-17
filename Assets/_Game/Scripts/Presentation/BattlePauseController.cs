@@ -60,9 +60,16 @@ namespace Veilward.Presentation
             if (battle != null) battle.FreezePresentationClock();
             if (placement != null)
             {
-                battle.ClearTransientInput();
+                placement.ClearSelection();
             }
 
+            if (battle != null)
+            {
+                var choice = battle.GetComponent<ElementChoiceController>();
+                if (choice != null) { choice.ClearPreview(); choice.Refresh(); }
+                var inspector = battle.GetComponent<EnemyInspectorController>();
+                if (inspector != null) inspector.ClearSelection();
+            }
             RefreshUi();
         }
 

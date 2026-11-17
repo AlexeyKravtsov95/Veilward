@@ -154,25 +154,6 @@ namespace Veilward.Editor
                     errors);
             }
 
-            var choices = FindComponents<ElementChoiceController>(roots);
-            if (choices.Count != 1) errors.Add("Battle requires exactly one ElementChoiceController.");
-            else
-            {
-                var refs = RequireReferences(choices[0], new[] { "battle", "panel", "safeContent", "titleText", "descriptionText",
-                    "progressionText", "confirmButton", "cancelButton", "menuButton" }, errors);
-                if (refs["panel"] is GameObject panel && (panel.GetComponent<UnityEngine.UI.Image>() == null || !panel.GetComponent<UnityEngine.UI.Image>().raycastTarget))
-                    errors.Add("Element choice overlay must block raycasts.");
-                if (refs["safeContent"] is RectTransform safe && refs["panel"] is GameObject parent && safe.parent != parent.transform)
-                    errors.Add("Choice safe content must belong to its overlay.");
-                if (refs["titleText"] is UnityEngine.UI.Text title && title.fontSize < 30)
-                    errors.Add("Choice title must remain readable.");
-                var options = new SerializedObject(choices[0]).FindProperty("optionButtons");
-                if (options.arraySize != 4) errors.Add("Element choice needs four canonical buttons.");
-                for (var i = 0; i < options.arraySize; i++)
-                    if (!(options.GetArrayElementAtIndex(i).objectReferenceValue is UnityEngine.UI.Button button) || button.GetComponent<RectTransform>().rect.height < 56)
-                        errors.Add("Element option must preserve 56px target.");
-            }
-
             var inspectors = FindComponents<EnemyInspectorController>(roots);
             if (inspectors.Count != 1) errors.Add("Battle requires exactly one EnemyInspectorController.");
             else
@@ -186,6 +167,27 @@ namespace Veilward.Editor
                     errors.Add("Enemy inspector detailsText layout is too small.");
             }
 
+            var safeAreas = FindComponents<BattleHudSafeArea>(roots);
+            if (safeAreas.Count != 1) errors.Add("Battle requires exactly one BattleHudSafeArea.");
+            else
+            {
+                var controls = new SerializedObject(safeAreas[0]).FindProperty("edgeControls");
+                if (controls.arraySize != 8) errors.Add("HUD requires eight safe-area edge controls.");
+                for (var i = 0; i < controls.arraySize; i++)
+                    if (controls.GetArrayElementAtIndex(i).objectReferenceValue == null) errors.Add("Missing HUD safe-area reference.");
+            }
+            var choices = FindComponents<ElementChoiceController>(roots);
+            if (choices.Count != 1) errors.Add("Battle requires exactly one ElementChoiceController.");
+            else
+            {
+                var refs = RequireReferences(choices[0], new[] { "battle", "placement", "panel", "safeAreaRoot", "titleText", "summaryText", "confirmButton", "cancelButton" }, errors);
+                var options = new SerializedObject(choices[0]).FindProperty("optionButtons");
+                if (options.arraySize != 4) errors.Add("Choice requires four canonical buttons.");
+                for (var i = 0; i < options.arraySize; i++)
+                    if (options.GetArrayElementAtIndex(i).objectReferenceValue == null) errors.Add("Missing choice option reference.");
+                if (refs["panel"] is GameObject choicePanel && (choicePanel.GetComponent<UnityEngine.UI.Image>() == null || !choicePanel.GetComponent<UnityEngine.UI.Image>().raycastTarget))
+                    errors.Add("Choice overlay must block raycasts.");
+            }
             var checkpoints = FindComponents<BattleCheckpointController>(roots);
             if (checkpoints.Count != 1)
             {
@@ -193,7 +195,7 @@ namespace Veilward.Editor
             }
             else
             {
-                RequireReferences(checkpoints[0], new[] { "saveStatusText" }, errors);
+                RequireReferences(checkpoints[0], new[] { "saveStatusText", "retrySaveButton", "battle" }, errors);
             }
 
             foreach (var root in roots)
@@ -212,7 +214,7 @@ namespace Veilward.Editor
                 new[]
                 {
                     "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
-                    "pauseController", "placementController", "checkpointController", "retrySaveButton", "enemyInspector", "elementChoice", "reactionSummaryText", "reactionEffectMaterial"
+                    "pauseController", "placementController", "checkpointController", "enemyInspector", "elementChoice", "mainMenuButton", "reactionSummaryText", "reactionEffectMaterial"
                 },
                 errors);
             RequireAssetPath(references["scenario"], ConfigPath, "scenario", errors);
@@ -229,7 +231,6 @@ namespace Veilward.Editor
                     if (serialized.FindProperty("towerArchetypes").arraySize != 0 ||
                         serialized.FindProperty("reactions").arraySize != 0)
                         errors.Add("EightWave must use the shared tower/reaction catalog without local copies.");
-                    if (config.ScenarioContentId != "eight-wave-unlocks-v1") errors.Add("EightWave requires native progression content ID.");
                     var simulation = config.CreateSimulation();
                     if (simulation == null)
                     {

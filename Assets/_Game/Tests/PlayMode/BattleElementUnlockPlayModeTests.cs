@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,169 +20,141 @@ namespace Veilward.Tests.PlayMode
     {
         private string _root;
         private WaveCheckpointStore _store;
-        private static BattleSceneController Battle => Object.FindFirstObjectByType<BattleSceneController>();
-        private static ElementChoiceController Choice => Object.FindFirstObjectByType<ElementChoiceController>();
-        private static BattlePlacementController Placement => Object.FindFirstObjectByType<BattlePlacementController>();
-        private static BattleCheckpointController Checkpoint => Object.FindFirstObjectByType<BattleCheckpointController>();
+        private BattleSceneController Battle => Object.FindFirstObjectByType<BattleSceneController>();
+        private ElementChoiceController Choice => Object.FindFirstObjectByType<ElementChoiceController>();
         [SetUp] public void SetUp()
         {
-            _root = Path.Combine(UnityEngine.Application.temporaryCachePath, "p23d-" + Guid.NewGuid().ToString("N"));
-            _store = new WaveCheckpointStore(_root);
-            MainMenuController.CheckpointStoreFactory = () => _store;
-            BattleSessionContext.Clear();
+            _root = Path.GetFullPath(Path.Combine("TestResults", "NativePresentation", Guid.NewGuid().ToString("N")));
+            Directory.CreateDirectory(_root); _store = new WaveCheckpointStore(_root);
+            MainMenuController.CheckpointStoreFactory = () => _store; BattleSessionContext.Clear();
         }
         [UnityTearDown] public IEnumerator TearDown()
         {
-            BattleSessionContext.Clear(); MainMenuController.CheckpointStoreFactory = null;
-            yield return SceneManager.LoadSceneAsync("Battle"); yield return null;
+            BattleSessionContext.Clear(); yield return SceneManager.LoadSceneAsync("Battle"); yield return null;
+            MainMenuController.CheckpointStoreFactory = null;
             if (Directory.Exists(_root)) Directory.Delete(_root, true);
         }
-        [UnityTest] public IEnumerator RegBattle184_NewGameBothStarts_BuildCombatAndContinueUseNativeRules()
+        [UnityTest] public IEnumerator RegBattle185_NewGameFlameBuildPauseAndContinue() { yield return NewGame("flame", 80); }
+        [UnityTest] public IEnumerator RegBattle185_NewGameGaleBuildPauseAndContinue() { yield return NewGame("gale", 70); }
+        private IEnumerator NewGame(string start, int remaining)
         {
-            foreach (var start in new[] { "flame", "gale" })
-            {
-                yield return NewGame();
-                Assert.That(Battle.Simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
-                Assert.That(Choice.Options, Is.EqualTo(new[] { "flame", "gale" }));
-                Assert.That(Choice.SelectedOptionId, Is.Null);
-                Assert.That(Button("Confirm Element Button").interactable, Is.False);
-                Assert.That(Placement.TrySelectCell(new GridCoordinate(-4, 0)), Is.False);
-                Assert.That(File.Exists(_store.PrimaryPath), Is.True);
-                Button("Element Option " + start.ToUpperInvariant()).onClick.Invoke();
-                Button("Cancel Element Button").onClick.Invoke();
-                Button("Confirm Element Button").onClick.Invoke();
-                Assert.That(Battle.Simulation.State.ElementProgression.UnlockedElements, Is.Empty);
-                Button("Element Option " + start.ToUpperInvariant()).onClick.Invoke();
-                Button("Pause Button").onClick.Invoke();
-                var before = JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint());
-                Button("Confirm Element Button").onClick.Invoke();
-                Choice.SelectOption(start); Placement.StartWave();
-                yield return new WaitForSecondsRealtime(.1f);
-                Assert.That(JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint()), Is.EqualTo(before));
-                Button("Resume Button").onClick.Invoke(); yield return null;
-                Assert.That(Choice.SelectedOptionId, Is.Null);
-                Choice.SelectOption(start); Button("Confirm Element Button").onClick.Invoke();
-                Button("Confirm Element Button").onClick.Invoke();
-                Assert.That(Battle.Simulation.State.ElementProgression.UnlockedElements.Count, Is.EqualTo(1));
-                Placement.TrySelectCell(new GridCoordinate(-4, 0));
-                foreach (var locked in new[] { "steam", "storm" })
-                {
-                    Placement.SelectTowerType(new TowerDefinitionId(locked));
-                    Assert.That(Placement.BuildStatsText.text, Does.Contain("Missing:").And.Contain("TIDE"));
-                    Assert.That(Button("Confirm Button").interactable, Is.False);
-                    Button("Confirm Button").onClick.Invoke();
-                    Assert.That(Battle.Simulation.State.Towers, Is.Empty);
-                }
-                Placement.SelectTowerType(new TowerDefinitionId(start)); Button("Confirm Button").onClick.Invoke();
-                var saved = JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint());
-                Button("Start Wave Button").onClick.Invoke();
-                var diskBeforeRetry = File.ReadAllBytes(_store.PrimaryPath);
-                var statusBeforeRetry = Checkpoint.StatusText.text;
-                Button("Retry Save Button").onClick.Invoke();
-                Assert.That(Battle.RetryCheckpointSave(), Is.False);
-                Assert.That(Checkpoint.LastSaveSucceeded, Is.True);
-                Assert.That(Checkpoint.StatusText.text, Is.EqualTo(statusBeforeRetry));
-                Assert.That(File.ReadAllBytes(_store.PrimaryPath), Is.EqualTo(diskBeforeRetry));
-                var tick = Battle.Simulation.State.Tick;
-                yield return new WaitForSecondsRealtime(.2f);
-                Assert.That(Battle.Simulation.State.Tick, Is.GreaterThan(tick));
-                yield return Continue();
-                Assert.That(JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint()), Is.EqualTo(saved));
-                Assert.That(Choice.IsVisible, Is.False);
-                Assert.That(Battle.Simulation.State.Towers.Single().Definition.Id.Value, Is.EqualTo(start));
-            }
+            yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
+            Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke(); yield return null; yield return null;
+            Assert.That(Battle.Simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
+            Assert.That(Choice.PreviewOptionId, Is.Null);
+            Assert.That(Choice.OptionButtons.Where(b => b.gameObject.activeSelf).Select(b => b.name), Is.EqualTo(new[] { "flame", "gale" }));
+            Button("flame").onClick.Invoke(); Button("Cancel Element Button").onClick.Invoke();
+            Assert.That(Choice.PreviewOptionId, Is.Null);
+            Assert.That(Choice.SelectOption(start), Is.True);
+            Button("Pause Button").onClick.Invoke();
+            var snapshot = JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint());
+            Button("Confirm Element Button").onClick.Invoke(); Button("Start Wave Button").onClick.Invoke();
+            Assert.That(Choice.SelectOption(start), Is.False);
+            yield return new WaitForSeconds(.15f);
+            Assert.That(JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint()), Is.EqualTo(snapshot));
+            Button("Resume Button").onClick.Invoke(); Button("Confirm Element Button").onClick.Invoke();
+            Assert.That(Choice.PreviewOptionId, Is.Null);
+            Assert.That(Battle.Simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
+            // Настоящий Continue pending; preview не передаётся через session.
+            Button("Main Menu Button").onClick.Invoke(); yield return null; yield return null;
+            Object.FindFirstObjectByType<MainMenuController>().ContinueButton.onClick.Invoke(); yield return null; yield return null;
+            Assert.That(Choice.PreviewOptionId, Is.Null);
+            Assert.That(Choice.SelectOption(start), Is.True); Button("Confirm Element Button").onClick.Invoke();
+            var placement = Object.FindFirstObjectByType<BattlePlacementController>();
+            Assert.That(placement.TrySelectCell(new GridCoordinate(-4, 0)), Is.True);
+            placement.SelectTowerType(new TowerDefinitionId("storm")); Button("Confirm Button").onClick.Invoke();
+            Assert.That(Battle.Simulation.State.Towers, Is.Empty);
+            Assert.That(placement.BuildStatsText.text, Does.Contain("Missing: TIDE"));
+            placement.SelectTowerType(new TowerDefinitionId(start)); Button("Confirm Button").onClick.Invoke();
+            Assert.That(Battle.Simulation.State.Gold, Is.EqualTo(remaining));
+            Button("Main Menu Button").onClick.Invoke(); yield return null; yield return null;
+            Object.FindFirstObjectByType<MainMenuController>().ContinueButton.onClick.Invoke(); yield return null; yield return null;
+            Assert.That(Battle.Simulation.State.ElementProgression.StartResonanceId, Is.EqualTo(start));
+            Assert.That(Battle.Simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("none"));
+            Assert.That(Choice.PreviewOptionId, Is.Null);
+            Assert.That(Battle.Simulation.State.Towers.Single().Definition.Id.Value, Is.EqualTo(start));
         }
-
-        [UnityTest] public IEnumerator RegBattle184_185_PendingAndConfirmedMilestones_RestoreWithoutPreviewOrDuplicateReward()
+        [UnityTest] public IEnumerator RegBattle185_ContinuePending3Confirmed3AndPreparation4() { yield return Milestone(3); }
+        [UnityTest] public IEnumerator RegBattle185_ContinuePending6Confirmed6AndPreparation7() { yield return Milestone(6); }
+        private IEnumerator Milestone(int wave)
         {
-            yield return NewGame(); Choice.SelectOption("flame"); Choice.ConfirmChoice();
-            foreach (var wave in new[] { 3, 6 })
+            yield return SceneManager.LoadSceneAsync("Battle"); yield return null;
+            var config = (BattleScenarioConfig)typeof(BattleSceneController).GetField("scenario", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).GetValue(Battle);
+            var s = config.CreateSimulation(); s.ChooseElement(new ChooseElementCommand("start-resonance", "flame"));
+            // Synthetic safe snapshot для UI границ; это не natural replay и не баланс.
+            var cp = s.ExportCheckpoint(); cp.phase = BattlePhase.WaveComplete; cp.waveIndex = wave - 1; cp.tick = wave * 100;
+            cp.elementProgression.choicesEarned = wave == 3 ? 1 : 2;
+            cp.elementProgression.pendingChoiceId = "after-wave-" + wave;
+            if (wave == 6)
             {
-                // Synthetic safe boundary на настоящем production scenario: не natural replay/баланс.
-                var cp = Battle.Simulation.ExportCheckpoint();
-                cp.phase = BattlePhase.WaveComplete; cp.waveIndex = wave - 1;
-                cp.elementProgression.choicesEarned = wave == 3 ? 1 : 2;
-                cp.elementProgression.pendingChoiceId = "after-wave-" + wave;
-                Battle.Simulation.RestoreCheckpoint(cp); Assert.That(Checkpoint.SaveCurrentState(), Is.True);
-                Choice.Refresh(); Choice.SelectOption(wave == 3 ? "tide" : "gale");
-                yield return Continue();
-                Assert.That(Choice.SelectedOptionId, Is.Null);
-                Assert.That(Choice.Options, Is.EqualTo(wave == 3 ? new[] { "tide", "gale", "stone" } : new[] { "gale", "stone" }));
-                var gold = Battle.Simulation.State.Gold;
-                Button("Next Wave Button").onClick.Invoke();
-                Assert.That(Battle.Simulation.State.WaveIndex, Is.EqualTo(wave - 1));
-                Choice.SelectOption(wave == 3 ? "tide" : "gale");
-                Button("Confirm Element Button").onClick.Invoke();
-                Assert.That(Battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
-                yield return Continue();
-                Assert.That(Choice.IsVisible, Is.False);
-                Assert.That(Battle.Simulation.State.ElementProgression.ChoicesSpent, Is.EqualTo(wave == 3 ? 1 : 2));
-                Assert.That(Battle.Simulation.State.Gold, Is.EqualTo(gold));
-                if (wave == 6) Assert.That(Text("Element Progression"), Does.Not.Contain("после"));
+                cp.elementProgression.choicesSpent = 1;
+                cp.elementProgression.unlockedElementIds = new[] { "flame", "tide" };
+                cp.elementProgression.spentChoices = new[] { new SpentElementChoiceCheckpoint { choiceId = "after-wave-3", elementId = "tide" } };
+            }
+            Assert.That(_store.TrySave(new WaveCheckpointEnvelope { schemaVersion = 3, scenarioContentId = config.ScenarioContentId, state = cp }, s.TryValidateCheckpoint, out var error, config.CreateSimulationForCheckpoint), Is.True, error);
+            yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
+            Object.FindFirstObjectByType<MainMenuController>().ContinueButton.onClick.Invoke(); yield return null; yield return null;
+            Assert.That(Choice.PreviewOptionId, Is.Null);
+            Assert.That(Battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.RejectedPendingElementChoice));
+            Assert.That(Choice.SelectOption(wave == 3 ? "tide" : "gale"), Is.True);
+            Button("Confirm Element Button").onClick.Invoke();
+            Assert.That(Battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
+            var confirmed = JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint());
+            Button("Main Menu Button").onClick.Invoke(); yield return null; yield return null;
+            Object.FindFirstObjectByType<MainMenuController>().ContinueButton.onClick.Invoke(); yield return null; yield return null;
+            Assert.That(JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint()), Is.EqualTo(confirmed));
+            Button("Confirm Element Button").onClick.Invoke();
+            Button("Next Wave Button").onClick.Invoke();
+            Assert.That(Battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
+            Assert.That(Battle.Simulation.State.WaveIndex + 1, Is.EqualTo(wave + 1));
+            Button("Start Wave Button").onClick.Invoke();
+            Assert.That(Battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Combat));
+        }
+        [UnityTest] public IEnumerator RegBattle185_SaveFailureRetryOnlySavesAndStartCanRecover()
+        {
+            yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
+            Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke(); yield return null; yield return null;
+            Directory.CreateDirectory(_store.TempPath);
+            LogAssert.Expect(LogType.Error, new Regex("Checkpoint save failed:.*"));
+            Choice.SelectOption("gale"); Button("Confirm Element Button").onClick.Invoke();
+            var checkpoint = Object.FindFirstObjectByType<BattleCheckpointController>();
+            Assert.That(checkpoint.LastSaveSucceeded, Is.False);
+            Assert.That(checkpoint.StatusText.text, Does.Contain("unsaved"));
+            var before = JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint());
+            Object.FindFirstObjectByType<BattlePauseController>().OnApplicationPause(true);
+            Button("Retry Save Button").onClick.Invoke(); Assert.That(checkpoint.LastSaveSucceeded, Is.False);
+            Object.FindFirstObjectByType<BattlePauseController>().OnApplicationPause(false);
+            Button("Resume Button").onClick.Invoke();
+            Directory.Delete(_store.TempPath);
+            Button("Retry Save Button").onClick.Invoke();
+            Assert.That(checkpoint.LastSaveSucceeded, Is.True);
+            Assert.That(JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint()), Is.EqualTo(before));
+            Assert.That(Battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+        }
+        [UnityTest] public IEnumerator RegBattle185_NextWithSelectedTowerClosesPanelIncludingMilestone()
+        {
+            foreach (var wave in new[] { 1, 3 })
+            {
+                yield return SceneManager.LoadSceneAsync("Battle"); yield return null;
+                Choice.SelectOption("flame"); Choice.ConfirmChoice();
+                var placement = Object.FindFirstObjectByType<BattlePlacementController>();
+                var cell = new GridCoordinate(-4, 0);
+                placement.TrySelectCell(cell); placement.SelectTowerType(new TowerDefinitionId("flame")); placement.ConfirmSelection();
+                placement.TrySelectCell(cell);
+                var state = Battle.Simulation.ExportCheckpoint(); state.phase = BattlePhase.WaveComplete; state.waveIndex = wave - 1;
+                if (wave == 3) { state.elementProgression.choicesEarned = 1; state.elementProgression.pendingChoiceId = "after-wave-3"; }
+                Battle.Simulation.RestoreCheckpoint(state); yield return null;
+                if (wave == 3) { Choice.SelectOption("tide"); Button("Confirm Element Button").onClick.Invoke(); }
+                yield return null;
+                Assert.That(placement.SelectedTowerId.HasValue, Is.True);
+                Assert.That(Button("Next Wave Button").interactable, Is.True);
                 Button("Next Wave Button").onClick.Invoke();
                 Assert.That(Battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
-                Assert.That(Battle.Simulation.State.WaveIndex, Is.EqualTo(wave));
+                Assert.That(Battle.Simulation.State.WaveIndex + 1, Is.EqualTo(wave + 1));
+                Assert.That(placement.HasSelection, Is.False);
             }
         }
-        [UnityTest] public IEnumerator RegBattle173_BackgroundPause_ClearsPreviewFreezesAndRequiresExplicitResume()
-        {
-            yield return NewGame(); Choice.SelectOption("gale");
-            var pause = Object.FindFirstObjectByType<BattlePauseController>();
-            pause.OnApplicationPause(true);
-            var before = JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint());
-            Button("Confirm Element Button").onClick.Invoke();
-            Assert.That(Choice.ConfirmChoice().Success, Is.False);
-            Assert.That(Choice.SelectOption("flame"), Is.False);
-            Assert.That(pause.Resume(), Is.False);
-            yield return new WaitForSecondsRealtime(.15f);
-            Assert.That(JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint()), Is.EqualTo(before));
-            pause.OnApplicationPause(false);
-            Assert.That(pause.IsPaused, Is.True);
-            Button("Resume Button").onClick.Invoke(); yield return null;
-            Assert.That(Choice.SelectedOptionId, Is.Null);
-            Button("Confirm Element Button").onClick.Invoke();
-            Assert.That(Battle.Simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
-        }
 
-        [UnityTest] public IEnumerator RegBattle184_ConfirmSaveFailure_RetryButtonOnlySavesLiveSuccess()
-        {
-            yield return NewGame();
-            var durable = File.ReadAllBytes(_store.PrimaryPath);
-            Directory.CreateDirectory(_store.TempPath);
-            Choice.SelectOption("flame");
-            LogAssert.Expect(LogType.Error, new System.Text.RegularExpressions.Regex("Checkpoint save failed:.*"));
-            Button("Confirm Element Button").onClick.Invoke();
-            Assert.That(Checkpoint.LastSaveSucceeded, Is.False);
-            Assert.That(Checkpoint.StatusText.text, Does.Contain("unsaved"));
-            Assert.That(Battle.Simulation.State.ElementProgression.StartResonanceId, Is.EqualTo("flame"));
-            Assert.That(File.ReadAllBytes(_store.PrimaryPath), Is.EqualTo(durable));
-            LogAssert.Expect(LogType.Error, new System.Text.RegularExpressions.Regex("Checkpoint save failed:.*"));
-            Button("Start Wave Button").onClick.Invoke();
-            Assert.That(Battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
-            Directory.Delete(_store.TempPath);
-            var success = JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint());
-            Button("Retry Save Button").onClick.Invoke();
-            Assert.That(Checkpoint.LastSaveSucceeded, Is.True);
-            Assert.That(JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint()), Is.EqualTo(success));
-            yield return Continue();
-            Assert.That(JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint()), Is.EqualTo(success));
-            Assert.That(Choice.SelectedOptionId, Is.Null);
-        }
-
-        private IEnumerator NewGame()
-        {
-            yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
-            Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke();
-            yield return null; yield return null;
-        }
-        private IEnumerator Continue()
-        {
-            yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
-            var menu = Object.FindFirstObjectByType<MainMenuController>();
-            Assert.That(menu.ContinueButton.interactable, Is.True, menu.StatusText.text);
-            menu.ContinueButton.onClick.Invoke(); yield return null; yield return null;
-        }
-        private static string Text(string name) => Object.FindObjectsByType<UnityEngine.UI.Text>(FindObjectsInactive.Include, FindObjectsSortMode.None).Single(t => t.name == name).text;
         private static Button Button(string name) => Object.FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None).Single(b => b.name == name);
     }
 }

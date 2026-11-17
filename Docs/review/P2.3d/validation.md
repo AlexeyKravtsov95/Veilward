@@ -1,81 +1,61 @@
-# P2.3d — native EightWave, выбор и Continue
+# P2.3d — native EightWave, выбор и проверенный UI
 
-Проверено 2026-11-17 (Asia/Novosibirsk). Изолированный worktree `p23d-native/Veilward`, ветка `codex/p2.3d-native-progression`, база **2a9da21de5f175cf8bf0fcd91064acc385be8d39** — main после merge PR #28. Проверенный source commit **0f83c4ff526c354fdc947e8bf95e262069780702**. Следующий evidence/docs commit runtime/tests не меняет.
-
-Окружение: macOS **27.0.1 (26A434), arm64**, Unity **6000.3.28f1 (8f082d2fe476)**. Полные suites: Hub executable, **batchmode / -nographics / -buildTarget iOS**, Editor Mono. Это Editor tests, не iOS player/device run. Визуальная проверка: resident Editor, реальный Play Mode, uGUI, Pipeline `capture game_view --source screen`; кадры содержат Overlay UI. CLI 1.0.0; доступное обновление 1.0.1 не устанавливалось. Packages/Unity version сохранены.
+База — `2a9da21de5f175cf8bf0fcd91064acc385be8d39`, merge PR #28. Изолированный worktree `Veilward-p23d`, ветка `codex/p2.3d-native-ui`. Дата проверки: 2026-11-17, Asia/Novosibirsk. Unity **6000.3.28f1 (8f082d2fe476)**, macOS arm64. Исходный implementation commit `dabc9cc`; финальный source `18874fb` после fixes. Полный проверенный source SHA и SHA256 отчётов — [gates.json](gates.json). Последующий evidence/docs commit не меняет runtime/tests.
 
 ## VERIFIED
 
-- Public New Game native: mandatory FLAME/GALE без preselect, оба старта, Tap/Cancel только preview. Choose через scene controller, Domain остаётся последней проверкой. Повторный/stale Confirm не переносится на новый pending/восстановленный instance; success явно сохраняется даже при неизменном WaveComplete.
-- Synthetic valid production boundaries3/6: канонический список только закрытых элементов; Confirm → WaveComplete, отдельный Next → Preparation4/7, отдельный Start. После второго открытия нет обещания следующей награды. Эти fixtures не доказывают естественное достижение волн.
-- Все шесть карточек/цены видимы. Missing одна/две стихии и Gold различаются через Domain availability; locked STEAM/STORM имеют read-only детали, без tower/range world preview и покупки. Native parameterless placement не выбирает hidden test-tower.
-- Общий pause/modal guard защищает direct APIs и реальные `Button.onClick.Invoke`: чужие Sell/Upgrade/inspector/placement/start/next не обходят modal. Choice допускает свой Confirm. Pause/background очищают preview, сохраняют pending, замораживают tick/resources. Resume не подтверждает выбор и сохраняет pointer suppression/no catch-up.
-- Confirm save failure оставляет live success, durable bytes прежние, статус unsaved виден. Retry вызывает только SaveCurrentState. Start/Next сохраняют safe snapshot повторно после восстановления storage и переходят только после успеха. Combat Retry не меняет bytes/status и не пишет ложную ошибку.
-- Настоящее MainMenu → New Game/Continue: pending/confirmed start и milestones, native army; legacy schema2 hybrid backup/army под production native config, label прежних правил, все шесть requirements открыты. Continue не хранит preview и не выдаёт повторные credits/Gold. Существующие schema/rollback/reaction controls сохранены.
-- Builder/API сериализовал native settings и overlay. Validator проверяет refs, raycast blocking, safe-content parent, button target sizes и settings. Malformed/missing settings отклоняются: missing/wrong/duplicate start, missing/wrong/duplicate milestones и семь волн. Нет all-open production fallback.
-- Исторические all-open assertions используют явно именованный internal factory/test-only compatibility fixture; combat timelines, economy, reactions, rollback и golden JSON сохранены. Domain/Infrastructure/schema3 не менялись.
+- Public EightWave New Game создаёт native `eight-wave-unlocks-v1`, 150 Gold / 20 HP, mandatory unselected FLAME/GALE. Serialized rules/options/milestones и восемь волн строго проверяются; malformed/missing native metadata отклоняется без all-open fallback. TestWave остаётся shared combat source. GUID/reference audit и сравнение combat data — в gates.json.
+- ElementChoiceController хранит preview с ожидаемым pending ID; options идут в canonical order, только закрытые после3/6. Tap/Cancel не меняют Domain; Confirm проходит через ChooseElement и same-phase save, повтор/stale rejected. Межволновой Confirm остаётся WaveComplete, Next → Preparation4/7, отдельный Start → Combat.
+- Все шесть каталоговых карточек показывают цену/статус и missing elements. Locked STEAM при FLAME требует TIDE, STORM — TIDE + GALE; описание read-only, world model/range/highlight выключены, покупка отклоняется Domain. Unlocked insufficient Gold объясняется отдельно. После второго открытия нет обещания будущей награды. Native parameterless hidden test-tower path запрещён.
+- Единый pause/modal guard защищает public gameplay API, placement/inspector/Sell/choice callbacks и реальные onClick.Invoke. Choice владеет собственными Confirm/Cancel, foreign modals не получают его права. Pause/background очищают preview/selection, сохраняют pending/credits и freeze; Resume подавляет текущий world pointer и не делает catch-up/autoconfirm.
+- Ошибка сохранения видна; Retry Save вызывает только SaveCurrentState. Успешная live choice остаётся при IO error. Сохранён P2.3c retry-safe Start/Next: eligibility до filesystem, переход только после успешного safe save. Новые UI tests плюс прежние native IO-fault/rollback tests.
+- MainMenu New Game/Continue проходит с обоими стартами, pending/confirmed, native army и legacy schema2 Steam/Storm army. Legacy имеет явную отметку прежних правил; без фиктивных locks/backfill. Preview не сериализуется; повтор Continue не выдаёт бонус/credit.
+- Builder/validator создают и проверяют choice, Retry, safe area и ссылки. Layout сохраняет принятый uGUI Text/Button; новые dependencies/packages не добавлены. Historical all-open factory **internal**, старые combat timelines/economy/reaction/rollback assertions сохранены. Они не являются native replay evidence.
 
-## Команды и totals
+## Полные gates
 
 Из корня worktree:
 
 ```sh
+./Scripts/run-edit-mode-tests.sh
+./Scripts/run-play-mode-tests.sh
 ./Scripts/run-static-checks.sh
-./Scripts/run-unity-tests.sh EditMode batch
-./Scripts/run-unity-tests.sh PlayMode batch
 git diff --check
 ```
 
-Это обязательные suites из `run-edit-mode-tests.sh` / `run-play-mode-tests.sh`, с явно выбранным batch backend. Static self-tests используют fake runner в том же TestResults и удаляют старые reports: поэтому окончательные XML получены **после** static и сразу сохранены в `.xml.gz`. Предыдущие повторные зелёные прогоны не подменяют приложенные отчёты.
+EditMode **741/741**, PlayMode **38/38**, static self-tests **38/38**, project checks PASS; финальные totals и exact source SHA зафиксированы в [gates.json](gates.json). Batch backend: стандартный Hub executable, `-batchmode -nographics -buildTarget iOS`, Editor Mono; full non-empty NUnit XML, failed/skipped/inconclusive = 0. Это compile и Editor tests, не iOS player build. XML скопированы до static self-tests, которые используют свои temporary fake reports.
 
-| Проверка | Результат |
+RED evidence: [initial](red-initial.xml.gz) **717/718** — старый content ID; [UI](red-ui.xml.gz) **717/727** — отсутствующий choice controller; [safe area](red-safe-area.xml.gz) **737/738** — отсутствующая HUD safe-area wiring. Промежуточный первый activation run 649/727 отражал устаревшие all-open fixtures; после переноса контролей и исправления guards — 738/738 EditMode и 37/37 PlayMode. Assertions/golden files не переписаны. Historical config hash P2.2f считается по прежнему wrapper projection: удалены только новая progression metadata и новый content ID; полный raw/combat before/after audit отдельно в gates.json.
+
+Первый PlayMode activation run 35/37: два старых fixtures запускали Start при открытой tower panel. Helpers теперь явно закрывают свою selection; economy/combat expectations прежние. Все новые production UI сценарии в этом run прошли. Один resident Editor run во время подготовки review regressions выполнил ещё загруженные 738 tests; он **не считается** прогоном новых тестов. Editor закрыт, review RED/GREEN и финальные suites получены новым batch запуском.
+
+## Review и исправления
+
+[Независимый read-only review](review.md) `2a9da21 → dabc9cc`: 0 Critical, 2 Important, 0 Minor. Добавлены failing regressions на Next с выбранной башней (обычная WaveComplete и после milestone Confirm) и создание отсутствующего EightWave asset. Исправления: Next закрывает только свою selection после owner guard; create branch инициализирует native ID/settings, existing malformed metadata по-прежнему rejected. Missing-asset test восстанавливает originals/мета и проверяет bytes. [Review RED](red-review.xml.gz) **738/741**: два отказа Next и создание missing asset; финальный EditMode **741/741**, PlayMode — gates.json. Повторное независимое approval не заявляется; PR review/approval владельца ожидается, self-merge/release не выполняется.
+
+## Реальные Play Mode кадры
+
+[qa.jsonl](qa.jsonl) — точные Unity Pipeline команды и результаты, [fixture source](qa-fixtures.cs.txt), [Console audit](console-audit.json). Captures использовали `capture game_view --source screen`, читающий **реальный composited Game View render target** с overlay UI. Для 1920×1080 кадры экспортированы 1600×900; tablet и wide сохранены 1:1. Истинный размер подтверждён `PlayModeView.GetMainPlayModeViewTargetSize`: **1920×1080**, **1440×1080**, **2340×1080**. `Screen.width` внутри script eval зависит от текущего Editor GUI context и возвращал1641×1007; его не выдаём за Game View target. FrameCount в qa.jsonl меняется между командами: игра выполнялась, captures не являются Editor-only render/assertions. Начальная focus-loss Pause явно снята; неверно названный первый пробный кадр удалён, финальные файлы перечислены ниже.
+
+| Кадр | Сценарий |
 |---|---|
-| Static / version/packages/meta/GUID/asmdef | **38/38**, PASS |
-| Полный EditMode | **734/734**, failed/inconclusive/skipped **0/0/0** |
-| Полный PlayMode | **36/36**, failed/inconclusive/skipped **0/0/0** |
-| Compile | Оба полных suites скомпилированы; в live QA compilationFailed=false |
-| diff --check | PASS после удаления generated drift |
-| Scope/config/GUID audit | PASS, [config-audit.json](config-audit.json) |
+| [01](01-start.png) | Реальное меню New Game: FLAME/GALE, preview null, Confirm disabled, 150 Gold, tick0. |
+| [02](02-locked-steam.png), [03](03-locked-storm.png) | Реальный старт FLAME; locked причины одна/две стихии, все шесть цен, без world preview/покупки. |
+| [04](04-tablet-locked-storm.png), [05](05-wide-locked-storm.png) | Те же реальные cards/details, actual Game View1440×1080 и2340×1080. Текст читается, детали/кнопки/summary не пересекаются. |
+| [06](06-synthetic-pending3.png), [07](07-synthetic-pause.png), [08](08-synthetic-resume-unselected.png) | **Synthetic safe snapshot** WaveComplete3; реальные контроллеры/Domain/UI. Pause очищает preview, Resume возвращает pending без preselect. |
+| [09](09-synthetic-confirmed3-wavecomplete.png), [10](10-synthetic-continue-confirmed3.png), [11](11-synthetic-preparation4.png) | **Synthetic boundary3**: button Confirm TIDE остаётся WaveComplete, real MainMenu Continue confirmed, отдельный Next → Preparation4. |
+| [12](12-synthetic-native-army-continue.png) | **Synthetic boundary4**, реальная покупка STEAM за110 после FLAME+TIDE, настоящий Continue сохраняет tower и40 Gold. |
+| [13](13-synthetic-pending6.png), [14](14-synthetic-continue-pending6.png), [15](15-synthetic-preparation7.png) | **Synthetic safe snapshot6**; canonical закрытые GALE/STONE, настоящий Continue pending, Confirm GALE и Next → Preparation7, новых выборов не обещается. |
+| [16](16-synthetic-legacy-army-continue.png) | **Synthetic schema2 legacy army**, fixture Gold500 → Steam+Storm →280. Real menu Continue восстанавливает обе башни/all-open/0 credits, явная отметка старых правил. Это не natural economy доказательство. |
 
-[EditMode.xml.gz](EditMode.xml.gz), [PlayMode.xml.gz](PlayMode.xml.gz), точные SHA256 исходных XML и gzip — [reports.json](reports.json); [static output](static-checks.txt), [Edit runner](edit-runner.txt), [Play runner](play-runner.txt). RED→GREEN для review fixes — [review.md](review.md). Основная автоматизация REG-173/184/185: `BattleElementChoicePresentationTests` (17 cases), `BattleElementUnlockPlayModeTests` (4 tests); compatibility/legacy UI — `ElementProgressionCheckpointPlayModeTests`, прежние catalog/pause/storage suites входят в полный запуск.
+На этих трёх Game View aspect ratios визуально проверены цены/missing strings, карточки, Confirm/Cancel, Pause/Resume, HUD/summary и отсутствие наложений. Safe-area insets дополнительно проверены automated layout test; это не физический notch/device test. Кадры01–15 сняты на `dabc9cc`; финальная укороченная legacy-подпись переснята на `18874fb` (кадр16). Review fixes Next/builder не меняют остальные панели. Console audit visual scenario после очистки: **0 errors / 0 warnings**, compilationFailed=false. Expected IO fault logs полных suites не смешиваются с этим визуальным audit.
 
-## Combat data и serialized audit
+## NOT VERIFIED / вне scope
 
-[config-audit.json](config-audit.json) сравнивает committed base/source, а не временные mutated suite assets. `TestWave.asset` byte-identical, SHA256 **4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3**. EightWave отличается только `scenarioContentId` и двумя добавленными serialized полями; после удаления только этой metadata bytes точно равны main. Новые arrays: FLAME/GALE = `0000000002000000`, milestones3/6 = `0300000006000000`. Все wave schedules, shared catalog/reactions, цены, HP, Gold и combat numbers прежние.
+- Natural native EightWave replay, победа/проходимость/production reaction proc coverage с обоими стартами — **P2.3e**. Synthetic snapshots и historical combat controls этого не доказывают.
+- Physical iPhone/touch/notch/safe area/background/force quit, IL2CPP/Metal player, memory/allocations/frame time/thermal, device QA/G2, signing/TestFlight, hosted Unity CI, внешние playtests/balance approval не выполнены.
+- ART approval и готовый арт первого среза, P2.4, P2.5, кампания/карты/остальные гибриды не закрываются. Packages, баланс и art assets в diff не меняются.
 
-Существующие `.meta`/GUID, MainMenu scene bytes и обе scene GUID сохранены. MainMenu уже ссылался на EightWave по прежнему GUID; новый runtime controller использует тот же config. Battle сцена сгенерирована Unity builder/API, включая новые refs; object fileIDs сцены пересозданы builder, prefab/config asset GUID не заменялись. Новые scripts/tests имеют Unity-generated `.meta`. Автопересериализация URP/materials/Shade/MainMenu из builder/tests удалена в своей worktree. Нет новых dependencies/packages/аналитики/сети/credentials. Original checkout пользователя не изменялся.
+## Review fix: инспектор и world tap
 
-## Реальное визуальное evidence
-
-[Полные точные команды, C# fixtures, timestamps, frame/tick и capture results](qa-actions.json). Файлы eval: [New Game fixture](qa-newgame.cs.txt), [Game View viewport API](qa-viewport.cs.txt). Использованы только disposable slots `TestResults/P23dQA/slot`, не пользовательский persistentDataPath. В ходе обычного Combat после Start зафиксирован положительный tick progress между запросами; Play Mode не был заморожен на первом кадре.
-
-Game View render targets: **1600×900 (16:9)**, **1200×900 (4:3)**, **1950×900 (19.5:9)**. Это реальные fixed-resolution Game View размеры, не только размер экспортированного PNG; `renderTarget` берётся из `PlayModeView.GetMainPlayModeViewTargetSize`. `Screen.width/height` в main-thread eval зависит от текущего Editor GUI и не используется как доказательство Game View размера. Кадры 01–12 сняты на 1600×900, 13–15 на 1200×900, 16 на 1950×900, остальные на 1600×900. В проверенных состояниях тексты/карточки/кнопки не перекрываются и не обрезаются; physical notch/gesture area этим не проверены.
-
-| Состояние | Кадры | Тип setup |
-|---|---|---|
-| Старт, без preselect | [01](01-start.png), [4:3](14-start-4x3.png) | Настоящий New Game через меню |
-| Locked STORM / STEAM после FLAME | [02](02-locked-storm.png), [03](03-locked-steam.png) | Настоящий Confirm, read-only catalog |
-| Locked STEAM после GALE / wide STORM | [4:3](15-locked-steam-4x3.png), [19.5:9](16-locked-storm-wide.png) | Настоящий New Game/Confirm |
-| Native army Continue | [04](04-continue-native-army.png), [меню](20-main-menu-native.png) | Typed FLAME build → настоящее меню |
-| Pending3 / pending6 | [3](05-pending3-synthetic.png), [6](05-pending6-synthetic.png) | **SYNTHETIC** safe boundary на production config |
-| Continue pending3 / pending6 | [3](06-continue-pending3-synthetic.png), [6](06-continue-pending6-synthetic.png) | **SYNTHETIC** checkpoint → настоящее меню |
-| Pause / Resume, preview очищен | [Pause](07-pause.png), [Resume](08-resume.png) | **SYNTHETIC** pending3, реальные pause/resume |
-| Continue confirmed3 / confirmed6 | [3](09-continue-confirmed3-synthetic.png), [6](09-continue-confirmed6-synthetic.png) | **SYNTHETIC** boundary + реальный Confirm/Continue |
-| Preparation4 / Preparation7 | [4](10-preparation4-synthetic.png), [7](10-preparation7-synthetic.png) | **SYNTHETIC** boundary + реальный отдельный Next |
-| Legacy mixed army, каталог | [11](11-continue-legacy-army-synthetic.png), [12](12-legacy-catalog-synthetic.png), [4:3](13-legacy-catalog-4x3-synthetic.png) | **SYNTHETIC** schema2, initial500 Gold для STEAM+STORM → настоящее Continue |
-| Legacy label в меню/бою | [меню](21-main-menu-legacy-synthetic.png), [бой](22-continue-legacy-synthetic.png) | Тот же **SYNTHETIC** legacy save |
-| Save failure / Retry success | [17](17-save-failure.png), [18](18-retry-saved.png) | Настоящий New Game; **injected I/O failure**, TempPath-directory |
-| Native Combat | [19](19-native-combat.png) | Настоящие Confirm/build/Start и player loop |
-
-![New Game](01-start.png)
-![Locked STORM](02-locked-storm.png)
-![Synthetic pending6](05-pending6-synthetic.png)
-![Synthetic Preparation7](10-preparation7-synthetic.png)
-
-## Console audit
-
-[console-audit.json](console-audit.json) сохраняет raw entries и Editor groundTruth. До fault injection обычные New Game/Continue/native/legacy/UI: **0 errors / 0 warnings**, compilationFailed=false. Fault injection даёт ровно **1 ожидаемый Error** `Checkpoint save failed: Access ... .tmp is denied`, отражённый в UI; файл-директория затем удалён, Retry success. После очистки ожидаемой ошибки native Combat и заключительный legacy Continue: **0 errors / 0 warnings**, compilationFailed=false. Полный suite не подавляет неожиданные логи; ожидаемые I/O failures явно объявлены через LogAssert.Expect.
-
-## NOT VERIFIED / BLOCKED
-
-Natural native replay, достижимость/проходимость всех восьми волн, Steam/Storm production proc timelines и баланс — **P2.3e**, не закрыты synthetic milestones. Физический iPhone, реальный touch/multitouch, notch/safe area, background/force quit на iOS, frame time/allocations/thermal и on-device evidence не выполнялись. Hosted CI этого head не заявлен локальным PASS. Device QA/G2, ART approval, signing, TestFlight и release не закрываются. Новые зависимости/арт/баланс не добавлены. PR ожидает финального независимого review/approval; self-merge/release не выполняются.
+После review пользователя исправлены передача обычного выбора построенной башни инспектору и переключение инспектора на другого врага через world tap. Latest проверенный source `aed5f68`: PlayMode **41/41**, EditMode **741/741**, static **38/38** + project checks PASS; RED39/41, новые кадры и полный SHA в [follow-up evidence](inspector-world-tap/validation.md). Root reports/gates выше сохраняют исходную проверку18874fb; follow-up является актуальной проверкой PR после input fix. Ограничения device/P2.3e/G2 сохраняются.

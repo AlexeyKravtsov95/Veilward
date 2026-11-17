@@ -8,7 +8,7 @@ using Veilward.Presentation;
 
 namespace Veilward.Tests.PlayMode
 {
-    public sealed class BattleSmokeTests
+    public sealed class BattleSmokeTests : HistoricalAllOpenPlayModeFixture
     {
         [UnityTest]
         public IEnumerator Battle_LoadsIntoPreparation()
@@ -34,7 +34,6 @@ namespace Veilward.Tests.PlayMode
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
 
-            LegacyBattleFixture.Activate();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             var placement = Object.FindFirstObjectByType<BattlePlacementController>();
             // Изолированный economy fixture позволяет пройти MAX без изменения saved balance.
@@ -109,6 +108,7 @@ namespace Veilward.Tests.PlayMode
 
         private static void CompleteCurrentWave(BattleSceneController battle)
         {
+            Object.FindFirstObjectByType<BattlePlacementController>().CancelSelection();
             battle.StartWave();
             var guard = 0;
             while (battle.Simulation.State.Phase == BattlePhase.Combat && guard++ < 20000)

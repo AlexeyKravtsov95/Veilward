@@ -57,13 +57,15 @@ namespace Veilward.Editor
                     wave.FindPropertyRelative("spawnIntervalTicks").intValue = 30;
                 }
 
+                SetNativeProgression(serializedConfig);
                 serializedConfig.ApplyModifiedPropertiesWithoutUndo();
                 AssetDatabase.CreateAsset(config, ConfigPath);
             }
 
-            SetScenarioContentId(legacyConfig, "legacy-single-wave-v1");
-            EnsureNativeProgression(config);
+            ConfigureNativeProgression(config);
             EnsureSharedCatalogReference(config, legacyConfig);
+
+            SetScenarioContentId(legacyConfig, "legacy-single-wave-v1");
 
             var groundMaterial = CreateOrUpdateMaterial("GrayboxGround", new Color(0.12f, 0.16f, 0.2f));
             var pathMaterial = CreateOrUpdateMaterial("GrayboxPath", new Color(0.25f, 0.55f, 0.5f));
@@ -133,6 +135,31 @@ namespace Veilward.Editor
             BuildMainMenu(config);
         }
 
+        private static void ConfigureNativeProgression(BattleScenarioConfig config)
+        {
+            var serialized = new SerializedObject(config);
+            var content = serialized.FindProperty("scenarioContentId");
+            // Одноразовое обновление только прежнего wrapper; native malformed config не чинится молча.
+            if (content.stringValue == "eight-wave-v1")
+            {
+                SetNativeProgression(serialized);
+                serialized.ApplyModifiedPropertiesWithoutUndo(); EditorUtility.SetDirty(config);
+            }
+            config.CreateSimulation();
+        }
+
+        private static void SetNativeProgression(SerializedObject serialized)
+        {
+            serialized.FindProperty("scenarioContentId").stringValue = "eight-wave-unlocks-v1";
+            var settings = serialized.FindProperty("progression");
+            settings.FindPropertyRelative("rulesId").stringValue = "wave-unlocks-v1";
+            var options = settings.FindPropertyRelative("startingOptions"); options.arraySize = 2;
+            options.GetArrayElementAtIndex(0).intValue = (int)ElementKind.Flame;
+            options.GetArrayElementAtIndex(1).intValue = (int)ElementKind.Gale;
+            var milestones = settings.FindPropertyRelative("choiceWaves"); milestones.arraySize = 2;
+            milestones.GetArrayElementAtIndex(0).intValue = 3; milestones.GetArrayElementAtIndex(1).intValue = 6;
+        }
+
         private static void EnsureElementalCatalog(BattleScenarioConfig config)
         {
             var serialized = new SerializedObject(config);
@@ -193,26 +220,6 @@ namespace Veilward.Editor
             catalog.arraySize = 0;
             reactions.arraySize = 0;
             serialized.ApplyModifiedPropertiesWithoutUndo();
-            EditorUtility.SetDirty(config);
-        }
-
-        private static void EnsureNativeProgression(BattleScenarioConfig config)
-        {
-            if (config.ScenarioContentId == "eight-wave-unlocks-v1") { config.CreateSimulation(); return; }
-            if (config.ScenarioContentId != "eight-wave-v1" && config.ScenarioContentId != "legacy-single-wave-v1")
-                throw new System.ArgumentException("Cannot activate unknown scenario content.");
-            var serialized = new SerializedObject(config);
-            serialized.FindProperty("scenarioContentId").stringValue = "eight-wave-unlocks-v1";
-            var options = serialized.FindProperty("progressionStartingOptions");
-            options.arraySize = 2;
-            options.GetArrayElementAtIndex(0).intValue = (int)ElementKind.Flame;
-            options.GetArrayElementAtIndex(1).intValue = (int)ElementKind.Gale;
-            var milestones = serialized.FindProperty("progressionChoiceWaves");
-            milestones.arraySize = 2;
-            milestones.GetArrayElementAtIndex(0).intValue = 3;
-            milestones.GetArrayElementAtIndex(1).intValue = 6;
-            serialized.ApplyModifiedPropertiesWithoutUndo();
-            config.CreateSimulation();
             EditorUtility.SetDirty(config);
         }
 
@@ -477,7 +484,7 @@ namespace Veilward.Editor
             var propertyNames = new[]
             {
                 "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
-                "pauseController", "placementController", "checkpointController", "enemyInspector", "reactionSummaryText", "reactionEffectMaterial", "elementChoice", "retrySaveButton"
+                "pauseController", "placementController", "checkpointController", "enemyInspector", "reactionSummaryText", "reactionEffectMaterial"
             };
             foreach (var propertyName in propertyNames)
             {
@@ -654,9 +661,9 @@ namespace Veilward.Editor
                 confirmationImage.rectTransform,
                 new Vector2(1f, 0f),
                 new Vector2(-24f, 24f),
-                new Vector2(800f, 540f));
+                new Vector2(1080f, 540f));
             var catalog = CreateUiObject("Tower Catalog", confirmation.transform).GetComponent<RectTransform>();
-            SetRect(catalog, new Vector2(0.5f, 1f), new Vector2(0f, -20f), new Vector2(760f, 160f));
+            SetRect(catalog, new Vector2(0.5f, 1f), new Vector2(0f, -20f), new Vector2(1040f, 140f));
             var layout = catalog.gameObject.AddComponent<UnityEngine.UI.HorizontalLayoutGroup>();
             layout.spacing = 12f;
             layout.childControlWidth = true;
@@ -664,12 +671,12 @@ namespace Veilward.Editor
             layout.childForceExpandWidth = true;
             layout.childForceExpandHeight = true;
             var catalogTemplate = CreateButton("Catalog Button Template", catalog, "Type", Vector2.zero);
-            catalogTemplate.GetComponentInChildren<UnityEngine.UI.Text>().fontSize = 18;
+            catalogTemplate.GetComponentInChildren<UnityEngine.UI.Text>().fontSize = 22;
             catalogTemplate.gameObject.SetActive(false);
             var buildStats = CreateText("Build Stats", confirmation.transform, 24, TextAnchor.UpperLeft);
             buildStats.text = "Choose a tower type";
             buildStats.raycastTarget = false;
-            SetRect(buildStats.rectTransform, new Vector2(0f, 1f), new Vector2(20f, -195f), new Vector2(760f, 240f));
+            SetRect(buildStats.rectTransform, new Vector2(0f, 1f), new Vector2(20f, -180f), new Vector2(1040f, 260f));
             var confirm = CreateButton(
                 "Confirm Button",
                 confirmation.transform,
@@ -798,51 +805,57 @@ namespace Veilward.Editor
                 new Vector2(1f, 1f),
                 new Vector2(-24f, -260f),
                 new Vector2(440f, 90f));
-            var progression = CreateText("Element Progression", canvasObject.transform, 22, TextAnchor.UpperLeft);
-            progression.raycastTarget = false;
-            SetRect(progression.rectTransform, new Vector2(0, 1), new Vector2(24, -320), new Vector2(700, 80));
-            var retry = CreateButton("Retry Save Button", canvasObject.transform, "Retry Save", Vector2.zero);
-            SetRect(retry.GetComponent<RectTransform>(), new Vector2(1, 1), new Vector2(-24, -370), new Vector2(230, 68));
-            var choicePanel = CreateUiObject("Element Choice Overlay", canvasObject.transform);
-            var choiceImage = choicePanel.AddComponent<UnityEngine.UI.Image>();
-            choiceImage.color = new Color(.02f, .03f, .05f, .95f);
-            choiceImage.raycastTarget = true;
-            var overlay = choicePanel.GetComponent<RectTransform>();
+            var progressionSummary = CreateText("Progression Summary", canvasObject.transform, 24, TextAnchor.UpperLeft);
+            progressionSummary.raycastTarget = false;
+            SetRect(progressionSummary.rectTransform, new Vector2(0, 0), new Vector2(24, 24), new Vector2(480, 90));
+            var choiceOverlay = CreateUiObject("Element Choice Overlay", canvasObject.transform);
+            choiceOverlay.AddComponent<UnityEngine.UI.Image>().color = new Color(.02f, .03f, .05f, .92f);
+            var overlay = choiceOverlay.GetComponent<RectTransform>();
             overlay.anchorMin = Vector2.zero; overlay.anchorMax = Vector2.one;
             overlay.offsetMin = overlay.offsetMax = Vector2.zero;
-            var safeContent = CreateUiObject("Choice Safe Area", choicePanel.transform).GetComponent<RectTransform>();
-            safeContent.anchorMin = Vector2.zero; safeContent.anchorMax = Vector2.one;
-            safeContent.offsetMin = safeContent.offsetMax = Vector2.zero;
-            var title = CreateText("Element Choice Title", safeContent, 36, TextAnchor.MiddleCenter);
-            title.raycastTarget = false;
-            SetRect(title.rectTransform, new Vector2(.5f, .5f), new Vector2(0, 270), new Vector2(1300, 90));
-            var explanation = CreateText("Element Choice Description", safeContent, 25, TextAnchor.MiddleCenter);
-            explanation.raycastTarget = false;
-            SetRect(explanation.rectTransform, new Vector2(.5f, .5f), new Vector2(0, 160), new Vector2(1300, 110));
-            var options = new UnityEngine.UI.Button[4];
-            var row = CreateUiObject("Element Options", safeContent).GetComponent<RectTransform>();
-            SetRect(row, new Vector2(.5f, .5f), Vector2.zero, new Vector2(1120, 100));
-            var optionLayout = row.gameObject.AddComponent<UnityEngine.UI.HorizontalLayoutGroup>();
-            optionLayout.spacing = 20; optionLayout.childControlWidth = true; optionLayout.childControlHeight = true;
-            optionLayout.childForceExpandWidth = true; optionLayout.childForceExpandHeight = true;
-            var ids = new[] { "FLAME", "TIDE", "GALE", "STONE" };
-            for (var i = 0; i < options.Length; i++)
-                options[i] = CreateButton("Element Option " + ids[i], row, ids[i], Vector2.zero);
-            var choiceConfirm = CreateButton("Confirm Element Button", safeContent, "Confirm", new Vector2(-160, -170));
-            var choiceCancel = CreateButton("Cancel Element Button", safeContent, "Cancel", new Vector2(160, -170));
-            var menu = CreateButton("Choice Menu Button", safeContent, "Main Menu", new Vector2(0, -290));
-            // Pause и Retry доступны и над обязательным выбором; Pause Overlay выше всех.
+            var safeRoot = CreateUiObject("Choice Safe Area", choiceOverlay.transform).GetComponent<RectTransform>();
+            safeRoot.anchorMin = Vector2.zero; safeRoot.anchorMax = Vector2.one;
+            safeRoot.offsetMin = safeRoot.offsetMax = Vector2.zero;
+            var choiceTitle = CreateText("Choice Title", safeRoot, 32, TextAnchor.MiddleCenter);
+            choiceTitle.raycastTarget = false;
+            SetRect(choiceTitle.rectTransform, new Vector2(.5f, .5f), new Vector2(0, 180), new Vector2(1160, 90));
+            var choices = new UnityEngine.UI.Button[4];
+            var ids = new[] { "flame", "tide", "gale", "stone" };
+            for (var i = 0; i < choices.Length; i++)
+            {
+                choices[i] = CreateButton(ids[i], safeRoot, ids[i].ToUpperInvariant(), new Vector2((i - 1.5f) * 270, 20));
+                choices[i].GetComponent<RectTransform>().sizeDelta = new Vector2(240, 100);
+            }
+            var confirmChoice = CreateButton("Confirm Element Button", safeRoot, "Confirm", new Vector2(-150, -150));
+            var cancelChoice = CreateButton("Cancel Element Button", safeRoot, "Cancel preview", new Vector2(150, -150));
+            var choiceHelp = CreateText("Choice Help", safeRoot, 24, TextAnchor.MiddleCenter);
+            choiceHelp.raycastTarget = false;
+            choiceHelp.text = "Выбор обязателен. Tap — preview; Confirm — открыть. Cancel очищает preview.";
+            SetRect(choiceHelp.rectTransform, new Vector2(.5f,.5f), new Vector2(0, -65), new Vector2(1160, 90));
+            choiceOverlay.SetActive(false);
+            var retrySave = CreateButton("Retry Save Button", canvasObject.transform, "Retry Save", Vector2.zero);
+            SetRect(retrySave.GetComponent<RectTransform>(), new Vector2(1, 1), new Vector2(-24, -360), new Vector2(230, 64));
+            retrySave.gameObject.SetActive(false);
+            var menu = CreateButton("Main Menu Button", canvasObject.transform, "Main Menu", Vector2.zero);
+            SetRect(menu.GetComponent<RectTransform>(), new Vector2(0, 0), new Vector2(24, 115), new Vector2(230, 64));
+            var safeHud = canvasObject.AddComponent<BattleHudSafeArea>();
+            var safeSerialized = new SerializedObject(safeHud);
+            var edgeControls = new[] { panel.rectTransform, startWave.GetComponent<RectTransform>(), nextWave.GetComponent<RectTransform>(),
+                pause.GetComponent<RectTransform>(), saveStatus.rectTransform, retrySave.GetComponent<RectTransform>(),
+                menu.GetComponent<RectTransform>(), progressionSummary.rectTransform };
+            var safeRefs = safeSerialized.FindProperty("edgeControls"); safeRefs.arraySize = edgeControls.Length;
+            for (var i = 0; i < edgeControls.Length; i++) safeRefs.GetArrayElementAtIndex(i).objectReferenceValue = edgeControls[i];
+            safeSerialized.ApplyModifiedPropertiesWithoutUndo();
             saveStatus.transform.SetAsLastSibling();
-            retry.transform.SetAsLastSibling();
             pause.transform.SetAsLastSibling();
-            saveStatus.transform.SetAsLastSibling(); retry.transform.SetAsLastSibling();
+            menu.transform.SetAsLastSibling();
             pauseOverlay.transform.SetAsLastSibling();
 
             return new HudReferences
             {
-                ChoicePanel = choicePanel, ChoiceSafeContent = safeContent, ChoiceTitle = title,
-                ChoiceDescription = explanation, ProgressionText = progression, ChoiceOptions = options,
-                ChoiceConfirm = choiceConfirm, ChoiceCancel = choiceCancel, ChoiceMenu = menu, RetrySave = retry,
+                ChoicePanel = choiceOverlay, ChoiceSafeArea = safeRoot, ChoiceTitle = choiceTitle,
+                ProgressionSummary = progressionSummary, ChoiceOptions = choices, ConfirmChoice = confirmChoice,
+                CancelChoice = cancelChoice, RetrySave = retrySave, MainMenuButton = menu,
                 InspectorPanel = inspectorPanel,
                 InspectorText = inspectorText,
                 CloseInspectorButton = closeInspector,
@@ -968,30 +981,16 @@ namespace Veilward.Editor
             serialized.FindProperty("pauseController").objectReferenceValue = pause;
             serialized.FindProperty("placementController").objectReferenceValue = placement;
             serialized.FindProperty("checkpointController").objectReferenceValue = checkpoint;
-            serialized.FindProperty("elementChoice").objectReferenceValue = choice;
-            serialized.FindProperty("retrySaveButton").objectReferenceValue = hud.RetrySave;
             serialized.FindProperty("enemyInspector").objectReferenceValue = inspector;
+            serialized.FindProperty("elementChoice").objectReferenceValue = choice;
+            serialized.FindProperty("mainMenuButton").objectReferenceValue = hud.MainMenuButton;
             serialized.FindProperty("reactionSummaryText").objectReferenceValue = hud.ReactionSummaryText;
             serialized.ApplyModifiedPropertiesWithoutUndo();
 
-            var choiceSerialized = new SerializedObject(choice);
-            choiceSerialized.FindProperty("battle").objectReferenceValue = battle;
-            choiceSerialized.FindProperty("panel").objectReferenceValue = hud.ChoicePanel;
-            choiceSerialized.FindProperty("safeContent").objectReferenceValue = hud.ChoiceSafeContent;
-            choiceSerialized.FindProperty("titleText").objectReferenceValue = hud.ChoiceTitle;
-            choiceSerialized.FindProperty("descriptionText").objectReferenceValue = hud.ChoiceDescription;
-            choiceSerialized.FindProperty("progressionText").objectReferenceValue = hud.ProgressionText;
-            choiceSerialized.FindProperty("confirmButton").objectReferenceValue = hud.ChoiceConfirm;
-            choiceSerialized.FindProperty("cancelButton").objectReferenceValue = hud.ChoiceCancel;
-            choiceSerialized.FindProperty("menuButton").objectReferenceValue = hud.ChoiceMenu;
-            var choiceOptions = choiceSerialized.FindProperty("optionButtons");
-            choiceOptions.arraySize = hud.ChoiceOptions.Length;
-            for (var i = 0; i < hud.ChoiceOptions.Length; i++) choiceOptions.GetArrayElementAtIndex(i).objectReferenceValue = hud.ChoiceOptions[i];
-            choiceSerialized.ApplyModifiedPropertiesWithoutUndo();
-            UnityEditor.Events.UnityEventTools.AddVoidPersistentListener(hud.RetrySave.onClick, battle.HandleRetrySave);
-
             var checkpointSerialized = new SerializedObject(checkpoint);
             checkpointSerialized.FindProperty("saveStatusText").objectReferenceValue = hud.SaveStatusText;
+            checkpointSerialized.FindProperty("retrySaveButton").objectReferenceValue = hud.RetrySave;
+            checkpointSerialized.FindProperty("battle").objectReferenceValue = battle;
             checkpointSerialized.ApplyModifiedPropertiesWithoutUndo();
 
             var placementSerialized = new SerializedObject(placement);
@@ -1028,6 +1027,19 @@ namespace Veilward.Editor
             inspectorSerialized.FindProperty("closeButton").objectReferenceValue = hud.CloseInspectorButton;
             inspectorSerialized.ApplyModifiedPropertiesWithoutUndo();
 
+            var choiceSerialized = new SerializedObject(choice);
+            choiceSerialized.FindProperty("battle").objectReferenceValue = battle;
+            choiceSerialized.FindProperty("placement").objectReferenceValue = placement;
+            choiceSerialized.FindProperty("panel").objectReferenceValue = hud.ChoicePanel;
+            choiceSerialized.FindProperty("safeAreaRoot").objectReferenceValue = hud.ChoiceSafeArea;
+            choiceSerialized.FindProperty("titleText").objectReferenceValue = hud.ChoiceTitle;
+            choiceSerialized.FindProperty("summaryText").objectReferenceValue = hud.ProgressionSummary;
+            var optionRefs = choiceSerialized.FindProperty("optionButtons"); optionRefs.arraySize = 4;
+            for (var i = 0; i < 4; i++) optionRefs.GetArrayElementAtIndex(i).objectReferenceValue = hud.ChoiceOptions[i];
+            choiceSerialized.FindProperty("confirmButton").objectReferenceValue = hud.ConfirmChoice;
+            choiceSerialized.FindProperty("cancelButton").objectReferenceValue = hud.CancelChoice;
+            choiceSerialized.ApplyModifiedPropertiesWithoutUndo();
+
             var pauseSerialized = new SerializedObject(pause);
             pauseSerialized.FindProperty("battle").objectReferenceValue = battle;
             pauseSerialized.FindProperty("placement").objectReferenceValue = placement;
@@ -1040,10 +1052,10 @@ namespace Veilward.Editor
         private sealed class HudReferences
         {
             public GameObject ChoicePanel;
-            public RectTransform ChoiceSafeContent;
-            public UnityEngine.UI.Text ChoiceTitle, ChoiceDescription, ProgressionText;
+            public RectTransform ChoiceSafeArea;
+            public UnityEngine.UI.Text ChoiceTitle, ProgressionSummary;
             public UnityEngine.UI.Button[] ChoiceOptions;
-            public UnityEngine.UI.Button ChoiceConfirm, ChoiceCancel, ChoiceMenu, RetrySave;
+            public UnityEngine.UI.Button ConfirmChoice, CancelChoice, RetrySave, MainMenuButton;
             public GameObject InspectorPanel;
             public UnityEngine.UI.Text InspectorText;
             public UnityEngine.UI.Button CloseInspectorButton;

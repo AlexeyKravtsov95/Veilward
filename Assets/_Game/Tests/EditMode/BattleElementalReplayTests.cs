@@ -127,7 +127,7 @@ namespace Veilward.Tests.EditMode
         {
             var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath);
             Assert.That(config, Is.Not.Null);
-            var simulation = config.CreateSimulation(ReactionCatalog.Empty);
+            var simulation = config.CreateHistoricalAllOpenSimulation(ReactionCatalog.Empty);
             var report = new Replay();
             var evidence = report.Evidence;
             var serialized = new SerializedObject(config);
@@ -238,7 +238,7 @@ namespace Veilward.Tests.EditMode
             var expected = Snapshot(simulation);
             var exported = JsonUtility.ToJson(simulation.ExportCheckpoint());
             var bytes = File.ReadAllBytes(store.PrimaryPath);
-            var restored = config.CreateSimulation(ReactionCatalog.Empty);
+            var restored = config.CreateHistoricalAllOpenSimulation(ReactionCatalog.Empty);
             Assert.That(store.TryLoad("eight-wave-v1", restored.TryValidateCheckpoint, out var load), Is.True);
             Assert.That(load.Envelope.schemaVersion, Is.EqualTo(3));
             checkpoint.Configure(store, restored, "eight-wave-v1");
@@ -300,7 +300,7 @@ namespace Veilward.Tests.EditMode
         private static void RestorePreparation(BattleScenarioConfig config, ref BattleSimulation simulation,
             BattleCheckpointController checkpoint, WaveCheckpointStore store)
         {
-            simulation = config.CreateSimulation(ReactionCatalog.Empty);
+            simulation = config.CreateHistoricalAllOpenSimulation(ReactionCatalog.Empty);
             Assert.That(store.TryLoad("eight-wave-v1", simulation.TryValidateCheckpoint, out var loaded), Is.True);
             checkpoint.Configure(store, simulation, "eight-wave-v1");
             checkpoint.RestoreCheckpoint(loaded.Envelope);

@@ -16,7 +16,7 @@ using Veilward.Presentation;
 
 namespace Veilward.Tests.PlayMode
 {
-    public sealed class BattlePausePlayModeTests
+    public sealed class BattlePausePlayModeTests : HistoricalAllOpenPlayModeFixture
     {
         private static readonly GridCoordinate TowerCell = new GridCoordinate(-4, 0);
 
@@ -25,7 +25,6 @@ namespace Veilward.Tests.PlayMode
         {
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
-            LegacyBattleFixture.Activate();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
 
             var preparation = Snapshot(battle);
@@ -62,7 +61,6 @@ namespace Veilward.Tests.PlayMode
         {
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
-            LegacyBattleFixture.Activate();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             var placement = Object.FindFirstObjectByType<BattlePlacementController>();
             Assert.That(battle.PlaceTower(TowerCell).Success, Is.True);
@@ -113,7 +111,6 @@ namespace Veilward.Tests.PlayMode
         {
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
-            LegacyBattleFixture.Activate();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             var placement = Object.FindFirstObjectByType<BattlePlacementController>();
             var cell = new GridCoordinate(-1, 0);
@@ -152,7 +149,6 @@ namespace Veilward.Tests.PlayMode
         {
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
-            LegacyBattleFixture.Activate();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             Assert.That(battle.PlaceTower(TowerCell).Success, Is.True);
             Assert.That(battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
@@ -162,7 +158,6 @@ namespace Veilward.Tests.PlayMode
 
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
-            LegacyBattleFixture.Activate();
             battle = Object.FindFirstObjectByType<BattleSceneController>();
             Assert.That(battle.PlaceTower(TowerCell).Success, Is.True);
             Assert.That(battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
@@ -187,7 +182,6 @@ namespace Veilward.Tests.PlayMode
         {
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
-            LegacyBattleFixture.Activate();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             var placement = Object.FindFirstObjectByType<BattlePlacementController>();
             var pause = Object.FindFirstObjectByType<BattlePauseController>();
@@ -232,13 +226,11 @@ namespace Veilward.Tests.PlayMode
         {
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
-            LegacyBattleFixture.Activate();
             Assert.That(RuntimeListenerCount(FindButton("Pause Button").onClick), Is.EqualTo(1));
             Assert.That(RuntimeListenerCount(FindButton("Resume Button").onClick), Is.EqualTo(1));
 
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
-            LegacyBattleFixture.Activate();
 
             Assert.That(Object.FindObjectsByType<BattlePauseController>(
                 FindObjectsInactive.Include, FindObjectsSortMode.None).Length, Is.EqualTo(1));

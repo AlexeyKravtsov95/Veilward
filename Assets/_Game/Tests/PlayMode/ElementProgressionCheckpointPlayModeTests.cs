@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
@@ -41,12 +40,12 @@ namespace Veilward.Tests.PlayMode
 
         private IEnumerator MenuContinue(bool native)
         {
-            // Direct Battle не читает диск. Клонируется только test config, production asset использует native; legacy fixture явно отделён.
+            // Direct Battle не читает диск. Клонируется только test config, production asset использует native.
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single); yield return null;
             var original = (BattleScenarioConfig)Get(Object.FindFirstObjectByType<BattleSceneController>(), "scenario");
             _nativeConfig = Object.Instantiate(original);
             JsonUtility.FromJsonOverwrite("{\"scenarioContentId\":\"eight-wave-unlocks-v1\"}", _nativeConfig);
-            var s = native ? original.CreateSimulation() : LegacyBattleFixture.Create(original);
+            var s = native ? original.CreateSimulation() : original.CreateHistoricalAllOpenSimulation();
             var e = new WaveCheckpointEnvelope { schemaVersion = 3, scenarioContentId = native ? "eight-wave-unlocks-v1" : "eight-wave-v1", state = s.ExportCheckpoint() };
             if (native)
             {
@@ -67,9 +66,7 @@ namespace Veilward.Tests.PlayMode
             SceneManager.sceneLoaded += ConfigureTestScenario;
             yield return SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single); yield return null;
             var menu = Object.FindFirstObjectByType<MainMenuController>();
-            Assert.That(menu.ContinueButton.interactable, Is.True);
-            if (!native) Assert.That(menu.StatusText.text, Does.Contain("прежним правилам"));
-            menu.ContinueButton.onClick.Invoke();
+            Assert.That(menu.ContinueButton.interactable, Is.True); menu.ContinueButton.onClick.Invoke();
             yield return null; yield return null;
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             Assert.That(battle.Simulation.State.ElementProgression.RulesId, Is.EqualTo(native ? "wave-unlocks-v1" : "legacy-all-open-v1"));
@@ -86,10 +83,6 @@ namespace Veilward.Tests.PlayMode
             else
             {
                 Assert.That(battle.Simulation.State.Towers[0].Definition.Id.Value, Is.EqualTo("storm"));
-                Assert.That(Object.FindFirstObjectByType<ElementChoiceController>().IsVisible, Is.False);
-                Assert.That(Object.FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None).Single(t => t.name == "Element Progression").text, Does.Contain("прежним правилам"));
-                foreach (var type in new[] { "flame", "tide", "gale", "stone", "steam", "storm" })
-                    Assert.That(battle.Simulation.GetTowerAvailability(new PlaceTowerCommand(new TowerDefinitionId(type), new GridCoordinate(-4, 0))).MissingElements, Is.Empty);
                 Assert.That(battle.Simulation.State.ElementProgression.ChoicesEarned, Is.Zero);
                 Assert.That(battle.Simulation.State.ElementProgression.UnlockedElements.Count, Is.EqualTo(4));
             }

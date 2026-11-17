@@ -2,227 +2,241 @@ using System;
 using System.Linq;
 using System.Reflection;
 using NUnit.Framework;
-using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.TestTools;
-using Veilward.Application;
 using Veilward.Domain;
-using Veilward.Presentation;
 using Object = UnityEngine.Object;
+using UnityEditor;
+using Veilward.Presentation;
 
 namespace Veilward.Tests.EditMode
 {
     public sealed class BattleElementChoicePresentationTests
     {
+        [Test]
+        public void RegBattle173_PublicEightWaveStartsWithMandatoryUnselectedChoice()
+        {
+            var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset");
+            var simulation = config.CreateSimulation();
+            Assert.That(config.ScenarioContentId, Is.EqualTo("eight-wave-unlocks-v1"));
+            Assert.That(simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
+            Assert.That(simulation.State.ElementProgression.UnlockedElements, Is.Empty);
+            Assert.That(simulation.State.Gold, Is.EqualTo(150));
+        }
+
         private BattleSceneController _battle;
         private BattlePlacementController _placement;
-        private MonoBehaviour _choice;
-        private static readonly GridCoordinate Cell = new GridCoordinate(-4, 0);
-
-        [SetUp] public void SetUp()
+        private Component _choice;
+        private readonly GridCoordinate _cell = new GridCoordinate(-4, 0);
+        private void Open()
         {
-            BattleSessionContext.Clear();
             EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity");
             _battle = Object.FindFirstObjectByType<BattleSceneController>();
             _placement = Object.FindFirstObjectByType<BattlePlacementController>();
-            Invoke(_battle, "Start"); Invoke(_placement, "Start");
-            _choice = _battle.GetComponents<MonoBehaviour>().FirstOrDefault(c => c.GetType().Name == "ElementChoiceController");
-            if (_choice != null) Invoke(_choice, "Start");
+            Call(_battle, "Start"); Call(_placement, "Start");
+            _choice = _battle.GetComponent("ElementChoiceController");
+            Assert.That(_choice, Is.Not.Null, "Builder must wire the element choice controller");
+            Call(_choice, "Start"); Call(_choice, "Refresh");
         }
-        [TearDown] public void TearDown() { BattleSessionContext.Clear(); EditorSceneManager.NewScene(NewSceneSetup.EmptyScene); }
+        [TearDown] public void TearDown() => EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
 
-        [Test] public void RegBattle184_PublicNewGame_IsMandatoryWithoutPreselection()
+        [TestCase("flame", 70)] [TestCase("gale", 80)]
+        public void RegBattle173_TapCancelConfirmAndExplicitPurchase(string start, int price)
         {
-            Assert.That(_battle.Simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
-            RequireChoice();
+            Open(); var s = _battle.Simulation;
             Assert.That(Button("Confirm Element Button").interactable, Is.False);
-            Assert.That(_placement.TrySelectCell(Cell), Is.False);
-            Assert.That(_battle.PlaceTower(Cell).Success, Is.False);
+            Assert.That((bool)Call(_choice, "SelectOption", "tide"), Is.False);
+            Assert.That((bool)Call(_choice, "SelectOption", start), Is.True);
+            Assert.That(s.State.ElementProgression.UnlockedElements, Is.Empty);
+            Call(_choice, "CancelSelection");
+            Button("Confirm Element Button").onClick.Invoke();
+            Assert.That(s.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
+            Assert.That((bool)Call(_choice, "SelectOption", start), Is.True);
+            Button("Confirm Element Button").onClick.Invoke();
+            var snapshot = JsonUtility.ToJson(s.ExportCheckpoint());
+            Button("Confirm Element Button").onClick.Invoke();
+            Assert.That(JsonUtility.ToJson(s.ExportCheckpoint()), Is.EqualTo(snapshot));
+            Assert.That(_battle.PlaceTower(_cell).Success, Is.False, "No hidden test-tower fallback");
+            Assert.That(_placement.TrySelectCell(_cell), Is.True);
+            Assert.That(_placement.CatalogButtons.Count, Is.EqualTo(6));
+            _placement.SelectTowerType(new TowerDefinitionId(start));
+            Button("Confirm Button").onClick.Invoke();
+            Assert.That(s.State.Towers.Single().Definition.Id.Value, Is.EqualTo(start));
+            Assert.That(s.State.Gold, Is.EqualTo(150 - price));
+        }
+
+        [TestCase("steam", "FLAME", "TIDE")]
+        [TestCase("storm", "TIDE", "GALE")]
+        public void RegBattle184_LockedCardShowsExactRequirementsWithoutWorldPreview(string id, string first, string second)
+        {
+            Open(); Choose("flame"); _placement.TrySelectCell(_cell);
+            _placement.SelectTowerType(new TowerDefinitionId(id));
+            var text = _placement.BuildStatsText.text;
+            Assert.That(text, Does.Contain("110 gold"));
+            Assert.That(text, Does.Contain("TIDE"));
+            if (id == "storm") Assert.That(text, Does.Contain(second));
+            else Assert.That(text, Does.Not.Contain("Missing: FLAME"));
+            Assert.That(GameObject.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+                .Single(t => t.name == "Tower Preview").gameObject.activeSelf, Is.False);
+            Button("Confirm Button").onClick.Invoke();
             Assert.That(_battle.Simulation.State.Gold, Is.EqualTo(150));
             Assert.That(_battle.Simulation.State.Towers, Is.Empty);
         }
 
-        [TestCase("flame")] [TestCase("gale")]
-        public void RegBattle184_TapCancelConfirm_IsPreviewThenExactlyOneCommand(string option)
+        [TestCase("flame", 3)] [TestCase("gale", 3)]
+        [TestCase("flame", 6)] [TestCase("gale", 6)]
+        public void RegBattle185_PendingConfirmNextAndStartAreSeparate(string start, int milestone)
         {
-            RequireChoice();
-            Assert.That((bool)Invoke(_choice, "SelectOption", option), Is.True);
-            Assert.That(_battle.Simulation.State.ElementProgression.UnlockedElements, Is.Empty);
-            Invoke(_choice, "CancelSelection");
-            Assert.That(Button("Confirm Element Button").interactable, Is.False);
-            Button("Confirm Element Button").onClick.Invoke();
-            Assert.That(_battle.Simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
-            Invoke(_choice, "SelectOption", option);
-            Button("Confirm Element Button").onClick.Invoke();
-            Button("Confirm Element Button").onClick.Invoke();
-            Assert.That(_battle.Simulation.State.ElementProgression.StartResonanceId, Is.EqualTo(option));
-            Assert.That(_battle.Simulation.State.ElementProgression.UnlockedElements.Count, Is.EqualTo(1));
-            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
-            Assert.That(_battle.PlaceTower(Cell).Success, Is.False, "native parameterless path cannot select hidden test-tower");
-            Assert.That(_placement.TrySelectCell(Cell), Is.True);
-            _placement.SelectTowerType(new TowerDefinitionId(option));
-            Button("Confirm Button").onClick.Invoke();
-            Assert.That(_battle.Simulation.State.Towers.Single().Definition.Id.Value, Is.EqualTo(option));
-        }
-
-        [Test] public void RegBattle185_LockedCatalog_IsReadOnlyWithExactMissingElementsAndGold()
-        {
-            RequireChoice(); Invoke(_choice, "SelectOption", "flame"); Invoke(_choice, "ConfirmChoice");
-            _placement.TrySelectCell(Cell);
-            Assert.That(_placement.CatalogButtons.Count, Is.EqualTo(6));
-            _placement.SelectTowerType(new TowerDefinitionId("storm"));
-            Assert.That(_placement.BuildStatsText.text, Does.Contain("TIDE").And.Contain("GALE").And.Contain("110"));
-            Assert.That(Button("Confirm Button").interactable, Is.False);
-            Assert.That(Find("Tower Preview").activeSelf, Is.False);
-            Assert.That(Find("Range Preview").activeSelf, Is.False);
-            Button("Confirm Button").onClick.Invoke();
-            _placement.SelectTowerType(new TowerDefinitionId("steam"));
-            Assert.That(_placement.BuildStatsText.text, Does.Contain("TIDE").And.Not.Contain("Missing: FLAME"));
-            Assert.That(_battle.Simulation.State.Towers, Is.Empty);
-            _placement.SelectTowerType(new TowerDefinitionId("flame"));
-            _placement.ConfirmSelection();
-            _placement.TrySelectCell(new GridCoordinate(-3, 0));
-            _placement.SelectTowerType(new TowerDefinitionId("flame")); _placement.ConfirmSelection();
-            _placement.TrySelectCell(new GridCoordinate(-2, 0)); _placement.SelectTowerType(new TowerDefinitionId("flame"));
-            Assert.That(_placement.BuildStatsText.text, Does.Contain("Gold").And.Not.Contain("Missing:"));
-            Assert.That(Button("Confirm Button").interactable, Is.False);
-        }
-
-        [Test] public void RegBattle173_PauseAndCallbacks_DoNotChooseOrBuild()
-        {
-            RequireChoice(); Invoke(_choice, "SelectOption", "flame");
-            var pause = Object.FindFirstObjectByType<BattlePauseController>();
-            pause.Pause();
-            Button("Confirm Element Button").onClick.Invoke();
-            Assert.That((bool)Invoke(_choice, "SelectOption", "gale"), Is.False);
-            Assert.That(_battle.ChooseElement(new ChooseElementCommand("start-resonance", "flame")).Success, Is.False);
-            _placement.ConfirmSelection(); _placement.StartWave(); _placement.ContinueToNextWave();
-            Assert.That(_battle.Simulation.State.Tick, Is.Zero);
-            Assert.That(_battle.Simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
-            Assert.That(pause.Resume(), Is.True);
-            Invoke(_choice, "Refresh");
-            Assert.That(Button("Confirm Element Button").interactable, Is.False);
-            Button("Confirm Element Button").onClick.Invoke();
-            Assert.That(_battle.Simulation.State.ElementProgression.UnlockedElements, Is.Empty);
-        }
-
-        [TestCase("missing-start")] [TestCase("wrong-start")] [TestCase("duplicate-start")]
-        [TestCase("missing-waves")] [TestCase("wrong-waves")] [TestCase("duplicate-waves")]
-        [TestCase("seven-waves")]
-        public void RegBattle184_MalformedProgressionSettings_RejectsWithoutAllOpenFallback(string malformed)
-        {
-            var source = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset");
-            var clone = Object.Instantiate(source);
-            try
+            Open(); var s = BattleElementUnlockTests.Native();
+            BattleElementUnlockTests.Choose(s, "start-resonance", start);
+            BattleElementUnlockTests.Reach(s, 3);
+            if (milestone == 6)
             {
-                var so = new SerializedObject(clone);
-                var settings = so.FindProperty("progressionStartingOptions");
-                Assert.That(settings, Is.Not.Null, "serialized native settings required");
-                if (malformed == "missing-start") settings.arraySize = 0;
-                if (malformed == "wrong-start") settings.GetArrayElementAtIndex(1).intValue = (int)ElementKind.Tide;
-                if (malformed == "duplicate-start") settings.GetArrayElementAtIndex(1).intValue = (int)ElementKind.Flame;
-                var milestones = so.FindProperty("progressionChoiceWaves");
-                if (malformed == "missing-waves") milestones.arraySize = 0;
-                if (malformed == "wrong-waves") milestones.GetArrayElementAtIndex(1).intValue = 7;
-                if (malformed == "duplicate-waves") milestones.GetArrayElementAtIndex(1).intValue = 3;
-                if (malformed == "seven-waves") so.FindProperty("waves").arraySize = 7;
-                so.ApplyModifiedPropertiesWithoutUndo();
-                Assert.Throws<ArgumentException>(() => clone.CreateSimulation());
+                BattleElementUnlockTests.Choose(s, "after-wave-3", "tide");
+                s.ContinueToNextWave(); BattleElementUnlockTests.Reach(s, 6);
             }
-            finally { Object.DestroyImmediate(clone); }
-        }
-        [TestCase(3)] [TestCase(6)]
-        public void RegBattle184_Milestones_CanonicalClosedOptionsAndSeparateNextStart(int wave)
-        {
-            var choice = (ElementChoiceController)_choice;
-            choice.SelectOption("flame"); Assert.That(choice.ConfirmChoice().Success, Is.True);
-            var cp = _battle.Simulation.ExportCheckpoint();
-            cp.phase = BattlePhase.WaveComplete; cp.waveIndex = wave - 1;
-            cp.elementProgression.choicesEarned = wave == 3 ? 1 : 2;
-            if (wave == 6)
-            {
-                cp.elementProgression.unlockedElementIds = new[] { "flame", "tide" };
-                cp.elementProgression.choicesSpent = 1;
-                cp.elementProgression.spentChoices = new[] { new SpentElementChoiceCheckpoint { choiceId = "after-wave-3", elementId = "tide" } };
-            }
-            cp.elementProgression.pendingChoiceId = "after-wave-" + wave;
-            _battle.Simulation.RestoreCheckpoint(cp); choice.Refresh();
-            Assert.That(choice.SelectedOptionId, Is.Null);
-            Assert.That(choice.Options, Is.EqualTo(wave == 3 ? new[] { "tide", "gale", "stone" } : new[] { "gale", "stone" }));
-            Assert.That(_battle.StartWave(), Is.EqualTo(WaveTransitionResult.RejectedInvalidPhase));
-            Button("Next Wave Button").onClick.Invoke();
-            Assert.That(_battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.RejectedPendingElementChoice));
-            Assert.That(choice.SelectOption("gale"), Is.True);
-            Button("Confirm Element Button").onClick.Invoke();
-            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
-            Assert.That(_battle.Simulation.State.ElementProgression.ChoicesSpent, Is.EqualTo(wave == 3 ? 1 : 2));
-            Button("Confirm Element Button").onClick.Invoke();
-            Assert.That(_battle.Simulation.State.WaveIndex, Is.EqualTo(wave - 1));
-            Button("Next Wave Button").onClick.Invoke();
-            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
-            Assert.That(_battle.Simulation.State.WaveIndex, Is.EqualTo(wave));
-            Button("Start Wave Button").onClick.Invoke();
-            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Combat));
+            Set(_battle, "_simulation", s);
+            _battle.GetComponent<BattleCheckpointController>().Configure(null, s, "eight-wave-unlocks-v1"); Call(_choice, "Refresh");
+            Assert.That(_battle.ContinueToNextWave(), Is.Not.EqualTo(WaveTransitionResult.Continued));
+            var expected = new[] { "flame", "tide", "gale", "stone" }
+                .Where(id => id != start && (milestone != 6 || id != "tide")).ToArray();
+            var buttons = (System.Collections.Generic.IReadOnlyList<Button>)_choice.GetType().GetProperty("OptionButtons").GetValue(_choice);
+            Assert.That(buttons.Where(b => b.gameObject.activeSelf).Select(b => b.name), Is.EqualTo(expected));
+            Choose(expected[0]);
+            Assert.That(s.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
+            Assert.That(s.State.WaveIndex + 1, Is.EqualTo(milestone));
+            Assert.That(_battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.Continued));
+            Assert.That(s.State.Phase, Is.EqualTo(BattlePhase.Preparation));
+            Assert.That(s.State.WaveIndex + 1, Is.EqualTo(milestone + 1));
+            Assert.That(_battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
         }
 
         [Test]
-        public void RegBattle173_SellModal_DirectCommandsAndForeignButtonsCannotBypassOwner()
+        public void RegBattle185_PauseAndForeignModalsGuardDirectApiAndRealCallbacks()
         {
-            var choice = (ElementChoiceController)_choice;
-            choice.SelectOption("flame"); choice.ConfirmChoice();
-            Assert.That(_battle.PlaceTower(new TowerDefinitionId("flame"), Cell).Success, Is.True);
-            _placement.TrySelectCell(Cell); _placement.RequestSellSelectedTower();
-            var before = JsonUtility.ToJson(_battle.Simulation.ExportCheckpoint());
+            Open(); var s = _battle.Simulation;
+            Call(_choice, "SelectOption", "flame");
+            var before = JsonUtility.ToJson(s.ExportCheckpoint());
+            Button("Confirm Button").onClick.Invoke(); Button("Start Wave Button").onClick.Invoke();
+            Assert.That(_placement.TrySelectCell(_cell), Is.False);
+            Assert.That(_battle.PlaceTower(new TowerDefinitionId("flame"), _cell).Success, Is.False);
+            var pause = Object.FindFirstObjectByType<BattlePauseController>();
+            pause.Pause(); Button("Confirm Element Button").onClick.Invoke();
+            Assert.That(((ElementChoiceResult)Call(_choice, "ConfirmChoice")).Success, Is.False);
+            Assert.That(JsonUtility.ToJson(s.ExportCheckpoint()), Is.EqualTo(before));
+            Assert.That(pause.Resume(), Is.True);
+            Button("Confirm Element Button").onClick.Invoke();
+            Assert.That(s.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
+            Choose("flame");
+            _placement.TrySelectCell(_cell); _placement.SelectTowerType(new TowerDefinitionId("flame")); _placement.ConfirmSelection();
+            _placement.TrySelectCell(_cell); _placement.RequestSellSelectedTower();
+            before = JsonUtility.ToJson(s.ExportCheckpoint());
             Assert.That(_battle.SellTower(new TowerId(1)).Success, Is.False);
             Assert.That(_battle.UpgradeTower(new TowerId(1)).Success, Is.False);
-            Assert.That(_battle.PlaceTower(new TowerDefinitionId("flame"), new GridCoordinate(-3, 0)).Success, Is.False);
-            Assert.That(_battle.ChooseElement(new ChooseElementCommand("start-resonance", "gale")).Success, Is.False);
-            Button("Cancel Button").onClick.Invoke(); Button("Start Wave Button").onClick.Invoke();
-            Button("Confirm Element Button").onClick.Invoke();
-            Assert.That(_placement.IsSellConfirmationVisible, Is.True);
-            Assert.That(JsonUtility.ToJson(_battle.Simulation.ExportCheckpoint()), Is.EqualTo(before));
+            Assert.That(_battle.StartWave(), Is.Not.EqualTo(WaveTransitionResult.Started));
+            Assert.That(_battle.ChooseElement(new ChooseElementCommand("after-wave-3", "tide")).Success, Is.False);
+            Assert.That(JsonUtility.ToJson(s.ExportCheckpoint()), Is.EqualTo(before));
             Button("Confirm Sell Button").onClick.Invoke();
-            Assert.That(_battle.Simulation.State.Towers, Is.Empty);
-            Assert.That(_battle.Simulation.State.Gold, Is.EqualTo(129));
+            Assert.That(s.State.Towers, Is.Empty);
         }
 
+
+        [TestCase("{\"rulesId\":\"wrong\"}")]
+        [TestCase("{\"startingOptions\":[0]}")]
+        [TestCase("{\"startingOptions\":[2,0]}")]
+        [TestCase("{\"choiceWaves\":[3,7]}")]
+        [TestCase("{\"choiceWaves\":[]}")]
+        public void RegBattle184_MalformedNativeSettingsRejectWithoutAllOpenFallback(string mutation)
+        {
+            var source = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset");
+            var config = Object.Instantiate(source);
+            try
+            {
+                JsonUtility.FromJsonOverwrite("{\"progression\":" + mutation + "}", config);
+                Assert.Throws<ArgumentException>(() => config.CreateSimulation());
+            }
+            finally { Object.DestroyImmediate(config); }
+        }
+        [TestCase("progression")] [TestCase("waves")] [TestCase("scenarioContentId")]
+        public void RegBattle184_MissingOrLegacyNativeConfigCannotStartAllOpen(string field)
+        {
+            var config = Object.Instantiate(AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset"));
+            try
+            {
+                var serialized = new SerializedObject(config); var property = serialized.FindProperty(field);
+                if (field == "scenarioContentId") property.stringValue = "eight-wave-v1";
+                else if (field == "waves") property.arraySize = 0;
+                else property.FindPropertyRelative("rulesId").stringValue = string.Empty;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                Assert.Throws<ArgumentException>(() => config.CreateSimulation());
+            }
+            finally { Object.DestroyImmediate(config); }
+        }
         [Test]
-        public void RegBattle184_RestoreInvalidatesPreviewEvenWithSamePendingId()
+        public void RegBattle184_UnlockedUnaffordableCardExplainsGoldSeparately()
         {
-            var choice = (ElementChoiceController)_choice;
-            choice.SelectOption("flame");
-            var cp = _battle.Simulation.ExportCheckpoint();
-            _battle.Simulation.RestoreCheckpoint(cp);
-            Assert.That(choice.ConfirmChoice().Success, Is.False);
-            Assert.That(_battle.Simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
-            Assert.That(choice.SelectedOptionId, Is.Null);
+            Open(); Choose("flame");
+            _placement.TrySelectCell(_cell); _placement.SelectTowerType(new TowerDefinitionId("flame")); _placement.ConfirmSelection();
+            _placement.TrySelectCell(new GridCoordinate(-3, 0)); _placement.SelectTowerType(new TowerDefinitionId("flame")); _placement.ConfirmSelection();
+            _placement.TrySelectCell(new GridCoordinate(-2, 0)); _placement.SelectTowerType(new TowerDefinitionId("flame"));
+            Assert.That(_placement.BuildStatsText.text, Does.Contain("Недостаточно Gold").And.Not.Contain("Missing:"));
+            Assert.That(Button("Confirm Button").interactable, Is.False);
+            Button("Confirm Button").onClick.Invoke();
+            Assert.That(_battle.Simulation.State.Gold, Is.EqualTo(10));
+            Assert.That(_battle.Simulation.State.Towers.Count, Is.EqualTo(2));
         }
-
         [Test]
-        public void RegBattle184_RetrySaveInCombat_IsRejectedWithoutChangingDurableStatus()
+        public void RegBattle173_StalePreviewCannotSpendAnotherPendingChoice()
         {
-            var choice = (ElementChoiceController)_choice;
-            choice.SelectOption("flame"); choice.ConfirmChoice();
-            var checkpoint = Object.FindFirstObjectByType<BattleCheckpointController>();
-            var status = checkpoint.StatusText.text;
-            _battle.StartWave();
-            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Combat));
-            Button("Retry Save Button").onClick.Invoke();
-            Assert.That(_battle.RetryCheckpointSave(), Is.False);
-            Assert.That(checkpoint.LastSaveSucceeded, Is.True);
-            Assert.That(checkpoint.StatusText.text, Is.EqualTo(status));
-            LogAssert.NoUnexpectedReceived();
+            Open(); var s = BattleElementUnlockTests.Native();
+            BattleElementUnlockTests.Choose(s, "start-resonance", "flame"); BattleElementUnlockTests.Reach(s, 3);
+            Set(_battle, "_simulation", s); _battle.GetComponent<BattleCheckpointController>().Configure(null, s, "eight-wave-unlocks-v1");
+            Call(_choice, "Refresh"); Call(_choice, "SelectOption", "tide");
+            Assert.That(_battle.ChooseElement(new ChooseElementCommand("after-wave-3", "stone")).Success, Is.True);
+            s.ContinueToNextWave(); BattleElementUnlockTests.Reach(s, 6);
+            Assert.That(((ElementChoiceResult)Call(_choice, "ConfirmChoice")).Success, Is.False);
+            Assert.That(s.State.ElementProgression.PendingChoiceId, Is.EqualTo("after-wave-6"));
+            Assert.That(s.State.ElementProgression.ChoicesSpent, Is.EqualTo(1));
+            Assert.That(ChoicePreview(), Is.Null);
+        }
+        private string ChoicePreview() => (string)_choice.GetType().GetProperty("PreviewOptionId").GetValue(_choice);
+        [Test]
+        public void RegBattle185_HudSafeAreaKeepsEdgeControlsInsideInsets()
+        {
+            Open(); var safe = Object.FindFirstObjectByType<Canvas>().GetComponent("BattleHudSafeArea");
+            Assert.That(safe, Is.Not.Null);
+            var pause = Button("Pause Button").GetComponent<RectTransform>();
+            var menu = Button("Main Menu Button").GetComponent<RectTransform>();
+            var right = pause.anchoredPosition; var left = menu.anchoredPosition;
+            Call(safe, "ApplySafeArea", new Rect(60, 30, 1800, 1000), new Vector2(1920,1080), 1f);
+            Assert.That(pause.anchoredPosition, Is.EqualTo(right + new Vector2(-60, -50)));
+            Assert.That(menu.anchoredPosition, Is.EqualTo(left + new Vector2(60, 30)));
         }
 
-        private void RequireChoice() => Assert.That(_choice, Is.Not.Null, "builder must wire ElementChoiceController");
-        private static GameObject Find(string name) => Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Single(x => x.name == name).gameObject;
-        private static Button Button(string name) => Find(name).GetComponent<Button>();
-        private static object Invoke(object target, string method, params object[] args)
+        [TestCase(1)] [TestCase(3)]
+        public void RegBattle185_NextButtonClosesOwnTowerSelectionAfterOrdinaryOrChoiceWave(int wave)
         {
-            var found = target.GetType().GetMethod(method, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-            Assert.That(found, Is.Not.Null, method); return found.Invoke(target, args);
+            Open(); Choose("flame");
+            _placement.TrySelectCell(_cell); _placement.SelectTowerType(new TowerDefinitionId("flame")); _placement.ConfirmSelection();
+            _placement.TrySelectCell(_cell);
+            var state = _battle.Simulation.ExportCheckpoint(); state.phase = BattlePhase.WaveComplete; state.waveIndex = wave - 1;
+            if (wave == 3) { state.elementProgression.choicesEarned = 1; state.elementProgression.pendingChoiceId = "after-wave-3"; }
+            _battle.Simulation.RestoreCheckpoint(state);
+            Call(_placement, "RefreshUi"); Call(_choice, "Refresh");
+            if (wave == 3) Choose("tide");
+            Assert.That(_placement.SelectedTowerId.HasValue, Is.True);
+            Call(_placement, "RefreshUi");
+            Assert.That(Button("Next Wave Button").interactable, Is.True);
+            Button("Next Wave Button").onClick.Invoke();
+            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
+            Assert.That(_battle.Simulation.State.WaveIndex + 1, Is.EqualTo(wave + 1));
+            Assert.That(_placement.HasSelection, Is.False);
         }
+
+        private void Choose(string id) { Call(_choice, "Refresh"); Assert.That(Call(_choice, "SelectOption", id), Is.EqualTo(true)); Assert.That(((ElementChoiceResult)Call(_choice, "ConfirmChoice")).Success, Is.True); }
+        private static Button Button(string name) => Object.FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None).Single(b => b.name == name);
+        private static object Call(object target, string method, params object[] args) => target.GetType().GetMethod(method, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Invoke(target, args);
+        private static void Set(object target, string field, object value) => target.GetType().GetField(field, BindingFlags.Instance | BindingFlags.NonPublic).SetValue(target, value);
     }
 }

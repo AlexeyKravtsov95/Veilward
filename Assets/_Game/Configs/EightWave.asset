@@ -76,5 +76,7 @@ MonoBehaviour:
   - enemyCount: 12
     firstSpawnTick: 0
     spawnIntervalTicks: 30
-  progressionStartingOptions: 0000000002000000
-  progressionChoiceWaves: 0300000006000000
+  progression:
+    rulesId: wave-unlocks-v1
+    startingOptions: 0000000002000000
+    choiceWaves: 0300000006000000

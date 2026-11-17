@@ -1,235 +1,48 @@
 {
-  "expectedFailure": "one access-denied error injected by making TempPath a directory; restored storage then Retry Save succeeded",
-  "audits": [
-    {
-      "utc": "2026-11-17T05:56:26.943229+00:00",
-      "command": [
-        "/Users/alexeykravtsov/.unity/bin/unity",
-        "command",
-        "console get",
-        "--caller",
-        "plugin",
-        "--skill",
-        "unity-cli",
-        "--project-path",
-        "/Users/alexeykravtsov/.codex/worktrees/p23d-native/Veilward",
-        "--level",
-        "warn",
-        "--tail",
-        "1000",
-        "--format",
-        "json"
-      ],
-      "exit": 0,
-      "result": {
-        "entries": [],
-        "cursor": 12,
-        "session": "79c9e1e180224a94b91e0f2ce371da93",
-        "returned": 0,
-        "dropped": false,
-        "reset": false,
-        "counts": {
-          "error": 0,
-          "warn": 0,
-          "log": 0
-        },
-        "groundTruth": {
-          "sampledUtc": "2026-11-17T05:56:25.809991Z",
-          "ageMs": 115,
-          "compilationFailed": false,
-          "compiling": false,
-          "consoleErrors": 0,
-          "consoleWarnings": 0,
-          "consoleLogs": 0,
-          "seeded": true
-        }
-      }
+  "source_dabc9cc_scenario": {
+    "entries": [],
+    "cursor": 0,
+    "session": "e8ef354857b447c9ace1ef1639ce37d8",
+    "returned": 0,
+    "dropped": false,
+    "reset": false,
+    "counts": {
+      "error": 0,
+      "warn": 0,
+      "log": 0
     },
-    {
-      "utc": "2026-11-17T05:57:58.811501+00:00",
-      "command": [
-        "/Users/alexeykravtsov/.unity/bin/unity",
-        "command",
-        "console get",
-        "--caller",
-        "plugin",
-        "--skill",
-        "unity-cli",
-        "--project-path",
-        "/Users/alexeykravtsov/.codex/worktrees/p23d-native/Veilward",
-        "--level",
-        "warn",
-        "--tail",
-        "1000",
-        "--format",
-        "json"
-      ],
-      "exit": 0,
-      "result": {
-        "entries": [],
-        "cursor": 12,
-        "session": "79c9e1e180224a94b91e0f2ce371da93",
-        "returned": 0,
-        "dropped": false,
-        "reset": false,
-        "counts": {
-          "error": 0,
-          "warn": 0,
-          "log": 0
-        },
-        "groundTruth": {
-          "sampledUtc": "2026-11-17T05:57:57.670763Z",
-          "ageMs": 130,
-          "compilationFailed": false,
-          "compiling": false,
-          "consoleErrors": 0,
-          "consoleWarnings": 0,
-          "consoleLogs": 0,
-          "seeded": true
-        }
-      }
-    },
-    {
-      "utc": "2026-11-17T05:58:57.349029+00:00",
-      "command": [
-        "/Users/alexeykravtsov/.unity/bin/unity",
-        "command",
-        "console get",
-        "--caller",
-        "plugin",
-        "--skill",
-        "unity-cli",
-        "--project-path",
-        "/Users/alexeykravtsov/.codex/worktrees/p23d-native/Veilward",
-        "--level",
-        "warn",
-        "--tail",
-        "1000",
-        "--format",
-        "json"
-      ],
-      "exit": 0,
-      "result": {
-        "entries": [
-          {
-            "seq": 13,
-            "timestampUtc": "2026-11-17T05:58:52.993381Z",
-            "level": "error",
-            "logType": "Error",
-            "message": "Checkpoint save failed: Access to the path '/Users/alexeykravtsov/.codex/worktrees/p23d-native/Veilward/TestResults/P23dQA/slot/wave-checkpoint-v1.json.tmp' is denied.",
-            "stackTrace": "UnityEngine.Debug:LogError (object)\nVeilward.Presentation.BattleCheckpointController:SaveCurrentState () (at Assets/_Game/Scripts/Presentation/BattleCheckpointController.cs:90)\nVeilward.Presentation.BattleSceneController:ChooseElement (Veilward.Domain.ChooseElementCommand) (at Assets/_Game/Scripts/Presentation/BattleSceneController.cs:270)\nVeilward.Presentation.ElementChoiceController:ConfirmChoice () (at Assets/_Game/Scripts/Presentation/ElementChoiceController.cs:83)\nScript/<<Initialize>>d__0:MoveNext () (at eval.cs:1)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:Start<Script/<<Initialize>>d__0> (Script/<<Initialize>>d__0&)\nScript:<Initialize> ()\nScript:<Factory> (object[])\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler/<Run>d__6:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@303cb578aa66/Runtime/Compilation/EvalCodeCompiler.cs:128)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<Unity.Pipeline.Models.EvalResponse>:Start<Unity.Pipeline.Compilation.EvalCodeCompiler/<Run>d__6> (Unity.Pipeline.Compilation.EvalCodeCompiler/<Run>d__6&)\nUnity.Pipeline.Compilation.EvalCodeCompiler:Run (Unity.Pipeline.Compilation.CompilationResult,bool,System.Diagnostics.Stopwatch,Unity.Pipeline.Telemetry.EvalAnalyticsDetails)\nUnity.Pipeline.Compilation.EvalCodeCompiler/<CompileAndExecuteAsync>d__5:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@303cb578aa66/Runtime/Compilation/EvalCodeCompiler.cs:87)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<Unity.Pipeline.Models.EvalResponse>:Start<Unity.Pipeline.Compilation.EvalCodeCompiler/<CompileAndExecuteAsync>d__5> (Unity.Pipeline.Compilation.EvalCodeCompiler/<CompileAndExecuteAsync>d__5&)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteAsync (string,System.Diagnostics.Stopwatch,bool,bool,bool,Unity.Pipeline.Telemetry.EvalAnalyticsDetails)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand/<EvaluateSource>d__8:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@303cb578aa66/Runtime/Commands/CodeEvalCommand.cs:151)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<Unity.Pipeline.Models.EvalResponse>:Start<Unity.Pipeline.Runtime.Commands.CodeEvalCommand/<EvaluateSource>d__8> (Unity.Pipeline.Runtime.Commands.CodeEvalCommand/<EvaluateSource>d__8&)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,string,bool,bool,bool)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand/<Eval>d__2:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@303cb578aa66/Runtime/Commands/CodeEvalCommand.cs:47)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<Unity.Pipeline.Models.EvalResponse>:Start<Unity.Pipeline.Runtime.Commands.CodeEvalCommand/<Eval>d__2> (Unity.Pipeline.Runtime.Commands.CodeEvalCommand/<Eval>d__2&)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:Eval (string,string,double,bool,bool,bool)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Commands.DefaultCommandQueue:InvokeDirect (Unity.Pipeline.Commands.CommandContext,Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@303cb578aa66/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:533)\nUnity.Pipeline.Commands.DefaultCommandQueue/<>c__DisplayClass20_0:<Invoke>b__2 () (at ./Library/PackageCache/com.unity.pipeline@303cb578aa66/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:455)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@303cb578aa66/Runtime/Common/Dispatcher.cs:342)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@303cb578aa66/Runtime/Common/Dispatcher.cs:285)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@303cb578aa66/Runtime/Common/Dispatcher.cs:251)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@303cb578aa66/Runtime/Common/Dispatcher.cs:266)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions () (at /Users/bokken/build/output/unity/unity/Editor/Mono/EditorApplication.cs:392)\n",
-            "seeded": false
-          }
-        ],
-        "cursor": 13,
-        "session": "79c9e1e180224a94b91e0f2ce371da93",
-        "returned": 1,
-        "dropped": false,
-        "reset": false,
-        "counts": {
-          "error": 1,
-          "warn": 0,
-          "log": 0
-        },
-        "groundTruth": {
-          "sampledUtc": "2026-11-17T05:58:56.277156Z",
-          "ageMs": 33,
-          "compilationFailed": false,
-          "compiling": false,
-          "consoleErrors": 1,
-          "consoleWarnings": 0,
-          "consoleLogs": 0,
-          "seeded": true
-        }
-      }
-    },
-    {
-      "utc": "2026-11-17T05:59:08.072616+00:00",
-      "command": [
-        "/Users/alexeykravtsov/.unity/bin/unity",
-        "command",
-        "console get",
-        "--caller",
-        "plugin",
-        "--skill",
-        "unity-cli",
-        "--project-path",
-        "/Users/alexeykravtsov/.codex/worktrees/p23d-native/Veilward",
-        "--level",
-        "warn",
-        "--tail",
-        "1000",
-        "--format",
-        "json"
-      ],
-      "exit": 0,
-      "result": {
-        "entries": [],
-        "cursor": 13,
-        "session": "79c9e1e180224a94b91e0f2ce371da93",
-        "returned": 0,
-        "dropped": false,
-        "reset": false,
-        "counts": {
-          "error": 0,
-          "warn": 0,
-          "log": 0
-        },
-        "groundTruth": {
-          "sampledUtc": "2026-11-17T05:59:06.920069Z",
-          "ageMs": 107,
-          "compilationFailed": false,
-          "compiling": false,
-          "consoleErrors": 0,
-          "consoleWarnings": 0,
-          "consoleLogs": 0,
-          "seeded": true
-        }
-      }
-    },
-    {
-      "utc": "2026-11-17T06:00:08.610644+00:00",
-      "command": [
-        "/Users/alexeykravtsov/.unity/bin/unity",
-        "command",
-        "console get",
-        "--caller",
-        "plugin",
-        "--skill",
-        "unity-cli",
-        "--project-path",
-        "/Users/alexeykravtsov/.codex/worktrees/p23d-native/Veilward",
-        "--level",
-        "warn",
-        "--tail",
-        "1000",
-        "--format",
-        "json"
-      ],
-      "exit": 0,
-      "result": {
-        "entries": [],
-        "cursor": 13,
-        "session": "79c9e1e180224a94b91e0f2ce371da93",
-        "returned": 0,
-        "dropped": false,
-        "reset": false,
-        "counts": {
-          "error": 0,
-          "warn": 0,
-          "log": 0
-        },
-        "groundTruth": {
-          "sampledUtc": "2026-11-17T06:00:07.491195Z",
-          "ageMs": 87,
-          "compilationFailed": false,
-          "compiling": false,
-          "consoleErrors": 0,
-          "consoleWarnings": 0,
-          "consoleLogs": 0,
-          "seeded": true
-        }
-      }
+    "groundTruth": {
+      "sampledUtc": "2026-11-17T06:51:42.255747Z",
+      "ageMs": 121,
+      "compilationFailed": false,
+      "compiling": false,
+      "consoleErrors": 0,
+      "consoleWarnings": 0,
+      "consoleLogs": 0,
+      "seeded": true
     }
-  ]
+  },
+  "source_18874fb_final_legacy": {
+    "entries": [],
+    "cursor": 0,
+    "session": "85cb5e12831b4d85a7273f5bfcb8d426",
+    "returned": 0,
+    "dropped": false,
+    "reset": false,
+    "counts": {
+      "error": 0,
+      "warn": 0,
+      "log": 0
+    },
+    "groundTruth": {
+      "sampledUtc": "2026-11-17T07:03:06.863524Z",
+      "ageMs": 225,
+      "compilationFailed": false,
+      "compiling": false,
+      "consoleErrors": 0,
+      "consoleWarnings": 0,
+      "consoleLogs": 0,
+      "seeded": true
+    }
+  }
 }

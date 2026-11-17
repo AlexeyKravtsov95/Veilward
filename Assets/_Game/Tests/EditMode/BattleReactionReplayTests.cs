@@ -110,7 +110,7 @@ namespace Veilward.Tests.EditMode
         [TestCase("storm")]
         public void RegBattle162_SuppressionObserver_DistinguishesCooldownAndNoNeighbor(string strategy)
         {
-            var production = Config().CreateLegacyAllOpenSimulation();
+            var production = Config().CreateHistoricalAllOpenSimulation();
             var enemy = new EnemyDefinition(new EnemyDefinitionId("synthetic-armored"), 1000, .1f, 1, 5, 7);
             var s = new BattleSimulation(new GridMapDefinition(10, 3, new GridCoordinate(0, -1), 1),
                 new PathDefinition(new[] { new GridCoordinate(0, 0), new GridCoordinate(100, 0) }),
@@ -182,7 +182,7 @@ namespace Veilward.Tests.EditMode
 
         private static BattleScenarioConfig Config() => AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath);
         private static BattleSimulation Create(string strategy) => strategy == "historical"
-            ? Config().CreateSimulation(ReactionCatalog.Empty) : Config().CreateLegacyAllOpenSimulation();
+            ? Config().CreateHistoricalAllOpenSimulation(ReactionCatalog.Empty) : Config().CreateHistoricalAllOpenSimulation();
 
         private static Replay Run(string strategy, bool restore)
         {
@@ -540,15 +540,16 @@ namespace Veilward.Tests.EditMode
         private static string Hash(byte[] bytes) { using (var sha = SHA256.Create()) return BitConverter.ToString(sha.ComputeHash(bytes)).Replace("-", "").ToLowerInvariant(); }
         private static string HashFile(string path)
         {
-            // Historical combat fingerprint исключает только additive P2.3d metadata.
-            var content = File.ReadAllText(path);
+            var bytes = File.ReadAllBytes(path);
             if (path == ConfigPath)
             {
-                content = content.Replace("scenarioContentId: eight-wave-unlocks-v1", "scenarioContentId: eight-wave-v1");
-                content = System.Text.RegularExpressions.Regex.Replace(content,
-                    @"^  progression(?:StartingOptions|ChoiceWaves):.*\n", "", System.Text.RegularExpressions.RegexOptions.Multiline);
+                // Исторический combat hash исключает только новую progression metadata/content ID.
+                var yaml = Encoding.UTF8.GetString(bytes).Replace("eight-wave-unlocks-v1", "eight-wave-v1");
+                var progression = yaml.IndexOf("  progression:\n", StringComparison.Ordinal);
+                if (progression >= 0) yaml = yaml.Substring(0, progression);
+                bytes = Encoding.UTF8.GetBytes(yaml);
             }
-            return path + ":" + Hash(Encoding.UTF8.GetBytes(content));
+            return path + ":" + Hash(bytes);
         }
         private static void WriteTrace(string strategy, List<string> lines)
         {

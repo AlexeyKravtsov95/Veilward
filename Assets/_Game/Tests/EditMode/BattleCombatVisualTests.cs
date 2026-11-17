@@ -219,8 +219,7 @@ namespace Veilward.Tests.EditMode
             }
 
             serializedConfig.ApplyModifiedPropertiesWithoutUndo();
-            typeof(BattleSceneController).GetField("_simulation", BindingFlags.Instance | BindingFlags.NonPublic)
-                .SetValue(_battle, _config.CreateLegacyAllOpenSimulation());
+            Invoke(_battle, "Start");
             var selection = new GameObject("Selection").transform;
             selection.SetParent(_root.transform, false);
             var preview = new GameObject("Tower Preview").transform;

@@ -384,7 +384,7 @@ namespace Veilward.Tests.EditMode
             }
 
             serialized.ApplyModifiedPropertiesWithoutUndo();
-            return config.CreateLegacyAllOpenSimulation();
+            return config.CreateHistoricalAllOpenSimulation();
         }
 
         private static BattleSimulation LoadSavedEightWave()
@@ -392,7 +392,7 @@ namespace Veilward.Tests.EditMode
             var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(
                 "Assets/_Game/Configs/EightWave.asset");
             Assert.That(config, Is.Not.Null);
-            return config.CreateLegacyAllOpenSimulation();
+            return config.CreateHistoricalAllOpenSimulation();
         }
 
         private static void AssertTickEqual(BattleSimulation expected, BattleSimulation actual)
