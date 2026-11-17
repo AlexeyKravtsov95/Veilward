@@ -44,6 +44,8 @@
 
 **ART.1.1 status: технические gates пройдены, визуальная доработка передана на review владельцу.** Объём/характер острова, уменьшенные свесы FLAME и контраст нижнего плаща Shade при прежних gameplay coordinates, камере и масштабе. [Спецификация и регрессии](ART1_1_VISUAL_REFINEMENT.md), [before/after, бой и проверки](review/ART.1.1/README.md). Static 38/38, EditMode 547/547, PlayMode 30/30; round trip 8/8 и отрицательный exporter control PASS. [Независимое техническое review](review/ART.1.1/technical-review.md): без открытых блокирующих замечаний. История ART.1 сохранена. Финальное утверждение стиля и device readability остаются открытыми до просмотра владельцем и физического iPhone; массовое производство, self-merge и release не выполняются.
 
+**P2.3e.1 — проверка стратегий:** расширенный ограниченный поиск нашёл natural Victory8 для FLAME и GALE, в отдельных coverage scripts оба Steam/Storm pair+intrinsic с положительным HP loss. [Scripts, бюджет, отсечения и evidence](review/P2.3e.1/validation.md). Новые late file/menu/Play Mode gates проверяются отдельно; исторические P2.3e Defeat5 остаются контролем. P2.3 не объявляется DONE до acceptance/review/approval; device/G2, баланс, ART approval и TestFlight отдельно.
+
 ### Последовательность до первой TestFlight
 
 **P2.2f → эталон арта → P2.3 открытие стихий → P2.4 способность и босс → оформление первого среза → P2.5 обучение/баланс → device QA → первая TestFlight.** Это план будущих работ, а не перечень выполненных этапов.

@@ -1,0 +1,40 @@
+{
+    "route": "B",
+    "start": "gale",
+    "after3": "tide",
+    "after6": "flame",
+    "commands": [
+        {
+            "wave": 1,
+            "x": 2,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "gale"
+        },
+        {
+            "wave": 2,
+            "x": -1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "gale"
+        },
+        {
+            "wave": 4,
+            "x": 1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "gale"
+        },
+        {
+            "wave": 5,
+            "x": 1,
+            "y": -4,
+            "id": 0,
+            "op": "place",
+            "type": "tide"
+        }
+    ]
+}

@@ -296,3 +296,10 @@ Scope: Task 5 / spec §10, только tests/evidence/docs; production runtime/
 REG-164…172 проверяют opt-in native Domain, а не production unlock UI/replay. Native создаётся через internal `BattleScenarioConfig.CreateSimulation(ElementUnlockRules)` на validated saved combat data. Public factories остаются all-open; requirements — явная immutable metadata. `RegBattle174_NativeInitialCheckpoint_RoundTripsProgression` заменяет временный unsupported test: P2.3c сохраняет и восстанавливает native progression. Reload/rollback проверены REG-174…183; production wiring REG-164 остаётся за P2.3d.
 
 Фактические totals, RED→GREEN, XML reports, команды и ограничения: [P2.3b evidence](review/P2.3b/validation.md). Исторические assertions/fixtures и evidence не менялись.
+
+## P2.3e.1 — расширенный поиск и late production coverage
+
+| ID | Контракт | Проверка |
+|---|---|---|
+| REG-BATTLE-188 | Конечный поиск по public Grid/factory/commands с150/20; survival/economy/reactions отдельно; выбранные scripts дважды New Game до естественного terminal, полный deterministic trace и positive AppliedHpLoss; исторические Defeat5 неизменны. | `NativeStrategySearchTests`, `NativeStrategyReplayTests`; [поиск/scripts/evidence](review/P2.3e.1/validation.md). Полные gates pending. |
+| REG-BATTLE-189 | Natural pending/confirmed6→Preparation7, file Continue/failure/retry без duplicate rewards; Combat7 после kill+positive proc, две одинаковые попытки/whole rollback; настоящие MainMenu/controllers и реальные Play Mode кадры/Console. Synthetic исторические fixtures отдельно. | `NativeEightWaveFileTests.RegBattle189_*`, `NativeStrategyIntegrationPlayModeTests`; [late matrix](review/P2.3e.1/validation.md). Полные gates pending. |

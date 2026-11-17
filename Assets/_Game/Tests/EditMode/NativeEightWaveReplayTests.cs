@@ -59,7 +59,11 @@ namespace Veilward.Tests.EditMode
         public static BattleScenarioConfig Config() => AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset");
         public static Run Replay(string route, Action<Run, string> stable = null)
         {
-            var script = LoadScript(route); var s = Config().CreateSimulation(); var r = new Run { sim = s };
+            return ReplayScript(LoadScript(route), stable);
+        }
+        public static Run ReplayScript(Script script, Action<Run, string> stable = null)
+        {
+            var route = script.route; var s = Config().CreateSimulation(); var r = new Run { sim = s };
             r.report.route = route;
             Assert.That(s.State.Gold, Is.EqualTo(150)); Assert.That(s.State.BaseHealth, Is.EqualTo(20));
             Capture(r); Choose(r, "start-resonance", script.start); ProbeClosed(r);
