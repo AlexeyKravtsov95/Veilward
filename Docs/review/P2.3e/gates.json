@@ -58,7 +58,9 @@
         "Warning|Ignoring depth surface load action as it is memoryless",
         "Warning|Ignoring depth surface store action as it is memoryless"
       ],
-      "sha256": "081b0faaebab323004a4330c11dda14e4f4a797abc6f1483c48925dc64ebf5cb"
+      "sha256": "081b0faaebab323004a4330c11dda14e4f4a797abc6f1483c48925dc64ebf5cb",
+      "rawVisualTestcaseWarnings": 8,
+      "scope": "single-scenario A"
     },
     "RegBattle187_ProductionMenuNaturalGaleContinue.console.txt": {
       "unexpectedErrors": 0,
@@ -67,7 +69,9 @@
         "Warning|Ignoring depth surface load action as it is memoryless",
         "Warning|Ignoring depth surface store action as it is memoryless"
       ],
-      "sha256": "4f2bf79ba2b217ac78297139c4c08db7872fb4cea5259d3880b74ede00cb6d15"
+      "sha256": "4f2bf79ba2b217ac78297139c4c08db7872fb4cea5259d3880b74ede00cb6d15",
+      "rawVisualTestcaseWarnings": 8,
+      "scope": "cumulative A+B due retained NUnit fixture List; B itself has8 warnings in raw Visual.xml testcase output"
     }
   },
   "sourceAudit": {
@@ -104,5 +108,22 @@
     "commit": "3db7e4ccf4a9c9536d03b6dabd1d5ce08051ce8f",
     "runtimeDataScriptsIdenticalToOriginalBase": true,
     "changes": "Archived PR29 evidence + README only; preserve all archives and current P2.3e header; no new suite justified for doc-only merge."
+  },
+  "deferredMinor": "PlayMode fixture console list is not cleared between tests; zero unexpected errors unaffected. Raw audits retained; per-scenario warning counts corrected from raw XML. Clear fixture accumulators in a later test cleanup.",
+  "independentReview": {
+    "reviewedHead": "9895ab85acb6dddc54b1f89384c0174b5be5559e",
+    "model": "GPT-6 Astra / High, fresh context, read-only",
+    "critical": 0,
+    "important": 0,
+    "minor": 1,
+    "technicalEvidencePrReady": true,
+    "p23AcceptanceComplete": false,
+    "record": "review.md"
+  },
+  "githubStaticCi": {
+    "head": "9895ab85acb6dddc54b1f89384c0174b5be5559e",
+    "run": 44055871836,
+    "conclusion": "success",
+    "url": "https://github.com/AlexeyKravtsov95/Veilward/actions/runs/44055871836"
   }
 }

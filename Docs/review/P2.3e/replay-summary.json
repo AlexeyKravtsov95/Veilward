@@ -1254,7 +1254,7 @@
     {
       "id": "independent-review-merge",
       "status": "BLOCKED",
-      "evidence": "Review pending; self-merge prohibited; P2.3 not DONE."
+      "evidence": "Independent GPT-6 Astra read-only review: Critical0/Important0, Minor1 deferred; technical evidence PR ready, review.md. Owner approval/merge pending; P2.3 not DONE."
     },
     {
       "id": "physical-iPhone-device-G2-balance-art-TestFlight",
