@@ -1,0 +1,78 @@
+// /tmp/p23d-inspector-setup.cs
+UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity");
+UnityEditor.PlayerSettings.runInBackground = true;
+return "Isolated direct Battle, no disk session";
+
+
+// /tmp/p23d-view.cs
+var assembly = typeof(UnityEditor.Editor).Assembly;
+var sizesType = assembly.GetType("UnityEditor.GameViewSizes");
+var singleton = typeof(UnityEditor.ScriptableSingleton<>).MakeGenericType(sizesType);
+var sizes = singleton.GetProperty("instance").GetValue(null);
+var groupType = sizesType.GetProperty("currentGroupType").GetValue(sizes);
+var group = sizesType.GetMethod("GetGroup").Invoke(sizes, new[] { groupType });
+var sizeType = assembly.GetType("UnityEditor.GameViewSize");
+var kind = System.Enum.Parse(assembly.GetType("UnityEditor.GameViewSizeType"), "FixedResolution");
+var size = System.Activator.CreateInstance(sizeType, new object[] {kind, 1920, 1080, "P23d 1920x1080"});
+group.GetType().GetMethod("AddCustomSize").Invoke(group, new[] { size });
+var count = (int)group.GetType().GetMethod("GetTotalCount").Invoke(group, null);
+var view = UnityEditor.EditorWindow.GetWindow(assembly.GetType("UnityEditor.GameView"));
+view.GetType().GetProperty("selectedSizeIndex").SetValue(view, count - 1);
+view.Focus(); view.Repaint();
+UnityEngine.Application.runInBackground = true;
+return new { UnityEngine.Screen.width, UnityEngine.Screen.height, frame = UnityEngine.Time.frameCount };
+
+
+// /tmp/p23d-inspector-combat.cs
+var b = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>();
+var pause = b.GetComponent<Veilward.Presentation.BattlePauseController>();
+pause.OnApplicationFocus(true); pause.OnApplicationPause(false); if (pause.IsPaused) pause.Resume();
+var choice = b.GetComponent<Veilward.Presentation.ElementChoiceController>();
+if (!choice.SelectOption("flame") || !choice.ConfirmChoice().Success) throw new System.Exception("Flame choice failed");
+var p = b.GetComponent<Veilward.Presentation.BattlePlacementController>();
+p.TrySelectCell(new Veilward.Domain.GridCoordinate(-4,0)); p.SelectTowerType(new Veilward.Domain.TowerDefinitionId("flame")); p.ConfirmSelection();
+p.StartWave(); b.enabled=false;
+for (var i=0;i<55;i++) b.Simulation.Step();
+typeof(Veilward.Presentation.BattleSceneController).GetMethod("LateUpdate",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).Invoke(b,null);
+return new {fixture="Frozen production Combat at real Domain tick55, synthetic presentation clock", b.Simulation.State.Tick, enemies=b.Simulation.State.Enemies.Count,b.Simulation.State.Gold};
+
+
+// /tmp/p23d-inspector-tower-tap.cs
+var b = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>();
+var p = b.GetComponent<Veilward.Presentation.BattlePlacementController>();
+var point=(UnityEngine.Vector2)UnityEngine.Camera.main.WorldToScreenPoint(b.GetCellCenter(new Veilward.Domain.GridCoordinate(-4,0)));
+var hits=new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();
+UnityEngine.EventSystems.EventSystem.current.RaycastAll(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){position=point},hits);
+if(hits.Count!=0) throw new System.Exception("Tower world tap covered by UI");
+typeof(Veilward.Presentation.BattlePlacementController).GetMethod("TryHandlePointer",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).Invoke(p,new object[]{point,null});
+return new {selectedTower=p.SelectedTowerId,owner=b.ActiveModalOwner.ToString(),UnityEngine.Time.frameCount};
+
+
+// /tmp/p23d-inspector-first-tap.cs
+var b = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>();
+var p = b.GetComponent<Veilward.Presentation.BattlePlacementController>();
+var e=b.Simulation.State.Enemies[0];var position=b.Simulation.Path.GetPosition(e.DistanceAlongPath);
+var point=(UnityEngine.Vector2)UnityEngine.Camera.main.WorldToScreenPoint(new UnityEngine.Vector3(position.X,.6f,position.Y));
+var hits=new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();
+UnityEngine.EventSystems.EventSystem.current.RaycastAll(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){position=point},hits);
+if(hits.Count!=0) throw new System.Exception("Enemy world tap covered by UI");
+typeof(Veilward.Presentation.BattlePlacementController).GetMethod("TryHandlePointer",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).Invoke(p,new object[]{point,null});
+return new {target=e.Id.Value,selected=b.GetComponent<Veilward.Presentation.EnemyInspectorController>().SelectedEnemyId,tower=p.SelectedTowerId,owner=b.ActiveModalOwner.ToString(),b.Simulation.State.Gold,b.Simulation.State.Tick,UnityEngine.Time.frameCount};
+
+
+// /tmp/p23d-inspector-second-tap.cs
+var b = UnityEngine.Object.FindFirstObjectByType<Veilward.Presentation.BattleSceneController>();
+var p = b.GetComponent<Veilward.Presentation.BattlePlacementController>();
+var e=b.Simulation.State.Enemies[1];var position=b.Simulation.Path.GetPosition(e.DistanceAlongPath);
+var point=(UnityEngine.Vector2)UnityEngine.Camera.main.WorldToScreenPoint(new UnityEngine.Vector3(position.X,.6f,position.Y));
+var hits=new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();
+UnityEngine.EventSystems.EventSystem.current.RaycastAll(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){position=point},hits);
+if(hits.Count!=0) throw new System.Exception("Enemy world tap covered by UI");
+typeof(Veilward.Presentation.BattlePlacementController).GetMethod("TryHandlePointer",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).Invoke(p,new object[]{point,null});
+return new {target=e.Id.Value,selected=b.GetComponent<Veilward.Presentation.EnemyInspectorController>().SelectedEnemyId,tower=p.SelectedTowerId,owner=b.ActiveModalOwner.ToString(),b.Simulation.State.Gold,b.Simulation.State.Tick,UnityEngine.Time.frameCount};
+
+
+// /tmp/p23d-target.cs
+var t = typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.PlayModeView");
+var m = t.GetMethod("GetMainPlayModeViewTargetSize", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public);
+return new { target = m.Invoke(null,null).ToString(), frame = UnityEngine.Time.frameCount };

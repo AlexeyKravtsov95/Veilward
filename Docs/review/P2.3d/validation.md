@@ -55,3 +55,7 @@ RED evidence: [initial](red-initial.xml.gz) **717/718** — старый content
 - Natural native EightWave replay, победа/проходимость/production reaction proc coverage с обоими стартами — **P2.3e**. Synthetic snapshots и historical combat controls этого не доказывают.
 - Physical iPhone/touch/notch/safe area/background/force quit, IL2CPP/Metal player, memory/allocations/frame time/thermal, device QA/G2, signing/TestFlight, hosted Unity CI, внешние playtests/balance approval не выполнены.
 - ART approval и готовый арт первого среза, P2.4, P2.5, кампания/карты/остальные гибриды не закрываются. Packages, баланс и art assets в diff не меняются.
+
+## Review fix: инспектор и world tap
+
+После review пользователя исправлены передача обычного выбора построенной башни инспектору и переключение инспектора на другого врага через world tap. Latest проверенный source `aed5f68`: PlayMode **41/41**, EditMode **741/741**, static **38/38** + project checks PASS; RED39/41, новые кадры и полный SHA в [follow-up evidence](inspector-world-tap/validation.md). Root reports/gates выше сохраняют исходную проверку18874fb; follow-up является актуальной проверкой PR после input fix. Ограничения device/P2.3e/G2 сохраняются.

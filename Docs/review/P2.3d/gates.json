@@ -943,8 +943,8 @@
       "sha256": "878cd5f44e270f707c2e57bd149424c2d7252bff90bdbf4297e5707d329d2e3b"
     },
     "validation.md": {
-      "bytes": 11650,
-      "sha256": "af54622c00894d3608a7405785d3e5ae4c7a2126b59ec5441f4c0dfd7e3d5dfb"
+      "bytes": 12453,
+      "sha256": "aedfc19907fed2d7f06302eca7bb338c5e95e3ff3492b0e07ed11668acb7ddc3"
     }
   },
   "screenshots": {
@@ -1053,5 +1053,9 @@
     "balance/art approval",
     "TestFlight",
     "hosted Unity CI"
-  ]
+  ],
+  "latestReviewFix": {
+    "verifiedSourceCommit": "aed5f687fbab37c280286a338f22551031210c46",
+    "evidence": "inspector-world-tap/gates.json"
+  }
 }
