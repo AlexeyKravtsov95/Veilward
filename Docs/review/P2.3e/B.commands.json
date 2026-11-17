@@ -1,0 +1,64 @@
+{
+  "route": "B",
+  "start": "gale",
+  "after3": "tide",
+  "after6": "flame",
+  "commands": [
+    {
+      "wave": 1,
+      "op": "place",
+      "type": "gale",
+      "x": -2,
+      "y": -1,
+      "id": 0
+    },
+    {
+      "wave": 2,
+      "op": "place",
+      "type": "gale",
+      "x": 1,
+      "y": 0,
+      "id": 0
+    },
+    {
+      "wave": 4,
+      "op": "sell",
+      "type": "gale",
+      "x": 1,
+      "y": 1,
+      "id": 2
+    },
+    {
+      "wave": 4,
+      "op": "place",
+      "type": "storm",
+      "x": -1,
+      "y": 0,
+      "id": 0
+    },
+    {
+      "wave": 5,
+      "op": "place",
+      "type": "tide",
+      "x": 1,
+      "y": 1,
+      "id": 0
+    },
+    {
+      "wave": 7,
+      "op": "place",
+      "type": "flame",
+      "x": 1,
+      "y": 1,
+      "id": 0
+    },
+    {
+      "wave": 8,
+      "op": "place",
+      "type": "steam",
+      "x": 2,
+      "y": 1,
+      "id": 0
+    }
+  ]
+}

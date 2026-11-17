@@ -1,0 +1,36 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using NUnit.Framework;
+using Veilward.Domain;
+namespace Veilward.Tests.EditMode
+{
+    public sealed class NativePlacementProbeTests
+    {
+        [Test] public void ProbeLegalEarlyArmies()
+        {
+            var log = new List<string>();
+            var cells = new[] { new GridCoordinate(-3,-1), new GridCoordinate(-2,-1), new GridCoordinate(-1,-1), new GridCoordinate(-1,0), new GridCoordinate(-1,1), new GridCoordinate(1,-1), new GridCoordinate(1,0), new GridCoordinate(1,1), new GridCoordinate(-2,0), new GridCoordinate(2,1) };
+            foreach (var type in new[] { "flame", "gale" })
+            foreach (var a in cells) foreach (var b in cells)
+            {
+                if (a.Equals(b)) continue;
+                var s = NativeEightWaveReplayTests.Config().CreateSimulation();
+                s.ChooseElement(new ChooseElementCommand("start-resonance", type));
+                if (!s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId(type),a)).Success) continue;
+                if (type=="flame") s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId(type),b));
+                for (var w=1;w<=3;w++)
+                {
+                    if(w==2 && type=="gale") s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId(type),b));
+                    s.StartWave();
+                    while(s.State.Phase==BattlePhase.Combat) {s.Step();NativeEightWaveReplayTests.Clear(s);}
+                    if(w<3) s.ContinueToNextWave();
+                }
+                log.Add(type+"|kills="+s.State.Kills.ToString("D2")+"|hp="+s.State.BaseHealth+"|gold="+s.State.Gold+"|a="+a.X+","+a.Y+"|b="+b.X+","+b.Y);
+            }
+            Directory.CreateDirectory("TestResults/P2.3e");
+            File.WriteAllLines("TestResults/P2.3e/placement-probe.txt",log.OrderByDescending(x=>x));
+        }
+    }
+}
