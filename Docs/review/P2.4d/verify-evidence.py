@@ -26,7 +26,7 @@ for path, expected in json.loads((HERE / 'source-sha256.json').read_text()).item
     assert hashlib.sha256(committed).hexdigest() == expected, ('commit', path)
 for path, expected in json.loads((HERE / 'media-sha256.json').read_text()).items():
     assert hashlib.sha256((HERE / path).read_bytes()).hexdigest() == expected, path
-assert hashlib.sha256((HERE / 'static.log').read_bytes()).hexdigest() == gates['static']['sha256']
+assert hashlib.sha256((HERE / 'static.txt').read_bytes()).hexdigest() == gates['static']['sha256']
 historical = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', gates['baseCommit'], 'Docs/review', 'Assets/_Game/Tests'], cwd=ROOT).decode().splitlines()
 for path in historical:
     assert (ROOT / path).read_bytes() == subprocess.check_output(['git', 'show', gates['baseCommit'] + ':' + path], cwd=ROOT), path
