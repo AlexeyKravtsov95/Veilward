@@ -55,3 +55,5 @@ v3 evaluated categories суммарно: hold676, place86126, sell1322, sell+pl
 ## Проверки и ограничения
 
 Полные gates, файловая/контроллерная late matrix, raw reports и Play Mode evidence добавляются после запуска. Отсутствующие проверки не объявлены PASS. Новые natural evidence хранятся отдельно от synthetic REG174…185 и legacy migration fixtures. Физический iPhone/IL2CPP/Metal/performance/touch/safe area/background/force quit/signing не проверяются этим исследованием. Баланс-эксперимент для доказательства существования пути не требуется; полученные победы не означают, что баланс утверждён или дружелюбен к новичку.
+
+Первый полный EditMode: **760/761**, один failure нового REG189 из-за ошибочного требования reaction rollback в Combat4 у B (доTIDE5 реакций закономерно нет). Исправлен только test expectation: ранний rollback A4/B5 и обязательный late rollback7 обоих маршрутов; старый B Combat4 сохранён в историческом suite. Это не причина отбрасывать жизнеспособный script. [Raw initial report](initial-edit.xml.gz); production не менялся.

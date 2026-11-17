@@ -75,6 +75,7 @@ namespace Veilward.Tests.PlayMode
         [UnityTest] public IEnumerator RegBattle189_ProductionMenuNaturalGaleContinue() { yield return Route("B-coverage"); }
         private IEnumerator Route(string route)
         {
+            var earlyWave = route.StartsWith("A", StringComparison.Ordinal) ? 4 : 5;
             var script = JsonUtility.FromJson<Script>(File.ReadAllText("Docs/review/P2.3e.1/" + route + ".commands.json"));
             yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
             Record("MainMenu NewGame"); Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke();
@@ -121,7 +122,7 @@ namespace Veilward.Tests.PlayMode
                     {
                         Invoke(Battle, "LateUpdate"); yield return Capture(route + "-production-" + key);
                     }
-                    if ((wave == 4 || wave == 7) && !rolledBack && sawProc && s.State.Kills > startKills && s.State.Phase == BattlePhase.Combat)
+                    if ((wave == earlyWave || wave == 7) && !rolledBack && sawProc && s.State.Kills > startKills && s.State.Phase == BattlePhase.Combat)
                     {
                         Assert.That(Battle.Presentation.LastSummary, Is.Not.Empty);
                         var bytes = File.ReadAllBytes(store.PrimaryPath);
@@ -141,7 +142,7 @@ namespace Veilward.Tests.PlayMode
                     if (guard % 120 == 0) { Invoke(Battle, "LateUpdate"); yield return null; }
                 }
                 Assert.That(guard, Is.LessThan(20000));
-                if (wave == 4 || wave == 7) Assert.That(rolledBack, Is.True, "Natural Combat kill+positive proc rollback required");
+                if (wave == earlyWave || wave == 7) Assert.That(rolledBack, Is.True, "Natural Combat kill+positive proc rollback required");
                 Assert.That(State(), Is.EqualTo(JsonUtility.ToJson(expectedReport.waves[wave - 1].state)), "Menu/controller full snapshot equals Domain production replay");
                 Record("natural wave terminal");
                 if (Battle.Simulation.State.Phase != BattlePhase.WaveComplete) break;

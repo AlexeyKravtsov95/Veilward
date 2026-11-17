@@ -50,7 +50,7 @@ namespace Veilward.Tests.EditMode
                     reached.Add("pending" + wave);
                 }
                 if (point == "confirmed") reached.Add("confirmed" + wave);
-                if (point == "preparation" && (wave == 4 || wave == 7))
+                if (point == "preparation" && (wave == earlyWave || wave == 7))
                 {
                     if (Rollback(s)) reached.Add("rollback" + wave);
                     else audit.Add("BLOCKED Combat" + wave + " kill+proc prefix absent before natural terminal");
@@ -155,6 +155,7 @@ namespace Veilward.Tests.EditMode
         {
             var reached = new HashSet<string>();
             var script = NativeStrategyReplayTests.Load(route);
+            var earlyWave = route.StartsWith("A", StringComparison.Ordinal) ? 4 : 5;
             var control = NativeEightWaveReplayTests.ReplayScript(script);
             var continued = NativeEightWaveReplayTests.ReplayScript(script, (run, point) =>
             {
@@ -169,7 +170,7 @@ namespace Veilward.Tests.EditMode
                     FailedConfirm(s,wave==3?script.after3:script.after6); reached.Add("pending"+wave);
                 }
                 if (point == "confirmed") reached.Add("confirmed"+wave);
-                if (point == "preparation" && (wave == 4 || wave == 7))
+                if (point == "preparation" && (wave == earlyWave || wave == 7))
                 {
                     Assert.That(Rollback(s), Is.True, "Обязательный natural kill+positive proc prefix");
                     reached.Add("rollback"+wave);
@@ -178,7 +179,7 @@ namespace Veilward.Tests.EditMode
                 Assert.That(JsonUtility.ToJson(s.ExportCheckpoint()),Is.EqualTo(expected));
             });
             Assert.That(continued.trace,Is.EqualTo(control.trace));
-            foreach(var key in new[]{"pending3","confirmed3","pending6","confirmed6","rollback4","rollback7"})
+            foreach(var key in new[]{"pending3","confirmed3","pending6","confirmed6","rollback"+earlyWave,"rollback7"})
             { Assert.That(reached,Does.Contain(key)); audit.Add("PASS required natural "+key); }
             audit.Add("PASS full continued trace SHA256="+continued.report.traceSha256);
         }
