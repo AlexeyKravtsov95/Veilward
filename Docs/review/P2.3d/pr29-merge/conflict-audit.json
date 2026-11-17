@@ -1,0 +1,24 @@
+{
+  "mainCommit": "c1546c3282d9b5ce4bf67aa0465ac9138330c8cf",
+  "verifiedMergeSource": "59297f6b3f6397021b7e1b3a1f392f77a179f9cd",
+  "preservedTrees": {
+    "Assets": {
+      "mainTree": "5672258546e6a6c12f1b1135ed7a1ebecd6c4617",
+      "mergeTree": "5672258546e6a6c12f1b1135ed7a1ebecd6c4617",
+      "identical": true
+    },
+    "Packages": {
+      "mainTree": "b65db5755220f30fc7fc670e9500944e03d1ae82",
+      "mergeTree": "b65db5755220f30fc7fc670e9500944e03d1ae82",
+      "identical": true
+    },
+    "ProjectSettings": {
+      "mainTree": "440b100237428f8ec6b59f8e226b7ecead7ba6e7",
+      "mergeTree": "440b100237428f8ec6b59f8e226b7ecead7ba6e7",
+      "identical": true
+    }
+  },
+  "mainDocFilesPreserved": 340,
+  "originalPr29EvidenceFilesPreserved": 42,
+  "resolution": "Keep complete reviewed runtime, scenes, GUID, tests from merged PR30; preserve original PR29 evidence under pr29-original; README status and merge evidence only."
+}
