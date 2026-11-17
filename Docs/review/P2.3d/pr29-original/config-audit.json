@@ -1,0 +1,65 @@
+{
+  "base": "2a9da21de5f175cf8bf0fcd91064acc385be8d39",
+  "verifiedSourceCommit": "0f83c4ff526c354fdc947e8bf95e262069780702",
+  "normalization": "Only EightWave scenarioContentId and two newly serialized progression fields excluded. No combat fields excluded.",
+  "files": {
+    "Assets/_Game/Configs/TestWave.asset": {
+      "baseSHA256": "4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3",
+      "headSHA256": "4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3",
+      "combatOrIdentityUnchanged": true
+    },
+    "Assets/_Game/Configs/EightWave.asset": {
+      "baseSHA256": "2e2cd23aa7ccc9ac4c3b0a50176733aa0af38334ff9f3e26beb1a6261b371fe3",
+      "headSHA256": "641bd7f6f731ebbe06074af56481437bef2dca63e1b0d6205c4db0325e4a8472",
+      "combatOrIdentityUnchanged": true
+    },
+    "Assets/_Game/Configs/TestWave.asset.meta": {
+      "baseSHA256": "360ae937e4f6aa11f5a65ee749a3ed09198eb4e25cfe43cc5784879e5270a0c7",
+      "headSHA256": "360ae937e4f6aa11f5a65ee749a3ed09198eb4e25cfe43cc5784879e5270a0c7",
+      "combatOrIdentityUnchanged": true
+    },
+    "Assets/_Game/Configs/EightWave.asset.meta": {
+      "baseSHA256": "1d1d536c705b97071bb01f3407891ab0e23cd23e2f918e4713c3f2f6021fb118",
+      "headSHA256": "1d1d536c705b97071bb01f3407891ab0e23cd23e2f918e4713c3f2f6021fb118",
+      "combatOrIdentityUnchanged": true
+    },
+    "Assets/_Game/Scenes/Battle.unity.meta": {
+      "baseSHA256": "33cafdc1265d4c1ed933d1d170a645c1d085925ce2396e500eaf8ef1dbadbaf8",
+      "headSHA256": "33cafdc1265d4c1ed933d1d170a645c1d085925ce2396e500eaf8ef1dbadbaf8",
+      "combatOrIdentityUnchanged": true
+    },
+    "Assets/_Game/Scenes/MainMenu.unity.meta": {
+      "baseSHA256": "7f47a92eeb729af886c98f17f24c548d03bd717a6f595f8fe03ed2652cfcb774",
+      "headSHA256": "7f47a92eeb729af886c98f17f24c548d03bd717a6f595f8fe03ed2652cfcb774",
+      "combatOrIdentityUnchanged": true
+    },
+    "Assets/_Game/Scenes/MainMenu.unity": {
+      "baseSHA256": "985feedeb0671d172ca2a370172d4204f4942db76d41788fa49d54f9a98e46ae",
+      "headSHA256": "985feedeb0671d172ca2a370172d4204f4942db76d41788fa49d54f9a98e46ae",
+      "combatOrIdentityUnchanged": true
+    },
+    "Packages/manifest.json": {
+      "baseSHA256": "a78d2c59e34818add54d16dc5954518d2da7db5675de2581d98290da49ef6eef",
+      "headSHA256": "a78d2c59e34818add54d16dc5954518d2da7db5675de2581d98290da49ef6eef",
+      "combatOrIdentityUnchanged": true
+    },
+    "Packages/packages-lock.json": {
+      "baseSHA256": "aa3863f6781ab09d3883c846faec36322a393dae4955ff3cc9b6b5faa5d9b67e",
+      "headSHA256": "aa3863f6781ab09d3883c846faec36322a393dae4955ff3cc9b6b5faa5d9b67e",
+      "combatOrIdentityUnchanged": true
+    },
+    "ProjectSettings/ProjectVersion.txt": {
+      "baseSHA256": "91b35566b263574c8a513eff3bba6d5d313482d752d961077b47ab5b3ff14981",
+      "headSHA256": "91b35566b263574c8a513eff3bba6d5d313482d752d961077b47ab5b3ff14981",
+      "combatOrIdentityUnchanged": true
+    }
+  },
+  "unchangedDomains": [
+    "Domain",
+    "Infrastructure/schema3",
+    "art",
+    "packages",
+    "historical golden files"
+  ],
+  "mainMenuScene": "Original scene bytes preserved; native EightWave referenced through existing GUID."
+}

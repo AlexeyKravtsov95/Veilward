@@ -1,0 +1,162 @@
+{
+  "producer": "real Unity Editor Play Mode; capture game_view --source screen",
+  "sourceRuntimeCommit": "0f83c4ff526c354fdc947e8bf95e262069780702",
+  "files": [
+    {
+      "file": "01-start.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "35b81c65a078aa0ecda056e2c1c47ba5b920956d8a6b3d49285da45740f10d88"
+    },
+    {
+      "file": "02-locked-storm.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "c877bca6cc0bfb4f879fcb20535010b234a49c9460c92b9848d035adc96b8d9d"
+    },
+    {
+      "file": "03-locked-steam.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "8d59ee1e522256c61687e1ab4e332998a973efaf10d4f368e7d60f2a4110586e"
+    },
+    {
+      "file": "04-continue-native-army.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "21037c0d96524e3d662247ba82b4cc6e00bf89b5f6169ecbb60b50506c900ce9"
+    },
+    {
+      "file": "05-pending3-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "896cdd4285e91ef78fe3acda619c43cdafb563c3a9b07c1a0c01f9039d87435a"
+    },
+    {
+      "file": "05-pending6-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "6f89f6a15e903eafe9767e0e907f641e669cbff5a4d34d2dc19c056e46a610d9"
+    },
+    {
+      "file": "06-continue-pending3-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "c881c8865de196475a59a76511fc60cb1dec0bff25c0f965cc40cbf1550e4052"
+    },
+    {
+      "file": "06-continue-pending6-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "366b9400b8e597a44a24d5c928bef29a0e219563d7566694eb41d893d56e2a84"
+    },
+    {
+      "file": "07-pause.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "7fa39805a508598f1ec18c6846d408023dfbb9aed77eefb23767a15017d6beaa"
+    },
+    {
+      "file": "08-resume.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "c881c8865de196475a59a76511fc60cb1dec0bff25c0f965cc40cbf1550e4052"
+    },
+    {
+      "file": "09-continue-confirmed3-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "9cf1daddee3f478ba74a7233f72bf4e6230d616e31e1a9306905712d0cb0334d"
+    },
+    {
+      "file": "09-continue-confirmed6-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "f74253bb692e829da7a607578aae4fa1d9b762161e75af25b66de014293a5e02"
+    },
+    {
+      "file": "10-preparation4-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "dede4845377cf50915f2a421531729bd250d26eed76ddb967338fa480fd7b30f"
+    },
+    {
+      "file": "10-preparation7-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "1faa6ff8ecdf812878ee28429baa7da47060f68b85954de134c332aa1a362fe3"
+    },
+    {
+      "file": "11-continue-legacy-army-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "671972df1cfa7874ee9be92acd32b057b4c1467d13483effaf5c6aad757da6f3"
+    },
+    {
+      "file": "12-legacy-catalog-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "c38c54135fe40153a3525e6b63099ae7fefb3c792685c312c902aa76f31bdd3d"
+    },
+    {
+      "file": "13-legacy-catalog-4x3-synthetic.png",
+      "width": 1200,
+      "height": 900,
+      "SHA256": "1b44822a607e0868bba63905df93fd9743f4ccba2af7dcda1d66fae7c22ba10b"
+    },
+    {
+      "file": "14-start-4x3.png",
+      "width": 1200,
+      "height": 900,
+      "SHA256": "1a37056b789ac40c6025b92a8264eba9719e30a6a7f0386fe61cdead2e2a4557"
+    },
+    {
+      "file": "15-locked-steam-4x3.png",
+      "width": 1200,
+      "height": 900,
+      "SHA256": "a05f0230d91f9b1a59ce6357efd5e4303c023f2f9092ff70a5f067f76b86998f"
+    },
+    {
+      "file": "16-locked-storm-wide.png",
+      "width": 1950,
+      "height": 900,
+      "SHA256": "bbc77e9ec565b74daee0eca927ab5813a67d310fa05f6a8b172f263ad58085c1"
+    },
+    {
+      "file": "17-save-failure.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "d3f86408c26c5df8302a75eb46314ff370c810b9827be83404b65cccf8bce975"
+    },
+    {
+      "file": "18-retry-saved.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "ced3be975185075e4fba6b73e7ebd7922de11b953c77bc13c79b26add021b612"
+    },
+    {
+      "file": "19-native-combat.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "b45ff56be93c066108304106e4fdf1c4e2c19207cbc45dae6aa599b0883487d1"
+    },
+    {
+      "file": "20-main-menu-native.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "33d2b322ee6d7326f1f696427a81f7ea2602910436e188eaec74e872d7459e8f"
+    },
+    {
+      "file": "21-main-menu-legacy-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "07e20fd89fd18cc0c5aa1d15047f5e19b4ef1e1914b52021bb55f6341daf0860"
+    },
+    {
+      "file": "22-continue-legacy-synthetic.png",
+      "width": 1600,
+      "height": 900,
+      "SHA256": "671972df1cfa7874ee9be92acd32b057b4c1467d13483effaf5c6aad757da6f3"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+using System.IO;
+using UnityEngine;
+using Veilward.Presentation;
+using Veilward.Infrastructure;
+var root = Path.GetFullPath("TestResults/P23dQA/slot");
+MainMenuController.CheckpointStoreFactory = () => new WaveCheckpointStore(root);
+var menu = Object.FindFirstObjectByType<MainMenuController>();
+menu.ConfigureStore(new WaveCheckpointStore(root));
+menu.NewGameButton.onClick.Invoke();
+return "New Game through real menu, temporary slot";

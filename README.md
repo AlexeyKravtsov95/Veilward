@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. Текущий этап — **P2.2f / Task 5: replay, файловый rollback и impact evidence, ожидает независимого review/merge**. P2.2b–e находятся в `main`: Steam/Storm, шесть башен, VFX/два маркера/инспектор и safe-wave schema 2. Все шесть типов доступны с Preparation по утверждённому временному P-05; unlocks — P2.3. P2.2 не закрыт до review/merge P2.2f; баланс и G2 открыты.
+Unity-проект мобильной tower defense игры для iOS. Текущий этап — **P2.3d: native EightWave, обязательный выбор стихий и UI/Continue; реализация и review fixes в main после PR #30**. P2.3b/c предоставляют Domain progression и safe-wave schema 3. New Game начинает с FLAME/GALE, следующие открытия — после волн 3/6; старые checkpoint продолжаются по прежним all-open правилам. Natural replay/проходимость — P2.3e; баланс, device QA/G2 и TestFlight остаются открытыми.
 
 ## Окружение
 

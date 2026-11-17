@@ -1,0 +1,33 @@
+{
+  "verifiedSourceCommit": "59297f6b3f6397021b7e1b3a1f392f77a179f9cd",
+  "mainCommit": "c1546c3282d9b5ce4bf67aa0465ac9138330c8cf",
+  "environment": "macOS27.0.1 arm64; Unity6000.3.28f1 (8f082d2fe476), Hub batchmode -nographics -buildTarget iOS; Editor Mono",
+  "staticSelfTests": {
+    "total": 38,
+    "passed": 38
+  },
+  "reports": {
+    "EditMode": {
+      "total": "741",
+      "passed": "741",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-17 08:38:52Z",
+      "end-time": "2026-11-17 08:39:18Z",
+      "xmlSHA256": "bcd890eaa68e53caad2292318aa6afe2666bf5902dbf2e45a3cbe9f489bf7c63",
+      "gzipSHA256": "6c0382ee9530a604d55e4e85a5ac1b3a1f631e637e79d77b7a987a0eb17dd932"
+    },
+    "PlayMode": {
+      "total": "41",
+      "passed": "41",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "start-time": "2026-11-17 08:39:29Z",
+      "end-time": "2026-11-17 08:39:51Z",
+      "xmlSHA256": "874e4cf6f42bf13fb19b3288d02f05ecf09714fc0c222cd01290f49d6e7b26c2",
+      "gzipSHA256": "1b02a91cad197fd227039b446594496f0256486f8e20af3788185000153eb6c5"
+    }
+  }
+}
