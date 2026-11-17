@@ -50,7 +50,7 @@ namespace Veilward.Tests.EditMode
                     reached.Add("pending" + wave);
                 }
                 if (point == "confirmed") reached.Add("confirmed" + wave);
-                if (point == "preparation" && (wave == earlyWave || wave == 7))
+                if (point == "preparation" && (wave == 4 || wave == 7))
                 {
                     if (Rollback(s)) reached.Add("rollback" + wave);
                     else audit.Add("BLOCKED Combat" + wave + " kill+proc prefix absent before natural terminal");
