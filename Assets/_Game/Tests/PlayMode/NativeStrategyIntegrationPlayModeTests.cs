@@ -65,7 +65,7 @@ namespace Veilward.Tests.PlayMode
         [UnityTearDown] public IEnumerator TearDown()
         {
             UnityEngine.Application.logMessageReceived -= ConsoleMessage;
-            Directory.CreateDirectory("TestResults/P2.3e");
+            Directory.CreateDirectory("TestResults/P2.3e.1");
             var path = "TestResults/P2.3e.1/" + TestContext.CurrentContext.Test.Name;
             File.WriteAllLines(path + ".menu-trace.txt", trace); File.WriteAllLines(path + ".console.txt", console);
             BattleSessionContext.Clear(); yield return SceneManager.LoadSceneAsync("Battle"); yield return null;
