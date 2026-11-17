@@ -99,5 +99,10 @@
     "B-production-Storm-Intrinsic.png": "9237943dc5377e8f9338b8a5c76b6cbd0657a0c242f87505dfa10c13851f1644",
     "B-production-Storm-StatusPair.png": "8427526cdb67ac4c57a53458d792d14889047b34133ef987521d6444ca5d9b47",
     "B-rollback4.png": "0e8af28956a8ba1635495f311dab1a69d6eb224df2d417a412ed2d8c5e239530"
+  },
+  "lateMainIntegration": {
+    "commit": "3db7e4ccf4a9c9536d03b6dabd1d5ce08051ce8f",
+    "runtimeDataScriptsIdenticalToOriginalBase": true,
+    "changes": "Archived PR29 evidence + README only; preserve all archives and current P2.3e header; no new suite justified for doc-only merge."
   }
 }

@@ -2,7 +2,7 @@
 
 **VERIFIED:** test-only проверка production factory/public commands/реальных menu/controllers/file slots. **P2.3 НЕ DONE:** playable/proc acceptance после6 и Combat7 **FAIL/BLOCKED**, review/merge ожидаются. Gameplay, баланс, конфигурации, packages и арт не изменены.
 
-База: merged PR #30, `c1546c3282d9b5ce4bf67aa0465ac9138330c8cf`. Проверенный source commit: **`79bf582b469e9b41c937bf4948154d3278a0a878`**; последующие изменения только docs/evidence. Unity6000.3.28f1 (8f082d2fe476), macOS27.0.1/arm64, Editor Mono, active buildTarget iOS. Player/IL2CPP/Metal/device не запускались. Rules `wave-unlocks-v1`, content `eight-wave-unlocks-v1`; fixed30Hz, RNG отсутствует. [Config/package hashes](replay-summary.json), [точные команды/totals/report hashes](gates.json).
+База: merged PR #30, `c1546c3282d9b5ce4bf67aa0465ac9138330c8cf`. Проверенный source commit: **`79bf582b469e9b41c937bf4948154d3278a0a878`**; последующие изменения только docs/evidence. Пока выполнялась проверка, main получил PR #29 (`3db7e4c`): добавлены архивы P2.3d evidence и README, **Assets/Packages/ProjectSettings/Scripts byte-identical c1546c3**. Этот main принят в проверочную ветку, конфликт только README разрешён актуальным статусом P2.3e с сохранением ссылки на архив. Runtime/test source проверенного commit не изменился. Unity6000.3.28f1 (8f082d2fe476), macOS27.0.1/arm64, Editor Mono, active buildTarget iOS. Player/IL2CPP/Metal/device не запускались. Rules `wave-unlocks-v1`, content `eight-wave-unlocks-v1`; fixed30Hz, RNG отсутствует. [Config/package hashes](replay-summary.json), [точные команды/totals/report hashes](gates.json).
 
 ## Реальные забеги
 

@@ -1,0 +1,28 @@
+{
+  "verifiedSourceCommit": "0f83c4ff526c354fdc947e8bf95e262069780702",
+  "backend": "Hub Unity batchmode -nographics -buildTarget iOS; Editor Mono",
+  "reports": {
+    "EditMode": {
+      "total": "734",
+      "passed": "734",
+      "failed": "0",
+      "skipped": "0",
+      "inconclusive": "0",
+      "start-time": "2026-11-17 06:05:18Z",
+      "end-time": "2026-11-17 06:05:51Z",
+      "xmlSHA256": "814ae3979e966489226a01d712470b1472beb1b99d4365e02745c9acfd5fadeb",
+      "gzipSHA256": "9d6e10836dd64ab487a50bb0d59139726d552577ebc84b0cf60be7bde01e7b5d"
+    },
+    "PlayMode": {
+      "total": "36",
+      "passed": "36",
+      "failed": "0",
+      "skipped": "0",
+      "inconclusive": "0",
+      "start-time": "2026-11-17 06:06:02Z",
+      "end-time": "2026-11-17 06:06:25Z",
+      "xmlSHA256": "2a14677b81db46dce63c9b072435a8f97af55dd7405f94ad0963ed1e257924de",
+      "gzipSHA256": "328fdf2e7065103f4e5af226cff1883d6a53428f89ff2075f773077394db8bdc"
+    }
+  }
+}

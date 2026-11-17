@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. P2.3d merged PR #30: native EightWave, обязательный FLAME/GALE и открытия после волн 3/6, schema3 и legacy Continue. Проверочный P2.3e фиксирует реальные результаты ниже. P2.3 целиком, баланс, G2 и device QA остаются открытыми.
+Unity-проект мобильной tower defense игры для iOS. P2.3d merged PR #30: native EightWave, обязательный FLAME/GALE и открытия после волн 3/6, schema3 и legacy Continue. Проверочный P2.3e фиксирует реальные результаты ниже. P2.3 целиком, баланс, G2 и device QA остаются открытыми. Архив исходного evidence PR #29 и его merge gates сохранены в `Docs/review/P2.3d/pr29-original/` и `pr29-merge/`.
 
 ## Окружение
 
