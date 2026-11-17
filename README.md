@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. Текущий этап — **P2.2f / Task 5: replay, файловый rollback и impact evidence, ожидает независимого review/merge**. P2.2b–e находятся в `main`: Steam/Storm, шесть башен, VFX/два маркера/инспектор и safe-wave schema 2. Все шесть типов доступны с Preparation по утверждённому временному P-05; unlocks — P2.3. P2.2 не закрыт до review/merge P2.2f; баланс и G2 открыты.
+Unity-проект мобильной tower defense игры для iOS. Текущий этап — **P2.3d / Task 3: native EightWave, выбор стихий и UI/Continue, передаётся на независимое review**. P2.3b/c находятся в `main`: Domain progression и safe-wave schema 3. New Game начинает с обязательного FLAME/GALE; после волн 3/6 открывается ещё по одной стихии. Старые checkpoint продолжаются по прежним all-open правилам. Natural replay/проходимость — P2.3e; баланс, device QA и G2 открыты.
 
 ## Окружение
 
@@ -116,11 +116,11 @@ Pure C# `ReactionResolver` разрешает Steam/Storm после direct dama
 
 ## P2.3c: schema 3 и совместимость progression
 
-Safe-wave checkpoint теперь пишет schema **3** с deep-copy progression. Public New Game пока **all-open**: новый режим и UI выбора включаются в P2.3d. Native contract проверяется через opt-in test factory; `eight-wave-unlocks-v1` принимает родной checkpoint или ровно прежний `eight-wave-v1`, single-wave остаётся отдельным.
+Safe-wave checkpoint теперь пишет schema **3** с deep-copy progression. P2.3c добавил persistence; в P2.3d Public New Game использует **native progression**; `eight-wave-unlocks-v1` принимает родной checkpoint или ровно прежний `eight-wave-v1`, single-wave остаётся отдельным.
 
 Schema 1/2 мигрируются только в памяти: прежние башни v1 → `test-tower`, v2 сохраняет точные типы/уровни/вложения/cooldown/ID/cells, включая Steam/Storm. Legacy получает все четыре стихии без earned/spent/history/pending и backfill. Следующий Save пишет schema 3 с прежним content ID. Decode → normalize → factory → Domain validation выполняются независимо для primary/backup; Load не меняет bytes. Повреждённый primary не вытесняет валидный backup.
 
-Успешный Confirm сохраняется даже без смены фазы. Failed save оставляет live-команду, блокирует Start/Next до успешного Retry Save и допускает полный откат к durable snapshot после выхода. Eligibility проверяется до файловых side effects; Next сохраняет WaveComplete до перехода и Preparation после него. [REG-174…183](Docs/REGRESSION.md), [evidence и ограничения](Docs/review/P2.3c/validation.md). Production unlock UI, device QA и баланс этим этапом не подтверждаются.
+Успешный Confirm сохраняется даже без смены фазы. Failed save оставляет live-команду, блокирует Start/Next до успешного Retry Save и допускает полный откат к durable snapshot после выхода. Eligibility проверяется до файловых side effects; Next сохраняет WaveComplete до перехода и Preparation после него. [REG-174…183](Docs/REGRESSION.md), [evidence и ограничения](Docs/review/P2.3c/validation.md). На этапе P2.3c UI ещё не был включён; актуальный UI contract приведён ниже. Device QA и баланс не подтверждены.
 
 ## Настройки репозитория
 
@@ -156,6 +156,16 @@ P1.5b проверен в настоящем Editor Play Mode через реа�
 
 **Физический iPhone не проверялся.** Force quit/relaunch, built-player touch, signing, safe area, производительность, Simulator и реальные iOS background/focus для P1.5b также не проверялись. Ветка передаётся на независимый review; self-merge не выполняется.
 
+
+## P2.3d: native EightWave и обязательный выбор
+
+`EightWave` использует content ID `eight-wave-unlocks-v1`, ровно восемь волн, стартовые FLAME/GALE и открытия после 3/6. Builder сериализует эти settings через Unity API, GUID сохранён. Malformed/missing settings отклоняются; shared combat data по-прежнему берутся из `TestWave`. Баланс и исторические replay JSON не менялись.
+
+New Game открывает выбор без preselect. Tap хранит только preview, Cancel очищает его, Confirm отправляет Domain-команду и сохраняет результат даже без смены фазы. После межволнового Confirm остаётся WaveComplete; Next и Start — отдельные действия. Все шесть карточек видимы: цена, Domain availability, конкретные missing elements либо недостаток Gold. Locked карточка даёт read-only описание без world preview. Native строительство требует явно выбранного доступного типа.
+
+Pause/background очищают preview, сохраняют pending и замораживают simulation; Resume требует нового выбора и подавляет текущий pointer без catch-up. Единый pause/modal guard защищает прямые API и реальные callbacks. При save failure live-успех остаётся, ошибка видна; Retry Save вызывает только SaveCurrentState. Start/Next после восстановления storage повторяют safe save и переходят лишь после успеха. Retry в Combat отклоняется без записи и изменения статуса.
+
+Continue через меню восстанавливает pending/confirmed snapshot без preview/повторной награды. Старые schema1/2 и schema3 legacy используют compatibility factory P2.3c; UI помечает прежние правила и сохраняет все доступные башни. Исторические all-open tests используют явно именованные внутренние fixtures; новые production ожидания проверяются отдельно. [REG-173/184/185](Docs/REGRESSION.md), [проверки и реальные Play Mode screenshots](Docs/review/P2.3d/validation.md). Synthetic boundaries 3/6 проверяют UI/restore, не естественную проходимость. Физический iPhone, safe area/touch на устройстве, G2 и TestFlight не закрыты.
 
 ## P2.2d — гибриды и production config
 
