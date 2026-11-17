@@ -64,8 +64,16 @@ namespace Veilward.Presentation
             }
         }
 
-        public bool CanAcceptInput(BattleInputOwner owner = BattleInputOwner.None) =>
-            !IsPaused && (ActiveModalOwner == BattleInputOwner.None || ActiveModalOwner == owner);
+        public bool CanAcceptInput(BattleInputOwner owner = BattleInputOwner.None)
+        {
+            if (IsPaused) return false;
+            var activeOwner = ActiveModalOwner;
+            // Read-only инспектор может забрать обычный выбор построенной башни.
+            // Sell/обязательный выбор стихии не передают ему владение вводом.
+            var canInspectSelectedTower = owner == BattleInputOwner.Inspector &&
+                activeOwner == BattleInputOwner.Placement && placementController.SelectedTowerId.HasValue;
+            return activeOwner == BattleInputOwner.None || activeOwner == owner || canInspectSelectedTower;
+        }
 
         private void Start()
         {

@@ -644,7 +644,8 @@ namespace Veilward.Presentation
 
         private void TryHandlePointer(Vector2 screenPosition, int? pointerId)
         {
-            if (!battle.CanAcceptInput(BattleInputOwner.Placement) || _isSellConfirmationVisible || Time.frameCount <= _pointerSuppressedUntilFrame)
+            if ((!battle.CanAcceptInput(BattleInputOwner.Placement) && !battle.CanAcceptInput(BattleInputOwner.Inspector)) ||
+                _isSellConfirmationVisible || Time.frameCount <= _pointerSuppressedUntilFrame)
                 return;
             if (EventSystem.current != null)
             {
