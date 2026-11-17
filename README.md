@@ -1,6 +1,8 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. P2.3d merged PR #30: native EightWave, обязательный FLAME/GALE и открытия после волн 3/6, schema3 и legacy Continue. Проверочный P2.3e фиксирует реальные результаты ниже. P2.3 целиком, баланс, G2 и device QA остаются открытыми. Архив исходного evidence PR #29 и его merge gates сохранены в `Docs/review/P2.3d/pr29-original/` и `pr29-merge/`.
+Unity-проект мобильной tower defense игры для iOS. **Технический P2.3 DONE** после merged [PR #32](https://github.com/AlexeyKravtsov95/Veilward/pull/32), `8128010`: native FLAME/GALE, unlock3/6, schema3/legacy Continue, natural Victory8 обоих стартов и late file/menu/Combat7. [Evidence P2.3e.1](Docs/review/P2.3e.1/validation.md) дополняет сохранённый исторический P2.3e Defeat5. Баланс/G2, device QA и ART approval отдельно открыты.
+
+Следующий scope #35: [контракт способности/босса P2.4a](Docs/P2.4A_ABILITY_BOSS.md) и [план #36–40](Docs/P2.4A_IMPLEMENTATION_PLAN.md); только SPECIFIED, runtime ещё не реализован, числа ожидают review владельца. [Релизные границы M0/M1/1.0](https://github.com/AlexeyKravtsov95/Veilward/issues/33): M0 требует готовую карту/арт,6 башен,8 волн,способность,босса,tutorial/UI/VFX/audio и реальные device/G2 gates.10 башен/3 карты/15 волн/кампания — отдельный1.0 scope. Архив исходного evidence PR #29 и merge gates сохранён в `Docs/review/P2.3d/pr29-original/` и `pr29-merge/`.
 
 ## Окружение
 
@@ -194,4 +196,4 @@ New Game использует `eight-wave-unlocks-v1`: обязательный 
 
 VERIFIED: детерминизм целых traces и файлового replay; Steam intrinsic4/pair5 в A, Storm intrinsic4/pair5 в B; экономика с обычными ценами/refund, accepted Upgrade и repeated Sell; реальные меню/controllers и isolated filesystem, pending/confirmed3, failed-save restart, Combat4 kill+proc rollback, schema1/2/legacy hybrid army и native↔legacy backup. [Результаты](Docs/review/P2.3e/replay-summary.json) и реальные Play Mode кадры отделены от исторических fixtures.
 
-FAIL/BLOCKED acceptance: в обоих scripts ранний Defeat, нет after6, второй пары/гибрида в одном забеге и native Combat7 rollback. Это не доказательство невозможности выиграть другими стратегиями. Нужна отдельная узкая проверка ранней обороны/бюджета и решение владельца; gameplay/баланс/configs этим PR не меняются. P2.3 **не DONE**, review/merge ожидаются; physical iPhone, IL2CPP/Metal player, device QA/G2, баланс, ART approval и TestFlight отдельно.
+FAIL/BLOCKED acceptance: в обоих scripts ранний Defeat, нет after6, второй пары/гибрида в одном забеге и native Combat7 rollback. Это не доказательство невозможности выиграть другими стратегиями. Это историческое ограничение P2.3e; P2.3e.1 нашёл natural Victory8 обоих стартов и закрыл late acceptance без изменения gameplay/configs. После review и merge #32 технический P2.3 **DONE**; исходные отчёты сохранены; physical iPhone, IL2CPP/Metal player, device QA/G2, баланс, ART approval и TestFlight отдельно.

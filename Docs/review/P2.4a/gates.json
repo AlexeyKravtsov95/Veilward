@@ -1,0 +1,52 @@
+{
+  "baseCommit": "8128010051c2b048b32b0a48df5b862bb2d5a7da",
+  "scope": "docs-only; runtime content unchanged from base",
+  "environment": {
+    "os": "macOS-27.0.1-arm64-arm-64bit",
+    "unity": "6000.3.28f1 (8f082d2fe476)",
+    "unityCli": "1.0.1",
+    "scriptingBackend": "Editor Mono",
+    "buildTarget": "iOS",
+    "ticksPerSecond": 30
+  },
+  "static": {
+    "command": "./Scripts/run-static-checks.sh",
+    "passed": 38,
+    "total": 38,
+    "projectChecks": "PASS"
+  },
+  "suites": {
+    "EditMode": {
+      "command": "./Scripts/run-edit-mode-tests.sh",
+      "backend": "auto -> batch",
+      "total": 761,
+      "passed": 761,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "startUtc": "2026-11-17 16:15:19Z",
+      "endUtc": "2026-11-17 16:15:49Z",
+      "xmlSha256": "d3d965c684f92a6c5314772e8ba5d4d0bc4325afc0bb0d01a3decf24baa8bcb8",
+      "artifact": "Docs/review/P2.4a/reports/EditMode.xml.gz"
+    },
+    "PlayMode": {
+      "command": "./Scripts/run-play-mode-tests.sh",
+      "backend": "auto -> batch",
+      "total": 45,
+      "passed": 45,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "startUtc": "2026-11-17 16:16:12Z",
+      "endUtc": "2026-11-17 16:16:44Z",
+      "xmlSha256": "7538b6269f3548cf1569da73a9676e01fdfcb5dfc0b9154aa67ecc6406d22ef5",
+      "artifact": "Docs/review/P2.4a/reports/PlayMode.xml.gz"
+    }
+  },
+  "limitations": [
+    "Existing suites only; REG190..217 SPECIFIED",
+    "No new ability/boss runtime tests",
+    "No new visual feature/screenshots",
+    "No physical iPhone/IL2CPP/Metal/player/performance/G2/ART/product balance approval"
+  ]
+}
