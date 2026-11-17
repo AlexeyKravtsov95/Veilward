@@ -17,5 +17,5 @@
 | Исторические P2.3e Defeat5/Stone и synthetic fixtures | VERIFIED | Неизменные historical files, полные suites; synthetic не выдаются за natural |
 | Static/полные EditMode/PlayMode/diff | VERIFIED | 38/38; 761/761; 45/45; Visual2/2; gates.json/reports |
 | Runtime/config/packages/art/meta | VERIFIED | Без production delta от merge PR31; config-audit.json/static |
-| P2.3 overall | NOT DONE | Production late evidence закрыто; independent review/owner approval/merge отдельно |
+| P2.3 overall | NOT DONE | Production late evidence закрыто; независимое техническое review PASS, owner approval/merge отдельно |
 | Device/G2/баланс/ART approval/TestFlight | NOT VERIFIED / BLOCKED | Не входят в этот PR; Editor evidence их не заменяет |
