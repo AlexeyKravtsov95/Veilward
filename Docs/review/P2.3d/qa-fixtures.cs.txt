@@ -209,4 +209,3 @@ view.GetType().GetProperty("selectedSizeIndex").SetValue(view, count - 1);
 view.Focus(); view.Repaint();
 UnityEngine.Application.runInBackground = true;
 return new { UnityEngine.Screen.width, UnityEngine.Screen.height, frame = UnityEngine.Time.frameCount };
-
