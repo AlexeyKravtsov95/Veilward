@@ -4,7 +4,8 @@ namespace Veilward.Domain
     {
         Direct,
         Burn,
-        Reaction
+        Reaction,
+        Ability
     }
 
     public readonly struct DamageResolvedEvent
@@ -25,7 +26,9 @@ namespace Veilward.Domain
             bool wasLethal,
             ReactionKind? reactionKind,
             int? reactionSequenceInTick,
-            int hitIndex)
+            int hitIndex,
+            AbilityDefinitionId? sourceAbilityId = null,
+            long? abilityCastSequence = null)
         {
             Tick = tick;
             SequenceInTick = sequenceInTick;
@@ -43,6 +46,8 @@ namespace Veilward.Domain
             ReactionKind = reactionKind;
             ReactionSequenceInTick = reactionSequenceInTick;
             HitIndex = hitIndex;
+            SourceAbilityId = sourceAbilityId;
+            AbilityCastSequence = abilityCastSequence;
         }
 
         public long Tick { get; }
@@ -62,5 +67,7 @@ namespace Veilward.Domain
         public int? ReactionSequenceInTick { get; }
         // Steam primary = 0; Storm дополнительные попадания = 1/2.
         public int HitIndex { get; }
+        public AbilityDefinitionId? SourceAbilityId { get; }
+        public long? AbilityCastSequence { get; }
     }
 }
