@@ -202,7 +202,7 @@ namespace Veilward.Tests.EditMode
             }
 
             serialized.ApplyModifiedPropertiesWithoutUndo();
-            return config.CreateSimulation();
+            return config.CreateLegacyAllOpenSimulation();
         }
 
         private WaveCheckpointEnvelope Load(WaveCheckpointStore store)

@@ -8,6 +8,8 @@ using Application = UnityEngine.Application;
 
 namespace Veilward.Presentation
 {
+    public enum BattleModalOwner { None, ElementChoice, Sell, Inspector }
+
     [DefaultExecutionOrder(-100)]
     public sealed class BattleSceneController : MonoBehaviour
     {
@@ -25,6 +27,8 @@ namespace Veilward.Presentation
         [SerializeField] private BattlePlacementController placementController;
         [SerializeField] private BattleCheckpointController checkpointController;
         [SerializeField] private EnemyInspectorController enemyInspector;
+        [SerializeField] private ElementChoiceController elementChoice;
+        [SerializeField] private UnityEngine.UI.Button retrySaveButton;
         [SerializeField] private UnityEngine.UI.Text reactionSummaryText;
         private const int ReactionPoolCapacity = 24;
         private readonly ReactionEffectView[] _reactionPool = new ReactionEffectView[ReactionPoolCapacity];
@@ -45,6 +49,37 @@ namespace Veilward.Presentation
 
         public BattleSimulation Simulation => _simulation;
         public bool IsPaused => pauseController != null && pauseController.IsPaused;
+
+        public BattleModalOwner ActiveModalOwner
+        {
+            get
+            {
+                if (placementController != null && placementController.IsSellConfirmationVisible) return BattleModalOwner.Sell;
+                if (enemyInspector != null && enemyInspector.SelectedEnemyId.HasValue) return BattleModalOwner.Inspector;
+                if (_simulation != null && _simulation.State.ElementProgression.PendingChoiceId != "none") return BattleModalOwner.ElementChoice;
+                return BattleModalOwner.None;
+            }
+        }
+        public bool CanAcceptInput(BattleModalOwner owner = BattleModalOwner.None) =>
+            !IsPaused && (ActiveModalOwner == BattleModalOwner.None || ActiveModalOwner == owner);
+
+        internal void ClearWorldSelection()
+        {
+            if (placementController != null) placementController.ClearSelection();
+            if (enemyInspector != null) enemyInspector.ClearSelection();
+        }
+        internal void ClearTransientInput()
+        {
+            ClearWorldSelection();
+            if (elementChoice != null) elementChoice.ClearPreview();
+        }
+        public bool RetryCheckpointSave()
+        {
+            if (!CanAcceptInput(BattleModalOwner.ElementChoice) || checkpointController == null ||
+                _simulation == null || _simulation.State.Phase == BattlePhase.Combat) return false;
+            return checkpointController.RetrySave();
+        }
+        public void HandleRetrySave() => RetryCheckpointSave();
 
         private void Start()
         {
@@ -132,11 +167,21 @@ namespace Veilward.Presentation
 
             SynchronizeViews();
             UpdateHud();
+            if (retrySaveButton != null)
+            {
+                retrySaveButton.gameObject.SetActive(checkpointController != null && !checkpointController.LastSaveSucceeded);
+                retrySaveButton.interactable = _simulation.State.Phase != BattlePhase.Combat && CanAcceptInput(BattleModalOwner.ElementChoice);
+            }
         }
 
         public PlaceTowerResult PlaceTower(GridCoordinate coordinate)
         {
             if (_simulation == null) throw new InvalidOperationException("Battle simulation is not initialized.");
+            if (_simulation.State.ElementProgression.RulesId == "wave-unlocks-v1")
+            {
+                var selected = placementController != null ? placementController.SelectedTowerTypeId : default;
+                return PlaceTower(selected, coordinate);
+            }
             return PlaceTower(_simulation.TowerDefinition.Id, coordinate);
         }
 
@@ -147,7 +192,7 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("Battle simulation is not initialized.");
             }
 
-            if (IsPaused)
+            if (!CanAcceptInput())
             {
                 return PlaceTowerResult.Failed(PlaceTowerFailureReason.InvalidPhase);
             }
@@ -168,7 +213,7 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("Battle simulation is not initialized.");
             }
 
-            if (IsPaused)
+            if (!CanAcceptInput())
             {
                 return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
             }
@@ -189,11 +234,20 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("Battle simulation is not initialized.");
             }
 
-            if (IsPaused)
-            {
-                return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
-            }
+            if (!CanAcceptInput()) return TowerOperationResult.Failed(TowerOperationFailureReason.InvalidPhase);
+            return SellTowerCore(towerId);
+        }
 
+        internal TowerOperationResult ConfirmSellTower(BattlePlacementController caller, TowerId towerId)
+        {
+            if (caller != placementController || !CanAcceptInput(BattleModalOwner.Sell) ||
+                caller.SelectedTowerId != towerId || !caller.IsSellConfirmationVisible)
+                return TowerOperationResult.Failed(TowerOperationFailureReason.ConfirmationRequired);
+            return SellTowerCore(towerId);
+        }
+
+        private TowerOperationResult SellTowerCore(TowerId towerId)
+        {
             var result = _simulation.SellTower(towerId);
             if (result.Success)
             {
@@ -211,7 +265,7 @@ namespace Veilward.Presentation
         public ElementChoiceResult ChooseElement(ChooseElementCommand command)
         {
             if (_simulation == null) throw new InvalidOperationException("Battle simulation is not initialized.");
-            if (IsPaused) return new ElementChoiceResult(ElementChoiceFailureReason.InvalidPhase);
+            if (!CanAcceptInput(BattleModalOwner.ElementChoice)) return new ElementChoiceResult(ElementChoiceFailureReason.InvalidPhase);
             var result = _simulation.ChooseElement(command);
             if (result.Success && checkpointController != null) checkpointController.SaveCurrentState();
             return result;
@@ -230,9 +284,10 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("Battle simulation is not initialized.");
             }
 
-            if (IsPaused)
+            if (!CanAcceptInput())
             {
-                return WaveTransitionResult.RejectedInvalidPhase;
+                return !IsPaused && _simulation.State.Phase == BattlePhase.Preparation && ActiveModalOwner == BattleModalOwner.ElementChoice
+                    ? WaveTransitionResult.RejectedPendingElementChoice : WaveTransitionResult.RejectedInvalidPhase;
             }
 
             var eligibility = _simulation.CheckStartWave();
@@ -259,9 +314,10 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("Battle simulation is not initialized.");
             }
 
-            if (IsPaused)
+            if (!CanAcceptInput())
             {
-                return WaveTransitionResult.RejectedInvalidPhase;
+                return !IsPaused && ActiveModalOwner == BattleModalOwner.ElementChoice && _simulation.State.Phase == BattlePhase.WaveComplete
+                    ? WaveTransitionResult.RejectedPendingElementChoice : WaveTransitionResult.RejectedInvalidPhase;
             }
 
             var eligibility = _simulation.CheckContinueToNextWave();
@@ -328,6 +384,11 @@ namespace Veilward.Presentation
 
             SynchronizeViews();
             UpdateHud();
+            if (retrySaveButton != null)
+            {
+                retrySaveButton.gameObject.SetActive(checkpointController != null && !checkpointController.LastSaveSucceeded);
+                retrySaveButton.interactable = _simulation.State.Phase != BattlePhase.Combat && CanAcceptInput(BattleModalOwner.ElementChoice);
+            }
             if (reactionSummaryText != null && _summaryCanvas != null && _summaryCanvas.scaleFactor > 0)
             {
                 var area = Screen.safeArea;
@@ -421,7 +482,7 @@ namespace Veilward.Presentation
                 if (UnityEngine.Application.isPlaying) Destroy(view.gameObject); else DestroyImmediate(view.gameObject);
             _towerViews.Clear(); _towerViewLevels.Clear();
             if (enemyInspector != null) enemyInspector.Close();
-            if (placementController != null) placementController.CancelSelection();
+            ClearTransientInput();
             if (reactionSummaryText != null) reactionSummaryText.text = string.Empty;
             SynchronizeViews();
         }

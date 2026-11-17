@@ -100,7 +100,7 @@ namespace Veilward.Tests.EditMode
                 throw new InvalidOperationException("Saved EightWave asset is missing: " + EightWavePath);
             }
 
-            var simulation = config.CreateSimulation();
+            var simulation = config.CreateLegacyAllOpenSimulation();
             var commands = new List<string>();
             var waveSummaries = new List<string>();
             var timeline = new List<string> { "INITIAL|" + Snapshot(simulation) };

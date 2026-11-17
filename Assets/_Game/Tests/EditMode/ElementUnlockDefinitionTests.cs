@@ -90,12 +90,12 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
-        public void RegBattle172_ExistingFailureValuesAndPublicAllOpenFactories_ArePreserved()
+        public void RegBattle172_ExistingFailureValuesAndExplicitLegacyFactory_ArePreserved()
         {
             Assert.That((int)PlaceTowerFailureReason.IdentifierExhausted, Is.EqualTo(7));
             Assert.That((int)TowerOperationFailureReason.ConfirmationRequired, Is.EqualTo(7));
             Assert.That((int)WaveTransitionResult.RejectedIdExhausted, Is.EqualTo(4));
-            var s = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset").CreateSimulation();
+            var s = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset").CreateLegacyAllOpenSimulation();
             Assert.That(s.State.ElementProgression.RulesId, Is.EqualTo("legacy-all-open-v1"));
             Assert.That(s.State.ElementProgression.UnlockedElements.Count, Is.EqualTo(4));
             Assert.That(s.State.ElementProgression.PendingChoiceId, Is.EqualTo("none"));

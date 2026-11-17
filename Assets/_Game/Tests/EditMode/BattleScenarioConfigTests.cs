@@ -174,7 +174,7 @@ namespace Veilward.Tests.EditMode
             }
 
             serialized.ApplyModifiedPropertiesWithoutUndo();
-            var simulation = config.CreateSimulation();
+            var simulation = config.CreateLegacyAllOpenSimulation();
             Assert.That(simulation.State.WaveCount, Is.EqualTo(2));
             var placement = simulation.PlaceTower(new PlaceTowerCommand(
                 simulation.TowerDefinition.Id,

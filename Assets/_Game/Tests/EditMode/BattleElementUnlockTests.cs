@@ -238,7 +238,7 @@ namespace Veilward.Tests.EditMode
         [Test]
         public void RegBattle170_LegacyModeAndMissingCredit_AreRejected()
         {
-            var legacy = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset").CreateSimulation();
+            var legacy = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWave.asset").CreateLegacyAllOpenSimulation();
             Reject(legacy, null, null, ElementChoiceFailureReason.ProgressionDisabled);
             legacy.StartWave();
             Reject(legacy, null, null, ElementChoiceFailureReason.InvalidPhase);

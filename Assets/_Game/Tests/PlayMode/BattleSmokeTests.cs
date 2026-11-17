@@ -34,6 +34,7 @@ namespace Veilward.Tests.PlayMode
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
 
+            LegacyBattleFixture.Activate();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             var placement = Object.FindFirstObjectByType<BattlePlacementController>();
             // Изолированный economy fixture позволяет пройти MAX без изменения saved balance.

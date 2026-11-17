@@ -48,9 +48,10 @@ namespace Veilward.Tests.PlayMode
             {
                 yield return SceneManager.LoadSceneAsync("Battle");
                 yield return null;
+            LegacyBattleFixture.Activate();
                 var battle = Object.FindFirstObjectByType<BattleSceneController>();
                 var placement = Object.FindFirstObjectByType<BattlePlacementController>();
-                Assert.That(placement.CatalogButtons.Select(b => b.GetComponentInChildren<Text>().text),
+                Assert.That(placement.CatalogButtons.Select(b => b.GetComponentInChildren<Text>().text.Split('\n')[0]),
                     Is.EqualTo(new[] { "FLAME", "TIDE", "GALE", "STONE", "STEAM", "STORM" }));
                 placement.TrySelectCell(Cell); placement.SelectTowerType(new TowerDefinitionId(id));
                 Button("Pause Button").onClick.Invoke();
@@ -83,6 +84,7 @@ namespace Veilward.Tests.PlayMode
         {
             yield return SceneManager.LoadSceneAsync("Battle");
             yield return null;
+            LegacyBattleFixture.Activate();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             var placement = Object.FindFirstObjectByType<BattlePlacementController>();
             placement.TrySelectCell(Cell);
@@ -138,10 +140,11 @@ namespace Veilward.Tests.PlayMode
                 Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke();
                 yield return null;
                 yield return null;
+                LegacyBattleFixture.Activate(_store);
                 var battle = Object.FindFirstObjectByType<BattleSceneController>();
                 var placement = Object.FindFirstObjectByType<BattlePlacementController>();
                 Assert.That(placement.TrySelectCell(Cell), Is.True);
-                placement.CatalogButtons.Single(b => b.GetComponentInChildren<Text>().text == id.ToUpperInvariant()).onClick.Invoke();
+                placement.CatalogButtons.Single(b => b.name == "Catalog " + id).onClick.Invoke();
                 var price = battle.Simulation.TowerCatalog.Get(new TowerDefinitionId(id)).Levels[0].Price;
                 Button("Confirm Button").onClick.Invoke();
                 Button("Confirm Button").onClick.Invoke();
@@ -188,6 +191,7 @@ namespace Veilward.Tests.PlayMode
         {
             yield return SceneManager.LoadSceneAsync("Battle");
             yield return null;
+            LegacyBattleFixture.Activate();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             Assert.That(battle.PlaceTower(new TowerDefinitionId("test-tower"), Cell).Success, Is.True);
             var state = battle.Simulation.ExportCheckpoint();

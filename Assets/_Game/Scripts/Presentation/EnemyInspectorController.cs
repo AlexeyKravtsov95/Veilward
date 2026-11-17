@@ -34,7 +34,7 @@ namespace Veilward.Presentation
 
         public bool Select(EnemyId id)
         {
-            if (battle.IsPaused || placement.IsSellConfirmationVisible || Find(id) == null) return false;
+            if (!battle.CanAcceptInput(BattleModalOwner.Inspector) || Find(id) == null) return false;
             placement.CancelSelection();
             SelectedEnemyId = id;
             _displayedTick = -1;
@@ -43,7 +43,7 @@ namespace Veilward.Presentation
         }
         public bool TrySelectAt(Vector2 screenPosition)
         {
-            if (battle.IsPaused || placement.IsSellConfirmationVisible) return false;
+            if (!battle.CanAcceptInput(BattleModalOwner.Inspector)) return false;
             var enemies = battle.Simulation.State.Enemies;
             EnemyState nearest = null; var best = 32f * 32f;
             for (var i = 0; i < enemies.Count; i++)
@@ -60,6 +60,11 @@ namespace Veilward.Presentation
         }
         public void Close()
         {
+            if (battle != null && !battle.CanAcceptInput(BattleModalOwner.Inspector)) return;
+            ClearSelection();
+        }
+        internal void ClearSelection()
+        {
             SelectedEnemyId = null;
             _displayedTick = -1;
             if (panel != null) panel.SetActive(false);
@@ -69,7 +74,7 @@ namespace Veilward.Presentation
         public void Refresh()
         {
             var enemy = SelectedEnemyId.HasValue ? Find(SelectedEnemyId.Value) : null;
-            if (enemy == null) { if (SelectedEnemyId.HasValue) Close(); return; }
+            if (enemy == null) { if (SelectedEnemyId.HasValue) ClearSelection(); return; }
             panel.SetActive(!battle.IsPaused && !placement.IsSellConfirmationVisible);
             var scale = _canvas != null ? _canvas.scaleFactor : 1;
             if (scale > 0)

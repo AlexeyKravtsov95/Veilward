@@ -64,6 +64,10 @@ namespace Veilward.Presentation
         [SerializeField, Min(0)] private int waveCompletionBonus;
         [SerializeField] private WaveSettings[] waves;
 
+        [Header("Native Element Progression (EightWave only)")]
+        [SerializeField] private ElementKind[] progressionStartingOptions;
+        [SerializeField] private int[] progressionChoiceWaves;
+
         [Serializable]
         public sealed class WaveSettings
         {
@@ -140,6 +144,12 @@ namespace Veilward.Presentation
 
         public BattleSimulation CreateSimulation()
         {
+            if (scenarioContentId == WaveCheckpointCompatibility.NativeContentId)
+                return CreateSimulation(CreateNativeRules());
+            if (waves != null && waves.Length > 0)
+                throw new ArgumentException("New multi-wave games require native progression content/settings.");
+            if (scenarioContentId != WaveCheckpointCompatibility.LegacySingleWaveContentId)
+                throw new ArgumentException("Unknown scenario content ID.");
             return CreateSimulationCore(null, historical: false);
         }
 
@@ -151,9 +161,19 @@ namespace Veilward.Presentation
                 !WaveCheckpointCompatibility.TryNormalize(normalized, requestedId, out _, out var error))
                 throw new ArgumentException("Checkpoint is incompatible with this scenario.", nameof(normalized));
             return normalized.scenarioContentId == WaveCheckpointCompatibility.NativeContentId
-                ? CreateSimulation(new ElementUnlockRules(new[] { ElementKind.Flame, ElementKind.Gale }, new[] { 3, 6 }))
+                ? CreateSimulation(CreateNativeRules())
                 : CreateSimulationCore(null, historical: false);
         }
+
+        private ElementUnlockRules CreateNativeRules()
+        {
+            if (progressionStartingOptions == null || progressionChoiceWaves == null)
+                throw new ArgumentException("Native progression settings are required.");
+            return new ElementUnlockRules(progressionStartingOptions, progressionChoiceWaves);
+        }
+
+        // Явный historical/test control; не пользовательский переключатель режима.
+        internal BattleSimulation CreateLegacyAllOpenSimulation() => CreateSimulationCore(null, historical: false);
 
         internal BattleSimulation CreateSimulation(ReactionCatalog reactionCatalog)
         {

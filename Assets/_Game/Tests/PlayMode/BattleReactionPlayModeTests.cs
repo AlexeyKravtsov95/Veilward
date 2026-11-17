@@ -213,6 +213,7 @@ namespace Veilward.Tests.PlayMode
         {
             yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
             Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke(); yield return null; yield return null;
+            LegacyBattleFixture.Activate(new WaveCheckpointStore(_slot));
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             battle.StartWave(); yield return null;
             Assert.That((bool)Call(Inspector(), "Select", battle.Simulation.State.Enemies[0].Id), Is.True);
@@ -249,6 +250,7 @@ namespace Veilward.Tests.PlayMode
         {
             yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
             Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke(); yield return null; yield return null;
+            LegacyBattleFixture.Activate(new WaveCheckpointStore(_slot));
             var battle = Object.FindFirstObjectByType<BattleSceneController>(); battle.enabled = false;
             var store = new WaveCheckpointStore(_slot);
             BattleCheckpoint preparation = null;
@@ -368,7 +370,7 @@ namespace Veilward.Tests.PlayMode
             Assert.That(Inspector().GetType().GetProperty("SelectedEnemyId").GetValue(Inspector()), Is.Null);
             Assert.That(battle.GetComponentsInChildren(Required("ReactionEffectView"), false), Is.Empty);
         }
-        private static IEnumerator Load() { yield return SceneManager.LoadSceneAsync("Battle"); yield return null; }
+        private static IEnumerator Load() { yield return SceneManager.LoadSceneAsync("Battle"); yield return null; LegacyBattleFixture.Activate(); }
         private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.NonPublic;
         private static Type Required(string name)
         {

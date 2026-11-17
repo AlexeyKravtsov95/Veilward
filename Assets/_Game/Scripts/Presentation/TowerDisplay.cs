@@ -7,6 +7,19 @@ namespace Veilward.Presentation
     public static class TowerDisplay
     {
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
+        public static string Availability(TowerAvailability availability)
+        {
+            if (availability.FailureReason == PlaceTowerFailureReason.ElementLocked)
+            {
+                var names = new string[availability.MissingElements.Count];
+                for (var i = 0; i < names.Length; i++) names[i] = availability.MissingElements[i].ToString().ToUpperInvariant();
+                return "Locked — Missing: " + string.Join(" + ", names);
+            }
+            if (availability.FailureReason == PlaceTowerFailureReason.InsufficientGold) return "Insufficient Gold";
+            if (availability.CanPlace) return "Available";
+            return availability.FailureReason.ToString();
+        }
+
         public static string Name(TowerDefinitionId id) => id.Value == "test-tower" ? "Test Tower" : id.Value.ToUpperInvariant();
 
         public static string Role(TowerDefinition definition)

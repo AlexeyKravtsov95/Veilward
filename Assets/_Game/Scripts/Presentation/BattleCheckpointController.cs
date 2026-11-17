@@ -95,6 +95,8 @@ namespace Veilward.Presentation
             return true;
         }
 
+        public bool RetrySave() => SaveCurrentState();
+
         public bool SaveForStartWave()
         {
             EnsureConfigured();

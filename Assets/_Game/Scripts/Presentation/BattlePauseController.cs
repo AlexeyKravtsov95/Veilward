@@ -60,7 +60,7 @@ namespace Veilward.Presentation
             if (battle != null) battle.FreezePresentationClock();
             if (placement != null)
             {
-                placement.CancelSelection();
+                battle.ClearTransientInput();
             }
 
             RefreshUi();

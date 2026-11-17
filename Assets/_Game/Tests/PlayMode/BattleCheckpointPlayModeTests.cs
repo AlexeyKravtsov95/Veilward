@@ -52,6 +52,7 @@ namespace Veilward.Tests.PlayMode
             yield return null;
             yield return null;
 
+            LegacyBattleFixture.Activate(_store);
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             var placement = Object.FindFirstObjectByType<BattlePlacementController>();
             Assert.That(battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
@@ -106,6 +107,7 @@ namespace Veilward.Tests.PlayMode
             Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke();
             yield return null;
             yield return null;
+            LegacyBattleFixture.Activate(_store);
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             var checkpoint = Object.FindFirstObjectByType<BattleCheckpointController>();
             Assert.That(battle.PlaceTower(new GridCoordinate(-1, 0)).Success, Is.True);
@@ -151,6 +153,7 @@ namespace Veilward.Tests.PlayMode
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single);
             yield return null;
 
+            LegacyBattleFixture.Activate();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             Assert.That(battle.Simulation.State.Gold, Is.EqualTo(150));
             Assert.That(battle.PlaceTower(TowerCell).Success, Is.True);

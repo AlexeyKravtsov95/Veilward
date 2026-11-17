@@ -73,6 +73,8 @@ namespace Veilward.Presentation
                     statusText.text = result.Status == WaveCheckpointLoadStatus.LoadedBackup
                         ? "Checkpoint ready — backup restored."
                         : "Checkpoint ready.";
+                    if (result.Envelope.state.elementProgression.rulesId == "legacy-all-open-v1")
+                        statusText.text += " Продолжение по прежним правилам — все стихии открыты.";
                     return;
                 }
 
@@ -102,6 +104,8 @@ namespace Veilward.Presentation
         public bool PrepareNewGameSession()
         {
             ValidateReferences();
+            // Валидируем New Game до reset, чтобы malformed config не удалял Continue.
+            scenario.CreateSimulation();
             EnsureStore();
             if (!_store.Delete(out var error))
             {
