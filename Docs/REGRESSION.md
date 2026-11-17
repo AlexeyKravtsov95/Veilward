@@ -332,3 +332,15 @@ Production остаётся ability-disabled. Новые сценарии исп
 REG198: deep safe-boundary/terminal round trips и dirty restore; REG199: strict schema4 ability shape/scalars/cross-field reject-before-mutate; REG200: точная migration matrix1/2/3→4 без смены content; REG201: независимые mixed-mode primary/backup, no-write Load и backup preservation; REG202: completion от Cast/Step, failed-save/Retry без повторной команды; REG203: whole-state pre-Start rollback после cast+kill+positive proc, две попытки и continued trace.
 
 Production ability-disabled; enabled только internal exact-ID synthetic-p24-ability-v1; final mission/UI/boss — #38–40. Ожидаемый RED: отсутствующие AbilityCheckpoint/WaveCheckpointJson.Serialize/ObserveCommandCompletion API, затем behavioral RED enabled Export/Restore и schema4. Фактические команды, totals, XML и ограничения — [P2.4c evidence](review/P2.4c/validation.md). Реализованные suites: AbilityCheckpointTests, AbilityCheckpointStorageTests, AbilityCheckpointControllerTests; прежние schema/IO/menu/PlayMode suites сохранены с технической schema4 wire-проекцией. REG198/201 для final ID остаются #39.
+
+## P2.4d / #38 — UI способности (REG204–208)
+
+Контракт: [P2.4D_ABILITY_UI](P2.4D_ABILITY_UI.md), исходные требования — P2.4A §7/implementation plan #38. `AbilityPresentationTests` и `AbilityPlayModeTests` проверяют enabled exact-ID synthetic fixture с production controllers; это не final boss mission и не physical device. Полные totals/статус выполнения — [validation](review/P2.4d/validation.md).
+
+| REG | Проверки |
+|---|---|
+| REG-BATTLE-204 | Real Button Begin/Confirm/Cancel; без preselect; valid/empty/moved/disabled; queued intent после Steps, accumulated lethal Step до Confirm. Domain повторно решает eligibility, UI не вычисляет урон/cooldown. |
+| REG-BATTLE-205 | Все foreign owners и блокировка Scene/Placement mutation/Retry; double/stale lease, two-pointer, held through Pause, queued InputSystem mouse/touch, UI Down→world Up без click-through. |
+| REG-BATTLE-206 | Manual/background/focus latch, frozen tick/cooldown/VFX, Resume без auto-cast/catch-up; Cast completion волн3/6 открывает Choice без preview. |
+| REG-BATTLE-207 | Четыре непустых streams очищаются даже при consumer exception; captured same-tick lethal removal; rejected restore сохраняет intent, dirty/fresh successful restore чистят UI/VFX/intent; failed save сохраняет live success, Retry не повторяет награду/cast. |
+| REG-BATTLE-208 | Saved/builder/validator refs и canonical reproducibility в полном suite; production button hidden; реальные wide/narrow Play Mode Ready/preview/center/hits/cooldown/Cancel/Pause/Resume/failed save/Retry/clean synthetic Continue, Console audit. |

@@ -280,6 +280,8 @@ namespace Veilward.Domain
         public ReactionCatalog ReactionCatalog { get; }
         public IReadOnlyList<ReactionEvent> ReactionEvents { get; }
         public IReadOnlyList<DamageResolvedEvent> DamageEvents { get; }
+        public AbilityDefinition AbilityDefinition => _abilityDefinition;
+
         public AbilityState AbilityState { get; private set; }
         public IReadOnlyList<AbilityCastEvent> AbilityEvents { get; }
         public void ClearAbilityEvents() => _abilityEvents.Clear();
