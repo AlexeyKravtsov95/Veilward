@@ -1,0 +1,12 @@
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(40,13): error CS0246: The type or namespace name 'AbilityDefinitionId' could not be found (are you missing a using directive or an assembly reference?)
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(39,24): error CS0246: The type or namespace name 'CastAbilityCommand' could not be found (are you missing a using directive or an assembly reference?)
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(78,56): error CS0246: The type or namespace name 'CastAbilityCommand' could not be found (are you missing a using directive or an assembly reference?)
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(78,84): error CS0246: The type or namespace name 'AbilityCastFailureReason' could not be found (are you missing a using directive or an assembly reference?)
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(161,73): error CS0246: The type or namespace name 'AbilityCastFailureReason' could not be found (are you missing a using directive or an assembly reference?)
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(154,29): error CS0103: The name 'AbilityCastFailureReason' does not exist in the current context
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(155,35): error CS0103: The name 'AbilityCastFailureReason' does not exist in the current context
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(156,32): error CS0103: The name 'AbilityCastFailureReason' does not exist in the current context
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(157,32): error CS0103: The name 'AbilityCastFailureReason' does not exist in the current context
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(158,27): error CS0103: The name 'AbilityCastFailureReason' does not exist in the current context
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(159,27): error CS0103: The name 'AbilityCastFailureReason' does not exist in the current context
+Assets/_Game/Tests/EditMode/BattleAbilityTests.cs(160,51): error CS0103: The name 'AbilityCastFailureReason' does not exist in the current context
