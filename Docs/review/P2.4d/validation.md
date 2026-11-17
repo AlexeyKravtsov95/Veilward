@@ -17,7 +17,7 @@
 | Compile | Оба полных Unity suites скомпилировались и выполнились на source SHA |
 | diff/scope | `git diff --check` PASS; Packages/ProjectSettings/configs и existing tests не менялись; нет новых dependencies/secrets; import/builder drift возвращён только в собственной worktree |
 
-Во всех итоговых suites failed/inconclusive/skipped **0/0/0**, nonempty positive totals. Первоначальные RED не считаются PASS. Позднее добавленные boundary cases не заявляются как часть initial RED. Raw NUnit reports: [EditMode](EditMode.xml.gz), [PlayMode](PlayMode.xml.gz), [Visual](Visual.xml.gz), baseline/RED находятся рядом. Исторические tests/goldens/evidence проверяются побайтово скриптом; точный count в `gates.json`. Saved Battle создан реальным Editor builder; canonical reproducibility/validator выполнялись в полном EditMode suite. Генератор меняет local fileIDs, поэтому большой YAML diff Battle не означает замену GUID; assets `.meta` сохранены. Соседние materials/prefabs/MainMenu восстановлены до исходных bytes.
+Во всех итоговых suites failed/inconclusive/skipped **0/0/0**, nonempty positive totals. Независимый reviewer сверил source/raw reports/hashes/кадры/Console:0Critical/0P1/0P2; Unity сам не запускал. Первоначальные RED не считаются PASS. Позднее добавленные boundary cases не заявляются как часть initial RED. Raw NUnit reports: [EditMode](EditMode.xml.gz), [PlayMode](PlayMode.xml.gz), [Visual](Visual.xml.gz), baseline/RED находятся рядом. Исторические tests/goldens/evidence проверяются побайтово скриптом; точный count в `gates.json`. Saved Battle создан реальным Editor builder; canonical reproducibility/validator выполнялись в полном EditMode suite. Генератор меняет local fileIDs, поэтому большой YAML diff Battle не означает замену GUID; assets `.meta` сохранены. Соседние materials/prefabs/MainMenu восстановлены до исходных bytes.
 
 ## Реальные Play Mode кадры и Console
 
@@ -50,3 +50,5 @@ Physical iPhone/touch/safe area/background/force quit, iOS player/IL2CPP/Metal/p
 ## Повторная проверка evidence
 
 `python3 Docs/review/P2.4d/verify-evidence.py` проверяет decoded raw XML и SHA256, positive totals, source bytes/commit, все media и исторические файлы. Он **не** запускает Unity и не заменяет full gates. Для graphical capture нужна прогретая shader cache и реальный graphical Editor; команда в gates.json. Полные gates запускаются штатными Scripts, без второго resident Editor.
+
+Packaging E-01: ignored static.log заменён tracked [static.txt](static.txt), baseline — [baseline-static.txt](baseline-static.txt). После исправления verifier прошёл из отдельного чистого detached worktree; полная сверка не зависит от локальных ignored файлов.
