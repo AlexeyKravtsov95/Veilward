@@ -16,12 +16,13 @@ namespace Veilward.Tests.EditMode
         private const BindingFlags Private = BindingFlags.Instance | BindingFlags.NonPublic;
         private static readonly PathPosition Center = new PathPosition(0, 0);
 
-        // Explicit synthetic setup; production constructors/factories have no ability opt-in.
+        // Явный synthetic setup; публичные production factories не включают способность.
         private static BattleSimulation Create(int hp = 1000, int armor = 0, int count = 8,
             int interval = 10000, int waveCount = 1, int baseHealth = 20, int gold = 150,
-            bool enabled = true, bool native = false, float speed = 0.001f, bool reactionTower = false, AbilityDefinition definition = null)
+            bool enabled = true, bool native = false, float speed = 0.001f, bool reactionTower = false,
+            AbilityDefinition definition = null, float cellSize = 1f)
         {
-            var map = new GridMapDefinition(12, 8, new GridCoordinate(-6, -4), 1f);
+            var map = new GridMapDefinition(12, 8, new GridCoordinate(-6, -4), cellSize);
             var path = new PathDefinition(new[] { new GridCoordinate(0, 0), new GridCoordinate(5, 0) });
             var tower = new TowerDefinition(new TowerDefinitionId("fixture"), 0, 10, 1, 1,
                 reactionTower ? new StatusEffectDefinition(StatusKind.Wet, 10, 1000, 0) : null);
@@ -53,8 +54,8 @@ namespace Veilward.Tests.EditMode
         private static void SetSequence(BattleSimulation s, long sequence) =>
             typeof(AbilityState).GetField("<NextCastSequence>k__BackingField", Private).SetValue(s.AbilityState, sequence);
 
-        // Snapshot all public state/event properties recursively plus orchestration counters.
-        // Unlike event.ToString(), this detects changes to every optional attribution/status field.
+        // Снимок всех публичных полей state/events и orchestration counters.
+        // Проверяет optional attribution/status поля, которые event.ToString() не отражает.
         private static string Snapshot(BattleSimulation s)
         {
             var result = new StringBuilder(BattleElementUnlockTests.Snapshot(s));
@@ -162,6 +163,18 @@ namespace Veilward.Tests.EditMode
         public void RegBattle192_HalfOpenCenterBounds(float x, float y, AbilityCastFailureReason reason)
         {
             var s = Create(); s.StartWave(); Reject(s, Command(s, new PathPosition(x, y)), reason);
+        }
+
+        [TestCase(-7f, 0f, AbilityCastFailureReason.InvalidTarget)]
+        [TestCase(13f, 0f, AbilityCastFailureReason.NoTargets)]
+        [TestCase(-6f, -4f, AbilityCastFailureReason.NoTargets)]
+        [TestCase(17.999f, 11.999f, AbilityCastFailureReason.NoTargets)]
+        [TestCase(18f, 0f, AbilityCastFailureReason.InvalidTarget)]
+        [TestCase(0f, 12f, AbilityCastFailureReason.InvalidTarget)]
+        public void RegBattle192_NonUnitCellSizeUsesSpecifiedOriginPlusScaledExtent(float x, float y, AbilityCastFailureReason reason)
+        {
+            var s = Create(cellSize: 2f); s.StartWave();
+            Reject(s, Command(s, new PathPosition(x, y)), reason);
         }
 
         [TestCase(float.NaN)] [TestCase(float.PositiveInfinity)] [TestCase(float.NegativeInfinity)]
@@ -297,7 +310,7 @@ namespace Veilward.Tests.EditMode
             enemy.ApplyStatus(new StatusEffectDefinition(StatusKind.Burn, 100, 2, 1), new TowerId(1), 0);
             if (stepFirst)
             {
-                // No due Burn on this branch: a completed leak cannot be undone.
+                // В этой ветке нет due Burn: завершённый leak нельзя отменить.
                 s = Create(hp: 100, count: 1, baseHealth: 1, speed: 30); s.StartWave(); s.State.Enemies[0].Advance(4.9f);
                 s.Step(); Assert.That(s.State.Phase, Is.EqualTo(BattlePhase.Defeat));
                 Assert.That(s.State.Gold, Is.EqualTo(150)); Assert.That(s.State.Kills, Is.Zero);
@@ -370,7 +383,7 @@ namespace Veilward.Tests.EditMode
         public void RegBattle197_ClearDoesNotResetSequenceAndStepStartsNextTick()
         {
             var s = Create(); s.StartWave(); s.CastAbility(Command(s));
-            // Keep the command boundary at one tick; cooldown zero only via the test fixture.
+            // Две команды в одном tick; cooldown обнуляется только тестовой fixture.
             typeof(AbilityState).GetField("<CooldownRemainingTicks>k__BackingField", Private).SetValue(s.AbilityState, 0);
             s.ClearAbilityEvents(); s.ClearDamageEvents(); s.ClearReactionEvents(); s.ClearAttackEvents();
             Assert.That(s.CastAbility(Command(s)).Succeeded, Is.True);

@@ -364,10 +364,10 @@ namespace Veilward.Domain
             var map = Grid.Map;
             return !float.IsNaN(center.X) && !float.IsInfinity(center.X) &&
                    !float.IsNaN(center.Y) && !float.IsInfinity(center.Y) &&
-                   center.X >= (double)map.Origin.X * map.CellSize &&
-                   center.Y >= (double)map.Origin.Y * map.CellSize &&
-                   center.X < ((double)map.Origin.X + map.Width) * map.CellSize &&
-                   center.Y < ((double)map.Origin.Y + map.Height) * map.CellSize;
+                   center.X >= map.Origin.X &&
+                   center.Y >= map.Origin.Y &&
+                   center.X < map.Origin.X + (double)map.Width * map.CellSize &&
+                   center.Y < map.Origin.Y + (double)map.Height * map.CellSize;
         }
 
         private bool IsAbilityTarget(PathPosition center, PathPosition target)
