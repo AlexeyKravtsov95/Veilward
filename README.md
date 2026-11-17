@@ -2,7 +2,7 @@
 
 Unity-проект мобильной tower defense игры для iOS. **Технический P2.3 DONE** после merged [PR #32](https://github.com/AlexeyKravtsov95/Veilward/pull/32), `8128010`: native FLAME/GALE, unlock3/6, schema3/legacy Continue, natural Victory8 обоих стартов и late file/menu/Combat7. [Evidence P2.3e.1](Docs/review/P2.3e.1/validation.md) дополняет сохранённый исторический P2.3e Defeat5. Баланс/G2, device QA и ART approval отдельно открыты.
 
-Следующий scope #35: [контракт способности/босса P2.4a](Docs/P2.4A_ABILITY_BOSS.md) и [план #36–40](Docs/P2.4A_IMPLEMENTATION_PLAN.md); только SPECIFIED, runtime ещё не реализован, числа ожидают review владельца. [Релизные границы M0/M1/1.0](https://github.com/AlexeyKravtsov95/Veilward/issues/33): M0 требует готовую карту/арт,6 башен,8 волн,способность,босса,tutorial/UI/VFX/audio и реальные device/G2 gates.10 башен/3 карты/15 волн/кампания — отдельный1.0 scope. Архив исходного evidence PR #29 и merge gates сохранён в `Docs/review/P2.3d/pr29-original/` и `pr29-merge/`.
+P2.4a: [контракт способности/босса](Docs/P2.4A_ABILITY_BOSS.md) merged в PR #65; D-01…D-07 приняты владельцем как начальные правила. P2.4b/#36 реализует только Domain способности и REG190–197, ожидает review/merge; production ability-disabled. Сохранения/schema4, UI, boss/wave8 и интеграция — следующие [#37–40](Docs/P2.4A_IMPLEMENTATION_PLAN.md). [Релизные границы M0/M1/1.0](https://github.com/AlexeyKravtsov95/Veilward/issues/33): M0 требует готовую карту/арт,6 башен,8 волн,способность,босса,tutorial/UI/VFX/audio и реальные device/G2 gates.10 башен/3 карты/15 волн/кампания — отдельный1.0 scope. Архив исходного evidence PR #29 и merge gates сохранён в `Docs/review/P2.3d/pr29-original/` и `pr29-merge/`.
 
 ## Окружение
 
@@ -197,3 +197,10 @@ New Game использует `eight-wave-unlocks-v1`: обязательный 
 VERIFIED: детерминизм целых traces и файлового replay; Steam intrinsic4/pair5 в A, Storm intrinsic4/pair5 в B; экономика с обычными ценами/refund, accepted Upgrade и repeated Sell; реальные меню/controllers и isolated filesystem, pending/confirmed3, failed-save restart, Combat4 kill+proc rollback, schema1/2/legacy hybrid army и native↔legacy backup. [Результаты](Docs/review/P2.3e/replay-summary.json) и реальные Play Mode кадры отделены от исторических fixtures.
 
 FAIL/BLOCKED acceptance: в обоих scripts ранний Defeat, нет after6, второй пары/гибрида в одном забеге и native Combat7 rollback. Это не доказательство невозможности выиграть другими стратегиями. Это историческое ограничение P2.3e; P2.3e.1 нашёл natural Victory8 обоих стартов и закрыл late acceptance без изменения gameplay/configs. После review и merge #32 технический P2.3 **DONE**; исходные отчёты сохранены; physical iPhone, IL2CPP/Metal player, device QA/G2, баланс, ART approval и TestFlight отдельно.
+
+
+### P2.4b — Domain способности (#36)
+
+`BattleSimulation.CheckCastAbility` проверяет команду read-only, `CastAbility` синхронно повторяет validation и захватывает живые цели inclusive radius в порядке EnemyId. «Печать Разрыва»: damage120/radius1.5/cooldown600CombatSteps, initially Ready; armor/Crack учитываются, Gust/status/reaction не применяются. Step и Cast используют один death/reward/completion handler; cast не advance tick. `AbilityCastEvent` и optional ability source в `DamageResolvedEvent` сохраняют прежние AttackEvent/call sites и общий sequence текущего tick.
+
+**Production/public factories остаются ability-disabled.** Enabled setup доступен только internal Domain fixture для REG190–197. Enabled Export/Restore/validation явно unsupported до #37, чтобы не потерять cooldown/sequence через старый checkpoint. Текущие saves/schema3, UI и старая wave8 сохранены; schema4/UI/boss/новый content реализуются отдельно в #37–40. [Контракт/план](Docs/P2.4A_IMPLEMENTATION_PLAN.md), [проверки и ограничения](Docs/review/P2.4b/validation.md).

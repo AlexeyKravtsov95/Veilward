@@ -105,3 +105,6 @@ Playtest comprehension: >=70% discover or execute first reaction following the t
 **Исторический P2.3e:** A/B Defeat5/tick2246 и ранние ограничения сохранены в [исходном evidence](review/P2.3e/validation.md). Последующий P2.3e.1 закрыл late acceptance без gameplay/balance/config изменений; после review и merge #32 технический P2.3 DONE. Исходные отчёты не переписаны. Device/G2, физический iPhone, баланс, ART approval и TestFlight этим не закрыты.
 
 **Релизные границы по #33:** M0 — одна finished mission/map, шесть башен, восемь волн, одна способность, один босс, tutorial, готовые UI/VFX/audio, human G2/баланс и реальные iPhone QA/profiling; отдельное approval распространения, graybox TestFlight не выпускается. M1 — стабилизация закрытой беты (#57). Полный1.0 —10 башен/3 карты/15 волн/Normal-Hard/кампания/звёзды и отдельный progress save (#58–63); post1.0 EXP — исследование (#64). Эти задачи не расширяют #35 или M0.
+
+
+**P2.4b/#36: Review, не merged.** Pure Domain «Печати Разрыва» и REG190–197 реализованы после merge #65 от свежего main; production ability-disabled, enabled только internal synthetic fixture. Сохранения/schema4/UI/boss/wave8 — следующие #37–40. D-01…D-07 приняты владельцем как исходные правила, не final balance/G2/device/ART approval. [Фактические gates и независимое review](review/P2.4b/validation.md).
