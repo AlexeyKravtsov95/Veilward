@@ -1,0 +1,36 @@
+{
+  "A": {
+    "Steam/Intrinsic": {
+      "procs": 11,
+      "targets": 13,
+      "appliedHpLoss": 234,
+      "firstTick": 1323,
+      "sourceTower": 3
+    },
+    "Steam/StatusPair": {
+      "procs": 3,
+      "targets": 3,
+      "appliedHpLoss": 32,
+      "firstTick": 2020,
+      "sourceTower": 1
+    }
+  },
+  "B": {
+    "Storm/Intrinsic": {
+      "procs": 13,
+      "targets": 23,
+      "appliedHpLoss": 138,
+      "firstTick": 1330,
+      "sourceTower": 3
+    },
+    "Storm/StatusPair": {
+      "procs": 2,
+      "targets": 4,
+      "appliedHpLoss": 28,
+      "firstTick": 2003,
+      "sourceTower": 4
+    }
+  },
+  "Stone": {}
+}
+PASS: stored full trace identity, positive reaction HP loss and non-empty complete reports; late production coverage remains BLOCKED.

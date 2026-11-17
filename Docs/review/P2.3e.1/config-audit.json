@@ -1,0 +1,18 @@
+{
+  "baseCommit": "082ee6f6868b5e124e2bcc915f8c882557ff3a6a",
+  "sourceCommit": "353cb9c409be6bc30278c34e28fe5d4d0d8dd563",
+  "productionFilesCompared": 325,
+  "productionPathsChanged": [],
+  "newPackages": false,
+  "configs": {
+    "Assets/_Game/Configs/EightWave.asset": "5f0c013d73dfa34a1ea2fcc0360baceb0ff36b4196b6e0ef9c700c665caf4182",
+    "Assets/_Game/Configs/TestWave.asset": "4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3",
+    "Assets/_Game/Scenes/Battle.unity": "6ef1044f92db57f34152d80e7fe11470a5611786006c811bdbb63ad9c561a0fb",
+    "Assets/_Game/Scenes/MainMenu.unity": "985feedeb0671d172ca2a370172d4204f4942db76d41788fa49d54f9a98e46ae",
+    "Packages/manifest.json": "a78d2c59e34818add54d16dc5954518d2da7db5675de2581d98290da49ef6eef",
+    "Packages/packages-lock.json": "aa3863f6781ab09d3883c846faec36322a393dae4955ff3cc9b6b5faa5d9b67e",
+    "ProjectSettings/ProjectVersion.txt": "91b35566b263574c8a513eff3bba6d5d313482d752d961077b47ab5b3ff14981",
+    "Assets/Settings/Mobile_RPAsset.asset": "077b30c366ee79c2b0906284297c3433c470b59a7bca563801901512d6cabf64"
+  },
+  "productionTreeSha256": "1cc2d2e906078fed26e3547bddd940c47a99460e7ea71e8c1e1c3bf192c643e4"
+}

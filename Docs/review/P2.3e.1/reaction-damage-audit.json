@@ -1,0 +1,90 @@
+{
+  "A-survival": {
+    "Steam/StatusPair": {
+      "positiveProcs": 46,
+      "targets": 65,
+      "appliedHpLoss": 704,
+      "firstWave": 4,
+      "firstTick": 1288,
+      "sourceTower": 4
+    }
+  },
+  "B-survival": {
+    "Storm/StatusPair": {
+      "positiveProcs": 20,
+      "targets": 40,
+      "appliedHpLoss": 232,
+      "firstWave": 5,
+      "firstTick": 1839,
+      "sourceTower": 4
+    }
+  },
+  "A-coverage": {
+    "Steam/StatusPair": {
+      "positiveProcs": 22,
+      "targets": 36,
+      "appliedHpLoss": 387,
+      "firstWave": 4,
+      "firstTick": 1288,
+      "sourceTower": 4
+    },
+    "Steam/Intrinsic": {
+      "positiveProcs": 26,
+      "targets": 26,
+      "appliedHpLoss": 468,
+      "firstWave": 6,
+      "firstTick": 2278,
+      "sourceTower": 6
+    },
+    "Storm/StatusPair": {
+      "positiveProcs": 4,
+      "targets": 7,
+      "appliedHpLoss": 46,
+      "firstWave": 7,
+      "firstTick": 2872,
+      "sourceTower": 5
+    },
+    "Storm/Intrinsic": {
+      "positiveProcs": 6,
+      "targets": 10,
+      "appliedHpLoss": 60,
+      "firstWave": 8,
+      "firstTick": 3275,
+      "sourceTower": 8
+    }
+  },
+  "B-coverage": {
+    "Storm/StatusPair": {
+      "positiveProcs": 5,
+      "targets": 9,
+      "appliedHpLoss": 36,
+      "firstWave": 5,
+      "firstTick": 1820,
+      "sourceTower": 2
+    },
+    "Storm/Intrinsic": {
+      "positiveProcs": 18,
+      "targets": 32,
+      "appliedHpLoss": 192,
+      "firstWave": 6,
+      "firstTick": 2269,
+      "sourceTower": 5
+    },
+    "Steam/StatusPair": {
+      "positiveProcs": 14,
+      "targets": 14,
+      "appliedHpLoss": 134,
+      "firstWave": 7,
+      "firstTick": 2761,
+      "sourceTower": 4
+    },
+    "Steam/Intrinsic": {
+      "positiveProcs": 9,
+      "targets": 9,
+      "appliedHpLoss": 162,
+      "firstWave": 8,
+      "firstTick": 3150,
+      "sourceTower": 7
+    }
+  }
+}

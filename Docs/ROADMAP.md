@@ -44,7 +44,7 @@
 
 **ART.1.1 status: технические gates пройдены, визуальная доработка передана на review владельцу.** Объём/характер острова, уменьшенные свесы FLAME и контраст нижнего плаща Shade при прежних gameplay coordinates, камере и масштабе. [Спецификация и регрессии](ART1_1_VISUAL_REFINEMENT.md), [before/after, бой и проверки](review/ART.1.1/README.md). Static 38/38, EditMode 547/547, PlayMode 30/30; round trip 8/8 и отрицательный exporter control PASS. [Независимое техническое review](review/ART.1.1/technical-review.md): без открытых блокирующих замечаний. История ART.1 сохранена. Финальное утверждение стиля и device readability остаются открытыми до просмотра владельцем и физического iPhone; массовое производство, self-merge и release не выполняются.
 
-**P2.3e.1 — проверка стратегий:** расширенный ограниченный поиск нашёл natural Victory8 для FLAME и GALE, в отдельных coverage scripts оба Steam/Storm pair+intrinsic с положительным HP loss. [Scripts, бюджет, отсечения и evidence](review/P2.3e.1/validation.md). Новые late file/menu/Play Mode gates проверяются отдельно; исторические P2.3e Defeat5 остаются контролем. P2.3 не объявляется DONE до acceptance/review/approval; device/G2, баланс, ART approval и TestFlight отдельно.
+**P2.3e.1 — проверка стратегий:** расширенный ограниченный поиск нашёл natural Victory8 для FLAME и GALE, в отдельных coverage scripts оба Steam/Storm pair+intrinsic с положительным HP loss. [Scripts, бюджет, отсечения и evidence](review/P2.3e.1/validation.md). **VERIFIED** late file/menu matrix: pending/confirmed6, failed-save/retry, Combat7 после kill+positive proc; static38/38, EditMode761/761, PlayMode45/45, Visual2/2, 28 реальных кадров и Console0 unexpected errors; исторические P2.3e Defeat5 остаются контролем. P2.3 не объявляется DONE до acceptance/review/approval; device/G2, баланс, ART approval и TestFlight отдельно.
 
 ### Последовательность до первой TestFlight
 
@@ -54,7 +54,7 @@
 |---|---|---|
 | P2.2f | Детерминированные матчи/rollback и измерения, независимое review/merge | DONE: PR #23 / a506bed |
 | Эталон арта | Фрагмент карты, одна башня, один враг и эффект в едином направлении; Blender `.blend` → FBX → Unity по [ART_PIPELINE](ART_PIPELINE.md) | ART.1 merged PR #24; ART.1.1 передаётся на визуальное/техническое review; утверждение владельца и iPhone check открыты |
-| P2.3 | Настоящее открытие стихий/требования гибридов в Domain и UI | P2.3b/c merged #27/#28; P2.3d merged #30. P2.3e: deterministic natural Defeat5 обоих стартов; собственные Steam/Storm pair+intrinsic PASS, after6/Combat7 и обе синергии в одном забеге BLOCKED; [evidence](review/P2.3e/validation.md). P2.3 НЕ DONE |
+| P2.3 | Настоящее открытие стихий/требования гибридов в Domain и UI | P2.3b/c merged #27/#28; P2.3d merged #30. P2.3e historical Defeat5 сохранён; P2.3e.1: оба старта natural Victory8, оба Steam/Storm pair+intrinsic positive, after6/file/Combat7/menu/visual PASS; [новое evidence](review/P2.3e.1/validation.md). P2.3 НЕ DONE до review/approval; G2/device отдельно |
 | P2.4 | Базовая способность и босс, проверяемая интеграция восьми волн | Не выполнен |
 | Оформление первого среза | Одна оформленная карта, все шесть башен, враги/босс и согласованные UI/VFX/звук | Не выполнено |
 | P2.5 | Обучение, объяснения, внешние плейтесты и согласование баланса; G2 остаётся gate | Не выполнен |
