@@ -1,0 +1,10 @@
+Base: 8128010051c2b048b32b0a48df5b862bb2d5a7da
+Commands: git diff --check; git diff --name-only BASE; git diff BASE -- Assets Packages ProjectSettings Scripts; git diff BASE -- Docs/review/P2.3e Docs/review/P2.3e.1
+PASS: docs-only diff; no runtime/config/package/scene/art/meta/GUID delta
+PASS: historical P2.3e/e.1 reports/traces/screenshots/controls unchanged
+PASS: REG190..217 exactly28 rows, contiguous, all SPECIFIED (one-off Python assertions)
+PASS: local file links in spec/plan/validation/review resolve; fragments not mechanically verified
+PASS: new documentation token/private-key pattern scan (gh*_ / AKIA / PRIVATE KEY)
+PASS: existing full suites static38/38, EditMode761/761, PlayMode45/45; zero failed/skipped/inconclusive
+Limit: no new ability/boss/runtime tests; no device/G2/ART/product approval
+PASS: final spec/plan SHA256 equal independent reviewer hashes

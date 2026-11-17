@@ -281,4 +281,11 @@ TrySave проверяет source, temp/read-back и previous primary; толь�
 
 `NativeEightWaveIntegrationPlayModeTests` выполняет настоящий MainMenu→New Game→Battle→Continue через кнопки и controllers; экономика проходит placement/sell UI. Каждый достигнутый wave snapshot сравнивается с Domain production golden. Меню после failed Confirm возвращает durable pending; повторный Continue и Next не удваивают ресурсы. Combat rollback очищает Domain streams, reaction memory/pool, attack beams, inspector/placement/choice preview. Только тестовый clock ускоряет public Step и вызывает штатные presentation consumers; это реальные Play Mode кадры production data, но не realtime VFX/performance или device verification.
 
-[Evidence/матрица acceptance](review/P2.3e/validation.md): оба старта Defeat5/tick2246; собственные Steam/Storm pair/intrinsic положительны, after6/вторая пара/второй гибрид и Combat7 не достигнуты. P2.3 остаётся открытым; runtime, config hashes, packages и историческое evidence не изменены.
+[Evidence/матрица acceptance](review/P2.3e/validation.md): оба старта Defeat5/tick2246; собственные Steam/Storm pair/intrinsic положительны, after6/вторая пара/второй гибрид и Combat7 не достигнуты. Это исторический результат P2.3e; P2.3e.1 закрыл поздние acceptance, после review и merge #32 технический P2.3 DONE. Runtime, config hashes, packages и историческое evidence сохранены.
+
+
+### P2.3 completion / следующий контракт P2.4a
+
+PR #32 merged (`8128010`): технический P2.3 завершён, оба native старта имеют natural Victory8 и полный late file/menu/Combat7 matrix; [evidence](review/P2.3e.1/validation.md). Device/G2/баланс/ART approval отдельно. Исторические P2.3e/e.1 отчёты описывают состояние на момент подготовки и не переписываются.
+
+[Предлагаемый P2.4a контракт](P2.4A_ABILITY_BOSS.md) и [план #36–40/REG190…217](P2.4A_IMPLEMENTATION_PLAN.md) имеют статус SPECIFIED. В них определены синхронный Combat-only cast между Steps, общий death/reward/completion pipeline, schema4/content whitelist, input owner Ability и boss wave8. Это будущие API/числа для review; текущие runtime/schema3/configs не изменены.
