@@ -1,0 +1,28 @@
+{
+  "base": "9adc17f251ad98b72304753cc0b69173e502c9c8",
+  "files_compared_byte_for_byte": 807,
+  "paths_sha256_manifest": "d5acc667410087506f03c36a5596544108b5ab637076d448cb494b5299b47b98",
+  "scope": [
+    "Docs/review",
+    "Assets/_Game/Tests",
+    "Assets/Settings",
+    "Assets/_Game/Art",
+    "Assets/_Game/Configs",
+    "Assets/_Game/Prefabs",
+    "Assets/_Game/Scenes",
+    "Packages",
+    "ProjectSettings"
+  ],
+  "technical_projection_exceptions": [
+    "Assets/_Game/Tests/EditMode/BattleAbilityTests.cs",
+    "Assets/_Game/Tests/EditMode/BattleElementalReplayTests.cs",
+    "Assets/_Game/Tests/EditMode/BattleHybridTowerTests.cs",
+    "Assets/_Game/Tests/EditMode/BattleTowerCatalogTests.cs",
+    "Assets/_Game/Tests/EditMode/ElementProgressionCheckpointTests.cs",
+    "Assets/_Game/Tests/EditMode/ElementProgressionStorageTests.cs",
+    "Assets/_Game/Tests/EditMode/NativeEightWaveFileTests.cs",
+    "Assets/_Game/Tests/EditMode/WaveCheckpointStoreTests.cs",
+    "Assets/_Game/Tests/PlayMode/BattleElementUnlockPlayModeTests.cs"
+  ],
+  "result": "PASS"
+}

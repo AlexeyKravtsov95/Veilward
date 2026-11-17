@@ -74,7 +74,7 @@ namespace Veilward.Tests.EditMode
                 damaged.state.nextTowerId = int.MaxValue;
             }
 
-            File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(damaged, prettyPrint: true));
+            File.WriteAllText(_store.PrimaryPath, WaveCheckpointJson.Serialize(damaged, pretty: true));
 
             Assert.That(_store.TryLoad(ContentId, Validate, out var load), Is.True, load.Error);
             Assert.That(load.Status, Is.EqualTo(WaveCheckpointLoadStatus.LoadedBackup));
@@ -94,7 +94,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(load.Envelope, Is.Null);
         }
 
-        [TestCase(4, ContentId)]
+        [TestCase(5, ContentId)]
         [TestCase(WaveCheckpointStore.CurrentSchemaVersion, "other-scenario-v1")]
         public void UnknownSchemaOrContent_IsIncompatible(int schemaVersion, string contentId)
         {
@@ -102,7 +102,7 @@ namespace Veilward.Tests.EditMode
             var incompatible = CreateEnvelope(150);
             incompatible.schemaVersion = schemaVersion;
             incompatible.scenarioContentId = contentId;
-            File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(incompatible));
+            File.WriteAllText(_store.PrimaryPath, WaveCheckpointJson.Serialize(incompatible));
 
             Assert.That(_store.TryLoad(ContentId, Validate, out var load), Is.False);
             Assert.That(load.Status, Is.EqualTo(WaveCheckpointLoadStatus.Incompatible));
@@ -189,6 +189,7 @@ namespace Veilward.Tests.EditMode
                 state = new BattleCheckpoint
                 {
                     elementProgression = ElementProgressionCheckpoint.CreateLegacy(),
+                    ability = AbilityCheckpoint.Disabled(),
                     phase = BattlePhase.Preparation,
                     waveIndex = 0,
                     tick = 0,

@@ -15,6 +15,7 @@ namespace Veilward.Domain
         public int nextTowerId;
         public TowerCheckpoint[] towers;
         public ElementProgressionCheckpoint elementProgression;
+        [NonSerialized] public AbilityCheckpoint ability;
 
         public BattleCheckpoint DeepCopyForMigration() => DeepCopy(mapLegacyTowers: true);
 
@@ -23,6 +24,7 @@ namespace Veilward.Domain
             var copy = new BattleCheckpoint
             {
                 elementProgression = elementProgression?.DeepCopy(),
+                ability = ability?.DeepCopy(),
                 phase = phase,
                 waveIndex = waveIndex,
                 tick = tick,
@@ -61,11 +63,12 @@ namespace Veilward.Domain
             return copy;
         }
 
-        internal static BattleCheckpoint FromState(BattleState state, int nextEnemyId, int nextTowerId)
+        internal static BattleCheckpoint FromState(BattleState state, int nextEnemyId, int nextTowerId, AbilityState ability = null)
         {
             var checkpoint = new BattleCheckpoint
             {
                 elementProgression = ElementProgressionCheckpoint.FromState(state.ElementProgression),
+                ability = ability == null ? AbilityCheckpoint.Disabled() : AbilityCheckpoint.FromState(ability),
                 phase = state.Phase,
                 waveIndex = state.WaveIndex,
                 tick = state.Tick,

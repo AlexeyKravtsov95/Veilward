@@ -1,0 +1,22 @@
+{
+  "command": "./Scripts/run-play-mode-tests.sh",
+  "exit_code": 0,
+  "report": {
+    "id": "2",
+    "testcasecount": "45",
+    "result": "Passed",
+    "total": "45",
+    "passed": "45",
+    "failed": "0",
+    "inconclusive": "0",
+    "skipped": "0",
+    "asserts": "0",
+    "engine-version": "3.5.0.0",
+    "clr-version": "4.0.30319.42000",
+    "start-time": "2026-11-17 17:49:21Z",
+    "end-time": "2026-11-17 17:49:54Z",
+    "duration": "33.3143127"
+  },
+  "raw_sha256": "e415487c86130194f273f7ddd5a08efe48ecb75a8ed166cc6976de9a78b979d5",
+  "gzip_sha256": "06a69449bbaa11acd32b08d0cda4d0c47e718ae7326e46428d02d94a8a17f881"
+}

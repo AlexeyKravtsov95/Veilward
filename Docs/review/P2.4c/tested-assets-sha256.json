@@ -1,0 +1,33 @@
+{
+  "base": "9adc17f251ad98b72304753cc0b69173e502c9c8",
+  "files": {
+    "Assets/_Game/Scripts/Application/BattleSessionContext.cs": "765a74f6bfb2d1d1c536b4424d1c7ee0367182f76c97cd9e3952d7212d0ca654",
+    "Assets/_Game/Scripts/Domain/AbilityCheckpoint.cs": "2f477d7225af0b15508e3742c70c13a3c9f014bf2e2c96273e09be99f0454414",
+    "Assets/_Game/Scripts/Domain/AbilityCheckpoint.cs.meta": "1607299882c2c87347289821e580853c54779487c8cbceac29f6a9ffe079fff0",
+    "Assets/_Game/Scripts/Domain/AbilityState.cs": "4bba869f4106c1a09ea7ec9731dc91a244415f8e38fce43a795bf137d82ab749",
+    "Assets/_Game/Scripts/Domain/BattleCheckpoint.cs": "31dd560fff72f0a1648ebe71ddd18dd313006072c63848e61c4108d6fc59a340",
+    "Assets/_Game/Scripts/Domain/BattleSimulation.cs": "daa44b634a7299b92b278f5375b5a6a14e03609e43804325713d6b2527289ba9",
+    "Assets/_Game/Scripts/Infrastructure/WaveCheckpointCompatibility.cs": "0f4b1f43fefc5532d00c62469db407eb280ba7adc988706eed3b6888763609d1",
+    "Assets/_Game/Scripts/Infrastructure/WaveCheckpointJson.cs": "9a2109a1ecfba8e6756e60bb7ac2c2c1bcf95ebe5b489e703ae607901e2d194b",
+    "Assets/_Game/Scripts/Infrastructure/WaveCheckpointStore.cs": "3eb7051d1e3ec976734ba2dc2f3486428a4b46f1a6a7b63cbd49ee8a23c2c6e1",
+    "Assets/_Game/Scripts/Infrastructure/WaveCheckpointWire.cs": "54c0013a2f1b8b89e3236242b4ae2975bdae8e7f12edf6d92d36aed7fa9b53e5",
+    "Assets/_Game/Scripts/Infrastructure/WaveCheckpointWire.cs.meta": "67051a549b7fbc7859b33401e64de5bbc789e867bdd3c5deb487f492f2089250",
+    "Assets/_Game/Scripts/Presentation/BattleCheckpointController.cs": "9a668152045e0736933c3615ee0ebdc5d8a845508b9c07b40f86bd9e759ffb44",
+    "Assets/_Game/Scripts/Presentation/BattleSceneController.cs": "f420e6b9ba52cdbad8c740e4ceaaff598145ebef1918eaf5e7c77effea99591f",
+    "Assets/_Game/Tests/EditMode/AbilityCheckpointControllerTests.cs": "46080adf2c40adcfcf1a8837c5861695bd87f480542b46ff6d0e7d881832b644",
+    "Assets/_Game/Tests/EditMode/AbilityCheckpointControllerTests.cs.meta": "b747503e47cbc58b506c9af27d1ca1b7a71aa0471102b8a2166e3323a65a0c16",
+    "Assets/_Game/Tests/EditMode/AbilityCheckpointStorageTests.cs": "6b735e4b4e0959aaea6d3b9dbfffd6beadb84a4233f0a235e066d5e8a05207ff",
+    "Assets/_Game/Tests/EditMode/AbilityCheckpointStorageTests.cs.meta": "c03536071619b1112e303d5aaf281e873e0aa0db34bfb86b827439d382df6bdc",
+    "Assets/_Game/Tests/EditMode/AbilityCheckpointTests.cs": "f167f82e618c995aeb922cc17424b2939cf631612f3e422058715f490afdf19b",
+    "Assets/_Game/Tests/EditMode/AbilityCheckpointTests.cs.meta": "c5fd5f19fdd046555800b560128444919effa47937e18bbfbc7df876f59473e0",
+    "Assets/_Game/Tests/EditMode/BattleAbilityTests.cs": "0cd18e9b114a6576d19cfa47ee31b4f5d7f129823ef8d3d5541ac5daff2e8a55",
+    "Assets/_Game/Tests/EditMode/BattleElementalReplayTests.cs": "5f103731c020879852c0a0c20ba9900f57bde9cf7be4fa17c831141e5dedecb2",
+    "Assets/_Game/Tests/EditMode/BattleHybridTowerTests.cs": "95ea3a6a6ee52c3e5e9fbe42aefded40deb239b8e454590110a2b6edf2a23ba6",
+    "Assets/_Game/Tests/EditMode/BattleTowerCatalogTests.cs": "7535a89f0dc41ba368800d3ef8b41dc65b169f88506fdc8e0cfc050807ca3d06",
+    "Assets/_Game/Tests/EditMode/ElementProgressionCheckpointTests.cs": "d09a8f570663de4d8a0030d96f319101949031f9945d8c612fd5a4bcabe3d6e6",
+    "Assets/_Game/Tests/EditMode/ElementProgressionStorageTests.cs": "b83f11539b33b05ff888c0bacf3ac9f45cbe4d6fb09ea1487965053704053e2e",
+    "Assets/_Game/Tests/EditMode/NativeEightWaveFileTests.cs": "8339a503f932e737a279df5c4559f2af7ed184bcb814c746d8bbc70a10cf9643",
+    "Assets/_Game/Tests/EditMode/WaveCheckpointStoreTests.cs": "ae4265904199ca799b8e9493838a034950b1836f47bf229ebeaec25dcc5d1f48",
+    "Assets/_Game/Tests/PlayMode/BattleElementUnlockPlayModeTests.cs": "8b900eb9c2bf3a283ead0e8d8d528eec07eb1a5430342c23363922f8ed2e00f4"
+  }
+}

@@ -284,7 +284,9 @@ namespace Veilward.Tests.EditMode
                     scenarioContentId = "test-scenario-v1",
                     state = checkpoint
                 });
-                var deserialized = JsonUtility.FromJson<WaveCheckpointEnvelope>(json);
+                var source = WaveCheckpointJson.Deserialize(json);
+                Assert.That(WaveCheckpointCompatibility.TryNormalize(source, "test-scenario-v1", true,
+                    out var deserialized, out var migrationError), Is.True, migrationError);
 
                 var restored = CreateSimulation(1000);
                 restored.RestoreCheckpoint(deserialized.state);
@@ -323,7 +325,7 @@ namespace Veilward.Tests.EditMode
 
             Assert.That(store.TryLoad("test-scenario-v1", simulation.TryValidateCheckpoint, out var load),
                 Is.True, load.Error);
-            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(3));
+            Assert.That(load.Envelope.schemaVersion, Is.EqualTo(4));
             Assert.That(load.Envelope.state.towers.Length, Is.EqualTo(legacyState.towers.Length));
             for (var index = 0; index < load.Envelope.state.towers.Length; index++)
             {
@@ -365,7 +367,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(JsonUtility.ToJson(simulation.ExportCheckpoint()), Is.EqualTo(before));
         }
 
-        [TestCase(4, "test-scenario-v1")]
+        [TestCase(5, "test-scenario-v1")]
         [TestCase(2, "other-scenario-v1")]
         public void RegBattle097_UnknownSchemaOrContent_IsRejected(int schemaVersion, string contentId)
         {

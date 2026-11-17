@@ -1,0 +1,22 @@
+{
+  "command": "./Scripts/run-edit-mode-tests.sh",
+  "exit_code": 0,
+  "report": {
+    "id": "2",
+    "testcasecount": "901",
+    "result": "Passed",
+    "total": "901",
+    "passed": "901",
+    "failed": "0",
+    "inconclusive": "0",
+    "skipped": "0",
+    "asserts": "0",
+    "engine-version": "3.5.0.0",
+    "clr-version": "4.0.30319.42000",
+    "start-time": "2026-11-17 17:48:26Z",
+    "end-time": "2026-11-17 17:49:01Z",
+    "duration": "34.9574159"
+  },
+  "raw_sha256": "045c56e14d8284f651f2dd8c7aafcad588061be7471c2b0402d0781a75580d20",
+  "gzip_sha256": "82535d86bbf9771fbf2078633c7d3c621dc27745918be70fdaac6efd29debd67"
+}

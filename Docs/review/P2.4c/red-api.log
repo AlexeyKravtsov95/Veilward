@@ -1,0 +1,6 @@
+
+Aborting batchmode due to failure:
+Scripts have compiler errors.
+
+ERROR: No XML test reports found: /Users/alexeykravtsov/.codex/worktrees/p24c-ability-checkpoint/Veilward/TestResults/EditMode.xml
+Unity test report: FAIL

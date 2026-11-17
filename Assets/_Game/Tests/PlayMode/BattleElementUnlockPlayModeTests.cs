@@ -91,7 +91,7 @@ namespace Veilward.Tests.PlayMode
                 cp.elementProgression.unlockedElementIds = new[] { "flame", "tide" };
                 cp.elementProgression.spentChoices = new[] { new SpentElementChoiceCheckpoint { choiceId = "after-wave-3", elementId = "tide" } };
             }
-            Assert.That(_store.TrySave(new WaveCheckpointEnvelope { schemaVersion = 3, scenarioContentId = config.ScenarioContentId, state = cp }, s.TryValidateCheckpoint, out var error, config.CreateSimulationForCheckpoint), Is.True, error);
+            Assert.That(_store.TrySave(new WaveCheckpointEnvelope { schemaVersion = WaveCheckpointStore.CurrentSchemaVersion, scenarioContentId = config.ScenarioContentId, state = cp }, s.TryValidateCheckpoint, out var error, config.CreateSimulationForCheckpoint), Is.True, error);
             yield return SceneManager.LoadSceneAsync("MainMenu"); yield return null;
             Object.FindFirstObjectByType<MainMenuController>().ContinueButton.onClick.Invoke(); yield return null; yield return null;
             Assert.That(Choice.PreviewOptionId, Is.Null);

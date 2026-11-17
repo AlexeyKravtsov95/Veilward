@@ -13,6 +13,12 @@ namespace Veilward.Domain
         public int CooldownRemainingTicks { get; private set; }
         public long NextCastSequence { get; private set; } = 1;
 
+        internal AbilityState(AbilityDefinition definition, AbilityCheckpoint checkpoint) : this(definition)
+        {
+            CooldownRemainingTicks = checkpoint.CooldownRemainingTicks;
+            NextCastSequence = checkpoint.NextCastSequence;
+        }
+
         internal void AcceptCast(int cooldownTicks)
         {
             CooldownRemainingTicks = cooldownTicks;

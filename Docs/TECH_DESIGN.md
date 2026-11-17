@@ -173,6 +173,16 @@ Builder дополняет только валидный полный прежн
 
 Reproducibility test резервирует scene/config/prefabs/materials и их `.meta` в памяти, выполняет два Build и восстанавливает originals в `finally`. Scene сравнивается как canonical YAML: Unity назначает новые local fileIDs и может менять порядок YAML documents при recreate, поэтому IDs получают content-based canonical tokens, documents сортируются, а внешние GUID references и serialized content сохраняются в сравнении. Для остальных YAML trailing whitespace пустых значений игнорируется как serialization noise; весь остальной text сравнивается. Восстановление originals всегда проверяется побайтово. После suite `git diff` подтверждает отсутствие неожиданных tracked changes.
 
+### P2.4c: schema4 и полный safe-state restore
+
+`BattleCheckpoint.ability` — immutable Domain `AbilityCheckpoint` (rules/id/remaining/next sequence); `DeepCopy` создаёт независимую копию. Domain не зависит от Unity. Поскольку JsonUtility игнорирует readonly/get-only values, storage использует явный `WaveCheckpointWire` DTO, а ability помечен NonSerialized в исторической JsonUtility-проекции Domain checkpoint. Эта историческая проекция сохраняет trace/outcome goldens; actual disk schema4 всегда содержит обязательную ability. Для записи checkpoint используется `WaveCheckpointStore`, не прямой JsonUtility.ToJson Domain snapshot.
+
+Строгий parser проверяет presence/types/integer ranges/duplicate/unknown fields до JsonUtility. Schema1/2 legacy проходят source shape validation до добавления legacy-all-open/disabled defaults; schema3 native сохраняет progression/content и получает disabled ability. Normalize идемпотентен, Load read-only; Save пишет4 с тем же ID/именем файла. Пустая source progression не превращается в валидный legacy state. В validator test path разрешены только exact test IDs; synthetic-p24-ability-v1 требует enabled ability и native progression. Production whitelist/session/menu не принимают synthetic/final ID до #39.
+
+Каждый primary/backup независимо normalize→factory→Domain validation; Save не заменяет backup повреждённым primary. Restore сначала строит весь candidate State/Grid/ability, затем публикует его и очищает четыре event streams/cursors; rejection оставляет даже dirty Combat buffers нетронутыми. Controller замечает safe completion от синхронной команды и в LateUpdate кадра без fixed Step. Только whole safe snapshot; Combat Export запрещён. Failed completion/Choose/second Next save сохраняет live success, Retry только пишет snapshot. Start/Next проверяют eligibility до IO и требуют durable текущего safe state.
+
+Контракт REG198–203 и [evidence P2.4c](review/P2.4c/validation.md). Production остаётся ability-disabled; enabled persistence synthetic, UI/boss/new final mission — следующие задачи.
+
 ## 4. Core domain interfaces (illustrative, not API lock)
 
 ```

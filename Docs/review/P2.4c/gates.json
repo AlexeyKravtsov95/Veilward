@@ -1,0 +1,391 @@
+{
+  "base": "9adc17f251ad98b72304753cc0b69173e502c9c8",
+  "environment": {
+    "Unity": "6000.3.28f1 (8f082d2fe476)",
+    "OS": "macOS 27.0.1 (26A434) arm64",
+    "backend": "auto -> batch -nographics -buildTarget iOS",
+    "runtime": "Editor Mono; no iOS player/device"
+  },
+  "static": {
+    "command": "./Scripts/run-static-checks.sh",
+    "total": 38,
+    "passed": 38,
+    "exit_code": 0,
+    "log_sha256": "887191bd0892f21ce0e173a44c0f9f689f5c97ef6f94bbebb8282361af2959c3"
+  },
+  "unity": {
+    "edit-mode": {
+      "command": "./Scripts/run-edit-mode-tests.sh",
+      "exit_code": 0,
+      "report": {
+        "id": "2",
+        "testcasecount": "901",
+        "result": "Passed",
+        "total": "901",
+        "passed": "901",
+        "failed": "0",
+        "inconclusive": "0",
+        "skipped": "0",
+        "asserts": "0",
+        "engine-version": "3.5.0.0",
+        "clr-version": "4.0.30319.42000",
+        "start-time": "2026-11-17 17:48:26Z",
+        "end-time": "2026-11-17 17:49:01Z",
+        "duration": "34.9574159"
+      },
+      "raw_sha256": "045c56e14d8284f651f2dd8c7aafcad588061be7471c2b0402d0781a75580d20",
+      "gzip_sha256": "82535d86bbf9771fbf2078633c7d3c621dc27745918be70fdaac6efd29debd67"
+    },
+    "play-mode": {
+      "command": "./Scripts/run-play-mode-tests.sh",
+      "exit_code": 0,
+      "report": {
+        "id": "2",
+        "testcasecount": "45",
+        "result": "Passed",
+        "total": "45",
+        "passed": "45",
+        "failed": "0",
+        "inconclusive": "0",
+        "skipped": "0",
+        "asserts": "0",
+        "engine-version": "3.5.0.0",
+        "clr-version": "4.0.30319.42000",
+        "start-time": "2026-11-17 17:49:21Z",
+        "end-time": "2026-11-17 17:49:54Z",
+        "duration": "33.3143127"
+      },
+      "raw_sha256": "e415487c86130194f273f7ddd5a08efe48ecb75a8ed166cc6976de9a78b979d5",
+      "gzip_sha256": "06a69449bbaa11acd32b08d0cda4d0c47e718ae7326e46428d02d94a8a17f881"
+    }
+  },
+  "new_edit_cases": [
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointControllerTests.RegBattle202_CommandCompletionFailedSaveRetryNeverRepeatsCastOrReward(False)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointControllerTests.RegBattle202_CommandCompletionFailedSaveRetryNeverRepeatsCastOrReward(True)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointControllerTests.RegBattle202_FailedChooseOrSecondNextSaveRetainsWholeAbilityState(False)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointControllerTests.RegBattle202_FailedChooseOrSecondNextSaveRetainsWholeAbilityState(True)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointControllerTests.RegBattle203_RollbackCastKillPositiveProcTwiceAndFullContinuedTrace",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"rulesId\",\"missing\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"rulesId\",\"null\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"abilityId\",\"missing\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"abilityId\",\"null\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"cooldownRemainingTicks\",\"missing\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"cooldownRemainingTicks\",\"null\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"nextCastSequence\",\"missing\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"nextCastSequence\",\"null\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"nextCastSequence\",\"true\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"nextCastSequence\",\"0.0\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"nextCastSequence\",\"1e0\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"nextCastSequence\",\"9223372036854775808\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"nextCastSequence\",\"\\\"1\\\"\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"nextCastSequence\",\"-1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"nextCastSequence\",\"0\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"cooldownRemainingTicks\",\"false\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"cooldownRemainingTicks\",\"0.0\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"cooldownRemainingTicks\",\"2147483648\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"cooldownRemainingTicks\",\"-1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"cooldownRemainingTicks\",\"601\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"rulesId\",\"\\\"unknown\\\"\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"abilityId\",\"\\\"none\\\"\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"ability\",\"null\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"ability\",\"missing\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"extra\",\"1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle199_MalformedWireRejectsWithoutWrites(\"duplicate\",\"1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_EnabledOldProductionIdAndDamagedSourceProgressionReject",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_FinalIdAlwaysRejectedBeforeActivation(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_FinalIdAlwaysRejectedBeforeActivation(2)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_FinalIdAlwaysRejectedBeforeActivation(3)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_FinalIdAlwaysRejectedBeforeActivation(4)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_ImpossibleSourcePairsRejected(1,\"eight-wave-unlocks-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_ImpossibleSourcePairsRejected(2,\"eight-wave-unlocks-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_ImpossibleSourcePairsRejected(3,\"synthetic-p24-ability-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_ImpossibleSourcePairsRejected(4,\"unknown\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_ProductionSessionRejectsUnactivatedContentWithoutReplacingPending(\"synthetic-p24-ability-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_ProductionSessionRejectsUnactivatedContentWithoutReplacingPending(\"eight-wave-ability-boss-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_ProductionSessionRejectsUnactivatedContentWithoutReplacingPending(\"unknown\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_SourceMatrixIdempotentNoWriteThenSave4SameId(1,\"eight-wave-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_SourceMatrixIdempotentNoWriteThenSave4SameId(2,\"eight-wave-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_SourceMatrixIdempotentNoWriteThenSave4SameId(3,\"eight-wave-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_SourceMatrixIdempotentNoWriteThenSave4SameId(4,\"eight-wave-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_SourceMatrixIdempotentNoWriteThenSave4SameId(1,\"legacy-single-wave-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_SourceMatrixIdempotentNoWriteThenSave4SameId(2,\"legacy-single-wave-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_SourceMatrixIdempotentNoWriteThenSave4SameId(3,\"legacy-single-wave-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_SourceMatrixIdempotentNoWriteThenSave4SameId(4,\"legacy-single-wave-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_SourceMatrixIdempotentNoWriteThenSave4SameId(3,\"eight-wave-unlocks-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle200_SourceMatrixIdempotentNoWriteThenSave4SameId(4,\"eight-wave-unlocks-v1\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle201_SyntheticValidatedBackupAndNoWriteLoad",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle202_FailedWriteReadbackCommitPreservesSlotsAndRetriesWholeSnapshot(0)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle202_FailedWriteReadbackCommitPreservesSlotsAndRetriesWholeSnapshot(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointStorageTests.RegBattle202_FailedWriteReadbackCommitPreservesSlotsAndRetriesWholeSnapshot(2)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle198_ActualCooldownSequenceAndSuccessfulDirtyRestore(0,1)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle198_ActualCooldownSequenceAndSuccessfulDirtyRestore(600,2)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle198_ActualCooldownSequenceAndSuccessfulDirtyRestore(421,3)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle198_ActualCooldownSequenceAndSuccessfulDirtyRestore(0,long.MaxValue)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle198_AllSafeBoundariesDeepRoundTrip(True)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle198_AllSafeBoundariesDeepRoundTrip(False)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle198_DefeatRoundTrip",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle199_InitialPendingCannotHaveCastHistory",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle199_InvalidAbilityRejectsDirtyCombatAtomically(-1,2)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle199_InvalidAbilityRejectsDirtyCombatAtomically(601,2)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle199_InvalidAbilityRejectsDirtyCombatAtomically(1,1)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityCheckpointTests.RegBattle199_InvalidAbilityRejectsDirtyCombatAtomically(0,0)",
+      "result": "Passed"
+    }
+  ],
+  "behavior_red": {
+    "report": {
+      "id": "2",
+      "testcasecount": "894",
+      "result": "Failed(Child)",
+      "total": "894",
+      "passed": "843",
+      "failed": "51",
+      "inconclusive": "0",
+      "skipped": "0",
+      "asserts": "0",
+      "engine-version": "3.5.0.0",
+      "clr-version": "4.0.30319.42000",
+      "start-time": "2026-11-17 17:44:16Z",
+      "end-time": "2026-11-17 17:44:48Z",
+      "duration": "32.7003103"
+    },
+    "raw_sha256": "36fbeac8ae296baeb21973dbaf64b68829e99e1170f7051151cda3c1a1304a41",
+    "gzip_sha256": "9c19538fc5c65a5258e9c57c67e6ebfb2eb95d6029be094bf7051585f93f7dc9"
+  },
+  "assets_manifest_sha256": "618fc0941f11f929357fef31d23cdf895bd8d18f144982739ab057dd82966b02",
+  "historical_audit": {
+    "base": "9adc17f251ad98b72304753cc0b69173e502c9c8",
+    "files_compared_byte_for_byte": 807,
+    "paths_sha256_manifest": "d5acc667410087506f03c36a5596544108b5ab637076d448cb494b5299b47b98",
+    "scope": [
+      "Docs/review",
+      "Assets/_Game/Tests",
+      "Assets/Settings",
+      "Assets/_Game/Art",
+      "Assets/_Game/Configs",
+      "Assets/_Game/Prefabs",
+      "Assets/_Game/Scenes",
+      "Packages",
+      "ProjectSettings"
+    ],
+    "technical_projection_exceptions": [
+      "Assets/_Game/Tests/EditMode/BattleAbilityTests.cs",
+      "Assets/_Game/Tests/EditMode/BattleElementalReplayTests.cs",
+      "Assets/_Game/Tests/EditMode/BattleHybridTowerTests.cs",
+      "Assets/_Game/Tests/EditMode/BattleTowerCatalogTests.cs",
+      "Assets/_Game/Tests/EditMode/ElementProgressionCheckpointTests.cs",
+      "Assets/_Game/Tests/EditMode/ElementProgressionStorageTests.cs",
+      "Assets/_Game/Tests/EditMode/NativeEightWaveFileTests.cs",
+      "Assets/_Game/Tests/EditMode/WaveCheckpointStoreTests.cs",
+      "Assets/_Game/Tests/PlayMode/BattleElementUnlockPlayModeTests.cs"
+    ],
+    "result": "PASS"
+  },
+  "diff_check_exit_code": 0,
+  "project_check_exit_code": 0
+}

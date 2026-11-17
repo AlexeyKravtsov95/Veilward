@@ -280,7 +280,7 @@ namespace Veilward.Domain
         public ReactionCatalog ReactionCatalog { get; }
         public IReadOnlyList<ReactionEvent> ReactionEvents { get; }
         public IReadOnlyList<DamageResolvedEvent> DamageEvents { get; }
-        public AbilityState AbilityState { get; }
+        public AbilityState AbilityState { get; private set; }
         public IReadOnlyList<AbilityCastEvent> AbilityEvents { get; }
         public void ClearAbilityEvents() => _abilityEvents.Clear();
 
@@ -388,15 +388,13 @@ namespace Veilward.Domain
 
         public BattleCheckpoint ExportCheckpoint()
         {
-            if (_abilityDefinition != null)
-                throw new NotSupportedException("Enabled ability checkpoints require P2.4c persistence.");
             switch (State.Phase)
             {
                 case BattlePhase.Preparation:
                 case BattlePhase.WaveComplete:
                 case BattlePhase.Victory:
                 case BattlePhase.Defeat:
-                    return BattleCheckpoint.FromState(State, _nextEnemyId, _nextTowerId);
+                    return BattleCheckpoint.FromState(State, _nextEnemyId, _nextTowerId, AbilityState);
                 default:
                     throw new InvalidOperationException("Only stable battle phases can be exported.");
             }
@@ -414,7 +412,9 @@ namespace Veilward.Domain
                 throw new ArgumentException(error, nameof(checkpoint));
             }
 
+            var restoredAbility = new AbilityState(_abilityDefinition, checkpoint.ability);
             State = restoredState;
+            AbilityState = restoredAbility;
             Grid = restoredGrid;
             _nextEnemyId = checkpoint.nextEnemyId;
             _nextTowerId = checkpoint.nextTowerId;
@@ -437,11 +437,6 @@ namespace Veilward.Domain
             restoredState = null;
             restoredGrid = null;
             error = null;
-            if (_abilityDefinition != null)
-            {
-                error = "Enabled ability checkpoints require P2.4c persistence.";
-                return false;
-            }
             if (checkpoint == null)
             {
                 error = "Checkpoint is required.";
@@ -517,6 +512,13 @@ namespace Veilward.Domain
                     _initialBaseHealth, _initialGold, out var progression))
             {
                 error = "Checkpoint element progression is invalid.";
+                return false;
+            }
+
+            if (checkpoint.ability == null || !checkpoint.ability.IsValid(_abilityDefinition != null,
+                    checkpoint.elementProgression.pendingChoiceId == "start-resonance"))
+            {
+                error = "Checkpoint ability is invalid or incompatible.";
                 return false;
             }
 
