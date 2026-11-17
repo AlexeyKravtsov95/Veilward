@@ -94,7 +94,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(load.Envelope, Is.Null);
         }
 
-        [TestCase(3, ContentId)]
+        [TestCase(4, ContentId)]
         [TestCase(WaveCheckpointStore.CurrentSchemaVersion, "other-scenario-v1")]
         public void UnknownSchemaOrContent_IsIncompatible(int schemaVersion, string contentId)
         {
@@ -188,6 +188,7 @@ namespace Veilward.Tests.EditMode
                 scenarioContentId = ContentId,
                 state = new BattleCheckpoint
                 {
+                    elementProgression = ElementProgressionCheckpoint.CreateLegacy(),
                     phase = BattlePhase.Preparation,
                     waveIndex = 0,
                     tick = 0,

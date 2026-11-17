@@ -14,7 +14,7 @@ namespace Veilward.Domain
 
     public sealed class ElementChoiceResult
     {
-        internal ElementChoiceResult(ElementChoiceFailureReason reason)
+        public ElementChoiceResult(ElementChoiceFailureReason reason)
         {
             FailureReason = reason;
         }

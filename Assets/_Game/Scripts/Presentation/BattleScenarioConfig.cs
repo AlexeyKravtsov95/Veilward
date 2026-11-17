@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Veilward.Domain;
+using Veilward.Infrastructure;
 
 namespace Veilward.Presentation
 {
@@ -140,6 +141,18 @@ namespace Veilward.Presentation
         public BattleSimulation CreateSimulation()
         {
             return CreateSimulationCore(null, historical: false);
+        }
+
+        public BattleSimulation CreateSimulationForCheckpoint(WaveCheckpointEnvelope normalized)
+        {
+            var requestedId = ScenarioContentId == WaveCheckpointCompatibility.LegacyEightWaveContentId
+                ? WaveCheckpointCompatibility.NativeContentId : ScenarioContentId;
+            if (normalized == null || normalized.schemaVersion != WaveCheckpointStore.CurrentSchemaVersion ||
+                !WaveCheckpointCompatibility.TryNormalize(normalized, requestedId, out _, out var error))
+                throw new ArgumentException("Checkpoint is incompatible with this scenario.", nameof(normalized));
+            return normalized.scenarioContentId == WaveCheckpointCompatibility.NativeContentId
+                ? CreateSimulation(new ElementUnlockRules(new[] { ElementKind.Flame, ElementKind.Gale }, new[] { 3, 6 }))
+                : CreateSimulationCore(null, historical: false);
         }
 
         internal BattleSimulation CreateSimulation(ReactionCatalog reactionCatalog)

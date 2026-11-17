@@ -59,10 +59,9 @@ namespace Veilward.Presentation
             ValidateReferences();
             EnsureStore();
             _availableCheckpoint = null;
-            var simulation = scenario.CreateSimulation();
             var loaded = _store.TryLoad(
                 scenario.ScenarioContentId,
-                simulation.TryValidateCheckpoint,
+                scenario.CreateSimulationForCheckpoint,
                 out var result);
             if (loaded)
             {

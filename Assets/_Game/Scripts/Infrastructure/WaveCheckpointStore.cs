@@ -11,12 +11,15 @@ namespace Veilward.Infrastructure
 
     public sealed class WaveCheckpointStore
     {
-        public const int CurrentSchemaVersion = 2;
-        private const int LegacySchemaVersion = 1;
+        public const int CurrentSchemaVersion = 3;
+        private readonly IWaveCheckpointWriter _writer;
         private const string PrimaryFileName = "wave-checkpoint-v1.json";
 
-        public WaveCheckpointStore(string rootDirectory)
+        public WaveCheckpointStore(string rootDirectory) : this(rootDirectory, new FileWaveCheckpointWriter()) { }
+
+        internal WaveCheckpointStore(string rootDirectory, IWaveCheckpointWriter writer)
         {
+            _writer = writer ?? throw new ArgumentNullException(nameof(writer));
             if (string.IsNullOrWhiteSpace(rootDirectory))
             {
                 throw new ArgumentException("Checkpoint root directory is required.", nameof(rootDirectory));
@@ -36,7 +39,8 @@ namespace Veilward.Infrastructure
         public bool TrySave(
             WaveCheckpointEnvelope envelope,
             WaveCheckpointValidator validator,
-            out string error)
+            out string error,
+            Func<WaveCheckpointEnvelope, BattleSimulation> simulationFactory = null)
         {
             RequireValidator(validator);
             if (!TryValidateEnvelope(envelope, envelope?.scenarioContentId, validator, out error))
@@ -44,19 +48,26 @@ namespace Veilward.Infrastructure
                 return false;
             }
 
+            if (simulationFactory != null)
+            {
+                if (!WaveCheckpointCompatibility.TryNormalize(envelope, envelope.scenarioContentId, out var normalized, out error)) return false;
+                try
+                {
+                    var simulation = simulationFactory(normalized);
+                    if (simulation == null) throw new InvalidOperationException("Checkpoint factory returned no simulation.");
+                    if (!simulation.TryValidateCheckpoint(normalized.state, out error)) return false;
+                }
+                catch (Exception e) when (IsValidationException(e)) { error = e.Message; return false; }
+            }
+            var requestedId = simulationFactory != null && envelope.scenarioContentId == WaveCheckpointCompatibility.LegacyEightWaveContentId
+                ? WaveCheckpointCompatibility.NativeContentId : envelope.scenarioContentId;
             try
             {
                 Directory.CreateDirectory(RootDirectory);
                 var json = JsonUtility.ToJson(envelope, prettyPrint: true);
-                using (var stream = new FileStream(TempPath, FileMode.Create, FileAccess.Write, FileShare.None))
-                using (var writer = new StreamWriter(stream, new UTF8Encoding(encoderShouldEmitUTF8Identifier: false)))
-                {
-                    writer.Write(json);
-                    writer.Flush();
-                    stream.Flush(flushToDisk: true);
-                }
+                _writer.WriteTemporary(TempPath, json);
 
-                if (ReadEnvelope(TempPath, envelope.scenarioContentId, validator, out _, out var tempStatus, out error) !=
+                if (ReadEnvelope(TempPath, requestedId, validator, simulationFactory, out _, out error) !=
                     FileReadStatus.Valid)
                 {
                     error = "Checkpoint temporary file verification failed: " + error;
@@ -65,18 +76,18 @@ namespace Veilward.Infrastructure
 
                 if (!File.Exists(PrimaryPath))
                 {
-                    File.Move(TempPath, PrimaryPath);
+                    _writer.Commit(TempPath, PrimaryPath, null);
                 }
                 else
                 {
                     var primaryStatus = ReadEnvelope(
                         PrimaryPath,
-                        envelope.scenarioContentId,
+                        requestedId,
                         validator,
-                        out _,
+                        simulationFactory,
                         out _,
                         out _);
-                    File.Replace(
+                    _writer.Commit(
                         TempPath,
                         PrimaryPath,
                         primaryStatus == FileReadStatus.Valid ? BackupPath : null);
@@ -98,39 +109,33 @@ namespace Veilward.Infrastructure
             out WaveCheckpointLoadResult result)
         {
             RequireValidator(validator);
-            var primaryStatus = ReadEnvelope(
-                PrimaryPath,
-                scenarioContentId,
-                validator,
-                out var primaryEnvelope,
-                out var primaryError);
+            return TryLoadCore(scenarioContentId, validator, null, out result);
+        }
+
+        public bool TryLoad(string requestedScenarioContentId,
+            Func<WaveCheckpointEnvelope, BattleSimulation> simulationFactory, out WaveCheckpointLoadResult result)
+        {
+            if (simulationFactory == null) throw new ArgumentNullException(nameof(simulationFactory));
+            return TryLoadCore(requestedScenarioContentId, null, simulationFactory, out result);
+        }
+
+        private bool TryLoadCore(string requestedId, WaveCheckpointValidator validator,
+            Func<WaveCheckpointEnvelope, BattleSimulation> factory, out WaveCheckpointLoadResult result)
+        {
+            var primaryStatus = ReadEnvelope(PrimaryPath, requestedId, validator, factory, out var primary, out var primaryError);
             if (primaryStatus == FileReadStatus.Valid)
             {
-                result = new WaveCheckpointLoadResult(
-                    WaveCheckpointLoadStatus.LoadedPrimary,
-                    primaryEnvelope,
-                    null);
+                result = new WaveCheckpointLoadResult(WaveCheckpointLoadStatus.LoadedPrimary, primary, null);
                 return true;
             }
-
-            var backupStatus = ReadEnvelope(
-                BackupPath,
-                scenarioContentId,
-                validator,
-                out var backupEnvelope,
-                out var backupError);
+            var backupStatus = ReadEnvelope(BackupPath, requestedId, validator, factory, out var backup, out var backupError);
             if (backupStatus == FileReadStatus.Valid)
             {
-                result = new WaveCheckpointLoadResult(
-                    WaveCheckpointLoadStatus.LoadedBackup,
-                    backupEnvelope,
-                    primaryError);
+                result = new WaveCheckpointLoadResult(WaveCheckpointLoadStatus.LoadedBackup, backup, primaryError);
                 return true;
             }
-
-            var status = CombineFailureStatuses(primaryStatus, backupStatus);
-            var error = string.IsNullOrEmpty(primaryError) ? backupError : primaryError;
-            result = new WaveCheckpointLoadResult(status, null, error);
+            result = new WaveCheckpointLoadResult(CombineFailureStatuses(primaryStatus, backupStatus), null,
+                string.IsNullOrEmpty(primaryError) ? backupError : primaryError);
             return false;
         }
 
@@ -177,89 +182,42 @@ namespace Veilward.Infrastructure
             }
         }
 
-        private static FileReadStatus ReadEnvelope(
-            string path,
-            string scenarioContentId,
-            WaveCheckpointValidator validator,
-            out WaveCheckpointEnvelope envelope,
-            out string error)
-        {
-            return ReadEnvelope(path, scenarioContentId, validator, out envelope, out _, out error);
-        }
-
-        private static FileReadStatus ReadEnvelope(
-            string path,
-            string scenarioContentId,
-            WaveCheckpointValidator validator,
-            out WaveCheckpointEnvelope envelope,
-            out FileReadStatus status,
-            out string error)
+        private static FileReadStatus ReadEnvelope(string path, string requestedId,
+            WaveCheckpointValidator validator, Func<WaveCheckpointEnvelope, BattleSimulation> factory,
+            out WaveCheckpointEnvelope envelope, out string error)
         {
             envelope = null;
             error = null;
-            status = FileReadStatus.Missing;
             try
             {
-                if (!File.Exists(path))
-                {
-                    return status;
-                }
-
+                if (!File.Exists(path)) return FileReadStatus.Missing;
+                var json = File.ReadAllText(path);
+                if (!WaveCheckpointJson.HasRequiredFields(json, out error)) return FileReadStatus.Corrupt;
                 WaveCheckpointEnvelope candidate;
+                try { candidate = JsonUtility.FromJson<WaveCheckpointEnvelope>(json); }
+                catch (ArgumentException e) { error = e.Message; return FileReadStatus.Corrupt; }
+                if (factory == null && candidate.scenarioContentId != requestedId)
+                { error = "Checkpoint scenario content is incompatible."; return FileReadStatus.Incompatible; }
+                if (!WaveCheckpointCompatibility.TryNormalize(candidate, requestedId, factory == null,
+                        out var normalized, out error)) return FileReadStatus.Incompatible;
                 try
                 {
-                    candidate = JsonUtility.FromJson<WaveCheckpointEnvelope>(File.ReadAllText(path));
+                    var simulation = factory?.Invoke(normalized);
+                    if (factory != null && simulation == null) throw new InvalidOperationException("Checkpoint factory returned no simulation.");
+                    WaveCheckpointValidator validate = factory == null ? validator : simulation.TryValidateCheckpoint;
+                    if (!validate(normalized.state, out error)) return FileReadStatus.Corrupt;
                 }
-                catch (ArgumentException exception)
-                {
-                    status = FileReadStatus.Corrupt;
-                    error = exception.Message;
-                    return status;
-                }
-
-                if (candidate == null)
-                {
-                    status = FileReadStatus.Corrupt;
-                    error = "Checkpoint JSON is empty.";
-                    return status;
-                }
-
-                if ((candidate.schemaVersion != CurrentSchemaVersion &&
-                     candidate.schemaVersion != LegacySchemaVersion) ||
-                    !string.Equals(candidate.scenarioContentId, scenarioContentId, StringComparison.Ordinal))
-                {
-                    status = FileReadStatus.Incompatible;
-                    error = "Checkpoint schema or scenario content is incompatible.";
-                    return status;
-                }
-
-                if (candidate.schemaVersion == LegacySchemaVersion)
-                {
-                    candidate = new WaveCheckpointEnvelope
-                    {
-                        schemaVersion = CurrentSchemaVersion,
-                        scenarioContentId = candidate.scenarioContentId,
-                        state = candidate.state == null ? null : candidate.state.DeepCopyForMigration()
-                    };
-                }
-
-                if (!TryValidateEnvelope(candidate, scenarioContentId, validator, out error))
-                {
-                    status = FileReadStatus.Corrupt;
-                    return status;
-                }
-
-                envelope = candidate;
-                status = FileReadStatus.Valid;
-                return status;
+                catch (Exception e) when (IsValidationException(e))
+                { error = e.Message; return FileReadStatus.Corrupt; }
+                envelope = normalized;
+                return FileReadStatus.Valid;
             }
-            catch (Exception exception) when (IsFileSystemException(exception))
-            {
-                status = FileReadStatus.IoError;
-                error = exception.Message;
-                return status;
-            }
+            catch (Exception e) when (IsFileSystemException(e))
+            { error = e.Message; return FileReadStatus.IoError; }
         }
+
+        private static bool IsValidationException(Exception e) => e is ArgumentException ||
+            e is InvalidOperationException || e is NotSupportedException || e is OverflowException;
 
         private static bool TryValidateEnvelope(
             WaveCheckpointEnvelope envelope,
@@ -281,7 +239,10 @@ namespace Veilward.Infrastructure
                 return false;
             }
 
-            return validator(envelope.state, out error);
+            if (!WaveCheckpointCompatibility.TryNormalize(envelope, scenarioContentId, true, out _, out error) ||
+                !WaveCheckpointJson.HasRequiredFields(JsonUtility.ToJson(envelope), out error)) return false;
+            try { return validator(envelope.state, out error); }
+            catch (Exception e) when (IsValidationException(e)) { error = e.Message; return false; }
         }
 
         private static WaveCheckpointLoadStatus CombineFailureStatuses(
@@ -329,4 +290,30 @@ namespace Veilward.Infrastructure
             IoError
         }
     }
+
+    internal interface IWaveCheckpointWriter
+    {
+        void WriteTemporary(string path, string json);
+        void Commit(string temporary, string primary, string backup);
+    }
+
+    internal sealed class FileWaveCheckpointWriter : IWaveCheckpointWriter
+    {
+        public void WriteTemporary(string path, string json)
+        {
+            using (var stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
+            using (var writer = new StreamWriter(stream, new UTF8Encoding(false)))
+            {
+                writer.Write(json);
+                writer.Flush();
+                stream.Flush(flushToDisk: true);
+            }
+        }
+        public void Commit(string temporary, string primary, string backup)
+        {
+            if (File.Exists(primary)) File.Replace(temporary, primary, backup);
+            else File.Move(temporary, primary);
+        }
+    }
+
 }

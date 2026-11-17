@@ -114,6 +114,14 @@ Pure C# `ReactionResolver` разрешает Steam/Storm после direct dama
 
 `BattleSimulation` принимает optional `ReactionCatalog`, сохраняет прежние constructors и предоставляет read-only `ReactionEvents`/`DamageEvents` с явными clear methods. `BattleSceneController` очищает все три потока в `finally` после каждого fixed Step; на этапе P2.2c новая telemetry отбрасывалась без VFX; P2.2e добавил её отображение. Успешный Restore очищает transient state, rejected Restore его сохраняет. До P2.2d public config использовал Empty; internal factory с явным Empty сохраняет historical P2.1e fixture. Saved configs, сцены, UI, schema и баланс не менялись. [Проверки и ограничения](Docs/review/P2.2c/README.md); независимый PR review обязателен до merge.
 
+## P2.3c: schema 3 и совместимость progression
+
+Safe-wave checkpoint теперь пишет schema **3** с deep-copy progression. Public New Game пока **all-open**: новый режим и UI выбора включаются в P2.3d. Native contract проверяется через opt-in test factory; `eight-wave-unlocks-v1` принимает родной checkpoint или ровно прежний `eight-wave-v1`, single-wave остаётся отдельным.
+
+Schema 1/2 мигрируются только в памяти: прежние башни v1 → `test-tower`, v2 сохраняет точные типы/уровни/вложения/cooldown/ID/cells, включая Steam/Storm. Legacy получает все четыре стихии без earned/spent/history/pending и backfill. Следующий Save пишет schema 3 с прежним content ID. Decode → normalize → factory → Domain validation выполняются независимо для primary/backup; Load не меняет bytes. Повреждённый primary не вытесняет валидный backup.
+
+Успешный Confirm сохраняется даже без смены фазы. Failed save оставляет live-команду, блокирует Start/Next до успешного Retry Save и допускает полный откат к durable snapshot после выхода. Eligibility проверяется до файловых side effects; Next сохраняет WaveComplete до перехода и Preparation после него. [REG-174…183](Docs/REGRESSION.md), [evidence и ограничения](Docs/review/P2.3c/validation.md). Production unlock UI, device QA и баланс этим этапом не подтверждаются.
+
 ## Настройки репозитория
 
 - Asset Serialization: **Force Text**.

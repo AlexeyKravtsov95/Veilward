@@ -371,15 +371,16 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
-        public void NativeCheckpoint_IsUnsupportedAndCannotLoseProgression()
+        public void RegBattle174_NativeInitialCheckpoint_RoundTripsProgression()
         {
             var s = Native();
-            var before = Snapshot(s);
-            Assert.Throws<NotSupportedException>(() => s.ExportCheckpoint());
-            Assert.That(s.TryValidateCheckpoint(new BattleCheckpoint(), out var error), Is.False);
-            Assert.That(error, Does.Contain("unsupported"));
-            Assert.Throws<ArgumentException>(() => s.RestoreCheckpoint(new BattleCheckpoint()));
-            Assert.That(Snapshot(s), Is.EqualTo(before));
+            var checkpoint = s.ExportCheckpoint();
+            Assert.That(s.TryValidateCheckpoint(checkpoint, out var error), Is.True, error);
+            Choose(s, "start-resonance", "flame");
+            s.RestoreCheckpoint(checkpoint);
+            Assert.That(s.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
+            Assert.That(s.State.ElementProgression.UnlockedElements, Is.Empty);
+            Assert.That(JsonUtility.ToJson(checkpoint), Does.Contain("elementProgression"));
         }
 
         private static void AssertAvailability(BattleSimulation s, string id, PlaceTowerFailureReason reason,
@@ -416,14 +417,16 @@ namespace Veilward.Tests.EditMode
                 ":" + string.Join(",", p.UnlockedElements) + ":" + string.Join(",", p.SpentChoices.Select(c => c.ChoiceId + c.ElementKind));
         }
 
-        private static string Snapshot(BattleSimulation s) => CombatSnapshot(s) + ProgressionSnapshot(s);
+        internal static string Snapshot(BattleSimulation s) => CombatSnapshot(s) + ProgressionSnapshot(s);
 
         private static string CombatSnapshot(BattleSimulation s)
         {
             var flags = BindingFlags.Instance | BindingFlags.NonPublic;
-            var result = new StringBuilder(JsonUtility.ToJson(BattleCheckpoint.FromState(s.State,
+            var checkpoint = BattleCheckpoint.FromState(s.State,
                 (int)typeof(BattleSimulation).GetField("_nextEnemyId", flags).GetValue(s),
-                (int)typeof(BattleSimulation).GetField("_nextTowerId", flags).GetValue(s))));
+                (int)typeof(BattleSimulation).GetField("_nextTowerId", flags).GetValue(s));
+            var json = JsonUtility.ToJson(checkpoint);
+            var result = new StringBuilder(json.Substring(0, json.IndexOf(",\"elementProgression\":", StringComparison.Ordinal)) + "}");
             for (var y = 0; y < s.Grid.Map.Height; y++)
             for (var x = 0; x < s.Grid.Map.Width; x++)
                 result.Append(s.Grid.GetState(new GridCoordinate(s.Grid.Map.Origin.X + x, s.Grid.Map.Origin.Y + y)));

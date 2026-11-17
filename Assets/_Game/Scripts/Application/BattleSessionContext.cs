@@ -16,7 +16,12 @@ namespace Veilward.Application
             ScenarioContentId = string.IsNullOrWhiteSpace(scenarioContentId)
                 ? throw new ArgumentException("Scenario content ID is required.", nameof(scenarioContentId))
                 : scenarioContentId;
-            Checkpoint = checkpoint;
+            Checkpoint = checkpoint == null ? null : new WaveCheckpointEnvelope
+            {
+                schemaVersion = checkpoint.schemaVersion,
+                scenarioContentId = checkpoint.scenarioContentId,
+                state = checkpoint.state?.DeepCopy()
+            };
         }
 
         public WaveCheckpointStore Store { get; }

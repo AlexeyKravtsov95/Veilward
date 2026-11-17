@@ -14,11 +14,15 @@ namespace Veilward.Domain
         public int nextEnemyId;
         public int nextTowerId;
         public TowerCheckpoint[] towers;
+        public ElementProgressionCheckpoint elementProgression;
 
-        public BattleCheckpoint DeepCopyForMigration()
+        public BattleCheckpoint DeepCopyForMigration() => DeepCopy(mapLegacyTowers: true);
+
+        public BattleCheckpoint DeepCopy(bool mapLegacyTowers = false)
         {
             var copy = new BattleCheckpoint
             {
+                elementProgression = elementProgression?.DeepCopy(),
                 phase = phase,
                 waveIndex = waveIndex,
                 tick = tick,
@@ -45,7 +49,7 @@ namespace Veilward.Domain
                 copy.towers[index] = new TowerCheckpoint
                 {
                     towerId = tower.towerId,
-                    towerTypeId = "test-tower",
+                    towerTypeId = mapLegacyTowers ? "test-tower" : tower.towerTypeId,
                     x = tower.x,
                     y = tower.y,
                     level = tower.level,
@@ -61,6 +65,7 @@ namespace Veilward.Domain
         {
             var checkpoint = new BattleCheckpoint
             {
+                elementProgression = ElementProgressionCheckpoint.FromState(state.ElementProgression),
                 phase = state.Phase,
                 waveIndex = state.WaveIndex,
                 tick = state.Tick,

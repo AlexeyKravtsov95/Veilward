@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Veilward.Application;
 using Veilward.Domain;
+using Veilward.Infrastructure;
 using Application = UnityEngine.Application;
 
 namespace Veilward.Presentation
@@ -77,7 +78,14 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("Attack beam material reference is required.");
             }
 
-            _simulation = scenario.CreateSimulation();
+            var session = BattleSessionContext.Consume();
+            WaveCheckpointEnvelope checkpoint = null;
+            if (session?.Checkpoint != null &&
+                !WaveCheckpointCompatibility.TryNormalize(session.Checkpoint, scenario.ScenarioContentId, out checkpoint, out var error))
+                throw new InvalidOperationException("Battle session checkpoint is incompatible.");
+            if (session != null && session.Checkpoint == null && session.ScenarioContentId != scenario.ScenarioContentId)
+                throw new InvalidOperationException("New Game session scenario content ID does not match.");
+            _simulation = checkpoint == null ? scenario.CreateSimulation() : scenario.CreateSimulationForCheckpoint(checkpoint);
             if (reactionSummaryText != null)
             {
                 _reactionSummaryOrigin = reactionSummaryText.rectTransform.anchoredPosition;
@@ -93,7 +101,6 @@ namespace Veilward.Presentation
             if (checkpointController != null) checkpointController.Restored += ResetPresentation;
             _accumulator = 0f;
             _skipNextDelta = true;
-            var session = BattleSessionContext.Consume();
             if (session != null && checkpointController == null)
             {
                 throw new InvalidOperationException("Battle checkpoint controller is required for a menu session.");
@@ -104,20 +111,13 @@ namespace Veilward.Presentation
                 checkpointController.Configure(
                     session?.Store,
                     _simulation,
-                    scenario.ScenarioContentId);
+                    checkpoint?.scenarioContentId ?? scenario.ScenarioContentId,
+                    scenario.CreateSimulationForCheckpoint);
                 if (session != null)
                 {
-                    if (!string.Equals(
-                            session.ScenarioContentId,
-                            scenario.ScenarioContentId,
-                            StringComparison.Ordinal))
-                    {
-                        throw new InvalidOperationException("Battle session scenario content ID does not match.");
-                    }
-
                     if (session.Checkpoint != null)
                     {
-                        checkpointController.RestoreCheckpoint(session.Checkpoint);
+                        checkpointController.RestoreCheckpoint(checkpoint);
                         if (placementController != null)
                         {
                             placementController.CancelSelection();
@@ -208,6 +208,15 @@ namespace Veilward.Presentation
             return result;
         }
 
+        public ElementChoiceResult ChooseElement(ChooseElementCommand command)
+        {
+            if (_simulation == null) throw new InvalidOperationException("Battle simulation is not initialized.");
+            if (IsPaused) return new ElementChoiceResult(ElementChoiceFailureReason.InvalidPhase);
+            var result = _simulation.ChooseElement(command);
+            if (result.Success && checkpointController != null) checkpointController.SaveCurrentState();
+            return result;
+        }
+
         public Vector3 GetCellCenter(GridCoordinate coordinate)
         {
             var position = _simulation.Grid.Map.GetCellCenter(coordinate);
@@ -226,6 +235,8 @@ namespace Veilward.Presentation
                 return WaveTransitionResult.RejectedInvalidPhase;
             }
 
+            var eligibility = _simulation.CheckStartWave();
+            if (eligibility != WaveTransitionResult.Started) return eligibility;
             if (checkpointController != null && !checkpointController.SaveForStartWave())
             {
                 return WaveTransitionResult.RejectedInvalidPhase;
@@ -252,6 +263,11 @@ namespace Veilward.Presentation
             {
                 return WaveTransitionResult.RejectedInvalidPhase;
             }
+
+            var eligibility = _simulation.CheckContinueToNextWave();
+            if (eligibility != WaveTransitionResult.Continued) return eligibility;
+            if (checkpointController != null && !checkpointController.SaveForNextWave())
+                return WaveTransitionResult.RejectedInvalidPhase;
 
             var result = _simulation.ContinueToNextWave();
             if (result == WaveTransitionResult.Continued && checkpointController != null)

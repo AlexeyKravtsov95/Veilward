@@ -10,6 +10,7 @@ namespace Veilward.Domain
         private readonly int _waveCompletionBonus;
         private readonly bool _legacySingleWave;
         private readonly int _initialBaseHealth;
+        private readonly int _initialGold;
         private readonly ElementUnlockRules _elementUnlockRules;
         private readonly List<AttackEvent> _attackEvents = new List<AttackEvent>();
         private readonly List<ReactionEvent> _reactionEvents = new List<ReactionEvent>(32);
@@ -242,6 +243,7 @@ namespace Veilward.Domain
             _waveCompletionBonus = waveCompletionBonus;
             _legacySingleWave = legacySingleWave;
             _initialBaseHealth = baseHealth;
+            _initialGold = startingGold;
             Grid = new BattleGrid(map, path);
             State = BattleState.CreateInitial(baseHealth, startingGold, _waves.Length);
             State.SetElementProgression(ElementProgressionState.CreateInitial(elementUnlockRules != null));
@@ -264,8 +266,6 @@ namespace Veilward.Domain
 
         public BattleCheckpoint ExportCheckpoint()
         {
-            if (_elementUnlockRules != null)
-                throw new NotSupportedException("Native element progression checkpoint export is unsupported until P2.3c.");
             switch (State.Phase)
             {
                 case BattlePhase.Preparation:
@@ -311,11 +311,6 @@ namespace Veilward.Domain
             restoredState = null;
             restoredGrid = null;
             error = null;
-            if (_elementUnlockRules != null)
-            {
-                error = "Native element progression checkpoint restore is unsupported until P2.3c.";
-                return false;
-            }
             if (checkpoint == null)
             {
                 error = "Checkpoint is required.";
@@ -386,6 +381,14 @@ namespace Veilward.Domain
                 return false;
             }
 
+            if (checkpoint.elementProgression == null ||
+                !checkpoint.elementProgression.TryRestore(checkpoint, _elementUnlockRules != null,
+                    _initialBaseHealth, _initialGold, out var progression))
+            {
+                error = "Checkpoint element progression is invalid.";
+                return false;
+            }
+
             var towers = new List<TowerState>(checkpoint.towers.Length);
             var towerIds = new HashSet<int>();
             var coordinates = new HashSet<GridCoordinate>();
@@ -414,6 +417,21 @@ namespace Veilward.Domain
                 {
                     error = "Checkpoint tower type is missing or unknown.";
                     return false;
+                }
+
+                if (progression.IsNative)
+                {
+                    if (towerCheckpoint.towerTypeId == "test-tower")
+                    {
+                        error = "Native checkpoint cannot contain a legacy tower.";
+                        return false;
+                    }
+                    foreach (var element in archetype.RequiredElements)
+                        if (!progression.IsUnlocked(element))
+                        {
+                            error = "Checkpoint tower requirements are locked.";
+                            return false;
+                        }
                 }
 
                 var levels = archetype.Levels;
@@ -479,6 +497,7 @@ namespace Veilward.Domain
                     towers,
                     _waves.Length,
                     checkpoint.kills);
+                restoredState.SetElementProgression(progression);
             }
             catch (ArgumentException exception)
             {

@@ -164,6 +164,32 @@ namespace Veilward.Tests.EditMode
             Assert.That(BattleSessionContext.Consume(), Is.Null);
         }
 
+        [TestCase(true)] [TestCase(false)]
+        public void RegBattle182_183_NativeMenu_RoutesCompleteNativeOrLegacySession(bool native)
+        {
+            _scenario = UnityEngine.Object.Instantiate(ElementProgressionStorageTests.Config()); _objects.Add(_scenario);
+            var serialized = new SerializedObject(_scenario);
+            serialized.FindProperty("scenarioContentId").stringValue = "eight-wave-unlocks-v1";
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            var s = native ? _scenario.CreateSimulation(BattleElementUnlockTests.Rules()) : _scenario.CreateSimulation();
+            if (native) s.ChooseElement(new ChooseElementCommand("start-resonance", "gale"));
+            else s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId("storm"), new GridCoordinate(-5, -3)));
+            var e = new WaveCheckpointEnvelope
+            {
+                schemaVersion = native ? 3 : 2, scenarioContentId = native ? "eight-wave-unlocks-v1" : "eight-wave-v1",
+                state = s.ExportCheckpoint()
+            };
+            File.WriteAllText(_store.PrimaryPath, JsonUtility.ToJson(e)); var bytes = File.ReadAllBytes(_store.PrimaryPath);
+            var menu = CreateMenu(); Assert.That(menu.PrepareContinueSession(), Is.True);
+            var session = BattleSessionContext.Consume();
+            Assert.That(session.ScenarioContentId, Is.EqualTo(e.scenarioContentId));
+            var restored = _scenario.CreateSimulationForCheckpoint(session.Checkpoint);
+            restored.RestoreCheckpoint(session.Checkpoint.state);
+            Assert.That(restored.State.ElementProgression.RulesId, Is.EqualTo(native ? "wave-unlocks-v1" : "legacy-all-open-v1"));
+            Assert.That(restored.State.Towers.Count, Is.EqualTo(native ? 0 : 1));
+            Assert.That(File.ReadAllBytes(_store.PrimaryPath), Is.EqualTo(bytes));
+        }
+
         private MainMenuController CreateMenu()
         {
             var menuObject = new GameObject("Main Menu");

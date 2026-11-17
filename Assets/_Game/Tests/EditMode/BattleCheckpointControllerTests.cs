@@ -107,6 +107,23 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void RegBattle178_NextSaveFailure_PreservesWaveCompleteBeforeTransition()
+        {
+            var store = new WaveCheckpointStore(_root);
+            var simulation = CreateSimulation(waveCount: 2, maxHealth: 10);
+            var battle = CreateBattle(simulation, store, out var checkpoint);
+            battle.PlaceTower(TowerCell);
+            battle.StartWave();
+            simulation.Step();
+            checkpoint.ObservePhaseTransition();
+            Directory.CreateDirectory(store.TempPath);
+            LogAssert.Expect(LogType.Error, new Regex("Checkpoint save failed:.*"));
+            Assert.That(battle.ContinueToNextWave(), Is.EqualTo(WaveTransitionResult.RejectedInvalidPhase));
+            Assert.That(simulation.State.Phase, Is.EqualTo(BattlePhase.WaveComplete));
+            Assert.That(simulation.State.WaveIndex, Is.Zero);
+        }
+
+        [Test]
         public void DirectBattleWithoutStore_StartsWaveInMemory()
         {
             var battle = CreateBattle(CreateSimulation(), store: null, out var checkpoint);
@@ -115,6 +132,28 @@ namespace Veilward.Tests.EditMode
             Assert.That(battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Combat));
             Assert.That(Directory.GetFiles(_root), Is.Empty);
             Assert.That(checkpoint.LastSaveSucceeded, Is.True);
+        }
+
+        [TestCase(false)] [TestCase(true)]
+        public void RegBattle178_TransientSaveFailure_StartAndNextCanRetryAfterStorageRecovers(bool next)
+        {
+            var store = new WaveCheckpointStore(_root); var s = CreateSimulation(waveCount: 2, maxHealth: 10);
+            var battle = CreateBattle(s, store, out var cp);
+            battle.PlaceTower(TowerCell);
+            if (next) { battle.StartWave(); s.Step(); }
+            var before = s.ExportCheckpoint();
+            Directory.CreateDirectory(store.TempPath);
+            LogAssert.Expect(LogType.Error, new Regex("Checkpoint save failed:.*"));
+            Assert.That(cp.SaveCurrentState(), Is.False);
+            Assert.That(cp.LastSaveSucceeded, Is.False);
+            Directory.Delete(store.TempPath);
+            Assert.That(next ? battle.ContinueToNextWave() : battle.StartWave(),
+                Is.EqualTo(next ? WaveTransitionResult.Continued : WaveTransitionResult.Started));
+            Assert.That(cp.LastSaveSucceeded, Is.True);
+            Assert.That(s.State.Gold, Is.EqualTo(before.gold)); Assert.That(s.State.Kills, Is.EqualTo(before.kills));
+            var durable = Load(store);
+            Assert.That(durable.state.phase, Is.EqualTo(BattlePhase.Preparation));
+            Assert.That(durable.state.waveIndex, Is.EqualTo(next ? 1 : 0));
         }
 
         private BattleSceneController CreateBattle(
