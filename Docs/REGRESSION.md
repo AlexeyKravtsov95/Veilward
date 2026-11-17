@@ -308,3 +308,21 @@ REG-164…172 проверяют opt-in native Domain, а не production unlock
 ## P2.4a — способность и босс (SPECIFIED)
 
 [Спецификация](P2.4A_ABILITY_BOSS.md), [REG-BATTLE-190…217: сценарии, acceptance и владельцы #36–40](P2.4A_IMPLEMENTATION_PLAN.md#4-reg-matrix--только-specified). Это новые зарезервированные IDs после189; **все только SPECIFIED**, tests/runtime ещё не реализованы. Полные существующие suites в #35 не являются PASS этих сценариев. Покрытие: targeting/double-stale cast/lethal tick, cooldown/Pause, schema/content whitelist/legacy/corrupt backup/rollback, modal/pointer guards, boss kill/leak/Victory и natural A/B150/20 positive ability/boss/reaction coverage. Фактические gates документационного scope — [P2.4a evidence](review/P2.4a/validation.md).
+
+
+## P2.4b — Domain «Печати Разрыва» (#36)
+
+Production остаётся ability-disabled. Новые сценарии исполняются через explicit internal synthetic Domain setup; schema4, UI, boss/wave8 и REG198–217 относятся к следующим задачам. Историческая секция P2.4a выше описывает момент спецификации.
+
+| ID | Реальные EditMode tests | Проверяемый контракт |
+|---|---|---|
+| REG-BATTLE-190 | `BattleAbilityDefinitionTests.RegBattle190_*` | Immutable definition/ID, invalid/default/unknown, damage/radius/cooldown validation, прежние enum values. |
+| REG-BATTLE-191 | `BattleAbilityTests.RegBattle191_*`, `RegBattle191_194_*` | Phase/mode/ID priority; Check/Cast parity, revalidation; полный state/IDs/grid/progression/statuses/events/counters без mutation. Непустые четыре buffers; disabled production; enabled persistence явно unsupported. |
+| REG-BATTLE-192 | `BattleAbilityTests.RegBattle192_*` | Half-open bounds, road/occupied, inclusive radius, alive-only, captured positions и EnemyId order. |
+| REG-BATTLE-193 | `BattleAbilityTests.RegBattle193_*` | Armor/Crack/min1, без Gust/status/reaction mutation, multi-target/overkill/HP clamp, saturated Gold, один reward, long total. |
+| REG-BATTLE-194 | `BattleAbilityTests.RegBattle194_*`, `RegBattle191_194_*` | Stale wave/tick/sequence, double cast и повтор после600Steps, exhausted sentinel без overflow, atomic failure. |
+| REG-BATTLE-195 | `BattleAbilityTests.RegBattle195_*` | Ready,600→599→1→0 за ровно600CombatSteps, last completion Step, freeze/carry Preparation/WaveComplete/Next/Start. |
+| REG-BATTLE-196 | `BattleAbilityTests.RegBattle196_*` | Cast до lethal Movement и отказ после; immediately completion/pending3/6/Victory/bonus, future spawn, Defeat priority, terminal freeze. |
+| REG-BATTLE-197 | `BattleAbilityTests.RegBattle197_*` | Attribution/correlation/captured lethal position, общий sequence Ability/Reaction/Damage, Clear без reset, нет fake AttackEvent. |
+
+Результаты/RED→GREEN/полные totals/hashes и ограничения: [P2.4b evidence](review/P2.4b/validation.md). Статус VERIFIED указывается только по фактическому финальному прогону в evidence.

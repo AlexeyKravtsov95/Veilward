@@ -16,6 +16,9 @@ namespace Veilward.Domain
         private readonly List<ReactionEvent> _reactionEvents = new List<ReactionEvent>(32);
         private readonly List<DamageResolvedEvent> _damageEvents = new List<DamageResolvedEvent>(128);
         private readonly ReactionResolver _reactionResolver = new ReactionResolver();
+        private readonly AbilityDefinition _abilityDefinition;
+        private readonly List<AbilityTarget> _abilityTargets;
+        private readonly List<AbilityCastEvent> _abilityEvents = new List<AbilityCastEvent>();
         private int _sequenceInTick;
         private int _nextEnemyId = 1;
         private int _nextTowerId = 1;
@@ -174,7 +177,7 @@ namespace Veilward.Domain
         {
         }
 
-        private BattleSimulation(
+        internal BattleSimulation(
             GridMapDefinition map,
             PathDefinition path,
             IReadOnlyList<WaveDefinition> waves,
@@ -184,7 +187,8 @@ namespace Veilward.Domain
             int waveCompletionBonus,
             bool legacySingleWave,
             ReactionCatalog reactionCatalog = null,
-            ElementUnlockRules elementUnlockRules = null)
+            ElementUnlockRules elementUnlockRules = null,
+            AbilityDefinition abilityDefinition = null)
         {
             if (map == null)
             {
@@ -245,6 +249,20 @@ namespace Veilward.Domain
             _initialBaseHealth = baseHealth;
             _initialGold = startingGold;
             Grid = new BattleGrid(map, path);
+            long targetCapacity = 0;
+            if (abilityDefinition != null)
+            {
+                foreach (var wave in _waves)
+                {
+                    targetCapacity += wave.Count;
+                    if (targetCapacity > int.MaxValue - 2)
+                        throw new ArgumentException("Ability target budget exceeds safe mission IDs.", nameof(waves));
+                }
+            }
+            _abilityTargets = new List<AbilityTarget>((int)targetCapacity);
+            _abilityDefinition = abilityDefinition;
+            AbilityState = new AbilityState(abilityDefinition);
+            AbilityEvents = _abilityEvents.AsReadOnly();
             State = BattleState.CreateInitial(baseHealth, startingGold, _waves.Length);
             State.SetElementProgression(ElementProgressionState.CreateInitial(elementUnlockRules != null));
             AttackEvents = _attackEvents.AsReadOnly();
@@ -262,10 +280,116 @@ namespace Veilward.Domain
         public ReactionCatalog ReactionCatalog { get; }
         public IReadOnlyList<ReactionEvent> ReactionEvents { get; }
         public IReadOnlyList<DamageResolvedEvent> DamageEvents { get; }
+        public AbilityState AbilityState { get; }
+        public IReadOnlyList<AbilityCastEvent> AbilityEvents { get; }
+        public void ClearAbilityEvents() => _abilityEvents.Clear();
+
+        public AbilityCastResult CheckCastAbility(CastAbilityCommand command)
+        {
+            if (State.Phase != BattlePhase.Combat)
+                return AbilityCastResult.Rejected(AbilityCastFailureReason.InvalidPhase);
+            if (_abilityDefinition == null)
+                return AbilityCastResult.Rejected(AbilityCastFailureReason.AbilityDisabled);
+            if (command.AbilityId != _abilityDefinition.Id)
+                return AbilityCastResult.Rejected(AbilityCastFailureReason.UnknownAbility);
+            if (command.ExpectedWaveIndex != State.WaveIndex || command.ExpectedTick != State.Tick ||
+                command.ExpectedCastSequence != AbilityState.NextCastSequence)
+                return AbilityCastResult.Rejected(AbilityCastFailureReason.StaleCommand);
+            if (AbilityState.CooldownRemainingTicks != 0)
+                return AbilityCastResult.Rejected(AbilityCastFailureReason.CooldownActive);
+            if (!IsAbilityCenterInBounds(command.Center))
+                return AbilityCastResult.Rejected(AbilityCastFailureReason.InvalidTarget);
+
+            var hasTarget = false;
+            for (var index = 0; index < State.Enemies.Count; index++)
+            {
+                var enemy = State.Enemies[index];
+                if (enemy.IsAlive && IsAbilityTarget(command.Center, _path.GetPosition(enemy.DistanceAlongPath)))
+                {
+                    hasTarget = true;
+                    break;
+                }
+            }
+            if (!hasTarget) return AbilityCastResult.Rejected(AbilityCastFailureReason.NoTargets);
+            if (AbilityState.NextCastSequence == long.MaxValue)
+                return AbilityCastResult.Rejected(AbilityCastFailureReason.IdentifierExhausted);
+            return AbilityCastResult.Allowed();
+        }
+
+        public AbilityCastResult CastAbility(CastAbilityCommand command)
+        {
+            var check = CheckCastAbility(command);
+            if (!check.Succeeded) return check;
+
+            // Список фиксируется целиком до первого damage, независимо от порядка State.Enemies.
+            _abilityTargets.Clear();
+            for (var index = 0; index < State.Enemies.Count; index++)
+            {
+                var enemy = State.Enemies[index];
+                if (!enemy.IsAlive) continue;
+                var position = _path.GetPosition(enemy.DistanceAlongPath);
+                if (!IsAbilityTarget(command.Center, position)) continue;
+                var insertion = _abilityTargets.Count;
+                while (insertion > 0 && _abilityTargets[insertion - 1].Enemy.Id.Value > enemy.Id.Value) insertion--;
+                _abilityTargets.Insert(insertion, new AbilityTarget(enemy, position));
+            }
+
+            var sequence = AbilityState.NextCastSequence;
+            AbilityState.AcceptCast(_abilityDefinition.CooldownTicks);
+            _abilityEvents.Add(new AbilityCastEvent(State.Tick, _sequenceInTick++, _abilityDefinition.Id,
+                sequence, command.Center, _abilityDefinition.Radius, _abilityTargets.Count));
+            long totalLoss = 0;
+            for (var index = 0; index < _abilityTargets.Count; index++)
+            {
+                var captured = _abilityTargets[index];
+                var enemy = captured.Enemy;
+                var resolved = ApplyArmor(_abilityDefinition.Damage, EffectiveArmor(enemy), penetration: 0);
+                var healthBefore = enemy.Health;
+                var lethal = enemy.ApplyDamage(resolved);
+                var applied = healthBefore - enemy.Health;
+                totalLoss += applied;
+                _damageEvents.Add(new DamageResolvedEvent(State.Tick, _sequenceInTick++, DamageOrigin.Ability,
+                    default, enemy.Id, command.Center, captured.Position, _abilityDefinition.Damage,
+                    _abilityDefinition.Damage, resolved, applied, enemy.Health, lethal, null, null, index,
+                    _abilityDefinition.Id, sequence));
+            }
+            var count = _abilityTargets.Count;
+            _abilityTargets.Clear();
+            ResolveDeathsAndCompletion();
+            return AbilityCastResult.Cast(sequence, count, totalLoss);
+        }
+
+        private bool IsAbilityCenterInBounds(PathPosition center)
+        {
+            var map = Grid.Map;
+            return !float.IsNaN(center.X) && !float.IsInfinity(center.X) &&
+                   !float.IsNaN(center.Y) && !float.IsInfinity(center.Y) &&
+                   center.X >= map.Origin.X &&
+                   center.Y >= map.Origin.Y &&
+                   center.X < map.Origin.X + (double)map.Width * map.CellSize &&
+                   center.Y < map.Origin.Y + (double)map.Height * map.CellSize;
+        }
+
+        private bool IsAbilityTarget(PathPosition center, PathPosition target)
+        {
+            var dx = (double)target.X - center.X;
+            var dy = (double)target.Y - center.Y;
+            return dx * dx + dy * dy <= (double)_abilityDefinition.Radius * _abilityDefinition.Radius;
+        }
+
+        private readonly struct AbilityTarget
+        {
+            public AbilityTarget(EnemyState enemy, PathPosition position) { Enemy = enemy; Position = position; }
+            public EnemyState Enemy { get; }
+            public PathPosition Position { get; }
+        }
+
         private WaveDefinition CurrentWave => _waves[State.WaveIndex];
 
         public BattleCheckpoint ExportCheckpoint()
         {
+            if (_abilityDefinition != null)
+                throw new NotSupportedException("Enabled ability checkpoints require P2.4c persistence.");
             switch (State.Phase)
             {
                 case BattlePhase.Preparation:
@@ -299,6 +423,8 @@ namespace Veilward.Domain
             _attackEvents.Clear();
             _reactionEvents.Clear();
             _damageEvents.Clear();
+            _abilityEvents.Clear();
+            _abilityTargets.Clear();
             _sequenceInTick = 0;
         }
 
@@ -311,6 +437,11 @@ namespace Veilward.Domain
             restoredState = null;
             restoredGrid = null;
             error = null;
+            if (_abilityDefinition != null)
+            {
+                error = "Enabled ability checkpoints require P2.4c persistence.";
+                return false;
+            }
             if (checkpoint == null)
             {
                 error = "Checkpoint is required.";
@@ -782,12 +913,18 @@ namespace Veilward.Domain
                 return;
             }
 
-            _sequenceInTick = 0;
             State.AdvanceTick();
+            _sequenceInTick = 0;
+            AbilityState.AdvanceCombatStep();
             SpawnDueEnemies();
             ProcessStatusDamageAndExpiry();
             MoveEnemiesAndApplyLeaks();
             ProcessTowerAttacks();
+            ResolveDeathsAndCompletion();
+        }
+
+        private void ResolveDeathsAndCompletion()
+        {
             State.RemoveDefeatedEnemies();
 
             if (State.BaseHealth == 0)

@@ -1,0 +1,17 @@
+{
+  "base": "a7d07f7710a7358659848248643fec8af16a3e73",
+  "files_compared_byte_for_byte": 796,
+  "paths_sha256_manifest": "9a43e646738c52443474974d62d8ec8e5660e5fdc3ed8ac1c05a7f3801f1f734",
+  "scope": [
+    "Docs/review",
+    "Assets/_Game/Tests",
+    "Assets/Settings",
+    "Assets/_Game/Art",
+    "Assets/_Game/Configs",
+    "Assets/_Game/Prefabs",
+    "Assets/_Game/Scenes",
+    "Packages",
+    "ProjectSettings"
+  ],
+  "result": "PASS"
+}

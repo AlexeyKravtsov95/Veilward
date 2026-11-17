@@ -289,3 +289,14 @@ TrySave проверяет source, temp/read-back и previous primary; толь�
 PR #32 merged (`8128010`): технический P2.3 завершён, оба native старта имеют natural Victory8 и полный late file/menu/Combat7 matrix; [evidence](review/P2.3e.1/validation.md). Device/G2/баланс/ART approval отдельно. Исторические P2.3e/e.1 отчёты описывают состояние на момент подготовки и не переписываются.
 
 [Предлагаемый P2.4a контракт](P2.4A_ABILITY_BOSS.md) и [план #36–40/REG190…217](P2.4A_IMPLEMENTATION_PLAN.md) имеют статус SPECIFIED. В них определены синхронный Combat-only cast между Steps, общий death/reward/completion pipeline, schema4/content whitelist, input owner Ability и boss wave8. Это будущие API/числа для review; текущие runtime/schema3/configs не изменены.
+
+
+### P2.4b implemented Domain ability contract
+
+Production/public factories сохраняют disabled ability. Explicit internal synthetic constructor добавляет immutable `AbilityDefinition` и read-only `AbilityState`; enabled Export/Restore/validation явно unsupported до P2.4c, без изменения schema3/старых content IDs.
+
+`CheckCastAbility` read-only; `CastAbility` повторяет ту же ordered validation: Combat → enabled → ID → expected wave/tick/sequence → cooldown → finite half-open center bounds → alive targets → exhausted sequence. По принятому P2.4a bounds равны `[OriginX, OriginX+Width*CellSize) × [OriginY, OriginY+Height*CellSize)`; способность не использует grid snap/occupancy. Targets inclusive radius захватываются целиком с позициями, в EnemyId order; reused buffer заранее выделен по validated spawn budget. До validation success нет mutation/clear событий.
+
+Успешный cast между Steps не advance tick: выставляет600CombatSteps и увеличивает sequence, публикует AbilityCastEvent перед damage, учитывает armor/Crack/min1/HP clamp без Gust/status/reaction. Step уменьшает cooldown перед Spawn/Burn, включая последний Combat Step; вне Combat freeze, между волнами carry. Step/Cast используют общий death/removal/reward/completion handler с прежним Defeat priority и one-time pending/bonus. Старый leak-before-tower порядок сохранён.
+
+DamageOrigin.Ability добавлен после прежних enum values; optional SourceAbilityId/AbilityCastSequence дополняют DamageResolvedEvent, SourceTowerId=default, AttackEvent не публикуется. Ability/Reaction/Damage имеют общий возрастающий SequenceInTick: reset только на следующем tick/успешном Restore, Clear очищает только stream. Новые поля не изменяют historical trace writer. [REG190–197/evidence](review/P2.4b/validation.md); UI/input/Pause dispatch и four-stream consumption — #38.

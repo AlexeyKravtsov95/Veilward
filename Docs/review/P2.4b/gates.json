@@ -1,0 +1,151 @@
+{
+  "base_commit": "a7d07f7710a7358659848248643fec8af16a3e73",
+  "dependency_pr65_merged": true,
+  "reviewed_commit": "2be5385fbe011452644ab30116b59d43e4168777",
+  "source_commit": "512e783adcdddaf6caa5e0cb132a36f1d3105fd7",
+  "environment": {
+    "unity": "6000.3.28f1 (8f082d2fe476)",
+    "host": "macOS27.0.1 (26A434) arm64",
+    "runtime": "Editor Mono, target iOS",
+    "runner": "auto → batchmode -nographics; no -quit",
+    "new_content": "internal synthetic Domain only",
+    "production_ability": "disabled"
+  },
+  "static": {
+    "total": 38,
+    "passed": 38,
+    "failed": 0,
+    "project_checks": "PASS"
+  },
+  "reports": {
+    "baseline-edit.xml.gz": {
+      "sha256": "8fa94db597992e7fbe26e2e5f8f20332ae056e336018b9c6a211531486360e62",
+      "uncompressed_sha256": "e126b88a00997b4282dddffb948afa130ebe5ca8452fc76d6317ffc1bd6ef42c",
+      "total": 761,
+      "passed": 761,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "start_time_utc": "2026-11-17 16:41:47Z",
+      "end_time_utc": "2026-11-17 16:42:18Z"
+    },
+    "edit-mode-before-review.xml.gz": {
+      "sha256": "98934e0ebfbcccf55a6aef191fce3b447f72e2fedaf1f5f99aa1332084c6e213",
+      "uncompressed_sha256": "f297db8a5bc976ba74b0ae3abef1820f6923db687f6910044e3ed25d1605ceff",
+      "total": 826,
+      "passed": 826,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "start_time_utc": "2026-11-17 16:50:24Z",
+      "end_time_utc": "2026-11-17 16:50:51Z"
+    },
+    "edit-mode.xml.gz": {
+      "sha256": "e9212ebce010a6114f56ad86f8318b5aded3e2df17a4916474acac00c5cac8b3",
+      "uncompressed_sha256": "5c6bd48a3372df42247e9f42bdb266a000d7351711c8fb42d5a25771ca085640",
+      "total": 832,
+      "passed": 832,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "start_time_utc": "2026-11-17 16:57:20Z",
+      "end_time_utc": "2026-11-17 16:57:46Z"
+    },
+    "play-mode-before-review.xml.gz": {
+      "sha256": "69256738debc1e0825d006c2a42e47190bd3207c7246201863be57738a5e83db",
+      "uncompressed_sha256": "7804e89448578103bf2894a46f8363caa0c1092a9d44d17238edb7eedf2f02d3",
+      "total": 45,
+      "passed": 45,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "start_time_utc": "2026-11-17 16:54:06Z",
+      "end_time_utc": "2026-11-17 16:54:39Z"
+    },
+    "play-mode.xml.gz": {
+      "sha256": "fdbe393ba7fa46b47f31111fe4185053803947750f584901ab56da7d2850001d",
+      "uncompressed_sha256": "590bff5b33021ec6241c8be74425a4cc211aa955c33ed9ca22a4d0726f223228",
+      "total": 45,
+      "passed": 45,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "start_time_utc": "2026-11-17 16:58:58Z",
+      "end_time_utc": "2026-11-17 16:59:31Z"
+    },
+    "red-edit.xml.gz": {
+      "sha256": "1853191e0439296156b7a9632262106634f028489c56cbf8ecd6e1c8e721c7b6",
+      "uncompressed_sha256": "05b16771b048fd73580b64ff8b0832ef43395f57dbc59d1abc6586ddf6961639",
+      "total": 826,
+      "passed": 780,
+      "failed": 46,
+      "inconclusive": 0,
+      "skipped": 0,
+      "start_time_utc": "2026-11-17 16:49:38Z",
+      "end_time_utc": "2026-11-17 16:50:05Z"
+    },
+    "review-red.xml.gz": {
+      "sha256": "772b1375cd2ba831790093afa5c65a02fd54c15cba563244476ed942e779df4d",
+      "uncompressed_sha256": "93d4fdb6100165c820c8e3bd24404248b889b004a654803582aac4187fe30230",
+      "total": 832,
+      "passed": 829,
+      "failed": 3,
+      "inconclusive": 0,
+      "skipped": 0,
+      "start_time_utc": "2026-11-17 16:56:21Z",
+      "end_time_utc": "2026-11-17 16:56:47Z"
+    }
+  },
+  "source_file_sha256": {
+    "Assets/_Game/Scripts/Domain/AbilityCastEvent.cs": "110d913b23067481e7dfeeae37ec9f0372d956b232e88fb0b300cb8d9d4f4a0a",
+    "Assets/_Game/Scripts/Domain/AbilityCastEvent.cs.meta": "5a4a1f1bcfbf97c8da6cdfffd85ad897e04f07698263773b191c383f383eb172",
+    "Assets/_Game/Scripts/Domain/AbilityCastResult.cs": "989512dc9bdff85f54b0c942414d104ede52da17763d89c3ffd87a7020ee015a",
+    "Assets/_Game/Scripts/Domain/AbilityCastResult.cs.meta": "51b1b089ab1c31ca46c74ff8181744d45eac005c810f357ff8ff379e744f237b",
+    "Assets/_Game/Scripts/Domain/AbilityDefinition.cs": "b5db15026af7166d74a60918774aef0418002121b314c73b8689bdc46bc677a5",
+    "Assets/_Game/Scripts/Domain/AbilityDefinition.cs.meta": "770292805bba6f611e0251df313fbd83188320975bf1974e7b569ac3885e2a77",
+    "Assets/_Game/Scripts/Domain/AbilityDefinitionId.cs": "14d743ab4eac47757a5209c2e368364167fb66736998cfd8ca136c1591b26130",
+    "Assets/_Game/Scripts/Domain/AbilityDefinitionId.cs.meta": "fbd486b0ff5e5bb21ea531cf456fb4898e93e7309292e848512589963f471a28",
+    "Assets/_Game/Scripts/Domain/AbilityState.cs": "7a7bad10405694722534ecb7bbd7eb8fa8b1301a3e198bd187d1f5e79328b6d8",
+    "Assets/_Game/Scripts/Domain/AbilityState.cs.meta": "5adcdd34ea0919074bad2a6c50b0846ae267ca3de5341756c0ef9159137e225e",
+    "Assets/_Game/Scripts/Domain/BattleSimulation.cs": "8bac1e326f0b95ae2aa510bf43277e259f47f369d7b35002c0554e99d645c83a",
+    "Assets/_Game/Scripts/Domain/CastAbilityCommand.cs": "c636799ecbefacc0a2f745e0e6c008f839b1ff8a9c9840efa32817bee045885d",
+    "Assets/_Game/Scripts/Domain/CastAbilityCommand.cs.meta": "e0e3a727ae00de294684292ea2cd01928f7b38bdf408f816c2a0cff9791757b6",
+    "Assets/_Game/Scripts/Domain/DamageResolvedEvent.cs": "7c351691ce0720ee6973fefdda3bc26bd31db8f0da3bd9cd501f97be352d2304",
+    "Assets/_Game/Tests/EditMode/BattleAbilityDefinitionTests.cs": "9f0eac9b24c79e1db30e635adbb5e737537dcb8d12602abec1e1e07890c36014",
+    "Assets/_Game/Tests/EditMode/BattleAbilityDefinitionTests.cs.meta": "44eb8c6814dc560bedfd1a79e36c55b2acf5e504df0ab7fa77a757a65c5b45b1",
+    "Assets/_Game/Tests/EditMode/BattleAbilityTests.cs": "d800661f186362405fdf0f8b70986dfd17c300164605a8774adc0f5ffd6e273e",
+    "Assets/_Game/Tests/EditMode/BattleAbilityTests.cs.meta": "29fcbfc4aa9b574168de2f9de5e9909e873ae6a5f0b4831cbdef304f4b12ce02"
+  },
+  "historical_audit": {
+    "base": "a7d07f7710a7358659848248643fec8af16a3e73",
+    "files_compared_byte_for_byte": 796,
+    "paths_sha256_manifest": "9a43e646738c52443474974d62d8ec8e5660e5fdc3ed8ac1c05a7f3801f1f734",
+    "scope": [
+      "Docs/review",
+      "Assets/_Game/Tests",
+      "Assets/Settings",
+      "Assets/_Game/Art",
+      "Assets/_Game/Configs",
+      "Assets/_Game/Prefabs",
+      "Assets/_Game/Scenes",
+      "Packages",
+      "ProjectSettings"
+    ],
+    "result": "PASS"
+  },
+  "review": {
+    "verdict_at_reviewed_commit": "With fixes",
+    "important_findings": 1,
+    "critical": 0,
+    "minor": 0,
+    "resolution": "I-01 non-unit bounds: review-red 3 failures → edit-mode 832/832; full static38/38 and PlayMode45/45 after fix. No second independent review."
+  },
+  "not_verified": [
+    "enabled persistence/schema4 (#37)",
+    "ability UI/input/Pause dispatch (#38)",
+    "boss/wave8/new production content (#39)",
+    "natural ability/boss replay (#40)",
+    "physical iPhone, IL2CPP/Metal, thermal/performance",
+    "balance/G2/ART approval, Unity self-hosted CI, TestFlight/release"
+  ]
+}
