@@ -1,0 +1,103 @@
+{
+  "sourceCommit": "79bf582b469e9b41c937bf4948154d3278a0a878",
+  "commands": [
+    "./Scripts/run-static-checks.sh",
+    "./Scripts/run-edit-mode-tests.sh",
+    "git restore -- Assets/Settings Assets/_Game/Art Assets/_Game/Prefabs Assets/_Game/Scenes  # only generated drift in this dedicated worktree",
+    "./Scripts/run-play-mode-tests.sh",
+    "P23E_CAPTURE=1 /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -projectPath /Users/alexeykravtsov/Desktop/workspace/Veilward-p23e -buildTarget iOS -runTests -testPlatform PlayMode -testFilter Veilward.Tests.PlayMode.NativeEightWaveIntegrationPlayModeTests -testResults TestResults/P2.3e/Visual.xml -logFile TestResults/P2.3e/Visual.log",
+    "python3 Docs/review/P2.3e/verify-evidence.py",
+    "git diff --check"
+  ],
+  "static": {
+    "total": 38,
+    "passed": 38,
+    "failed": 0,
+    "sha256": "94dc14a5b2ab3b8c56c4f78a750771a8796df8ce5310f7ee5ddfa0061793cf6c"
+  },
+  "suites": {
+    "EditMode": {
+      "total": 751,
+      "passed": 751,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Passed",
+      "startUtc": "2026-11-17 09:09:59Z",
+      "endUtc": "2026-11-17 09:10:24Z",
+      "sha256": "9863ac5c1da1b1f17e403498e59305b63a732e48b112c11136b2aff81fe9b2b8"
+    },
+    "PlayMode": {
+      "total": 43,
+      "passed": 43,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Passed",
+      "startUtc": "2026-11-17 09:10:54Z",
+      "endUtc": "2026-11-17 09:11:18Z",
+      "sha256": "a09f5e3b1558f5a6db1298561687be5b010a43b024e0d74693930b6380412aea"
+    },
+    "Visual": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Passed",
+      "startUtc": "2026-11-17 09:19:55Z",
+      "endUtc": "2026-11-17 09:20:00Z",
+      "sha256": "38e101e5d2f16dd9b5bd0913c709f8763169607bf540b44d9df588742768eecd"
+    }
+  },
+  "console": {
+    "RegBattle187_ProductionMenuNaturalFlameContinue.console.txt": {
+      "unexpectedErrors": 0,
+      "warnings": 8,
+      "distinct": [
+        "Warning|Ignoring depth surface load action as it is memoryless",
+        "Warning|Ignoring depth surface store action as it is memoryless"
+      ],
+      "sha256": "081b0faaebab323004a4330c11dda14e4f4a797abc6f1483c48925dc64ebf5cb"
+    },
+    "RegBattle187_ProductionMenuNaturalGaleContinue.console.txt": {
+      "unexpectedErrors": 0,
+      "warnings": 16,
+      "distinct": [
+        "Warning|Ignoring depth surface load action as it is memoryless",
+        "Warning|Ignoring depth surface store action as it is memoryless"
+      ],
+      "sha256": "4f2bf79ba2b217ac78297139c4c08db7872fb4cea5259d3880b74ede00cb6d15"
+    }
+  },
+  "sourceAudit": {
+    "runtimeConfigPackagesArtChanged": false,
+    "historicalEvidenceChanged": false,
+    "newPackages": false,
+    "metaGuidCompile": "PASS; static checks + both full Unity suites",
+    "diffCheck": "PASS",
+    "secretsScope": "No new credentials; runtime/config/scene/art/package and historical evidence diffs empty."
+  },
+  "limitations": [
+    "Editor Mono tests; iOS active target, no IL2CPP/Metal player or physical iPhone",
+    "Test driver advances public fixed Step up to120 ticks per frame; real Game View captures, not realtime performance/VFX timing",
+    "after6/Combat7 not reached in natural production routes; zero late proc is not PASS",
+    "Unity CI, G2, balance/art approval, signing/TestFlight not verified"
+  ],
+  "screenshots": {
+    "A-confirmed3.png": "c5adad3785be721eefa95d7e9504d0b7810b876a0bf45c86ecd4dfe599f10f2b",
+    "A-failed-confirm-restart3.png": "32ef36cf041f19272b6ba1b82ac81e689e0e98b5374fc6ba4c35b4d03189341d",
+    "A-natural-outcome.png": "5bcbae0827e5ebd2fa13a782c959ef48ce96734c2bb3b8cf629eb62e40029313",
+    "A-pending3.png": "32ef36cf041f19272b6ba1b82ac81e689e0e98b5374fc6ba4c35b4d03189341d",
+    "A-production-Steam-Intrinsic.png": "03158f0358a309f627cf1977cde054e766338009778e7e821e7ed9de3deeb000",
+    "A-production-Steam-StatusPair.png": "f2ac5e169fe766be2640a38421670888cd3390c58dfc631f7bc696918ab105c7",
+    "A-rollback4.png": "0494fb98acf9f8faf89570ddbd8ae67da5866aafb5401c1de3883e4819cd5458",
+    "B-confirmed3.png": "87a5b4469bb73bf46dfff7811bab6dc47ff2696fcbd0f11cfb0ec147d737e094",
+    "B-failed-confirm-restart3.png": "c784b4f9afa25c300a50ded5e2728c190cdd7e0684458a5ef240e0d708ef0891",
+    "B-natural-outcome.png": "d0800e6f4167fe6ea9f9f0c2aa21bf0d7709843b16b5275db1730c734b9b41be",
+    "B-pending3.png": "c784b4f9afa25c300a50ded5e2728c190cdd7e0684458a5ef240e0d708ef0891",
+    "B-production-Storm-Intrinsic.png": "9237943dc5377e8f9338b8a5c76b6cbd0657a0c242f87505dfa10c13851f1644",
+    "B-production-Storm-StatusPair.png": "8427526cdb67ac4c57a53458d792d14889047b34133ef987521d6444ca5d9b47",
+    "B-rollback4.png": "0e8af28956a8ba1635495f311dab1a69d6eb224df2d417a412ed2d8c5e239530"
+  }
+}

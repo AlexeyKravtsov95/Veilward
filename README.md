@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-Unity-проект мобильной tower defense игры для iOS. Текущий этап — **P2.2f / Task 5: replay, файловый rollback и impact evidence, ожидает независимого review/merge**. P2.2b–e находятся в `main`: Steam/Storm, шесть башен, VFX/два маркера/инспектор и safe-wave schema 2. Все шесть типов доступны с Preparation по утверждённому временному P-05; unlocks — P2.3. P2.2 не закрыт до review/merge P2.2f; баланс и G2 открыты.
+Unity-проект мобильной tower defense игры для iOS. P2.3d merged PR #30: native EightWave, обязательный FLAME/GALE и открытия после волн 3/6, schema3 и legacy Continue. Проверочный P2.3e фиксирует реальные результаты ниже. P2.3 целиком, баланс, G2 и device QA остаются открытыми.
 
 ## Окружение
 
@@ -186,3 +186,12 @@ New Game использует `eight-wave-unlocks-v1`: обязательный 
 Все шесть карточек показывают цену, доступность и missing elements; locked description не создаёт world preview и не покупается. Pause/background очищают preview и замораживают симуляцию, Resume не подтверждает выбор. Единый guard защищает UI callbacks и public gameplay API от Pause/чужого modal. При failed save видна ошибка и Retry Save; Retry только сохраняет, Start/Next могут повторить safe save после восстановления storage. Continue восстанавливает pending/confirmed без preview и повторной награды. Старые armies продолжаются с отметкой прежних all-open правил; historical combat suites используют явно именованную внутреннюю factory.
 
 [REG-173/184/185 и Play Mode evidence](Docs/review/P2.3d/validation.md). Natural replay/проходимость — P2.3e; physical iPhone, device QA/G2, TestFlight и balance approval этим PR не закрываются.
+
+
+## P2.3e: production replay и восстановление
+
+[Command scripts, traces, outcomes и acceptance matrix](Docs/review/P2.3e/validation.md). Saved production factory, 150 Gold/20 HP, публичные команды: A (FLAME→TIDE→GALE) и B (GALE→TIDE→FLAME) дважды дают **Defeat на волне 5, tick 2246**, HP0/Kills13; Gold34 и21 соответственно. Stone route: Defeat5/tick2205/Gold60/Kills12. Неисполненный суффикс после6 не дорисован.
+
+VERIFIED: детерминизм целых traces и файлового replay; Steam intrinsic4/pair5 в A, Storm intrinsic4/pair5 в B; экономика с обычными ценами/refund, accepted Upgrade и repeated Sell; реальные меню/controllers и isolated filesystem, pending/confirmed3, failed-save restart, Combat4 kill+proc rollback, schema1/2/legacy hybrid army и native↔legacy backup. [Результаты](Docs/review/P2.3e/replay-summary.json) и реальные Play Mode кадры отделены от исторических fixtures.
+
+FAIL/BLOCKED acceptance: в обоих scripts ранний Defeat, нет after6, второй пары/гибрида в одном забеге и native Combat7 rollback. Это не доказательство невозможности выиграть другими стратегиями. Нужна отдельная узкая проверка ранней обороны/бюджета и решение владельца; gameplay/баланс/configs этим PR не меняются. P2.3 **не DONE**, review/merge ожидаются; physical iPhone, IL2CPP/Metal player, device QA/G2, баланс, ART approval и TestFlight отдельно.
