@@ -214,6 +214,26 @@ namespace Veilward.Tests.EditMode
             Assert.That(menu.anchoredPosition, Is.EqualTo(left + new Vector2(60, 30)));
         }
 
+        [TestCase(1)] [TestCase(3)]
+        public void RegBattle185_NextButtonClosesOwnTowerSelectionAfterOrdinaryOrChoiceWave(int wave)
+        {
+            Open(); Choose("flame");
+            _placement.TrySelectCell(_cell); _placement.SelectTowerType(new TowerDefinitionId("flame")); _placement.ConfirmSelection();
+            _placement.TrySelectCell(_cell);
+            var state = _battle.Simulation.ExportCheckpoint(); state.phase = BattlePhase.WaveComplete; state.waveIndex = wave - 1;
+            if (wave == 3) { state.elementProgression.choicesEarned = 1; state.elementProgression.pendingChoiceId = "after-wave-3"; }
+            _battle.Simulation.RestoreCheckpoint(state);
+            Call(_placement, "RefreshUi"); Call(_choice, "Refresh");
+            if (wave == 3) Choose("tide");
+            Assert.That(_placement.SelectedTowerId.HasValue, Is.True);
+            Call(_placement, "RefreshUi");
+            Assert.That(Button("Next Wave Button").interactable, Is.True);
+            Button("Next Wave Button").onClick.Invoke();
+            Assert.That(_battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
+            Assert.That(_battle.Simulation.State.WaveIndex + 1, Is.EqualTo(wave + 1));
+            Assert.That(_placement.HasSelection, Is.False);
+        }
+
         private void Choose(string id) { Call(_choice, "Refresh"); Assert.That(Call(_choice, "SelectOption", id), Is.EqualTo(true)); Assert.That(((ElementChoiceResult)Call(_choice, "ConfirmChoice")).Success, Is.True); }
         private static Button Button(string name) => Object.FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None).Single(b => b.name == name);
         private static object Call(object target, string method, params object[] args) => target.GetType().GetMethod(method, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Invoke(target, args);

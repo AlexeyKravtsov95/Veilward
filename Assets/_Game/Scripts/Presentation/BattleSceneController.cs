@@ -593,7 +593,7 @@ namespace Veilward.Presentation
                            $"Tick: {state.Tick}\n" +
                            $"Phase: {state.Phase}" +
                            result + (_simulation.State.ElementProgression.RulesId == "legacy-all-open-v1"
-                               ? "\nLegacy: прежние правила, все стихии открыты" : string.Empty);
+                               ? "\nLegacy: прежние правила" : string.Empty);
         }
 
         private sealed class EnemyView

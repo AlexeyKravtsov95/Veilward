@@ -131,6 +131,30 @@ namespace Veilward.Tests.PlayMode
             Assert.That(JsonUtility.ToJson(Battle.Simulation.ExportCheckpoint()), Is.EqualTo(before));
             Assert.That(Battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
         }
+        [UnityTest] public IEnumerator RegBattle185_NextWithSelectedTowerClosesPanelIncludingMilestone()
+        {
+            foreach (var wave in new[] { 1, 3 })
+            {
+                yield return SceneManager.LoadSceneAsync("Battle"); yield return null;
+                Choice.SelectOption("flame"); Choice.ConfirmChoice();
+                var placement = Object.FindFirstObjectByType<BattlePlacementController>();
+                var cell = new GridCoordinate(-4, 0);
+                placement.TrySelectCell(cell); placement.SelectTowerType(new TowerDefinitionId("flame")); placement.ConfirmSelection();
+                placement.TrySelectCell(cell);
+                var state = Battle.Simulation.ExportCheckpoint(); state.phase = BattlePhase.WaveComplete; state.waveIndex = wave - 1;
+                if (wave == 3) { state.elementProgression.choicesEarned = 1; state.elementProgression.pendingChoiceId = "after-wave-3"; }
+                Battle.Simulation.RestoreCheckpoint(state); yield return null;
+                if (wave == 3) { Choice.SelectOption("tide"); Button("Confirm Element Button").onClick.Invoke(); }
+                yield return null;
+                Assert.That(placement.SelectedTowerId.HasValue, Is.True);
+                Assert.That(Button("Next Wave Button").interactable, Is.True);
+                Button("Next Wave Button").onClick.Invoke();
+                Assert.That(Battle.Simulation.State.Phase, Is.EqualTo(BattlePhase.Preparation));
+                Assert.That(Battle.Simulation.State.WaveIndex + 1, Is.EqualTo(wave + 1));
+                Assert.That(placement.HasSelection, Is.False);
+            }
+        }
+
         private static Button Button(string name) => Object.FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None).Single(b => b.name == name);
     }
 }

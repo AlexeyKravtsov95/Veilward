@@ -492,6 +492,7 @@ namespace Veilward.Presentation
                 return;
             }
 
+            ClearSelection();
             battle.ContinueToNextWave();
             RefreshUi();
         }

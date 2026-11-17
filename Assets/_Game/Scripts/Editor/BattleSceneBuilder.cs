@@ -57,6 +57,7 @@ namespace Veilward.Editor
                     wave.FindPropertyRelative("spawnIntervalTicks").intValue = 30;
                 }
 
+                SetNativeProgression(serializedConfig);
                 serializedConfig.ApplyModifiedPropertiesWithoutUndo();
                 AssetDatabase.CreateAsset(config, ConfigPath);
             }
@@ -141,17 +142,22 @@ namespace Veilward.Editor
             // Одноразовое обновление только прежнего wrapper; native malformed config не чинится молча.
             if (content.stringValue == "eight-wave-v1")
             {
-                content.stringValue = "eight-wave-unlocks-v1";
-                var settings = serialized.FindProperty("progression");
-                settings.FindPropertyRelative("rulesId").stringValue = "wave-unlocks-v1";
-                var options = settings.FindPropertyRelative("startingOptions"); options.arraySize = 2;
-                options.GetArrayElementAtIndex(0).intValue = (int)ElementKind.Flame;
-                options.GetArrayElementAtIndex(1).intValue = (int)ElementKind.Gale;
-                var milestones = settings.FindPropertyRelative("choiceWaves"); milestones.arraySize = 2;
-                milestones.GetArrayElementAtIndex(0).intValue = 3; milestones.GetArrayElementAtIndex(1).intValue = 6;
+                SetNativeProgression(serialized);
                 serialized.ApplyModifiedPropertiesWithoutUndo(); EditorUtility.SetDirty(config);
             }
             config.CreateSimulation();
+        }
+
+        private static void SetNativeProgression(SerializedObject serialized)
+        {
+            serialized.FindProperty("scenarioContentId").stringValue = "eight-wave-unlocks-v1";
+            var settings = serialized.FindProperty("progression");
+            settings.FindPropertyRelative("rulesId").stringValue = "wave-unlocks-v1";
+            var options = settings.FindPropertyRelative("startingOptions"); options.arraySize = 2;
+            options.GetArrayElementAtIndex(0).intValue = (int)ElementKind.Flame;
+            options.GetArrayElementAtIndex(1).intValue = (int)ElementKind.Gale;
+            var milestones = settings.FindPropertyRelative("choiceWaves"); milestones.arraySize = 2;
+            milestones.GetArrayElementAtIndex(0).intValue = 3; milestones.GetArrayElementAtIndex(1).intValue = 6;
         }
 
         private static void EnsureElementalCatalog(BattleScenarioConfig config)
