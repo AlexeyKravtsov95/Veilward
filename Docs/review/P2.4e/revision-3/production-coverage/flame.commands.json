@@ -1,0 +1,103 @@
+{
+    "start": "flame",
+    "after3": "tide",
+    "after6": "gale",
+    "commands": [
+        {
+            "wave": 1,
+            "x": 1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "flame"
+        },
+        {
+            "wave": 1,
+            "x": 2,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "flame"
+        },
+        {
+            "wave": 4,
+            "x": 1,
+            "y": -1,
+            "id": 0,
+            "op": "place",
+            "type": "tide"
+        },
+        {
+            "wave": 5,
+            "x": 1,
+            "y": 1,
+            "id": 0,
+            "op": "place",
+            "type": "steam"
+        },
+        {
+            "wave": 7,
+            "x": -1,
+            "y": -1,
+            "id": 0,
+            "op": "place",
+            "type": "gale"
+        },
+        {
+            "wave": 8,
+            "x": 2,
+            "y": 1,
+            "id": 0,
+            "op": "place",
+            "type": "storm"
+        }
+    ],
+    "threshold": 100,
+    "bossDelay": 0,
+    "earlyWave8": true,
+    "holdWave7": true,
+    "casts": [
+        {
+            "wave": 1,
+            "relativeTick": 0,
+            "x": -5.0,
+            "y": -2.0
+        },
+        {
+            "wave": 2,
+            "relativeTick": 201,
+            "x": -0.45000120997428896,
+            "y": -0.9499955177307129
+        },
+        {
+            "wave": 3,
+            "relativeTick": 425,
+            "x": 4.050031661987305,
+            "y": 2.0
+        },
+        {
+            "wave": 5,
+            "relativeTick": 99,
+            "x": -3.0000009536743166,
+            "y": -2.0
+        },
+        {
+            "wave": 6,
+            "relativeTick": 259,
+            "x": -0.5000013113021851,
+            "y": -0.9999957084655762
+        },
+        {
+            "wave": 8,
+            "relativeTick": 0,
+            "x": -5.0,
+            "y": -2.0
+        },
+        {
+            "wave": 8,
+            "relativeTick": 600,
+            "x": 0.0,
+            "y": 0.8599939346313477
+        }
+    ]
+}

@@ -2,7 +2,7 @@
 
 Unity-проект мобильной tower defense игры для iOS. **Технический P2.3 DONE** после merged [PR #32](https://github.com/AlexeyKravtsov95/Veilward/pull/32), `8128010`: native FLAME/GALE, unlock3/6, schema3/legacy Continue, natural Victory8 обоих стартов и late file/menu/Combat7. [Evidence P2.3e.1](Docs/review/P2.3e.1/validation.md) дополняет сохранённый исторический P2.3e Defeat5. Баланс/G2, device QA и ART approval отдельно открыты.
 
-P2.4a–d merged в PR #65–68; D-01…D-07 приняты владельцем. **P2.4e/#39 пока BLOCKED:** ability+boss mission и сохранение старых правил реализованы в отдельной неприёмочной ветке, natural Victory обоих стартов не достигнута. Обязательные smoke остаются FAIL; без закрытия #39 и без merge/release. [Evidence P2.4e](Docs/review/P2.4e/validation.md), [план #36–40](Docs/P2.4A_IMPLEMENTATION_PLAN.md). M0/device/G2/ART и полная #40 integration matrix — отдельные gates.
+P2.4a–d merged в PR #65–68; D-01…D-07 приняты владельцем. **P2.4e/#39 — R3 Review:** по разрешённому balance pass выбран boss1000HP/armor5; оба natural starts Victory8, прежние saves/rules сохранены. Editor acceptance и полные suites зелёные; merge/release не выполнялись. [Evidence P2.4e](Docs/review/P2.4e/validation.md), [план #36–40](Docs/P2.4A_IMPLEMENTATION_PLAN.md). M0/device/G2/ART и полная #40 integration matrix — отдельные gates.
 
 ## Окружение
 
@@ -211,8 +211,10 @@ AbilityController/preview/Confirm/Cancel, Ready/cooldown, одноразовый
 
 **Production остаётся ability-disabled.** Enabled UI — только internal exact-ID `synthetic-p24-ability-v1` fixture; MainMenu/production whitelist его не принимают. Boss/final mission — совместная активация #39, natural integration #40. [Спецификация/REG204–208](Docs/P2.4D_ABILITY_UI.md), [полные gates, реальные wide/narrow Play Mode кадры, Console и review](Docs/review/P2.4d/validation.md). Editor synthetic test clock не подтверждает physical iPhone/touch/safe area/background/IL2CPP/Metal/performance/G2/ART. Self-merge/release/TestFlight не выполняются.
 
-### P2.4e / #39 — неприёмочная ветка
+### P2.4e / #39 — R3, Review
 
-Новый `eight-wave-ability-boss-v1`: ability и rift-warden восьмой волны включаются совместно; прежние saves продолжают старые правила/ID. Добавлены bounded multi-group schedule, boss notice/HP/armor и final schema4 routing. **Acceptance BLOCKED:** natural Victory обоих стартов не достигнута; обязательные smoke остаются красными. [Scope](Docs/P2.4E_RIFT_WARDEN.md) · [Evidence и точные gates](Docs/review/P2.4e/validation.md). Не готово к merge/release; #39 не закрывается.
+Новый `eight-wave-ability-boss-v1`: ability и rift-warden восьмой волны включаются совместно; прежние saves продолжают старые правила/ID. Добавлены bounded multi-group schedule, boss notice/HP/armor и final schema4 routing. **R3 Editor acceptance VERIFIED:** natural Victory обоих стартов, четыре coverage counters, Victory IO/Retry/terminal Continue и34реальных кадра; выбран armor5 из разрешённого набора. [Scope](Docs/P2.4E_RIFT_WARDEN.md) · [Evidence и точные gates](Docs/review/P2.4e/validation.md). Не готово к merge/release; #39 не закрывается.
 
 Доработка PR #69: расширены все ordered choices и законные стратегии, лучшие попытки FLAME/GALE оставляют boss154/68 HP. **Draft / BLOCKED**, Victory assertions не ослаблены; EditMode1016/1018, PlayMode56/58, graphical1/3. Новые26 Play Mode кадров и точные лимиты поиска — [R2 evidence](Docs/review/P2.4e/revision-2/validation.md). Старый FAIL evidence сохранён; Refs #39 / Refs #40, без merge/release/TestFlight.
+
+**Актуальный R3 итог PR #69:** выбран1000HP/armor5. Static38/38, EditMode1048/1048, PlayMode58/58, graphical3/3 PASS; failed/skipped/inconclusive0. [Матрица/выбор/34кадра/persistence/границы](Docs/review/P2.4e/revision-3/validation.md). R1/R2 выше — история; G2/device/ART/#40 отдельно, без self-merge/release/TestFlight.

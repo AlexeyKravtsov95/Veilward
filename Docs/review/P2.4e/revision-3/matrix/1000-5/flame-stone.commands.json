@@ -1,0 +1,97 @@
+{
+    "start": "flame",
+    "after3": "stone",
+    "after6": "gale",
+    "commands": [
+        {
+            "wave": 1,
+            "x": -2,
+            "y": -1,
+            "id": 0,
+            "op": "place",
+            "type": "flame"
+        },
+        {
+            "wave": 4,
+            "x": -1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "stone"
+        },
+        {
+            "wave": 4,
+            "x": 1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "stone"
+        },
+        {
+            "wave": 6,
+            "x": 2,
+            "y": 1,
+            "id": 0,
+            "op": "place",
+            "type": "stone"
+        },
+        {
+            "wave": 7,
+            "x": -2,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "gale"
+        },
+        {
+            "wave": 8,
+            "x": -1,
+            "y": -1,
+            "id": 0,
+            "op": "place",
+            "type": "stone"
+        }
+    ],
+    "threshold": 200,
+    "bossDelay": 120,
+    "earlyWave8": false,
+    "holdWave7": false,
+    "casts": [
+        {
+            "wave": 1,
+            "relativeTick": 60,
+            "x": -3.4750008583068849,
+            "y": -2.0
+        },
+        {
+            "wave": 2,
+            "relativeTick": 261,
+            "x": 0.5500102043151856,
+            "y": 1.050004482269287
+        },
+        {
+            "wave": 3,
+            "relativeTick": 439,
+            "x": 4.000031471252441,
+            "y": 2.0
+        },
+        {
+            "wave": 5,
+            "relativeTick": 111,
+            "x": -2.400001287460327,
+            "y": -2.0
+        },
+        {
+            "wave": 6,
+            "relativeTick": 261,
+            "x": -1.2000006437301636,
+            "y": -1.699998378753662
+        },
+        {
+            "wave": 8,
+            "relativeTick": 450,
+            "x": -0.9666690230369568,
+            "y": -2.0
+        }
+    ]
+}
