@@ -1,0 +1,13 @@
+# #39 / PR69 — R3 specification
+
+Продолжение head ec6e11c2 в той же изолированной ветке. Решение владельца18.11.2026 в актуальном R3 issue39 разрешает только контроль1000HP/10armor и четыре однополевых кандидата900/10,800/10,1000/8,1000/5. Выбор из этого набора не требует повторного согласования. Нельзя совмещать изменения, менять speed1/leak20/reward50/bonus20/spawns/ability/towers/economy/waves1–7/старые factories и saves. Это не G2/device/ART approval.
+
+Порядок: test-only immutable candidate factories до New Game → R2 Stone scripts + FLAME/TIDE/GALE coverage routes → matrix и выбор только из прошедших → согласованное production/spec/D-decision обновление → natural replay/persistence/PlayMode → полные gates/evidence/PR/review. R1/R2 bytes и старые mandatory Victory assertions сохраняются.
+
+Acceptance кандидата: оба старта natural Victory8 с реальным boss kill и positive ability AppliedHpLoss; coverage routes Steam/Storm × StatusPair/Intrinsic имеют положительный AppliedHpLoss и natural Victory, без Stone в unlock set. Отдельный no-cast8 natural boss leak20 из живой Preparation8 даёт Defeat без boss reward/bonus. Ранжирование среди прошедших: внутри оси900 раньше800, armor8 раньше5; между осями фактические kill tick/baseHP/доступные армии/угроза. Не заявлять математическую оптимальность.
+
+Новые regression scenarios: immutable candidate matrix сохраняет всё кроме одного поля EnemyDefinition; контроль воспроизводит R2 Defeat154/68; выбранный production повторяет целиком победные scripts из150/20. Final Victory whole-state Export/dirty+fresh Restore/два no-write Load, terminal Continue off. Completion от boss-kill Cast/Step при temp/read-back/commit IO fault сохраняет live Victory, reward50+bonus20 однократны; Retry только записывает whole snapshot, повтор command/Step/Next не даёт ресурсов. Реальные PlayMode boss kill/Victory/failure/Retry/clean menu кадры wide/narrow и Console. Existing schema4/mixed-slot/Combat8 rollback остаются зелёными.
+
+Риски: неверная candidate factory меняет остальные параметры; настройка лишь под Stone; потеря реакции из-за более ранней смерти; неeligible Victory; duplicate reward после failed save; подмена исторических FAIL новой конфигурацией. Только public команды/Step, safe checkpoints только из реально достигнутых фаз, никаких live/DTO edits.
+
+Gates: full static/EditMode/PlayMode/graphical с positive totals и failed/skipped/inconclusive0, compile/meta/GUID/packages/builder/diff, source/config/input/raw XML/media hashes и historical byte audit. Иначе draft/Refs39/Refs40/BLOCKED с матрицей и лимитами. Без self-merge/release/TestFlight.
