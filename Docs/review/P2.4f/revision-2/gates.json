@@ -1,0 +1,76 @@
+{
+  "base": "0e3a755ca72cef9ad56859330c0502704b0d93f9",
+  "research_source": "497ac70",
+  "suite_source": "f25b6f3235d0fb5e25b2e9b3277d681b34264bbb",
+  "date": "2026-11-19",
+  "environment": {
+    "os": "macOS-27.0.1-arm64-arm-64bit",
+    "arch": "arm64",
+    "unity": "6000.3.28f1 (8f082d2fe476)",
+    "unity_cli": "1.0.1; latest checked",
+    "target": "iOS Editor tests only",
+    "hz": 30,
+    "visual_clock": "public-command test clock; Battle.Update disabled; no device/realtime performance proof"
+  },
+  "research": {
+    "wave_outcomes": 99992,
+    "full_new_game_outcomes": 4,
+    "total": 99996,
+    "cap": 100000,
+    "wall_cap_per_start_seconds": 600,
+    "flame_seconds": 41.4982338,
+    "gale_seconds": 40.6998429,
+    "victories": 0,
+    "eligible": 0,
+    "duplicate_plans_pruned_before_evaluation": 16301,
+    "invalid_suffixes": 0,
+    "one_pass_completed": true,
+    "wave_only_ticks": 60084941,
+    "full_new_game_steps": 14360
+  },
+  "static": {
+    "total": 38,
+    "passed": 38
+  },
+  "EditMode": {
+    "total": 1077,
+    "passed": 1075,
+    "failed": 2,
+    "inconclusive": 0,
+    "skipped": 0,
+    "result": "FAIL: mandatory same-run Victory REG214"
+  },
+  "PlayMode": {
+    "total": 60,
+    "passed": 60,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0
+  },
+  "Visual": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "scope": "preserved old coverage/Stone/leak controls; not the four new best scripts or winning matrix"
+  },
+  "commands": [
+    "unity self-update --check --format json",
+    "./Scripts/run-static-checks.sh",
+    "./Scripts/run-edit-mode-tests.sh batch",
+    "./Scripts/run-play-mode-tests.sh batch",
+    "P24F_TARGETED_SEARCH=1 /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -batchmode -nographics -projectPath /Users/alexeykravtsov/Desktop/workspace/Veilward-p24f -buildTarget iOS -runTests -testPlatform EditMode -testFilter AbilityBossTargetedSearchTests -testResults /tmp/p24f-targeted-full.xml -logFile /tmp/p24f-targeted-full.log",
+    "/Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -batchmode -nographics -projectPath /Users/alexeykravtsov/Desktop/workspace/Veilward-p24f -buildTarget iOS -runTests -testPlatform EditMode -testFilter AbilityBossTargetedReplayTests -testResults /tmp/p24f-targeted-replay.xml -logFile /tmp/p24f-targeted-replay.log",
+    "P24F_CAPTURE=1 P24E_CAPTURE=1 /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -projectPath /Users/alexeykravtsov/Desktop/workspace/Veilward-p24f -buildTarget iOS -runTests -testPlatform PlayMode -testFilter \"AbilityBossIntegrationPlayModeTests;RegBattle213_Visual\" -testResults /Users/alexeykravtsov/Desktop/workspace/Veilward-p24f/TestResults/Visual.xml -logFile /Users/alexeykravtsov/Desktop/workspace/Veilward-p24f/TestResults/P24f-revision2-visual.log",
+    "python3 Docs/review/P2.4f/revision-2/analyze-search.py --input TestResults/P2.4f/revision-2/targeted/full --output Docs/review/P2.4f/revision-2/search-analysis.json",
+    "git diff --check"
+  ],
+  "screenshots": 108,
+  "console": {
+    "unexpected_errors": 0,
+    "expected_errors": 10,
+    "warnings": 64
+  },
+  "acceptance": "BLOCKED REG214; draft/Refs #40; no balance/runtime changes"
+}

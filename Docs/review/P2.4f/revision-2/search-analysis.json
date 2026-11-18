@@ -1,0 +1,1620 @@
+{
+  "starts": {
+    "flame": {
+      "waveOutcomes": 49996,
+      "fullNewGameOutcomes": 2,
+      "generatedMaterials": 19342089,
+      "unaffordable": 18091407,
+      "duplicates": 8244,
+      "invalidSuffixes": 0,
+      "defeated": 20484,
+      "victories": 0,
+      "eligible": 0,
+      "retained": 392,
+      "beamPruned": 29120,
+      "materialPruned": 397647,
+      "armyCapPruned": 765950,
+      "lockedPackPruned": 92408,
+      "materialDuplicates": 65238,
+      "ticks": 30250036,
+      "seconds": 41.4982338,
+      "stop": "outcome cap"
+    },
+    "gale": {
+      "waveOutcomes": 49996,
+      "fullNewGameOutcomes": 2,
+      "generatedMaterials": 15431969,
+      "unaffordable": 14584057,
+      "duplicates": 8057,
+      "invalidSuffixes": 0,
+      "defeated": 20540,
+      "victories": 0,
+      "eligible": 0,
+      "retained": 388,
+      "beamPruned": 29068,
+      "materialPruned": 366465,
+      "armyCapPruned": 391310,
+      "lockedPackPruned": 91585,
+      "materialDuplicates": 68724,
+      "ticks": 29834905,
+      "seconds": 40.6998429,
+      "stop": "outcome cap"
+    }
+  },
+  "histories": {
+    "flame-tide-gale": {
+      "wave_counts": {
+        "1": 56,
+        "2": 1000,
+        "3": 1800,
+        "4": 2600,
+        "5": 2400,
+        "6": 2400,
+        "7": 4500,
+        "8": 10390
+      },
+      "accepted_commands": {
+        "place": 41054,
+        "sell": 54829,
+        "upgrade": 4716
+      },
+      "upgrades_by_type": {
+        "flame": 2132,
+        "tide": 2045,
+        "gale": 294,
+        "steam": 243,
+        "storm": 2
+      },
+      "level_outcomes": {
+        "1": 24139,
+        "2": 5309,
+        "3": 42
+      },
+      "earliest_level": {
+        "flameL1": 1,
+        "flameL2": 2,
+        "tideL1": 4,
+        "steamL1": 4,
+        "tideL2": 4,
+        "tideL3": 6,
+        "galeL1": 7,
+        "stormL1": 7,
+        "galeL2": 7,
+        "steamL2": 8,
+        "stormL2": 8
+      },
+      "max_hp_by_wave": {
+        "1": 20,
+        "2": 20,
+        "3": 16,
+        "4": 16,
+        "5": 16,
+        "6": 16,
+        "7": 16,
+        "8": 0
+      },
+      "max_wealth_by_wave": {
+        "1": 195,
+        "2": 240,
+        "3": 280,
+        "4": 340,
+        "5": 405,
+        "6": 475,
+        "7": 550,
+        "8": 587
+      },
+      "hold_outcomes": 642,
+      "fully_covered_finals": 5734,
+      "final_profiles": [
+        {
+          "id": 29760,
+          "bossHp": 376,
+          "bossApplied": [
+            435,
+            27,
+            47,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;3:flameL1@-2,0=70;5:tideL1@2,-1=60;6:galeL1@1,0=80;7:steamL1@2,0=110;8:stormL1@1,-1=110",
+          "policy": "400:270:False:False:0",
+          "cells": [
+            542,
+            54,
+            20,
+            66
+          ],
+          "gold": 66,
+          "kills": 63,
+          "abilityKills": 14
+        },
+        {
+          "id": 31401,
+          "bossHp": 399,
+          "bossApplied": [
+            418,
+            20,
+            48,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;5:tideL1@2,-1=60;6:galeL1@1,0=80;7:steamL1@2,0=110;8:stormL1@-1,-1=110;9:tideL1@3,0=60",
+          "policy": "400:0:False:False:1",
+          "cells": [
+            472,
+            144,
+            50,
+            30
+          ],
+          "gold": 55,
+          "kills": 63,
+          "abilityKills": 15
+        },
+        {
+          "id": 29570,
+          "bossHp": 402,
+          "bossApplied": [
+            411,
+            26,
+            46,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;2:flameL1@-1,-1=70;3:flameL1@-2,0=70;4:tideL1@-1,0=60;8:steamL1@1,0=110;9:stormL1@2,0=110",
+          "policy": "300:30:False:True:0",
+          "cells": [
+            536,
+            31,
+            40,
+            24
+          ],
+          "gold": 55,
+          "kills": 63,
+          "abilityKills": 14
+        },
+        {
+          "id": 29609,
+          "bossHp": 411,
+          "bossApplied": [
+            401,
+            25,
+            48,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;3:flameL1@-2,0=70;4:tideL1@-1,0=60;6:galeL1@-1,-3=80;8:flameL1@1,0=70;9:steamL1@2,0=110",
+          "policy": "300:30:False:True:0",
+          "cells": [
+            540,
+            13,
+            72,
+            12
+          ],
+          "gold": 73,
+          "kills": 63,
+          "abilityKills": 14
+        },
+        {
+          "id": 30852,
+          "bossHp": 411,
+          "bossApplied": [
+            395,
+            25,
+            54,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;3:flameL1@-2,0=70;5:tideL1@2,-1=60;7:tideL1@2,0=60;8:steamL1@1,0=110;9:stormL1@-1,-1=110",
+          "policy": "300:360:False:True:1",
+          "cells": [
+            527,
+            49,
+            40,
+            43
+          ],
+          "gold": 62,
+          "kills": 63,
+          "abilityKills": 14
+        },
+        {
+          "id": 34634,
+          "bossHp": 412,
+          "bossApplied": [
+            401,
+            25,
+            47,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;4:tideL1@-1,0=60;5:tideL1@2,-1=60;6:galeL1@-1,-3=80;8:flameL1@1,0=70;9:steamL1@2,0=110",
+          "policy": "400:0:False:False:0",
+          "cells": [
+            520,
+            108,
+            110,
+            12
+          ],
+          "gold": 80,
+          "kills": 63,
+          "abilityKills": 11
+        },
+        {
+          "id": 37043,
+          "bossHp": 419,
+          "bossApplied": [
+            381,
+            22,
+            63,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;4:tideL1@-1,0=60;5:tideL2@2,-1=150;6:galeL1@-1,-3=80;8:steamL1@1,0=110",
+          "policy": "300:360:False:True:0",
+          "cells": [
+            458,
+            134,
+            87,
+            12
+          ],
+          "gold": 60,
+          "kills": 63,
+          "abilityKills": 14
+        },
+        {
+          "id": 44577,
+          "bossHp": 428,
+          "bossApplied": [
+            386,
+            24,
+            47,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;3:flameL1@-2,0=70;5:tideL1@2,-1=60;8:steamL1@2,0=110;9:flameL1@1,-1=70;10:flameL1@-1,1=70",
+          "policy": "400:90:False:True:1",
+          "cells": [
+            550,
+            72,
+            48,
+            12
+          ],
+          "gold": 59,
+          "kills": 63,
+          "abilityKills": 12
+        },
+        {
+          "id": 47496,
+          "bossHp": 438,
+          "bossApplied": [
+            382,
+            0,
+            65,
+            115
+          ],
+          "army": "4:tideL1@-1,0=60;5:tideL1@2,-1=60;6:galeL1@1,0=80;7:steamL1@2,0=110;8:tideL1@-1,-1=60;9:stormL1@1,-1=110",
+          "policy": "400:90:False:True:1",
+          "cells": [
+            413,
+            193,
+            20,
+            66
+          ],
+          "gold": 62,
+          "kills": 63,
+          "abilityKills": 15
+        },
+        {
+          "id": 42733,
+          "bossHp": 441,
+          "bossApplied": [
+            376,
+            20,
+            48,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;4:tideL1@-1,0=60;5:tideL1@2,-1=60;8:steamL1@2,0=110;9:galeL1@-2,0=80;10:tideL1@3,1=60",
+          "policy": "300:360:False:True:1",
+          "cells": [
+            470,
+            103,
+            89,
+            12
+          ],
+          "gold": 66,
+          "kills": 63,
+          "abilityKills": 14
+        },
+        {
+          "id": 35321,
+          "bossHp": 441,
+          "bossApplied": [
+            351,
+            32,
+            61,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;3:flameL1@-1,0=70;6:tideL2@-2,0=150;7:galeL1@-2,-3=80;9:tideL1@3,0=60",
+          "policy": "300:360:False:True:1",
+          "cells": [
+            406,
+            234,
+            53,
+            42
+          ],
+          "gold": 70,
+          "kills": 63,
+          "abilityKills": 15
+        },
+        {
+          "id": 40693,
+          "bossHp": 448,
+          "bossApplied": [
+            355,
+            26,
+            56,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;7:tideL1@2,0=60;8:flameL1@-1,0=70;9:steamL1@1,0=110;10:stormL1@-1,-1=110",
+          "policy": "300:360:False:True:1",
+          "cells": [
+            489,
+            119,
+            40,
+            49
+          ],
+          "gold": 83,
+          "kills": 63,
+          "abilityKills": 14
+        }
+      ],
+      "final_level_profiles": {
+        "maxL1": {
+          "id": 29760,
+          "bossHp": 376,
+          "bossApplied": [
+            435,
+            27,
+            47,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;3:flameL1@-2,0=70;5:tideL1@2,-1=60;6:galeL1@1,0=80;7:steamL1@2,0=110;8:stormL1@1,-1=110",
+          "policy": "400:270:False:False:0",
+          "cells": [
+            542,
+            54,
+            20,
+            66
+          ],
+          "gold": 66,
+          "kills": 63,
+          "abilityKills": 14
+        },
+        "maxL2": {
+          "id": 37043,
+          "bossHp": 419,
+          "bossApplied": [
+            381,
+            22,
+            63,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;4:tideL1@-1,0=60;5:tideL2@2,-1=150;6:galeL1@-1,-3=80;8:steamL1@1,0=110",
+          "policy": "300:360:False:True:0",
+          "cells": [
+            458,
+            134,
+            87,
+            12
+          ],
+          "gold": 60,
+          "kills": 63,
+          "abilityKills": 14
+        },
+        "maxL0": {
+          "id": 29628,
+          "bossHp": 885,
+          "bossApplied": [
+            0,
+            0,
+            0,
+            115
+          ],
+          "army": "",
+          "policy": "300:360:False:True:0",
+          "cells": [
+            249,
+            234,
+            20,
+            42
+          ],
+          "gold": 376,
+          "kills": 55,
+          "abilityKills": 15
+        },
+        "maxL3": {
+          "id": 40288,
+          "bossHp": 650,
+          "bossApplied": [
+            169,
+            20,
+            46,
+            115
+          ],
+          "army": "1:flameL1@2,1=70;3:flameL1@-1,0=70;6:tideL3@-2,0=270",
+          "policy": "300:180:False:False:1",
+          "cells": [
+            565,
+            234,
+            20,
+            42
+          ],
+          "gold": 46,
+          "kills": 59,
+          "abilityKills": 12
+        }
+      }
+    },
+    "flame-gale-tide": {
+      "wave_counts": {
+        "1": 56,
+        "2": 1000,
+        "3": 1800,
+        "4": 2600,
+        "5": 2400,
+        "6": 2400,
+        "7": 4500,
+        "8": 10094
+      },
+      "accepted_commands": {
+        "place": 42348,
+        "sell": 54572,
+        "upgrade": 4717
+      },
+      "upgrades_by_type": {
+        "flame": 2502,
+        "gale": 765,
+        "tide": 1202,
+        "steam": 248
+      },
+      "level_outcomes": {
+        "1": 23701,
+        "2": 5234,
+        "3": 42
+      },
+      "earliest_level": {
+        "flameL1": 1,
+        "flameL2": 2,
+        "galeL1": 4,
+        "galeL2": 4,
+        "flameL3": 6,
+        "tideL1": 7,
+        "steamL1": 7,
+        "stormL1": 7,
+        "tideL2": 7,
+        "steamL2": 8,
+        "tideL3": 8
+      },
+      "max_hp_by_wave": {
+        "1": 20,
+        "2": 20,
+        "3": 16,
+        "4": 16,
+        "5": 16,
+        "6": 16,
+        "7": 16,
+        "8": 0
+      },
+      "max_wealth_by_wave": {
+        "1": 195,
+        "2": 240,
+        "3": 280,
+        "4": 340,
+        "5": 400,
+        "6": 470,
+        "7": 545,
+        "8": 563
+      },
+      "hold_outcomes": 726,
+      "fully_covered_finals": 3743,
+      "final_profiles": [
+        {
+          "id": 33643,
+          "bossHp": 434,
+          "bossApplied": [
+            374,
+            28,
+            49,
+            115
+          ],
+          "army": "2:flameL1@-1,0=70;4:galeL1@1,0=80;6:tideL1@1,-1=60;8:flameL1@2,0=70;9:tideL1@-1,-1=60;10:stormL1@-1,1=110",
+          "policy": "400:0:False:False:1",
+          "cells": [
+            267,
+            36,
+            45,
+            60
+          ],
+          "gold": 56,
+          "kills": 63,
+          "abilityKills": 13
+        },
+        {
+          "id": 42987,
+          "bossHp": 440,
+          "bossApplied": [
+            366,
+            24,
+            55,
+            115
+          ],
+          "army": "3:flameL1@-1,0=70;6:tideL2@2,-1=150;7:steamL1@1,0=110;8:stormL1@2,0=110",
+          "policy": "100:180:False:True:0",
+          "cells": [
+            189,
+            85,
+            36,
+            43
+          ],
+          "gold": 75,
+          "kills": 63,
+          "abilityKills": 15
+        },
+        {
+          "id": 46614,
+          "bossHp": 465,
+          "bossApplied": [
+            340,
+            22,
+            58,
+            115
+          ],
+          "army": "3:flameL1@-1,0=70;5:galeL1@1,0=80;7:tideL1@2,-1=60;8:steamL1@2,0=110;9:stormL1@-1,-1=110",
+          "policy": "400:90:False:True:1",
+          "cells": [
+            152,
+            129,
+            24,
+            72
+          ],
+          "gold": 85,
+          "kills": 63,
+          "abilityKills": 13
+        },
+        {
+          "id": 29568,
+          "bossHp": 467,
+          "bossApplied": [
+            338,
+            22,
+            58,
+            115
+          ],
+          "army": "1:flameL1@-2,0=70;2:flameL1@-1,0=70;8:tideL1@1,0=60;9:steamL1@2,0=110;10:stormL1@-1,-1=110",
+          "policy": "300:30:False:True:0",
+          "cells": [
+            189,
+            26,
+            34,
+            43
+          ],
+          "gold": 74,
+          "kills": 63,
+          "abilityKills": 15
+        },
+        {
+          "id": 44601,
+          "bossHp": 474,
+          "bossApplied": [
+            347,
+            18,
+            46,
+            115
+          ],
+          "army": "2:flameL1@-1,0=70;6:tideL1@1,-1=60;7:steamL1@2,1=110;8:steamL1@1,0=110;9:stormL1@2,0=110",
+          "policy": "100:180:False:True:0",
+          "cells": [
+            111,
+            237,
+            45,
+            60
+          ],
+          "gold": 55,
+          "kills": 63,
+          "abilityKills": 13
+        },
+        {
+          "id": 34385,
+          "bossHp": 477,
+          "bossApplied": [
+            343,
+            0,
+            65,
+            115
+          ],
+          "army": "5:galeL1@-2,0=80;6:tideL2@2,-1=150;7:stormL1@1,-1=110;8:steamL1@2,0=110",
+          "policy": "200:270:False:True:0",
+          "cells": [
+            94,
+            152,
+            36,
+            48
+          ],
+          "gold": 68,
+          "kills": 63,
+          "abilityKills": 15
+        },
+        {
+          "id": 38773,
+          "bossHp": 505,
+          "bossApplied": [
+            323,
+            22,
+            35,
+            115
+          ],
+          "army": "2:flameL1@-1,0=70;7:tideL1@2,-1=60;8:tideL1@-2,0=60;9:steamL1@1,0=110;10:stormL1@2,0=110",
+          "policy": "300:30:False:True:1",
+          "cells": [
+            178,
+            49,
+            34,
+            36
+          ],
+          "gold": 81,
+          "kills": 63,
+          "abilityKills": 15
+        },
+        {
+          "id": 29567,
+          "bossHp": 507,
+          "bossApplied": [
+            327,
+            20,
+            31,
+            115
+          ],
+          "army": "1:flameL1@-2,0=70;2:flameL1@-1,0=70;6:tideL1@2,-1=60;7:tideL1@-2,1=60;8:steamL1@1,0=110;9:stormL1@2,0=110",
+          "policy": "200:0:False:True:0",
+          "cells": [
+            221,
+            18,
+            36,
+            60
+          ],
+          "gold": 56,
+          "kills": 63,
+          "abilityKills": 15
+        },
+        {
+          "id": 31760,
+          "bossHp": 511,
+          "bossApplied": [
+            309,
+            0,
+            65,
+            115
+          ],
+          "army": "4:galeL1@1,0=80;8:stormL1@1,-1=110;9:steamL1@2,0=110;10:tideL1@3,0=60;11:tideL1@-3,-1=60",
+          "policy": "300:360:False:True:0",
+          "cells": [
+            70,
+            141,
+            34,
+            60
+          ],
+          "gold": 56,
+          "kills": 63,
+          "abilityKills": 15
+        },
+        {
+          "id": 34165,
+          "bossHp": 511,
+          "bossApplied": [
+            300,
+            22,
+            52,
+            115
+          ],
+          "army": "2:flameL1@-1,-1=70;3:flameL1@-1,0=70;5:galeL1@-2,0=80;7:stormL1@1,-1=110;8:steamL1@1,0=110",
+          "policy": "400:0:False:False:1",
+          "cells": [
+            94,
+            89,
+            36,
+            54
+          ],
+          "gold": 75,
+          "kills": 63,
+          "abilityKills": 13
+        },
+        {
+          "id": 32264,
+          "bossHp": 514,
+          "bossApplied": [
+            305,
+            0,
+            66,
+            115
+          ],
+          "army": "8:tideL1@-1,0=60;9:steamL1@1,0=110;10:steamL1@2,0=110;11:stormL1@-1,-1=110",
+          "policy": "300:360:False:True:0",
+          "cells": [
+            91,
+            227,
+            20,
+            49
+          ],
+          "gold": 62,
+          "kills": 63,
+          "abilityKills": 12
+        },
+        {
+          "id": 30954,
+          "bossHp": 526,
+          "bossApplied": [
+            283,
+            23,
+            53,
+            115
+          ],
+          "army": "3:flameL2@-1,0=175;6:tideL1@1,0=60;7:steamL1@-2,-1=110;8:stormL1@2,0=110",
+          "policy": "300:360:False:True:1",
+          "cells": [
+            119,
+            242,
+            54,
+            24
+          ],
+          "gold": 60,
+          "kills": 63,
+          "abilityKills": 15
+        }
+      ],
+      "final_level_profiles": {
+        "maxL1": {
+          "id": 33643,
+          "bossHp": 434,
+          "bossApplied": [
+            374,
+            28,
+            49,
+            115
+          ],
+          "army": "2:flameL1@-1,0=70;4:galeL1@1,0=80;6:tideL1@1,-1=60;8:flameL1@2,0=70;9:tideL1@-1,-1=60;10:stormL1@-1,1=110",
+          "policy": "400:0:False:False:1",
+          "cells": [
+            267,
+            36,
+            45,
+            60
+          ],
+          "gold": 56,
+          "kills": 63,
+          "abilityKills": 13
+        },
+        "maxL2": {
+          "id": 42987,
+          "bossHp": 440,
+          "bossApplied": [
+            366,
+            24,
+            55,
+            115
+          ],
+          "army": "3:flameL1@-1,0=70;6:tideL2@2,-1=150;7:steamL1@1,0=110;8:stormL1@2,0=110",
+          "policy": "100:180:False:True:0",
+          "cells": [
+            189,
+            85,
+            36,
+            43
+          ],
+          "gold": 75,
+          "kills": 63,
+          "abilityKills": 15
+        }
+      }
+    },
+    "gale-tide-flame": {
+      "wave_counts": {
+        "1": 28,
+        "2": 1000,
+        "3": 1800,
+        "4": 2600,
+        "5": 2400,
+        "6": 2400,
+        "7": 4500,
+        "8": 10392
+      },
+      "accepted_commands": {
+        "place": 47727,
+        "sell": 57212,
+        "upgrade": 4859
+      },
+      "upgrades_by_type": {
+        "gale": 1339,
+        "tide": 2646,
+        "flame": 428,
+        "steam": 446
+      },
+      "level_outcomes": {
+        "1": 24016,
+        "2": 5287,
+        "3": 82
+      },
+      "earliest_level": {
+        "galeL1": 1,
+        "galeL2": 3,
+        "tideL1": 4,
+        "stormL1": 4,
+        "tideL2": 4,
+        "tideL3": 6,
+        "flameL1": 7,
+        "steamL1": 7,
+        "flameL2": 7,
+        "steamL2": 8
+      },
+      "max_hp_by_wave": {
+        "1": 19,
+        "2": 19,
+        "3": 18,
+        "4": 18,
+        "5": 18,
+        "6": 18,
+        "7": 18,
+        "8": 0
+      },
+      "max_wealth_by_wave": {
+        "1": 190,
+        "2": 240,
+        "3": 290,
+        "4": 350,
+        "5": 415,
+        "6": 485,
+        "7": 560,
+        "8": 615
+      },
+      "hold_outcomes": 686,
+      "fully_covered_finals": 5752,
+      "final_profiles": [
+        {
+          "id": 45207,
+          "bossHp": 376,
+          "bossApplied": [
+            442,
+            25,
+            42,
+            115
+          ],
+          "army": "3:galeL1@-1,0=80;5:tideL1@-1,1=60;6:flameL1@1,1=70;7:flameL1@-2,0=70;8:flameL1@1,0=70;9:steamL1@2,0=110",
+          "policy": "300:180:False:False:0",
+          "cells": [
+            128,
+            46,
+            122,
+            54
+          ],
+          "gold": 74,
+          "kills": 65,
+          "abilityKills": 15
+        },
+        {
+          "id": 30764,
+          "bossHp": 395,
+          "bossApplied": [
+            418,
+            22,
+            50,
+            115
+          ],
+          "army": "5:tideL1@-1,1=60;6:steamL1@2,0=110;8:flameL1@-2,0=70;9:galeL1@-1,0=80;10:steamL1@1,0=110",
+          "policy": "300:30:False:True:1",
+          "cells": [
+            140,
+            206,
+            90,
+            102
+          ],
+          "gold": 59,
+          "kills": 65,
+          "abilityKills": 13
+        },
+        {
+          "id": 34477,
+          "bossHp": 399,
+          "bossApplied": [
+            406,
+            23,
+            57,
+            115
+          ],
+          "army": "2:galeL1@-1,0=80;5:tideL2@1,-1=150;6:flameL1@1,1=70;7:tideL1@-2,0=60;8:steamL1@1,0=110",
+          "policy": "300:30:False:True:0",
+          "cells": [
+            54,
+            74,
+            29,
+            150
+          ],
+          "gold": 64,
+          "kills": 65,
+          "abilityKills": 13
+        },
+        {
+          "id": 45923,
+          "bossHp": 399,
+          "bossApplied": [
+            330,
+            0,
+            156,
+            115
+          ],
+          "army": "1:galeL1@-2,0=80;4:tideL1@2,0=60;8:steamL2@1,0=275",
+          "policy": "400:90:False:True:1",
+          "cells": [
+            74,
+            536,
+            105,
+            66
+          ],
+          "gold": 65,
+          "kills": 65,
+          "abilityKills": 11
+        },
+        {
+          "id": 33245,
+          "bossHp": 402,
+          "bossApplied": [
+            410,
+            25,
+            48,
+            115
+          ],
+          "army": "3:galeL1@1,0=80;5:tideL1@1,-1=60;6:flameL1@1,1=70;7:flameL1@-2,0=70;8:tideL1@-1,0=60;9:steamL1@2,0=110",
+          "policy": "300:30:False:True:1",
+          "cells": [
+            125,
+            13,
+            24,
+            150
+          ],
+          "gold": 84,
+          "kills": 65,
+          "abilityKills": 13
+        },
+        {
+          "id": 45309,
+          "bossHp": 404,
+          "bossApplied": [
+            397,
+            22,
+            62,
+            115
+          ],
+          "army": "2:galeL1@1,0=80;4:stormL1@-1,1=110;5:tideL1@1,-1=60;7:flameL1@2,0=70;8:tideL1@-1,-1=60;9:steamL1@-2,-1=110",
+          "policy": "100:30:False:False:1",
+          "cells": [
+            71,
+            152,
+            28,
+            187
+          ],
+          "gold": 56,
+          "kills": 65,
+          "abilityKills": 12
+        },
+        {
+          "id": 43201,
+          "bossHp": 406,
+          "bossApplied": [
+            413,
+            28,
+            38,
+            115
+          ],
+          "army": "1:galeL1@-1,-1=80;2:galeL1@1,0=80;5:tideL1@1,-1=60;6:flameL1@1,1=70;7:flameL1@-1,0=70;8:steamL1@2,0=110",
+          "policy": "400:0:False:False:1",
+          "cells": [
+            142,
+            18,
+            76,
+            126
+          ],
+          "gold": 88,
+          "kills": 65,
+          "abilityKills": 12
+        },
+        {
+          "id": 34456,
+          "bossHp": 407,
+          "bossApplied": [
+            402,
+            29,
+            47,
+            115
+          ],
+          "army": "1:galeL1@-1,-1=80;4:tideL1@1,-1=60;8:flameL1@-2,0=70;9:flameL1@-1,0=70;10:flameL1@1,0=70;11:flameL1@2,0=70",
+          "policy": "300:30:False:True:0",
+          "cells": [
+            191,
+            72,
+            115,
+            36
+          ],
+          "gold": 60,
+          "kills": 65,
+          "abilityKills": 14
+        },
+        {
+          "id": 45927,
+          "bossHp": 412,
+          "bossApplied": [
+            400,
+            27,
+            46,
+            115
+          ],
+          "army": "3:galeL1@-1,0=80;4:stormL1@1,-1=110;5:tideL1@-1,1=60;6:flameL1@1,1=70;7:steamL1@1,0=110;8:flameL1@-1,-3=70",
+          "policy": "200:90:False:False:1",
+          "cells": [
+            117,
+            67,
+            110,
+            72
+          ],
+          "gold": 67,
+          "kills": 65,
+          "abilityKills": 15
+        },
+        {
+          "id": 46297,
+          "bossHp": 413,
+          "bossApplied": [
+            395,
+            23,
+            54,
+            115
+          ],
+          "army": "1:galeL1@-2,0=80;2:galeL1@-1,0=80;5:tideL2@1,-1=150;6:flameL1@1,1=70;7:steamL1@1,0=110",
+          "policy": "200:270:False:True:1",
+          "cells": [
+            51,
+            84,
+            68,
+            150
+          ],
+          "gold": 68,
+          "kills": 65,
+          "abilityKills": 13
+        },
+        {
+          "id": 30815,
+          "bossHp": 415,
+          "bossApplied": [
+            390,
+            20,
+            60,
+            115
+          ],
+          "army": "4:stormL1@1,-1=110;5:tideL1@-1,1=60;6:steamL1@2,0=110;8:flameL1@-1,0=70;9:steamL1@1,0=110",
+          "policy": "300:360:False:True:1",
+          "cells": [
+            171,
+            111,
+            46,
+            138
+          ],
+          "gold": 62,
+          "kills": 65,
+          "abilityKills": 15
+        },
+        {
+          "id": 44414,
+          "bossHp": 419,
+          "bossApplied": [
+            390,
+            22,
+            54,
+            115
+          ],
+          "army": "2:galeL1@-2,0=80;3:galeL1@-1,0=80;4:tideL1@2,0=60;6:flameL1@1,1=70;7:stormL1@1,-1=110;8:steamL1@1,0=110",
+          "policy": "200:270:False:True:0",
+          "cells": [
+            34,
+            98,
+            126,
+            30
+          ],
+          "gold": 57,
+          "kills": 65,
+          "abilityKills": 15
+        }
+      ],
+      "final_level_profiles": {
+        "maxL1": {
+          "id": 45207,
+          "bossHp": 376,
+          "bossApplied": [
+            442,
+            25,
+            42,
+            115
+          ],
+          "army": "3:galeL1@-1,0=80;5:tideL1@-1,1=60;6:flameL1@1,1=70;7:flameL1@-2,0=70;8:flameL1@1,0=70;9:steamL1@2,0=110",
+          "policy": "300:180:False:False:0",
+          "cells": [
+            128,
+            46,
+            122,
+            54
+          ],
+          "gold": 74,
+          "kills": 65,
+          "abilityKills": 15
+        },
+        "maxL2": {
+          "id": 34477,
+          "bossHp": 399,
+          "bossApplied": [
+            406,
+            23,
+            57,
+            115
+          ],
+          "army": "2:galeL1@-1,0=80;5:tideL2@1,-1=150;6:flameL1@1,1=70;7:tideL1@-2,0=60;8:steamL1@1,0=110",
+          "policy": "300:30:False:True:0",
+          "cells": [
+            54,
+            74,
+            29,
+            150
+          ],
+          "gold": 64,
+          "kills": 65,
+          "abilityKills": 13
+        },
+        "maxL0": {
+          "id": 29572,
+          "bossHp": 885,
+          "bossApplied": [
+            0,
+            0,
+            0,
+            115
+          ],
+          "army": "",
+          "policy": "300:360:False:True:0",
+          "cells": [
+            64,
+            72,
+            99,
+            36
+          ],
+          "gold": 398,
+          "kills": 57,
+          "abilityKills": 14
+        },
+        "maxL3": {
+          "id": 34829,
+          "bossHp": 582,
+          "bossApplied": [
+            206,
+            19,
+            78,
+            115
+          ],
+          "army": "5:tideL3@1,-1=270;6:flameL1@1,1=70;7:steamL1@-2,-3=110",
+          "policy": "200:90:False:False:1",
+          "cells": [
+            177,
+            198,
+            24,
+            120
+          ],
+          "gold": 50,
+          "kills": 63,
+          "abilityKills": 12
+        }
+      }
+    },
+    "gale-flame-tide": {
+      "wave_counts": {
+        "1": 28,
+        "2": 1000,
+        "3": 1800,
+        "4": 2600,
+        "5": 2400,
+        "6": 2400,
+        "7": 4500,
+        "8": 10148
+      },
+      "accepted_commands": {
+        "place": 45285,
+        "sell": 53704,
+        "upgrade": 5246
+      },
+      "upgrades_by_type": {
+        "gale": 1790,
+        "flame": 1071,
+        "tide": 1712,
+        "steam": 673
+      },
+      "level_outcomes": {
+        "1": 23648,
+        "2": 5541,
+        "3": 56
+      },
+      "earliest_level": {
+        "galeL1": 1,
+        "galeL2": 3,
+        "flameL1": 4,
+        "flameL2": 4,
+        "galeL3": 6,
+        "flameL3": 6,
+        "tideL1": 7,
+        "steamL1": 7,
+        "stormL1": 7,
+        "tideL2": 7,
+        "steamL2": 8,
+        "tideL3": 8
+      },
+      "max_hp_by_wave": {
+        "1": 19,
+        "2": 19,
+        "3": 18,
+        "4": 18,
+        "5": 18,
+        "6": 18,
+        "7": 18,
+        "8": 0
+      },
+      "max_wealth_by_wave": {
+        "1": 190,
+        "2": 240,
+        "3": 290,
+        "4": 350,
+        "5": 415,
+        "6": 485,
+        "7": 560,
+        "8": 615
+      },
+      "hold_outcomes": 732,
+      "fully_covered_finals": 5422,
+      "final_profiles": [
+        {
+          "id": 29500,
+          "bossHp": 369,
+          "bossApplied": [
+            429,
+            29,
+            58,
+            115
+          ],
+          "army": "1:galeL1@-2,0=80;4:flameL1@2,0=70;5:flameL1@-1,-1=70;6:tideL1@1,1=60;7:steamL1@-1,0=110;8:stormL1@1,0=110",
+          "policy": "200:0:False:True:0",
+          "cells": [
+            76,
+            170,
+            12,
+            31
+          ],
+          "gold": 67,
+          "kills": 65,
+          "abilityKills": 13
+        },
+        {
+          "id": 33850,
+          "bossHp": 375,
+          "bossApplied": [
+            416,
+            24,
+            70,
+            115
+          ],
+          "army": "2:galeL1@-1,0=80;4:flameL1@2,0=70;5:tideL2@-1,1=150;7:tideL1@1,0=60;8:steamL1@-2,-1=110",
+          "policy": "300:360:False:True:0",
+          "cells": [
+            46,
+            170,
+            69,
+            12
+          ],
+          "gold": 64,
+          "kills": 65,
+          "abilityKills": 15
+        },
+        {
+          "id": 37102,
+          "bossHp": 393,
+          "bossApplied": [
+            412,
+            25,
+            55,
+            115
+          ],
+          "army": "2:galeL1@-1,0=80;5:tideL1@-1,1=60;6:stormL1@1,1=110;7:flameL1@1,0=70;8:tideL1@2,0=60;9:steamL1@-2,-1=110",
+          "policy": "400:0:False:False:1",
+          "cells": [
+            112,
+            85,
+            68,
+            24
+          ],
+          "gold": 56,
+          "kills": 65,
+          "abilityKills": 13
+        },
+        {
+          "id": 29665,
+          "bossHp": 394,
+          "bossApplied": [
+            414,
+            25,
+            52,
+            115
+          ],
+          "army": "3:galeL1@1,0=80;4:flameL1@2,0=70;7:flameL1@-2,-1=70;8:flameL1@2,1=70;9:tideL1@-1,-1=60;10:steamL1@1,1=110",
+          "policy": "400:270:False:False:0",
+          "cells": [
+            119,
+            80,
+            81,
+            12
+          ],
+          "gold": 56,
+          "kills": 65,
+          "abilityKills": 12
+        },
+        {
+          "id": 41379,
+          "bossHp": 407,
+          "bossApplied": [
+            396,
+            24,
+            58,
+            115
+          ],
+          "army": "1:galeL1@-1,-1=80;4:flameL1@-2,-1=70;5:tideL1@1,1=60;7:flameL1@-1,0=70;8:galeL1@1,0=80;9:steamL1@2,0=110",
+          "policy": "400:0:False:False:1",
+          "cells": [
+            123,
+            62,
+            30,
+            54
+          ],
+          "gold": 64,
+          "kills": 65,
+          "abilityKills": 12
+        },
+        {
+          "id": 38794,
+          "bossHp": 411,
+          "bossApplied": [
+            402,
+            20,
+            52,
+            115
+          ],
+          "army": "5:tideL1@-1,1=60;7:steamL1@1,0=110;8:steamL1@2,0=110;9:galeL1@-2,0=80;10:flameL1@1,-1=70",
+          "policy": "300:360:False:True:1",
+          "cells": [
+            88,
+            80,
+            79,
+            12
+          ],
+          "gold": 59,
+          "kills": 65,
+          "abilityKills": 15
+        },
+        {
+          "id": 34855,
+          "bossHp": 411,
+          "bossApplied": [
+            391,
+            22,
+            61,
+            115
+          ],
+          "army": "1:galeL1@-1,-1=80;3:galeL1@-2,0=80;4:flameL1@-2,-1=70;6:steamL1@2,0=110;7:tideL1@-1,0=60;8:stormL1@1,0=110",
+          "policy": "300:30:False:True:1",
+          "cells": [
+            233,
+            26,
+            53,
+            24
+          ],
+          "gold": 63,
+          "kills": 65,
+          "abilityKills": 12
+        },
+        {
+          "id": 42324,
+          "bossHp": 411,
+          "bossApplied": [
+            391,
+            27,
+            56,
+            115
+          ],
+          "army": "4:flameL1@2,0=70;5:flameL1@-1,-1=70;6:tideL1@1,1=60;7:stormL1@1,0=110;8:steamL1@-2,0=110;9:tideL1@3,0=60",
+          "policy": "100:180:False:True:0",
+          "cells": [
+            87,
+            157,
+            12,
+            55
+          ],
+          "gold": 63,
+          "kills": 65,
+          "abilityKills": 13
+        },
+        {
+          "id": 31671,
+          "bossHp": 412,
+          "bossApplied": [
+            398,
+            24,
+            51,
+            115
+          ],
+          "army": "3:galeL1@-2,0=80;4:flameL1@-2,-1=70;7:flameL1@-1,0=70;8:tideL1@1,0=60;9:tideL1@2,0=60;10:steamL1@2,1=110",
+          "policy": "300:30:False:True:0",
+          "cells": [
+            132,
+            13,
+            14,
+            54
+          ],
+          "gold": 66,
+          "kills": 65,
+          "abilityKills": 14
+        },
+        {
+          "id": 31236,
+          "bossHp": 424,
+          "bossApplied": [
+            396,
+            0,
+            65,
+            115
+          ],
+          "army": "1:galeL1@-2,0=80;6:tideL1@1,1=60;7:stormL1@-1,-1=110;8:steamL1@1,0=110;9:steamL1@2,0=110",
+          "policy": "200:0:False:True:0",
+          "cells": [
+            45,
+            173,
+            12,
+            54
+          ],
+          "gold": 55,
+          "kills": 65,
+          "abilityKills": 13
+        },
+        {
+          "id": 33806,
+          "bossHp": 430,
+          "bossApplied": [
+            389,
+            0,
+            66,
+            115
+          ],
+          "army": "1:galeL1@-2,0=80;5:tideL2@-1,1=150;7:steamL1@-1,0=110;8:steamL1@1,0=110",
+          "policy": "300:30:False:True:0",
+          "cells": [
+            2,
+            193,
+            86,
+            12
+          ],
+          "gold": 63,
+          "kills": 65,
+          "abilityKills": 15
+        },
+        {
+          "id": 29536,
+          "bossHp": 432,
+          "bossApplied": [
+            371,
+            21,
+            61,
+            115
+          ],
+          "army": "4:flameL1@2,0=70;6:tideL1@-1,-1=60;7:steamL1@-2,0=110;8:steamL1@-1,0=110;9:stormL1@1,0=110",
+          "policy": "300:30:False:True:0",
+          "cells": [
+            105,
+            183,
+            42,
+            31
+          ],
+          "gold": 59,
+          "kills": 65,
+          "abilityKills": 15
+        }
+      ],
+      "final_level_profiles": {
+        "maxL1": {
+          "id": 29500,
+          "bossHp": 369,
+          "bossApplied": [
+            429,
+            29,
+            58,
+            115
+          ],
+          "army": "1:galeL1@-2,0=80;4:flameL1@2,0=70;5:flameL1@-1,-1=70;6:tideL1@1,1=60;7:steamL1@-1,0=110;8:stormL1@1,0=110",
+          "policy": "200:0:False:True:0",
+          "cells": [
+            76,
+            170,
+            12,
+            31
+          ],
+          "gold": 67,
+          "kills": 65,
+          "abilityKills": 13
+        },
+        "maxL0": {
+          "id": 29562,
+          "bossHp": 885,
+          "bossApplied": [
+            0,
+            0,
+            0,
+            115
+          ],
+          "army": "",
+          "policy": "300:360:False:True:0",
+          "cells": [
+            103,
+            18,
+            16,
+            48
+          ],
+          "gold": 398,
+          "kills": 57,
+          "abilityKills": 14
+        },
+        "maxL2": {
+          "id": 33850,
+          "bossHp": 375,
+          "bossApplied": [
+            416,
+            24,
+            70,
+            115
+          ],
+          "army": "2:galeL1@-1,0=80;4:flameL1@2,0=70;5:tideL2@-1,1=150;7:tideL1@1,0=60;8:steamL1@-2,-1=110",
+          "policy": "300:360:False:True:0",
+          "cells": [
+            46,
+            170,
+            69,
+            12
+          ],
+          "gold": 64,
+          "kills": 65,
+          "abilityKills": 15
+        },
+        "maxL3": {
+          "id": 39629,
+          "bossHp": 596,
+          "bossApplied": [
+            225,
+            17,
+            47,
+            115
+          ],
+          "army": "4:flameL1@2,0=70;5:tideL3@-2,-1=270;6:steamL1@1,-1=110",
+          "policy": "400:0:False:False:1",
+          "cells": [
+            111,
+            260,
+            26,
+            36
+          ],
+          "gold": 35,
+          "kills": 60,
+          "abilityKills": 13
+        }
+      }
+    }
+  },
+  "wave_outcomes": 99992,
+  "full_new_game_outcomes": 4,
+  "total_outcomes": 99996
+}

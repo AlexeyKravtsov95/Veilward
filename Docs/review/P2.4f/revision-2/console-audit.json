@@ -1,0 +1,709 @@
+{
+  "cases": [
+    {
+      "case": "screenshots/coverage-controls/flame-1600x900",
+      "screenshots": 37,
+      "expected_errors": 4,
+      "warnings": 24,
+      "unexpected": [],
+      "min_frame": 27,
+      "max_frame": 186,
+      "media": [
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/01-initial-pending.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "bd8b4e203922f2a0c578a8cf6fb4a7187ca7bc8387e7b240a6277daa56f7ce4f"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/02-start-confirmed.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "32fb42b39bdf00572a1eefa96ae10ff110d215b85f22905979a6cc4e1443710f"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/boss1000-armor5.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "1ddff663c5d385c3c64e2917a1546dcca1fd8cd072f6ac5354000d3b3937c6d9"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/clean-continue7.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "401807d0cefb0627e7f965c2b789e34cba7e864684ee55c31c9e3f0db8e94939"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/clean-continue8.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "cdc4bc5ed098f929c155565d75394b6c4d66b36b39679e9eb2baa2f99fc0d814"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/confirmed3.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "03de4394a717234b7585399ae36f2a2bd5028885cb46f1fa32280c99833e21d0"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/confirmed6.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "9118521f7da3b8e0c3eefbda2a04e2f923ffda8478e726eb420fea25c45b6ce4"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/failed-confirm3.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "d98d8d2843286efa94373cc370939abf5031eda644d13818a06c132b59438f97"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/failed-confirm6.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "9a07d7e4312d58f19c678eefbfa8db9b4a2795a78166f121b205d61b68d354ad"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/failed-next-to-preparation7.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "eab65a04333764ce938c4091c8c3dbbb13e08313aecd2c6ebb819804c69b1a2c"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/failed-next-to-preparation8.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "fac35bba0cbaf9360e1350d7d3038f00288a398ff47ce785ad7cc6b19922395b"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/failed-save-restart3.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "c59841c2a28484314ba199b598578f7748b805ad71a8409a555e489ef8ead766"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/interrupted-combat7.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "3ccda5bb6b451915eeae9ba62728d61f06071d02b010a9fa5ad1b9ce67f7aafa"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/interrupted-combat8.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "657f5ad212f53a5474cf34de92d4edc58e9607fd23839eb7043be12b6a574fcb"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/natural-Defeat-coverage-control.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "2487edcdcb54e58032c665fe9205dea57ac097c895ff502831c14649addbe61c"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/pending3.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "c59841c2a28484314ba199b598578f7748b805ad71a8409a555e489ef8ead766"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/pending6.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "edfb53bc6c6feab03ed7c242fe52505910d608235b353dd5769e8d8c4ec1e12a"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/positive-Steam-Intrinsic.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "0676a27cd2dff8996e6081def79384a5b95a13a4f8561f557eb9d0d29bc4c3fe"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/positive-Steam-StatusPair.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "ebdfc2a1dc100fbf8d473cb17bfc221a337c352116cd7b60d24a4da8d1f529c3"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/positive-Storm-Intrinsic.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "677eabb63c42d67c08ebf61567f1e16c02f1eb9fcfc8b0f5792ab79aa154ca87"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/positive-Storm-StatusPair.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "fea0f969e8f539d60b55c7a48256d0efa6b1ddeda69c4293a136a05b49f5d814"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/preparation7.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "401807d0cefb0627e7f965c2b789e34cba7e864684ee55c31c9e3f0db8e94939"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/preparation8.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "cdc4bc5ed098f929c155565d75394b6c4d66b36b39679e9eb2baa2f99fc0d814"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/retry-confirm6.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "8dec5bf4fb125663498f471e0d2dbcdfd971b082d89d50e622983b18e61edf7c"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/retry-preparation7.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "52c897c39ace7d0b4539e70307ee04931823bdc1449aeaae2a30747afff564e3"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/retry-preparation8.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "6a5a49e3d199e5855e9029c7438931cb5672c0d66ad08802d861ede47383e84c"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/terminal-continue-off.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "134e81846ab2ad3f43fbb82b657a0da3a10aa3a15919017014a56ae0afa4c982"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/wave7-ability-hit-sequence5-replay.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e5d37e3fa6bb4c73c0cbcb1a5134ee9a9240808a3c8284224f365f01f38d953b"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/wave7-ability-hit-sequence5.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e5d37e3fa6bb4c73c0cbcb1a5134ee9a9240808a3c8284224f365f01f38d953b"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/wave7-ability-preview-sequence5-replay.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "67846bfce848dc699ed1711ddd0146134e9de5bd2c27698673b44aac68ead124"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/wave7-ability-preview-sequence5.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "8bf30818be87368b06433ffdc67405b644ecf01596e7dbeb0db081c675ad7527"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/wave8-ability-hit-sequence6-replay.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "b9a4fe7cf85b09228e003a2e57af64f1db697bed9b9cfe6b78840c632564eb8d"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/wave8-ability-hit-sequence6.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "2146cdb1ce7d04ca48cfeabb0dca22baeab7d787526672e09fcb47b0a0f57c3a"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/wave8-ability-hit-sequence7-replay.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "a90e188d217b5e3d1957c52ea60ac6c6e64c2a9cfc01c00977c79efde15e4264"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/wave8-ability-preview-sequence6-replay.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "324e104dd5f064b40f62eedfd2a2dcbb4b6a78116250e6f0090846c5f9c09b27"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/wave8-ability-preview-sequence6.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "9768c84cb9c7af78266a7f0589f8efc43f5cdd0320c40ff41a5486492d9dfb2d"
+        },
+        {
+          "path": "screenshots/coverage-controls/flame-1600x900/wave8-ability-preview-sequence7-replay.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "76dd27a9b2f4abebaf2d6b28fd1b6bfe76c6caae5832ce3e92202be5eda0a4cb"
+        }
+      ]
+    },
+    {
+      "case": "screenshots/coverage-controls/gale-1280x960",
+      "screenshots": 37,
+      "expected_errors": 4,
+      "warnings": 24,
+      "unexpected": [],
+      "min_frame": 205,
+      "max_frame": 363,
+      "media": [
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/01-initial-pending.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "370f60b5192f7edf8bdaf77d36061e08bce2979f3d35bf51c979e895777dddb1"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/02-start-confirmed.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "55751f43567d5d1fe3b4cb8da18e6c25569bc0efc578ab0fc6d3aa3048c2c703"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/boss1000-armor5.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "2f7cdbbcd96e454147819d5e88388d69b17ba39ef335190b15cc61665893bb71"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/clean-continue7.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "ee5d4df15fe26f5a35fa9cf3c28c1a7b2b3717181f57b2d0f9875e8071f0bf1a"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/clean-continue8.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "bd6c490701f45e410b6216f3521c3d9591e3dc3bd446e7311d4ddb3d21d23e59"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/confirmed3.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "9d5e07edb6e86f0e13f35df0edbb1e28ca81664d6f7f1354827bd379b386d757"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/confirmed6.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "82bb715e3f0849daf87ce5a8698c5a1a4f1b00bfef9c8ed267d68a110933d714"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/failed-confirm3.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "aa2b8fd784ce65b7373699631ce7afb5ae560afb22f3dc7bb707be4ad9369f3a"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/failed-confirm6.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "cc9cc89827ae6d94200c2b6fd609a81254f9225b541298e0b0c61a0bdff93807"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/failed-next-to-preparation7.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "28664db08323db6aa065fd7cdafc556e4f26f2d03a55e6db3ddd5d3b06420a96"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/failed-next-to-preparation8.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "2a70aa90f47cdedf9d4d185046bc44133eaee1dd0111e2efff921302d13aaeca"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/failed-save-restart3.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "9d7907ec5157df81e28a3430c8b0e93c4b871f020d6b253b207c2433a906863c"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/interrupted-combat7.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "7edb7d2f131b8992107b0203922bcc346f7d14a3d66fef4e6586d3692ce4ab5c"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/interrupted-combat8.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "cd62a28bed766a3cc1d42c39a7f1d3eff07c7431e1f33fbcfb4bfff2cb2f4840"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/natural-Defeat-coverage-control.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "9f4d0a4e2ae4c19276af97b06562af5f59638fc0945729d9a1ad9aee01ac2d58"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/pending3.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "9d7907ec5157df81e28a3430c8b0e93c4b871f020d6b253b207c2433a906863c"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/pending6.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "2465c38e75152ded49cc6d0963ce04074f5d2998a7d4ac00ba6ff18d9d4b514a"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/positive-Steam-Intrinsic.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "b027b0c6d6a7e0d3106ea6534def974f3e07037ed9bba871f835dd1e31c5c507"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/positive-Steam-StatusPair.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "554437ad6a5eddeda77bcde68f601cf305f70a302f103b3a1fbeb18c597bb4ba"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/positive-Storm-Intrinsic.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "c38b8941c3ba834c25b28686562151365eab7f9408e4bf59a748e3281e618dd7"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/positive-Storm-StatusPair.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "07986381237d42bc3899ab65494e45224fb8c67f43b0528a25a8b2fcf5c822fd"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/preparation7.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "ee5d4df15fe26f5a35fa9cf3c28c1a7b2b3717181f57b2d0f9875e8071f0bf1a"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/preparation8.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "bd6c490701f45e410b6216f3521c3d9591e3dc3bd446e7311d4ddb3d21d23e59"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/retry-confirm6.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "388c69e1efffe552557807a3b362acf76f99449791312f2cece4d7553c48a63b"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/retry-preparation7.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "74c73ecefc42c245c4ca886a4352bdb85171942f3a4b21679f5a7cfe7c4ef781"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/retry-preparation8.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "b7b56bda2af2911ba7bcf4cda50a176e3b53dfd71591b25b00339e6b5be069f3"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/terminal-continue-off.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "9ea8a94c41a4f2531938aa10c00cf01796247b6b7a71bfd5c48c3c660ad0a7d0"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/wave7-ability-hit-sequence5-replay.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "5c36f59015f96ffe78a4cea73049b955bdefb58496904d8060c152f62b8d18f8"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/wave7-ability-hit-sequence5.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "55d8150f4cfdf87f5e6a607300af417eb8643aae208cb588168bc125253a52d4"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/wave7-ability-preview-sequence5-replay.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "0e69fc552b1bb32edb9c2b3dbb3f63d8bfa46f82f4fbfa4504dd9b8c8e799768"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/wave7-ability-preview-sequence5.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "fc31d0f9c3d4447db59903bfea5e3e148daf7dfa583f1c936dd0f5264120f750"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/wave8-ability-hit-sequence6-replay.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "3610757ac9ec1de7aa3e2b4008ac4a15dfc53f1c2efb9e9033317e4176508894"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/wave8-ability-hit-sequence6.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "7027fc6a22369d5e8fa0d5b7e5356e04041a9f627c232d77ac9a6b0400cb91cb"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/wave8-ability-hit-sequence7-replay.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "b209ff87e813d0fe26edadaca3d2120a984b824f8ba7c2a37603e919b2c00ec3"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/wave8-ability-preview-sequence6-replay.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "8ab5d19c644ffae8965ec66f3f535eb5da79f3c82d2d6139c23d61373b89859a"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/wave8-ability-preview-sequence6.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "2dad22c6cb0e9a6b0d0a55450d8a412a6882539f1dc507bf3d13eab6ed84cb85"
+        },
+        {
+          "path": "screenshots/coverage-controls/gale-1280x960/wave8-ability-preview-sequence7-replay.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "65484417e8d614cb60e27301a9358f47decc8af18541b8f5e4971f7117fd90d3"
+        }
+      ]
+    },
+    {
+      "case": "screenshots/stone-and-leak-controls/flame-leak-1600x900",
+      "screenshots": 8,
+      "expected_errors": 0,
+      "warnings": 4,
+      "unexpected": [],
+      "min_frame": 404,
+      "max_frame": 415,
+      "media": [
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-leak-1600x900/01-preparation8-notice.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "0300b3502a7d4be7cee5ad9b81dcd522fe3d2c9d0c27eb90252a4996fe01f846"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-leak-1600x900/01b-injected-safe-area.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "6492a86159c5bbb6630960b8089b4c252a35a4e0978aee381676019bfeacd926"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-leak-1600x900/02-clean-continue8.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "d44c3be29391c69db891848ddf9ad38c408d8a4f11ddc11a599bfd56db2e7c2f"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-leak-1600x900/03-waiting-spawn330.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "b55b6c270faf4a82d54fd8b215ac2542311c8f681e71f90e5a005bafe5b42f70"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-leak-1600x900/04-boss-hp-armor.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e2eb326161f3a6e947d83559c874fb2d5fc162aff886e0412f958bd334c050f4"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-leak-1600x900/06-boss-status-inspector.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "854f722c60cdb63600c91dcc7110769004d3d1369407412e0b096d0b521a1f33"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-leak-1600x900/07-boss-pause.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "6bf8045a8059dc625cd08e1673e4343ff4a092ea1e30d22e60f962b13db84b5d"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-leak-1600x900/08-defeat.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "df5e4aa646331696122b244ec1ae572b92b9bcd63f3dc882fd4c450ebb3599f8"
+        }
+      ]
+    },
+    {
+      "case": "screenshots/stone-and-leak-controls/flame-victory-1600x900",
+      "screenshots": 13,
+      "expected_errors": 1,
+      "warnings": 6,
+      "unexpected": [],
+      "min_frame": 426,
+      "max_frame": 444,
+      "media": [
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/01-preparation8-notice.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "cb27f23f30e60d80a71af53885328c1eebfd942c73321c89c30d2ffd53613d76"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/01b-injected-safe-area.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "b2813f873d34423da98a0fbcc31883a7a507335adfc79e011f9e35d4f5706a9e"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/02-clean-continue8.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "7d7ccc806c6f90a9e906ce4dee3118c70648694979c30925fb47705c9f84a806"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/03-waiting-spawn330.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "ef5d49b2b2314c198db5514c9c80fc7986a2197f9a92047f871997ea81e7eb34"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/04-boss-hp-armor.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "bf6cc06d097303e2a443deaab2756dd8d3df845eb4d54405db8bf11895f761a0"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/05-boss-ability-hit.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "9795e1f243847799656afe7b07c0cabd74e2bd3da4a942241cc79f219f1f7d38"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/06-boss-status-inspector.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "953f6a8b4ac6a7dee6a1dbac95be20dadc51df17e1aa8206f68bd0b688da2cda"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/07-boss-pause.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "9dec910f4cb117d4e8e90cd52c2c5b116f5723047bb6e6de976b3a13b4fa2caf"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/08-boss-kill-victory.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "57b189507197889754b5fbdf960a942d3cea14e475a0b201276df84a2f165f94"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/09-victory-completion-save-failed.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "74108617a5cd5d45de9e99a47376494c3d0cc3933ac4cf70c0b46271cfe24085"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/10-victory-retry-saved.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "7478f0aedce06d6e4de241a85e37d295bd772192e721c577d62f34b3e24923e5"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/11-clean-victory-restored.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "15df1f651db639d9c2c38e8f7f148aa83e670094f9d190e74c41abe4af1c8433"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/flame-victory-1600x900/12-terminal-continue-off.png",
+          "width": 1600,
+          "height": 900,
+          "sha256": "d0642ddd9e2b25214827daf653b450524696c727713668d05b36374e45f00e13"
+        }
+      ]
+    },
+    {
+      "case": "screenshots/stone-and-leak-controls/gale-victory-1280x960",
+      "screenshots": 13,
+      "expected_errors": 1,
+      "warnings": 6,
+      "unexpected": [],
+      "min_frame": 375,
+      "max_frame": 393,
+      "media": [
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/01-preparation8-notice.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "677615ffbec62e5fba13bea1c0413036c209689ad18f390ef1446a2589029054"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/01b-injected-safe-area.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "5c4dae369856240a426906ea2f3329b12910befab55b0267d07785c1ddcafe3b"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/02-clean-continue8.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "c5e9999ec38d242c439bfcac8f5fe97bad75aacfc6b328820cf1ac667a6d3d68"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/03-waiting-spawn330.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "5951c2e629ac54334ad73cd3bbb41620b46ee2f0962d724731d12ca75cfb658a"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/04-boss-hp-armor.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "fe38fad082b3e8bdf6ac7972e31bc285323959d572fc03f57b16fc7237869a40"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/05-boss-ability-hit.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "9166272450499ce76f25ba5b1d94457f990e8212fdce838c9019e6029ac45a4b"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/06-boss-status-inspector.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "8287e12e0515b8217fa47a733e17dbfc2c095e8a5e3e9609d4b577b8d24d10ba"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/07-boss-pause.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "66170dfd84c62f480c1a8aa95b54db6d7bad52820cf831eb614cc1b7c52962a1"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/08-boss-kill-victory.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "dd3bedbb9903ed125f5e6299fabdbd6f22c3bcbe0201876379a2a0fe643784d2"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/09-victory-completion-save-failed.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "2a0f00b0ebf0eb76539a9b7dcd0e62522452ffb2c97e5b5c14e62ad3a75b34cc"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/10-victory-retry-saved.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "6f550e5fb884354c4007a8a6590e60f55c0dea66e9c3b5bcd886b41d2d0d3472"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/11-clean-victory-restored.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "59f009272f7ebaad9befca5e6645004377879d6c53b73f0dde5f1765d0837fb5"
+        },
+        {
+          "path": "screenshots/stone-and-leak-controls/gale-victory-1280x960/12-terminal-continue-off.png",
+          "width": 1280,
+          "height": 960,
+          "sha256": "9e7f7cbdda8bca41e73921b66fc46debe7f62d0704c2b494526438c004c0dc74"
+        }
+      ]
+    }
+  ],
+  "screenshots": 108,
+  "unexpected_errors": 0
+}

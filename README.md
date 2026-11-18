@@ -223,3 +223,6 @@ AbilityController/preview/Confirm/Cancel, Ready/cooldown, одноразовый
 ### P2.4f / #40 — draft, acceptance BLOCKED
 
 PR #69 merged `a9a9ae4`, production boss1000HP/armor5 сохранён. [Новая интеграционная проверка](Docs/review/P2.4f/specification.md) добавляет четыре-stream traces/HP-Gold accounting, file/menu/Retry и Combat7–8 rollback обоих стартов. Обязательный same-run Victory с четырьмя positive reactions пока FAIL: конечный поиск20000×2 не нашёл winning coverage. Это не доказательство непроходимости. Точные gates/кадры/ограничения — [P2.4f evidence](Docs/review/P2.4f/validation.md); исторические evidence сохранены. G2/device/ART/release отдельно.
+
+
+**PR70 / P2.4f — целевая revision2, BLOCKED:** один новый pass обеих F/T/G histories, ранние upgrades и разные final armies:99992wave outcomes+4fullNewGame,0Victory. Лучшие bossHP376/434/376/369; баланс1000/5 и REG214 неизменны. Existing trace/file/menu/rollback matrix и old inputs сохранены. Full static38/38,Edit1075/1077(2mandatory FAIL),Play60/60,Visual5/5. [Результаты/границы/следующее решение](Docs/review/P2.4f/revision-2/validation.md).
