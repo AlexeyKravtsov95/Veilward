@@ -26,3 +26,9 @@ Wave1–7: бюджеты на ordered history300/1000/1800/2600/2400/2400/4500 
 Если winning inputs найдены: сохранить прежние controls/history и прогнать новые через всю existing double trace/file/menu/fault/Combat7–8 dirty+fresh/prefix/continued/PlayMode/Pause matrix, full static/Edit/Play/graphical, actual screenshots/Console и independent review. Только при полном acceptance Ready for Review/Closes40. Иначе draft/Refs40/BLOCKED с конкретными результатами каждого порядка и следующим необходимым решением, без заявления общей непроходимости.
 
 Уточнение старого evidence: в `AbilityBossFileTests` fresh snapshot создаётся из **in-memory safe snapshot**; реальное LoadReadOnly отдельно используется для dirty restore и full file-continued suite. Предыдущее описание «fresh file-restored» было неточным. Можно оставить код и точно разделять эти проверки; эта revision не выдаёт in-memory clone за чтение файла.
+
+Планировщик ограничивает army8, новые purchases4/suffix, material pool top80+64type/level profile champions+12reserve/Hold, beam32/history, layouts12, prefix policy variants16/final24. Эти test-only ограничения публикуются как границы исследования; production limits не меняются.
+
+Из600s/start последние10s резервируются для полных confirmation replays/записи: branch evaluation прекращается на590s.
+
+Порядок генерации interleaves top-score/profile/reserve material. Для одного material/layout до переключения оцениваются2cast policies; это разделяет timing/center и layout. Библиотека prefix16/final24, реальные оценённые комбинации ограничены общим budget и опубликованы в outcome rows.
