@@ -1,0 +1,111 @@
+{
+  "start": "gale",
+  "after3": "tide",
+  "after6": "flame",
+  "commands": [
+    {
+      "wave": 1,
+      "x": 1,
+      "y": 0,
+      "id": 0,
+      "op": "place",
+      "type": "gale"
+    },
+    {
+      "wave": 4,
+      "x": 2,
+      "y": 0,
+      "id": 0,
+      "op": "place",
+      "type": "tide"
+    },
+    {
+      "wave": 4,
+      "x": -1,
+      "y": -1,
+      "id": 0,
+      "op": "place",
+      "type": "storm"
+    },
+    {
+      "wave": 7,
+      "x": 0,
+      "y": 0,
+      "id": 3,
+      "op": "sell",
+      "type": "storm"
+    },
+    {
+      "wave": 7,
+      "x": -2,
+      "y": -1,
+      "id": 0,
+      "op": "place",
+      "type": "flame"
+    },
+    {
+      "wave": 7,
+      "x": 2,
+      "y": 1,
+      "id": 0,
+      "op": "place",
+      "type": "steam"
+    },
+    {
+      "wave": 8,
+      "x": 1,
+      "y": 1,
+      "id": 0,
+      "op": "place",
+      "type": "steam"
+    }
+  ],
+  "threshold": 200,
+  "bossDelay": 0,
+  "earlyWave8": true,
+  "holdWave7": false,
+  "casts": [
+    {
+      "wave": 1,
+      "relativeTick": 30,
+      "x": -3.500000476837158,
+      "y": -2.0
+    },
+    {
+      "wave": 2,
+      "relativeTick": 231,
+      "x": -0.45000120997428894,
+      "y": -0.9499955177307129
+    },
+    {
+      "wave": 4,
+      "relativeTick": 60,
+      "x": -3.4750008583068848,
+      "y": -2.0
+    },
+    {
+      "wave": 5,
+      "relativeTick": 158,
+      "x": -3.0500009059906006,
+      "y": -2.0
+    },
+    {
+      "wave": 7,
+      "relativeTick": 1,
+      "x": -4.949999809265137,
+      "y": -2.0
+    },
+    {
+      "wave": 8,
+      "relativeTick": 96,
+      "x": -3.150001049041748,
+      "y": -2.0
+    },
+    {
+      "wave": 8,
+      "relativeTick": 696,
+      "x": 1.7133245468139648,
+      "y": 2.0
+    }
+  ]
+}

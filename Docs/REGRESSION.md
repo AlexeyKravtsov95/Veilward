@@ -356,3 +356,13 @@ REG213 **BLOCKED**: natural FLAME/GALE Victory8 не достигнута; об�
 ### R3 / #39 — выбранный1000HP/armor5
 
 Разрешённая immutable matrix1000/10,900/10,800/10,1000/8,1000/5: контрольR2Defeat154/68, только одно поле до New Game. Выбран1000/5; natural FLAME/GALE Victory8/boss kill/positive ability, отдельный no-cast8 leakDefeat; F/T/G Steam/Storm × StatusPair/Intrinsic positive counters с честным outcome. `BossVictoryPersistenceTests` проверяет whole natural Victory dirty/fresh restore/no-writeLoad и temp/read-back/commit completion faults×2starts, live/durable preservation, дваRetry без повтора command/reward70, frozen terminal. BossPlayModeTests проверяет те же live Victory/failure/Retry/clean restore/Continueoff через настоящие Buttons,34реальных кадра. [R3 evidence и границы](review/P2.4e/revision-3/validation.md); старые mandatory assertions и R1/R2 не ослаблены.
+
+
+### P2.4f / #40 — интеграционная проверка (draft, REG214 BLOCKED)
+
+[Спецификация до реализации](review/P2.4f/specification.md). Новый test-only `AbilityBossTrace` сохраняет каждый tick/command, весь state/Grid/IDs/nextAttack/progression/ability и четыре streams со всеми attribution/sequence/position/damage/overkill полями. Historical writers не меняются. HP accounting по EnemyId/origins/leak/live, Gold по command budgets и уникальным kills/bonuses; rejected closed/stale/double/invalid commands сохраняют whole state/events.
+
+- REG214: `AbilityBossReplayTests.RegBattle214_*`; два full traces каждого FLAME/GALE route совпадают. Обязательный same-run Victory/boss kill assertion **остаётся FAIL** при Defeat, zero coverage не PASS. Конечный opt-in `AbilityBossSearchTests` отделён от обычного replay. Stone Victory и отдельный legal boss-leak — только явно названные controls REG216.
+- REG215: `AbilityBossFileTests`, `AbilityBossIntegrationPlayModeTests` — initial/confirmed start, pending/confirmed3/6, Preparation7/8, failed Choose/completion/Next, restart/Retry/no-write loads; Combat7/8 после ability kill+positive reaction, живые enemies, dirty rejected/successful и fresh restore, два prefix и полный continued trace. Реальные Session/MainMenu/Buttons/world dispatcher/controllers, clean transients и Pause guards. Ordered mixed slots/corrupt backup controls явно synthetic.
+- REG216: observer на каждой mutation проверяет HP/leaks/Gold/Kills и exploit probes; старые natural outcomes сохраняются.
+- REG217: фактические full gates/XML/Console/screenshots/source/config/input/trace/media hashes, historical byte audit и независимое review — в [evidence](review/P2.4f/validation.md). Частичный PASS не закрывает REG214; device/G2/ART/release отдельно.

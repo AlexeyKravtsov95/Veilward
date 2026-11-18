@@ -5,9 +5,9 @@
 ## Acceptance REG214–217
 
 - REG214: по одному public-command script от реального New Game150Gold/20HP для FLAME и GALE. В **одном** прохождении каждого: Victory8, boss kill, ability AppliedHpLoss>0 и lethal ability hit, положительные AppliedHpLoss всех Steam/Storm × StatusPair/Intrinsic. Zero cell или Defeat означает FAIL, без объединения результатов разных scripts. Отдельный legal boss-leak Defeat control.
-- REG215: два независимых полных replay каждого script; новый observer захватывает state/Grid/IDs/nextAttack/progression/ability, enemy HP/distance/statuses/reaction timestamps и четыре streams до clear, включая новые attribution/sequence/captured position/raw/resolved/applied/overkill. Cast boundary=после наблюдаемого tick, до следующего Step, expectedWave/tick/sequence/центр и receipt. Отдельные HP/Gold accounting assertions. Historical writer не изменяется.
-- REG216: whole file-continued trace, реальные Store/Session/CheckpointController/MainMenu/Buttons, initial pending/confirmed, pending/confirmed3/6, Preparation7/8, terminal Continueoff, no-write repeated Load; failed completion/Choose/Next сохраняет live success, Retry только persistence. Corrupt primary/valid backup и ordered old/new/legacy permutations явно synthetic.
-- REG217: явные Combat7/8 interruptions после accepted ability kill + positive reaction при живых enemies и непустых streams; rejected Restore сохраняет dirty state, successful dirty/fresh возвращает **весь** pre-Start snapshot и чистит Domain/Presentation transients. Два prefix и whole resumed match равны control. Нет ability-only durability/reward duplication.
+- REG214/216: два независимых полных replay каждого script; новый observer захватывает state/Grid/IDs/nextAttack/progression/ability, enemy HP/distance/statuses/reaction timestamps и четыре streams до clear, включая новые attribution/sequence/captured position/raw/resolved/applied/overkill. Cast boundary=после наблюдаемого tick, до следующего Step, expectedWave/tick/sequence/центр и receipt. Отдельные HP/Gold accounting assertions. Historical writer не изменяется.
+- REG215: whole file-continued trace, реальные Store/Session/CheckpointController/MainMenu/Buttons, initial pending/confirmed, pending/confirmed3/6, Preparation7/8, terminal Continueoff, no-write repeated Load; failed completion/Choose/Next сохраняет live success, Retry только persistence. Corrupt primary/valid backup и ordered old/new/legacy permutations явно synthetic.
+- REG215: явные Combat7/8 interruptions после accepted ability kill + positive reaction при живых enemies и непустых streams; rejected Restore сохраняет dirty state, successful dirty/fresh возвращает **весь** pre-Start snapshot и чистит Domain/Presentation transients. Два prefix и whole resumed match равны control. Нет ability-only durability/reward duplication.
 
 ## Конечный поиск (только opt-in)
 
@@ -16,3 +16,7 @@
 ## Gates / evidence
 
 Baseline и финальные static/EditMode/PlayMode + отдельный graphical run, positive totals, raw XML; реальные ScreenCapture кадры и Console audit, test clock/injected data подписаны. Exact commands, host/Unity version, source/config/input/report/trace/media SHA256 и raw sizes; historical byte audit. Независимое review после PR. VERIFIED отдельно от NOT VERIFIED / BLOCKED. При неполном acceptance draft/Refs #40, обязательные assertions остаются FAIL. Device/G2/ART/release/TestFlight вне scope, self-merge запрещён.
+
+Canonical REG217 — gates/evidence/history/review; REG216 — HP/Gold accounting и rejected exploit probes, выполняемые observer на каждой mutation. Имена suites следуют этим группам.
+
+Поиск завершён20000×2, ни одной Victory. Независимые поздние controls строятся отдельно: пропуск Cast6, Cast7 после Step1, GALE Sell Storm7 (его intrinsic уже был ранее), Steam8. Это расширяет воспроизводимость rollback, не подтверждает Victory и не является продолжением balance-search.
