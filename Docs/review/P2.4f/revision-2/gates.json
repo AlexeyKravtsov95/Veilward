@@ -72,5 +72,16 @@
     "expected_errors": 10,
     "warnings": 64
   },
-  "acceptance": "BLOCKED REG214; draft/Refs #40; no balance/runtime changes"
+  "acceptance": "BLOCKED REG214; draft/Refs #40; no balance/runtime changes",
+  "independent_review": {
+    "reviewed_head": "10f274f",
+    "research_source": "497ac70",
+    "suite_source": "f25b6f3",
+    "reviewer": "/root/review_p24f",
+    "open_additional_P1_P2": 0,
+    "known_open": "P1 REG214",
+    "found_and_fixed": "P2 CSV CRLF on78a0ac2; fixed10f274f; branch diff PASS",
+    "Unity_rerun_by_reviewer": false,
+    "verdict": "correct blocked draft, not ready for merge/close40"
+  }
 }
