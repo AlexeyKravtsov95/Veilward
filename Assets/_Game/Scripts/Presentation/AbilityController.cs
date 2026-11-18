@@ -170,7 +170,7 @@ namespace Veilward.Presentation
                 beginButton.GetComponentInChildren<Text>().text = s.AbilityState.CooldownRemainingTicks == 0
                     ? "Печать — Ready" : $"Печать — {s.AbilityState.CooldownRemainingTicks} ticks";
             }
-            if (panel != null) panel.SetActive(enabled && !battle.IsPaused && (HasInputOwnership || Status.Length > 0));
+            if (panel != null) panel.SetActive(enabled && !battle.IsPaused && (HasInputOwnership || (Status.Length > 0 && battle.ActiveModalOwner == BattleInputOwner.None)));
             if (statusText != null) statusText.text = Status;
             if (confirmButton != null)
             {

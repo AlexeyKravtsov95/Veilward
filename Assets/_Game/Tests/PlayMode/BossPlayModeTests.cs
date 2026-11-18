@@ -113,7 +113,9 @@ namespace Veilward.Tests.PlayMode
                     }
                     if(boss!=null&&boss.IsAlive&&boss.Statuses.Count>0&&captured.Add("status"))
                     {
-                        var inspector=Battle.GetComponent<EnemyInspectorController>();Assert.That(inspector.Select(boss.Id),Is.True);yield return Shot("06-boss-status-inspector");inspector.Close();
+                        var inspector=Battle.GetComponent<EnemyInspectorController>();Assert.That(inspector.Select(boss.Id),Is.True);Ability.Refresh();
+                        Assert.That(((GameObject)typeof(AbilityController).GetField("panel",Flags).GetValue(Ability)).activeInHierarchy,Is.False,"post-cast summary must not cover inspector");
+                        yield return Shot("06-boss-status-inspector");inspector.Close();
                         var hp=Hud.Health;var tick=s.State.Tick;Battle.GetComponent<BattlePauseController>().Pause();Call(Battle,"Update");yield return Shot("07-boss-pause");Assert.That(s.State.Tick,Is.EqualTo(tick));Battle.GetComponent<BattlePauseController>().Resume();Hud.Refresh();Assert.That(Hud.Health,Is.EqualTo(hp));
                     }
                     var tracked=s.State.Enemies.FirstOrDefault(e=>e.Definition.Id.Value=="rift-warden");
@@ -148,6 +150,13 @@ namespace Veilward.Tests.PlayMode
         private IEnumerator Shot(string name)
         {
             Call(Battle,"LateUpdate");Hud.Refresh();yield return null;
+            var summary=(UnityEngine.UI.Text)typeof(BattleSceneController).GetField("reactionSummaryText",Flags).GetValue(Battle);
+            var bossPanel=((GameObject)typeof(BossHudController).GetField("panel",Flags).GetValue(Hud)).GetComponent<RectTransform>();
+            if(bossPanel.gameObject.activeInHierarchy)
+            {
+                var panelCorners=new Vector3[4];var summaryCorners=new Vector3[4];bossPanel.GetWorldCorners(panelCorners);summary.rectTransform.GetWorldCorners(summaryCorners);
+                Assert.That(summaryCorners[1].y,Is.LessThan(panelCorners[0].y),"reaction summary below boss notice/HP");
+            }
             var s=Battle.Simulation;telemetry.Add($"SHOT {name}|frame={Time.frameCount}|wave={s.State.WaveIndex+1}|tick={s.State.Tick}|hp={s.State.BaseHealth}|gold={s.State.Gold}|kills={s.State.Kills}|boss={Hud.Health}|notice={Hud.Notice}");
             if(!capture)yield break;yield return new WaitForEndOfFrame();
             var texture=ScreenCapture.CaptureScreenshotAsTexture();Assert.That(texture.width,Is.EqualTo(width));Assert.That(texture.height,Is.EqualTo(height));Directory.CreateDirectory(output);File.WriteAllBytes(output+"/"+name+".png",texture.EncodeToPNG());Object.Destroy(texture);

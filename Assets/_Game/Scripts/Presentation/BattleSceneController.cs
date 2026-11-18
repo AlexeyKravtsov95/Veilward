@@ -394,6 +394,14 @@ namespace Veilward.Presentation
                 var area = Screen.safeArea;
                 reactionSummaryText.rectTransform.anchoredPosition = _reactionSummaryOrigin + new Vector2(
                     area.center.x - Screen.width * .5f, -Mathf.Max(0, Screen.height - area.yMax)) / _summaryCanvas.scaleFactor;
+                if (bossHud != null) bossHud.Refresh();
+                if (bossHud != null && bossHud.IsVisible)
+                {
+                    var bossRect = bossHud.PanelRect;
+                    reactionSummaryText.rectTransform.anchoredPosition = bossRect.anchoredPosition + Vector2.down * (bossRect.rect.height + 8);
+                    reactionSummaryText.rectTransform.sizeDelta = new Vector2(bossRect.rect.width, reactionSummaryText.rectTransform.sizeDelta.y);
+                }
+                else reactionSummaryText.rectTransform.sizeDelta = new Vector2(680, reactionSummaryText.rectTransform.sizeDelta.y);
             }
         }
 

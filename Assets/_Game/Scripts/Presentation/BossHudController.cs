@@ -23,6 +23,8 @@ namespace Veilward.Presentation
         public string Notice => noticeText.text;
         public string Health => healthText.text;
         public bool HealthVisible => healthText.gameObject.activeSelf;
+        internal bool IsVisible => panel.activeInHierarchy;
+        internal RectTransform PanelRect => panel.GetComponent<RectTransform>();
         private void Start()
         {
             if (battle == null || panel == null || noticeText == null || healthText == null || healthFill == null)
