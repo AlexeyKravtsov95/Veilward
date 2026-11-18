@@ -1,0 +1,135 @@
+{
+  "start": "gale",
+  "after3": "stone",
+  "after6": "flame",
+  "origin": "gale-stone-flame.best.json/hold7True/early8True/depth0",
+  "phase": "Defeat",
+  "hp": 0,
+  "gold": 61,
+  "kills": 61,
+  "bossHp": 154,
+  "bossKills": 0,
+  "bossAbilityDamage": 112,
+  "simulations": 0,
+  "bossDirect": 718,
+  "bossBurn": 16,
+  "bossReaction": 0,
+  "steamDamage": 0,
+  "stormDamage": 0,
+  "preparationEight": "{\"schemaVersion\":4,\"scenarioContentId\":\"eight-wave-ability-boss-v1\",\"state\":{\"phase\":0,\"waveIndex\":7,\"tick\":2823,\"baseHealth\":14,\"gold\":6,\"kills\":50,\"nextEnemyId\":57,\"nextTowerId\":8,\"towers\":[{\"towerId\":2,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":0,\"level\":1,\"investedGold\":80,\"nextAttackTick\":2833},{\"towerId\":3,\"towerTypeId\":\"stone\",\"x\":-1,\"y\":0,\"level\":1,\"investedGold\":90,\"nextAttackTick\":2867},{\"towerId\":4,\"towerTypeId\":\"stone\",\"x\":1,\"y\":0,\"level\":1,\"investedGold\":90,\"nextAttackTick\":2837},{\"towerId\":5,\"towerTypeId\":\"stone\",\"x\":2,\"y\":1,\"level\":1,\"investedGold\":90,\"nextAttackTick\":2846},{\"towerId\":6,\"towerTypeId\":\"stone\",\"x\":-1,\"y\":-1,\"level\":1,\"investedGold\":90,\"nextAttackTick\":0},{\"towerId\":7,\"towerTypeId\":\"flame\",\"x\":1,\"y\":-1,\"level\":1,\"investedGold\":70,\"nextAttackTick\":0}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"gale\",\"unlockedElementIds\":[\"flame\",\"gale\",\"stone\"],\"choicesEarned\":2,\"choicesSpent\":2,\"spentChoices\":[{\"choiceId\":\"after-wave-3\",\"elementId\":\"stone\"},{\"choiceId\":\"after-wave-6\",\"elementId\":\"flame\"}],\"pendingChoiceId\":\"none\"},\"ability\":{\"rulesId\":\"rift-seal-v1\",\"abilityId\":\"rift-seal\",\"cooldownRemainingTicks\":0,\"nextCastSequence\":5}}}",
+  "armyProfile": "flame:1x1;gale:1x1;stone:1x4",
+  "rejectedCommand": "",
+  "script": {
+    "start": "gale",
+    "after3": "stone",
+    "after6": "flame",
+    "commands": [
+      {
+        "wave": 1,
+        "x": -2,
+        "y": -1,
+        "id": 0,
+        "op": "place",
+        "type": "gale"
+      },
+      {
+        "wave": 2,
+        "x": -2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "gale"
+      },
+      {
+        "wave": 5,
+        "x": -1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 6,
+        "x": 1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 7,
+        "x": 2,
+        "y": 1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 8,
+        "x": -1,
+        "y": -1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 1,
+        "op": "sell",
+        "type": "gale"
+      },
+      {
+        "wave": 8,
+        "x": 1,
+        "y": -1,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      }
+    ],
+    "threshold": 200,
+    "bossDelay": 0,
+    "earlyWave8": true,
+    "holdWave7": true,
+    "casts": [
+      {
+        "wave": 1,
+        "relativeTick": 60,
+        "x": -3.4750008583068848,
+        "y": -2.0
+      },
+      {
+        "wave": 2,
+        "relativeTick": 269,
+        "x": 8.106231689453125e-06,
+        "y": 0.500002384185791
+      },
+      {
+        "wave": 4,
+        "relativeTick": 141,
+        "x": -2.400001287460327,
+        "y": -2.0
+      },
+      {
+        "wave": 5,
+        "relativeTick": 252,
+        "x": -1.4250004291534424,
+        "y": -1.9249992370605469
+      },
+      {
+        "wave": 8,
+        "relativeTick": 90,
+        "x": -3.450000762939453,
+        "y": -2.0
+      },
+      {
+        "wave": 8,
+        "relativeTick": 690,
+        "x": 3.0333805084228516,
+        "y": 2.0
+      }
+    ]
+  }
+}

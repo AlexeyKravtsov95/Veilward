@@ -1,0 +1,149 @@
+{
+  "start": "gale",
+  "after3": "flame",
+  "after6": "tide",
+  "origin": "seed:TestResults/P2.4e/revision-2/timing/gale-profile-3.json.commands.json/threshold300/delay0/earlyTrue/hold7False",
+  "phase": "Defeat",
+  "hp": 0,
+  "gold": 57,
+  "kills": 53,
+  "bossHp": 616,
+  "bossKills": 0,
+  "bossAbilityDamage": 110,
+  "simulations": 0,
+  "bossDirect": 225,
+  "bossBurn": 0,
+  "bossReaction": 49,
+  "steamDamage": 266,
+  "stormDamage": 135,
+  "preparationEight": "",
+  "armyProfile": "",
+  "rejectedCommand": "",
+  "script": {
+    "start": "gale",
+    "after3": "flame",
+    "after6": "tide",
+    "commands": [
+      {
+        "wave": 1,
+        "x": -2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "gale"
+      },
+      {
+        "wave": 2,
+        "x": -1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "gale"
+      },
+      {
+        "wave": 7,
+        "x": 1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "tide"
+      },
+      {
+        "wave": 7,
+        "x": 0,
+        "y": 0,
+        "id": 3,
+        "op": "upgrade",
+        "type": "tide"
+      },
+      {
+        "wave": 7,
+        "x": 2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "steam"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 1,
+        "op": "sell",
+        "type": "gale"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 2,
+        "op": "sell",
+        "type": "gale"
+      },
+      {
+        "wave": 8,
+        "x": -2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "gale"
+      },
+      {
+        "wave": 8,
+        "x": -1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "steam"
+      }
+    ],
+    "threshold": 300,
+    "bossDelay": 0,
+    "earlyWave8": true,
+    "holdWave7": false,
+    "casts": [
+      {
+        "wave": 1,
+        "relativeTick": 90,
+        "x": -3.450000762939453,
+        "y": -2.0
+      },
+      {
+        "wave": 2,
+        "relativeTick": 349,
+        "x": 1.7500228881835938,
+        "y": 2.0
+      },
+      {
+        "wave": 4,
+        "relativeTick": 121,
+        "x": -3.400001049041748,
+        "y": -2.0
+      },
+      {
+        "wave": 5,
+        "relativeTick": 316,
+        "x": -0.5750012397766113,
+        "y": -1.074995994567871
+      },
+      {
+        "wave": 6,
+        "relativeTick": 487,
+        "x": 4.150032043457031,
+        "y": 2.0
+      },
+      {
+        "wave": 8,
+        "relativeTick": 240,
+        "x": -3.450000762939453,
+        "y": -2.0
+      },
+      {
+        "wave": 8,
+        "relativeTick": 840,
+        "x": 4.558265686035156,
+        "y": 2.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "start": "flame",
+  "after3": "tide",
+  "after6": "gale",
+  "origin": "flame-profile-1.json/hold7False/early8True/depth0",
+  "phase": "Defeat",
+  "hp": 0,
+  "gold": 58,
+  "kills": 56,
+  "bossHp": 597,
+  "bossKills": 0,
+  "bossAbilityDamage": 110,
+  "simulations": 0,
+  "bossDirect": 253,
+  "bossBurn": 0,
+  "bossReaction": 40,
+  "steamDamage": 202,
+  "stormDamage": 23,
+  "preparationEight": "{\"schemaVersion\":4,\"scenarioContentId\":\"eight-wave-ability-boss-v1\",\"state\":{\"phase\":0,\"waveIndex\":7,\"tick\":2917,\"baseHealth\":9,\"gold\":3,\"kills\":45,\"nextEnemyId\":57,\"nextTowerId\":8,\"towers\":[{\"towerId\":3,\"towerTypeId\":\"tide\",\"x\":-1,\"y\":0,\"level\":1,\"investedGold\":60,\"nextAttackTick\":2948},{\"towerId\":4,\"towerTypeId\":\"steam\",\"x\":1,\"y\":0,\"level\":1,\"investedGold\":110,\"nextAttackTick\":2955},{\"towerId\":5,\"towerTypeId\":\"gale\",\"x\":2,\"y\":0,\"level\":1,\"investedGold\":80,\"nextAttackTick\":2924},{\"towerId\":6,\"towerTypeId\":\"steam\",\"x\":2,\"y\":1,\"level\":1,\"investedGold\":110,\"nextAttackTick\":0},{\"towerId\":7,\"towerTypeId\":\"steam\",\"x\":1,\"y\":1,\"level\":1,\"investedGold\":110,\"nextAttackTick\":0}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"flame\",\"unlockedElementIds\":[\"flame\",\"tide\",\"gale\"],\"choicesEarned\":2,\"choicesSpent\":2,\"spentChoices\":[{\"choiceId\":\"after-wave-3\",\"elementId\":\"tide\"},{\"choiceId\":\"after-wave-6\",\"elementId\":\"gale\"}],\"pendingChoiceId\":\"none\"},\"ability\":{\"rulesId\":\"rift-seal-v1\",\"abilityId\":\"rift-seal\",\"cooldownRemainingTicks\":152,\"nextCastSequence\":6}}}",
+  "armyProfile": "gale:1x1;steam:1x3;tide:1x1",
+  "rejectedCommand": "",
+  "script": {
+    "start": "flame",
+    "after3": "tide",
+    "after6": "gale",
+    "commands": [
+      {
+        "wave": 1,
+        "x": -2,
+        "y": -1,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      },
+      {
+        "wave": 1,
+        "x": -2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      },
+      {
+        "wave": 5,
+        "x": -1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "tide"
+      },
+      {
+        "wave": 5,
+        "x": 1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "steam"
+      },
+      {
+        "wave": 7,
+        "x": 2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "gale"
+      },
+      {
+        "wave": 8,
+        "x": 2,
+        "y": 1,
+        "id": 0,
+        "op": "place",
+        "type": "steam"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 2,
+        "op": "sell",
+        "type": "flame"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 1,
+        "op": "sell",
+        "type": "flame"
+      },
+      {
+        "wave": 8,
+        "x": 1,
+        "y": 1,
+        "id": 0,
+        "op": "place",
+        "type": "steam"
+      }
+    ],
+    "threshold": 200,
+    "bossDelay": 0,
+    "earlyWave8": true,
+    "holdWave7": false,
+    "casts": [
+      {
+        "wave": 1,
+        "relativeTick": 60,
+        "x": -3.4750008583068848,
+        "y": -2.0
+      },
+      {
+        "wave": 2,
+        "relativeTick": 379,
+        "x": 3.250028610229492,
+        "y": 2.0
+      },
+      {
+        "wave": 4,
+        "relativeTick": 141,
+        "x": -2.400001287460327,
+        "y": -2.0
+      },
+      {
+        "wave": 5,
+        "relativeTick": 252,
+        "x": -1.4250004291534424,
+        "y": -1.9249992370605469
+      },
+      {
+        "wave": 6,
+        "relativeTick": 511,
+        "x": 4.0100202560424805,
+        "y": 2.0
+      },
+      {
+        "wave": 8,
+        "relativeTick": 152,
+        "x": -3.3500008583068848,
+        "y": -2.0
+      },
+      {
+        "wave": 8,
+        "relativeTick": 752,
+        "x": 3.186664581298828,
+        "y": 2.0
+      }
+    ]
+  }
+}

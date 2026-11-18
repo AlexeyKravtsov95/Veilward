@@ -214,3 +214,5 @@ AbilityController/preview/Confirm/Cancel, Ready/cooldown, одноразовый
 ### P2.4e / #39 — неприёмочная ветка
 
 Новый `eight-wave-ability-boss-v1`: ability и rift-warden восьмой волны включаются совместно; прежние saves продолжают старые правила/ID. Добавлены bounded multi-group schedule, boss notice/HP/armor и final schema4 routing. **Acceptance BLOCKED:** natural Victory обоих стартов не достигнута; обязательные smoke остаются красными. [Scope](Docs/P2.4E_RIFT_WARDEN.md) · [Evidence и точные gates](Docs/review/P2.4e/validation.md). Не готово к merge/release; #39 не закрывается.
+
+Доработка PR #69: расширены все ordered choices и законные стратегии, лучшие попытки FLAME/GALE оставляют boss154/68 HP. **Draft / BLOCKED**, Victory assertions не ослаблены; EditMode1016/1018, PlayMode56/58, graphical1/3. Новые26 Play Mode кадров и точные лимиты поиска — [R2 evidence](Docs/review/P2.4e/revision-2/validation.md). Старый FAIL evidence сохранён; Refs #39 / Refs #40, без merge/release/TestFlight.
