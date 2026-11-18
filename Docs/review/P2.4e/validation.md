@@ -71,3 +71,5 @@ Runtime: bounded precomputed schedule, один rift-warden в8, прежний 
 `python3 Docs/review/P2.4e/verify-evidence.py` сверяет raw XML/числа/точный список failed cases, source/config/historical/media hashes, размеры26PNG, natural outcomes и frame proof. Он подтверждает согласованность пакета и **не делает gameplay gates зелёными**. Полные команды/environment/source SHA находятся в gates.json; XML gzipped без изменения raw bytes. Unity import/builder serialization drift возвращён только в собственной worktree; GUID/meta и source assets совпадают с проверенным commit.
 
 Независимый audit обнаружил накопление Console/telemetry между NUnit cases в первом fixture. В b970003 Setup очищает оба списка и сбрасывает output/capture; после этого все полные gates/research/26PNG повторены на новом source. Финальные logs независимы: по4warnings на сценарий, всего12, не24cumulativeentries.
+
+Передано в [draft PR #69](https://github.com/AlexeyKravtsov95/Veilward/pull/69): Refs#39/Refs#40, acceptance BLOCKED, без закрытия issue. Issue/индекс — Review (draft); Projects field отдельно не подтверждён. После открытия PR runtime/source assets не менялись.
