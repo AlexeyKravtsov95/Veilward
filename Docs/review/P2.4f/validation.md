@@ -74,3 +74,5 @@ Graphical screenshots — реальные `ScreenCapture` в Editor Play Mode. 
 **Отдельно NOT VERIFIED:** физический iPhone/IL2CPP/Metal player, touch/lifecycle/force quit/performance/thermal, human G2/final balance, ART approval, hosted Unity CI, release/TestFlight. Projects поле отдельно не подтверждено/не изменено. PR draft, issue остаётся open; окончательная приёмка владельца отдельно.
 
 Финальные локальные итоги: static**38/38**, EditMode**1069passed/1071total,2failed**, PlayMode**60/60**, graphical**5/5**; failed/skipped/inconclusive в Play/Visual0, skipped/inconclusive в Edit0. Всего**108** реальных PNG:74новых coverage/menu/rollback и34отдельных Stone/leak controls. Console case scope:0unexpected errors,10expected injected IO errors,64Editor rendering warnings. Representative interrupted7, clean Continue8, failed Next8 и Stone Victory кадры просмотрены.
+
+Независимый reviewer проверил head `bbabcea`: дополнительных P1/P2 code/evidence blockers0; известный P1 REG214 остаётся. [Полный review](review.md). После него меняются только review/manifests metadata; source/tests7584e22 сохранены, финальный verifier/diff --check повторены.

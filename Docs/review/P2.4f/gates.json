@@ -53,5 +53,14 @@
     "expected_errors": 10,
     "warnings": 64
   },
-  "acceptance": "BLOCKED REG214; draft/Refs #40"
+  "acceptance": "BLOCKED REG214; draft/Refs #40",
+  "independent_review": {
+    "reviewed_head": "bbabceaa1849799d75c32002fc1e02cb878020e7",
+    "source": "7584e22",
+    "reviewer": "/root/review_p24f",
+    "additional_P1_P2_code_evidence_blockers": 0,
+    "known_acceptance_blocker": "P1 REG214",
+    "Unity_rerun_by_reviewer": false,
+    "verdict": "correct draft; not ready to merge/close #40"
+  }
 }

@@ -54,6 +54,8 @@
     "Docs/review/P2.4f/flame.commands.json",
     "Docs/review/P2.4f/gale.commands.json",
     "Docs/review/P2.4f/gates.json",
+    "Docs/review/P2.4f/historical-audit.json",
+    "Docs/review/P2.4f/manifest.json",
     "Docs/review/P2.4f/natural/flame.json",
     "Docs/review/P2.4f/natural/flame.trace.gz",
     "Docs/review/P2.4f/natural/gale.json",
@@ -62,6 +64,7 @@
     "Docs/review/P2.4f/red/flame.trace.gz",
     "Docs/review/P2.4f/red/gale.json",
     "Docs/review/P2.4f/red/gale.trace.gz",
+    "Docs/review/P2.4f/report-audit.json",
     "Docs/review/P2.4f/reports/EditMode-runner-final.txt",
     "Docs/review/P2.4f/reports/EditMode.xml.gz",
     "Docs/review/P2.4f/reports/PlayMode-runner-final.txt",
@@ -78,6 +81,7 @@
     "Docs/review/P2.4f/reports/search.xml.gz",
     "Docs/review/P2.4f/reports/static.txt",
     "Docs/review/P2.4f/review.md",
+    "Docs/review/P2.4f/scope-audit.json",
     "Docs/review/P2.4f/screenshots/coverage-controls/flame-1600x900/01-initial-pending.png",
     "Docs/review/P2.4f/screenshots/coverage-controls/flame-1600x900/02-start-confirmed.png",
     "Docs/review/P2.4f/screenshots/coverage-controls/flame-1600x900/boss1000-armor5.png",
@@ -206,6 +210,7 @@
     "Docs/review/P2.4f/search-known-seeds/gale.trace.gz",
     "Docs/review/P2.4f/search-original-members.json",
     "Docs/review/P2.4f/search-original.tar.gz",
+    "Docs/review/P2.4f/source-sha256.json",
     "Docs/review/P2.4f/specification.md",
     "Docs/review/P2.4f/validation.md",
     "Docs/review/P2.4f/verify-evidence.py",
@@ -213,5 +218,7 @@
   ],
   "production_runtime_configs_scenes_packages_changed": false,
   "historical_evidence_changed": false,
-  "secrets": "manual diff inspection: no credentials, signing, tokens, analytics or network integrations; added files are tests/docs/evidence"
+  "secrets": "manual diff inspection: no credentials, signing, tokens, analytics or network integrations; added files are tests/docs/evidence",
+  "count": 214,
+  "metadata_refresh": "includes generated manifests and independent review; source remains7584e22"
 }

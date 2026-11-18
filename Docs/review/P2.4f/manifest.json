@@ -156,8 +156,8 @@
     "bytes": 1736
   },
   "gates.json": {
-    "sha256": "ffe033b0c97124a8651cfd47424589e03548623535f63acb15e98d959024cecf",
-    "bytes": 2465
+    "sha256": "3944fa190ddec2ba67182db39338e9f105c95bedafd5705e601b9515b5125646",
+    "bytes": 2817
   },
   "historical-audit.json": {
     "sha256": "6e903755d24ce453633c7717274949fef662a5bba4febc6042a7071b716d98bf",
@@ -260,12 +260,12 @@
     "bytes": 5062
   },
   "review.md": {
-    "sha256": "b9344a449b0801811a04020c66bce03385dd4a8944125d839ba507b61241cf3b",
-    "bytes": 290
+    "sha256": "a7369c5fc8267134ee48c41fbce6d5bc0403868169ea63c8cc23529ba002240e",
+    "bytes": 3563
   },
   "scope-audit.json": {
-    "sha256": "2cf0848e439b839c230aa19769ce8a47f1d3c35db5d0b13af2c04656d3a8ea4f",
-    "bytes": 16835
+    "sha256": "df3153840263607d301846efe25a9be82cbb487deccc8171b95e670ebedfed5a",
+    "bytes": 17166
   },
   "screenshots/coverage-controls/flame-1600x900/01-initial-pending.png": {
     "sha256": "bd8b4e203922f2a0c578a8cf6fb4a7187ca7bc8387e7b240a6277daa56f7ce4f",
@@ -788,8 +788,8 @@
     "bytes": 5313
   },
   "validation.md": {
-    "sha256": "608aab785ad0ea91950f496d0bc3e4fdff1ca59c52a1b043c55bbe9dd6fc9bad",
-    "bytes": 13791
+    "sha256": "b20d2b2193f2fb32362efa2933859ca385820e6dd166fa8f18c3a027f73175aa",
+    "bytes": 14176
   },
   "verify-evidence.py": {
     "sha256": "459a0f89530b3d941a9aef1b027e5d12fdcb416794364f32879e8d9b6562b2e3",
