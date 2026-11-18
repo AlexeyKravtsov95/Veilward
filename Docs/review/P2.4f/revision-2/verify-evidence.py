@@ -96,6 +96,8 @@ def verify():
         assert all(e['applied']+(e['leakedHp']if e['leaked']else e['remaining'])==e['maxHp']for e in ra['enemies'])
     console=json.loads((HERE/'console-audit.json').read_text());assert console['screenshots']==108 and console['unexpected_errors']==0
     assert all(c['max_frame']>c['min_frame']for c in console['cases'])
+    assert b'\r' not in (HERE/'per-wave.csv').read_bytes(), 'CSV must use LF'
+    subprocess.run(['git','diff','--check',BASE],cwd=ROOT,check=True)
     static=(HERE/'reports/static-runner.txt').read_text();assert 'Ran 38 tests'in static and 'Static Unity checks: PASS'in static
     print(f'Revision2 verified: {len(manifest)} artifacts; {len(history["files"])} historical files unchanged; '
           '99992 wave-only +4 full-NewGame outcomes, Victory0; Edit1075/1077(2mandatory FAIL), Play60/60,Visual5/5. REG214 BLOCKED.')
