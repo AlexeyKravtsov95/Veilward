@@ -62,6 +62,9 @@ namespace Veilward.Presentation
         private bool _isSellConfirmationVisible;
         private TowerId? _sellConfirmationTowerId;
         private int _pointerSuppressedUntilFrame = -1;
+        private readonly System.Collections.Generic.HashSet<int> _heldPointers = new System.Collections.Generic.HashSet<int>();
+        private BattleInputOwner _lastPointerOwner;
+        private bool _lastPointerPaused;
 
         public bool HasSelection => _hasSelection;
         public GridCoordinate SelectedCell { get; private set; }
@@ -144,27 +147,22 @@ namespace Veilward.Presentation
 
             RefreshSafeArea();
             RefreshUi();
-            if (battle.IsPaused || Time.frameCount <= _pointerSuppressedUntilFrame)
-            {
-                return;
-            }
-
+            if (_heldPointers.Count > 0 && (_lastPointerOwner != battle.ActiveModalOwner || _lastPointerPaused != battle.IsPaused))
+                SuppressPointerForCurrentFrame();
+            _lastPointerOwner = battle.ActiveModalOwner; _lastPointerPaused = battle.IsPaused;
             var mouse = Mouse.current;
-            if (mouse != null && mouse.leftButton.wasPressedThisFrame)
+            if (mouse != null)
             {
-                TryHandlePointer(mouse.position.ReadValue(), pointerId: null);
-                return;
+                if (mouse.leftButton.wasPressedThisFrame) DispatchPointer(mouse.position.ReadValue(), -1, TouchPhase.Began);
+                if (mouse.leftButton.wasReleasedThisFrame) DispatchPointer(mouse.position.ReadValue(), -1, TouchPhase.Ended);
             }
 
+            if (!EnhancedTouchSupport.enabled) return;
             var touches = Touch.activeTouches;
             for (var index = 0; index < touches.Count; index++)
             {
                 var touch = touches[index];
-                if (touch.phase == TouchPhase.Began)
-                {
-                    TryHandlePointer(touch.screenPosition, touch.touchId);
-                    break;
-                }
+                DispatchPointer(touch.screenPosition, touch.touchId, touch.phase);
             }
         }
 
@@ -229,6 +227,12 @@ namespace Veilward.Presentation
         public void SuppressPointerForCurrentFrame()
         {
             _pointerSuppressedUntilFrame = Time.frameCount;
+            var mouse = Mouse.current;
+            if (mouse != null && mouse.leftButton.isPressed) _heldPointers.Add(-1);
+            if (!EnhancedTouchSupport.enabled) return;
+            var touches = Touch.activeTouches;
+            for (var i = 0; i < touches.Count; i++)
+                if (touches[i].phase != TouchPhase.Ended && touches[i].phase != TouchPhase.Canceled) _heldPointers.Add(touches[i].touchId);
         }
 
         public bool TrySelectCell(GridCoordinate coordinate)
@@ -642,9 +646,19 @@ namespace Veilward.Presentation
             _towerPanelRect.anchoredPosition = _towerPanelOrigin + inset;
         }
 
+        internal void DispatchPointer(Vector2 position, int pointerId, TouchPhase phase)
+        {
+            if (phase == TouchPhase.Ended || phase == TouchPhase.Canceled) { _heldPointers.Remove(pointerId); return; }
+            if (phase != TouchPhase.Began || _heldPointers.Contains(pointerId)) return;
+            var secondary = _heldPointers.Count > 0; _heldPointers.Add(pointerId);
+            if (secondary || battle.IsPaused || Time.frameCount <= _pointerSuppressedUntilFrame) return;
+            TryHandlePointer(position, pointerId == -1 ? (int?)null : pointerId);
+        }
+
         private void TryHandlePointer(Vector2 screenPosition, int? pointerId)
         {
-            if ((!battle.CanAcceptInput(BattleInputOwner.Placement) && !battle.CanAcceptInput(BattleInputOwner.Inspector)) ||
+            if ((!battle.CanAcceptInput(BattleInputOwner.Placement) && !battle.CanAcceptInput(BattleInputOwner.Inspector) &&
+                !battle.CanAcceptInput(BattleInputOwner.Ability)) ||
                 _isSellConfirmationVisible || Time.frameCount <= _pointerSuppressedUntilFrame)
                 return;
             if (EventSystem.current != null)
@@ -656,6 +670,17 @@ namespace Veilward.Presentation
                 if (_uiHits.Count > 0) return;
             }
 
+            if (battle.ActiveModalOwner == BattleInputOwner.Ability)
+            {
+                var abilityRay = worldCamera.ScreenPointToRay(screenPosition);
+                if (new Plane(Vector3.up, Vector3.zero).Raycast(abilityRay, out var abilityDistance))
+                {
+                    var point = abilityRay.GetPoint(abilityDistance);
+                    if (float.IsFinite(point.x) && float.IsFinite(point.z))
+                        battle.GetComponent<AbilityController>().SelectTarget(new PathPosition(point.x, point.z));
+                }
+                return;
+            }
             if (enemyInspector != null)
             {
                 if (enemyInspector.TrySelectAt(screenPosition)) return;

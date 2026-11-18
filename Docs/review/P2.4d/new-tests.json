@@ -1,0 +1,126 @@
+{
+  "EditMode": [
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle204_AccumulatedLethalStepPrecedesIntent",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle204_CancelOrEmptyNeverCastsAndConsumesLease(False)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle204_CancelOrEmptyNeverCastsAndConsumesLease(True)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle204_DisabledProductionAndNonCombatRejectPublicApi",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle204_RealButtonsConfirmAfterStepsExactlyOnce",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle204_TargetMovedAfterPreviewRejectsAtDispatch",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle205_AbilityOwnerBlocksAllForeignMutationAndRetryCallbacks",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle205_ForeignOwnerBlocksAbilityCallbacksAndDirectApi(\"placement\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle205_ForeignOwnerBlocksAbilityCallbacksAndDirectApi(\"inspector\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle205_ForeignOwnerBlocksAbilityCallbacksAndDirectApi(\"pause\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle205_ForeignOwnerBlocksAbilityCallbacksAndDirectApi(\"choice\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle205_ForeignOwnerBlocksAbilityCallbacksAndDirectApi(\"sell\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle205_StaleCallbackCannotCastNewGeneration",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle206_CompletionOpensMandatoryChoiceWithoutPreview(2)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle206_CompletionOpensMandatoryChoiceWithoutPreview(5)",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle206_PauseInvalidatesQueuedIntentAndLease(\"manual\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle206_PauseInvalidatesQueuedIntentAndLease(\"background\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle206_PauseInvalidatesQueuedIntentAndLease(\"focus\")",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle207_AllFourStreamsClearEvenWhenConsumerThrows",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle207_RejectedRestorePreservesIntentSuccessfulRestoreClearsIt",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.EditMode.AbilityPresentationTests.RegBattle207_ResetClearsIntentAndSameTickLethalView",
+      "result": "Passed"
+    }
+  ],
+  "PlayMode": [
+    {
+      "name": "Veilward.Tests.PlayMode.AbilityPlayModeTests.RegBattle204_EnabledButtonsWorldMouseAndTouchDispatcherMoveWithoutCast",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.PlayMode.AbilityPlayModeTests.RegBattle205_QueuedMouseAcceptsFreshDownAfterOwnerSwitch",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.PlayMode.AbilityPlayModeTests.RegBattle205_QueuedTouchUiDownCannotBecomeWorldTapOnUp",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.PlayMode.AbilityPlayModeTests.RegBattle205_TwoPointersAndHeldThroughPauseRequireReleaseNewDown",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.PlayMode.AbilityPlayModeTests.RegBattle206_PauseFreezesAbilityEffectsAndCooldownNoAutoResume",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.PlayMode.AbilityPlayModeTests.RegBattle207_LethalCompletionFailedSaveRetryAndDirtyFreshContinue",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.PlayMode.AbilityPlayModeTests.RegBattle208_ProductionUsesWiredControllersButAbilityIsHidden",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.PlayMode.AbilityPlayModeTests.RegBattle208_VisualNarrowScenario",
+      "result": "Passed"
+    },
+    {
+      "name": "Veilward.Tests.PlayMode.AbilityPlayModeTests.RegBattle208_VisualWideScenario",
+      "result": "Passed"
+    }
+  ]
+}

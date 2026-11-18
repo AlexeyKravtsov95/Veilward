@@ -8,7 +8,7 @@ using Application = UnityEngine.Application;
 
 namespace Veilward.Presentation
 {
-    public enum BattleInputOwner { None, Placement, Sell, Inspector, ElementChoice }
+    public enum BattleInputOwner { None, Placement, Sell, Inspector, ElementChoice, Ability }
 
     [DefaultExecutionOrder(-100)]
     public sealed class BattleSceneController : MonoBehaviour
@@ -28,6 +28,9 @@ namespace Veilward.Presentation
         [SerializeField] private BattleCheckpointController checkpointController;
         [SerializeField] private EnemyInspectorController enemyInspector;
         [SerializeField] private ElementChoiceController elementChoice;
+        [SerializeField] private AbilityController abilityController;
+        private readonly AbilityEffectView[] _abilityPool = new AbilityEffectView[32];
+        private int _nextAbilityEffect;
         [SerializeField] private UnityEngine.UI.Button mainMenuButton;
         [SerializeField] private UnityEngine.UI.Text reactionSummaryText;
         private const int ReactionPoolCapacity = 24;
@@ -54,11 +57,10 @@ namespace Veilward.Presentation
         {
             get
             {
+                if (_simulation != null && _simulation.State.ElementProgression.PendingChoiceId != "none") return BattleInputOwner.ElementChoice;
+                if (abilityController != null && abilityController.HasInputOwnership) return BattleInputOwner.Ability;
                 if (placementController != null && placementController.IsSellConfirmationVisible) return BattleInputOwner.Sell;
                 if (enemyInspector != null && enemyInspector.SelectedEnemyId.HasValue) return BattleInputOwner.Inspector;
-                // Pending обязателен даже до первого Refresh UI.
-                if (_simulation != null && _simulation.State.ElementProgression.PendingChoiceId != "none")
-                    return BattleInputOwner.ElementChoice;
                 if (placementController != null && placementController.HasSelection) return BattleInputOwner.Placement;
                 return BattleInputOwner.None;
             }
@@ -126,6 +128,12 @@ namespace Veilward.Presentation
                 effect.transform.SetParent(transform, false);
                 effect.Initialize(reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial);
                 _reactionPool[i] = effect;
+            }
+            for (var i = 0; i < _abilityPool.Length; i++)
+            {
+                var effect = new GameObject("Ability effect " + i).AddComponent<AbilityEffectView>();
+                effect.transform.SetParent(transform, false); effect.Initialize(reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial);
+                _abilityPool[i] = effect;
             }
             if (checkpointController != null) checkpointController.Restored += ResetPresentation;
             _accumulator = 0f;
@@ -313,6 +321,19 @@ namespace Veilward.Presentation
             return result;
         }
 
+        internal AbilityCastResult DispatchAbility(AbilityController caller, CastAbilityCommand command)
+        {
+            if (caller == null || caller != abilityController || !CanAcceptInput(BattleInputOwner.Ability))
+                throw new InvalidOperationException("Only the wired AbilityController may dispatch a guarded intent.");
+            var result = _simulation.CastAbility(command);
+            if (result.Succeeded)
+            {
+                try { ProcessAttackEvents(); }
+                finally { if (checkpointController != null) checkpointController.ObserveCommandCompletion(); }
+            }
+            return result;
+        }
+
         private void Update()
         {
             if (_simulation == null)
@@ -338,6 +359,7 @@ namespace Veilward.Presentation
             Presentation.Advance(activeDelta);
             for (var i = 0; i < _reactionPool.Length; i++)
                 if (_reactionPool[i] != null) _reactionPool[i].Advance(activeDelta);
+            for (var i = 0; i < _abilityPool.Length; i++) if (_abilityPool[i] != null) _abilityPool[i].Advance(activeDelta);
             _accumulator += activeDelta;
             var steps = 0;
             while (_accumulator >= StepSeconds && steps < MaxStepsPerFrame)
@@ -361,7 +383,8 @@ namespace Veilward.Presentation
                 return;
             }
 
-            // Синхронный Cast может завершить волну в кадре без fixed Step.
+            // UI callbacks публикуют intent; все накопленные Steps этого кадра уже выполнены.
+            if (abilityController != null) { abilityController.Refresh(); abilityController.DispatchIntent(); }
             if (checkpointController != null) checkpointController.ObserveCommandCompletion();
             SynchronizeViews();
             UpdateHud();
@@ -379,8 +402,24 @@ namespace Veilward.Presentation
             {
                 var reactions = _simulation.ReactionEvents;
                 var damages = _simulation.DamageEvents;
-                for (var i = 0; i < reactions.Count; i++)
+                var abilities = _simulation.AbilityEvents;
+                var ai = 0; var ri = 0;
+                while (ai < abilities.Count || ri < reactions.Count)
                 {
+                    if (ai < abilities.Count && (ri == reactions.Count || abilities[ai].SequenceInTick < reactions[ri].SequenceInTick))
+                    {
+                        var cast = abilities[ai++];
+                        PlayAbilityEffect(cast.Center, cast.Radius, cast.CastSequence, -1);
+                        for (var hitIndex = 0; hitIndex < damages.Count; hitIndex++)
+                        {
+                            var hit = damages[hitIndex];
+                            if (hit.Origin == DamageOrigin.Ability && hit.Tick == cast.Tick && hit.AbilityCastSequence == cast.CastSequence &&
+                                hit.SourceAbilityId == cast.AbilityId)
+                                PlayAbilityEffect(hit.TargetPosition, .18f, cast.CastSequence, hit.HitIndex);
+                        }
+                        continue;
+                    }
+                    var i = ri++;
                     Presentation.Consume(reactions[i], damages);
                     var effect = _reactionPool[_nextReactionEffect];
                     if (effect != null) effect.Play(reactions[i], damages);
@@ -409,11 +448,19 @@ namespace Veilward.Presentation
             }
             finally
             {
+                _simulation.ClearAbilityEvents();
                 _simulation.ClearAttackEvents();
                 // Все consumer используют один Step; очистка обязательна и при исключении.
                 _simulation.ClearReactionEvents();
                 _simulation.ClearDamageEvents();
             }
+        }
+
+        private void PlayAbilityEffect(PathPosition point, float radius, long sequence, int hitIndex)
+        {
+            var effect = _abilityPool[_nextAbilityEffect];
+            if (effect != null) effect.Play(point, radius, sequence, hitIndex);
+            _nextAbilityEffect = (_nextAbilityEffect + 1) % _abilityPool.Length;
         }
 
         private bool TryGetTowerPosition(TowerId towerId, out Vector3 position)
@@ -444,10 +491,18 @@ namespace Veilward.Presentation
             if (checkpointController != null) checkpointController.Restored -= ResetPresentation;
         }
 
-        public void FreezePresentationClock() { _accumulator = 0; _skipNextDelta = true; }
+        public void FreezePresentationClock()
+        {
+            _accumulator = 0; _skipNextDelta = true;
+            if (abilityController != null) abilityController.Invalidate();
+            if (placementController != null) placementController.SuppressPointerForCurrentFrame();
+        }
 
         public void ResetPresentation()
         {
+            if (abilityController != null) abilityController.ResetTransient();
+            _nextAbilityEffect = 0;
+            for (var i = 0; i < _abilityPool.Length; i++) if (_abilityPool[i] != null) _abilityPool[i].Clear();
             Presentation.Reset(); _accumulator = 0; _skipNextDelta = true; _nextReactionEffect = 0;
             for (var i = 0; i < _reactionPool.Length; i++) if (_reactionPool[i] != null) _reactionPool[i].Clear();
             foreach (var beam in GetComponentsInChildren<AttackBeamView>())
@@ -567,7 +622,7 @@ namespace Veilward.Presentation
             _staleEnemyIds.Clear();
             foreach (var pair in _enemyViews)
             {
-                if (pair.Value.SeenTick != state.Tick)
+                if (!HasEnemy(state.Enemies, pair.Key))
                 {
                     _staleEnemyIds.Add(pair.Key);
                 }
@@ -588,6 +643,12 @@ namespace Veilward.Presentation
 
                 _enemyViews.Remove(enemyId);
             }
+        }
+
+        private static bool HasEnemy(IReadOnlyList<EnemyState> enemies, EnemyId id)
+        {
+            for (var i = 0; i < enemies.Count; i++) if (enemies[i].Id == id) return true;
+            return false;
         }
 
         private void UpdateHud()

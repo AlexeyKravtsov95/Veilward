@@ -484,7 +484,7 @@ namespace Veilward.Editor
             var propertyNames = new[]
             {
                 "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
-                "pauseController", "placementController", "checkpointController", "enemyInspector", "reactionSummaryText", "reactionEffectMaterial"
+                "pauseController", "placementController", "checkpointController", "enemyInspector", "reactionSummaryText", "reactionEffectMaterial", "abilityController"
             };
             foreach (var propertyName in propertyNames)
             {
@@ -838,11 +838,24 @@ namespace Veilward.Editor
             retrySave.gameObject.SetActive(false);
             var menu = CreateButton("Main Menu Button", canvasObject.transform, "Main Menu", Vector2.zero);
             SetRect(menu.GetComponent<RectTransform>(), new Vector2(0, 0), new Vector2(24, 115), new Vector2(230, 64));
+            var abilityBegin = CreateButton("Ability Button", canvasObject.transform, "Печать — Ready", Vector2.zero);
+            SetRect(abilityBegin.GetComponent<RectTransform>(), new Vector2(.5f, 0), new Vector2(0, 55), new Vector2(300, 70));
+            abilityBegin.gameObject.SetActive(false);
+            var abilityPanel = CreateUiObject("Ability Panel", canvasObject.transform);
+            SetRect(abilityPanel.GetComponent<RectTransform>(), new Vector2(.5f, 0), new Vector2(0, 170), new Vector2(600, 150));
+            var abilityBlocker = abilityPanel.AddComponent<UnityEngine.UI.Image>(); abilityBlocker.color = new Color(.06f, .08f, .12f, .95f);
+            abilityBlocker.raycastTarget = true;
+            var abilityStatus = CreateText("Ability Status", abilityPanel.transform, 24, TextAnchor.MiddleCenter);
+            SetRect(abilityStatus.rectTransform, new Vector2(.5f, .5f), new Vector2(0, 35), new Vector2(580, 65));
+            var abilityConfirm = CreateButton("Confirm Ability Button", abilityPanel.transform, "Confirm", new Vector2(-145, -35));
+            var abilityCancel = CreateButton("Cancel Ability Button", abilityPanel.transform, "Cancel", new Vector2(145, -35));
+            abilityPanel.SetActive(false);
             var safeHud = canvasObject.AddComponent<BattleHudSafeArea>();
             var safeSerialized = new SerializedObject(safeHud);
             var edgeControls = new[] { panel.rectTransform, startWave.GetComponent<RectTransform>(), nextWave.GetComponent<RectTransform>(),
                 pause.GetComponent<RectTransform>(), saveStatus.rectTransform, retrySave.GetComponent<RectTransform>(),
-                menu.GetComponent<RectTransform>(), progressionSummary.rectTransform };
+                menu.GetComponent<RectTransform>(), progressionSummary.rectTransform,
+                abilityBegin.GetComponent<RectTransform>(), abilityPanel.GetComponent<RectTransform>() };
             var safeRefs = safeSerialized.FindProperty("edgeControls"); safeRefs.arraySize = edgeControls.Length;
             for (var i = 0; i < edgeControls.Length; i++) safeRefs.GetArrayElementAtIndex(i).objectReferenceValue = edgeControls[i];
             safeSerialized.ApplyModifiedPropertiesWithoutUndo();
@@ -853,6 +866,8 @@ namespace Veilward.Editor
 
             return new HudReferences
             {
+                AbilityBegin = abilityBegin, AbilityConfirm = abilityConfirm, AbilityCancel = abilityCancel,
+                AbilityPanel = abilityPanel, AbilityStatus = abilityStatus,
                 ChoicePanel = choiceOverlay, ChoiceSafeArea = safeRoot, ChoiceTitle = choiceTitle,
                 ProgressionSummary = progressionSummary, ChoiceOptions = choices, ConfirmChoice = confirmChoice,
                 CancelChoice = cancelChoice, RetrySave = retrySave, MainMenuButton = menu,
@@ -963,7 +978,8 @@ namespace Veilward.Editor
                 typeof(BattlePlacementController),
                 typeof(BattlePauseController),
                 typeof(BattleCheckpointController),
-                typeof(EnemyInspectorController), typeof(ElementChoiceController));
+                typeof(EnemyInspectorController), typeof(ElementChoiceController), typeof(AbilityController));
+            var ability = controllerObject.GetComponent<AbilityController>();
             var choice = controllerObject.GetComponent<ElementChoiceController>();
             var inspector = controllerObject.GetComponent<EnemyInspectorController>();
             var battle = controllerObject.GetComponent<BattleSceneController>();
@@ -983,6 +999,7 @@ namespace Veilward.Editor
             serialized.FindProperty("checkpointController").objectReferenceValue = checkpoint;
             serialized.FindProperty("enemyInspector").objectReferenceValue = inspector;
             serialized.FindProperty("elementChoice").objectReferenceValue = choice;
+            serialized.FindProperty("abilityController").objectReferenceValue = ability;
             serialized.FindProperty("mainMenuButton").objectReferenceValue = hud.MainMenuButton;
             serialized.FindProperty("reactionSummaryText").objectReferenceValue = hud.ReactionSummaryText;
             serialized.ApplyModifiedPropertiesWithoutUndo();
@@ -1027,6 +1044,24 @@ namespace Veilward.Editor
             inspectorSerialized.FindProperty("closeButton").objectReferenceValue = hud.CloseInspectorButton;
             inspectorSerialized.ApplyModifiedPropertiesWithoutUndo();
 
+            var abilityPreviewObject = new GameObject("Ability Preview", typeof(LineRenderer), typeof(AbilityPreviewView));
+            abilityPreviewObject.transform.SetParent(controllerObject.transform, false);
+            var abilityLine = abilityPreviewObject.GetComponent<LineRenderer>();
+            abilityLine.sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>(MaterialsFolder + "/ReactionEffect.mat");
+            abilityLine.startWidth = abilityLine.endWidth = .04f;
+            abilityLine.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; abilityLine.receiveShadows = false;
+            abilityPreviewObject.SetActive(false);
+            var abilitySerialized = new SerializedObject(ability);
+            abilitySerialized.FindProperty("battle").objectReferenceValue = battle;
+            abilitySerialized.FindProperty("placement").objectReferenceValue = placement;
+            abilitySerialized.FindProperty("beginButton").objectReferenceValue = hud.AbilityBegin;
+            abilitySerialized.FindProperty("confirmButton").objectReferenceValue = hud.AbilityConfirm;
+            abilitySerialized.FindProperty("cancelButton").objectReferenceValue = hud.AbilityCancel;
+            abilitySerialized.FindProperty("panel").objectReferenceValue = hud.AbilityPanel;
+            abilitySerialized.FindProperty("statusText").objectReferenceValue = hud.AbilityStatus;
+            abilitySerialized.FindProperty("preview").objectReferenceValue = abilityPreviewObject.GetComponent<AbilityPreviewView>();
+            abilitySerialized.ApplyModifiedPropertiesWithoutUndo();
+
             var choiceSerialized = new SerializedObject(choice);
             choiceSerialized.FindProperty("battle").objectReferenceValue = battle;
             choiceSerialized.FindProperty("placement").objectReferenceValue = placement;
@@ -1051,6 +1086,9 @@ namespace Veilward.Editor
 
         private sealed class HudReferences
         {
+            public UnityEngine.UI.Button AbilityBegin, AbilityConfirm, AbilityCancel;
+            public GameObject AbilityPanel;
+            public UnityEngine.UI.Text AbilityStatus;
             public GameObject ChoicePanel;
             public RectTransform ChoiceSafeArea;
             public UnityEngine.UI.Text ChoiceTitle, ProgressionSummary;

@@ -1,0 +1,9 @@
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+EXPECTED|Checkpoint save failed: Access to the path '/Users/alexeykravtsov/.codex/worktrees/p24d-ability-ui/Veilward/TestResults/AbilityVisual/1600x900/wave-checkpoint-v1.json.tmp' is denied.
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless

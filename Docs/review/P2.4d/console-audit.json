@@ -1,0 +1,12 @@
+{
+  "1280x960": {
+    "expectedSaveErrors": 1,
+    "warnings": 8,
+    "unexpectedErrors": 0
+  },
+  "1600x900": {
+    "expectedSaveErrors": 1,
+    "warnings": 8,
+    "unexpectedErrors": 0
+  }
+}

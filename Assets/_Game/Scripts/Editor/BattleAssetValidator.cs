@@ -172,7 +172,7 @@ namespace Veilward.Editor
             else
             {
                 var controls = new SerializedObject(safeAreas[0]).FindProperty("edgeControls");
-                if (controls.arraySize != 8) errors.Add("HUD requires eight safe-area edge controls.");
+                if (controls.arraySize != 10) errors.Add("HUD requires ten safe-area edge controls.");
                 for (var i = 0; i < controls.arraySize; i++)
                     if (controls.GetArrayElementAtIndex(i).objectReferenceValue == null) errors.Add("Missing HUD safe-area reference.");
             }
@@ -187,6 +187,16 @@ namespace Veilward.Editor
                     if (options.GetArrayElementAtIndex(i).objectReferenceValue == null) errors.Add("Missing choice option reference.");
                 if (refs["panel"] is GameObject choicePanel && (choicePanel.GetComponent<UnityEngine.UI.Image>() == null || !choicePanel.GetComponent<UnityEngine.UI.Image>().raycastTarget))
                     errors.Add("Choice overlay must block raycasts.");
+            }
+            var abilities = FindComponents<AbilityController>(roots);
+            if (abilities.Count != 1) errors.Add("Battle requires exactly one AbilityController.");
+            else
+            {
+                var refs = RequireReferences(abilities[0], new[] { "battle", "placement", "beginButton", "confirmButton", "cancelButton", "panel", "statusText", "preview" }, errors);
+                if (refs["panel"] is GameObject abilityPanel && (abilityPanel.GetComponent<UnityEngine.UI.Image>() == null || !abilityPanel.GetComponent<UnityEngine.UI.Image>().raycastTarget))
+                    errors.Add("Ability panel must block raycasts.");
+                if (refs["preview"] is AbilityPreviewView preview && (preview.GetComponent<LineRenderer>() == null || preview.GetComponent<LineRenderer>().sharedMaterial == null))
+                    errors.Add("Ability preview requires a material and line renderer.");
             }
             var checkpoints = FindComponents<BattleCheckpointController>(roots);
             if (checkpoints.Count != 1)
@@ -214,7 +224,7 @@ namespace Veilward.Editor
                 new[]
                 {
                     "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
-                    "pauseController", "placementController", "checkpointController", "enemyInspector", "elementChoice", "mainMenuButton", "reactionSummaryText", "reactionEffectMaterial"
+                    "pauseController", "placementController", "checkpointController", "enemyInspector", "elementChoice", "abilityController", "mainMenuButton", "reactionSummaryText", "reactionEffectMaterial"
                 },
                 errors);
             RequireAssetPath(references["scenario"], ConfigPath, "scenario", errors);

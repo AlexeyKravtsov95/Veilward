@@ -1,0 +1,11 @@
+01-ready|frame=53|tick=0|phase=Combat|hp=20|gold=150|kills=0|sequence=1|remaining=0|owner=None|status=Отменено — способность не применена
+02-preview|frame=54|tick=0|phase=Combat|hp=20|gold=150|kills=0|sequence=1|remaining=0|owner=Ability|status=Цель выбрана — Confirm / Cancel
+03-moved-center|frame=55|tick=0|phase=Combat|hp=20|gold=150|kills=0|sequence=1|remaining=0|owner=Ability|status=Цель выбрана — Confirm / Cancel
+04-confirm-hits|frame=56|tick=0|phase=Combat|hp=20|gold=150|kills=0|sequence=2|remaining=600|owner=None|status=Печать: 1 hits, 120 HP
+05-cooldown|frame=57|tick=0|phase=Combat|hp=20|gold=150|kills=0|sequence=2|remaining=600|owner=None|status=Печать: 1 hits, 120 HP
+06-pause|frame=58|tick=0|phase=Combat|hp=20|gold=150|kills=0|sequence=2|remaining=600|owner=None|status=Печать: 1 hits, 120 HP
+07-resume|frame=59|tick=0|phase=Combat|hp=20|gold=150|kills=0|sequence=2|remaining=600|owner=None|status=Печать: 1 hits, 120 HP
+08-cancel|frame=65|tick=0|phase=Combat|hp=20|gold=150|kills=0|sequence=1|remaining=0|owner=None|status=Отменено — способность не применена
+09-failed-save|frame=71|tick=0|phase=WaveComplete|hp=20|gold=175|kills=1|sequence=2|remaining=600|owner=None|status=Печать: 1 hits, 100 HP
+10-retry-saved|frame=72|tick=0|phase=WaveComplete|hp=20|gold=175|kills=1|sequence=2|remaining=600|owner=None|status=Печать: 1 hits, 100 HP
+11-clean-continue|frame=78|tick=0|phase=WaveComplete|hp=20|gold=175|kills=1|sequence=2|remaining=600|owner=None|status=
