@@ -77,7 +77,7 @@ namespace Veilward.Tests.EditMode
         }
         [Test] public void RegBattle212_Combat8WholeRollbackAndRejectedDirtyRestore()
         {
-            var s=BossNaturalSmokeTests.Run("flame",false,out _,8);var prep=BossNaturalSmokeTests.Envelope(s);var json=WaveCheckpointJson.Serialize(prep);
+            var s=BossNaturalSmokeTests.Run("flame",false,out _,8,true);var prep=BossNaturalSmokeTests.Envelope(s);var json=WaveCheckpointJson.Serialize(prep);
             Assert.That(_store.TrySave(prep,s.TryValidateCheckpoint,out var error,BossWaveTests.Config().CreateSimulationForCheckpoint),Is.True,error);
             string first=null;
             for(var attempt=0;attempt<2;attempt++)
@@ -129,7 +129,7 @@ namespace Veilward.Tests.EditMode
         [TestCase("flame")] [TestCase("gale")]
         public void RegBattle212_AllReachedNativeSafeBoundariesDeepRoundTrip(string start)
         {
-            BossNaturalSmokeTests.Run(start,false,out var report);
+            BossNaturalSmokeTests.Run(start,false,out var report,0,true);
             var initial=BossWaveTests.Config().CreateSimulation();RoundTrip(BossNaturalSmokeTests.Envelope(initial));
             initial.ChooseElement(new ChooseElementCommand("start-resonance",start));RoundTrip(BossNaturalSmokeTests.Envelope(initial));
             Assert.That(report.waves.Count,Is.EqualTo(8));

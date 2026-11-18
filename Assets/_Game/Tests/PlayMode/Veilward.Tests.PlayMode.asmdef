@@ -5,7 +5,8 @@
     "Veilward",
     "Veilward.Domain",
     "Unity.InputSystem",
-    "UnityEngine.TestRunner"
+    "UnityEngine.TestRunner",
+    "Veilward.Tests.Shared"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

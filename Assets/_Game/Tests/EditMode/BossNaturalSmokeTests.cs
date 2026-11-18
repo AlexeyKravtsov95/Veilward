@@ -6,6 +6,7 @@ using NUnit.Framework;
 using UnityEngine;
 using Veilward.Domain;
 using Veilward.Infrastructure;
+using Veilward.Tests.Shared;
 
 namespace Veilward.Tests.EditMode
 {
@@ -15,8 +16,9 @@ namespace Veilward.Tests.EditMode
         [Serializable] public sealed class Receipt { public int wave; public long tick; public string command,result; public int hp,gold,kills,remaining; public long sequence; }
         [Serializable] public sealed class Result { public string start,phase; public int bossSpawns,bossKills,bossLeaks,bossHealthBeforeLeak,abilityHpLoss,bossAbilityHpLoss; public List<Receipt> receipts=new List<Receipt>(); public List<WaveCheckpointEnvelope> waves=new List<WaveCheckpointEnvelope>(); }
         internal static readonly GridCoordinate[] StoneCells = {new GridCoordinate(-1,0),new GridCoordinate(1,0),new GridCoordinate(-1,1),new GridCoordinate(1,1),new GridCoordinate(0,-1),new GridCoordinate(0,1)};
-        internal static BattleSimulation Run(string start,bool leak,out Result report,int stopAtPreparation=0)
+        internal static BattleSimulation Run(string start,bool leak,out Result report,int stopAtPreparation=0,bool original=false)
         {
+            var mission=original?BossMissionScript.Original(start,leak):BossMissionScript.Load(start,leak);
             var s=BossWaveTests.Config().CreateSimulation();report=new Result{start=start};
             Assert.That(s.State.Gold,Is.EqualTo(150));Assert.That(s.State.BaseHealth,Is.EqualTo(20));
             Record(report,s,"Choose "+start,s.ChooseElement(new ChooseElementCommand("start-resonance",start)).FailureReason.ToString());
@@ -24,7 +26,7 @@ namespace Veilward.Tests.EditMode
             while(s.State.Phase==BattlePhase.Preparation)
             {
                 var wave=s.State.WaveIndex+1;
-                Prepare(s,start,report);
+                Prepare(s,start,report,mission);
                 if(stopAtPreparation==wave)return s;
 
                 Record(report,s,"Start",s.StartWave().ToString());
@@ -32,7 +34,7 @@ namespace Veilward.Tests.EditMode
                 while(s.State.Phase==BattlePhase.Combat&&guard++<20000)
                 {
                     foreach(var enemy in s.State.Enemies)if(enemy.Definition.Id.Value=="rift-warden")bossIds.Add(enemy.Id.Value);
-                    if(!leak||wave<8)TryCast(s,report);
+                    if(!leak||wave<8)TryCast(s,report,mission);
                     Observe(s,report,bossIds,deadBossIds);Clear(s);
                     var tracked=s.State.Enemies.FirstOrDefault(e=>e.Definition.Id.Value=="rift-warden");
                     if(s.State.Phase==BattlePhase.Combat)s.Step();
@@ -44,7 +46,7 @@ namespace Veilward.Tests.EditMode
                 Record(report,s,"Wave end",s.State.Phase.ToString());report.waves.Add(Envelope(s));
                 if(s.State.ElementProgression.HasPendingChoice)
                 {
-                    var option=wave==3?"stone":"tide";
+                    var option=wave==3?mission.after3:mission.after6;
                     Record(report,s,"Choose "+option,s.ChooseElement(new ChooseElementCommand(s.State.ElementProgression.PendingChoiceId,option)).FailureReason.ToString());
                 }
                 if(s.State.Phase==BattlePhase.WaveComplete)Record(report,s,"Next",s.ContinueToNextWave().ToString());
@@ -52,10 +54,10 @@ namespace Veilward.Tests.EditMode
             report.phase=s.State.Phase.ToString();report.bossSpawns=bossIds.Count;report.bossKills=deadBossIds.Count;return s;
         }
         internal static WaveCheckpointEnvelope Envelope(BattleSimulation s) => new WaveCheckpointEnvelope {schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.AbilityBossContentId,state=s.ExportCheckpoint()};
-        internal static void Prepare(BattleSimulation s,string start,Result r)
+        internal static void Prepare(BattleSimulation s,string start,Result r,BossMissionScript mission=null)
         {
             var wave=s.State.WaveIndex+1;
-            var script=JsonUtility.FromJson<NativeEightWaveReplayTests.Script>(File.ReadAllText("Docs/review/P2.4e/"+start+".commands.json"));
+            var script=mission??BossMissionScript.Original(start);
             foreach(var c in script.commands.Where(c=>c.wave==wave))
             {
                 if(c.op=="place")Place(s,r,c.type,c.x,c.y);
@@ -68,6 +70,14 @@ namespace Veilward.Tests.EditMode
             var result=s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId(type),new GridCoordinate(x,y)));
             Record(r,s,$"Place {type} {x},{y}",result.Success+"/"+result.FailureReason);
             Assert.That(result.Success,Is.True,$"natural {r.start} wave{s.State.WaveIndex+1} place{type} {x},{y}: {result.FailureReason}");
+        }
+        internal static void TryCast(BattleSimulation s,Result r,BossMissionScript mission)
+        {
+            if(!mission.TryCenter(s,out var center))return;
+            var relative=s.WaveElapsedTicks;
+            var result=s.CastAbility(BossWaveTests.Cast(s,center));
+            Record(r,s,$"Cast center({center.X:R},{center.Y:R}) relative{relative} before next Step",result.Succeeded+"/"+result.FailureReason+" hpLoss="+result.TotalAppliedHpLoss);
+            Assert.That(result.Succeeded,Is.True);
         }
         internal static void TryCast(BattleSimulation s,Result r)
         {
@@ -103,9 +113,9 @@ namespace Veilward.Tests.EditMode
         [TestCase("flame",false)] [TestCase("gale",false)] [TestCase("flame",true)]
         public void RegBattle213_NaturalProductionVictoryAndDeliberateBossLeak(string start,bool leak)
         {
-            var s=Run(start,leak,out var r);Directory.CreateDirectory("TestResults/P2.4e");
-            File.WriteAllText("TestResults/P2.4e/"+start+(leak?"-leak":"-victory")+".json",JsonUtility.ToJson(r,true));
-            File.WriteAllLines("TestResults/P2.4e/"+start+(leak?"-leak":"-victory")+".waves.jsonl",r.waves.Select(e=>WaveCheckpointJson.Serialize(e)));
+            var s=Run(start,leak,out var r);Directory.CreateDirectory("TestResults/P2.4e/revision-2/natural");
+            File.WriteAllText("TestResults/P2.4e/revision-2/natural/"+start+(leak?"-leak":"-victory")+".json",JsonUtility.ToJson(r,true));
+            File.WriteAllLines("TestResults/P2.4e/revision-2/natural/"+start+(leak?"-leak":"-victory")+".waves.jsonl",r.waves.Select(e=>WaveCheckpointJson.Serialize(e)));
             Assert.That(s.State.Phase,Is.EqualTo(leak?BattlePhase.Defeat:BattlePhase.Victory),JsonUtility.ToJson(r));
             Assert.That(r.bossLeaks,Is.EqualTo(leak?1:0));Assert.That(r.bossSpawns,Is.EqualTo(1));Assert.That(r.bossKills,Is.EqualTo(leak?0:1));Assert.That(r.abilityHpLoss,Is.GreaterThan(0));
             if(!leak)Assert.That(r.bossAbilityHpLoss,Is.GreaterThan(0));

@@ -26,7 +26,7 @@ namespace Veilward.Tests.EditMode
             EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity");
             var battle=Object.FindFirstObjectByType<BattleSceneController>();Call(battle,"Start");
             var bossHud=battle.GetComponent<BossHudController>();Call(bossHud,"Start");
-            var s=BossNaturalSmokeTests.Run("flame",false,out _,8);foreach(var tower in s.State.Towers.ToArray())s.SellTower(tower.Id);Set(battle,"_simulation",s);battle.ResetPresentation();bossHud.Refresh();
+            var s=BossNaturalSmokeTests.Run("flame",false,out _,8,true);foreach(var tower in s.State.Towers.ToArray())s.SellTower(tower.Id);Set(battle,"_simulation",s);battle.ResetPresentation();bossHud.Refresh();
             Assert.That(bossHud.Notice,Does.Contain("11 Shade"));Assert.That(bossHud.Notice,Does.Contain("330"));Assert.That(bossHud.Notice,Does.Contain("1000"));Assert.That(bossHud.Notice,Does.Contain("20 урона"));Assert.That(bossHud.HealthVisible,Is.False);
             s.StartWave();for(var i=0;i<329;i++)s.Step();bossHud.Refresh();Assert.That(bossHud.HealthVisible,Is.False);
             s.Step();bossHud.Refresh();Assert.That(bossHud.Health,Does.Contain("1000/1000"));Assert.That(bossHud.Health,Does.Contain("Armor 10"));

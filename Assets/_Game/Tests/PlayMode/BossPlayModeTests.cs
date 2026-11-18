@@ -12,13 +12,12 @@ using Veilward.Application;
 using Veilward.Domain;
 using Veilward.Infrastructure;
 using Veilward.Presentation;
+using Veilward.Tests.Shared;
 using Object=UnityEngine.Object;
 namespace Veilward.Tests.PlayMode
 {
     public sealed class BossPlayModeTests
     {
-        [Serializable] private sealed class Script {public string start,after3,after6;public Command[] commands;}
-        [Serializable] private sealed class Command {public int wave,x,y,id;public string op,type;}
         private const BindingFlags Flags=BindingFlags.Instance|BindingFlags.NonPublic;
         private BattleSceneController Battle=>Object.FindFirstObjectByType<BattleSceneController>();
         private BossHudController Hud=>Battle.GetComponent<BossHudController>();
@@ -54,13 +53,13 @@ namespace Veilward.Tests.PlayMode
         private IEnumerator Natural(string start,bool leak,int w,int h)
         {
             capture=Environment.GetEnvironmentVariable("P24E_CAPTURE")=="1";width=w;height=h;
-            output="TestResults/P2.4e/play/"+start+(leak?"-leak":"-victory")+"-"+w+"x"+h;
+            output="TestResults/P2.4e/revision-2/play/"+start+(leak?"-leak":"-victory")+"-"+w+"x"+h;
             if(capture)ConfigureGameView(w,h);
             yield return SceneManager.LoadSceneAsync("MainMenu");yield return null;
             Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke();yield return null;yield return null;
             Battle.enabled=false;Label();Assert.That(Battle.Simulation.State.Gold,Is.EqualTo(150));Assert.That(Battle.Simulation.State.BaseHealth,Is.EqualTo(20));
             Assert.That((string)typeof(BattleScenarioConfig).GetProperty("ScenarioContentId").GetValue(typeof(BattleSceneController).GetField("scenario",Flags).GetValue(Battle)),Is.EqualTo(WaveCheckpointCompatibility.AbilityBossContentId));
-            var script=JsonUtility.FromJson<Script>(File.ReadAllText("Docs/review/P2.4e/"+start+".commands.json"));
+            var script=BossMissionScript.Load(start,leak);
             Choose(start);var bossKills=0;var bossLeaks=0;long bossLoss=0;var captured=new HashSet<string>();
             while(Battle.Simulation.State.Phase==BattlePhase.Preparation)
             {
@@ -102,14 +101,15 @@ namespace Veilward.Tests.PlayMode
                     if(boss!=null&&captured.Add("spawn"))yield return Shot("04-boss-hp-armor");
                     if(!leak||wave<8)
                     {
-                        var target=CastTarget(s);
-                        if(target!=null)
+                        var hasTarget=script.TryCenter(s,out var center);
+                        if(hasTarget)
                         {
                             Button("Ability Button").onClick.Invoke();
                             Assert.That(Ability.HasInputOwnership,Is.True);
-                            Ability.SelectTarget(s.Path.GetPosition(target.DistanceAlongPath));Button("Confirm Ability Button").onClick.Invoke();Call(Battle,"LateUpdate");
+                            var beforeBoss=boss?.Health??0;
+                            Ability.SelectTarget(center);Button("Confirm Ability Button").onClick.Invoke();Call(Battle,"LateUpdate");
                             telemetry.Add($"CAST|wave={wave}|tick={s.State.Tick}|sequence={s.AbilityState.NextCastSequence-1}|remaining={s.AbilityState.CooldownRemainingTicks}|{Ability.Status}");
-                            if(boss!=null){if(!boss.IsAlive&&!s.State.Enemies.Contains(boss))bossKills++;bossLoss+=Ability.LastCast.Value.TotalAppliedHpLoss;if(captured.Add("hit"))yield return Shot("05-boss-ability-hit");}
+                            if(boss!=null){if(!boss.IsAlive&&!s.State.Enemies.Contains(boss))bossKills++;bossLoss+=beforeBoss-boss.Health;if(captured.Add("hit"))yield return Shot("05-boss-ability-hit");}
                         }
                     }
                     if(boss!=null&&boss.IsAlive&&boss.Statuses.Count>0&&captured.Add("status"))
@@ -132,14 +132,6 @@ namespace Veilward.Tests.PlayMode
             Assert.That(Battle.Simulation.State.Phase,Is.EqualTo(leak?BattlePhase.Defeat:BattlePhase.Victory));
             Assert.That(bossLeaks,Is.EqualTo(leak?1:0));if(!leak){Assert.That(bossKills,Is.EqualTo(1));Assert.That(bossLoss,Is.GreaterThan(0));}
             Assert.That(console.Any(c=>c.StartsWith("Error|")||c.StartsWith("Exception|")||c.StartsWith("Assert|")),Is.False,string.Join("\n",console));
-        }
-        private static EnemyState CastTarget(BattleSimulation s)
-        {
-            if(s.AbilityState.CooldownRemainingTicks!=0||s.State.Enemies.Count==0)return null;
-            var boss=s.State.Enemies.FirstOrDefault(e=>e.Definition.Id.Value=="rift-warden");if(s.State.WaveIndex==7&&boss==null)return null;if(boss!=null)return boss;
-            EnemyState target=null;var best=0;
-            foreach(var candidate in s.State.Enemies){var p=s.Path.GetPosition(candidate.DistanceAlongPath);var score=0;foreach(var e in s.State.Enemies){var q=s.Path.GetPosition(e.DistanceAlongPath);var dx=(double)p.X-q.X;var dy=(double)p.Y-q.Y;if(dx*dx+dy*dy<=2.25)score+=Math.Min(e.Health,120);}if(score>best){best=score;target=candidate;}}
-            return target!=null&&(best>=200||target.DistanceAlongPath>=s.Path.TotalLength-1)?target:null;
         }
         private void Choose(string option){var choice=Battle.GetComponent<ElementChoiceController>();Assert.That(choice.SelectOption(option),Is.True);Button("Confirm Element Button").onClick.Invoke();}
         private void Label()
