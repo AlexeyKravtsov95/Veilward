@@ -38,6 +38,11 @@ matrix=json.loads((HERE/'candidate-matrix.json').read_text());assert matrix['sel
 assert {k for k,v in matrix['eligibility'].items() if v['eligible']}=={'800-10','1000-5'}
 assert set(matrix['eligibility'])=={'1000-10','900-10','800-10','1000-8','1000-5'}
 assert len(matrix['rows'])==20
+with (HERE/'candidate-matrix.csv').open() as file:csv_rows=list(csv.DictReader(file))
+assert len(csv_rows)==20
+for published,row in zip(csv_rows,matrix['rows']):
+ assert published=={key:'' if value is None else str(value) for key,value in row.items()}
+
 for row in matrix['rows']:
  assert row['initialGold']==150 and row['initialHP']==20
  assert row['bossDirect']+row['bossBurn']+row['bossReaction']+row['bossAbility']+row['bossRemaining']==row['hp']
