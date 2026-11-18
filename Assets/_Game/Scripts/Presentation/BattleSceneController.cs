@@ -29,6 +29,7 @@ namespace Veilward.Presentation
         [SerializeField] private EnemyInspectorController enemyInspector;
         [SerializeField] private ElementChoiceController elementChoice;
         [SerializeField] private AbilityController abilityController;
+        [SerializeField] private BossHudController bossHud;
         private readonly AbilityEffectView[] _abilityPool = new AbilityEffectView[32];
         private int _nextAbilityEffect;
         [SerializeField] private UnityEngine.UI.Button mainMenuButton;
@@ -114,9 +115,7 @@ namespace Veilward.Presentation
             if (session?.Checkpoint != null &&
                 !WaveCheckpointCompatibility.TryNormalize(session.Checkpoint, scenario.ScenarioContentId, out checkpoint, out var error))
                 throw new InvalidOperationException("Battle session checkpoint is incompatible.");
-            if (session != null && session.Checkpoint == null && session.ScenarioContentId != scenario.ScenarioContentId)
-                throw new InvalidOperationException("New Game session scenario content ID does not match.");
-            _simulation = checkpoint == null ? scenario.CreateSimulation() : scenario.CreateSimulationForCheckpoint(checkpoint);
+            _simulation = checkpoint == null ? scenario.CreateSessionSimulation(session?.ScenarioContentId ?? scenario.ScenarioContentId) : scenario.CreateSimulationForCheckpoint(checkpoint);
             if (reactionSummaryText != null)
             {
                 _reactionSummaryOrigin = reactionSummaryText.rectTransform.anchoredPosition;
@@ -148,7 +147,7 @@ namespace Veilward.Presentation
                 checkpointController.Configure(
                     session?.Store,
                     _simulation,
-                    checkpoint?.scenarioContentId ?? scenario.ScenarioContentId,
+                    checkpoint?.scenarioContentId ?? session?.ScenarioContentId ?? scenario.ScenarioContentId,
                     scenario.CreateSimulationForCheckpoint);
                 if (session != null)
                 {
@@ -325,6 +324,7 @@ namespace Veilward.Presentation
         {
             if (caller == null || caller != abilityController || !CanAcceptInput(BattleInputOwner.Ability))
                 throw new InvalidOperationException("Only the wired AbilityController may dispatch a guarded intent.");
+            if (bossHud != null) bossHud.Refresh();
             var result = _simulation.CastAbility(command);
             if (result.Succeeded)
             {
@@ -364,6 +364,7 @@ namespace Veilward.Presentation
             var steps = 0;
             while (_accumulator >= StepSeconds && steps < MaxStepsPerFrame)
             {
+                if (bossHud != null) bossHud.Refresh();
                 _simulation.Step();
                 ProcessAttackEvents();
                 if (checkpointController != null)
@@ -500,6 +501,7 @@ namespace Veilward.Presentation
 
         public void ResetPresentation()
         {
+            if (bossHud != null) bossHud.ResetView();
             if (abilityController != null) abilityController.ResetTransient();
             _nextAbilityEffect = 0;
             for (var i = 0; i < _abilityPool.Length; i++) if (_abilityPool[i] != null) _abilityPool[i].Clear();
@@ -602,6 +604,8 @@ namespace Veilward.Presentation
                 if (!_enemyViews.TryGetValue(enemy.Id, out var view))
                 {
                     view = new EnemyView(Instantiate(enemyPrefab, transform));
+                    if (enemy.Definition.Id.Value == BossHudController.BossId)
+                    { view.Transform.name = "Страж Разрыва " + enemy.Id.Value; view.Transform.localScale *= 1.4f; }
                     _enemyViews.Add(enemy.Id, view);
                 }
 

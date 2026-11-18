@@ -42,7 +42,8 @@ namespace Veilward.Tests.PlayMode
         {
             // Direct Battle не читает диск. Клонируется только test config, production asset использует native.
             yield return SceneManager.LoadSceneAsync("Battle", LoadSceneMode.Single); yield return null;
-            var original = (BattleScenarioConfig)Get(Object.FindFirstObjectByType<BattleSceneController>(), "scenario");
+            var active = (BattleScenarioConfig)Get(Object.FindFirstObjectByType<BattleSceneController>(), "scenario");
+            var original = (BattleScenarioConfig)Get(active, "historicalScenario");
             _nativeConfig = Object.Instantiate(original);
             JsonUtility.FromJsonOverwrite("{\"scenarioContentId\":\"eight-wave-unlocks-v1\"}", _nativeConfig);
             var s = native ? original.CreateSimulation() : original.CreateHistoricalAllOpenSimulation();

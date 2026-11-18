@@ -142,7 +142,8 @@ namespace Veilward.Domain
             int startingGold,
             int waveCompletionBonus,
             ReactionCatalog reactionCatalog = null,
-            ElementUnlockRules elementUnlockRules = null)
+            ElementUnlockRules elementUnlockRules = null,
+            AbilityDefinition abilityDefinition = null)
             : this(
                 map,
                 path,
@@ -152,7 +153,7 @@ namespace Veilward.Domain
                 startingGold,
                 waveCompletionBonus,
                 legacySingleWave: false,
-                reactionCatalog, elementUnlockRules)
+                reactionCatalog, elementUnlockRules, abilityDefinition)
         {
         }
 
@@ -244,22 +245,20 @@ namespace Veilward.Domain
                     nameof(waves));
             }
 
+            Waves = Array.AsReadOnly(_waves);
             _waveCompletionBonus = waveCompletionBonus;
             _legacySingleWave = legacySingleWave;
             _initialBaseHealth = baseHealth;
             _initialGold = startingGold;
             Grid = new BattleGrid(map, path);
             long targetCapacity = 0;
-            if (abilityDefinition != null)
+            foreach (var wave in _waves)
             {
-                foreach (var wave in _waves)
-                {
-                    targetCapacity += wave.Count;
-                    if (targetCapacity > int.MaxValue - 2)
-                        throw new ArgumentException("Ability target budget exceeds safe mission IDs.", nameof(waves));
-                }
+                targetCapacity += wave.Count;
+                if (targetCapacity > WaveDefinition.MaxSpawnCount)
+                    throw new ArgumentException("Mission spawn budget exceeds bounded capacity.", nameof(waves));
             }
-            _abilityTargets = new List<AbilityTarget>((int)targetCapacity);
+            _abilityTargets = new List<AbilityTarget>(abilityDefinition == null ? 0 : (int)targetCapacity);
             _abilityDefinition = abilityDefinition;
             AbilityState = new AbilityState(abilityDefinition);
             AbilityEvents = _abilityEvents.AsReadOnly();
@@ -272,6 +271,8 @@ namespace Veilward.Domain
 
         public BattleState State { get; private set; }
         public PathDefinition Path => _path;
+        public IReadOnlyList<WaveDefinition> Waves { get; }
+        public long WaveElapsedTicks => State.Phase == BattlePhase.Combat ? State.Tick - _waveStartTick : 0;
         public BattleGrid Grid { get; private set; }
         public TowerCatalog TowerCatalog { get; }
         public IReadOnlyList<TowerDefinition> TowerLevels { get; }
@@ -827,6 +828,8 @@ namespace Veilward.Domain
                 return WaveTransitionResult.RejectedIdExhausted;
             }
 
+            if (State.Tick >= long.MaxValue - CurrentWave.LastSpawnTick)
+                return WaveTransitionResult.RejectedScheduleOverflow;
             return WaveTransitionResult.Started;
         }
 
@@ -1098,7 +1101,7 @@ namespace Veilward.Domain
         {
             while (_nextSpawnIndex < CurrentWave.Count && NextSpawnTick() <= State.Tick)
             {
-                State.AddEnemy(EnemyState.CreateInitial(new EnemyId(_nextEnemyId), CurrentWave.Enemy));
+                State.AddEnemy(EnemyState.CreateInitial(new EnemyId(_nextEnemyId), CurrentWave.Schedule[_nextSpawnIndex].Enemy));
                 _nextEnemyId++;
                 _nextSpawnIndex++;
             }
@@ -1114,8 +1117,7 @@ namespace Veilward.Domain
 
         private long NextSpawnTick()
         {
-            return _waveStartTick + (long)CurrentWave.FirstSpawnTick +
-                   (long)_nextSpawnIndex * CurrentWave.SpawnIntervalTicks;
+            return _waveStartTick + CurrentWave.Schedule[_nextSpawnIndex].RelativeTick;
         }
     }
 }

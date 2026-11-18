@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee814710a2d5414096be8718db13f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Veilward::Veilward.Presentation.MainMenuController
-  scenario: {fileID: 11400000, guid: 8684cec0fffee41b5a2f587affa19a4b, type: 2}
+  scenario: {fileID: 11400000, guid: 43e53ce61ea242419696125a22d08d4a, type: 2}
   newGameButton: {fileID: 1083050566}
   continueButton: {fileID: 1498756999}
   statusText: {fileID: 2088136865}

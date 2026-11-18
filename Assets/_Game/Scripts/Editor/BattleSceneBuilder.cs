@@ -14,7 +14,8 @@ namespace Veilward.Editor
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
         private const string MainMenuScenePath = "Assets/_Game/Scenes/MainMenu.unity";
         private const string LegacyConfigPath = "Assets/_Game/Configs/TestWave.asset";
-        private const string ConfigPath = "Assets/_Game/Configs/EightWave.asset";
+        private const string HistoricalConfigPath = "Assets/_Game/Configs/EightWave.asset";
+        private const string ConfigPath = "Assets/_Game/Configs/EightWaveAbilityBoss.asset";
         private const string EnemyPrefabPath = "Assets/_Game/Prefabs/Shade.prefab";
         private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
         private const string MaterialsFolder = "Assets/_Game/Art/Materials";
@@ -39,7 +40,7 @@ namespace Veilward.Editor
             }
 
             EnsureElementalCatalog(legacyConfig);
-            var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath);
+            var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(HistoricalConfigPath);
             if (config == null)
             {
                 config = BattleScenarioConfig.CreateDefault();
@@ -59,11 +60,12 @@ namespace Veilward.Editor
 
                 SetNativeProgression(serializedConfig);
                 serializedConfig.ApplyModifiedPropertiesWithoutUndo();
-                AssetDatabase.CreateAsset(config, ConfigPath);
+                AssetDatabase.CreateAsset(config, HistoricalConfigPath);
             }
 
             ConfigureNativeProgression(config);
             EnsureSharedCatalogReference(config, legacyConfig);
+            config = EnsureAbilityBossConfig(config);
 
             SetScenarioContentId(legacyConfig, "legacy-single-wave-v1");
 
@@ -133,6 +135,41 @@ namespace Veilward.Editor
             AssetDatabase.Refresh();
             ValidateRequiredReferences();
             BuildMainMenu(config);
+        }
+
+        private static BattleScenarioConfig EnsureAbilityBossConfig(BattleScenarioConfig historical)
+        {
+            var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath);
+            if (config == null)
+            {
+                config = Object.Instantiate(historical); config.name = "EightWaveAbilityBoss";
+                var data = new SerializedObject(config);
+                data.FindProperty("scenarioContentId").stringValue = "eight-wave-ability-boss-v1";
+                data.FindProperty("historicalScenario").objectReferenceValue = historical;
+                data.FindProperty("abilityRulesId").stringValue = "rift-seal-v1";
+                var boss = data.FindProperty("boss");
+                boss.FindPropertyRelative("id").stringValue = "rift-warden";
+                boss.FindPropertyRelative("maxHealth").intValue = 1000;
+                boss.FindPropertyRelative("speed").floatValue = 1;
+                boss.FindPropertyRelative("armor").intValue = 10;
+                boss.FindPropertyRelative("leakDamage").intValue = 20;
+                boss.FindPropertyRelative("reward").intValue = 50;
+                var groups = data.FindProperty("waves").GetArrayElementAtIndex(7).FindPropertyRelative("groups");
+                groups.arraySize = 2;
+                for (var i = 0; i < 2; i++)
+                {
+                    var g = groups.GetArrayElementAtIndex(i);
+                    g.FindPropertyRelative("enemyId").stringValue = i == 0 ? "shade" : "rift-warden";
+                    g.FindPropertyRelative("count").intValue = i == 0 ? 11 : 1;
+                    g.FindPropertyRelative("firstSpawnTick").intValue = i == 0 ? 0 : 330;
+                    g.FindPropertyRelative("spawnIntervalTicks").intValue = 30;
+                }
+                data.ApplyModifiedPropertiesWithoutUndo();
+                config.CreateSimulation();
+                AssetDatabase.CreateAsset(config, ConfigPath);
+            }
+            config.CreateSimulation();
+            return config;
         }
 
         private static void ConfigureNativeProgression(BattleScenarioConfig config)
@@ -484,7 +521,7 @@ namespace Veilward.Editor
             var propertyNames = new[]
             {
                 "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
-                "pauseController", "placementController", "checkpointController", "enemyInspector", "reactionSummaryText", "reactionEffectMaterial", "abilityController"
+                "pauseController", "placementController", "checkpointController", "enemyInspector", "reactionSummaryText", "reactionEffectMaterial", "abilityController", "bossHud"
             };
             foreach (var propertyName in propertyNames)
             {
@@ -850,12 +887,30 @@ namespace Veilward.Editor
             var abilityConfirm = CreateButton("Confirm Ability Button", abilityPanel.transform, "Confirm", new Vector2(-145, -35));
             var abilityCancel = CreateButton("Cancel Ability Button", abilityPanel.transform, "Cancel", new Vector2(145, -35));
             abilityPanel.SetActive(false);
+            var bossPanel = CreateUiObject("Boss Panel", canvasObject.transform);
+            SetRect(bossPanel.GetComponent<RectTransform>(), new Vector2(.5f, 1), new Vector2(105, -24), new Vector2(720, 205));
+            var bossBackground = bossPanel.AddComponent<UnityEngine.UI.Image>();
+            bossBackground.color = new Color(.08f,.04f,.14f,.95f); bossBackground.raycastTarget = true;
+            var bossNotice = CreateText("Boss Notice", bossPanel.transform, 22, TextAnchor.UpperCenter);
+            SetRect(bossNotice.rectTransform, new Vector2(.5f, 1), new Vector2(0,-10), new Vector2(700,130));
+            bossNotice.raycastTarget = false; bossNotice.resizeTextForBestFit = true; bossNotice.resizeTextMinSize = 14; bossNotice.resizeTextMaxSize = 22;
+            var bossHealth = CreateText("Boss Health", bossPanel.transform, 27, TextAnchor.MiddleCenter);
+            SetRect(bossHealth.rectTransform, new Vector2(.5f, 0), new Vector2(0,30), new Vector2(700,45));
+            bossHealth.raycastTarget = false; bossHealth.resizeTextForBestFit = true; bossHealth.resizeTextMinSize = 14; bossHealth.resizeTextMaxSize = 27;
+            var bar = CreateUiObject("Boss HP Bar", bossPanel.transform);
+            SetRect(bar.GetComponent<RectTransform>(), new Vector2(.5f,0), new Vector2(0,10), new Vector2(680,14));
+            bar.AddComponent<UnityEngine.UI.Image>().color = new Color(.15f,.1f,.2f);
+            var fill = CreateUiObject("Boss HP Fill", bar.transform).AddComponent<UnityEngine.UI.Image>();
+            fill.rectTransform.anchorMin=Vector2.zero; fill.rectTransform.anchorMax=Vector2.one;
+            fill.rectTransform.offsetMin=Vector2.zero; fill.rectTransform.offsetMax=Vector2.zero;
+            fill.color=new Color(.9f,.5f,.75f); fill.raycastTarget=false;
+            bossPanel.SetActive(false);
             var safeHud = canvasObject.AddComponent<BattleHudSafeArea>();
             var safeSerialized = new SerializedObject(safeHud);
             var edgeControls = new[] { panel.rectTransform, startWave.GetComponent<RectTransform>(), nextWave.GetComponent<RectTransform>(),
                 pause.GetComponent<RectTransform>(), saveStatus.rectTransform, retrySave.GetComponent<RectTransform>(),
                 menu.GetComponent<RectTransform>(), progressionSummary.rectTransform,
-                abilityBegin.GetComponent<RectTransform>(), abilityPanel.GetComponent<RectTransform>() };
+                abilityBegin.GetComponent<RectTransform>(), abilityPanel.GetComponent<RectTransform>(), bossPanel.GetComponent<RectTransform>() };
             var safeRefs = safeSerialized.FindProperty("edgeControls"); safeRefs.arraySize = edgeControls.Length;
             for (var i = 0; i < edgeControls.Length; i++) safeRefs.GetArrayElementAtIndex(i).objectReferenceValue = edgeControls[i];
             safeSerialized.ApplyModifiedPropertiesWithoutUndo();
@@ -866,6 +921,7 @@ namespace Veilward.Editor
 
             return new HudReferences
             {
+                BossPanel = bossPanel, BossNotice = bossNotice, BossHealth = bossHealth, BossFill = fill,
                 AbilityBegin = abilityBegin, AbilityConfirm = abilityConfirm, AbilityCancel = abilityCancel,
                 AbilityPanel = abilityPanel, AbilityStatus = abilityStatus,
                 ChoicePanel = choiceOverlay, ChoiceSafeArea = safeRoot, ChoiceTitle = choiceTitle,
@@ -978,7 +1034,15 @@ namespace Veilward.Editor
                 typeof(BattlePlacementController),
                 typeof(BattlePauseController),
                 typeof(BattleCheckpointController),
-                typeof(EnemyInspectorController), typeof(ElementChoiceController), typeof(AbilityController));
+                typeof(EnemyInspectorController), typeof(ElementChoiceController), typeof(AbilityController), typeof(BossHudController));
+            var bossHud = controllerObject.GetComponent<BossHudController>();
+            var bossData = new SerializedObject(bossHud);
+            bossData.FindProperty("battle").objectReferenceValue = controllerObject.GetComponent<BattleSceneController>();
+            bossData.FindProperty("panel").objectReferenceValue = hud.BossPanel;
+            bossData.FindProperty("noticeText").objectReferenceValue = hud.BossNotice;
+            bossData.FindProperty("healthText").objectReferenceValue = hud.BossHealth;
+            bossData.FindProperty("healthFill").objectReferenceValue = hud.BossFill;
+            bossData.ApplyModifiedPropertiesWithoutUndo();
             var ability = controllerObject.GetComponent<AbilityController>();
             var choice = controllerObject.GetComponent<ElementChoiceController>();
             var inspector = controllerObject.GetComponent<EnemyInspectorController>();
@@ -1000,6 +1064,7 @@ namespace Veilward.Editor
             serialized.FindProperty("enemyInspector").objectReferenceValue = inspector;
             serialized.FindProperty("elementChoice").objectReferenceValue = choice;
             serialized.FindProperty("abilityController").objectReferenceValue = ability;
+            serialized.FindProperty("bossHud").objectReferenceValue = bossHud;
             serialized.FindProperty("mainMenuButton").objectReferenceValue = hud.MainMenuButton;
             serialized.FindProperty("reactionSummaryText").objectReferenceValue = hud.ReactionSummaryText;
             serialized.ApplyModifiedPropertiesWithoutUndo();
@@ -1086,6 +1151,9 @@ namespace Veilward.Editor
 
         private sealed class HudReferences
         {
+            public GameObject BossPanel;
+            public UnityEngine.UI.Text BossNotice, BossHealth;
+            public UnityEngine.UI.Image BossFill;
             public UnityEngine.UI.Button AbilityBegin, AbilityConfirm, AbilityCancel;
             public GameObject AbilityPanel;
             public UnityEngine.UI.Text AbilityStatus;

@@ -5,6 +5,8 @@ namespace Veilward.Presentation
     public sealed class BattleHudSafeArea : MonoBehaviour
     {
         [SerializeField] private RectTransform[] edgeControls;
+        public Rect AppliedArea { get; private set; }
+        public Vector2 AppliedScreenSize { get; private set; }
         private Vector2[] _origins;
         private Canvas _canvas;
         private Rect _lastArea;
@@ -31,6 +33,7 @@ namespace Veilward.Presentation
         {
             Initialize();
             if (size.x <= 0 || size.y <= 0 || area.width <= 0 || area.height <= 0 || scale <= 0) return;
+            AppliedArea = area; AppliedScreenSize = size;
             for (var i = 0; i < edgeControls.Length; i++)
             {
                 var rect = edgeControls[i]; var anchor = rect.anchorMin;

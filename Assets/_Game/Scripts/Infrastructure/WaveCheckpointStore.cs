@@ -59,8 +59,12 @@ namespace Veilward.Infrastructure
                 }
                 catch (Exception e) when (IsValidationException(e)) { error = e.Message; return false; }
             }
-            var requestedId = simulationFactory != null && envelope.scenarioContentId == WaveCheckpointCompatibility.LegacyEightWaveContentId
-                ? WaveCheckpointCompatibility.NativeContentId : envelope.scenarioContentId;
+            // Каждый previous primary проверяется собственной factory, включая new→old session.
+            var eightWave = envelope.scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId ||
+                envelope.scenarioContentId == WaveCheckpointCompatibility.NativeContentId ||
+                envelope.scenarioContentId == WaveCheckpointCompatibility.LegacyEightWaveContentId;
+            var requestedId = simulationFactory != null && eightWave
+                ? WaveCheckpointCompatibility.AbilityBossContentId : envelope.scenarioContentId;
             try
             {
                 Directory.CreateDirectory(RootDirectory);
