@@ -1,0 +1,1006 @@
+{
+    "start": "flame",
+    "phase": "Defeat",
+    "bossSpawns": 1,
+    "bossKills": 0,
+    "bossLeaks": 1,
+    "bossHealthBeforeLeak": 337,
+    "abilityHpLoss": 1193,
+    "bossAbilityHpLoss": 110,
+    "receipts": [
+        {
+            "wave": 1,
+            "tick": 0,
+            "command": "Choose flame",
+            "result": "None",
+            "hp": 20,
+            "gold": 150,
+            "kills": 0,
+            "remaining": 0,
+            "sequence": 1
+        },
+        {
+            "wave": 1,
+            "tick": 0,
+            "command": "Place flame -2,-3",
+            "result": "True/None",
+            "hp": 20,
+            "gold": 80,
+            "kills": 0,
+            "remaining": 0,
+            "sequence": 1
+        },
+        {
+            "wave": 1,
+            "tick": 0,
+            "command": "Place flame 2,0",
+            "result": "True/None",
+            "hp": 20,
+            "gold": 10,
+            "kills": 0,
+            "remaining": 0,
+            "sequence": 1
+        },
+        {
+            "wave": 1,
+            "tick": 0,
+            "command": "Start",
+            "result": "Started",
+            "hp": 20,
+            "gold": 10,
+            "kills": 0,
+            "remaining": 0,
+            "sequence": 1
+        },
+        {
+            "wave": 1,
+            "tick": 60,
+            "command": "Cast center(-3.45000052,-2) before next Step",
+            "result": "True/None hpLoss=267",
+            "hp": 20,
+            "gold": 25,
+            "kills": 3,
+            "remaining": 600,
+            "sequence": 2
+        },
+        {
+            "wave": 1,
+            "tick": 393,
+            "command": "Wave end",
+            "result": "WaveComplete",
+            "hp": 20,
+            "gold": 55,
+            "kills": 5,
+            "remaining": 267,
+            "sequence": 2
+        },
+        {
+            "wave": 2,
+            "tick": 393,
+            "command": "Next",
+            "result": "Continued",
+            "hp": 20,
+            "gold": 55,
+            "kills": 5,
+            "remaining": 267,
+            "sequence": 2
+        },
+        {
+            "wave": 2,
+            "tick": 393,
+            "command": "Sell 1",
+            "result": "True",
+            "hp": 20,
+            "gold": 104,
+            "kills": 5,
+            "remaining": 267,
+            "sequence": 2
+        },
+        {
+            "wave": 2,
+            "tick": 393,
+            "command": "Place flame -1,0",
+            "result": "True/None",
+            "hp": 20,
+            "gold": 34,
+            "kills": 5,
+            "remaining": 267,
+            "sequence": 2
+        },
+        {
+            "wave": 2,
+            "tick": 393,
+            "command": "Start",
+            "result": "Started",
+            "hp": 20,
+            "gold": 34,
+            "kills": 5,
+            "remaining": 267,
+            "sequence": 2
+        },
+        {
+            "wave": 2,
+            "tick": 662,
+            "command": "Cast center(1.62124634E-05,2) before next Step",
+            "result": "True/None hpLoss=200",
+            "hp": 20,
+            "gold": 49,
+            "kills": 8,
+            "remaining": 600,
+            "sequence": 3
+        },
+        {
+            "wave": 2,
+            "tick": 819,
+            "command": "Wave end",
+            "result": "WaveComplete",
+            "hp": 19,
+            "gold": 79,
+            "kills": 10,
+            "remaining": 443,
+            "sequence": 3
+        },
+        {
+            "wave": 3,
+            "tick": 819,
+            "command": "Next",
+            "result": "Continued",
+            "hp": 19,
+            "gold": 79,
+            "kills": 10,
+            "remaining": 443,
+            "sequence": 3
+        },
+        {
+            "wave": 3,
+            "tick": 819,
+            "command": "Place flame -3,-1",
+            "result": "True/None",
+            "hp": 19,
+            "gold": 9,
+            "kills": 10,
+            "remaining": 443,
+            "sequence": 3
+        },
+        {
+            "wave": 3,
+            "tick": 819,
+            "command": "Start",
+            "result": "Started",
+            "hp": 19,
+            "gold": 9,
+            "kills": 10,
+            "remaining": 443,
+            "sequence": 3
+        },
+        {
+            "wave": 3,
+            "tick": 1262,
+            "command": "Cast center(4.200032,2) before next Step",
+            "result": "True/None hpLoss=31",
+            "hp": 16,
+            "gold": 49,
+            "kills": 14,
+            "remaining": 600,
+            "sequence": 4
+        },
+        {
+            "wave": 3,
+            "tick": 1262,
+            "command": "Wave end",
+            "result": "WaveComplete",
+            "hp": 16,
+            "gold": 49,
+            "kills": 14,
+            "remaining": 600,
+            "sequence": 4
+        },
+        {
+            "wave": 3,
+            "tick": 1262,
+            "command": "Choose stone",
+            "result": "None",
+            "hp": 16,
+            "gold": 49,
+            "kills": 14,
+            "remaining": 600,
+            "sequence": 4
+        },
+        {
+            "wave": 4,
+            "tick": 1262,
+            "command": "Next",
+            "result": "Continued",
+            "hp": 16,
+            "gold": 49,
+            "kills": 14,
+            "remaining": 600,
+            "sequence": 4
+        },
+        {
+            "wave": 4,
+            "tick": 1262,
+            "command": "Sell 2",
+            "result": "True",
+            "hp": 16,
+            "gold": 98,
+            "kills": 14,
+            "remaining": 600,
+            "sequence": 4
+        },
+        {
+            "wave": 4,
+            "tick": 1262,
+            "command": "Place stone 1,0",
+            "result": "True/None",
+            "hp": 16,
+            "gold": 8,
+            "kills": 14,
+            "remaining": 600,
+            "sequence": 4
+        },
+        {
+            "wave": 4,
+            "tick": 1262,
+            "command": "Start",
+            "result": "Started",
+            "hp": 16,
+            "gold": 8,
+            "kills": 14,
+            "remaining": 600,
+            "sequence": 4
+        },
+        {
+            "wave": 4,
+            "tick": 1751,
+            "command": "Wave end",
+            "result": "WaveComplete",
+            "hp": 14,
+            "gold": 58,
+            "kills": 20,
+            "remaining": 111,
+            "sequence": 4
+        },
+        {
+            "wave": 5,
+            "tick": 1751,
+            "command": "Next",
+            "result": "Continued",
+            "hp": 14,
+            "gold": 58,
+            "kills": 20,
+            "remaining": 111,
+            "sequence": 4
+        },
+        {
+            "wave": 5,
+            "tick": 1751,
+            "command": "Sell 3",
+            "result": "True",
+            "hp": 14,
+            "gold": 107,
+            "kills": 20,
+            "remaining": 111,
+            "sequence": 4
+        },
+        {
+            "wave": 5,
+            "tick": 1751,
+            "command": "Place stone -2,-1",
+            "result": "True/None",
+            "hp": 14,
+            "gold": 17,
+            "kills": 20,
+            "remaining": 111,
+            "sequence": 4
+        },
+        {
+            "wave": 5,
+            "tick": 1751,
+            "command": "Start",
+            "result": "Started",
+            "hp": 14,
+            "gold": 17,
+            "kills": 20,
+            "remaining": 111,
+            "sequence": 4
+        },
+        {
+            "wave": 5,
+            "tick": 1862,
+            "command": "Cast center(-2.40000129,-2) before next Step",
+            "result": "True/None hpLoss=285",
+            "hp": 14,
+            "gold": 37,
+            "kills": 24,
+            "remaining": 600,
+            "sequence": 5
+        },
+        {
+            "wave": 5,
+            "tick": 2270,
+            "command": "Wave end",
+            "result": "WaveComplete",
+            "hp": 13,
+            "gold": 77,
+            "kills": 28,
+            "remaining": 192,
+            "sequence": 5
+        },
+        {
+            "wave": 6,
+            "tick": 2270,
+            "command": "Next",
+            "result": "Continued",
+            "hp": 13,
+            "gold": 77,
+            "kills": 28,
+            "remaining": 192,
+            "sequence": 5
+        },
+        {
+            "wave": 6,
+            "tick": 2270,
+            "command": "Place flame -1,-1",
+            "result": "True/None",
+            "hp": 13,
+            "gold": 7,
+            "kills": 28,
+            "remaining": 192,
+            "sequence": 5
+        },
+        {
+            "wave": 6,
+            "tick": 2270,
+            "command": "Start",
+            "result": "Started",
+            "hp": 13,
+            "gold": 7,
+            "kills": 28,
+            "remaining": 192,
+            "sequence": 5
+        },
+        {
+            "wave": 6,
+            "tick": 2462,
+            "command": "Cast center(-2.85000086,-2) before next Step",
+            "result": "True/None hpLoss=300",
+            "hp": 13,
+            "gold": 37,
+            "kills": 34,
+            "remaining": 600,
+            "sequence": 6
+        },
+        {
+            "wave": 6,
+            "tick": 2660,
+            "command": "Wave end",
+            "result": "WaveComplete",
+            "hp": 13,
+            "gold": 77,
+            "kills": 38,
+            "remaining": 402,
+            "sequence": 6
+        },
+        {
+            "wave": 6,
+            "tick": 2660,
+            "command": "Choose tide",
+            "result": "None",
+            "hp": 13,
+            "gold": 77,
+            "kills": 38,
+            "remaining": 402,
+            "sequence": 6
+        },
+        {
+            "wave": 7,
+            "tick": 2660,
+            "command": "Next",
+            "result": "Continued",
+            "hp": 13,
+            "gold": 77,
+            "kills": 38,
+            "remaining": 402,
+            "sequence": 6
+        },
+        {
+            "wave": 7,
+            "tick": 2660,
+            "command": "Place tide 1,-1",
+            "result": "True/None",
+            "hp": 13,
+            "gold": 17,
+            "kills": 38,
+            "remaining": 402,
+            "sequence": 6
+        },
+        {
+            "wave": 7,
+            "tick": 2660,
+            "command": "Start",
+            "result": "Started",
+            "hp": 13,
+            "gold": 17,
+            "kills": 38,
+            "remaining": 402,
+            "sequence": 6
+        },
+        {
+            "wave": 7,
+            "tick": 3134,
+            "command": "Wave end",
+            "result": "WaveComplete",
+            "hp": 13,
+            "gold": 92,
+            "kills": 49,
+            "remaining": 0,
+            "sequence": 6
+        },
+        {
+            "wave": 8,
+            "tick": 3134,
+            "command": "Next",
+            "result": "Continued",
+            "hp": 13,
+            "gold": 92,
+            "kills": 49,
+            "remaining": 0,
+            "sequence": 6
+        },
+        {
+            "wave": 8,
+            "tick": 3134,
+            "command": "Place stone 1,1",
+            "result": "True/None",
+            "hp": 13,
+            "gold": 2,
+            "kills": 49,
+            "remaining": 0,
+            "sequence": 6
+        },
+        {
+            "wave": 8,
+            "tick": 3134,
+            "command": "Start",
+            "result": "Started",
+            "hp": 13,
+            "gold": 2,
+            "kills": 49,
+            "remaining": 0,
+            "sequence": 6
+        },
+        {
+            "wave": 8,
+            "tick": 3464,
+            "command": "Cast center(-4.9666667,-2) before next Step",
+            "result": "True/None hpLoss=110",
+            "hp": 13,
+            "gold": 42,
+            "kills": 57,
+            "remaining": 600,
+            "sequence": 7
+        },
+        {
+            "wave": 8,
+            "tick": 3956,
+            "command": "Wave end",
+            "result": "Defeat",
+            "hp": 0,
+            "gold": 57,
+            "kills": 60,
+            "remaining": 108,
+            "sequence": 7
+        }
+    ],
+    "waves": [
+        {
+            "schemaVersion": 4,
+            "scenarioContentId": "eight-wave-ability-boss-v1",
+            "state": {
+                "phase": 4,
+                "waveIndex": 0,
+                "tick": 393,
+                "baseHealth": 20,
+                "gold": 55,
+                "kills": 5,
+                "nextEnemyId": 6,
+                "nextTowerId": 3,
+                "towers": [
+                    {
+                        "towerId": 1,
+                        "towerTypeId": "flame",
+                        "x": -2,
+                        "y": -3,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 273
+                    },
+                    {
+                        "towerId": 2,
+                        "towerTypeId": "flame",
+                        "x": 2,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 395
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame"
+                    ],
+                    "choicesEarned": 0,
+                    "choicesSpent": 0,
+                    "spentChoices": [],
+                    "pendingChoiceId": "none"
+                }
+            }
+        },
+        {
+            "schemaVersion": 4,
+            "scenarioContentId": "eight-wave-ability-boss-v1",
+            "state": {
+                "phase": 4,
+                "waveIndex": 1,
+                "tick": 819,
+                "baseHealth": 19,
+                "gold": 79,
+                "kills": 10,
+                "nextEnemyId": 12,
+                "nextTowerId": 4,
+                "towers": [
+                    {
+                        "towerId": 2,
+                        "towerTypeId": "flame",
+                        "x": 2,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 819
+                    },
+                    {
+                        "towerId": 3,
+                        "towerTypeId": "flame",
+                        "x": -1,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 759
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame"
+                    ],
+                    "choicesEarned": 0,
+                    "choicesSpent": 0,
+                    "spentChoices": [],
+                    "pendingChoiceId": "none"
+                }
+            }
+        },
+        {
+            "schemaVersion": 4,
+            "scenarioContentId": "eight-wave-ability-boss-v1",
+            "state": {
+                "phase": 4,
+                "waveIndex": 2,
+                "tick": 1262,
+                "baseHealth": 16,
+                "gold": 49,
+                "kills": 14,
+                "nextEnemyId": 19,
+                "nextTowerId": 5,
+                "towers": [
+                    {
+                        "towerId": 2,
+                        "towerTypeId": "flame",
+                        "x": 2,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 1275
+                    },
+                    {
+                        "towerId": 3,
+                        "towerTypeId": "flame",
+                        "x": -1,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 1215
+                    },
+                    {
+                        "towerId": 4,
+                        "towerTypeId": "flame",
+                        "x": -3,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 1120
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame"
+                    ],
+                    "choicesEarned": 1,
+                    "choicesSpent": 0,
+                    "spentChoices": [],
+                    "pendingChoiceId": "after-wave-3"
+                }
+            }
+        },
+        {
+            "schemaVersion": 4,
+            "scenarioContentId": "eight-wave-ability-boss-v1",
+            "state": {
+                "phase": 4,
+                "waveIndex": 3,
+                "tick": 1751,
+                "baseHealth": 14,
+                "gold": 58,
+                "kills": 20,
+                "nextEnemyId": 27,
+                "nextTowerId": 6,
+                "towers": [
+                    {
+                        "towerId": 3,
+                        "towerTypeId": "flame",
+                        "x": -1,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 1688
+                    },
+                    {
+                        "towerId": 4,
+                        "towerTypeId": "flame",
+                        "x": -3,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 1593
+                    },
+                    {
+                        "towerId": 5,
+                        "towerTypeId": "stone",
+                        "x": 1,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 90,
+                        "nextAttackTick": 1713
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame",
+                        "stone"
+                    ],
+                    "choicesEarned": 1,
+                    "choicesSpent": 1,
+                    "spentChoices": [
+                        {
+                            "choiceId": "after-wave-3",
+                            "elementId": "stone"
+                        }
+                    ],
+                    "pendingChoiceId": "none"
+                }
+            }
+        },
+        {
+            "schemaVersion": 4,
+            "scenarioContentId": "eight-wave-ability-boss-v1",
+            "state": {
+                "phase": 4,
+                "waveIndex": 4,
+                "tick": 2270,
+                "baseHealth": 13,
+                "gold": 77,
+                "kills": 28,
+                "nextEnemyId": 36,
+                "nextTowerId": 7,
+                "towers": [
+                    {
+                        "towerId": 4,
+                        "towerTypeId": "flame",
+                        "x": -3,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 2112
+                    },
+                    {
+                        "towerId": 5,
+                        "towerTypeId": "stone",
+                        "x": 1,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 90,
+                        "nextAttackTick": 2231
+                    },
+                    {
+                        "towerId": 6,
+                        "towerTypeId": "stone",
+                        "x": -2,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 90,
+                        "nextAttackTick": 2186
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame",
+                        "stone"
+                    ],
+                    "choicesEarned": 1,
+                    "choicesSpent": 1,
+                    "spentChoices": [
+                        {
+                            "choiceId": "after-wave-3",
+                            "elementId": "stone"
+                        }
+                    ],
+                    "pendingChoiceId": "none"
+                }
+            }
+        },
+        {
+            "schemaVersion": 4,
+            "scenarioContentId": "eight-wave-ability-boss-v1",
+            "state": {
+                "phase": 4,
+                "waveIndex": 5,
+                "tick": 2660,
+                "baseHealth": 13,
+                "gold": 77,
+                "kills": 38,
+                "nextEnemyId": 46,
+                "nextTowerId": 8,
+                "towers": [
+                    {
+                        "towerId": 4,
+                        "towerTypeId": "flame",
+                        "x": -3,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 2661
+                    },
+                    {
+                        "towerId": 5,
+                        "towerTypeId": "stone",
+                        "x": 1,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 90,
+                        "nextAttackTick": 2720
+                    },
+                    {
+                        "towerId": 6,
+                        "towerTypeId": "stone",
+                        "x": -2,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 90,
+                        "nextAttackTick": 2705
+                    },
+                    {
+                        "towerId": 7,
+                        "towerTypeId": "flame",
+                        "x": -1,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 2684
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame",
+                        "stone"
+                    ],
+                    "choicesEarned": 2,
+                    "choicesSpent": 1,
+                    "spentChoices": [
+                        {
+                            "choiceId": "after-wave-3",
+                            "elementId": "stone"
+                        }
+                    ],
+                    "pendingChoiceId": "after-wave-6"
+                }
+            }
+        },
+        {
+            "schemaVersion": 4,
+            "scenarioContentId": "eight-wave-ability-boss-v1",
+            "state": {
+                "phase": 4,
+                "waveIndex": 6,
+                "tick": 3134,
+                "baseHealth": 13,
+                "gold": 92,
+                "kills": 49,
+                "nextEnemyId": 57,
+                "nextTowerId": 9,
+                "towers": [
+                    {
+                        "towerId": 4,
+                        "towerTypeId": "flame",
+                        "x": -3,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 3081
+                    },
+                    {
+                        "towerId": 5,
+                        "towerTypeId": "stone",
+                        "x": 1,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 90,
+                        "nextAttackTick": 3175
+                    },
+                    {
+                        "towerId": 6,
+                        "towerTypeId": "stone",
+                        "x": -2,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 90,
+                        "nextAttackTick": 3125
+                    },
+                    {
+                        "towerId": 7,
+                        "towerTypeId": "flame",
+                        "x": -1,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 3164
+                    },
+                    {
+                        "towerId": 8,
+                        "towerTypeId": "tide",
+                        "x": 1,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 60,
+                        "nextAttackTick": 3169
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame",
+                        "tide",
+                        "stone"
+                    ],
+                    "choicesEarned": 2,
+                    "choicesSpent": 2,
+                    "spentChoices": [
+                        {
+                            "choiceId": "after-wave-3",
+                            "elementId": "stone"
+                        },
+                        {
+                            "choiceId": "after-wave-6",
+                            "elementId": "tide"
+                        }
+                    ],
+                    "pendingChoiceId": "none"
+                }
+            }
+        },
+        {
+            "schemaVersion": 4,
+            "scenarioContentId": "eight-wave-ability-boss-v1",
+            "state": {
+                "phase": 3,
+                "waveIndex": 7,
+                "tick": 3956,
+                "baseHealth": 0,
+                "gold": 57,
+                "kills": 60,
+                "nextEnemyId": 69,
+                "nextTowerId": 10,
+                "towers": [
+                    {
+                        "towerId": 4,
+                        "towerTypeId": "flame",
+                        "x": -3,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 3645
+                    },
+                    {
+                        "towerId": 5,
+                        "towerTypeId": "stone",
+                        "x": 1,
+                        "y": 0,
+                        "level": 1,
+                        "investedGold": 90,
+                        "nextAttackTick": 3906
+                    },
+                    {
+                        "towerId": 6,
+                        "towerTypeId": "stone",
+                        "x": -2,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 90,
+                        "nextAttackTick": 3749
+                    },
+                    {
+                        "towerId": 7,
+                        "towerTypeId": "flame",
+                        "x": -1,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 70,
+                        "nextAttackTick": 3794
+                    },
+                    {
+                        "towerId": 8,
+                        "towerTypeId": "tide",
+                        "x": 1,
+                        "y": -1,
+                        "level": 1,
+                        "investedGold": 60,
+                        "nextAttackTick": 3909
+                    },
+                    {
+                        "towerId": 9,
+                        "towerTypeId": "stone",
+                        "x": 1,
+                        "y": 1,
+                        "level": 1,
+                        "investedGold": 90,
+                        "nextAttackTick": 3952
+                    }
+                ],
+                "elementProgression": {
+                    "rulesId": "wave-unlocks-v1",
+                    "startResonanceId": "flame",
+                    "unlockedElementIds": [
+                        "flame",
+                        "tide",
+                        "stone"
+                    ],
+                    "choicesEarned": 2,
+                    "choicesSpent": 2,
+                    "spentChoices": [
+                        {
+                            "choiceId": "after-wave-3",
+                            "elementId": "stone"
+                        },
+                        {
+                            "choiceId": "after-wave-6",
+                            "elementId": "tide"
+                        }
+                    ],
+                    "pendingChoiceId": "none"
+                }
+            }
+        }
+    ]
+}

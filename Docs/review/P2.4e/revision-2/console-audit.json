@@ -1,0 +1,37 @@
+{
+  "source": "fd22bb24a32bcbd365a8b08bd12f02cccc900f95",
+  "scenarios": {
+    "gale-victory-1280x960": {
+      "warnings": 4,
+      "unexpected_errors": 0
+    },
+    "flame-leak-1600x900": {
+      "warnings": 4,
+      "unexpected_errors": 0
+    },
+    "flame-victory-1600x900": {
+      "warnings": 4,
+      "unexpected_errors": 0
+    }
+  },
+  "unexpected_errors": 0,
+  "warnings": 12,
+  "frame_proof": {
+    "gale-victory-1280x960": {
+      "first_frame": 19,
+      "last_frame": 31,
+      "distinct_frames": 9
+    },
+    "flame-leak-1600x900": {
+      "first_frame": 42,
+      "last_frame": 53,
+      "distinct_frames": 8
+    },
+    "flame-victory-1600x900": {
+      "first_frame": 64,
+      "last_frame": 76,
+      "distinct_frames": 9
+    }
+  },
+  "limits": "Real Editor rendering, synchronous public-command test clock; not realtime/device/performance proof."
+}

@@ -33,8 +33,18 @@ namespace Veilward.Tests.PlayMode
         private bool capture;
         private int expectedSaveErrors;
         private readonly List<string> console = new List<string>();
+        private static void HistoricalMenu(Scene scene, LoadSceneMode mode)
+        {
+            if (scene.name != "MainMenu") return;
+            var menu = Object.FindFirstObjectByType<MainMenuController>();
+            var field=typeof(MainMenuController).GetField("scenario",BindingFlags.Instance|BindingFlags.NonPublic);
+            var active=(BattleScenarioConfig)field.GetValue(menu);
+            var source=(BattleScenarioConfig)typeof(BattleScenarioConfig).GetField("historicalScenario",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(active);
+            if (source != null) field.SetValue(menu,source);
+        }
         [SetUp] public void SetUp()
         {
+            SceneManager.sceneLoaded += HistoricalMenu;
             root = Path.Combine(Path.GetTempPath(), "veilward-p23e-menu-" + Guid.NewGuid().ToString("N")); Directory.CreateDirectory(root);
             store = new WaveCheckpointStore(root); MainMenuController.CheckpointStoreFactory = () => store; BattleSessionContext.Clear();
             trace = new List<string>(); capture = Environment.GetEnvironmentVariable("P23E_CAPTURE") == "1";
@@ -68,6 +78,7 @@ namespace Veilward.Tests.PlayMode
             Directory.CreateDirectory("TestResults/P2.3e");
             var path = "TestResults/P2.3e/" + TestContext.CurrentContext.Test.Name;
             File.WriteAllLines(path + ".menu-trace.txt", trace); File.WriteAllLines(path + ".console.txt", console);
+            SceneManager.sceneLoaded -= HistoricalMenu;
             BattleSessionContext.Clear(); yield return SceneManager.LoadSceneAsync("Battle"); yield return null;
             MainMenuController.CheckpointStoreFactory = null; if (Directory.Exists(root)) Directory.Delete(root, true);
         }

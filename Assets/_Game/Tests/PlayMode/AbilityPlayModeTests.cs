@@ -12,9 +12,11 @@ namespace Veilward.Tests.PlayMode
     public sealed class AbilityPlayModeTests
     {
         [UnityTest]
-        public IEnumerator RegBattle208_ProductionUsesWiredControllersButAbilityIsHidden()
+        public IEnumerator RegBattle208_HistoricalContentUsesWiredControllersButAbilityIsHidden()
         {
-            BattleSessionContext.Clear(); yield return SceneManager.LoadSceneAsync("Battle"); yield return null;
+            BattleSessionContext.Clear();
+            BattleSessionContext.SetNewGame(new Veilward.Infrastructure.WaveCheckpointStore(System.IO.Path.Combine("TestResults","HistoricalAbility")),"eight-wave-unlocks-v1");
+            yield return SceneManager.LoadSceneAsync("Battle"); yield return null;
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             Assert.That(battle.GetComponent("AbilityController"), Is.Not.Null, "REG208 saved scene ability refs");
             var button = Object.FindObjectsByType<UnityEngine.UI.Button>(FindObjectsInactive.Include, FindObjectsSortMode.None)

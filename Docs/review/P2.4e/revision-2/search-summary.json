@@ -1,0 +1,332 @@
+{
+  "research_source": "c3620fa2c54163aebeca7e757dbd195e523974b7",
+  "grid_source": "a46a9cc5cb21e7faf5ffab4f03571cfa16a5d23a",
+  "passes": {
+    "full/flame": {
+      "simulations": 24012,
+      "phases": {
+        "Defeat": 24012
+      },
+      "limits": "simulations=24012; orderedChoices=6; cells=81; perHistoryBudget=4000; dedup=none; ranking=actual bossHP per history; all Victory saved before ranking; victories=0; full=True; no state/DTO edits"
+    },
+    "full/gale": {
+      "simulations": 24012,
+      "phases": {
+        "Defeat": 24012
+      },
+      "limits": "simulations=24012; orderedChoices=6; cells=81; perHistoryBudget=4000; dedup=none; ranking=actual bossHP per history; all Victory saved before ranking; victories=0; full=True; no state/DTO edits"
+    },
+    "timing/flame": {
+      "simulations": 960,
+      "phases": {
+        "Defeat": 728,
+        "IllegalSeedSuffix": 232
+      },
+      "limits": "simulations=960; roots=per history best + best upgraded + best diverse profile; historical survival/coverage; thresholds100/200/300; delays0/60/120/240; early8/hold7 independent; victories=0; full=True"
+    },
+    "timing/gale": {
+      "simulations": 960,
+      "phases": {
+        "IllegalSeedSuffix": 152,
+        "Defeat": 808
+      },
+      "limits": "simulations=960; roots=per history best + best upgraded + best diverse profile; historical survival/coverage; thresholds100/200/300; delays0/60/120/240; early8/hold7 independent; victories=0; full=True"
+    },
+    "repair/flame": {
+      "simulations": 218400,
+      "phases": {
+        "Defeat": 218400
+      },
+      "limits": "simulations=218400; inputRoots=20; attemptedVariants=80; reachedVariants=78; skippedVariants=2; depth4; budget2800 per reached history/hold7/early8; beam20 incl8 best+level/type profiles; full-wire dedup; all public safe checkpoints; victories=0; eligibleVictories=0"
+    },
+    "repair/gale": {
+      "simulations": 218400,
+      "phases": {
+        "Defeat": 218400
+      },
+      "limits": "simulations=218400; inputRoots=20; attemptedVariants=80; reachedVariants=78; skippedVariants=2; depth4; budget2800 per reached history/hold7/early8; beam20 incl8 best+level/type profiles; full-wire dedup; all public safe checkpoints; victories=0; eligibleVictories=0"
+    },
+    "seed-timing/flame": {
+      "simulations": 192,
+      "phases": {
+        "Defeat": 192
+      },
+      "limits": "simulations=192; roots=per history best + best upgraded + best diverse profile; historical survival/coverage; thresholds100/200/300; delays0/60/120/240; early8/hold7 independent; victories=0; full=True"
+    },
+    "seed-timing/gale": {
+      "simulations": 192,
+      "phases": {
+        "Defeat": 192
+      },
+      "limits": "simulations=192; roots=per history best + best upgraded + best diverse profile; historical survival/coverage; thresholds100/200/300; delays0/60/120/240; early8/hold7 independent; victories=0; full=True"
+    },
+    "seed-repair/flame": {
+      "simulations": 44800,
+      "phases": {
+        "Defeat": 44800
+      },
+      "limits": "simulations=44800; inputRoots=4; attemptedVariants=16; reachedVariants=16; skippedVariants=0; depth4; budget2800 per reached history/hold7/early8; beam20 incl8 best+level/type profiles; full-wire dedup; all public safe checkpoints; victories=0; eligibleVictories=0"
+    },
+    "seed-repair/gale": {
+      "simulations": 44800,
+      "phases": {
+        "Defeat": 44800
+      },
+      "limits": "simulations=44800; inputRoots=4; attemptedVariants=16; reachedVariants=16; skippedVariants=0; depth4; budget2800 per reached history/hold7/early8; beam20 incl8 best+level/type profiles; full-wire dedup; all public safe checkpoints; victories=0; eligibleVictories=0"
+    }
+  },
+  "best": {
+    "flame/tide/gale": {
+      "start": "flame",
+      "after3": "tide",
+      "after6": "gale",
+      "origin": "flame-profile-1.json/hold7False/early8True/depth0",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 58,
+      "kills": 56,
+      "bossHp": 597,
+      "bossKills": 0,
+      "bossAbilityDamage": 110,
+      "simulations": 0,
+      "bossDirect": 253,
+      "bossBurn": 0,
+      "bossReaction": 40,
+      "steamDamage": 202,
+      "stormDamage": 23,
+      "armyProfile": "gale:1x1;steam:1x3;tide:1x1",
+      "rejectedCommand": ""
+    },
+    "flame/stone/gale": {
+      "start": "flame",
+      "after3": "stone",
+      "after6": "gale",
+      "origin": "seed:TestResults/P2.4e/revision-2/seed-timing/flame-earlier-timing.json.commands.json/threshold200/delay120/earlyFalse/hold7False",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 65,
+      "kills": 57,
+      "bossHp": 154,
+      "bossKills": 0,
+      "bossAbilityDamage": 112,
+      "simulations": 0,
+      "bossDirect": 718,
+      "bossBurn": 16,
+      "bossReaction": 0,
+      "steamDamage": 0,
+      "stormDamage": 0,
+      "armyProfile": "",
+      "rejectedCommand": ""
+    },
+    "flame/tide/stone": {
+      "start": "flame",
+      "after3": "tide",
+      "after6": "stone",
+      "origin": "seed:TestResults/P2.4e/revision-2/timing/flame-tide-stone.best.json.commands.json/threshold300/delay0/earlyTrue/hold7False",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 75,
+      "kills": 51,
+      "bossHp": 279,
+      "bossKills": 0,
+      "bossAbilityDamage": 112,
+      "simulations": 0,
+      "bossDirect": 564,
+      "bossBurn": 25,
+      "bossReaction": 20,
+      "steamDamage": 145,
+      "stormDamage": 0,
+      "armyProfile": "",
+      "rejectedCommand": ""
+    },
+    "flame/gale/stone": {
+      "start": "flame",
+      "after3": "gale",
+      "after6": "stone",
+      "origin": "seed:TestResults/P2.4e/revision-2/timing/flame-gale-stone.best.json.commands.json/threshold300/delay0/earlyTrue/hold7True",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 76,
+      "kills": 62,
+      "bossHp": 312,
+      "bossKills": 0,
+      "bossAbilityDamage": 112,
+      "simulations": 0,
+      "bossDirect": 576,
+      "bossBurn": 0,
+      "bossReaction": 0,
+      "steamDamage": 0,
+      "stormDamage": 0,
+      "armyProfile": "",
+      "rejectedCommand": ""
+    },
+    "flame/stone/tide": {
+      "start": "flame",
+      "after3": "stone",
+      "after6": "tide",
+      "origin": "flame-profile-68.json/hold7False/early8True/depth0",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 73,
+      "kills": 55,
+      "bossHp": 278,
+      "bossKills": 0,
+      "bossAbilityDamage": 112,
+      "simulations": 0,
+      "bossDirect": 610,
+      "bossBurn": 0,
+      "bossReaction": 0,
+      "steamDamage": 0,
+      "stormDamage": 0,
+      "armyProfile": "stone:1x5",
+      "rejectedCommand": ""
+    },
+    "flame/gale/tide": {
+      "start": "flame",
+      "after3": "gale",
+      "after6": "tide",
+      "origin": "grid:-2,0/layout1/support1/upgrade4/sellFalse/twoTrue/threshold300/delay0/role0/buyFrom7/starterUpgrade0",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 55,
+      "kills": 51,
+      "bossHp": 621,
+      "bossKills": 0,
+      "bossAbilityDamage": 110,
+      "simulations": 8373,
+      "bossDirect": 197,
+      "bossBurn": 24,
+      "bossReaction": 48,
+      "steamDamage": 365,
+      "stormDamage": 104,
+      "armyProfile": "flame:1x2;gale:1x1;tide:3x1",
+      "rejectedCommand": ""
+    },
+    "gale/flame/tide": {
+      "start": "gale",
+      "after3": "flame",
+      "after6": "tide",
+      "origin": "seed:TestResults/P2.4e/revision-2/timing/gale-profile-3.json.commands.json/threshold300/delay0/earlyTrue/hold7False",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 57,
+      "kills": 53,
+      "bossHp": 616,
+      "bossKills": 0,
+      "bossAbilityDamage": 110,
+      "simulations": 0,
+      "bossDirect": 225,
+      "bossBurn": 0,
+      "bossReaction": 49,
+      "steamDamage": 266,
+      "stormDamage": 135,
+      "armyProfile": "",
+      "rejectedCommand": ""
+    },
+    "gale/flame/stone": {
+      "start": "gale",
+      "after3": "flame",
+      "after6": "stone",
+      "origin": "gale-profile-19.json/hold7False/early8True/depth0",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 91,
+      "kills": 53,
+      "bossHp": 231,
+      "bossKills": 0,
+      "bossAbilityDamage": 112,
+      "simulations": 0,
+      "bossDirect": 657,
+      "bossBurn": 0,
+      "bossReaction": 0,
+      "steamDamage": 0,
+      "stormDamage": 0,
+      "armyProfile": "gale:1x1;stone:1x4",
+      "rejectedCommand": ""
+    },
+    "gale/stone/tide": {
+      "start": "gale",
+      "after3": "stone",
+      "after6": "tide",
+      "origin": "seed:TestResults/P2.4e/revision-2/seed-timing/gale-a46-repair.json.commands.json/threshold200/delay240/earlyFalse/hold7False",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 71,
+      "kills": 61,
+      "bossHp": 68,
+      "bossKills": 0,
+      "bossAbilityDamage": 112,
+      "simulations": 0,
+      "bossDirect": 820,
+      "bossBurn": 0,
+      "bossReaction": 0,
+      "steamDamage": 0,
+      "stormDamage": 69,
+      "armyProfile": "",
+      "rejectedCommand": ""
+    },
+    "gale/stone/flame": {
+      "start": "gale",
+      "after3": "stone",
+      "after6": "flame",
+      "origin": "gale-stone-flame.best.json/hold7True/early8True/depth0",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 61,
+      "kills": 61,
+      "bossHp": 154,
+      "bossKills": 0,
+      "bossAbilityDamage": 112,
+      "simulations": 0,
+      "bossDirect": 718,
+      "bossBurn": 16,
+      "bossReaction": 0,
+      "steamDamage": 0,
+      "stormDamage": 0,
+      "armyProfile": "flame:1x1;gale:1x1;stone:1x4",
+      "rejectedCommand": ""
+    },
+    "gale/tide/flame": {
+      "start": "gale",
+      "after3": "tide",
+      "after6": "flame",
+      "origin": "B-survival.commands.json/hold7True/early8True/depth1",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 76,
+      "kills": 61,
+      "bossHp": 565,
+      "bossKills": 0,
+      "bossAbilityDamage": 110,
+      "simulations": 0,
+      "bossDirect": 220,
+      "bossBurn": 0,
+      "bossReaction": 105,
+      "steamDamage": 255,
+      "stormDamage": 56,
+      "armyProfile": "gale:1x2;steam:2x1;tide:1x1",
+      "rejectedCommand": ""
+    },
+    "gale/tide/stone": {
+      "start": "gale",
+      "after3": "tide",
+      "after6": "stone",
+      "origin": "gale-tide-stone.best.json/hold7False/early8True/depth0",
+      "phase": "Defeat",
+      "hp": 0,
+      "gold": 61,
+      "kills": 53,
+      "bossHp": 236,
+      "bossKills": 0,
+      "bossAbilityDamage": 112,
+      "simulations": 0,
+      "bossDirect": 652,
+      "bossBurn": 0,
+      "bossReaction": 0,
+      "steamDamage": 0,
+      "stormDamage": 24,
+      "armyProfile": "gale:1x1;stone:1x3;tide:1x2",
+      "rejectedCommand": ""
+    }
+  }
+}

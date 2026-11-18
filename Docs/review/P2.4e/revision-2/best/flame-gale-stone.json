@@ -1,0 +1,175 @@
+{
+  "start": "flame",
+  "after3": "gale",
+  "after6": "stone",
+  "origin": "seed:TestResults/P2.4e/revision-2/timing/flame-gale-stone.best.json.commands.json/threshold300/delay0/earlyTrue/hold7True",
+  "phase": "Defeat",
+  "hp": 0,
+  "gold": 76,
+  "kills": 62,
+  "bossHp": 312,
+  "bossKills": 0,
+  "bossAbilityDamage": 112,
+  "simulations": 0,
+  "bossDirect": 576,
+  "bossBurn": 0,
+  "bossReaction": 0,
+  "steamDamage": 0,
+  "stormDamage": 0,
+  "preparationEight": "",
+  "armyProfile": "",
+  "rejectedCommand": "",
+  "script": {
+    "start": "flame",
+    "after3": "gale",
+    "after6": "stone",
+    "commands": [
+      {
+        "wave": 1,
+        "x": -1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      },
+      {
+        "wave": 1,
+        "x": -2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      },
+      {
+        "wave": 4,
+        "x": 1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "gale"
+      },
+      {
+        "wave": 5,
+        "x": 2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      },
+      {
+        "wave": 6,
+        "x": -2,
+        "y": -1,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      },
+      {
+        "wave": 7,
+        "x": 2,
+        "y": 1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 1,
+        "op": "sell",
+        "type": "flame"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 2,
+        "op": "sell",
+        "type": "flame"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 4,
+        "op": "sell",
+        "type": "flame"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 5,
+        "op": "sell",
+        "type": "flame"
+      },
+      {
+        "wave": 8,
+        "x": -2,
+        "y": -1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 8,
+        "x": -1,
+        "y": -1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 8,
+        "x": 1,
+        "y": 1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      }
+    ],
+    "threshold": 300,
+    "bossDelay": 0,
+    "earlyWave8": true,
+    "holdWave7": true,
+    "casts": [
+      {
+        "wave": 1,
+        "relativeTick": 90,
+        "x": -3.450000762939453,
+        "y": -2.0
+      },
+      {
+        "wave": 3,
+        "relativeTick": 90,
+        "x": -3.450000762939453,
+        "y": -2.0
+      },
+      {
+        "wave": 4,
+        "relativeTick": 231,
+        "x": -1.2000006437301636,
+        "y": -1.699998378753662
+      },
+      {
+        "wave": 5,
+        "relativeTick": 499,
+        "x": 4.000031471252441,
+        "y": 2.0
+      },
+      {
+        "wave": 8,
+        "relativeTick": 90,
+        "x": -3.450000762939453,
+        "y": -2.0
+      },
+      {
+        "wave": 8,
+        "relativeTick": 690,
+        "x": 3.0333805084228516,
+        "y": 2.0
+      }
+    ]
+  }
+}

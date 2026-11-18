@@ -1,0 +1,145 @@
+{
+  "note": "Optional coverage Victory search; zero extra Victory is not a R3 acceptance blocker. Counters-only requirement is checked separately. No global impossibility claim.",
+  "passes": {
+    "coverage-search/900-10/gale": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-search/900-10/flame": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-search/1000-8/gale": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-search/1000-8/flame": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-search/800-10/gale": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-search/800-10/flame": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-search/1000-5/gale": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-search/1000-5/flame": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-search/1000-10/gale": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-search/1000-10/flame": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-rebuild/900-10/gale": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass=True; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-rebuild/900-10/flame": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass=True; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-rebuild/1000-8/gale": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass=True; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-rebuild/1000-8/flame": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass=True; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-rebuild/800-10/gale": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass=True; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-rebuild/800-10/flame": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass=True; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-rebuild/1000-5/gale": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass=True; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-rebuild/1000-5/flame": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass=True; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-rebuild/1000-10/gale": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass=True; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    },
+    "coverage-rebuild/1000-10/flame": {
+      "attempts": 3000,
+      "phases": {
+        "Defeat": 3000
+      },
+      "limits": "attempts=3000; eligibleWins=0; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass=True; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full=True"
+    }
+  }
+}

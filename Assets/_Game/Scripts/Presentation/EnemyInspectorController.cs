@@ -83,7 +83,7 @@ namespace Veilward.Presentation
             var state = battle.Simulation.State;
             if (_displayedTick == state.Tick) return;
             _displayedTick = state.Tick;
-            _text.Clear(); _text.Append("Враг #").Append(enemy.Id.Value).Append("  HP ").Append(enemy.Health).Append('\n');
+            _text.Clear(); _text.Append(enemy.Definition.Id.Value == BossHudController.BossId ? "Страж Разрыва #" : "Враг #").Append(enemy.Id.Value).Append("  HP ").Append(enemy.Health).Append('/').Append(enemy.Definition.MaxHealth).Append("  Armor ").Append(enemy.Definition.Armor).Append('\n');
             for (var i = 0; i < 4; i++)
                 for (var j = 0; j < enemy.Statuses.Count; j++)
                 {

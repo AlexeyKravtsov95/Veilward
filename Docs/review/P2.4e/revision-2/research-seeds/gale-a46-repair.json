@@ -1,0 +1,83 @@
+{
+  "start": "gale",
+  "after3": "stone",
+  "after6": "tide",
+  "origin": "public-command script from a46a9cc repair, re-evaluate on final factory",
+  "phase": "InputOnly",
+  "script": {
+    "start": "gale",
+    "after3": "stone",
+    "after6": "tide",
+    "commands": [
+      {
+        "wave": 1,
+        "x": -2,
+        "y": -1,
+        "id": 0,
+        "op": "place",
+        "type": "gale"
+      },
+      {
+        "wave": 2,
+        "x": -2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "gale"
+      },
+      {
+        "wave": 5,
+        "x": -1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 6,
+        "x": 1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 7,
+        "x": 2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "tide"
+      },
+      {
+        "wave": 8,
+        "x": 2,
+        "y": 1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 1,
+        "op": "sell",
+        "type": "gale"
+      },
+      {
+        "wave": 8,
+        "x": 1,
+        "y": 1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      }
+    ],
+    "threshold": 200,
+    "bossDelay": 0,
+    "earlyWave8": false,
+    "holdWave7": false,
+    "casts": null
+  }
+}

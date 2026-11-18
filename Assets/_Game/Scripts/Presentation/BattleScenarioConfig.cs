@@ -64,6 +64,23 @@ namespace Veilward.Presentation
         [SerializeField, Min(0)] private int waveCompletionBonus;
         [SerializeField] private WaveSettings[] waves;
 
+        [Header("Versioned ability + boss mission")]
+        [SerializeField] private BattleScenarioConfig historicalScenario;
+        [SerializeField] private string abilityRulesId;
+        [SerializeField] private EnemySettings boss;
+
+        [Serializable]
+        public sealed class EnemySettings
+        {
+            public string id;
+            public int maxHealth;
+            public float speed;
+            public int armor;
+            public int leakDamage;
+            public int reward;
+            public EnemyDefinition Create() => new EnemyDefinition(new EnemyDefinitionId(id), maxHealth, speed, leakDamage, reward, armor);
+        }
+
         [Header("Element Progression (EightWave)")]
         [SerializeField] private ElementProgressionSettings progression;
 
@@ -77,7 +94,7 @@ namespace Veilward.Presentation
 
         private ElementUnlockRules CreateProgressionRules()
         {
-            if (scenarioContentId != WaveCheckpointCompatibility.NativeContentId || progression == null ||
+            if ((scenarioContentId != WaveCheckpointCompatibility.NativeContentId && scenarioContentId != WaveCheckpointCompatibility.AbilityBossContentId) || progression == null ||
                 progression.rulesId != "wave-unlocks-v1" || waves == null || waves.Length != 8 ||
                 progression.startingOptions == null || progression.startingOptions.Length != 2 ||
                 progression.startingOptions[0] != ElementKind.Flame || progression.startingOptions[1] != ElementKind.Gale ||
@@ -91,8 +108,18 @@ namespace Veilward.Presentation
         public sealed class WaveSettings
         {
             [Min(1)] public int enemyCount = 5;
+            public SpawnGroupSettings[] groups;
             [Min(0)] public int firstSpawnTick;
             [Min(1)] public int spawnIntervalTicks = 30;
+        }
+
+        [Serializable]
+        public sealed class SpawnGroupSettings
+        {
+            public string enemyId;
+            public int count;
+            public int firstSpawnTick;
+            public int spawnIntervalTicks;
         }
 
         [Serializable]
@@ -169,6 +196,18 @@ namespace Veilward.Presentation
             return CreateSimulationCore(null, historical: false, CreateProgressionRules());
         }
 
+        internal BattleSimulation CreateSessionSimulation(string contentId)
+        {
+            if (contentId == scenarioContentId) return CreateSimulation();
+            if (scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId)
+            {
+                ValidateFinalMission();
+                if (contentId == WaveCheckpointCompatibility.NativeContentId) return historicalScenario.CreateSimulation();
+                if (contentId == WaveCheckpointCompatibility.LegacyEightWaveContentId) return historicalScenario.CreateSimulationCore(null, false);
+            }
+            throw new ArgumentException("New Game session content is incompatible.");
+        }
+
         public BattleSimulation CreateSimulationForCheckpoint(WaveCheckpointEnvelope normalized)
         {
             var requestedId = ScenarioContentId == WaveCheckpointCompatibility.LegacyEightWaveContentId
@@ -176,14 +215,53 @@ namespace Veilward.Presentation
             if (normalized == null || normalized.schemaVersion != WaveCheckpointStore.CurrentSchemaVersion ||
                 !WaveCheckpointCompatibility.TryNormalize(normalized, requestedId, out _, out var error))
                 throw new ArgumentException("Checkpoint is incompatible with this scenario.", nameof(normalized));
-            return normalized.scenarioContentId == WaveCheckpointCompatibility.NativeContentId
+            if (normalized.scenarioContentId != scenarioContentId &&
+                scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId)
+            {
+                if (historicalScenario == null || historicalScenario.ScenarioContentId != WaveCheckpointCompatibility.NativeContentId)
+                    throw new ArgumentException("Missing historical source.");
+                return historicalScenario.CreateSimulationForCheckpoint(normalized);
+            }
+            return normalized.scenarioContentId == WaveCheckpointCompatibility.NativeContentId ||
+                   normalized.scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId
                 ? CreateSimulationCore(null, historical: false, CreateProgressionRules())
                 : CreateSimulationCore(null, historical: false);
         }
 
+        private void ValidateFinalMission()
+        {
+            if (historicalScenario == null || historicalScenario == this ||
+                historicalScenario.ScenarioContentId != WaveCheckpointCompatibility.NativeContentId ||
+                sharedScenario == null || sharedScenario.enemyId != "shade" || historicalScenario.sharedScenario != sharedScenario ||
+                abilityRulesId != "rift-seal-v1" || boss == null || boss.id != "rift-warden" ||
+                boss.maxHealth != 1000 || boss.speed != 1f || boss.armor != 5 || boss.leakDamage != 20 || boss.reward != 50 ||
+                enemyReward != 5 || waveCompletionBonus != 20 || waves == null || waves.Length != 8)
+                throw new ArgumentException("Final mission requires versioned boss, enabled ability and historical source.");
+            historicalScenario.CreateSimulation();
+            if (towerArchetypes == null || towerArchetypes.Length != 0 || reactions == null || reactions.Length != 0)
+                throw new ArgumentException("Final wrapper must use the shared catalogs.");
+            for (var i = 0; i < 8; i++)
+            {
+                var wave = waves[i];
+                if (wave == null || wave.firstSpawnTick != 0 || wave.spawnIntervalTicks != 30 || wave.enemyCount != 5 + i)
+                    throw new ArgumentException("Final mission must preserve approved wave schedule.");
+                if (i < 7)
+                {
+                    if (wave.groups != null && wave.groups.Length != 0) throw new ArgumentException("Groups only in final wave.");
+                }
+                else if (wave.groups == null || wave.groups.Length != 2 ||
+                    !Matches(wave.groups[0], sharedScenario.enemyId, 11, 0) || !Matches(wave.groups[1], "rift-warden", 1, 330))
+                    throw new ArgumentException("Wave8 requires eleven Shade then one rift-warden at330.");
+            }
+        }
+        private static bool Matches(SpawnGroupSettings g, string id, int count, int first) => g != null &&
+            g.enemyId == id && g.count == count && g.firstSpawnTick == first && g.spawnIntervalTicks == 30;
+
         // Явный исторический test path; production New Game никогда его не вызывает.
         internal BattleSimulation CreateHistoricalAllOpenSimulation(ReactionCatalog reactions = null) =>
-            CreateSimulationCore(reactions, historical: ReferenceEquals(reactions, ReactionCatalog.Empty));
+            scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId
+                ? historicalScenario.CreateHistoricalAllOpenSimulation(reactions)
+                : CreateSimulationCore(reactions, historical: ReferenceEquals(reactions, ReactionCatalog.Empty));
 
         internal BattleSimulation CreateSimulation(ReactionCatalog reactionCatalog)
         {
@@ -209,6 +287,8 @@ namespace Veilward.Presentation
         private BattleSimulation CreateSimulationCore(ReactionCatalog reactionCatalog, bool historical,
             ElementUnlockRules rules = null)
         {
+            var final = scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId;
+            if (final) ValidateFinalMission();
             var shared = sharedScenario != null ? sharedScenario : this;
             // Даже historical override сначала проверяет production data, без fallback на Empty.
             var productionReactions = CreateReactionCatalog(shared);
@@ -293,7 +373,21 @@ namespace Veilward.Presentation
             var sequence = new WaveDefinition[waves.Length];
             for (var index = 0; index < waves.Length; index++)
             {
-                var settings = waves[index];
+                var settings = waves[index] ?? throw new ArgumentException("Missing wave settings.");
+                if (settings.groups != null && settings.groups.Length > 0)
+                {
+                    if (!final) throw new ArgumentException("Historical content cannot contain multi-group waves.");
+                    var groups = new WaveSpawnGroup[settings.groups.Length];
+                    for (var g = 0; g < groups.Length; g++)
+                    {
+                        var data = settings.groups[g] ?? throw new ArgumentException("Missing group settings.");
+                        var definition = data.enemyId == enemy.Id.Value ? enemy :
+                            data.enemyId == boss.id ? boss.Create() : throw new ArgumentException("Unknown group enemy ID.");
+                        groups[g] = new WaveSpawnGroup(definition, data.count, data.firstSpawnTick, data.spawnIntervalTicks);
+                    }
+                    sequence[index] = new WaveDefinition(groups);
+                    continue;
+                }
                 sequence[index] = new WaveDefinition(
                     enemy,
                     settings.enemyCount,
@@ -309,7 +403,7 @@ namespace Veilward.Presentation
                 shared.baseHealth,
                 shared.startingGold,
                 waveCompletionBonus,
-                reactionCatalog, rules);
+                reactionCatalog, rules, final ? AbilityDefinition.RiftSeal : null);
         }
 
         private static TowerCatalog CreateTowerCatalog(

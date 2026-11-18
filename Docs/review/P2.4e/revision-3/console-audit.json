@@ -1,0 +1,38 @@
+{
+  "source": "f721e8ba07253e5888310b5b055d51e792088022",
+  "scenarios": {
+    "gale-victory-1280x960": {
+      "warnings": 6,
+      "expected_io_errors": 1,
+      "unexpected_errors": 0
+    },
+    "flame-leak-1600x900": {
+      "warnings": 4,
+      "expected_io_errors": 0,
+      "unexpected_errors": 0
+    },
+    "flame-victory-1600x900": {
+      "warnings": 6,
+      "expected_io_errors": 1,
+      "unexpected_errors": 0
+    }
+  },
+  "frame_proof": {
+    "gale-victory-1280x960": {
+      "first_frame": 19,
+      "last_frame": 37,
+      "distinct_frames": 13
+    },
+    "flame-leak-1600x900": {
+      "first_frame": 48,
+      "last_frame": 59,
+      "distinct_frames": 8
+    },
+    "flame-victory-1600x900": {
+      "first_frame": 70,
+      "last_frame": 88,
+      "distinct_frames": 13
+    }
+  },
+  "limits": "Real graphical Editor rendering; public-command synchronous test clock. Expected completion IO errors are labelled separately. Not device/realtime/performance/G2 proof."
+}

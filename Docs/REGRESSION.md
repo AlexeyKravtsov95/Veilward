@@ -344,3 +344,15 @@ Production ability-disabled; enabled только internal exact-ID synthetic-p2
 | REG-BATTLE-206 | Manual/background/focus latch, frozen tick/cooldown/VFX, Resume без auto-cast/catch-up; Cast completion волн3/6 открывает Choice без preview. |
 | REG-BATTLE-207 | Четыре непустых streams очищаются даже при consumer exception; captured same-tick lethal removal; rejected restore сохраняет intent, dirty/fresh successful restore чистят UI/VFX/intent; failed save сохраняет live success, Retry не повторяет награду/cast. |
 | REG-BATTLE-208 | Saved/builder/validator refs и canonical reproducibility в полном suite; production button hidden; реальные wide/narrow Play Mode Ready/preview/center/hits/cooldown/Cancel/Pause/Resume/failed save/Retry/clean synthetic Continue, Console audit. |
+
+### P2.4e / #39 — частичная реализация, acceptance BLOCKED
+
+[Scope](P2.4E_RIFT_WARDEN.md), [evidence](review/P2.4e/validation.md). `BossWaveTests`: REG209 bounded groups/order/legacy/ID/long bounds/future spawn; REG210 all lethal origins, armor/Crack/Gust/Wet and Steam/Storm primary/secondary; REG211 leak/Defeat priority/one-time rewards/completion. `BossPersistenceTests`: REG212 + final-ID REG198–203 strict wire/mixed slots/no-write/backup/failures/whole Combat8 rollback. `BossPresentationTests`/`BossPlayModeTests`: notice/HP geometry/inspector/two slots/Pause/safe-area/real MainMenu Continue.
+
+REG213 **BLOCKED**: natural FLAME/GALE Victory8 не достигнута; обязательные тесты остаются FAIL, Closes #39 запрещён. Natural scripts и отдельный сознательный no-cast8 boss-leak control используют production150/20/public commands; без изменения balance/DTO. Реальные кадры и фактические полные totals публикуются в evidence, не объявляются полным PASS. Device/G2/ART/#40 full trace matrix отдельно.
+
+Доработка PR69: REG213 test-only ordered-history поиск, отдельные timing/rebuild passes и общие Domain/PlayMode scripts — [R2 scope](review/P2.4e/revision-2/specification.md). Дополнительные regressions проверяют сохранение исходного tick lethal Cast при replay и приоритет Victory над Defeat при одинаковом bossHP. Search smoke не является natural acceptance; исходные Victory assertions остаются обязательными.
+
+### R3 / #39 — выбранный1000HP/armor5
+
+Разрешённая immutable matrix1000/10,900/10,800/10,1000/8,1000/5: контрольR2Defeat154/68, только одно поле до New Game. Выбран1000/5; natural FLAME/GALE Victory8/boss kill/positive ability, отдельный no-cast8 leakDefeat; F/T/G Steam/Storm × StatusPair/Intrinsic positive counters с честным outcome. `BossVictoryPersistenceTests` проверяет whole natural Victory dirty/fresh restore/no-writeLoad и temp/read-back/commit completion faults×2starts, live/durable preservation, дваRetry без повтора command/reward70, frozen terminal. BossPlayModeTests проверяет те же live Victory/failure/Retry/clean restore/Continueoff через настоящие Buttons,34реальных кадра. [R3 evidence и границы](review/P2.4e/revision-3/validation.md); старые mandatory assertions и R1/R2 не ослаблены.

@@ -1,0 +1,1 @@
+{"name":"Veilward.Tests.Shared","rootNamespace":"Veilward.Tests.Shared","references":["Veilward","Veilward.Domain"],"includePlatforms":[],"excludePlatforms":[],"allowUnsafeCode":false,"overrideReferences":false,"autoReferenced":false,"defineConstraints":["UNITY_INCLUDE_TESTS"],"versionDefines":[],"noEngineReferences":false}

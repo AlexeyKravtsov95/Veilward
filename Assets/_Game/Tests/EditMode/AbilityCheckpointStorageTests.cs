@@ -140,7 +140,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(_store.TryLoad(AbilityCheckpointTests.Content, s.TryValidateCheckpoint, out var load), Is.True, load.Error);
             Assert.That(WaveCheckpointJson.Serialize(load.Envelope), Is.EqualTo(expected));
         }
-        [TestCase(AbilityCheckpointTests.Content)] [TestCase("eight-wave-ability-boss-v1")] [TestCase("unknown")]
+        [TestCase(AbilityCheckpointTests.Content)] [TestCase("unknown")]
         public void RegBattle200_ProductionSessionRejectsUnactivatedContentWithoutReplacingPending(string id)
         {
             Veilward.Application.BattleSessionContext.Clear();
@@ -155,8 +155,8 @@ namespace Veilward.Tests.EditMode
             }
             finally { Veilward.Application.BattleSessionContext.Clear(); }
         }
-        [TestCase(1)] [TestCase(2)] [TestCase(3)] [TestCase(4)]
-        public void RegBattle200_FinalIdAlwaysRejectedBeforeActivation(int schema)
+        [TestCase(1)] [TestCase(2)] [TestCase(3)]
+        public void RegBattle200_FinalIdOldSchemasRejectedAfterActivation(int schema)
         {
             var s = AbilityCheckpointTests.Create(); var e = AbilityCheckpointTests.Envelope(s, "eight-wave-ability-boss-v1"); e.schemaVersion = schema;
             File.WriteAllText(_store.PrimaryPath, WaveCheckpointJson.Serialize(e));

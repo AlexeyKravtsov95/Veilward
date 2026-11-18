@@ -1,0 +1,351 @@
+{
+  "source": "b970003d0d65146d8230e7142321c92bf2905eeb",
+  "base": "65d104e19a5e81a4cc91edd2fc2cbbf548ea3674",
+  "merge68_confirmed": true,
+  "environment": {
+    "os": "macOS-27.0.1-arm64-arm-64bit",
+    "arch": "arm64",
+    "unity": "6000.3.28f1 (8f082d2fe476)",
+    "unity_cli": "1.0.1",
+    "target": "iOS Editor tests; no player/export/device",
+    "simulation_hz": 30,
+    "capture_clock": "public-command test clock; Battle Update disabled; real rendering frames/ScreenCapture",
+    "screenshots": 26
+  },
+  "commands": [
+    "./Scripts/run-static-checks.sh",
+    "./Scripts/run-edit-mode-tests.sh",
+    "./Scripts/run-play-mode-tests.sh",
+    "P24E_SEARCH=1 /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -batchmode -nographics -projectPath /Users/alexeykravtsov/Desktop/workspace/Veilward-39 -buildTarget iOS -runTests -testPlatform EditMode -testFilter \"Veilward.Tests.EditMode.BossStrategySearchTests;Veilward.Tests.EditMode.BossGreedySearchTests\" -testResults /tmp/veilward39-final-research.xml -logFile /tmp/veilward39-final-research.log",
+    "P24E_CAPTURE=1 /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -projectPath /Users/alexeykravtsov/Desktop/workspace/Veilward-39 -buildTarget iOS -runTests -testPlatform PlayMode -testFilter RegBattle213_Visual -testResults /Users/alexeykravtsov/Desktop/workspace/Veilward-39/TestResults/Visual.xml -logFile /tmp/veilward39-visual-final.log",
+    "git diff --check"
+  ],
+  "static": {
+    "total": 38,
+    "passed": 38,
+    "failed": 0,
+    "result": "PASS"
+  },
+  "reports": {
+    "baseline-edit": {
+      "path": "reports/baseline-edit.xml.gz",
+      "raw_sha256": "187e43e156efc8eb1e3334658cbe56f72d73aef9d28beaf6987d2faca4c284dc",
+      "sha256": "06c5bf9c83050b68a53f71c5e5f7d4a108b9eea5c5f7a7548c1595a9d4e7a6ff",
+      "total": 922,
+      "passed": 922,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Passed",
+      "failed_tests": []
+    },
+    "baseline-play": {
+      "path": "reports/baseline-play.xml.gz",
+      "raw_sha256": "f10e8a9a9104dceab337ddcc4ed9190e442976a6a0399a518d8e74c8087810be",
+      "sha256": "d1fb638040c7fd816cc81f398e8cf7bc8cd54f2af3359f3e6ae967e8690b7742",
+      "total": 54,
+      "passed": 54,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Passed",
+      "failed_tests": []
+    },
+    "red-edit": {
+      "path": "reports/red-edit.xml.gz",
+      "raw_sha256": "722607ca78d1be4774fcd5307b814def45235824f8565e7fddd6127608794d23",
+      "sha256": "31fbbc63739c23c361e837c74a7035b56334bc7b2fd24c9b525d004fc08b30b9",
+      "total": 925,
+      "passed": 922,
+      "failed": 3,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Failed(Child)",
+      "failed_tests": [
+        "RegBattle213_SavedSceneRequiresBossHud",
+        "RegBattle209_MultiGroupScheduleIsAvailable",
+        "RegBattle212_FinalContentEnablesAbilityAndNativeProgressionTogether"
+      ]
+    },
+    "red-play": {
+      "path": "reports/red-play.xml.gz",
+      "raw_sha256": "172ff65e4f81c3262cdacaaa5745a52002d06204bb4064dab2e880b0ff8ad4c3",
+      "sha256": "56e9ccb4d5a124a6d0c7f7b6c4f38f0888bb59e9e4f3ac9e5ac35111a24a9a7d",
+      "total": 55,
+      "passed": 54,
+      "failed": 1,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Failed(Child)",
+      "failed_tests": [
+        "RegBattle213_ProductionHasEnabledAbilityAndBossHud"
+      ]
+    },
+    "EditMode": {
+      "path": "reports/EditMode.xml.gz",
+      "raw_sha256": "52122b06657eb73adf124c76d7976ba6f207bf07c399913650ca9ca6323f1085",
+      "sha256": "930f4e1e6d54b0fc4ccac88c28499e3950530bb23674a4438f48a924670e312c",
+      "total": 1010,
+      "passed": 1008,
+      "failed": 2,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Failed(Child)",
+      "failed_tests": [
+        "RegBattle213_NaturalProductionVictoryAndDeliberateBossLeak(\"flame\",False)",
+        "RegBattle213_NaturalProductionVictoryAndDeliberateBossLeak(\"gale\",False)"
+      ]
+    },
+    "PlayMode": {
+      "path": "reports/PlayMode.xml.gz",
+      "raw_sha256": "bfbc95686d1811cd90c42facf0de2ecd4ef96d22ad1f64611be99ea583ddfe16",
+      "sha256": "7c5b8f8ae7a2d924f4504ddec3b4a496aef1964db549d8c8ee02804a89e9a9f4",
+      "total": 58,
+      "passed": 56,
+      "failed": 2,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Failed(Child)",
+      "failed_tests": [
+        "RegBattle213_VisualNarrowNaturalGale",
+        "RegBattle213_VisualWideNaturalFlame"
+      ]
+    },
+    "Research": {
+      "path": "reports/Research.xml.gz",
+      "raw_sha256": "7b613757a94bdc5c564944e100115d9bcd0e07eb25cbce0430f9779c6e123e7f",
+      "sha256": "00c55716c713eb06fd3f0ef3cee9309585fcd478f04ebdf62a2f1586bb876182",
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Passed",
+      "failed_tests": []
+    },
+    "Visual": {
+      "path": "reports/Visual.xml.gz",
+      "raw_sha256": "a8f6d7967d6a0b6733877316dd429dd5ca6b4bacc8b11c719d7e84ea7141e218",
+      "sha256": "5cd1f1afca332d822210785abc6b97f9297460b5e44acaf4bd49bc0c5b8ec9bf",
+      "total": 3,
+      "passed": 1,
+      "failed": 2,
+      "inconclusive": 0,
+      "skipped": 0,
+      "result": "Failed(Child)",
+      "failed_tests": [
+        "RegBattle213_VisualNarrowNaturalGale",
+        "RegBattle213_VisualWideNaturalFlame"
+      ]
+    }
+  },
+  "images": {
+    "screenshots/gale-victory-1280x960/02-clean-continue8.png": {
+      "width": 1280,
+      "height": 960,
+      "sha256": "67a5684f2748213127e3effaaf4f8bca8ac862006fc862b29e765cc87356f6c5"
+    },
+    "screenshots/gale-victory-1280x960/06-boss-status-inspector.png": {
+      "width": 1280,
+      "height": 960,
+      "sha256": "1fb078f4accc7ecdd421c5fc2e8f71212607cb6580056620a9b58e17b91c05d9"
+    },
+    "screenshots/gale-victory-1280x960/01b-injected-safe-area.png": {
+      "width": 1280,
+      "height": 960,
+      "sha256": "8bde103eba24e3c42767bf84e5ddcaa68b9b146a6206b752205e174b1a96e1da"
+    },
+    "screenshots/gale-victory-1280x960/01-preparation8-notice.png": {
+      "width": 1280,
+      "height": 960,
+      "sha256": "f80dccb02ae89b77e0b71ccdb5c001501bdc2a6bf52667a3e1b72934034168af"
+    },
+    "screenshots/gale-victory-1280x960/07-boss-pause.png": {
+      "width": 1280,
+      "height": 960,
+      "sha256": "e5233100467e4a513e381944186077c53f42fa1bb266f38daa352a444a23ad28"
+    },
+    "screenshots/gale-victory-1280x960/04-boss-hp-armor.png": {
+      "width": 1280,
+      "height": 960,
+      "sha256": "18e7b0c6eef819f1fa07889402c127c5ef6c436bf3875b77ecb96c3ef547fb0f"
+    },
+    "screenshots/gale-victory-1280x960/08-defeat.png": {
+      "width": 1280,
+      "height": 960,
+      "sha256": "91b8cd3e62db5a2dd185c8a062eccc69b3c20ea37a5a37d31a2724b338bd95c3"
+    },
+    "screenshots/gale-victory-1280x960/05-boss-ability-hit.png": {
+      "width": 1280,
+      "height": 960,
+      "sha256": "3c6b531970fafa8bfd0f6aa67de20f2a7d6a00748a4ae2c6e4dcae627fbea97b"
+    },
+    "screenshots/gale-victory-1280x960/03-waiting-spawn330.png": {
+      "width": 1280,
+      "height": 960,
+      "sha256": "a3c9a94ff378ee8b0dd616eb096fd8da4df6dd4d905b1ea74dbd92d8d4388fa3"
+    },
+    "screenshots/flame-leak-1600x900/02-clean-continue8.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "7c804d1d24379bec1c4aa0e7b4af9267a53f33d759010cb46dc72aad27eda46d"
+    },
+    "screenshots/flame-leak-1600x900/06-boss-status-inspector.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "ff08956ba7ef29b199e12cbcb1941dfdbe3176dba5c76d8423cbc1f729d43cff"
+    },
+    "screenshots/flame-leak-1600x900/01b-injected-safe-area.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "b3ca268a45f757c2bd1ce049749d2d65f7625dcafd31c17552ab245f759d3854"
+    },
+    "screenshots/flame-leak-1600x900/01-preparation8-notice.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "39d0b8244beba70d09a56b85dece5e25227680381add86c09787cec48c621a6d"
+    },
+    "screenshots/flame-leak-1600x900/07-boss-pause.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "c43d6e044a115fac6bb708909c2ac06cb0935e18e9b3e04cb5ab3d4d7d915b39"
+    },
+    "screenshots/flame-leak-1600x900/04-boss-hp-armor.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "b6abf4fca17b1b01b21f1fa017c9b4a45c3b973ea15b99deed565f5f26635995"
+    },
+    "screenshots/flame-leak-1600x900/08-defeat.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "86551fd94d2e523cbce7fd05fead7526da13cbe6a8b0f71ec966f839b90b16f2"
+    },
+    "screenshots/flame-leak-1600x900/03-waiting-spawn330.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "91b8fb21be1177ef649b9a5fb603d6425262a274879a8a70e71cafdf24cb3ece"
+    },
+    "screenshots/flame-victory-1600x900/02-clean-continue8.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "7c804d1d24379bec1c4aa0e7b4af9267a53f33d759010cb46dc72aad27eda46d"
+    },
+    "screenshots/flame-victory-1600x900/06-boss-status-inspector.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "d8440a48703030f63ab0d46a0f16ada220ecf9373b1560856274d614c4f3506c"
+    },
+    "screenshots/flame-victory-1600x900/01b-injected-safe-area.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "b3ca268a45f757c2bd1ce049749d2d65f7625dcafd31c17552ab245f759d3854"
+    },
+    "screenshots/flame-victory-1600x900/01-preparation8-notice.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "39d0b8244beba70d09a56b85dece5e25227680381add86c09787cec48c621a6d"
+    },
+    "screenshots/flame-victory-1600x900/07-boss-pause.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "bdc56333103ddb2831b347136ddafca1cc8b5281ce513b4ec9143fe86c201022"
+    },
+    "screenshots/flame-victory-1600x900/04-boss-hp-armor.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "328f18ff9b81718350a2ce953e1d69edcf771235c381d4ec5cb94eea2de99c93"
+    },
+    "screenshots/flame-victory-1600x900/08-defeat.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "5cd267d0e72bf9cd561dfd9356a4ae151b456c74134aaef7d4c8889dc8c72454"
+    },
+    "screenshots/flame-victory-1600x900/05-boss-ability-hit.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "ef742c704ebe0b972ef70d2673a3de9085e0b75044657dd85efa45308c01d02e"
+    },
+    "screenshots/flame-victory-1600x900/03-waiting-spawn330.png": {
+      "width": 1600,
+      "height": 900,
+      "sha256": "48cb31fb097639a644793ec2ec7f7b7ec676adcac39b92a2c756f4781cc95055"
+    }
+  },
+  "artifacts": {
+    "flame-victory.json": "7b94d95dbc6ebd183ec29af1cd906f18ced50a0725b0462cc5d533340f6532da",
+    "console-audit.json": "08f68961254f0796705e363e32cc012e3dc366132ce69ad34f9a141d6996ce01",
+    "scope-audit.json": "136c69375a466e01f902163a9210eac9a992ffb54f3889f21cb9270bc7322fce",
+    "flame.commands.json": "488feb067a6b93395a83026e4268b2aa26e8e68f691e61851892f6f52721a42d",
+    "gale-victory.json": "2c5edee7e9f15e4faa6e37c12c5497d9207bbe6404609bb56de5b5dd36ee8f1a",
+    "flame-leak.waves.jsonl": "b8f63fa8574b81434ce3345bd38ca60bdb259d6cec1bab8e8e5ee23ea1c25a5a",
+    "flame-victory.waves.jsonl": "325074a9048511a9ffca162cbb68bd1e15602f2e59f279a724ae23401d57d609",
+    "source-sha256.json": "f78851efa873cf62999ee6c51401f5b1582d952024a16a04698e34d8c6ae1e94",
+    "gale-victory.waves.jsonl": "d1e2029ceea1a0d812bf2a011d150a974756fc70921fc0bd4119cd4ab2c4cacd",
+    "gale.commands.json": "e2138a6f171c25dc1996c9eec87cc014918dbbdd1c873bfbd82814900968fc1c",
+    "flame-leak.json": "b8a6b1e5c8977c01288e469cc99555119b4ca9c7c1e6b7b42c6d34e58a76463f",
+    "reports/EditMode.xml.gz": "930f4e1e6d54b0fc4ccac88c28499e3950530bb23674a4438f48a924670e312c",
+    "reports/PlayMode-runner.txt": "c472b7872b169c9d9009542509a913c5a4bd72cd548404cadc42722b34fbde2a",
+    "reports/EditMode-runner.txt": "d16c56b6144fc749a0ca5a423f8cbb973d93cddff79e7e3cc60060aa9407a623",
+    "reports/PlayMode.xml.gz": "7c5b8f8ae7a2d924f4504ddec3b4a496aef1964db549d8c8ee02804a89e9a9f4",
+    "reports/static.txt": "a6b236ebd5c2ccb3227515d66c53dc6c9f2984ddf4503cdedc762fd62945e918",
+    "reports/Visual.xml.gz": "5cd1f1afca332d822210785abc6b97f9297460b5e44acaf4bd49bc0c5b8ec9bf",
+    "reports/Research.xml.gz": "00c55716c713eb06fd3f0ef3cee9309585fcd478f04ebdf62a2f1586bb876182",
+    "reports/baseline-edit.xml.gz": "06c5bf9c83050b68a53f71c5e5f7d4a108b9eea5c5f7a7548c1595a9d4e7a6ff",
+    "reports/baseline-play.xml.gz": "d1fb638040c7fd816cc81f398e8cf7bc8cd54f2af3359f3e6ae967e8690b7742",
+    "reports/red-edit.xml.gz": "31fbbc63739c23c361e837c74a7035b56334bc7b2fd24c9b525d004fc08b30b9",
+    "reports/red-play.xml.gz": "56e9ccb4d5a124a6d0c7f7b6c4f38f0888bb59e9e4f3ac9e5ac35111a24a9a7d",
+    "reports/baseline-static.txt": "084e5f0ef8826c5f9a2cbed8aec7677475b3a1add9835c820eb7e768894a5a52",
+    "research/greedy/flame.commands.json": "7fad6a1f88ea9d33eb8908402c830c05163015a259ed7a343d090f026c79b8e3",
+    "research/greedy/gale.txt": "e0214f9ebe5e797662c639a1aa71d70ee870853c3b467211e80303757265c7e5",
+    "research/greedy/gale.commands.json": "de9456e6f418777ef71524de69e611e75c6ef1d2c955d12e0496b20d4428883a",
+    "research/greedy/flame.txt": "3e5dc0b05dd5881aaae422056d19c38a721a65678352e33fc45b123990ca6537",
+    "research/search-economy/A-survival.txt": "50243f9441c7b667200c3f1ca2ae598a2bf557f0414be3f2d654bb5c0e96dc6f",
+    "research/search-economy/A-False.progress.txt": "ca01e5e13b873f30fd3932fc269fd917038921f40917cd794ecec10005c66d19",
+    "research/search-economy/B-False.progress.txt": "29698cd33c1dc9d7de63c3e7fac44c7f537d1ee954d4a3f1e2e338b6522b8ef3",
+    "research/search-economy/B-survival.commands.json": "0a1d72f3f174b6154ce3edd69deb42c5a9e84148055bab44cec9eaa215963c35",
+    "research/search-economy/A-survival.commands.json": "a47b4681b54fffb134ad5c3d4b502dbe61c53a3955d6c359b2e94c37f2b6ccba",
+    "research/search-economy/B-survival.txt": "ae77a5ad39253ce150fa2d612092a15912862645804dc75525897eb8ca0392b2",
+    "screenshots/gale-victory-1280x960/02-clean-continue8.png": "67a5684f2748213127e3effaaf4f8bca8ac862006fc862b29e765cc87356f6c5",
+    "screenshots/gale-victory-1280x960/06-boss-status-inspector.png": "1fb078f4accc7ecdd421c5fc2e8f71212607cb6580056620a9b58e17b91c05d9",
+    "screenshots/gale-victory-1280x960/01b-injected-safe-area.png": "8bde103eba24e3c42767bf84e5ddcaa68b9b146a6206b752205e174b1a96e1da",
+    "screenshots/gale-victory-1280x960/telemetry.txt": "8c408a04dff30dac231e03bf1d2878d3a64e008f2dd67d17702f802ee2fdf200",
+    "screenshots/gale-victory-1280x960/01-preparation8-notice.png": "f80dccb02ae89b77e0b71ccdb5c001501bdc2a6bf52667a3e1b72934034168af",
+    "screenshots/gale-victory-1280x960/07-boss-pause.png": "e5233100467e4a513e381944186077c53f42fa1bb266f38daa352a444a23ad28",
+    "screenshots/gale-victory-1280x960/04-boss-hp-armor.png": "18e7b0c6eef819f1fa07889402c127c5ef6c436bf3875b77ecb96c3ef547fb0f",
+    "screenshots/gale-victory-1280x960/08-defeat.png": "91b8cd3e62db5a2dd185c8a062eccc69b3c20ea37a5a37d31a2724b338bd95c3",
+    "screenshots/gale-victory-1280x960/05-boss-ability-hit.png": "3c6b531970fafa8bfd0f6aa67de20f2a7d6a00748a4ae2c6e4dcae627fbea97b",
+    "screenshots/gale-victory-1280x960/03-waiting-spawn330.png": "a3c9a94ff378ee8b0dd616eb096fd8da4df6dd4d905b1ea74dbd92d8d4388fa3",
+    "screenshots/gale-victory-1280x960/console.txt": "ad22de9870e22f07a352c820267bc37ba48742d49692b36ddef0c7265cc047de",
+    "screenshots/flame-leak-1600x900/02-clean-continue8.png": "7c804d1d24379bec1c4aa0e7b4af9267a53f33d759010cb46dc72aad27eda46d",
+    "screenshots/flame-leak-1600x900/06-boss-status-inspector.png": "ff08956ba7ef29b199e12cbcb1941dfdbe3176dba5c76d8423cbc1f729d43cff",
+    "screenshots/flame-leak-1600x900/01b-injected-safe-area.png": "b3ca268a45f757c2bd1ce049749d2d65f7625dcafd31c17552ab245f759d3854",
+    "screenshots/flame-leak-1600x900/telemetry.txt": "ba60c11bb3ff1bc33a5eb333dc14cc0120bdda49a9e9df0f8eff8624bc37202b",
+    "screenshots/flame-leak-1600x900/01-preparation8-notice.png": "39d0b8244beba70d09a56b85dece5e25227680381add86c09787cec48c621a6d",
+    "screenshots/flame-leak-1600x900/07-boss-pause.png": "c43d6e044a115fac6bb708909c2ac06cb0935e18e9b3e04cb5ab3d4d7d915b39",
+    "screenshots/flame-leak-1600x900/04-boss-hp-armor.png": "b6abf4fca17b1b01b21f1fa017c9b4a45c3b973ea15b99deed565f5f26635995",
+    "screenshots/flame-leak-1600x900/08-defeat.png": "86551fd94d2e523cbce7fd05fead7526da13cbe6a8b0f71ec966f839b90b16f2",
+    "screenshots/flame-leak-1600x900/03-waiting-spawn330.png": "91b8fb21be1177ef649b9a5fb603d6425262a274879a8a70e71cafdf24cb3ece",
+    "screenshots/flame-leak-1600x900/console.txt": "ad22de9870e22f07a352c820267bc37ba48742d49692b36ddef0c7265cc047de",
+    "screenshots/flame-victory-1600x900/02-clean-continue8.png": "7c804d1d24379bec1c4aa0e7b4af9267a53f33d759010cb46dc72aad27eda46d",
+    "screenshots/flame-victory-1600x900/06-boss-status-inspector.png": "d8440a48703030f63ab0d46a0f16ada220ecf9373b1560856274d614c4f3506c",
+    "screenshots/flame-victory-1600x900/01b-injected-safe-area.png": "b3ca268a45f757c2bd1ce049749d2d65f7625dcafd31c17552ab245f759d3854",
+    "screenshots/flame-victory-1600x900/telemetry.txt": "3fa4f5628cd438deaabd033bd4e1ff95132f3b794ec38d199922b28160c99d97",
+    "screenshots/flame-victory-1600x900/01-preparation8-notice.png": "39d0b8244beba70d09a56b85dece5e25227680381add86c09787cec48c621a6d",
+    "screenshots/flame-victory-1600x900/07-boss-pause.png": "bdc56333103ddb2831b347136ddafca1cc8b5281ce513b4ec9143fe86c201022",
+    "screenshots/flame-victory-1600x900/04-boss-hp-armor.png": "328f18ff9b81718350a2ce953e1d69edcf771235c381d4ec5cb94eea2de99c93",
+    "screenshots/flame-victory-1600x900/08-defeat.png": "5cd267d0e72bf9cd561dfd9356a4ae151b456c74134aaef7d4c8889dc8c72454",
+    "screenshots/flame-victory-1600x900/05-boss-ability-hit.png": "ef742c704ebe0b972ef70d2673a3de9085e0b75044657dd85efa45308c01d02e",
+    "screenshots/flame-victory-1600x900/03-waiting-spawn330.png": "48cb31fb097639a644793ec2ec7f7b7ec676adcac39b92a2c756f4781cc95055",
+    "screenshots/flame-victory-1600x900/console.txt": "ad22de9870e22f07a352c820267bc37ba48742d49692b36ddef0c7265cc047de"
+  },
+  "acceptance": "BLOCKED",
+  "all_suites_pass": false,
+  "blocked": [
+    "natural Victory FLAME",
+    "natural Victory GALE",
+    "natural boss kill and Victory screenshots",
+    "final-content natural Victory safe snapshot and kill-completion fault evidence",
+    "full #40 traces/integration matrix separate",
+    "physical iPhone/IL2CPP/Metal/device/performance/G2/ART/release not verified"
+  ]
+}

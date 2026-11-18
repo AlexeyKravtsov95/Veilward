@@ -6,7 +6,8 @@
     "Veilward.Domain",
     "Veilward.Editor",
     "UnityEngine.TestRunner",
-    "UnityEditor.TestRunner"
+    "UnityEditor.TestRunner",
+    "Veilward.Tests.Shared"
   ],
   "includePlatforms": [
     "Editor"

@@ -1,0 +1,119 @@
+{
+  "start": "flame",
+  "after3": "gale",
+  "after6": "tide",
+  "origin": "grid:-2,0/layout1/support1/upgrade4/sellFalse/twoTrue/threshold300/delay0/role0/buyFrom7/starterUpgrade0",
+  "phase": "Defeat",
+  "hp": 0,
+  "gold": 55,
+  "kills": 51,
+  "bossHp": 621,
+  "bossKills": 0,
+  "bossAbilityDamage": 110,
+  "simulations": 8373,
+  "bossDirect": 197,
+  "bossBurn": 24,
+  "bossReaction": 48,
+  "steamDamage": 365,
+  "stormDamage": 104,
+  "preparationEight": "{\"schemaVersion\":4,\"scenarioContentId\":\"eight-wave-ability-boss-v1\",\"state\":{\"phase\":0,\"waveIndex\":7,\"tick\":3067,\"baseHealth\":4,\"gold\":0,\"kills\":40,\"nextEnemyId\":57,\"nextTowerId\":5,\"towers\":[{\"towerId\":1,\"towerTypeId\":\"flame\",\"x\":-2,\"y\":0,\"level\":1,\"investedGold\":70,\"nextAttackTick\":3077},{\"towerId\":2,\"towerTypeId\":\"flame\",\"x\":-1,\"y\":0,\"level\":1,\"investedGold\":70,\"nextAttackTick\":3097},{\"towerId\":3,\"towerTypeId\":\"gale\",\"x\":1,\"y\":0,\"level\":1,\"investedGold\":80,\"nextAttackTick\":3076},{\"towerId\":4,\"towerTypeId\":\"tide\",\"x\":2,\"y\":0,\"level\":3,\"investedGold\":270,\"nextAttackTick\":3093}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"flame\",\"unlockedElementIds\":[\"flame\",\"tide\",\"gale\"],\"choicesEarned\":2,\"choicesSpent\":2,\"spentChoices\":[{\"choiceId\":\"after-wave-3\",\"elementId\":\"gale\"},{\"choiceId\":\"after-wave-6\",\"elementId\":\"tide\"}],\"pendingChoiceId\":\"none\"},\"ability\":{\"rulesId\":\"rift-seal-v1\",\"abilityId\":\"rift-seal\",\"cooldownRemainingTicks\":94,\"nextCastSequence\":6}}}",
+  "armyProfile": "flame:1x2;gale:1x1;tide:3x1",
+  "rejectedCommand": "",
+  "script": {
+    "start": "flame",
+    "after3": "gale",
+    "after6": "tide",
+    "commands": [
+      {
+        "wave": 1,
+        "x": -2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      },
+      {
+        "wave": 1,
+        "x": -1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      },
+      {
+        "wave": 7,
+        "x": 1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "gale"
+      },
+      {
+        "wave": 7,
+        "x": 2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "tide"
+      },
+      {
+        "wave": 7,
+        "x": 0,
+        "y": 0,
+        "id": 4,
+        "op": "upgrade",
+        "type": "tide"
+      },
+      {
+        "wave": 8,
+        "x": 0,
+        "y": 0,
+        "id": 4,
+        "op": "upgrade",
+        "type": "tide"
+      }
+    ],
+    "threshold": 300,
+    "bossDelay": 0,
+    "earlyWave8": false,
+    "holdWave7": false,
+    "casts": [
+      {
+        "wave": 1,
+        "relativeTick": 90,
+        "x": -3.450000762939453,
+        "y": -2.0
+      },
+      {
+        "wave": 3,
+        "relativeTick": 90,
+        "x": -3.450000762939453,
+        "y": -2.0
+      },
+      {
+        "wave": 4,
+        "relativeTick": 231,
+        "x": -0.45000120997428894,
+        "y": -0.9499955177307129
+      },
+      {
+        "wave": 5,
+        "relativeTick": 349,
+        "x": 0.5000100135803223,
+        "y": 1.0000042915344238
+      },
+      {
+        "wave": 6,
+        "relativeTick": 439,
+        "x": 1.2500128746032715,
+        "y": 1.750007152557373
+      },
+      {
+        "wave": 8,
+        "relativeTick": 330,
+        "x": -4.9666666984558105,
+        "y": -2.0
+      }
+    ]
+  }
+}

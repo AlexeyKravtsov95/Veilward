@@ -12,7 +12,7 @@ namespace Veilward.Editor
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
         private const string MainMenuScenePath = "Assets/_Game/Scenes/MainMenu.unity";
-        private const string ConfigPath = "Assets/_Game/Configs/EightWave.asset";
+        private const string ConfigPath = "Assets/_Game/Configs/EightWaveAbilityBoss.asset";
         private const string EnemyPrefabPath = "Assets/_Game/Prefabs/Shade.prefab";
         private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
 
@@ -172,7 +172,7 @@ namespace Veilward.Editor
             else
             {
                 var controls = new SerializedObject(safeAreas[0]).FindProperty("edgeControls");
-                if (controls.arraySize != 10) errors.Add("HUD requires ten safe-area edge controls.");
+                if (controls.arraySize != 11) errors.Add("HUD requires eleven safe-area edge controls.");
                 for (var i = 0; i < controls.arraySize; i++)
                     if (controls.GetArrayElementAtIndex(i).objectReferenceValue == null) errors.Add("Missing HUD safe-area reference.");
             }
@@ -188,6 +188,9 @@ namespace Veilward.Editor
                 if (refs["panel"] is GameObject choicePanel && (choicePanel.GetComponent<UnityEngine.UI.Image>() == null || !choicePanel.GetComponent<UnityEngine.UI.Image>().raycastTarget))
                     errors.Add("Choice overlay must block raycasts.");
             }
+            var bosses = FindComponents<BossHudController>(roots);
+            if (bosses.Count != 1) errors.Add("Battle requires exactly one BossHudController.");
+            else RequireReferences(bosses[0], new[] { "battle", "panel", "noticeText", "healthText", "healthFill" }, errors);
             var abilities = FindComponents<AbilityController>(roots);
             if (abilities.Count != 1) errors.Add("Battle requires exactly one AbilityController.");
             else
@@ -224,7 +227,7 @@ namespace Veilward.Editor
                 new[]
                 {
                     "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
-                    "pauseController", "placementController", "checkpointController", "enemyInspector", "elementChoice", "abilityController", "mainMenuButton", "reactionSummaryText", "reactionEffectMaterial"
+                    "pauseController", "placementController", "checkpointController", "enemyInspector", "elementChoice", "abilityController", "bossHud", "mainMenuButton", "reactionSummaryText", "reactionEffectMaterial"
                 },
                 errors);
             RequireAssetPath(references["scenario"], ConfigPath, "scenario", errors);
