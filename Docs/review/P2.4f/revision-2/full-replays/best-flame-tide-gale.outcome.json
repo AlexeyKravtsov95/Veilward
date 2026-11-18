@@ -1,0 +1,84 @@
+{
+    "id": 29760,
+    "parent": 20535,
+    "wave": 8,
+    "hp": 0,
+    "gold": 66,
+    "kills": 63,
+    "remaining": 378,
+    "abilityKills": 14,
+    "bossKills": 0,
+    "bossHp": 376,
+    "tick": 3730,
+    "sequence": 7,
+    "history": "flame-tide-gale",
+    "phase": "Defeat",
+    "army": "1:flameL1@2,1=70;3:flameL1@-2,0=70;5:tideL1@2,-1=60;6:galeL1@1,0=80;7:steamL1@2,0=110;8:stormL1@1,-1=110",
+    "policy": "400:270:False:False:0",
+    "cells": [
+        542,
+        54,
+        20,
+        66
+    ],
+    "bossApplied": [
+        435,
+        27,
+        47,
+        115
+    ],
+    "commands": [
+        {
+            "wave": 8,
+            "x": 0,
+            "y": 0,
+            "id": 4,
+            "op": "sell",
+            "type": "tide"
+        },
+        {
+            "wave": 8,
+            "x": 1,
+            "y": -1,
+            "id": 0,
+            "op": "place",
+            "type": "storm"
+        }
+    ],
+    "casts": [
+        {
+            "wave": 8,
+            "relativeTick": 600,
+            "x": 0.0,
+            "y": 1.0533275604248047
+        }
+    ],
+    "receipts": [
+        {
+            "op": "sell",
+            "type": "tide",
+            "result": "None",
+            "wave": 8,
+            "id": 4,
+            "x": 0,
+            "y": 0,
+            "before": 79,
+            "after": 121,
+            "price": 0,
+            "refund": 42
+        },
+        {
+            "op": "place",
+            "type": "storm",
+            "result": "None",
+            "wave": 8,
+            "id": 8,
+            "x": 1,
+            "y": -1,
+            "before": 121,
+            "after": 11,
+            "price": 110,
+            "refund": 0
+        }
+    ]
+}
