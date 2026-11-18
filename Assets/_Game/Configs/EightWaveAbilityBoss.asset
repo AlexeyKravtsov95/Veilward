@@ -95,6 +95,6 @@ MonoBehaviour:
     id: rift-warden
     maxHealth: 1000
     speed: 1
-    armor: 10
+    armor: 5
     leakDamage: 20
     reward: 50

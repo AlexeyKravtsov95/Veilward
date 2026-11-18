@@ -151,7 +151,7 @@ namespace Veilward.Editor
                 boss.FindPropertyRelative("id").stringValue = "rift-warden";
                 boss.FindPropertyRelative("maxHealth").intValue = 1000;
                 boss.FindPropertyRelative("speed").floatValue = 1;
-                boss.FindPropertyRelative("armor").intValue = 10;
+                boss.FindPropertyRelative("armor").intValue = 5;
                 boss.FindPropertyRelative("leakDamage").intValue = 20;
                 boss.FindPropertyRelative("reward").intValue = 50;
                 var groups = data.FindProperty("waves").GetArrayElementAtIndex(7).FindPropertyRelative("groups");

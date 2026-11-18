@@ -234,7 +234,7 @@ namespace Veilward.Presentation
                 historicalScenario.ScenarioContentId != WaveCheckpointCompatibility.NativeContentId ||
                 sharedScenario == null || sharedScenario.enemyId != "shade" || historicalScenario.sharedScenario != sharedScenario ||
                 abilityRulesId != "rift-seal-v1" || boss == null || boss.id != "rift-warden" ||
-                boss.maxHealth != 1000 || boss.speed != 1f || boss.armor != 10 || boss.leakDamage != 20 || boss.reward != 50 ||
+                boss.maxHealth != 1000 || boss.speed != 1f || boss.armor != 5 || boss.leakDamage != 20 || boss.reward != 50 ||
                 enemyReward != 5 || waveCompletionBonus != 20 || waves == null || waves.Length != 8)
                 throw new ArgumentException("Final mission requires versioned boss, enabled ability and historical source.");
             historicalScenario.CreateSimulation();

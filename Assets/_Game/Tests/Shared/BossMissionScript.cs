@@ -17,7 +17,8 @@ namespace Veilward.Tests.Shared
         public BossMissionCast[] casts;
         public static BossMissionScript Load(string start,bool leak=false)
         {
-            var path="Docs/review/P2.4e/revision-2/"+start+(leak?"-leak":"")+".commands.json";
+            var path="Docs/review/P2.4e/revision-3/"+start+(leak?"-leak":"")+".commands.json";
+            if(!File.Exists(path))path="Docs/review/P2.4e/revision-2/"+start+(leak?"-leak":"")+".commands.json";
             if(!File.Exists(path))return Original(start,leak);
             var script=JsonUtility.FromJson<BossMissionScript>(File.ReadAllText(path));
             if(script.threshold<=0)script.threshold=200;

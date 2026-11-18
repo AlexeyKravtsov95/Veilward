@@ -29,7 +29,7 @@ namespace Veilward.Tests.EditMode
             var s=BossNaturalSmokeTests.Run("flame",false,out _,8,true);foreach(var tower in s.State.Towers.ToArray())s.SellTower(tower.Id);Set(battle,"_simulation",s);battle.ResetPresentation();bossHud.Refresh();
             Assert.That(bossHud.Notice,Does.Contain("11 Shade"));Assert.That(bossHud.Notice,Does.Contain("330"));Assert.That(bossHud.Notice,Does.Contain("1000"));Assert.That(bossHud.Notice,Does.Contain("20 урона"));Assert.That(bossHud.HealthVisible,Is.False);
             s.StartWave();for(var i=0;i<329;i++)s.Step();bossHud.Refresh();Assert.That(bossHud.HealthVisible,Is.False);
-            s.Step();bossHud.Refresh();Assert.That(bossHud.Health,Does.Contain("1000/1000"));Assert.That(bossHud.Health,Does.Contain("Armor 10"));
+            s.Step();bossHud.Refresh();Assert.That(bossHud.Health,Does.Contain("1000/1000"));Assert.That(bossHud.Health,Does.Contain("Armor 5"));
             var boss=s.State.Enemies.Single(e=>e.Definition.Id.Value=="rift-warden");boss.ApplyDamage(110);bossHud.Refresh();
             Assert.That(bossHud.Health,Does.Contain("890/1000"));
             var fill=(UnityEngine.UI.Image)typeof(BossHudController).GetField("healthFill",Flags).GetValue(bossHud);

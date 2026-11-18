@@ -22,18 +22,23 @@ namespace Veilward.Tests.PlayMode
         private BattleSceneController Battle=>Object.FindFirstObjectByType<BattleSceneController>();
         private BossHudController Hud=>Battle.GetComponent<BossHudController>();
         private AbilityController Ability=>Battle.GetComponent<AbilityController>();
-        private string root,output;private bool capture;private int width,height;
+        private string root,output;private bool capture,expectedCompletionFault;private int width,height;
         private readonly List<string> telemetry=new List<string>();private readonly List<string> console=new List<string>();
         private static object Call(object o,string method)=>o.GetType().GetMethod(method,Flags|BindingFlags.Public).Invoke(o,null);
         private static UnityEngine.UI.Button Button(string name)=>Object.FindObjectsByType<UnityEngine.UI.Button>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(b=>b.name==name);
         [SetUp] public void Setup()
         {
-            telemetry.Clear(); console.Clear(); output=null; capture=false;
+            telemetry.Clear(); console.Clear(); output=null; capture=false; expectedCompletionFault=false;
             root=Path.GetFullPath(Path.Combine("TestResults","BossPlay",Guid.NewGuid().ToString("N")));Directory.CreateDirectory(root);
             MainMenuController.CheckpointStoreFactory=()=>new WaveCheckpointStore(root);BattleSessionContext.Clear();
             UnityEngine.Application.logMessageReceived+=Log;
         }
-        private void Log(string message,string stack,LogType type){if(type==LogType.Warning||type==LogType.Error||type==LogType.Exception||type==LogType.Assert)console.Add(type+"|"+message);}
+        private void Log(string message,string stack,LogType type)
+        {
+            if(expectedCompletionFault&&type==LogType.Error&&message.StartsWith("Checkpoint save failed:",StringComparison.Ordinal))
+            {console.Add("ExpectedError|"+message);expectedCompletionFault=false;return;}
+            if(type==LogType.Warning||type==LogType.Error||type==LogType.Exception||type==LogType.Assert)console.Add(type+"|"+message);
+        }
         [UnityTearDown] public IEnumerator Cleanup()
         {
             UnityEngine.Application.logMessageReceived-=Log;
@@ -53,7 +58,7 @@ namespace Veilward.Tests.PlayMode
         private IEnumerator Natural(string start,bool leak,int w,int h)
         {
             capture=Environment.GetEnvironmentVariable("P24E_CAPTURE")=="1";width=w;height=h;
-            output="TestResults/P2.4e/revision-2/play/"+start+(leak?"-leak":"-victory")+"-"+w+"x"+h;
+            output="TestResults/P2.4e/revision-3/play/"+start+(leak?"-leak":"-victory")+"-"+w+"x"+h;
             if(capture)ConfigureGameView(w,h);
             yield return SceneManager.LoadSceneAsync("MainMenu");yield return null;
             Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke();yield return null;yield return null;
@@ -93,6 +98,12 @@ namespace Veilward.Tests.PlayMode
                     Assert.That(Ability.HasInputOwnership,Is.False);Assert.That(Battle.GetComponent<EnemyInspectorController>().SelectedEnemyId,Is.Null);yield return Shot("02-clean-continue8");
                 }
                 Button("Start Wave Button").onClick.Invoke();Assert.That(s.State.Phase,Is.EqualTo(BattlePhase.Combat));
+                if(wave==8&&!leak)
+                {
+                    // Настоящий pre-Start checkpoint уже сохранён. Fault только completion IO, не gameplay.
+                    Directory.CreateDirectory(new WaveCheckpointStore(root).TempPath);expectedCompletionFault=true;
+                    LogAssert.Expect(LogType.Error,new System.Text.RegularExpressions.Regex("Checkpoint save failed:"));
+                }
                 var guard=0;
                 while(s.State.Phase==BattlePhase.Combat&&guard++<20000)
                 {
@@ -131,6 +142,34 @@ namespace Veilward.Tests.PlayMode
             }
             Assert.That(Battle.Simulation.State.Phase,Is.EqualTo(leak?BattlePhase.Defeat:BattlePhase.Victory));
             Assert.That(bossLeaks,Is.EqualTo(leak?1:0));if(!leak){Assert.That(bossKills,Is.EqualTo(1));Assert.That(bossLoss,Is.GreaterThan(0));}
+            if(!leak)
+            {
+                var checkpoint=Battle.GetComponent<BattleCheckpointController>();var s=Battle.Simulation;var store=new WaveCheckpointStore(root);
+                var config=(BattleScenarioConfig)typeof(BattleSceneController).GetField("scenario",Flags).GetValue(Battle);
+                var envelope=new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.AbilityBossContentId,state=s.ExportCheckpoint()};
+                var expected=WaveCheckpointJson.Serialize(envelope);var gold=s.State.Gold;var kills=s.State.Kills;var sequence=s.AbilityState.NextCastSequence;
+                Assert.That(checkpoint.LastSaveSucceeded,Is.False);Assert.That(expectedCompletionFault,Is.False);Assert.That(console.Count(c=>c.StartsWith("ExpectedError|")),Is.EqualTo(1));
+                Assert.That(store.TryLoad(WaveCheckpointCompatibility.AbilityBossContentId,config.CreateSimulationForCheckpoint,out var previous),Is.True);
+                Assert.That(previous.Envelope.state.phase,Is.EqualTo(BattlePhase.Preparation));Assert.That(previous.Envelope.state.waveIndex,Is.EqualTo(7));
+                yield return Shot("09-victory-completion-save-failed");
+                Directory.Delete(store.TempPath);Button("Retry Save Button").onClick.Invoke();
+                Assert.That(checkpoint.LastSaveSucceeded,Is.True);Assert.That(s.State.Gold,Is.EqualTo(gold));Assert.That(s.State.Kills,Is.EqualTo(kills));Assert.That(s.AbilityState.NextCastSequence,Is.EqualTo(sequence));
+                Assert.That(WaveCheckpointJson.Serialize(new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.AbilityBossContentId,state=s.ExportCheckpoint()}),Is.EqualTo(expected));
+                yield return Shot("10-victory-retry-saved");
+                var primary=File.ReadAllBytes(store.PrimaryPath);var backup=File.ReadAllBytes(store.BackupPath);
+                for(var i=0;i<2;i++)
+                {Assert.That(store.TryLoad(WaveCheckpointCompatibility.AbilityBossContentId,config.CreateSimulationForCheckpoint,out var loaded),Is.True);Assert.That(WaveCheckpointJson.Serialize(loaded.Envelope),Is.EqualTo(expected));}
+                Assert.That(File.ReadAllBytes(store.PrimaryPath),Is.EqualTo(primary));Assert.That(File.ReadAllBytes(store.BackupPath),Is.EqualTo(backup));
+                checkpoint.RestoreCheckpoint(envelope);
+                Assert.That(Ability.HasTarget,Is.False);Assert.That(Ability.HasInputOwnership,Is.False);Assert.That(Battle.GetComponent<EnemyInspectorController>().SelectedEnemyId,Is.Null);
+                Assert.That(Battle.GetComponentsInChildren<AbilityEffectView>(true).All(e=>e.RemainingSeconds==0),Is.True);
+                Assert.That(s.DamageEvents,Is.Empty);Assert.That(s.AbilityEvents,Is.Empty);Assert.That(s.ReactionEvents,Is.Empty);Assert.That(s.AttackEvents,Is.Empty);
+                yield return Shot("11-clean-victory-restored");
+                Button("Main Menu Button").onClick.Invoke();yield return null;yield return null;Label();
+                var menu=Object.FindFirstObjectByType<MainMenuController>();Assert.That(menu.ContinueButton.interactable,Is.False);Assert.That(menu.PrepareContinueSession(),Is.False);
+                Assert.That(File.ReadAllBytes(store.PrimaryPath),Is.EqualTo(primary));Assert.That(File.ReadAllBytes(store.BackupPath),Is.EqualTo(backup));
+                yield return MenuShot("12-terminal-continue-off");
+            }
             Assert.That(console.Any(c=>c.StartsWith("Error|")||c.StartsWith("Exception|")||c.StartsWith("Assert|")),Is.False,string.Join("\n",console));
         }
         private void Choose(string option){var choice=Battle.GetComponent<ElementChoiceController>();Assert.That(choice.SelectOption(option),Is.True);Button("Confirm Element Button").onClick.Invoke();}
@@ -153,6 +192,13 @@ namespace Veilward.Tests.PlayMode
             var s=Battle.Simulation;telemetry.Add($"SHOT {name}|frame={Time.frameCount}|wave={s.State.WaveIndex+1}|tick={s.State.Tick}|hp={s.State.BaseHealth}|gold={s.State.Gold}|kills={s.State.Kills}|boss={Hud.Health}|notice={Hud.Notice}");
             if(!capture)yield break;yield return new WaitForEndOfFrame();
             var texture=ScreenCapture.CaptureScreenshotAsTexture();Assert.That(texture.width,Is.EqualTo(width));Assert.That(texture.height,Is.EqualTo(height));Directory.CreateDirectory(output);File.WriteAllBytes(output+"/"+name+".png",texture.EncodeToPNG());Object.Destroy(texture);
+        }
+        private IEnumerator MenuShot(string name)
+        {
+            yield return null;telemetry.Add($"SHOT {name}|frame={Time.frameCount}|MainMenu|Continue=false");
+            if(!capture)yield break;yield return new WaitForEndOfFrame();
+            var texture=ScreenCapture.CaptureScreenshotAsTexture();Assert.That(texture.width,Is.EqualTo(width));Assert.That(texture.height,Is.EqualTo(height));
+            Directory.CreateDirectory(output);File.WriteAllBytes(output+"/"+name+".png",texture.EncodeToPNG());Object.Destroy(texture);
         }
         private static void ConfigureGameView(int w,int h)
         {
