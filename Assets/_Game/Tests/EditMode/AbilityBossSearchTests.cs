@@ -100,9 +100,9 @@ namespace Veilward.Tests.EditMode
                     var boss=s.State.Enemies.FirstOrDefault(e=>e.Definition.Id.Value=="rift-warden");if(boss!=null)bossHp=boss.Health;
                     if(!(hold7&&wave==7)&&script.TryCenter(s,out var center))
                     {
-                        var result=s.CastAbility(BossWaveTests.Cast(s,center));
+                        var relativeTick=s.WaveElapsedTicks;var result=s.CastAbility(BossWaveTests.Cast(s,center));
                         if(!result.Succeeded){counts.illegal++;row="illegal Cast";return null;}
-                        casts.Add(new BossMissionCast{wave=wave,relativeTick=s.WaveElapsedTicks,x=center.X,y=center.Y});Observe();
+                        casts.Add(new BossMissionCast{wave=wave,relativeTick=relativeTick,x=center.X,y=center.Y});Observe();
                     }
                     if(s.State.Phase==BattlePhase.Combat){s.Step();counts.ticks++;Observe();}
                 }

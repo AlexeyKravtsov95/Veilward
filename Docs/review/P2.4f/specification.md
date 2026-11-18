@@ -20,3 +20,5 @@ Baseline и финальные static/EditMode/PlayMode + отдельный gra
 Canonical REG217 — gates/evidence/history/review; REG216 — HP/Gold accounting и rejected exploit probes, выполняемые observer на каждой mutation. Имена suites следуют этим группам.
 
 Поиск завершён20000×2, ни одной Victory. Независимые поздние controls строятся отдельно: пропуск Cast6, Cast7 после Step1, GALE Sell Storm7 (его intrinsic уже был ранее), Steam8. Это расширяет воспроизводимость rollback, не подтверждает Victory и не является продолжением balance-search.
+
+Фиксированный replay лучших seeds выявил ошибку журнала поиска: запись `WaveElapsedTicks` после lethal Cast completion давала0. Исправлено захватом boundary **до** Cast, как в production replay. Gameplay decisions/outcomes40000 попыток от записи не зависели; исходный archive/report сохраняется с этим ограничением. Исправленные fixed-index replays сохраняют полные inputs/trace; дополнительный search не запускается.
