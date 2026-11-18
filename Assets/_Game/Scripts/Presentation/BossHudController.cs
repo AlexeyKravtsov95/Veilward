@@ -67,8 +67,11 @@ namespace Veilward.Presentation
             if (definition == null) return;
             FitLayout();
             EnemyState boss = null;
-            foreach (var enemy in s.State.Enemies)
+            for (var i = 0; i < s.State.Enemies.Count; i++)
+            {
+                var enemy = s.State.Enemies[i];
                 if (enemy.Definition.Id.Value == BossId && enemy.IsAlive) { boss = enemy; break; }
+            }
             if (boss != null) _tracked = boss;
             else if (_tracked != null)
             {
