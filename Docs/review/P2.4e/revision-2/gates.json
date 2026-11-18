@@ -325,7 +325,9 @@
     "screenshots/flame-victory-1600x900/08-defeat.png": "f82ee08b6584dbbcf2df0f7ff3b13ebeafcf890d1ca79c0a57bf9fe327e3965a",
     "screenshots/flame-victory-1600x900/05-boss-ability-hit.png": "22d5051d3b1de0a0de6f16cce2a5b701bff2fd930396d4a0e40e71383bca62c7",
     "screenshots/flame-victory-1600x900/03-waiting-spawn330.png": "eb4ee79218ecd3425843c42e9ad2c31369eaeddca6fa5efc848e24fa8543fafc",
-    "screenshots/flame-victory-1600x900/console.txt": "ad22de9870e22f07a352c820267bc37ba48742d49692b36ddef0c7265cc047de"
+    "screenshots/flame-victory-1600x900/console.txt": "ad22de9870e22f07a352c820267bc37ba48742d49692b36ddef0c7265cc047de",
+    "initial-a46-research.tar.gz": "0b51349fe7618b2505ea6bfc23c4941dc9e2c68cb842610f085492dfa4aa1221",
+    "initial-a46-sha256.json": "3831ba1fdf5af9f81050b2e4d6634a9bb6d2606489a5432caf5fce455c0822a7"
   },
   "acceptance": "BLOCKED",
   "all_suites_pass": false,

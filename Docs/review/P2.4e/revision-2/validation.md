@@ -19,7 +19,7 @@ Native tested source: `fd22bb24a32bcbd365a8b08bd12f02cccc900f95`. Grid и пер
 
 В каждом NUnit report skipped/inconclusive **0/0**. Единственные failures финальных полных suites и graphical — два прежних обязательных natural Victory assertions. Runner/XML validator вернули FAIL, это не зелёные suites. Новый lethal-Cast regression проверяет исходный relative tick до terminal reset и replay; ranking regression сохраняет приоритет Victory при равном bossHP.
 
-Первоначальный R2 optional run на a46a9cc: **6 passed / 2 failed / 8 total**, оба repair FAIL по стандартному timeout180000ms. Методы записали полные budgets207200/218400, но это не PASS. [Raw report](reports/Research-initial-timeout.xml.gz) и initial-a46 candidates сохранены. Timeout увеличен до600000 только для длинного research test; затем timing/repair повторён полностью, без изменения gameplay assertions. Старый [R1 FAIL пакет](../validation.md) сохранён побайтно.
+Первоначальный R2 optional run на a46a9cc: **6 passed / 2 failed / 8 total**, оба repair FAIL по стандартному timeout180000ms. Методы записали полные budgets207200/218400, но это не PASS. [Raw report](reports/Research-initial-timeout.xml.gz) и [initial-a46 candidates](initial-a46-research.tar.gz) с [raw member SHA256](initial-a46-sha256.json) сохранены отдельным архивом. Timeout увеличен до600000 только для длинного research test; затем timing/repair повторён полностью, без изменения gameplay assertions. Старый [R1 FAIL пакет](../validation.md) сохранён побайтно.
 
 ## Конкретные лучшие попытки
 

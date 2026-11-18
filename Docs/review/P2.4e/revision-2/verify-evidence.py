@@ -36,10 +36,11 @@ old=HERE.parent;old_gates=json.loads((old/'gates.json').read_text());old_manifes
 for path,digest in old_gates['artifacts'].items():assert sha((old/path).read_bytes())==digest,path
 for path,digest in old_manifest['files'].items():
  assert sha(subprocess.check_output(['git','show',old_gates['source']+':'+path],cwd=ROOT))==digest,path
-entries=json.loads((HERE/'research-sha256.json').read_text())
-with tarfile.open(HERE/'research.tar.gz') as archive:
- members={m.name:m for m in archive.getmembers() if m.isfile()};assert set(members)==set(entries)
- for path,digest in entries.items():assert sha(archive.extractfile(members[path]).read())==digest,path
+for packed,manifest_name in [('research.tar.gz','research-sha256.json'),('initial-a46-research.tar.gz','initial-a46-sha256.json')]:
+ entries=json.loads((HERE/manifest_name).read_text())
+ with tarfile.open(HERE/packed) as archive:
+  members={m.name:m for m in archive.getmembers() if m.isfile()};assert set(members)==set(entries)
+  for path,digest in entries.items():assert sha(archive.extractfile(members[path]).read())==digest,path
 for path,meta in gates['images'].items():
  b=(HERE/path).read_bytes();assert b[:8]==b'\x89PNG\r\n\x1a\n';assert struct.unpack('>II',b[16:24])==(meta['width'],meta['height']);assert sha(b)==meta['sha256']
 assert gates['environment']['screenshots']==len(gates['images']) and len(gates['images'])>0
