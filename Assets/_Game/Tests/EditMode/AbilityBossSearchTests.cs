@@ -141,5 +141,18 @@ namespace Veilward.Tests.EditMode
             File.WriteAllText(output+"/limits.txt",$"budget={budget};wallCapSeconds=600;attempts={counts.attempts};ticks={counts.ticks};illegal={counts.illegal};duplicate={counts.duplicate};defeated={counts.defeated};victories={counts.victories};eligible={counts.eligible};bestBossHP={bestHp};elapsedSeconds={timer.Elapsed.TotalSeconds};no shared/DTO/live edits; dedup measurement only, no pruning; geometry16, offset5, starter1/2, second2/3, starterUpgrade3, threshold100/200/300, delay0/60/120/180/240, early8,hold7,sellExtra7,rebuild4,finalFlavor5; full={full}\n");
             Assert.That(counts.attempts,Is.GreaterThan(0));
         }
+
+        [TestCase("flame",12450,392)] [TestCase("gale",24,440)]
+        public void RegBattle214_ReplayBestFullyCoveredKnownSearchSeeds(string start,int index,int expectedBossHp)
+        {
+            // Повтор уже оценённых индексов, без расширения конечного search budget.
+            var counts=new Counts();var script=Candidate(start,index,counts,out var row);
+            Assert.That(script,Is.Not.Null);var run=new AbilityBossTrace.Run(BossWaveTests.Config().CreateSimulation(),script);run.Play();
+            var path=AbilityBossTrace.Output+"/search/known-seeds/"+start;Directory.CreateDirectory(Path.GetDirectoryName(path));
+            File.WriteAllText(path+".commands.json",JsonUtility.ToJson(script,true));File.WriteAllText(path+".candidate.txt",row+"\nfixed replay of original search index; not a new search attempt\n");
+            AbilityBossTrace.Write(path,run);
+            Assert.That(run.report.bossHpBeforeLeak,Is.EqualTo(expectedBossHp));Assert.That(run.report.cells.All(c=>c.applied>0),Is.True);
+            Assert.That(run.report.outcome,Is.EqualTo("Defeat"),"Known losing control, never REG214 acceptance");
+        }
     }
 }

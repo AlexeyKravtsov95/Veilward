@@ -104,6 +104,11 @@ namespace Veilward.Tests.EditMode
                     controller.RestoreCheckpoint(LoadReadOnly());Clean(s);Assert.That(AbilityBossTrace.Wire(s),Is.EqualTo(expected));
                     var fresh=BossWaveTests.Config().CreateSimulationForCheckpoint(snapshot);fresh.RestoreCheckpoint(snapshot.state.DeepCopy());Clean(fresh);Assert.That(AbilityBossTrace.Wire(fresh),Is.EqualTo(expected));
                     attempts.Add(string.Join("\n",prefix));
+                    if(attempt==0)
+                    {
+                        // Второй prefix и весь остаток матча идут уже из fresh file-restored instance.
+                        r.sim=fresh;controller.Configure(store,r.sim,WaveCheckpointCompatibility.AbilityBossContentId,BossWaveTests.Config().CreateSimulationForCheckpoint);
+                    }
                 }
                 Assert.That(attempts[1],Is.EqualTo(attempts[0]));
                 File.WriteAllLines(AbilityBossTrace.Output+"/files/"+start+".combat"+wave+".prefixes.txt",attempts);
