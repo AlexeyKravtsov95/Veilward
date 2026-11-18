@@ -29,6 +29,7 @@ namespace Veilward.Tests.PlayMode
         private static UnityEngine.UI.Button Button(string name)=>Object.FindObjectsByType<UnityEngine.UI.Button>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(b=>b.name==name);
         [SetUp] public void Setup()
         {
+            telemetry.Clear(); console.Clear(); output=null; capture=false;
             root=Path.GetFullPath(Path.Combine("TestResults","BossPlay",Guid.NewGuid().ToString("N")));Directory.CreateDirectory(root);
             MainMenuController.CheckpointStoreFactory=()=>new WaveCheckpointStore(root);BattleSessionContext.Clear();
             UnityEngine.Application.logMessageReceived+=Log;
