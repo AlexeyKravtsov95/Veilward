@@ -17,7 +17,7 @@ namespace Veilward.Tests.EditMode
         [Serializable] public sealed class ReactionCount { public string kind,trigger; public int positiveProcs,appliedHpLoss; }
         [Serializable] public sealed class Result { public int bossMaxHealth,bossArmor,bossDirectHpLoss,bossBurnHpLoss,bossReactionHpLoss; public long bossKillTick=-1; public List<ReactionCount> reactions=new List<ReactionCount>(); public List<BossMissionCast> casts=new List<BossMissionCast>(); public string start,phase; public int bossSpawns,bossKills,bossLeaks,bossHealthBeforeLeak,abilityHpLoss,bossAbilityHpLoss; public List<Receipt> receipts=new List<Receipt>(); public List<WaveCheckpointEnvelope> waves=new List<WaveCheckpointEnvelope>(); }
         internal static readonly GridCoordinate[] StoneCells = {new GridCoordinate(-1,0),new GridCoordinate(1,0),new GridCoordinate(-1,1),new GridCoordinate(1,1),new GridCoordinate(0,-1),new GridCoordinate(0,1)};
-        internal static BattleSimulation Run(string start,bool leak,out Result report,int stopAtPreparation=0,bool original=false,Func<BattleSimulation> factory=null,BossMissionScript missionOverride=null)
+        internal static BattleSimulation Run(string start,bool leak,out Result report,int stopAtPreparation=0,bool original=false,Func<BattleSimulation> factory=null,BossMissionScript missionOverride=null,Action<BattleSimulation,Result> preparation=null)
         {
             var mission=missionOverride??(original?BossMissionScript.Original(start,leak):BossMissionScript.Load(start,leak));
             var s=factory==null?BossWaveTests.Config().CreateSimulation():factory();var definition=s.Waves[7].Schedule.Last().Enemy;report=new Result{start=start,bossMaxHealth=definition.MaxHealth,bossArmor=definition.Armor};
@@ -27,7 +27,7 @@ namespace Veilward.Tests.EditMode
             while(s.State.Phase==BattlePhase.Preparation)
             {
                 var wave=s.State.WaveIndex+1;
-                Prepare(s,start,report,mission);
+                if(preparation==null)Prepare(s,start,report,mission);else preparation(s,report);
                 if(stopAtPreparation==wave)return s;
 
                 Record(report,s,"Start",s.StartWave().ToString());
