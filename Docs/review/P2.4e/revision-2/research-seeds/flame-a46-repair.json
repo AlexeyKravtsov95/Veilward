@@ -1,0 +1,67 @@
+{
+  "start": "flame",
+  "after3": "tide",
+  "after6": "stone",
+  "origin": "public-command script from a46a9cc repair, re-evaluate on final factory",
+  "phase": "InputOnly",
+  "script": {
+    "start": "flame",
+    "after3": "tide",
+    "after6": "stone",
+    "commands": [
+      {
+        "wave": 1,
+        "x": -2,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      },
+      {
+        "wave": 1,
+        "x": -1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "flame"
+      },
+      {
+        "wave": 7,
+        "x": 1,
+        "y": 0,
+        "id": 0,
+        "op": "place",
+        "type": "tide"
+      },
+      {
+        "wave": 7,
+        "x": -2,
+        "y": -1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 7,
+        "x": 2,
+        "y": 1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      },
+      {
+        "wave": 8,
+        "x": -1,
+        "y": -1,
+        "id": 0,
+        "op": "place",
+        "type": "stone"
+      }
+    ],
+    "threshold": 300,
+    "bossDelay": 0,
+    "earlyWave8": true,
+    "holdWave7": false,
+    "casts": null
+  }
+}

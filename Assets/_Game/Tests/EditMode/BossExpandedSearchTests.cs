@@ -19,7 +19,7 @@ namespace Veilward.Tests.EditMode
             public string preparationEight,armyProfile,rejectedCommand;
             public BossMissionScript script;
         }
-        private static readonly string[] Elements={"flame","tide","gale","stone"};
+        private static bool SeedPass=>Environment.GetEnvironmentVariable("P24E2_SEEDS_ONLY")=="1";
         private static bool Apply(BattleSimulation s,BossMissionCommand c)
         {
             if(c.op=="place")return s.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId(c.type),new GridCoordinate(c.x,c.y))).Success;
@@ -154,7 +154,7 @@ namespace Veilward.Tests.EditMode
         public void RegBattle213_IndependentCastPoliciesOnReachedSeeds(string start)
         {
             var full=Environment.GetEnvironmentVariable("P24E2_TIMING")=="1";
-            var output=Output+(full?"/timing":"/timing-smoke");Directory.CreateDirectory(output);var rows=new List<string>();var wins=0;var count=0;var best=new Dictionary<string,Measured>();
+            var output=Output+(full?(SeedPass?"/seed-timing":"/timing"):"/timing-smoke");Directory.CreateDirectory(output);var rows=new List<string>();var wins=0;var count=0;var best=new Dictionary<string,Measured>();
             var paths=full?ReachedProfiles(start).ToList():new List<string>();
             var inputs=new List<string>();
             foreach(var path in paths)
@@ -181,6 +181,11 @@ namespace Veilward.Tests.EditMode
         // Каждый ordered history получает собственные upgraded/diverse roots, без глобального Take.
         private static IEnumerable<string> ReachedProfiles(string start)
         {
+            if(SeedPass)
+            {
+                foreach(var path in Directory.GetFiles("Docs/review/P2.4e/revision-2/research-seeds",start+"-*.json"))yield return path;
+                yield break;
+            }
             foreach(var path in Directory.GetFiles(Output+"/full",start+"-*.best.json"))yield return path;
             var profiles=Directory.GetFiles(Output+"/full",start+"-profile-*.json")
                 .Select(path=>(path,m:JsonUtility.FromJson<Measured>(File.ReadAllText(path))));
@@ -188,7 +193,7 @@ namespace Veilward.Tests.EditMode
             {
                 var ranked=history.OrderBy(p=>p.m.bossHp).ToArray();
                 var upgraded=ranked.Where(p=>Upgraded(p.m)).Take(1);
-                var diverse=ranked.GroupBy(p=>p.m.armyProfile).Select(g=>g.First()).Take(1);
+                var diverse=ranked.Where(p=>p.m.armyProfile!=ranked[0].m.armyProfile).Take(1);
                 foreach(var p in upgraded.Concat(diverse).Distinct())yield return p.path;
             }
         }
@@ -251,11 +256,12 @@ namespace Veilward.Tests.EditMode
         }
         private static string Profile(RepairNode n)=>string.Join(";",n.prep.towers.GroupBy(t=>t.towerTypeId+":"+t.level).OrderBy(g=>g.Key).Select(g=>g.Key+"x"+g.Count()));
         [TestCase("flame")] [TestCase("gale")]
+        [Timeout(600000)]
         public void RegBattle213_PublicCheckpointPreparationEightRepair(string start)
         {
-            var full=Environment.GetEnvironmentVariable("P24E2_REPAIR")=="1";var output=Output+(full?"/repair":"/repair-smoke");Directory.CreateDirectory(output);
+            var full=Environment.GetEnvironmentVariable("P24E2_REPAIR")=="1";var output=Output+(full?(SeedPass?"/seed-repair":"/repair"):"/repair-smoke");Directory.CreateDirectory(output);
             var paths=full?ReachedProfiles(start).ToArray():Array.Empty<string>();
-            var rows=new List<string>();var wins=0;var eligibleWins=0;var total=0;var best=new Dictionary<string,Measured>();
+            var rows=new List<string>();var prefixFailures=new List<string>();var attempted=0;var reachedCount=0;var wins=0;var eligibleWins=0;var total=0;var best=new Dictionary<string,Measured>();
             if(!full)
             {
                 var result=ReplaySeed("Docs/review/P2.3e.1/"+(start=="flame"?"A":"B")+"-survival.commands.json",200,0);
@@ -271,7 +277,9 @@ namespace Veilward.Tests.EditMode
             foreach(var hold in new[]{false,true})foreach(var early in new[]{false,true})
             {
                 var path=entry.Item1;var policy=entry.Item2;policy.casts=null;policy.holdWave7=hold;policy.earlyWave8=early;
-                var prefixCasts=new List<BossMissionCast>();var reached=ReachEight(policy,prefixCasts);if(reached==null)continue;
+                attempted++;var prefixCasts=new List<BossMissionCast>();var reached=ReachEight(policy,prefixCasts);
+                if(reached==null){prefixFailures.Add(path+"/hold7"+hold+"/early8"+early+"|Preparation8 not reached: rejected suffix or earlier terminal");continue;}
+                reachedCount++;
                 var root=new RepairNode{prep=reached.ExportCheckpoint(),commands=policy.commands.ToList()};var beam=new List<RepairNode>{root};var evaluated=0;
                 var seen=new HashSet<string>();
                 for(var depth=0;depth<4;depth++)
@@ -318,7 +326,8 @@ namespace Veilward.Tests.EditMode
             }
             File.WriteAllLines(output+"/"+start+".candidates.txt",rows);
             foreach(var kv in best)File.WriteAllText(output+"/"+start+"-"+kv.Key+".best.json",JsonUtility.ToJson(kv.Value,true));
-            File.WriteAllText(output+"/"+start+".limits.txt",$"simulations={total}; roots={roots.Count}; depth4; budget2800 per reached history/hold7/early8; beam20 incl8 best+level/type profiles; full-wire dedup; all public safe checkpoints; victories={wins}; eligibleVictories={eligibleWins}\n");
+            File.WriteAllLines(output+"/"+start+".prefix-failures.txt",prefixFailures);
+            File.WriteAllText(output+"/"+start+".limits.txt",$"simulations={total}; inputRoots={roots.Count}; attemptedVariants={attempted}; reachedVariants={reachedCount}; skippedVariants={prefixFailures.Count}; depth4; budget2800 per reached history/hold7/early8; beam20 incl8 best+level/type profiles; full-wire dedup; all public safe checkpoints; victories={wins}; eligibleVictories={eligibleWins}\n");
             Assert.That(total,Is.GreaterThan(0));
         }
         private static bool Better(Measured a,Measured b)
