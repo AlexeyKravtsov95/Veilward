@@ -21,7 +21,7 @@ namespace Veilward.Tests.EditMode
             for(var d=0f;d<s.Path.TotalLength;d+=.125f){var q=s.Path.GetPosition(d);var x=p.X-q.X;var y=p.Y-q.Y;if(x*x+y*y<=range*range)score+=.125;}
             Geometry[key]=score;return score;
         }
-        private static BossNaturalSmokeTests.Result Plan(int hp,int armor,string start,int index,out BossMissionScript script)
+        private static BossNaturalSmokeTests.Result Plan(int hp,int armor,string start,int index,out BossMissionScript script,int rebuild=0)
         {
             // Детерминированная перестановка ограниченного пространства; никакого изменения экономики.
             var n=(index*7919)%207360;var layout=n%12;n/=12;var two=n%2==1;n/=2;var order=n%2;n/=2;
@@ -74,6 +74,18 @@ namespace Veilward.Tests.EditMode
                         while(s.State.Gold-price>=reserve)if(!place(Required[flavor]))break;
                     }
                 }
+                if(wave==8&&rebuild>0&&BossCandidateMatrixTests.Coverage(r))
+                {
+                    // Coverage уже реально получен в1–7. Продажа/покупка разрешены только в Preparation8.
+                    var selling=s.State.Towers.Where(t=>t.Definition.Id.Value=="storm"||(rebuild!=2&&t.Definition.Id.Value=="flame")).ToArray();
+                    foreach(var t in selling)act(new BossMissionCommand{op="sell",type=t.Definition.Id.Value,id=t.Id.Value});
+                    if(rebuild==3)
+                    {
+                        var t=s.State.Towers.FirstOrDefault(t=>t.Definition.Id.Value=="steam"&&t.Level<3&&s.State.Gold>=s.TowerCatalog.Get(t.Definition.Id).Levels[t.Level].Price);
+                        if(t!=null)act(new BossMissionCommand{op="upgrade",type="steam",id=t.Id.Value});
+                    }
+                    while(place("steam")){}
+                }
                 if(wave==3&&upgrade==3)
                 {
                     var t=s.State.Towers[0];var next=s.TowerCatalog.Get(t.Definition.Id).Levels[t.Level];
@@ -92,11 +104,12 @@ namespace Veilward.Tests.EditMode
         public void RegBattle213_R3CoverageBalancedLayouts(int hp,int armor,string start)
         {
             var full=Environment.GetEnvironmentVariable("P24E3_SEARCH")=="1";var budget=full?3000:2;
-            var output=Output+(full?"/full":"/smoke")+"/"+hp+"-"+armor+"/"+start;Directory.CreateDirectory(output);
+            var rebuildPass=Environment.GetEnvironmentVariable("P24E3_REBUILD")=="1";
+            var output=(rebuildPass?BossCandidateMatrixTests.Output+"/coverage-rebuild":Output)+(full?"/full":"/smoke")+"/"+hp+"-"+armor+"/"+start;Directory.CreateDirectory(output);
             var rows=new List<string>();BossNaturalSmokeTests.Result best=null;BossMissionScript bestScript=null;var wins=0;
             for(var i=0;i<budget;i++)
             {
-                var r=Plan(hp,armor,start,i,out var script);var mask=r.reactions.Count(c=>c.appliedHpLoss>0);var end=r.receipts.Last();
+                var r=Plan(hp,armor,start,i,out var script,rebuildPass?1+i%3:0);var mask=r.reactions.Count(c=>c.appliedHpLoss>0);var end=r.receipts.Last();
                 rows.Add(i+"|"+r.phase+"|spawns="+r.bossSpawns+"|bossHP="+(r.bossSpawns==0?hp:r.bossHealthBeforeLeak)+"|kill="+r.bossKills+"|ability="+r.bossAbilityHpLoss+"|coverage="+mask+"|hp="+end.hp+"|gold="+end.gold+"|kills="+end.kills);
                 var eligible=r.phase=="Victory"&&r.bossKills==1&&r.bossAbilityHpLoss>0&&BossCandidateMatrixTests.Coverage(r);
                 if(eligible){wins++;BossCandidateMatrixTests.Write(output+"/winner-"+i,script,r);}
@@ -106,7 +119,7 @@ namespace Veilward.Tests.EditMode
                 if(i%500==0)File.WriteAllLines(output+"/candidates.txt",rows);
             }
             BossCandidateMatrixTests.Write(output+"/best",bestScript,best);File.WriteAllLines(output+"/candidates.txt",rows);
-            File.WriteAllText(output+"/limits.txt",$"attempts={budget}; eligibleWins={wins}; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; no dedup/pruning; all eligible Victory saved before ranking; full={full}\n");
+            File.WriteAllText(output+"/limits.txt",$"attempts={budget}; eligibleWins={wins}; space207360; stride7919; layout12; starter1/2; orderedChoices2; thresholds100/200/300; delays0/60/120/240; hold7/early8; upgrade0/3/7; flavor5; sellExtra; cellOffset3; rebuildPass={rebuildPass}; modes sellStormFlame+Steam/sellStorm+Steam/sellStormFlame+UpgradeSteamThenPlace; only if4coverage before8; no dedup/pruning; all eligible Victory saved before ranking; full={full}\n");
             Assert.That(rows.Count,Is.EqualTo(budget));
         }
     }
