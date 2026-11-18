@@ -1,0 +1,64 @@
+{
+    "route": "flame",
+    "start": "flame",
+    "after3": "stone",
+    "after6": "tide",
+    "commands": [
+        {
+            "wave": 1,
+            "x": -1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "flame"
+        },
+        {
+            "wave": 4,
+            "x": 1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "stone"
+        },
+        {
+            "wave": 5,
+            "x": 1,
+            "y": 1,
+            "id": 0,
+            "op": "place",
+            "type": "stone"
+        },
+        {
+            "wave": 6,
+            "x": -1,
+            "y": -1,
+            "id": 0,
+            "op": "place",
+            "type": "stone"
+        },
+        {
+            "wave": 8,
+            "x": 0,
+            "y": 0,
+            "id": 1,
+            "op": "sell",
+            "type": "flame"
+        },
+        {
+            "wave": 8,
+            "x": 1,
+            "y": -1,
+            "id": 0,
+            "op": "place",
+            "type": "stone"
+        },
+        {
+            "wave": 8,
+            "x": -1,
+            "y": 1,
+            "id": 0,
+            "op": "place",
+            "type": "stone"
+        }
+    ]
+}

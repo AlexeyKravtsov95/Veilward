@@ -55,7 +55,7 @@
 | P2.2f | Детерминированные матчи/rollback и измерения, независимое review/merge | DONE: PR #23 / a506bed |
 | Эталон арта | Фрагмент карты, одна башня, один враг и эффект в едином направлении; Blender `.blend` → FBX → Unity по [ART_PIPELINE](ART_PIPELINE.md) | ART.1 merged PR #24; ART.1.1 технически merged #25; утверждение владельца и iPhone check открыты |
 | P2.3 | Настоящее открытие стихий/требования гибридов в Domain и UI | P2.3b/c merged #27/#28; P2.3d merged #30. P2.3e historical Defeat5 сохранён; P2.3e.1: оба старта natural Victory8, оба Steam/Storm pair+intrinsic positive, after6/file/Combat7/menu/visual PASS; [новое evidence](review/P2.3e.1/validation.md). Технический scope DONE после merge #32 / 8128010; G2/device отдельно |
-| P2.4 | Базовая способность и босс, проверяемая интеграция восьми волн | #35 спецификация SPECIFIED; runtime #36–40 не выполнен |
+| P2.4 | Базовая способность и босс, проверяемая интеграция восьми волн | #35–38 merged; #39 частично, natural Victory BLOCKED; #40 не выполнен |
 | Оформление первого среза | Одна оформленная карта, все шесть башен, враги/босс и согласованные UI/VFX/звук | Не выполнено |
 | P2.5 | Обучение, объяснения, внешние плейтесты и согласование баланса; G2 остаётся gate | Не выполнен |
 | Device QA | Физический iPhone: touch/safe area, background/force quit/Continue, allocations/frame time/memory/thermal | Не выполнен |
