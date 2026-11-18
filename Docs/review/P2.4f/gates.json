@@ -1,0 +1,57 @@
+{
+  "base": "a9a9ae4fd02e86a1d1f59ee689d4a941976e146e",
+  "source": "7584e22a33adae3536b988664aeb399e3ec33044",
+  "date": "2026-11-19",
+  "environment": {
+    "os": "macOS-27.0.1-arm64-arm-64bit",
+    "arch": "arm64",
+    "unity": "6000.3.28f1 (8f082d2fe476)",
+    "unity_cli": "1.0.1 (self-update --check: latest)",
+    "target": "iOS Editor; no player/device/export",
+    "simulation_hz": 30,
+    "clock": "public-command test clock; Battle.Update disabled; advancing rendered frames"
+  },
+  "commands": [
+    "./Scripts/run-static-checks.sh",
+    "./Scripts/run-edit-mode-tests.sh batch",
+    "./Scripts/run-play-mode-tests.sh batch",
+    "/Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -batchmode -nographics -projectPath /Users/alexeykravtsov/Desktop/workspace/Veilward-p24f -buildTarget iOS -runTests -testPlatform EditMode -testFilter AbilityBossReplayTests -testResults /tmp/p24f-red.xml -logFile /tmp/p24f-red.log",
+    "P24F_SEARCH=1 /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -batchmode -nographics -projectPath /Users/alexeykravtsov/Desktop/workspace/Veilward-p24f -buildTarget iOS -runTests -testPlatform EditMode -testFilter AbilityBossSearchTests -testResults /tmp/p24f-search.xml -logFile /tmp/p24f-search.log",
+    "P24F_CAPTURE=1 P24E_CAPTURE=1 /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/MacOS/Unity -projectPath /Users/alexeykravtsov/Desktop/workspace/Veilward-p24f -buildTarget iOS -runTests -testPlatform PlayMode -testFilter \"AbilityBossIntegrationPlayModeTests;RegBattle213_Visual\" -testResults /Users/alexeykravtsov/Desktop/workspace/Veilward-p24f/TestResults/Visual.xml -logFile /Users/alexeykravtsov/Desktop/workspace/Veilward-p24f/TestResults/P24f-visual.log",
+    "git diff --check",
+    "python3 Docs/review/P2.4f/verify-evidence.py"
+  ],
+  "static": {
+    "total": 38,
+    "passed": 38
+  },
+  "EditMode": {
+    "total": 1071,
+    "passed": 1069,
+    "failed": 2,
+    "inconclusive": 0,
+    "skipped": 0,
+    "result": "FAIL: mandatory REG214 Victory FLAME/GALE"
+  },
+  "PlayMode": {
+    "total": 60,
+    "passed": 60,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0
+  },
+  "Visual": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0
+  },
+  "screenshots": 108,
+  "console": {
+    "unexpected_errors": 0,
+    "expected_errors": 10,
+    "warnings": 64
+  },
+  "acceptance": "BLOCKED REG214; draft/Refs #40"
+}

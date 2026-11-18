@@ -1,0 +1,798 @@
+{
+  "console-audit.json": {
+    "sha256": "fd12cbed9e4535170fda1f70d27207f85ebe21ead13cc4a06f965d28af00df3c",
+    "bytes": 28826
+  },
+  "controls/flame.leak.json": {
+    "sha256": "9e4bc9eb75d3779cd11e54ec929f2c78e4b7c33d0c50b4b4b1b28ca6011e3447",
+    "bytes": 53532
+  },
+  "controls/flame.leak.trace.gz": {
+    "sha256": "673a2b098fd1a4c24b96337a512f9c40d0a6ae9fb07b2fd4634a74d59e068cbd",
+    "bytes": 120890
+  },
+  "controls/flame.stone-victory.json": {
+    "sha256": "0a4a7d1bb534ae1be513b8a49d717a42abc287f1f3d0733d74690e34ee9a32ce",
+    "bytes": 52792
+  },
+  "controls/flame.stone-victory.trace.gz": {
+    "sha256": "38ef0bde85ab4f0d32789358d2ec78666533098bec24d9ea48a686187dde90d2",
+    "bytes": 112219
+  },
+  "controls/gale.stone-victory.json": {
+    "sha256": "6fdaa08d7b24b9b319e2f38593cf2a57b6b5f583b744d764892a875d9eb5525c",
+    "bytes": 53000
+  },
+  "controls/gale.stone-victory.trace.gz": {
+    "sha256": "15cb4dbdfa751be25e7a3b20fb9a5309278c933b7838db38fb3bba84952e8897",
+    "bytes": 102040
+  },
+  "double/flame.first.json": {
+    "sha256": "47557811aa4a66e2fa825c93849203d8a271aca85c2f23b3d760ddfebe0f65a7",
+    "bytes": 52789
+  },
+  "double/flame.first.trace.gz": {
+    "sha256": "1a4d3bce3929483dbf1b74a00cd6826a69b0118f2b1470eee252107e682ee548",
+    "bytes": 132286
+  },
+  "double/flame.second.json": {
+    "sha256": "47557811aa4a66e2fa825c93849203d8a271aca85c2f23b3d760ddfebe0f65a7",
+    "bytes": 52789
+  },
+  "double/flame.second.trace.gz": {
+    "sha256": "1a4d3bce3929483dbf1b74a00cd6826a69b0118f2b1470eee252107e682ee548",
+    "bytes": 132286
+  },
+  "double/gale.first.json": {
+    "sha256": "c5cde71eafc394f1cd270712afcb943c274abc04ff946eed9edab277cebb807c",
+    "bytes": 52139
+  },
+  "double/gale.first.trace.gz": {
+    "sha256": "f7146328e0b670556d6d3fc9bf9686b58942ba8bae155f5b7410240f51a4bb47",
+    "bytes": 128523
+  },
+  "double/gale.second.json": {
+    "sha256": "c5cde71eafc394f1cd270712afcb943c274abc04ff946eed9edab277cebb807c",
+    "bytes": 52139
+  },
+  "double/gale.second.trace.gz": {
+    "sha256": "f7146328e0b670556d6d3fc9bf9686b58942ba8bae155f5b7410240f51a4bb47",
+    "bytes": 128523
+  },
+  "files/flame.combat7.prefixes.txt.gz": {
+    "sha256": "2e35a5e4c88419a47bb17f9b5824fd665d6afe34901a324357e3a809dcf848e2",
+    "bytes": 3326
+  },
+  "files/flame.combat8.prefixes.txt.gz": {
+    "sha256": "46e76c8cdaa0b4de41ed773072837a077b30107e6dca12a4e7152526534b04c1",
+    "bytes": 14121
+  },
+  "files/flame.continued.json": {
+    "sha256": "47557811aa4a66e2fa825c93849203d8a271aca85c2f23b3d760ddfebe0f65a7",
+    "bytes": 52789
+  },
+  "files/flame.continued.trace.gz": {
+    "sha256": "1a4d3bce3929483dbf1b74a00cd6826a69b0118f2b1470eee252107e682ee548",
+    "bytes": 132286
+  },
+  "files/flame.faults.txt": {
+    "sha256": "be4b2bedabfa14a075cc447d136393c90df9243deb9b5fa352c901576365d496",
+    "bytes": 21513
+  },
+  "files/flame.matrix.txt": {
+    "sha256": "550b8f9291ccc2d60b26cbd2391f995d297620044ccbc450ca76399752638680",
+    "bytes": 23440
+  },
+  "files/flame.rollback7.json": {
+    "sha256": "47557811aa4a66e2fa825c93849203d8a271aca85c2f23b3d760ddfebe0f65a7",
+    "bytes": 52789
+  },
+  "files/flame.rollback7.trace.gz": {
+    "sha256": "1a4d3bce3929483dbf1b74a00cd6826a69b0118f2b1470eee252107e682ee548",
+    "bytes": 132286
+  },
+  "files/flame.rollback8.json": {
+    "sha256": "47557811aa4a66e2fa825c93849203d8a271aca85c2f23b3d760ddfebe0f65a7",
+    "bytes": 52789
+  },
+  "files/flame.rollback8.trace.gz": {
+    "sha256": "1a4d3bce3929483dbf1b74a00cd6826a69b0118f2b1470eee252107e682ee548",
+    "bytes": 132286
+  },
+  "files/flame.synthetic-slots.txt": {
+    "sha256": "16b671ff6db3b5623ce4d8cd35abf6ad413c9df886ba9204a7c022137240ab8d",
+    "bytes": 540
+  },
+  "files/gale.combat7.prefixes.txt.gz": {
+    "sha256": "4092cc990d00c6f46d3bc8027c44a6a9994f159f646105e9b158936e97cc557f",
+    "bytes": 5763
+  },
+  "files/gale.combat8.prefixes.txt.gz": {
+    "sha256": "57d2370d18c9e3fc28d91c108d57916ee15aa47a24e2031051a7fadf5036a413",
+    "bytes": 7910
+  },
+  "files/gale.continued.json": {
+    "sha256": "c5cde71eafc394f1cd270712afcb943c274abc04ff946eed9edab277cebb807c",
+    "bytes": 52139
+  },
+  "files/gale.continued.trace.gz": {
+    "sha256": "f7146328e0b670556d6d3fc9bf9686b58942ba8bae155f5b7410240f51a4bb47",
+    "bytes": 128523
+  },
+  "files/gale.faults.txt": {
+    "sha256": "25a14d6621c2638fadb4aea685013a73756590064139dd270b2b53709a1e816b",
+    "bytes": 19309
+  },
+  "files/gale.matrix.txt": {
+    "sha256": "8b5e6e17701cdd5811c079741fa5bdb779f87ad1e9f9c9120bfd3e646a99fa9e",
+    "bytes": 21686
+  },
+  "files/gale.rollback7.json": {
+    "sha256": "c5cde71eafc394f1cd270712afcb943c274abc04ff946eed9edab277cebb807c",
+    "bytes": 52139
+  },
+  "files/gale.rollback7.trace.gz": {
+    "sha256": "f7146328e0b670556d6d3fc9bf9686b58942ba8bae155f5b7410240f51a4bb47",
+    "bytes": 128523
+  },
+  "files/gale.rollback8.json": {
+    "sha256": "c5cde71eafc394f1cd270712afcb943c274abc04ff946eed9edab277cebb807c",
+    "bytes": 52139
+  },
+  "files/gale.rollback8.trace.gz": {
+    "sha256": "f7146328e0b670556d6d3fc9bf9686b58942ba8bae155f5b7410240f51a4bb47",
+    "bytes": 128523
+  },
+  "files/gale.synthetic-slots.txt": {
+    "sha256": "16b671ff6db3b5623ce4d8cd35abf6ad413c9df886ba9204a7c022137240ab8d",
+    "bytes": 540
+  },
+  "flame.commands.json": {
+    "sha256": "9a94d5fe2f7e7878e8ea49081a51185105a1476afaa3cf58a237fd02863ae053",
+    "bytes": 1604
+  },
+  "gale.commands.json": {
+    "sha256": "5b9f22d8ec8f7fc80ab8b33faae46845df46e5d20a1fa1b59e3a3b35224b4616",
+    "bytes": 1736
+  },
+  "gates.json": {
+    "sha256": "ffe033b0c97124a8651cfd47424589e03548623535f63acb15e98d959024cecf",
+    "bytes": 2465
+  },
+  "historical-audit.json": {
+    "sha256": "6e903755d24ce453633c7717274949fef662a5bba4febc6042a7071b716d98bf",
+    "bytes": 117156
+  },
+  "natural/flame.json": {
+    "sha256": "47557811aa4a66e2fa825c93849203d8a271aca85c2f23b3d760ddfebe0f65a7",
+    "bytes": 52789
+  },
+  "natural/flame.trace.gz": {
+    "sha256": "1a4d3bce3929483dbf1b74a00cd6826a69b0118f2b1470eee252107e682ee548",
+    "bytes": 132286
+  },
+  "natural/gale.json": {
+    "sha256": "c5cde71eafc394f1cd270712afcb943c274abc04ff946eed9edab277cebb807c",
+    "bytes": 52139
+  },
+  "natural/gale.trace.gz": {
+    "sha256": "f7146328e0b670556d6d3fc9bf9686b58942ba8bae155f5b7410240f51a4bb47",
+    "bytes": 128523
+  },
+  "red/flame.json": {
+    "sha256": "37499e7e61b9c49fe79f58107c367c9461bd7a2dc71ab0b8a3a8907753d903db",
+    "bytes": 52631
+  },
+  "red/flame.trace.gz": {
+    "sha256": "08dab5752079643705a52be94e2b8980fb04fbf90383eb378e2db4741dcdf54c",
+    "bytes": 130502
+  },
+  "red/gale.json": {
+    "sha256": "b1659aee0e204e0d4d07028b0754a36a695f8ef164d03568c420105315a094b8",
+    "bytes": 52028
+  },
+  "red/gale.trace.gz": {
+    "sha256": "48a999d898fc934354d61643fe3848304176917c0ecdfdfb71fb88f258789f3d",
+    "bytes": 123945
+  },
+  "report-audit.json": {
+    "sha256": "8ba4cd2c5c01c74e61059e2855ac3b0f635c7fbf807ad21bbcf717478f4c8369",
+    "bytes": 4210
+  },
+  "reports/EditMode-runner-final.txt": {
+    "sha256": "d16c56b6144fc749a0ca5a423f8cbb973d93cddff79e7e3cc60060aa9407a623",
+    "bytes": 110
+  },
+  "reports/EditMode.xml.gz": {
+    "sha256": "cbaf897a6675db8fd84c0bb85626315253adc06cf2021f18bd3b3e6c7859491b",
+    "bytes": 62223
+  },
+  "reports/PlayMode-runner-final.txt": {
+    "sha256": "fc3e67d27c9efafbd8a522ec87241b253e6360e9f4b6296488a48a72a300d626",
+    "bytes": 60
+  },
+  "reports/PlayMode.xml.gz": {
+    "sha256": "68c4878532324e111feac4f195c414d0f1eb783811f5e84e69f3b329b7944edc",
+    "bytes": 5506
+  },
+  "reports/Visual-runner.txt": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "reports/Visual.xml.gz": {
+    "sha256": "0f68bc39a9b89c26ff5091404b9d786a580fa404c75c1b735d70ea51eb9d48ab",
+    "bytes": 1408
+  },
+  "reports/baseline-edit.xml.gz": {
+    "sha256": "2a3d42fb12c83340880e8b87587985d2734c7dbaf92e899165544f53953da19d",
+    "bytes": 60335
+  },
+  "reports/baseline-play.xml.gz": {
+    "sha256": "c9a770f395f15e52ae99a21482b377f17dd03b27a73edef2d6f2835198730ac8",
+    "bytes": 5340
+  },
+  "reports/baseline-static.txt": {
+    "sha256": "928a1d322c8a2653c8ca518e7d02361bfd9247a9a85b9626ba59c8826b08811d",
+    "bytes": 5062
+  },
+  "reports/before-fresh-EditMode.xml.gz": {
+    "sha256": "f5a551a634196e77d20cd614181e9292b8a6a449cd130b489dbfa99f5e064d95",
+    "bytes": 62146
+  },
+  "reports/before-fresh-PlayMode.xml.gz": {
+    "sha256": "ba3f693e012cef48f6ea35ae01eddf89af6fa6322a61b88e8b358c81ee1b727f",
+    "bytes": 5515
+  },
+  "reports/known-seed-red.xml.gz": {
+    "sha256": "a383a4daf9320aa09e090a4bfd0228baa1c62046c67c00d3cdfd313abb8217f5",
+    "bytes": 62556
+  },
+  "reports/red.xml.gz": {
+    "sha256": "51f4fcfdfdee492eba4427ad7287fe59319ed7f028f1b2b138bc088a5d2ec006",
+    "bytes": 1382
+  },
+  "reports/search.xml.gz": {
+    "sha256": "025508f449f090812da92749ca143e8cb6c595a1a95d4e4f8441bde04b0eaafe",
+    "bytes": 977
+  },
+  "reports/static.txt": {
+    "sha256": "8050f2b4a43b7a8dac2ccdcab3ba4737057e52e78e5e249af7047de5e6ce1924",
+    "bytes": 5062
+  },
+  "review.md": {
+    "sha256": "b9344a449b0801811a04020c66bce03385dd4a8944125d839ba507b61241cf3b",
+    "bytes": 290
+  },
+  "scope-audit.json": {
+    "sha256": "2cf0848e439b839c230aa19769ce8a47f1d3c35db5d0b13af2c04656d3a8ea4f",
+    "bytes": 16835
+  },
+  "screenshots/coverage-controls/flame-1600x900/01-initial-pending.png": {
+    "sha256": "bd8b4e203922f2a0c578a8cf6fb4a7187ca7bc8387e7b240a6277daa56f7ce4f",
+    "bytes": 195578
+  },
+  "screenshots/coverage-controls/flame-1600x900/02-start-confirmed.png": {
+    "sha256": "32fb42b39bdf00572a1eefa96ae10ff110d215b85f22905979a6cc4e1443710f",
+    "bytes": 195311
+  },
+  "screenshots/coverage-controls/flame-1600x900/boss1000-armor5.png": {
+    "sha256": "1ddff663c5d385c3c64e2917a1546dcca1fd8cd072f6ac5354000d3b3937c6d9",
+    "bytes": 268475
+  },
+  "screenshots/coverage-controls/flame-1600x900/clean-continue7.png": {
+    "sha256": "401807d0cefb0627e7f965c2b789e34cba7e864684ee55c31c9e3f0db8e94939",
+    "bytes": 211654
+  },
+  "screenshots/coverage-controls/flame-1600x900/clean-continue8.png": {
+    "sha256": "cdc4bc5ed098f929c155565d75394b6c4d66b36b39679e9eb2baa2f99fc0d814",
+    "bytes": 241371
+  },
+  "screenshots/coverage-controls/flame-1600x900/confirmed3.png": {
+    "sha256": "03de4394a717234b7585399ae36f2a2bd5028885cb46f1fa32280c99833e21d0",
+    "bytes": 204086
+  },
+  "screenshots/coverage-controls/flame-1600x900/confirmed6.png": {
+    "sha256": "9118521f7da3b8e0c3eefbda2a04e2f923ffda8478e726eb420fea25c45b6ce4",
+    "bytes": 210409
+  },
+  "screenshots/coverage-controls/flame-1600x900/console.txt": {
+    "sha256": "3f94b98362e216c04452a2b2a9117b9fbe39ccd7934812b84352d4e434f307c4",
+    "bytes": 1776
+  },
+  "screenshots/coverage-controls/flame-1600x900/failed-confirm3.png": {
+    "sha256": "99792a762ad85c6755540e1af3c4da57ee21f56da9aa7d43e5b8427e6d3f77f3",
+    "bytes": 212955
+  },
+  "screenshots/coverage-controls/flame-1600x900/failed-confirm6.png": {
+    "sha256": "82d7d1c0eba9d59578fcacc5ac20e7961d590375108ce3d3a466abd9ec0e5666",
+    "bytes": 219138
+  },
+  "screenshots/coverage-controls/flame-1600x900/failed-next-to-preparation7.png": {
+    "sha256": "597a96709ab9a601124d3f2da49f64e18f8c47e374ca4a52eac983ef2e9d46a9",
+    "bytes": 217636
+  },
+  "screenshots/coverage-controls/flame-1600x900/failed-next-to-preparation8.png": {
+    "sha256": "8cd60983eb0207d81730ba96978d650c267942ee58aab18e30a99c2a5b34df0a",
+    "bytes": 269934
+  },
+  "screenshots/coverage-controls/flame-1600x900/failed-save-restart3.png": {
+    "sha256": "c59841c2a28484314ba199b598578f7748b805ad71a8409a555e489ef8ead766",
+    "bytes": 190985
+  },
+  "screenshots/coverage-controls/flame-1600x900/interrupted-combat7.png": {
+    "sha256": "5495898d99cb5bea785fe15fa0575b3d6872e40945aabef550347d820c21d210",
+    "bytes": 259884
+  },
+  "screenshots/coverage-controls/flame-1600x900/interrupted-combat8.png": {
+    "sha256": "d570299ce0adf5af2e4436272c6e18f22666acab7b724b7eb865189eb06b6e75",
+    "bytes": 302319
+  },
+  "screenshots/coverage-controls/flame-1600x900/natural-Defeat-coverage-control.png": {
+    "sha256": "e8513985a076c12b47a9f4cda493fecd956f1d3c6cf7493874e61f047a4b3d7b",
+    "bytes": 269583
+  },
+  "screenshots/coverage-controls/flame-1600x900/pending3.png": {
+    "sha256": "c59841c2a28484314ba199b598578f7748b805ad71a8409a555e489ef8ead766",
+    "bytes": 190985
+  },
+  "screenshots/coverage-controls/flame-1600x900/pending6.png": {
+    "sha256": "edfb53bc6c6feab03ed7c242fe52505910d608235b353dd5769e8d8c4ec1e12a",
+    "bytes": 199867
+  },
+  "screenshots/coverage-controls/flame-1600x900/positive-Steam-Intrinsic.png": {
+    "sha256": "2b596efdf388115d49e6dd463c8bedc162124a2539b6506e9b6b5915fc02c5bd",
+    "bytes": 249588
+  },
+  "screenshots/coverage-controls/flame-1600x900/positive-Steam-StatusPair.png": {
+    "sha256": "9da9ef9a0c37a6d0616c690560bb14877abc1a0ac6345d71553a1ccf574f251e",
+    "bytes": 222300
+  },
+  "screenshots/coverage-controls/flame-1600x900/positive-Storm-Intrinsic.png": {
+    "sha256": "6a42e6333ae9a97acb8e46573a59a7936492fd9c1f582cdbff8aa3d2fa34eb71",
+    "bytes": 268742
+  },
+  "screenshots/coverage-controls/flame-1600x900/positive-Storm-StatusPair.png": {
+    "sha256": "88a0c4751b8856f091c66980cf73e94380d5e0f3e174e9c715a80b724b5d225c",
+    "bytes": 259880
+  },
+  "screenshots/coverage-controls/flame-1600x900/preparation7.png": {
+    "sha256": "401807d0cefb0627e7f965c2b789e34cba7e864684ee55c31c9e3f0db8e94939",
+    "bytes": 211654
+  },
+  "screenshots/coverage-controls/flame-1600x900/preparation8.png": {
+    "sha256": "cdc4bc5ed098f929c155565d75394b6c4d66b36b39679e9eb2baa2f99fc0d814",
+    "bytes": 241371
+  },
+  "screenshots/coverage-controls/flame-1600x900/retry-confirm6.png": {
+    "sha256": "c386a14a47e3425ec094cc24a68a2dfd2e990f6906a3de8e46b3909e5decd8c5",
+    "bytes": 210682
+  },
+  "screenshots/coverage-controls/flame-1600x900/retry-preparation7.png": {
+    "sha256": "07c84b438b1dca5733d11ef2eaa7fb2c2ea01e561b0a8896475392b3ae0d1606",
+    "bytes": 209206
+  },
+  "screenshots/coverage-controls/flame-1600x900/retry-preparation8.png": {
+    "sha256": "d22ae288475e98b4a0aa139d1264f6b68e342547a53c4b383d27b2b62b4ddc35",
+    "bytes": 262527
+  },
+  "screenshots/coverage-controls/flame-1600x900/telemetry.txt": {
+    "sha256": "b52305861dfe09cc0c38021e8688ad8916d8d3e802d825f6a59ba1aa0efce073",
+    "bytes": 13217
+  },
+  "screenshots/coverage-controls/flame-1600x900/terminal-continue-off.png": {
+    "sha256": "134e81846ab2ad3f43fbb82b657a0da3a10aa3a15919017014a56ae0afa4c982",
+    "bytes": 53037
+  },
+  "screenshots/coverage-controls/flame-1600x900/wave7-ability-hit-sequence5-replay.png": {
+    "sha256": "95c5c4a7afa578015fcc5dcaef0f8fa4a3b62203e2412b68070c12f52593ee8b",
+    "bytes": 218484
+  },
+  "screenshots/coverage-controls/flame-1600x900/wave7-ability-hit-sequence5.png": {
+    "sha256": "95c5c4a7afa578015fcc5dcaef0f8fa4a3b62203e2412b68070c12f52593ee8b",
+    "bytes": 218484
+  },
+  "screenshots/coverage-controls/flame-1600x900/wave7-ability-preview-sequence5-replay.png": {
+    "sha256": "a0762669f8ec712d6663dc80601703baf176f5b8cc3d4245e454e31379beb112",
+    "bytes": 225183
+  },
+  "screenshots/coverage-controls/flame-1600x900/wave7-ability-preview-sequence5.png": {
+    "sha256": "c097aabbd21e8b95d8cb9bb2e7dabdd2136783ee526e48d8419c91f4428cb8f1",
+    "bytes": 225191
+  },
+  "screenshots/coverage-controls/flame-1600x900/wave8-ability-hit-sequence6-replay.png": {
+    "sha256": "4d83aa209e3563dd279b6d682172f3cca967155dbc30e0454a3bb01d37e0ece6",
+    "bytes": 269169
+  },
+  "screenshots/coverage-controls/flame-1600x900/wave8-ability-hit-sequence6.png": {
+    "sha256": "fed2b769e4ea5f3baaf5683aa7778d97957606f013879b3e0ad4856277f0b6ae",
+    "bytes": 269139
+  },
+  "screenshots/coverage-controls/flame-1600x900/wave8-ability-hit-sequence7-replay.png": {
+    "sha256": "a90e188d217b5e3d1957c52ea60ac6c6e64c2a9cfc01c00977c79efde15e4264",
+    "bytes": 283286
+  },
+  "screenshots/coverage-controls/flame-1600x900/wave8-ability-preview-sequence6-replay.png": {
+    "sha256": "02fa72e20c93f68fba3cc441496444af664ff96bf3691148f263babe5e96cfaf",
+    "bytes": 277132
+  },
+  "screenshots/coverage-controls/flame-1600x900/wave8-ability-preview-sequence6.png": {
+    "sha256": "8e9376eb1121337a2bc6476f561b5c3cb30d3fb825238e50766940c862b50a39",
+    "bytes": 277480
+  },
+  "screenshots/coverage-controls/flame-1600x900/wave8-ability-preview-sequence7-replay.png": {
+    "sha256": "d5f1df64ca5b1d9cbe96d1525ea5c6cda96c1969b2dcbce22c10db7aa1a1ea3f",
+    "bytes": 290246
+  },
+  "screenshots/coverage-controls/gale-1280x960/01-initial-pending.png": {
+    "sha256": "370f60b5192f7edf8bdaf77d36061e08bce2979f3d35bf51c979e895777dddb1",
+    "bytes": 197723
+  },
+  "screenshots/coverage-controls/gale-1280x960/02-start-confirmed.png": {
+    "sha256": "55751f43567d5d1fe3b4cb8da18e6c25569bc0efc578ab0fc6d3aa3048c2c703",
+    "bytes": 199825
+  },
+  "screenshots/coverage-controls/gale-1280x960/boss1000-armor5.png": {
+    "sha256": "2f7cdbbcd96e454147819d5e88388d69b17ba39ef335190b15cc61665893bb71",
+    "bytes": 274276
+  },
+  "screenshots/coverage-controls/gale-1280x960/clean-continue7.png": {
+    "sha256": "ee5d4df15fe26f5a35fa9cf3c28c1a7b2b3717181f57b2d0f9875e8071f0bf1a",
+    "bytes": 215133
+  },
+  "screenshots/coverage-controls/gale-1280x960/clean-continue8.png": {
+    "sha256": "bd6c490701f45e410b6216f3521c3d9591e3dc3bd446e7311d4ddb3d21d23e59",
+    "bytes": 241449
+  },
+  "screenshots/coverage-controls/gale-1280x960/confirmed3.png": {
+    "sha256": "9d5e07edb6e86f0e13f35df0edbb1e28ca81664d6f7f1354827bd379b386d757",
+    "bytes": 204479
+  },
+  "screenshots/coverage-controls/gale-1280x960/confirmed6.png": {
+    "sha256": "82bb715e3f0849daf87ce5a8698c5a1a4f1b00bfef9c8ed267d68a110933d714",
+    "bytes": 213744
+  },
+  "screenshots/coverage-controls/gale-1280x960/console.txt": {
+    "sha256": "3f94b98362e216c04452a2b2a9117b9fbe39ccd7934812b84352d4e434f307c4",
+    "bytes": 1776
+  },
+  "screenshots/coverage-controls/gale-1280x960/failed-confirm3.png": {
+    "sha256": "8b25f9daa25818ca4a20df5b70713c080015a8f30dc783fc8647ada771aeb6ed",
+    "bytes": 212011
+  },
+  "screenshots/coverage-controls/gale-1280x960/failed-confirm6.png": {
+    "sha256": "38dfab2c110034c846b646150574708734741aa0115dad27da75655b52cb0553",
+    "bytes": 221516
+  },
+  "screenshots/coverage-controls/gale-1280x960/failed-next-to-preparation7.png": {
+    "sha256": "b1bdb7f5808514a3429a68cf49c3c6a5dc7677824ad12eb302a3901e9c87510a",
+    "bytes": 220036
+  },
+  "screenshots/coverage-controls/gale-1280x960/failed-next-to-preparation8.png": {
+    "sha256": "9dfc57395d988d1a91985fbe1a540b119909c9a78a5fa2c1304ab97066c79fb4",
+    "bytes": 276668
+  },
+  "screenshots/coverage-controls/gale-1280x960/failed-save-restart3.png": {
+    "sha256": "9d7907ec5157df81e28a3430c8b0e93c4b871f020d6b253b207c2433a906863c",
+    "bytes": 191712
+  },
+  "screenshots/coverage-controls/gale-1280x960/interrupted-combat7.png": {
+    "sha256": "61610c8881f7a2ac56833cc9791a7184b2974174c29dadd3886c9071a55a296a",
+    "bytes": 269731
+  },
+  "screenshots/coverage-controls/gale-1280x960/interrupted-combat8.png": {
+    "sha256": "b4bc42c44a7c132cb98b03fb65bafe4311199397739fc68ee7710ea5fd0f6404",
+    "bytes": 282289
+  },
+  "screenshots/coverage-controls/gale-1280x960/natural-Defeat-coverage-control.png": {
+    "sha256": "7e7d0f82096c65c948639b90f8343fed258b6558c98cad30ea89aff00743b68d",
+    "bytes": 270794
+  },
+  "screenshots/coverage-controls/gale-1280x960/pending3.png": {
+    "sha256": "9d7907ec5157df81e28a3430c8b0e93c4b871f020d6b253b207c2433a906863c",
+    "bytes": 191712
+  },
+  "screenshots/coverage-controls/gale-1280x960/pending6.png": {
+    "sha256": "2465c38e75152ded49cc6d0963ce04074f5d2998a7d4ac00ba6ff18d9d4b514a",
+    "bytes": 202517
+  },
+  "screenshots/coverage-controls/gale-1280x960/positive-Steam-Intrinsic.png": {
+    "sha256": "f97770f38ca40f45b086ba8e76ab2f08f47036e8e4574fd2e1f8afc3288b1f26",
+    "bytes": 254694
+  },
+  "screenshots/coverage-controls/gale-1280x960/positive-Steam-StatusPair.png": {
+    "sha256": "0c12d5aa3a3b279849879b6ec29269ab27d40d711990038a310610682b7afc1e",
+    "bytes": 269765
+  },
+  "screenshots/coverage-controls/gale-1280x960/positive-Storm-Intrinsic.png": {
+    "sha256": "195a77e6b131ce99576e9b2b22babbfadec98d9d736b27c93ca4260cf1a1d645",
+    "bytes": 225271
+  },
+  "screenshots/coverage-controls/gale-1280x960/positive-Storm-StatusPair.png": {
+    "sha256": "f54f6b05a2532cf0667521fc3cf3ebf04275382b3e471e5dfad57c300d05e5e5",
+    "bytes": 247780
+  },
+  "screenshots/coverage-controls/gale-1280x960/preparation7.png": {
+    "sha256": "ee5d4df15fe26f5a35fa9cf3c28c1a7b2b3717181f57b2d0f9875e8071f0bf1a",
+    "bytes": 215133
+  },
+  "screenshots/coverage-controls/gale-1280x960/preparation8.png": {
+    "sha256": "bd6c490701f45e410b6216f3521c3d9591e3dc3bd446e7311d4ddb3d21d23e59",
+    "bytes": 241449
+  },
+  "screenshots/coverage-controls/gale-1280x960/retry-confirm6.png": {
+    "sha256": "94e11f76a7effbe4508a0755025b03f4b4519dde2966f4e9f1f40bd8c803a577",
+    "bytes": 213945
+  },
+  "screenshots/coverage-controls/gale-1280x960/retry-preparation7.png": {
+    "sha256": "45ab7a3a1401ff9c3b89e555a049fadaf9766c28640938ea8e7742dff4c40c38",
+    "bytes": 212488
+  },
+  "screenshots/coverage-controls/gale-1280x960/retry-preparation8.png": {
+    "sha256": "2a032ba6d1865a153847a913c482882409a9cf4685a097aa286d50f6a341fd44",
+    "bytes": 269581
+  },
+  "screenshots/coverage-controls/gale-1280x960/telemetry.txt": {
+    "sha256": "bf4d48a76a7550ebd4416565ca5c4d3c7490d97e842fd41621ffb8111e4fef9e",
+    "bytes": 13327
+  },
+  "screenshots/coverage-controls/gale-1280x960/terminal-continue-off.png": {
+    "sha256": "9ea8a94c41a4f2531938aa10c00cf01796247b6b7a71bfd5c48c3c660ad0a7d0",
+    "bytes": 46925
+  },
+  "screenshots/coverage-controls/gale-1280x960/wave7-ability-hit-sequence5-replay.png": {
+    "sha256": "bfb46ec3de313ed7416e156bb1d34cb920f011997b11c519a4ece7ca7fce8b75",
+    "bytes": 223570
+  },
+  "screenshots/coverage-controls/gale-1280x960/wave7-ability-hit-sequence5.png": {
+    "sha256": "243a1426f57d4c5f1433aea01a09a57c021f22b2f95bb04106b3ec2bb2e17b41",
+    "bytes": 223580
+  },
+  "screenshots/coverage-controls/gale-1280x960/wave7-ability-preview-sequence5-replay.png": {
+    "sha256": "0eac3333f33d7b210959be5d4e458e3a989b89275430256f0ae4ac70c3d90564",
+    "bytes": 229609
+  },
+  "screenshots/coverage-controls/gale-1280x960/wave7-ability-preview-sequence5.png": {
+    "sha256": "cff44988b47f1fbb542f766798e9d1143b03ad311ba55097cd9b16a6e1f44d3c",
+    "bytes": 229600
+  },
+  "screenshots/coverage-controls/gale-1280x960/wave8-ability-hit-sequence6-replay.png": {
+    "sha256": "7e9405c4d26a69eb7fc2f34850ff72beb16d1a61db3599aa99f478b513863606",
+    "bytes": 262762
+  },
+  "screenshots/coverage-controls/gale-1280x960/wave8-ability-hit-sequence6.png": {
+    "sha256": "0a7e56a705250d69c8fd530d3fbbed43d48333a1e7a11efbe9630c461156f219",
+    "bytes": 262760
+  },
+  "screenshots/coverage-controls/gale-1280x960/wave8-ability-hit-sequence7-replay.png": {
+    "sha256": "b209ff87e813d0fe26edadaca3d2120a984b824f8ba7c2a37603e919b2c00ec3",
+    "bytes": 283969
+  },
+  "screenshots/coverage-controls/gale-1280x960/wave8-ability-preview-sequence6-replay.png": {
+    "sha256": "82f82d4e3f13dc251f9da1e62e6e8827aba00d765fc443c784cb3f81104277e8",
+    "bytes": 270960
+  },
+  "screenshots/coverage-controls/gale-1280x960/wave8-ability-preview-sequence6.png": {
+    "sha256": "f52d97638f23ae25b306175eab4620100978d163bf4b7d841cd53ae58a52a315",
+    "bytes": 270505
+  },
+  "screenshots/coverage-controls/gale-1280x960/wave8-ability-preview-sequence7-replay.png": {
+    "sha256": "1a48055355d7e723fa6f06e6da3988b6536820c2aac68204c9e7182e9e2bbb38",
+    "bytes": 287689
+  },
+  "screenshots/stone-and-leak-controls/flame-leak-1600x900/01-preparation8-notice.png": {
+    "sha256": "0300b3502a7d4be7cee5ad9b81dcd522fe3d2c9d0c27eb90252a4996fe01f846",
+    "bytes": 295607
+  },
+  "screenshots/stone-and-leak-controls/flame-leak-1600x900/01b-injected-safe-area.png": {
+    "sha256": "6492a86159c5bbb6630960b8089b4c252a35a4e0978aee381676019bfeacd926",
+    "bytes": 294215
+  },
+  "screenshots/stone-and-leak-controls/flame-leak-1600x900/02-clean-continue8.png": {
+    "sha256": "d44c3be29391c69db891848ddf9ad38c408d8a4f11ddc11a599bfd56db2e7c2f",
+    "bytes": 243591
+  },
+  "screenshots/stone-and-leak-controls/flame-leak-1600x900/03-waiting-spawn330.png": {
+    "sha256": "097b0b38b07323cfc828ab18769434867f2cbba3c0dc529f4924143dd28aa946",
+    "bytes": 265595
+  },
+  "screenshots/stone-and-leak-controls/flame-leak-1600x900/04-boss-hp-armor.png": {
+    "sha256": "14e9b2f4ea783cd1ba6c958efc3f6ac3948dc0231af7559eaa47a8704b153f69",
+    "bytes": 262544
+  },
+  "screenshots/stone-and-leak-controls/flame-leak-1600x900/06-boss-status-inspector.png": {
+    "sha256": "d0a22b21a47c0dd9ac6ea6c28841af4d59b4dd4621d567f6d46379f639f7c0b1",
+    "bytes": 282212
+  },
+  "screenshots/stone-and-leak-controls/flame-leak-1600x900/07-boss-pause.png": {
+    "sha256": "524cf8b88101e20f747c73950fe4f0a18facd725ae3c17b62960140c72397e00",
+    "bytes": 209444
+  },
+  "screenshots/stone-and-leak-controls/flame-leak-1600x900/08-defeat.png": {
+    "sha256": "fa7db592945f5159f539ea21e13379532e82254642f9b395c3e528a033260e38",
+    "bytes": 257091
+  },
+  "screenshots/stone-and-leak-controls/flame-leak-1600x900/console.txt": {
+    "sha256": "ad22de9870e22f07a352c820267bc37ba48742d49692b36ddef0c7265cc047de",
+    "bytes": 254
+  },
+  "screenshots/stone-and-leak-controls/flame-leak-1600x900/telemetry.txt": {
+    "sha256": "0e1f60c635821c5487b59e16f287d35965f626702df4768fdd6011e9c7597561",
+    "bytes": 3888
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/01-preparation8-notice.png": {
+    "sha256": "cb27f23f30e60d80a71af53885328c1eebfd942c73321c89c30d2ffd53613d76",
+    "bytes": 285648
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/01b-injected-safe-area.png": {
+    "sha256": "b2813f873d34423da98a0fbcc31883a7a507335adfc79e011f9e35d4f5706a9e",
+    "bytes": 283938
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/02-clean-continue8.png": {
+    "sha256": "7d7ccc806c6f90a9e906ce4dee3118c70648694979c30925fb47705c9f84a806",
+    "bytes": 246407
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/03-waiting-spawn330.png": {
+    "sha256": "38c352ac19fc33a3a17af83eb4112522515f5aac53f14b41844233ceefc74c40",
+    "bytes": 262391
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/04-boss-hp-armor.png": {
+    "sha256": "7291f7885f17ba9a41cfe15275eb9692858db4967fb027845291472e68f15619",
+    "bytes": 254082
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/05-boss-ability-hit.png": {
+    "sha256": "5880900eb80a272041e6d62b1d7f99e61b3030f84b95b82938a009e1bf9ac2d2",
+    "bytes": 259271
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/06-boss-status-inspector.png": {
+    "sha256": "c23cc19fc3c3702d8a4d3555a2e5881efc90c02092292caa5477fddbfbbc9f96",
+    "bytes": 276226
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/07-boss-pause.png": {
+    "sha256": "51322d5303571d73ab92b471f89dc86b5169a448d5eb113ad96fc0a15851155d",
+    "bytes": 205065
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/08-boss-kill-victory.png": {
+    "sha256": "74108617a5cd5d45de9e99a47376494c3d0cc3933ac4cf70c0b46271cfe24085",
+    "bytes": 261423
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/09-victory-completion-save-failed.png": {
+    "sha256": "74108617a5cd5d45de9e99a47376494c3d0cc3933ac4cf70c0b46271cfe24085",
+    "bytes": 261423
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/10-victory-retry-saved.png": {
+    "sha256": "7478f0aedce06d6e4de241a85e37d295bd772192e721c577d62f34b3e24923e5",
+    "bytes": 250077
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/11-clean-victory-restored.png": {
+    "sha256": "15df1f651db639d9c2c38e8f7f148aa83e670094f9d190e74c41abe4af1c8433",
+    "bytes": 232074
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/12-terminal-continue-off.png": {
+    "sha256": "d0642ddd9e2b25214827daf653b450524696c727713668d05b36374e45f00e13",
+    "bytes": 63380
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/console.txt": {
+    "sha256": "d35827135c5fd19100dc34f7b42fc134108b803506dc9124730b9732f96abc79",
+    "bytes": 587
+  },
+  "screenshots/stone-and-leak-controls/flame-victory-1600x900/telemetry.txt": {
+    "sha256": "d1b4d0030b8b2c4e9d6f5332ecde2e6346e77194e5bf6c7575951f96eaaa97fa",
+    "bytes": 4883
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/01-preparation8-notice.png": {
+    "sha256": "677615ffbec62e5fba13bea1c0413036c209689ad18f390ef1446a2589029054",
+    "bytes": 285161
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/01b-injected-safe-area.png": {
+    "sha256": "5c4dae369856240a426906ea2f3329b12910befab55b0267d07785c1ddcafe3b",
+    "bytes": 284633
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/02-clean-continue8.png": {
+    "sha256": "c5e9999ec38d242c439bfcac8f5fe97bad75aacfc6b328820cf1ac667a6d3d68",
+    "bytes": 246899
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/03-waiting-spawn330.png": {
+    "sha256": "01effe24cea6c87e674af2530ac93515bf84e949492fb735f35733d917acf9bf",
+    "bytes": 273844
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/04-boss-hp-armor.png": {
+    "sha256": "582343982c007b3e218e7884b9ce34cef64d88e4303ff60789270c2437b3b8e3",
+    "bytes": 274120
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/05-boss-ability-hit.png": {
+    "sha256": "30a9188459a27aa468f61defac61d86f12aabe2092d3f201960d51c417fa4b21",
+    "bytes": 269814
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/06-boss-status-inspector.png": {
+    "sha256": "b4eca4a7dbe7b0eaac5d047a76bd5c6bf2bc1d4143ce5a1f2803bc055bc50c07",
+    "bytes": 286326
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/07-boss-pause.png": {
+    "sha256": "a77d01591e471b1169cd54bf694f73bad524b40d0bdce2d40a5ad22151028d54",
+    "bytes": 213650
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/08-boss-kill-victory.png": {
+    "sha256": "dd3bedbb9903ed125f5e6299fabdbd6f22c3bcbe0201876379a2a0fe643784d2",
+    "bytes": 272740
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/09-victory-completion-save-failed.png": {
+    "sha256": "2a0f00b0ebf0eb76539a9b7dcd0e62522452ffb2c97e5b5c14e62ad3a75b34cc",
+    "bytes": 274054
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/10-victory-retry-saved.png": {
+    "sha256": "6f550e5fb884354c4007a8a6590e60f55c0dea66e9c3b5bcd886b41d2d0d3472",
+    "bytes": 259613
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/11-clean-victory-restored.png": {
+    "sha256": "59f009272f7ebaad9befca5e6645004377879d6c53b73f0dde5f1765d0837fb5",
+    "bytes": 235514
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/12-terminal-continue-off.png": {
+    "sha256": "9e7f7cbdda8bca41e73921b66fc46debe7f62d0704c2b494526438c004c0dc74",
+    "bytes": 56018
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/console.txt": {
+    "sha256": "70d84e280d034140f759e943116cb1ddb3a3cbe687426ae8ed0e41ebd9f8a95c",
+    "bytes": 587
+  },
+  "screenshots/stone-and-leak-controls/gale-victory-1280x960/telemetry.txt": {
+    "sha256": "a3b35eb53d4f1062fcb9962cd31f4a162a3f2e6687b7562d79e2eee03275af69",
+    "bytes": 4946
+  },
+  "search-known-seeds/flame.candidate.txt": {
+    "sha256": "56769e491a1745589b8ad5558ca601420c00bd3c398e37818ec074bdc0aaa82a",
+    "bytes": 153
+  },
+  "search-known-seeds/flame.commands.json": {
+    "sha256": "05506fd3027a8bdeecf2800ad7728464b101fdabc5be9ab8b14841348f439682",
+    "bytes": 2013
+  },
+  "search-known-seeds/flame.json": {
+    "sha256": "52ddcb691ab81264a97f60662d4dfd51bb1b09f5457ba8e3908ccd8bd3f9f1ae",
+    "bytes": 52501
+  },
+  "search-known-seeds/flame.trace.gz": {
+    "sha256": "488f848a870563fc4ad2b252c72ee18fb28d5cdf9384fb9f2835c03dd211e4df",
+    "bytes": 125551
+  },
+  "search-known-seeds/gale.candidate.txt": {
+    "sha256": "7daa7732fad74d830a47480efef616f90175a3d3730eef9360ddf3929830b01a",
+    "bytes": 151
+  },
+  "search-known-seeds/gale.commands.json": {
+    "sha256": "714d9c44503bd5f512399a2c1a2d67205461edec6545ac6893c45b517eec8348",
+    "bytes": 1978
+  },
+  "search-known-seeds/gale.json": {
+    "sha256": "1c92d08636fb509655d521189fdd33de305d398e4fbbd755de8ef55f5f299bc9",
+    "bytes": 52407
+  },
+  "search-known-seeds/gale.trace.gz": {
+    "sha256": "269f52e3f6b03a0200bf2f1f93d450364a87fed9adaa1c740b501dae1eb14235",
+    "bytes": 113589
+  },
+  "search-original-members.json": {
+    "sha256": "3f5bc190777b61e801fa163f4db5ec1fdd743329d47fe5d3c88082029be0e53e",
+    "bytes": 899
+  },
+  "search-original.tar.gz": {
+    "sha256": "97e8403a37f2a419238ae8eefdffbe88307b19c6306e46554006f4ec1073b6ad",
+    "bytes": 410555
+  },
+  "source-sha256.json": {
+    "sha256": "3fadea4b9d64babdb24543cf608a35a1e7cedab4dbd4d1de111efb98ff092e59",
+    "bytes": 66851
+  },
+  "specification.md": {
+    "sha256": "3e4a3a42858c01af63651bd1b6dc544399f041edb3ee518ab8606872e3460652",
+    "bytes": 5313
+  },
+  "validation.md": {
+    "sha256": "608aab785ad0ea91950f496d0bc3e4fdff1ca59c52a1b043c55bbe9dd6fc9bad",
+    "bytes": 13791
+  },
+  "verify-evidence.py": {
+    "sha256": "459a0f89530b3d941a9aef1b027e5d12fdcb416794364f32879e8d9b6562b2e3",
+    "bytes": 6658
+  }
+}

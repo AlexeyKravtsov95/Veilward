@@ -1,0 +1,125 @@
+{
+  "EditMode.xml.gz": {
+    "total": 1071,
+    "passed": 1069,
+    "failed": 2,
+    "inconclusive": 0,
+    "skipped": 0,
+    "raw_sha256": "79beff0e70f184ed5dd274e597487fb13464dd13d36a48fd96680206b6c46b49",
+    "raw_bytes": 1040066,
+    "sha256": "cbaf897a6675db8fd84c0bb85626315253adc06cf2021f18bd3b3e6c7859491b",
+    "failures": [
+      "RegBattle214_SameProductionRunMustWinWithAbilityBossAndFourPositiveCells(\"flame\")",
+      "RegBattle214_SameProductionRunMustWinWithAbilityBossAndFourPositiveCells(\"gale\")"
+    ]
+  },
+  "PlayMode.xml.gz": {
+    "total": 60,
+    "passed": 60,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "raw_sha256": "82e5df56d3a351287eaa72de02ed70de26b7e5901e988fbc8aa7c1dfff307452",
+    "raw_bytes": 60406,
+    "sha256": "68c4878532324e111feac4f195c414d0f1eb783811f5e84e69f3b329b7944edc",
+    "failures": []
+  },
+  "Visual.xml.gz": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "raw_sha256": "fc5bb4dfece02a68c7f0aa28d9106ea6f1c609b898ed22a09f63fb46a7284764",
+    "raw_bytes": 11860,
+    "sha256": "0f68bc39a9b89c26ff5091404b9d786a580fa404c75c1b735d70ea51eb9d48ab",
+    "failures": []
+  },
+  "baseline-edit.xml.gz": {
+    "total": 1048,
+    "passed": 1048,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "raw_sha256": "b698cece040ac25be8c4693fd9cc140c603b17f0cfd86de77f2a9abcc5aaaec5",
+    "raw_bytes": 1003505,
+    "sha256": "2a3d42fb12c83340880e8b87587985d2734c7dbaf92e899165544f53953da19d",
+    "failures": []
+  },
+  "baseline-play.xml.gz": {
+    "total": 58,
+    "passed": 58,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "raw_sha256": "d6c472786d0ba9476fc2d6fe6e338d7780ed8991421ee3fbedb69d379b8c1e32",
+    "raw_bytes": 57819,
+    "sha256": "c9a770f395f15e52ae99a21482b377f17dd03b27a73edef2d6f2835198730ac8",
+    "failures": []
+  },
+  "before-fresh-EditMode.xml.gz": {
+    "total": 1069,
+    "passed": 1067,
+    "failed": 2,
+    "inconclusive": 0,
+    "skipped": 0,
+    "raw_sha256": "3e011e71a4ed2d8fb75c00710e334f55146ae8f25e26591f9b412e690a78fd2e",
+    "raw_bytes": 1037941,
+    "sha256": "f5a551a634196e77d20cd614181e9292b8a6a449cd130b489dbfa99f5e064d95",
+    "failures": [
+      "RegBattle214_SameProductionRunMustWinWithAbilityBossAndFourPositiveCells(\"flame\")",
+      "RegBattle214_SameProductionRunMustWinWithAbilityBossAndFourPositiveCells(\"gale\")"
+    ]
+  },
+  "before-fresh-PlayMode.xml.gz": {
+    "total": 60,
+    "passed": 60,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "raw_sha256": "a203099809c4ae5b32a4bec4846264d52e64246eb464aecbbba5133654cce74a",
+    "raw_bytes": 60399,
+    "sha256": "ba3f693e012cef48f6ea35ae01eddf89af6fa6322a61b88e8b358c81ee1b727f",
+    "failures": []
+  },
+  "known-seed-red.xml.gz": {
+    "total": 1071,
+    "passed": 1068,
+    "failed": 3,
+    "inconclusive": 0,
+    "skipped": 0,
+    "raw_sha256": "67ab072b85be36ac6a2b308ede606eedae112a0a6e22e1f3648e0e5d632b8069",
+    "raw_bytes": 1041724,
+    "sha256": "a383a4daf9320aa09e090a4bfd0228baa1c62046c67c00d3cdfd313abb8217f5",
+    "failures": [
+      "RegBattle214_SameProductionRunMustWinWithAbilityBossAndFourPositiveCells(\"flame\")",
+      "RegBattle214_SameProductionRunMustWinWithAbilityBossAndFourPositiveCells(\"gale\")",
+      "RegBattle214_ReplayBestFullyCoveredKnownSearchSeeds(\"flame\",12450,392)"
+    ]
+  },
+  "red.xml.gz": {
+    "total": 4,
+    "passed": 2,
+    "failed": 2,
+    "inconclusive": 0,
+    "skipped": 0,
+    "raw_sha256": "4856387b51090f21eed52d94e15e8b1a7f4792af6e91042ef56b559c5735a947",
+    "raw_bytes": 9319,
+    "sha256": "51f4fcfdfdee492eba4427ad7287fe59319ed7f028f1b2b138bc088a5d2ec006",
+    "failures": [
+      "RegBattle214_SameProductionRunMustWinWithAbilityBossAndFourPositiveCells(\"flame\")",
+      "RegBattle214_SameProductionRunMustWinWithAbilityBossAndFourPositiveCells(\"gale\")"
+    ]
+  },
+  "search.xml.gz": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "raw_sha256": "2eb732404fe4617247574a288404c2c639ea8b744aa5ef694a1d09a7adeca8b9",
+    "raw_bytes": 5128,
+    "sha256": "025508f449f090812da92749ca143e8cb6c595a1a95d4e4f8441bde04b0eaafe",
+    "failures": []
+  }
+}
