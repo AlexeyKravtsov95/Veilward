@@ -86,6 +86,19 @@ namespace Veilward.Tests.EditMode
             }
             finally {Directory.Delete(root,true);}
         }
+        [Test] public void RegBattle214_ProductionValidatorRejectsValidHistoricalPayloadAtCurrentAssetPath()
+        {
+            var config=AbilityBossReplayTests.Config();var original=EditorJsonUtility.ToJson(config);var path=AssetDatabase.GetAssetPath(config);var bytes=File.ReadAllBytes(path);
+            try
+            {
+                var so=new SerializedObject(config);so.FindProperty("scenarioContentId").stringValue=V1;so.FindProperty("boss").FindPropertyRelative("maxHealth").intValue=1000;so.FindProperty("historicalBossScenario").objectReferenceValue=null;so.ApplyModifiedPropertiesWithoutUndo();
+                Assert.DoesNotThrow(()=>config.CreateSimulation(),"valid historical rules, wrong production default");
+                Assert.That(Veilward.Editor.BattleAssetValidator.ValidateSavedBattle().Any(e=>e.Contains("Production content")),Is.True);
+                Assert.That(Veilward.Editor.BattleAssetValidator.ValidateSavedMainMenu().Any(e=>e.Contains("Production content")),Is.True);
+                Assert.That(File.ReadAllBytes(path),Is.EqualTo(bytes));
+            }
+            finally{EditorJsonUtility.FromJsonOverwrite(original,config);EditorUtility.ClearDirty(config);}
+        }
         [TestCase(true)] [TestCase(false)] public void RegBattle214_V2RejectsWrongHpOrMissingHistoricalSource(bool hp)
         {
             var config=UnityEngine.Object.Instantiate(AbilityBossReplayTests.Config());
