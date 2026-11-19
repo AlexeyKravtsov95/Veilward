@@ -1,0 +1,41 @@
+{
+  "sourceSHA": "7b753e3f8a44abdaca07cb9a3030ac8eac13c0ba",
+  "build": "44",
+  "device": {
+    "model": "iPhone 16 Pro",
+    "os": "27.0.1 (24A446)",
+    "platform": "iOS"
+  },
+  "template": "Activity Monitor",
+  "tableSchema": "activity-monitor-process-live",
+  "scope": "Filtered current game process only; separate steady-state profiling run after unprofiled timing windows; memory-physical-footprint and memory-real are distinct native metrics; start units ns, memory units bytes; observed peak only, not lifetime peak",
+  "columns": [
+    "start",
+    "process",
+    "responsible-process",
+    "duration",
+    "pid",
+    "uid",
+    "cpu-percent",
+    "cpu-total",
+    "thread-count",
+    "mach-port-count",
+    "memory-physical-footprint",
+    "memory-real",
+    "memory-real-private",
+    "memory-real-shared",
+    "arch-kind",
+    "sudden-termination",
+    "sandbox",
+    "restricted",
+    "idle-wakeups",
+    "app-nap",
+    "memory-purgeable",
+    "memory-compressed",
+    "disk-bytes-written",
+    "disk-bytes-read",
+    "disk-bytes-written-per-second",
+    "disk-bytes-read-per-second",
+    "preventing-sleep"
+  ]
+}

@@ -1,0 +1,15 @@
+......................
+----------------------------------------------------------------------
+Ran 22 tests in 2.956s
+
+OK
+EXPORTED: Builds/iOS/0.1.0-42/Xcode profile=production sourceSHA=34c7cd1176f2ce43b917b44514c03352f7d78d01; review import-audit.json before device acceptance
+EXPORTED: Builds/iOS/0.1.0-42/Xcode profile=production sourceSHA=34c7cd1176f2ce43b917b44514c03352f7d78d01; review import-audit.json before device acceptance
+EXPORTED: Builds/iOS/art-reference/0.1.0-43/Xcode profile=art-reference sourceSHA=34c7cd1176f2ce43b917b44514c03352f7d78d01; review import-audit.json before device acceptance
+EXPORTED: Builds/iOS/0.1.0-42/Xcode profile=production sourceSHA=34c7cd1176f2ce43b917b44514c03352f7d78d01; review import-audit.json before device acceptance
+EXPORTED: Builds/iOS/0.1.0-42/Xcode profile=production sourceSHA=5f46719dd716577d15125541f601e532777d7c53; review import-audit.json before device acceptance
+EXPORTED: Builds/iOS/0.1.0-42/Xcode profile=production sourceSHA=5f46719dd716577d15125541f601e532777d7c53; review import-audit.json before device acceptance
+EXPORTED: Builds/iOS/0.1.0-42/Xcode profile=production sourceSHA=5f46719dd716577d15125541f601e532777d7c53; review import-audit.json before device acceptance
+EXPORTED: Builds/iOS/0.1.0-42/Xcode profile=production sourceSHA=5f46719dd716577d15125541f601e532777d7c53; review import-audit.json before device acceptance
+EXPORTED: Builds/iOS/0.1.0-42/Xcode profile=production sourceSHA=955208c91fcea438eefd53fed602f0dff6a5e7c5; review import-audit.json before device acceptance
+EXPORTED: Builds/iOS/0.1.0-42/Xcode profile=production sourceSHA=955208c91fcea438eefd53fed602f0dff6a5e7c5; review import-audit.json before device acceptance

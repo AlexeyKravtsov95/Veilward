@@ -1,0 +1,187 @@
+{
+  "kind": "physical iPhone native PNG sequence; NOT continuous video",
+  "build": "44",
+  "sourceSHA": "7b753e3f8a44abdaca07cb9a3030ac8eac13c0ba",
+  "frames": [
+    {
+      "file": "00.png",
+      "commandStartUtc": "2026-11-19T14:15:32.518788+00:00",
+      "commandEndUtc": "2026-11-19T14:15:32.884321+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "01.png",
+      "commandStartUtc": "2026-11-19T14:15:33.135538+00:00",
+      "commandEndUtc": "2026-11-19T14:15:33.492313+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "02.png",
+      "commandStartUtc": "2026-11-19T14:15:33.746449+00:00",
+      "commandEndUtc": "2026-11-19T14:15:34.104540+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "03.png",
+      "commandStartUtc": "2026-11-19T14:15:34.355142+00:00",
+      "commandEndUtc": "2026-11-19T14:15:34.728977+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "04.png",
+      "commandStartUtc": "2026-11-19T14:15:34.982700+00:00",
+      "commandEndUtc": "2026-11-19T14:15:35.355618+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "05.png",
+      "commandStartUtc": "2026-11-19T14:15:35.608110+00:00",
+      "commandEndUtc": "2026-11-19T14:15:35.965647+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "06.png",
+      "commandStartUtc": "2026-11-19T14:15:36.217116+00:00",
+      "commandEndUtc": "2026-11-19T14:15:36.588053+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "07.png",
+      "commandStartUtc": "2026-11-19T14:15:36.843126+00:00",
+      "commandEndUtc": "2026-11-19T14:15:37.214723+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "08.png",
+      "commandStartUtc": "2026-11-19T14:15:37.468271+00:00",
+      "commandEndUtc": "2026-11-19T14:15:37.827775+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "09.png",
+      "commandStartUtc": "2026-11-19T14:15:38.079791+00:00",
+      "commandEndUtc": "2026-11-19T14:15:38.441212+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "10.png",
+      "commandStartUtc": "2026-11-19T14:15:38.696271+00:00",
+      "commandEndUtc": "2026-11-19T14:15:39.067488+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "11.png",
+      "commandStartUtc": "2026-11-19T14:15:39.322534+00:00",
+      "commandEndUtc": "2026-11-19T14:15:39.691863+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "12.png",
+      "commandStartUtc": "2026-11-19T14:15:39.946927+00:00",
+      "commandEndUtc": "2026-11-19T14:15:40.320384+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "13.png",
+      "commandStartUtc": "2026-11-19T14:15:40.573782+00:00",
+      "commandEndUtc": "2026-11-19T14:15:40.947152+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "14.png",
+      "commandStartUtc": "2026-11-19T14:15:41.201020+00:00",
+      "commandEndUtc": "2026-11-19T14:15:41.558397+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "15.png",
+      "commandStartUtc": "2026-11-19T14:15:41.813458+00:00",
+      "commandEndUtc": "2026-11-19T14:15:42.187388+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "16.png",
+      "commandStartUtc": "2026-11-19T14:15:42.442448+00:00",
+      "commandEndUtc": "2026-11-19T14:15:42.808139+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "17.png",
+      "commandStartUtc": "2026-11-19T14:15:43.058754+00:00",
+      "commandEndUtc": "2026-11-19T14:15:43.428298+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "18.png",
+      "commandStartUtc": "2026-11-19T14:15:43.683336+00:00",
+      "commandEndUtc": "2026-11-19T14:15:44.051114+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "19.png",
+      "commandStartUtc": "2026-11-19T14:15:44.304967+00:00",
+      "commandEndUtc": "2026-11-19T14:15:44.664946+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "20.png",
+      "commandStartUtc": "2026-11-19T14:15:44.919979+00:00",
+      "commandEndUtc": "2026-11-19T14:15:45.277871+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "21.png",
+      "commandStartUtc": "2026-11-19T14:15:45.532937+00:00",
+      "commandEndUtc": "2026-11-19T14:15:45.895294+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "22.png",
+      "commandStartUtc": "2026-11-19T14:15:46.150392+00:00",
+      "commandEndUtc": "2026-11-19T14:15:46.505959+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "23.png",
+      "commandStartUtc": "2026-11-19T14:15:46.758749+00:00",
+      "commandEndUtc": "2026-11-19T14:15:47.121724+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "24.png",
+      "commandStartUtc": "2026-11-19T14:15:47.375079+00:00",
+      "commandEndUtc": "2026-11-19T14:15:47.742556+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "25.png",
+      "commandStartUtc": "2026-11-19T14:15:47.997602+00:00",
+      "commandEndUtc": "2026-11-19T14:15:48.365674+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "26.png",
+      "commandStartUtc": "2026-11-19T14:15:48.620724+00:00",
+      "commandEndUtc": "2026-11-19T14:15:48.990028+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "27.png",
+      "commandStartUtc": "2026-11-19T14:15:49.242354+00:00",
+      "commandEndUtc": "2026-11-19T14:15:49.600968+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "28.png",
+      "commandStartUtc": "2026-11-19T14:15:49.856003+00:00",
+      "commandEndUtc": "2026-11-19T14:15:50.227288+00:00",
+      "exitCode": 0
+    },
+    {
+      "file": "29.png",
+      "commandStartUtc": "2026-11-19T14:15:50.482334+00:00",
+      "commandEndUtc": "2026-11-19T14:15:50.853399+00:00",
+      "exitCode": 0
+    }
+  ]
+}

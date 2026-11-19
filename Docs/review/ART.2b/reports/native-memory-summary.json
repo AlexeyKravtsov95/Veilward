@@ -1,0 +1,45 @@
+{
+  "behind": {
+    "samples": 21,
+    "observedSeconds": 19.926908125,
+    "memory-physical-footprint": {
+      "first": 276629608,
+      "observedPeak": 276645992,
+      "last": 275990632
+    },
+    "memory-real": {
+      "first": 322961408,
+      "observedPeak": 322961408,
+      "last": 322420736
+    }
+  },
+  "dense": {
+    "samples": 21,
+    "observedSeconds": 19.580957,
+    "memory-physical-footprint": {
+      "first": 270927976,
+      "observedPeak": 271042664,
+      "last": 271042664
+    },
+    "memory-real": {
+      "first": 318046208,
+      "observedPeak": 318046208,
+      "last": 304873472
+    }
+  },
+  "normal": {
+    "samples": 21,
+    "observedSeconds": 19.500873625,
+    "phase": "normal combat after actual device dense Restart/cleanup; separate profiling run",
+    "memory-physical-footprint": {
+      "first": 275531880,
+      "observedPeak": 275810408,
+      "last": 275777640
+    },
+    "memory-real": {
+      "first": 283164672,
+      "observedPeak": 283164672,
+      "last": 266665984
+    }
+  }
+}

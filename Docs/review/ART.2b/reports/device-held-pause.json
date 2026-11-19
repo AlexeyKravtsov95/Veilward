@@ -1,0 +1,21 @@
+{
+  "elapsedSeconds": 2.381535053253174,
+  "decodedPixelsIdentical": true,
+  "differenceBounds": null,
+  "input": "DeviceHub remote pointer click held300ms",
+  "resumeChangedPixelBounds": [
+    [
+      1345,
+      435,
+      1365,
+      464
+    ],
+    null,
+    [
+      1351,
+      432,
+      1371,
+      450
+    ]
+  ]
+}

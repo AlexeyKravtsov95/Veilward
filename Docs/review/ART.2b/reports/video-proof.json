@@ -1,0 +1,26 @@
+{
+  "capture": "Physical iPhone iOS Control Center Screen Recording; only newly recorded MP4 imported with Image Capture",
+  "sourceSHA": "7b753e3f8a44abdaca07cb9a3030ac8eac13c0ba",
+  "build": "44",
+  "kind": "actual advancing saved combat; not synthetic; not a performance measurement",
+  "rawNativeSHA256": "7d4c102a0e9192dcbe0ef845fb435de764d87ee3dc29bef6f058a64761aeb5b5",
+  "rawBytes": 33906175,
+  "rawDurationSeconds": 92.337188,
+  "rawRetainedLocally": true,
+  "rawEncodedWidth": 1206,
+  "rawEncodedHeight": 2622,
+  "rawDisplayOrientation": "landscape via native rotation metadata",
+  "sourceIntervalSeconds": [
+    40,
+    68
+  ],
+  "deliveredDurationSeconds": 28.005,
+  "deliveredFrames": 1680,
+  "sourceIntervalFrames": 1680,
+  "maximumTimestampMappingErrorSeconds": 7.105427357601002e-15,
+  "speed": 1,
+  "displayWidth": 2622,
+  "displayHeight": 1206,
+  "processing": "Trim game-only interval, autorotate native orientation, H264 CRF18, remove audio and metadata; no resize/crop/interpolation/time scaling",
+  "limitations": "Native recorder overhead separate from unrecorded benchmarks; technical frame analysis is not continuous human artistic approval"
+}

@@ -1,0 +1,118 @@
+Launched application with com.veilward.spiritdefense bundle identifier.
+Waiting for the application to terminate…
+CrashReporter: initialized
+2026-11-19 21:12:23.602 VEILWARDSpiritDefense[81560:23669729] Built from '6000.3/respin/6000.3.28f1-21f78c3e21d1' branch, Version '6000.3.28f1 (8f082d2fe476)', Build type 'Release', Scripting Backend 'il2cpp'
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=262144"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=4194304"
+    "memorysetup-bucket-allocator-block-count=1"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-threa2026-11-19 21:12:23.604 VEILWARDSpiritDefense[81560:23669729] MemoryManager: Using 'Default' Allocator.
+d-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=4194304"
+    "memorysetup-profiler-bucket-allocator-block-count=1"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=4194304"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+-> applicationDidFinishLaunching()
+-> sceneWillEnterForeground()
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Subsystems] Discovering subsystems at path <APP_CONTAINER_PATH>
+GfxDevice: creating device client; kGfxThreadingModeThreaded
+Initializing Metal device caps: Apple A18 Pro GPU
+Apple GPU Family: 9
+MSL Version: 3.0
+Has Float MSAA: 1
+Has Float Filtering: 1
+ReadWrite Texture Tier: 2
+Initialize engine version: 6000.3.28f1 (8f082d2fe476)
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+CADisplayLink created
+Player Setting 'Adjust iOS FPS based on thermal state' is ON
+thermalStateDidChange: Nominal
+-> applicationWillEnterForeground()
+-> sceneDidBecomeActive()
+-> applicationDidBecomeActive()
+UnloadTime: 1.258875 ms
+ART2B_ATTACH explicit art profile/arguments
+UnityEngine.DebugLogHandler:Internal_Log_Injected(LogType, LogOption, ManagedSpanWrapper&, IntPtr)
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+Veilward.Presentation.ArtDeviceProbe:Attach()
+
+ART2B_SETTINGS {"scenario":"normal","sourceReceipt":"{\n    \"sourceSHA\": \"7b753e3f8a44abdaca07cb9a3030ac8eac13c0ba\",\n    \"version\": \"0.1.0\",\n    \"buildNumber\": \"44\",\n    \"contentId\": \"legacy-single-wave-v1\",\n    \"unityVersion\": \"6000.3.28f1\",\n    \"profile\": \"art-reference\",\n    \"purpose\": \"ART.2b device microbenchmark\",\n    \"scenarioPath\": \"Assets/_Game/Configs/TestWave.asset\",\n    \"scenes\": [\n        \"Assets/_Game/Scenes/ArtReference.unity\"\n    ],\n    \"warnings\": 1\n}","renderPipeline":"Mobile_RPAsset","renderScale":0.800000011920929,"shadowDistance":50.0,"effectiveMsaa":1,"mainShadowResolution":1024,"shadowCascades":1,"cameraPixelWidth":2622,"cameraPixelHeight":1206,"cameraScaledPixelWidth":2622,"cameraScaledPixelHeight":1206,"mainLightShadows":true,"softShadows":false,"model":"iPhone17,1","os":"iOS 27.0.1","unity":"6000.3.28f1","version":"0.1.0","graphics":"Apple A18 Pro GPU","api":"Metal","width":2622,"height":1206,"targetFrameRate":60,"vsync":0,"quality":0,"aa":0,"refreshRate":120.0,"safeArea":{"serializedVersion":"2","x":186.0,"y":60.0,"width":2250.0,"height":1146.0},"development":false,"frameTimingEnabled":true}
+UnityEngine.DebugLogHandler:Internal_Log_Injected(LogType, LogOption, ManagedSpanWrapper&, IntPtr)
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+Veilward.Presentation.ArtDeviceProbe:BeginMeasurements(Double, Double)
+Veilward.Presentation.<InitializeFromArguments>d__54:MoveNext()
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+CrashReporter: No pending report exists at /var/mobile/Containers/Data/Application/<LOCAL_UUID>/Library/Caches/CrashReports/crash-pending.plcrash
+ART2B_WINDOW normal repeat=1 samples=1800
+UnityEngine.DebugLogHandler:Internal_Log_Injected(LogType, LogOption, ManagedSpanWrapper&, IntPtr)
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+Veilward.Presentation.ArtDeviceProbe:SaveWindow()
+Veilward.Presentation.ArtDeviceProbe:LateUpdate()
+
+ART2B_WINDOW normal repeat=2 samples=1800
+UnityEngine.DebugLogHandler:Internal_Log_Injected(LogType, LogOption, ManagedSpanWrapper&, IntPtr)
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+Veilward.Presentation.ArtDeviceProbe:SaveWindow()
+Veilward.Presentation.ArtDeviceProbe:LateUpdate()
+
+ART2B_WINDOW normal repeat=3 samples=1800
+UnityEngine.DebugLogHandler:Internal_Log_Injected(LogType, LogOption, ManagedSpanWrapper&, IntPtr)
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+Veilward.Presentation.ArtDeviceProbe:SaveWindow()
+Veilward.Presentation.ArtDeviceProbe:LateUpdate()
+
+ART2B_COMPLETE normal
+UnityEngine.DebugLogHandler:Internal_Log_Injected(LogType, LogOption, ManagedSpanWrapper&, IntPtr)
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+Veilward.Presentation.ArtDeviceProbe:LateUpdate()
+
+App terminated due to signal 9.
