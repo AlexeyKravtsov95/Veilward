@@ -30,7 +30,7 @@ Regression scenarios (сначала спецификация, затем реа
 
 Требуются macOS, Unity точной версии с Hub-активированной license, **iOS Build Support** именно для6000.3.28f1, Xcode и доверенный разблокированный iPhone с Developer Mode. Уточнение19.11.2026: Hub/CLI показывает iOS Installed для того же6000.3.28f1 arm64; модуль найден рядом с Unity.app в version-directory/PlaybackEngines/iOSSupport. Старый Python preflight искал только внутри app bundle и ошибочно останавливался до Unity. Exporter теперь учитывает оба layout и resolved executable. Наличие capability подтверждать внутри выбранного Editor через BuildPipeline.IsBuildTargetSupported, не только по directory или Hub metadata. Повторная установка не назначается. Актуальная диагностика/результаты — [revision2](review/QA.1/revision-2/validation.md).
 
-Не пересылать Apple account/private credentials агенту. Подпись настраивать локально в Xcode существующим доступным team/profile для identifier проекта; если подходящего профиля нет, это отдельный BLOCKED. Две найденные identities не доказывают наличие подходящего provisioning profile.
+Не пересылать Apple account/private credentials агенту. Подпись использует подтверждённую локальную team/account/identity для identifier проекта. Если подходящего profile нет, Xcode automatic provisioning с доступным account/team может создать совместимый; если provisioning недоступен, статус BLOCKED. Две найденные identities сами по себе не доказывают пригодность профиля — проверять фактический signed build и codesign.
 
 Из корня **чистого committed** checkout, с закрытым Editor этого checkout:
 

@@ -65,6 +65,6 @@
     "specification.md": "721a2176336070f26b0451e6062748eb278bf96ab436428fee1a3d8b887def8c",
     "unity-source-comparison.json": "514d3bbef95f8078dbe3dbdbac1fb70fbc4539ce8f2310d7c538847561e3fc7a"
   },
-  "deviceAcceptance": "QA.1 smoke verified; independent final audit pending",
+  "deviceAcceptance": "VERIFIED: QA.1 export/build/install/launch and physical FLAME/GALE smoke; QA.2/QA.3/ART/G2 excluded",
   "testedSourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13"
 }
