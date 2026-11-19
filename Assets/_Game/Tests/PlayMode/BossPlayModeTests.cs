@@ -176,7 +176,7 @@ namespace Veilward.Tests.PlayMode
         private void Label()
         {
             var go=new GameObject("Evidence Label",typeof(RectTransform),typeof(UnityEngine.UI.Text));go.transform.SetParent(Object.FindFirstObjectByType<Canvas>().transform,false);
-            var text=go.GetComponent<UnityEngine.UI.Text>();text.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");text.fontSize=21;text.alignment=TextAnchor.MiddleCenter;text.raycastTarget=false;text.text="PRODUCTION eight-wave-ability-boss-v1 • public-command test clock • Editor Play Mode";
+            var text=go.GetComponent<UnityEngine.UI.Text>();text.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");text.fontSize=21;text.alignment=TextAnchor.MiddleCenter;text.raycastTarget=false;text.text="PRODUCTION eight-wave-ability-boss-v2 • public-command test clock • Editor Play Mode";
             var r=text.rectTransform;r.anchorMin=r.anchorMax=new Vector2(.5f,0);r.pivot=new Vector2(.5f,0);r.anchoredPosition=new Vector2(0,8);r.sizeDelta=new Vector2(1450,32);
         }
         private IEnumerator Shot(string name)
