@@ -12,3 +12,11 @@ FAIL: [Errno 2] No such file or directory: '/private/var/folders/_4/yfc3qtdj5kng
 NEGATIVE untracked package evidence: rejected, exit 1
 FAIL: Untracked package file
 RESTORED: positive exit 0, clean git status; no Unity/Blender launch
+
+FINAL CLEAN CHECKOUT 723dbd9d9e1466ab5a149b3acff056b244d43b94
+PASS visualInputs: 125/125 byte-identical, tracked
+PASS historicalEvidence: 79/79 byte-identical, tracked
+PASS delivery: 8 package files tracked, 26 local links, scope ART.2a only
+PASS historical media: 5/5 game-scale PNG, advancing video telemetry, Console audit
+NOT VERIFIED: new Unity run, owner ART approval, ART.2b iPhone readability/performance
+git diff --check 0028981: PASS; git status: clean
