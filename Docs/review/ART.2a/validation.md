@@ -32,4 +32,4 @@ Captures ART.1.1 сняты 16–17.11.2026 в Unity6000.3.28f1, active Standalo
 - Готовый UI, production composition/другие модели MVP, human G2 и release не утверждаются. Нового коммерческого/лицензионного approval для прежних AI-assisted assets этот пакет не создаёт.
 - Projects поле отдельно не изменялось/не подтверждено. Self-merge/release/TestFlight не выполнялись.
 
-Независимое техническое review фиксируется отдельно в `review.md` после открытия PR; оно не является решением владельца по стилю.
+[Независимое техническое review](review.md) после открытия PR #72: reviewed head `355accd`, открытых P1/P2 нет; это не решение владельца по стилю. Hosted static CI reviewed head также success. После review добавлена только запись результатов/ссылки и обновлён delivery report; manifest/кадры/verifier неизменны.

@@ -57,6 +57,6 @@
 
 **Решение ещё не получено.** После ответа фиксируются выбранные кадры и точный список правок. #41 остаётся open до выполнения её acceptance; следующий #43 требует отдельного real-iPhone readability/performance evidence до массового производства.
 
-**VERIFIED:** целостность/происхождение исторических визуальных материалов, доступность пакета из Git, static/diff gates — [validation](validation.md).
+**VERIFIED:** целостность/происхождение исторических визуальных материалов, доступность пакета из Git, static/diff gates — [validation](validation.md). [Независимое техническое review](review.md): открытых P1/P2 нет; это не ART approval.
 
 **NOT VERIFIED / BLOCKED:** художественное утверждение владельца, ART.2b на физическом iPhone, читаемость/окклюзия в built player, frame time/memory/thermal, готовый UI и остальной арт MVP. QA.1 graybox smoke не заменяет ART.2b. Self-merge/release/TestFlight не выполнялись.
