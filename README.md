@@ -231,3 +231,8 @@ PR #69 merged `a9a9ae4`, production boss1000HP/armor5 сохранён. [Нов�
 ### P2.4f revision3 — winning production integration
 
 По делегации владельца выбран boss600HP/armor5 для нового `eight-wave-ability-boss-v2`; v1/1000/5 и старые saves сохраняют прежние правила. [Матрица, экономика и timing](Docs/review/P2.4f/revision-3/decision.md). Оба старта дают Victory в том же run с ability kill, boss kill и всеми четырьмя positive Steam/Storm pair/intrinsic cells. Полная trace/file/menu/failed-save/Retry/Combat7–8 matrix повторена на winning routes. [Gates,114 реальных кадров и независимое review](Docs/review/P2.4f/revision-3/validation.md). Числа выбраны в делегированном scope; human G2/device/ART/release отдельно. PR70 передаётся на повторный review, self-merge не выполняется. Прежние BLOCKED записи выше — история v1.
+
+
+## QA.1 — локальная iOS сборка (#42)
+
+[Спецификация и команды export/build/install/launch](Docs/QA1_IOS_BUILD.md). `python3 Scripts/export-ios.py --version 0.1.0 --build-number 42` требует чистый committed checkout и iOS Build Support для Unity6000.3.28f1; временно закрепляет IL2CPP/ARM64/Metal, проверяет sourceSHA и неизменность исходников. Signing выполняется локально с существующими настройками Xcode, credentials в git не добавляются. [Фактические проверки и ограничения QA.1](Docs/review/QA.1/validation.md). Physical device acceptance не выводится из Editor/tooling PASS.
