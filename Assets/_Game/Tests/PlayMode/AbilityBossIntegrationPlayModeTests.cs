@@ -126,10 +126,23 @@ namespace Veilward.Tests.PlayMode
                     if(interrupt){Assert.That(s.DamageEvents,Is.Not.Empty);Assert.That(Battle.GetComponent<EnemyInspectorController>().Select(s.State.Enemies[0].Id),Is.True);CorruptRestoreProbe(envelope);}
                     Call(Battle,"ProcessAttackEvents");Call(Battle,"LateUpdate");foreach(var key in keys)if(firstShots.Add(key))yield return Shot("positive-"+key);
                     if(wave==8&&s.State.Enemies.Any(e=>e.Definition.Id.Value=="rift-warden")&&firstShots.Add("boss"))yield return Shot("boss600-armor5");
-                    if(interrupt){yield return Shot("interrupted-combat"+wave);var primary=File.ReadAllBytes(store.PrimaryPath);yield return Continue(safe,"clean-continue"+wave);Assert.That(File.ReadAllBytes(store.PrimaryPath),Is.EqualTo(primary));s=Battle.Simulation;rolled=true;kill=proc=false;cells=(int[])priorCells.Clone();abilityKills=priorKills;bossKills=priorBossKills;Button("Start Wave Button").onClick.Invoke();}
+                    if(interrupt){yield return Shot("interrupted-combat"+wave);var primary=File.ReadAllBytes(store.PrimaryPath);yield return Continue(safe,"clean-continue"+wave);Assert.That(File.ReadAllBytes(store.PrimaryPath),Is.EqualTo(primary));s=Battle.Simulation;rolled=true;kill=proc=false;cells=(int[])priorCells.Clone();abilityKills=priorKills;bossKills=priorBossKills;Button("Start Wave Button").onClick.Invoke();FailWrite();}
                     if(guard%120==0)yield return null;
                 }
-                Assert.That(guard,Is.LessThan(20000));if(wave>=7)Assert.That(rolled,Is.True,"actual ability kill + positive reaction Combat"+wave+" rollback required");Assert.That(AbilityBossTrace.Wire(s),Is.EqualTo(control.report.waves[wave-1].checkpoint));Record("wave complete");if(s.State.Phase!=BattlePhase.WaveComplete)break;
+                Assert.That(guard,Is.LessThan(20000));if(wave>=7)Assert.That(rolled,Is.True,"actual ability kill + positive reaction Combat"+wave+" rollback required");Assert.That(AbilityBossTrace.Wire(s),Is.EqualTo(control.report.waves[wave-1].checkpoint));
+                if(wave>=7)
+                {
+                    // Fault поставлен после повторногоStart: следующие writes — только completion этой выигранной волны.
+                    Assert.That(Checkpoint.LastSaveSucceeded,Is.False);var live=AbilityBossTrace.Wire(s);
+                    Assert.That(store.TryLoad(Config.ScenarioContentId,Config.CreateSimulationForCheckpoint,out var durable),Is.True,durable.Error);
+                    var restarted=Config.CreateSimulationForCheckpoint(durable.Envelope);restarted.RestoreCheckpoint(durable.Envelope.state);
+                    Assert.That(AbilityBossTrace.Wire(restarted),Is.EqualTo(safe),"failed completion keeps full pre-Start Preparation durable");
+                    yield return Shot("failed-completion"+wave);
+                    Button("Retry Save Button").onClick.Invoke();Button("Retry Save Button").onClick.Invoke();
+                    Assert.That(Checkpoint.LastSaveSucceeded,Is.True);Assert.That(AbilityBossTrace.Wire(s),Is.EqualTo(live));
+                    yield return Shot("retry-completion"+wave);
+                }
+                Record("wave complete");if(s.State.Phase!=BattlePhase.WaveComplete)break;
                 if(s.State.ElementProgression.PendingChoiceId!="none")
                 {
                     var before=AbilityBossTrace.Wire(s);yield return Continue(before,"pending"+wave);FailWrite();Select(wave==3?script.after3:script.after6);Assert.That(Checkpoint.LastSaveSucceeded,Is.False);var live=AbilityBossTrace.Wire(Battle.Simulation);yield return Shot("failed-confirm"+wave);
