@@ -1,0 +1,11 @@
+{
+  "source": "f9312ea3bbcc47023f8ac7462c2d942d9a17e0a7",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "macos": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "unity": "m_EditorVersion: 6000.3.28f1\nm_EditorVersionWithRevision: 6000.3.28f1 (8f082d2fe476)\n",
+  "cli": "1.0.1 (latest check verified)",
+  "build_target": "iOS",
+  "editor_test_clock": true,
+  "physical_device": false
+}

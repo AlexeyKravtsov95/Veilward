@@ -1,0 +1,7 @@
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+ExpectedError|Checkpoint save failed: Access to the path '/Users/alexeykravtsov/Desktop/workspace/Veilward-p24f/TestResults/BossPlay/88ce1e705c104c5a93c9af9a31e0bd15/wave-checkpoint-v1.json.tmp' is denied.
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless

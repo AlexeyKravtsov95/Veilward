@@ -1,0 +1,17 @@
+start,wave,phase,tick,hp,gold,kills,remaining,sequence,ability_kills,boss_kills,steam_pair,steam_intrinsic,storm_pair,storm_intrinsic
+flame,1,WaveComplete,296,20,55,5,593,2,3,0,0,0,0,0
+flame,2,WaveComplete,725,16,85,7,164,2,3,0,0,0,0,0
+flame,3,WaveComplete,1080,16,70,14,409,3,6,0,0,0,0,0
+flame,4,WaveComplete,1519,16,70,22,600,4,8,0,113,0,0,0
+flame,5,WaveComplete,2024,16,75,31,95,4,8,0,227,0,0,0
+flame,6,WaveComplete,2589,16,145,41,0,4,8,0,363,0,0,0
+flame,7,WaveComplete,3021,16,79,52,169,5,9,0,461,36,36,0
+flame,8,Victory,3805,16,136,64,585,7,12,1,561,72,36,43
+gale,1,WaveComplete,399,19,110,4,261,2,3,0,0,0,0,0
+gale,2,WaveComplete,735,19,80,10,525,3,6,0,0,0,0,0
+gale,3,WaveComplete,1194,18,50,16,66,3,6,0,0,0,0,0
+gale,4,WaveComplete,1569,18,110,24,291,4,9,0,0,0,0,0
+gale,5,WaveComplete,1962,18,65,33,0,4,9,0,0,0,0,54
+gale,6,WaveComplete,2358,18,75,43,0,4,9,0,0,0,46,54
+gale,7,WaveComplete,2763,18,80,54,196,5,10,0,10,0,53,108
+gale,8,Victory,3559,18,144,66,600,7,14,1,118,51,91,108

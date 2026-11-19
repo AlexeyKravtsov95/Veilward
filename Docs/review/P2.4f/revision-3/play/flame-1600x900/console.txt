@@ -1,0 +1,30 @@
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+ExpectedError|Checkpoint save failed: injected P24f IO failure
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+ExpectedError|Checkpoint save failed: injected P24f IO failure
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+ExpectedError|Checkpoint save failed: injected P24f IO failure
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+ExpectedError|Checkpoint save failed: injected P24f IO failure
+ExpectedError|Checkpoint save failed: injected P24f IO failure
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless
+ExpectedError|Checkpoint save failed: injected P24f IO failure
+Warning|Ignoring depth surface load action as it is memoryless
+Warning|Ignoring depth surface store action as it is memoryless

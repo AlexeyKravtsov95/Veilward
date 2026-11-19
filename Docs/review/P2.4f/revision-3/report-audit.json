@@ -1,0 +1,127 @@
+{
+  "EditMode.xml.gz": {
+    "total": 1100,
+    "passed": 1100,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "7ceae2c87e505219abe10f9c9858b80a2dbe722260449fc7942a6a416dbee9e0",
+    "raw_bytes": 1067607,
+    "failures": []
+  },
+  "PlayMode.xml.gz": {
+    "total": 60,
+    "passed": 60,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "c6b7c3b5f7a9a92513c115c884e27355df8e3894364f91fb707dffbe9b5bc275",
+    "raw_bytes": 60589,
+    "failures": []
+  },
+  "Visual-before-label.xml.gz": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "77fa1678e71bb31b8a8ae78921c03e7a75d1bc6126074b17c6ad08f5023e73e5",
+    "raw_bytes": 12057,
+    "failures": []
+  },
+  "Visual-before-validator.xml.gz": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "c65ae35c82b835742d6bddf2fd21542ed5d0a10e68b2e094913f2a15c5faf49e",
+    "raw_bytes": 11861,
+    "failures": []
+  },
+  "Visual.xml.gz": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "230301638df77a66d76ffb7a6c827857d9df8122a3ae899b012f21356d3c0d36",
+    "raw_bytes": 12056,
+    "failures": []
+  },
+  "p24f-r3-final-routes.xml.gz": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "21c52617cee50f49e26e6e64873a8ac3bda6ca8876300cb88a6ba037178be150",
+    "raw_bytes": 5164,
+    "failures": []
+  },
+  "p24f-r3-gale-routes.xml.gz": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "9f7f5d5bb097964e06fd5a12c58b1c9d37cababf492253098ad6963638abd228",
+    "raw_bytes": 4410,
+    "failures": []
+  },
+  "p24f-r3-integration-green.xml.gz": {
+    "total": 39,
+    "passed": 39,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "bcc608b8d29aa625ced0bcd20713859b2dc1b1b04a5e4ca52b1ec607b37e34c2",
+    "raw_bytes": 51932,
+    "failures": []
+  },
+  "p24f-r3-integration.xml.gz": {
+    "total": 23,
+    "passed": 21,
+    "failed": 2,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "15b95a7c692af939f3580680c0a097b2f53ac1496e3e52005b76e9b590bf92df",
+    "raw_bytes": 38711,
+    "failures": [
+      "Veilward.Tests.EditMode.AbilityBossReplayTests.RegBattle216_R3StoneVictoryAndLegalBossLeakRemainSeparateControls(\"flame\",True)",
+      "Veilward.Tests.EditMode.AbilityBossVersionTests.RegBattle214_V2ChangesOnlyBossHpAndKeepsV1Rules"
+    ]
+  },
+  "p24f-r3-matrix.xml.gz": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "0e4855fb74bafd4c7e24cc36a726e0fd4b1c5e83fde5451f6c81b8c689de2756",
+    "raw_bytes": 10071,
+    "failures": []
+  },
+  "p24f-r3-routes.xml.gz": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "3934a06fb0bc6e58d9b59a7c08a9ea827162470ea26735f12f8714326a4bb0ef",
+    "raw_bytes": 5147,
+    "failures": []
+  },
+  "validator-red.xml.gz": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "inconclusive": 0,
+    "skipped": 0,
+    "sha256": "5e4844676b4039765f704c4c7f4e12c925645660ab923d8080cf4ee7bde20e56",
+    "raw_bytes": 5152,
+    "failures": [
+      "Veilward.Tests.EditMode.AbilityBossVersionTests.RegBattle214_ProductionValidatorRejectsValidHistoricalPayloadAtCurrentAssetPath"
+    ]
+  }
+}

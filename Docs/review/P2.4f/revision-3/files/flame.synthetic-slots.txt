@@ -1,0 +1,6 @@
+SYNTHETIC slots eight-wave-ability-boss-v2 -> eight-wave-unlocks-v1 whole fallback/no-write PASS
+SYNTHETIC slots eight-wave-ability-boss-v2 -> eight-wave-v1 whole fallback/no-write PASS
+SYNTHETIC slots eight-wave-unlocks-v1 -> eight-wave-ability-boss-v2 whole fallback/no-write PASS
+SYNTHETIC slots eight-wave-unlocks-v1 -> eight-wave-v1 whole fallback/no-write PASS
+SYNTHETIC slots eight-wave-v1 -> eight-wave-ability-boss-v2 whole fallback/no-write PASS
+SYNTHETIC slots eight-wave-v1 -> eight-wave-unlocks-v1 whole fallback/no-write PASS

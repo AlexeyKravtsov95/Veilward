@@ -226,3 +226,8 @@ PR #69 merged `a9a9ae4`, production boss1000HP/armor5 сохранён. [Нов�
 
 
 **PR70 / P2.4f — целевая revision2, BLOCKED:** один новый pass обеих F/T/G histories, ранние upgrades и разные final armies:99992wave outcomes+4fullNewGame,0Victory. Лучшие bossHP376/434/376/369; баланс1000/5 и REG214 неизменны. Existing trace/file/menu/rollback matrix и old inputs сохранены. Full static38/38,Edit1075/1077(2mandatory FAIL),Play60/60,Visual5/5. [Результаты/границы/следующее решение](Docs/review/P2.4f/revision-2/validation.md).
+
+
+### P2.4f revision3 — winning production integration
+
+По делегации владельца выбран boss600HP/armor5 для нового `eight-wave-ability-boss-v2`; v1/1000/5 и старые saves сохраняют прежние правила. [Матрица, экономика и timing](Docs/review/P2.4f/revision-3/decision.md). Оба старта дают Victory в том же run с ability kill, boss kill и всеми четырьмя positive Steam/Storm pair/intrinsic cells. Полная trace/file/menu/failed-save/Retry/Combat7–8 matrix повторена на winning routes. [Gates,114 реальных кадров и независимое review](Docs/review/P2.4f/revision-3/validation.md). Числа выбраны в делегированном scope; human G2/device/ART/release отдельно. PR70 передаётся на повторный review, self-merge не выполняется. Прежние BLOCKED записи выше — история v1.

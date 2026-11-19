@@ -1,0 +1,1889 @@
+{
+    "start": "gale",
+    "outcome": "Victory",
+    "traceSha256": "3eb47c1c2f9327447f00904235cff6971e050150fbf75ac03778e8450bdb97dc",
+    "entries": 7008,
+    "rawBytes": 1885529,
+    "abilityKills": 15,
+    "abilityApplied": 1481,
+    "bossKills": 1,
+    "bossLeaks": 0,
+    "bossHpBeforeLeak": 0,
+    "goldCommands": -524,
+    "killGold": 355,
+    "bonusGold": 160,
+    "cells": [
+        {
+            "kind": "Steam",
+            "trigger": "StatusPair",
+            "procs": 0,
+            "applied": 0
+        },
+        {
+            "kind": "Steam",
+            "trigger": "Intrinsic",
+            "procs": 0,
+            "applied": 0
+        },
+        {
+            "kind": "Storm",
+            "trigger": "StatusPair",
+            "procs": 7,
+            "applied": 69
+        },
+        {
+            "kind": "Storm",
+            "trigger": "Intrinsic",
+            "procs": 0,
+            "applied": 0
+        }
+    ],
+    "waves": [
+        {
+            "wave": 1,
+            "hp": 19,
+            "gold": 110,
+            "kills": 4,
+            "abilityKills": 3,
+            "bossKills": 0,
+            "remaining": 261,
+            "sequence": 2,
+            "tick": 399,
+            "phase": "WaveComplete",
+            "checkpoint": "{\"phase\":4,\"waveIndex\":0,\"tick\":399,\"baseHealth\":19,\"gold\":110,\"kills\":4,\"nextEnemyId\":6,\"nextTowerId\":2,\"towers\":[{\"towerId\":1,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":-1,\"level\":1,\"investedGold\":80,\"nextAttackTick\":293}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"gale\",\"unlockedElementIds\":[\"gale\"],\"choicesEarned\":0,\"choicesSpent\":0,\"spentChoices\":[],\"pendingChoiceId\":\"none\"}}|ability:rift-seal-v1,rift-seal,261,2",
+            "cells": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "wave": 2,
+            "hp": 19,
+            "gold": 80,
+            "kills": 10,
+            "abilityKills": 6,
+            "bossKills": 0,
+            "remaining": 600,
+            "sequence": 3,
+            "tick": 668,
+            "phase": "WaveComplete",
+            "checkpoint": "{\"phase\":4,\"waveIndex\":1,\"tick\":668,\"baseHealth\":19,\"gold\":80,\"kills\":10,\"nextEnemyId\":12,\"nextTowerId\":3,\"towers\":[{\"towerId\":1,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":-1,\"level\":1,\"investedGold\":80,\"nextAttackTick\":673},{\"towerId\":2,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":0,\"level\":1,\"investedGold\":80,\"nextAttackTick\":675}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"gale\",\"unlockedElementIds\":[\"gale\"],\"choicesEarned\":0,\"choicesSpent\":0,\"spentChoices\":[],\"pendingChoiceId\":\"none\"}}|ability:rift-seal-v1,rift-seal,600,3",
+            "cells": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "wave": 3,
+            "hp": 15,
+            "gold": 115,
+            "kills": 13,
+            "abilityKills": 6,
+            "bossKills": 0,
+            "remaining": 141,
+            "sequence": 3,
+            "tick": 1127,
+            "phase": "WaveComplete",
+            "checkpoint": "{\"phase\":4,\"waveIndex\":2,\"tick\":1127,\"baseHealth\":15,\"gold\":115,\"kills\":13,\"nextEnemyId\":19,\"nextTowerId\":3,\"towers\":[{\"towerId\":1,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":-1,\"level\":1,\"investedGold\":80,\"nextAttackTick\":1013},{\"towerId\":2,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":0,\"level\":1,\"investedGold\":80,\"nextAttackTick\":1034}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"gale\",\"unlockedElementIds\":[\"gale\"],\"choicesEarned\":1,\"choicesSpent\":0,\"spentChoices\":[],\"pendingChoiceId\":\"after-wave-3\"}}|ability:rift-seal-v1,rift-seal,141,3",
+            "cells": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "wave": 4,
+            "hp": 14,
+            "gold": 170,
+            "kills": 20,
+            "abilityKills": 9,
+            "bossKills": 0,
+            "remaining": 252,
+            "sequence": 4,
+            "tick": 1616,
+            "phase": "WaveComplete",
+            "checkpoint": "{\"phase\":4,\"waveIndex\":3,\"tick\":1616,\"baseHealth\":14,\"gold\":170,\"kills\":20,\"nextEnemyId\":27,\"nextTowerId\":3,\"towers\":[{\"towerId\":1,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":-1,\"level\":1,\"investedGold\":80,\"nextAttackTick\":1501},{\"towerId\":2,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":0,\"level\":1,\"investedGold\":80,\"nextAttackTick\":1522}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"gale\",\"unlockedElementIds\":[\"gale\",\"stone\"],\"choicesEarned\":1,\"choicesSpent\":1,\"spentChoices\":[{\"choiceId\":\"after-wave-3\",\"elementId\":\"stone\"}],\"pendingChoiceId\":\"none\"}}|ability:rift-seal-v1,rift-seal,252,4",
+            "cells": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "wave": 5,
+            "hp": 14,
+            "gold": 145,
+            "kills": 29,
+            "abilityKills": 12,
+            "bossKills": 0,
+            "remaining": 501,
+            "sequence": 5,
+            "tick": 1967,
+            "phase": "WaveComplete",
+            "checkpoint": "{\"phase\":4,\"waveIndex\":4,\"tick\":1967,\"baseHealth\":14,\"gold\":145,\"kills\":29,\"nextEnemyId\":36,\"nextTowerId\":4,\"towers\":[{\"towerId\":1,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":-1,\"level\":1,\"investedGold\":80,\"nextAttackTick\":1970},{\"towerId\":2,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":0,\"level\":1,\"investedGold\":80,\"nextAttackTick\":1972},{\"towerId\":3,\"towerTypeId\":\"stone\",\"x\":-1,\"y\":0,\"level\":1,\"investedGold\":90,\"nextAttackTick\":2027}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"gale\",\"unlockedElementIds\":[\"gale\",\"stone\"],\"choicesEarned\":1,\"choicesSpent\":1,\"spentChoices\":[{\"choiceId\":\"after-wave-3\",\"elementId\":\"stone\"}],\"pendingChoiceId\":\"none\"}}|ability:rift-seal-v1,rift-seal,501,5",
+            "cells": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "wave": 6,
+            "hp": 14,
+            "gold": 125,
+            "kills": 39,
+            "abilityKills": 12,
+            "bossKills": 0,
+            "remaining": 81,
+            "sequence": 5,
+            "tick": 2387,
+            "phase": "WaveComplete",
+            "checkpoint": "{\"phase\":4,\"waveIndex\":5,\"tick\":2387,\"baseHealth\":14,\"gold\":125,\"kills\":39,\"nextEnemyId\":46,\"nextTowerId\":5,\"towers\":[{\"towerId\":1,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":-1,\"level\":1,\"investedGold\":80,\"nextAttackTick\":2391},{\"towerId\":2,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":0,\"level\":1,\"investedGold\":80,\"nextAttackTick\":2393},{\"towerId\":3,\"towerTypeId\":\"stone\",\"x\":-1,\"y\":0,\"level\":1,\"investedGold\":90,\"nextAttackTick\":2447},{\"towerId\":4,\"towerTypeId\":\"stone\",\"x\":1,\"y\":0,\"level\":1,\"investedGold\":90,\"nextAttackTick\":2417}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"gale\",\"unlockedElementIds\":[\"gale\",\"stone\"],\"choicesEarned\":2,\"choicesSpent\":1,\"spentChoices\":[{\"choiceId\":\"after-wave-3\",\"elementId\":\"stone\"}],\"pendingChoiceId\":\"after-wave-6\"}}|ability:rift-seal-v1,rift-seal,81,5",
+            "cells": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "wave": 7,
+            "hp": 14,
+            "gold": 140,
+            "kills": 50,
+            "abilityKills": 15,
+            "bossKills": 0,
+            "remaining": 299,
+            "sequence": 6,
+            "tick": 2778,
+            "phase": "WaveComplete",
+            "checkpoint": "{\"phase\":4,\"waveIndex\":6,\"tick\":2778,\"baseHealth\":14,\"gold\":140,\"kills\":50,\"nextEnemyId\":57,\"nextTowerId\":6,\"towers\":[{\"towerId\":1,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":-1,\"level\":1,\"investedGold\":80,\"nextAttackTick\":2780},{\"towerId\":2,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":0,\"level\":1,\"investedGold\":80,\"nextAttackTick\":2782},{\"towerId\":3,\"towerTypeId\":\"stone\",\"x\":-1,\"y\":0,\"level\":1,\"investedGold\":90,\"nextAttackTick\":2797},{\"towerId\":4,\"towerTypeId\":\"stone\",\"x\":1,\"y\":0,\"level\":1,\"investedGold\":90,\"nextAttackTick\":2838},{\"towerId\":5,\"towerTypeId\":\"tide\",\"x\":2,\"y\":0,\"level\":1,\"investedGold\":60,\"nextAttackTick\":2815}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"gale\",\"unlockedElementIds\":[\"tide\",\"gale\",\"stone\"],\"choicesEarned\":2,\"choicesSpent\":2,\"spentChoices\":[{\"choiceId\":\"after-wave-3\",\"elementId\":\"stone\"},{\"choiceId\":\"after-wave-6\",\"elementId\":\"tide\"}],\"pendingChoiceId\":\"none\"}}|ability:rift-seal-v1,rift-seal,299,6",
+            "cells": [
+                0,
+                0,
+                21,
+                0
+            ]
+        },
+        {
+            "wave": 8,
+            "hp": 14,
+            "gold": 141,
+            "kills": 62,
+            "abilityKills": 15,
+            "bossKills": 1,
+            "remaining": 570,
+            "sequence": 7,
+            "tick": 3378,
+            "phase": "Victory",
+            "checkpoint": "{\"phase\":2,\"waveIndex\":7,\"tick\":3378,\"baseHealth\":14,\"gold\":141,\"kills\":62,\"nextEnemyId\":69,\"nextTowerId\":8,\"towers\":[{\"towerId\":2,\"towerTypeId\":\"gale\",\"x\":-2,\"y\":0,\"level\":1,\"investedGold\":80,\"nextAttackTick\":3384},{\"towerId\":3,\"towerTypeId\":\"stone\",\"x\":-1,\"y\":0,\"level\":1,\"investedGold\":90,\"nextAttackTick\":3429},{\"towerId\":4,\"towerTypeId\":\"stone\",\"x\":1,\"y\":0,\"level\":1,\"investedGold\":90,\"nextAttackTick\":3438},{\"towerId\":5,\"towerTypeId\":\"tide\",\"x\":2,\"y\":0,\"level\":1,\"investedGold\":60,\"nextAttackTick\":3383},{\"towerId\":6,\"towerTypeId\":\"stone\",\"x\":2,\"y\":1,\"level\":1,\"investedGold\":90,\"nextAttackTick\":3380},{\"towerId\":7,\"towerTypeId\":\"stone\",\"x\":1,\"y\":1,\"level\":1,\"investedGold\":90,\"nextAttackTick\":3411}],\"elementProgression\":{\"rulesId\":\"wave-unlocks-v1\",\"startResonanceId\":\"gale\",\"unlockedElementIds\":[\"tide\",\"gale\",\"stone\"],\"choicesEarned\":2,\"choicesSpent\":2,\"spentChoices\":[{\"choiceId\":\"after-wave-3\",\"elementId\":\"stone\"},{\"choiceId\":\"after-wave-6\",\"elementId\":\"tide\"}],\"pendingChoiceId\":\"none\"}}|ability:rift-seal-v1,rift-seal,570,7",
+            "cells": [
+                0,
+                0,
+                69,
+                0
+            ]
+        }
+    ],
+    "enemies": [
+        {
+            "id": 1,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                41,
+                0,
+                0,
+                59
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                61
+            ]
+        },
+        {
+            "id": 2,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 3,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 4,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 5,
+            "maxHp": 100,
+            "applied": 34,
+            "remaining": 66,
+            "leakedHp": 66,
+            "reward": 5,
+            "lethal": false,
+            "leaked": true,
+            "type": "shade",
+            "byOrigin": [
+                34,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 6,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 7,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 8,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 9,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                41,
+                0,
+                0,
+                59
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                61
+            ]
+        },
+        {
+            "id": 10,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                13,
+                0,
+                0,
+                87
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                33
+            ]
+        },
+        {
+            "id": 11,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 12,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 13,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 14,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 15,
+            "maxHp": 100,
+            "applied": 41,
+            "remaining": 59,
+            "leakedHp": 59,
+            "reward": 5,
+            "lethal": false,
+            "leaked": true,
+            "type": "shade",
+            "byOrigin": [
+                41,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 16,
+            "maxHp": 100,
+            "applied": 41,
+            "remaining": 59,
+            "leakedHp": 59,
+            "reward": 5,
+            "lethal": false,
+            "leaked": true,
+            "type": "shade",
+            "byOrigin": [
+                41,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 17,
+            "maxHp": 100,
+            "applied": 41,
+            "remaining": 59,
+            "leakedHp": 59,
+            "reward": 5,
+            "lethal": false,
+            "leaked": true,
+            "type": "shade",
+            "byOrigin": [
+                41,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 18,
+            "maxHp": 100,
+            "applied": 41,
+            "remaining": 59,
+            "leakedHp": 59,
+            "reward": 5,
+            "lethal": false,
+            "leaked": true,
+            "type": "shade",
+            "byOrigin": [
+                41,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 19,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 20,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 21,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 22,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 23,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 24,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 25,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                4,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 26,
+            "maxHp": 100,
+            "applied": 97,
+            "remaining": 3,
+            "leakedHp": 3,
+            "reward": 5,
+            "lethal": false,
+            "leaked": true,
+            "type": "shade",
+            "byOrigin": [
+                97,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 27,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                10,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 28,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                31,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 29,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                31,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 30,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                31,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 31,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                24,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 32,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 33,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 34,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 35,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                38,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 36,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                24,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 37,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                31,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 38,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                3,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 39,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                3,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 40,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                3,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 41,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                29,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 42,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                3,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 43,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                3,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 44,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                3,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 45,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                29,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 46,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                24,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 47,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                41,
+                0,
+                0,
+                59
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                61
+            ]
+        },
+        {
+            "id": 48,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 49,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                0,
+                0,
+                0,
+                100
+            ],
+            "overkill": [
+                0,
+                0,
+                0,
+                20
+            ]
+        },
+        {
+            "id": 50,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                10,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 51,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                31,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 52,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                15,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 53,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                93,
+                0,
+                7,
+                0
+            ],
+            "overkill": [
+                8,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 54,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                93,
+                0,
+                7,
+                0
+            ],
+            "overkill": [
+                3,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 55,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                1,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 56,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                93,
+                0,
+                7,
+                0
+            ],
+            "overkill": [
+                1,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 57,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                8,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 58,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                23,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 59,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                100,
+                0,
+                0,
+                0
+            ],
+            "overkill": [
+                1,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 60,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                93,
+                0,
+                7,
+                0
+            ],
+            "overkill": [
+                25,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 61,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                89,
+                0,
+                11,
+                0
+            ],
+            "overkill": [
+                39,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 62,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                96,
+                0,
+                4,
+                0
+            ],
+            "overkill": [
+                39,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 63,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                96,
+                0,
+                4,
+                0
+            ],
+            "overkill": [
+                25,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 64,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                96,
+                0,
+                4,
+                0
+            ],
+            "overkill": [
+                39,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 65,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                93,
+                0,
+                7,
+                0
+            ],
+            "overkill": [
+                16,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 66,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                93,
+                0,
+                7,
+                0
+            ],
+            "overkill": [
+                1,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 67,
+            "maxHp": 100,
+            "applied": 100,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 5,
+            "lethal": true,
+            "leaked": false,
+            "type": "shade",
+            "byOrigin": [
+                96,
+                0,
+                4,
+                0
+            ],
+            "overkill": [
+                8,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 68,
+            "maxHp": 600,
+            "applied": 600,
+            "remaining": 0,
+            "leakedHp": 0,
+            "reward": 50,
+            "lethal": true,
+            "leaked": false,
+            "type": "rift-warden",
+            "byOrigin": [
+                483,
+                0,
+                0,
+                117
+            ],
+            "overkill": [
+                21,
+                0,
+                0,
+                0
+            ]
+        }
+    ],
+    "receipts": [
+        "1|0|NewGame|Gold=150|HP=20|Kills=0",
+        "1|0|Choose start-resonance=gale None|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected repeated/stale Choose|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected closed flame|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected closed tide|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected closed stone|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected closed steam|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected closed storm|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected closed flame|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected closed tide|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected closed stone|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected closed steam|Gold=150|HP=20|Kills=0",
+        "1|0|Rejected closed storm|Gold=150|HP=20|Kills=0",
+        "1|0|place gale -2,-1 #0 price=80 refund=0|Gold=70|HP=20|Kills=0",
+        "1|0|Rejected occupied Place|Gold=70|HP=20|Kills=0",
+        "1|0|Start|Gold=70|HP=20|Kills=0",
+        "1|0|Rejected repeated Start|Gold=70|HP=20|Kills=0",
+        "1|60|Cast after tick=60 before next Step wave=0 expectedSequence=1 center=-3.47500086,-2 accepted=1 hits=3 applied=259|Gold=85|HP=20|Kills=3",
+        "1|60|Rejected stale/double Cast|Gold=85|HP=20|Kills=3",
+        "1|60|Rejected invalid center|Gold=85|HP=20|Kills=3",
+        "1|399|Wave end|Gold=110|HP=19|Kills=4",
+        "2|399|Next|Gold=110|HP=19|Kills=4",
+        "2|399|Rejected repeated Next|Gold=110|HP=19|Kills=4",
+        "2|399|Rejected closed flame|Gold=110|HP=19|Kills=4",
+        "2|399|Rejected closed tide|Gold=110|HP=19|Kills=4",
+        "2|399|Rejected closed stone|Gold=110|HP=19|Kills=4",
+        "2|399|Rejected closed steam|Gold=110|HP=19|Kills=4",
+        "2|399|Rejected closed storm|Gold=110|HP=19|Kills=4",
+        "2|399|place gale -2,0 #0 price=80 refund=0|Gold=30|HP=19|Kills=4",
+        "2|399|Rejected occupied Place|Gold=30|HP=19|Kills=4",
+        "2|399|Start|Gold=30|HP=19|Kills=4",
+        "2|399|Rejected repeated Start|Gold=30|HP=19|Kills=4",
+        "2|668|Cast after tick=668 before next Step wave=1 expectedSequence=2 center=8.106232E-06,0.5000024 accepted=2 hits=3 applied=246|Gold=80|HP=19|Kills=10",
+        "2|668|Rejected stale/double Cast|Gold=80|HP=19|Kills=10",
+        "2|668|Rejected invalid center|Gold=80|HP=19|Kills=10",
+        "2|668|Wave end|Gold=80|HP=19|Kills=10",
+        "3|668|Next|Gold=80|HP=19|Kills=10",
+        "3|668|Rejected repeated Next|Gold=80|HP=19|Kills=10",
+        "3|668|Rejected closed flame|Gold=80|HP=19|Kills=10",
+        "3|668|Rejected closed tide|Gold=80|HP=19|Kills=10",
+        "3|668|Rejected closed stone|Gold=80|HP=19|Kills=10",
+        "3|668|Rejected closed steam|Gold=80|HP=19|Kills=10",
+        "3|668|Rejected closed storm|Gold=80|HP=19|Kills=10",
+        "3|668|Start|Gold=80|HP=19|Kills=10",
+        "3|668|Rejected repeated Start|Gold=80|HP=19|Kills=10",
+        "3|1127|Wave end|Gold=115|HP=15|Kills=13",
+        "3|1127|Rejected Next pending|Gold=115|HP=15|Kills=13",
+        "3|1127|Choose after-wave-3=stone None|Gold=115|HP=15|Kills=13",
+        "3|1127|Rejected repeated/stale Choose|Gold=115|HP=15|Kills=13",
+        "3|1127|Rejected closed flame|Gold=115|HP=15|Kills=13",
+        "3|1127|Rejected closed tide|Gold=115|HP=15|Kills=13",
+        "3|1127|Rejected closed steam|Gold=115|HP=15|Kills=13",
+        "3|1127|Rejected closed storm|Gold=115|HP=15|Kills=13",
+        "4|1127|Next|Gold=115|HP=15|Kills=13",
+        "4|1127|Rejected repeated Next|Gold=115|HP=15|Kills=13",
+        "4|1127|Rejected closed flame|Gold=115|HP=15|Kills=13",
+        "4|1127|Rejected closed tide|Gold=115|HP=15|Kills=13",
+        "4|1127|Rejected closed steam|Gold=115|HP=15|Kills=13",
+        "4|1127|Rejected closed storm|Gold=115|HP=15|Kills=13",
+        "4|1127|Start|Gold=115|HP=15|Kills=13",
+        "4|1127|Rejected repeated Start|Gold=115|HP=15|Kills=13",
+        "4|1268|Cast after tick=1268 before next Step wave=3 expectedSequence=3 center=-2.40000129,-2 accepted=3 hits=3 applied=300|Gold=135|HP=15|Kills=17",
+        "4|1268|Rejected stale/double Cast|Gold=135|HP=15|Kills=17",
+        "4|1268|Rejected invalid center|Gold=135|HP=15|Kills=17",
+        "4|1616|Wave end|Gold=170|HP=14|Kills=20",
+        "5|1616|Next|Gold=170|HP=14|Kills=20",
+        "5|1616|Rejected repeated Next|Gold=170|HP=14|Kills=20",
+        "5|1616|Rejected closed flame|Gold=170|HP=14|Kills=20",
+        "5|1616|Rejected closed tide|Gold=170|HP=14|Kills=20",
+        "5|1616|Rejected closed steam|Gold=170|HP=14|Kills=20",
+        "5|1616|Rejected closed storm|Gold=170|HP=14|Kills=20",
+        "5|1616|place stone -1,0 #0 price=90 refund=0|Gold=80|HP=14|Kills=20",
+        "5|1616|Rejected occupied Place|Gold=80|HP=14|Kills=20",
+        "5|1616|Start|Gold=80|HP=14|Kills=20",
+        "5|1616|Rejected repeated Start|Gold=80|HP=14|Kills=20",
+        "5|1868|Cast after tick=1868 before next Step wave=4 expectedSequence=4 center=-1.42500043,-1.92499924 accepted=4 hits=3 applied=300|Gold=115|HP=14|Kills=27",
+        "5|1868|Rejected stale/double Cast|Gold=115|HP=14|Kills=27",
+        "5|1868|Rejected invalid center|Gold=115|HP=14|Kills=27",
+        "5|1967|Wave end|Gold=145|HP=14|Kills=29",
+        "6|1967|Next|Gold=145|HP=14|Kills=29",
+        "6|1967|Rejected repeated Next|Gold=145|HP=14|Kills=29",
+        "6|1967|Rejected closed flame|Gold=145|HP=14|Kills=29",
+        "6|1967|Rejected closed tide|Gold=145|HP=14|Kills=29",
+        "6|1967|Rejected closed steam|Gold=145|HP=14|Kills=29",
+        "6|1967|Rejected closed storm|Gold=145|HP=14|Kills=29",
+        "6|1967|place stone 1,0 #0 price=90 refund=0|Gold=55|HP=14|Kills=29",
+        "6|1967|Rejected occupied Place|Gold=55|HP=14|Kills=29",
+        "6|1967|Start|Gold=55|HP=14|Kills=29",
+        "6|1967|Rejected repeated Start|Gold=55|HP=14|Kills=29",
+        "6|2387|Wave end|Gold=125|HP=14|Kills=39",
+        "6|2387|Rejected Next pending|Gold=125|HP=14|Kills=39",
+        "6|2387|Choose after-wave-6=tide None|Gold=125|HP=14|Kills=39",
+        "6|2387|Rejected repeated/stale Choose|Gold=125|HP=14|Kills=39",
+        "6|2387|Rejected closed flame|Gold=125|HP=14|Kills=39",
+        "6|2387|Rejected closed steam|Gold=125|HP=14|Kills=39",
+        "7|2387|Next|Gold=125|HP=14|Kills=39",
+        "7|2387|Rejected repeated Next|Gold=125|HP=14|Kills=39",
+        "7|2387|Rejected closed flame|Gold=125|HP=14|Kills=39",
+        "7|2387|Rejected closed steam|Gold=125|HP=14|Kills=39",
+        "7|2387|place tide 2,0 #0 price=60 refund=0|Gold=65|HP=14|Kills=39",
+        "7|2387|Rejected occupied Place|Gold=65|HP=14|Kills=39",
+        "7|2387|Start|Gold=65|HP=14|Kills=39",
+        "7|2387|Rejected repeated Start|Gold=65|HP=14|Kills=39",
+        "7|2477|Cast after tick=2477 before next Step wave=6 expectedSequence=5 center=-3.45000076,-2 accepted=5 hits=3 applied=259|Gold=85|HP=14|Kills=43",
+        "7|2477|Rejected stale/double Cast|Gold=85|HP=14|Kills=43",
+        "7|2477|Rejected invalid center|Gold=85|HP=14|Kills=43",
+        "7|2778|Wave end|Gold=140|HP=14|Kills=50",
+        "8|2778|Next|Gold=140|HP=14|Kills=50",
+        "8|2778|Rejected repeated Next|Gold=140|HP=14|Kills=50",
+        "8|2778|Rejected closed flame|Gold=140|HP=14|Kills=50",
+        "8|2778|Rejected closed steam|Gold=140|HP=14|Kills=50",
+        "8|2778|place stone 2,1 #0 price=90 refund=0|Gold=50|HP=14|Kills=50",
+        "8|2778|Rejected occupied Place|Gold=50|HP=14|Kills=50",
+        "8|2778|sell gale 0,0 #1 price=0 refund=56|Gold=106|HP=14|Kills=50",
+        "8|2778|Rejected repeated Sell #1|Gold=106|HP=14|Kills=50",
+        "8|2778|place stone 1,1 #0 price=90 refund=0|Gold=16|HP=14|Kills=50",
+        "8|2778|Rejected occupied Place|Gold=16|HP=14|Kills=50",
+        "8|2778|Start|Gold=16|HP=14|Kills=50",
+        "8|2778|Rejected repeated Start|Gold=16|HP=14|Kills=50",
+        "8|3348|Cast after tick=3348 before next Step wave=7 expectedSequence=6 center=0,0.253327847 accepted=6 hits=1 applied=117|Gold=71|HP=14|Kills=61",
+        "8|3348|Rejected stale/double Cast|Gold=71|HP=14|Kills=61",
+        "8|3348|Rejected invalid center|Gold=71|HP=14|Kills=61",
+        "8|3378|Wave end|Gold=141|HP=14|Kills=62",
+        "8|3378|Rejected terminal Start|Gold=141|HP=14|Kills=62",
+        "8|3378|Rejected terminal Next|Gold=141|HP=14|Kills=62",
+        "8|3378|Rejected terminal Step|Gold=141|HP=14|Kills=62"
+    ]
+}

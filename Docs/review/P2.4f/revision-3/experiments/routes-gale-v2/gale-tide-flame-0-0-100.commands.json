@@ -1,0 +1,145 @@
+{
+    "start": "gale",
+    "after3": "tide",
+    "after6": "flame",
+    "commands": [
+        {
+            "wave": 1,
+            "x": 1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "gale"
+        },
+        {
+            "wave": 2,
+            "x": -2,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "gale"
+        },
+        {
+            "wave": 3,
+            "x": -1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "gale"
+        },
+        {
+            "wave": 5,
+            "x": 1,
+            "y": -1,
+            "id": 0,
+            "op": "place",
+            "type": "storm"
+        },
+        {
+            "wave": 6,
+            "x": -1,
+            "y": 1,
+            "id": 0,
+            "op": "place",
+            "type": "tide"
+        },
+        {
+            "wave": 7,
+            "x": 1,
+            "y": 1,
+            "id": 0,
+            "op": "place",
+            "type": "flame"
+        },
+        {
+            "wave": 8,
+            "x": 0,
+            "y": 0,
+            "id": 1,
+            "op": "sell",
+            "type": "gale"
+        },
+        {
+            "wave": 8,
+            "x": 0,
+            "y": 0,
+            "id": 2,
+            "op": "sell",
+            "type": "gale"
+        },
+        {
+            "wave": 8,
+            "x": 0,
+            "y": 0,
+            "id": 4,
+            "op": "sell",
+            "type": "storm"
+        },
+        {
+            "wave": 8,
+            "x": -2,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "flame"
+        },
+        {
+            "wave": 8,
+            "x": 1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "flame"
+        },
+        {
+            "wave": 8,
+            "x": 2,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "steam"
+        }
+    ],
+    "threshold": 200,
+    "bossDelay": 0,
+    "earlyWave8": false,
+    "holdWave7": false,
+    "casts": [
+        {
+            "wave": 1,
+            "relativeTick": 60,
+            "x": -3.4750008583068849,
+            "y": -2.0
+        },
+        {
+            "wave": 2,
+            "relativeTick": 261,
+            "x": 0.5500102043151856,
+            "y": 1.050004482269287
+        },
+        {
+            "wave": 4,
+            "relativeTick": 66,
+            "x": -3.1750011444091799,
+            "y": -2.0
+        },
+        {
+            "wave": 5,
+            "relativeTick": 291,
+            "x": -1.2000006437301636,
+            "y": -1.699998378753662
+        },
+        {
+            "wave": 7,
+            "relativeTick": 204,
+            "x": -2.290001392364502,
+            "y": -2.0
+        },
+        {
+            "wave": 8,
+            "relativeTick": 399,
+            "x": -2.6666674613952638,
+            "y": -2.0
+        }
+    ]
+}
