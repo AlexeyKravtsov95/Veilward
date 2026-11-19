@@ -1,0 +1,15 @@
+Clean detached delivery audit at tested-source descendant evidence candidate (initially pristine checkout).
+COMMAND: python3 Docs/review/QA.1/verify-evidence.py
+EXIT: 0
+RESULT: 12 tracked artifacts, 542 source hashes, host Edit1110/Play60; device acceptance BLOCKED.
+COMMAND: git diff --check
+EXIT: 0
+COMMAND: git status --short (before gates)
+RESULT: empty
+COMMAND: python3 Scripts/tests/test_ios_export.py
+EXIT: 0; 13/13 passed (fake Unity orchestration only)
+COMMAND: ./Scripts/run-static-checks.sh
+EXIT: 0; 38/38 passed + Static Unity checks PASS
+Post-static generated Scripts/__pycache__ removed only from this task-owned clean delivery checkout before final status.
+No Unity iOS build, signing, install, launch or device smoke implied.
+Final sanitized evidence delta is rechecked in a fresh/updated clean detached checkout after review.

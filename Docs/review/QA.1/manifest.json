@@ -1,0 +1,18 @@
+{
+  "artifacts": {
+    "commands.md": "1bfb7f2bc5c8e9792122a7ad3519b5c60aaa442efb5c73e29812446703d7e8d0",
+    "inventory.txt": "6497daa83b51aea62a88ef72e6bd0d2f355a68065ece5b5bf5e4f39e8bb600e4",
+    "reports/EditMode.txt": "e42c40aaab09b85560a21e4f4a8f1a33d4fe37d961ef6b22306492138a1fa5ed",
+    "reports/EditMode.xml": "617bc91d0a4ca21d22739ea8fbcbe4197b19ed786c009a4539c6e1a8b3155614",
+    "reports/PlayMode.txt": "1d110518947d5e831c975d35ddd6ce895d8ca45bb3c1833c499fadefbacfeb71",
+    "reports/PlayMode.xml": "74f561d6cd4c8312fc1abfcaabf3f989b8e4e785b4e30aad4394c8413a3de0c2",
+    "reports/code-source-comparison.json": "d374b596c9f5bf256c7226b3d75bc167aec661cd6ad98ac1f11cd1151d2cd94e",
+    "reports/delivery.txt": "d448adb69589a154eb9eee69b3a73f8d1ebbcdba045c313825ea165c18839006",
+    "reports/historical-verifier.txt": "c0cd00ec4803f9e9a4f0519ca9d711b44f99dfbd8b41aae579dd1f3a0ea223ce",
+    "reports/static.txt": "e677fc83663bbfbcb12798303adc3407d8902463c109c383601d8a8de9bc2a19",
+    "reports/tooling.txt": "7e5b14fb5fe8070f2285c4b6aead4d0931dcd0aad0e7a42ac5bff6a90fbe6fa5",
+    "source-audit.json": "6939b1e6d441ba6e2e0a10f14222b042b181be398374a9f5dfa8985d93e37d4d"
+  },
+  "deviceAcceptance": "BLOCKED",
+  "testedSourceSHA": "ab9c17ad0f4f26e92f9a09851200de098f808412"
+}
