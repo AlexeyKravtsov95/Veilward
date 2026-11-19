@@ -41,6 +41,7 @@ namespace Veilward.Presentation
         private Canvas _summaryCanvas;
         public ReactionPresentationState Presentation { get; } = new ReactionPresentationState();
 
+        private readonly List<Rect> _healthRects = new List<Rect>(64);
         private readonly Dictionary<EnemyId, EnemyView> _enemyViews = new Dictionary<EnemyId, EnemyView>();
         private readonly Dictionary<TowerId, int> _towerViewLevels = new Dictionary<TowerId, int>();
         private readonly Dictionary<TowerId, Transform> _towerViews = new Dictionary<TowerId, Transform>();
@@ -606,6 +607,7 @@ namespace Veilward.Presentation
             Presentation.Prune(_simulation.State.Enemies);
             var state = _simulation.State;
             _statusRects.Clear();
+            _healthRects.Clear();
             for (var index = 0; index < state.Enemies.Count; index++)
             {
                 var enemy = state.Enemies[index];
@@ -628,6 +630,7 @@ namespace Veilward.Presentation
                 {
                     view.HealthBar.SetNormalizedHealth((float)enemy.Health / enemy.Definition.MaxHealth);
                     view.HealthBar.Face(worldCamera);
+                    view.HealthBar.Layout(worldCamera, _healthRects);
                 }
             }
 

@@ -146,7 +146,7 @@ namespace Veilward.Tests.EditMode
                 Assert.That(a.orthographicSize, Is.EqualTo(b.orthographicSize));
                 var showcase = art.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<ArtReferenceShowcase>()).Single();
                 var so = new SerializedObject(showcase);
-                foreach (var field in new[] { "scenario","towerPrefab","enemyPrefab","strikeMaterial","strikeCoreMaterial","worldCamera","environmentRoot" })
+                foreach (var field in new[] { "scenario","towerPrefab","enemyPrefab","strikeMaterial","strikeCoreMaterial","occlusionMaterial","towerOcclusionMask","worldCamera","environmentRoot" })
                     Assert.That(so.FindProperty(field).objectReferenceValue, Is.Not.Null, field);
                 Assert.That(AssetDatabase.GetAssetPath(so.FindProperty("scenario").objectReferenceValue),
                     Is.EqualTo("Assets/_Game/Configs/TestWave.asset"));

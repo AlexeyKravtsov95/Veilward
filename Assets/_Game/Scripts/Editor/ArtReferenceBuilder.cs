@@ -37,8 +37,9 @@ namespace Veilward.Editor
             var surface = Material("MAT_Art1_Surface", "Universal Render Pipeline/Lit", Color.white, palette);
             surface.SetFloat("_Smoothness", .12f); surface.SetFloat("_Metallic", 0);
             var glow = Material("MAT_Art1_Glow", "Universal Render Pipeline/Unlit", Color.white, palette);
-            var strike = Material("MAT_Art1_EmberStroke", "Universal Render Pipeline/Unlit", new Color(1f,.36f,.065f));
-            var core = Material("MAT_Art1_EmberCore", "Universal Render Pipeline/Unlit", new Color(1f,.87f,.42f));
+            var strike = Material("MAT_Art1_EmberStroke", "Veilward/FlameImpulse", new Color(1f,.22f,.035f));
+            var occlusion = OcclusionMaterial();
+            var core = Material("MAT_Art1_EmberCore", "Veilward/FlameImpulse", new Color(1f,.87f,.42f));
             foreach (var name in ModelNames)
             {
                 var importer = (ModelImporter)AssetImporter.GetAtPath(ModelFolder + name + ".fbx");
@@ -116,11 +117,34 @@ namespace Veilward.Editor
             so.FindProperty("enemyPrefab").objectReferenceValue = Prefab("Enemy_Shade").transform;
             so.FindProperty("strikeMaterial").objectReferenceValue = strike;
             so.FindProperty("strikeCoreMaterial").objectReferenceValue = core;
+            so.FindProperty("occlusionMaterial").objectReferenceValue = occlusion;
+            so.FindProperty("towerOcclusionMask").objectReferenceValue = Material("MAT_Art21_TowerMask", "Veilward/TowerOcclusionMask", Color.white);
             so.FindProperty("worldCamera").objectReferenceValue = camera;
             so.FindProperty("environmentRoot").objectReferenceValue = environment;
             so.ApplyModifiedPropertiesWithoutUndo();
             EditorSceneManager.SaveScene(scene, ScenePath); AssetDatabase.SaveAssets();
             Debug.Log("ART.1 ArtReference built; Battle/MainMenu/configs/build settings unchanged.");
+        }
+
+        private static Material OcclusionMaterial()
+        {
+            var palette = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png");
+            return Material("MAT_Art21_ShadeOcclusion", "Veilward/ShadeOcclusion", Color.white, palette);
+        }
+
+        [MenuItem("VEILWARD/ART.2a.1/Apply Presentation")]
+        public static void ApplyArt21()
+        {
+            if (UnityEngine.Application.isPlaying) throw new InvalidOperationException("Stop Play Mode first.");
+            var scene = EditorSceneManager.OpenScene(ScenePath);
+            var showcase = UnityEngine.Object.FindFirstObjectByType<ArtReferenceShowcase>();
+            var so = new SerializedObject(showcase);
+            so.FindProperty("occlusionMaterial").objectReferenceValue = OcclusionMaterial();
+            so.FindProperty("towerOcclusionMask").objectReferenceValue = Material("MAT_Art21_TowerMask", "Veilward/TowerOcclusionMask", Color.white);
+            so.ApplyModifiedPropertiesWithoutUndo();
+            Material("MAT_Art1_EmberStroke", "Veilward/FlameImpulse", new Color(1f,.22f,.035f));
+            Material("MAT_Art1_EmberCore", "Veilward/FlameImpulse", new Color(1f,.87f,.42f));
+            EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene); AssetDatabase.SaveAssets();
         }
 
         // Фиксированные кластеры эталона: kit instances, без runtime генерации/новой карты.
@@ -162,7 +186,9 @@ namespace Veilward.Editor
             var path = MaterialFolder + name + ".mat";
             var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
             if (mat == null) { mat = new Material(Shader.Find(shader)); AssetDatabase.CreateAsset(mat, path); }
-            mat.SetColor("_BaseColor", color); mat.SetTexture("_BaseMap", texture);
+            mat.shader = Shader.Find(shader);
+            if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", color);
+            if (mat.HasProperty("_BaseMap")) mat.SetTexture("_BaseMap", texture);
             EditorUtility.SetDirty(mat); return mat;
         }
         private static void AddHealth(GameObject enemy)
