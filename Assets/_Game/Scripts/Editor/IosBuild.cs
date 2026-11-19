@@ -5,6 +5,8 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Veilward.Presentation;
@@ -43,7 +45,32 @@ namespace Veilward.Editor
                 throw new InvalidOperationException("Existing iOS application identifier required.");
         }
 
-        public static void Export()
+        public static string[] BuildScenes(bool artReference) => artReference
+            ? new[] { ArtReferenceBuilder.ScenePath } : (string[])Scenes.Clone();
+
+        public static BattleScenarioConfig ValidateArtReference()
+        {
+            var scene = SceneManager.GetSceneByPath(ArtReferenceBuilder.ScenePath);
+            var opened = !scene.isLoaded;
+            if (opened) scene = EditorSceneManager.OpenScene(ArtReferenceBuilder.ScenePath, OpenSceneMode.Additive);
+            try
+            {
+                var showcases = scene.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<ArtReferenceShowcase>(true)).ToArray();
+                if (showcases.Length != 1) throw new InvalidOperationException("Exactly one saved ArtReference showcase required.");
+                var config = new SerializedObject(showcases[0]).FindProperty("scenario").objectReferenceValue as BattleScenarioConfig;
+                if (config == null || AssetDatabase.GetAssetPath(config) != "Assets/_Game/Configs/TestWave.asset" ||
+                    config.ScenarioContentId != "legacy-single-wave-v1")
+                    throw new InvalidOperationException("ArtReference must use the actual saved TestWave scenario.");
+                config.CreateSimulation();
+                return config;
+            }
+            finally { if (opened) EditorSceneManager.CloseScene(scene, true); }
+        }
+
+        public static void Export() => ExportProfile(false);
+        public static void ExportArtReference() => ExportProfile(true);
+
+        private static void ExportProfile(bool artReference)
         {
             var exitCode = 1;
             try
@@ -56,9 +83,10 @@ namespace Veilward.Editor
                 if (string.IsNullOrEmpty(output) || string.IsNullOrEmpty(source) || !Regex.IsMatch(source, @"\A[0-9a-f]{40}\z"))
                     throw new ArgumentException("Use Scripts/export-ios.py for output/source provenance.");
                 ValidateProject();
+                if (artReference) ValidateArtReference();
                 if (!BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.iOS, BuildTarget.iOS))
                     throw new InvalidOperationException("iOS Build Support is required.");
-                Build(output, version, number, source);
+                Build(output, version, number, source, artReference);
                 exitCode = 0;
             }
             catch (Exception error)
@@ -68,7 +96,7 @@ namespace Veilward.Editor
             EditorApplication.Exit(exitCode);
         }
 
-        private static void Build(string output, string version, string number, string source)
+        private static void Build(string output, string version, string number, string source, bool artReference)
         {
             var target = NamedBuildTarget.iOS;
             var oldVersion = PlayerSettings.bundleVersion;
@@ -78,8 +106,10 @@ namespace Veilward.Editor
             var oldApis = PlayerSettings.GetGraphicsAPIs(BuildTarget.iOS);
             var oldAutomatic = PlayerSettings.GetUseDefaultGraphicsAPIs(BuildTarget.iOS);
             var oldSdk = PlayerSettings.iOS.sdkVersion;
+            var oldTiming = PlayerSettings.enableFrameTimingStats;
             try
             {
+                if (artReference) PlayerSettings.enableFrameTimingStats = true;
                 PlayerSettings.bundleVersion = version;
                 PlayerSettings.iOS.buildNumber = number;
                 PlayerSettings.SetScriptingBackend(target, ScriptingImplementation.IL2CPP);
@@ -89,22 +119,35 @@ namespace Veilward.Editor
                 PlayerSettings.SetGraphicsAPIs(BuildTarget.iOS, new[] { GraphicsDeviceType.Metal });
                 var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
                 {
-                    scenes = Scenes,
+                    scenes = BuildScenes(artReference),
                     locationPathName = output,
                     target = BuildTarget.iOS,
                     options = BuildOptions.StrictMode
                 });
                 if (report.summary.result != BuildResult.Succeeded || report.summary.totalErrors != 0)
                     throw new InvalidOperationException($"iOS export failed: {report.summary.result}; errors={report.summary.totalErrors}");
-                File.WriteAllText(Path.Combine(output, "veilward-build.json"), JsonUtility.ToJson(new Receipt
+                var receipt = JsonUtility.ToJson(new Receipt
                 {
                     sourceSHA = source, version = version, buildNumber = number,
-                    contentId = "eight-wave-ability-boss-v2", unityVersion = UnityEngine.Application.unityVersion,
+                    contentId = artReference ? ValidateArtReference().ScenarioContentId : "eight-wave-ability-boss-v2",
+                    profile = artReference ? "art-reference" : "production",
+                    purpose = artReference ? "ART.2b device microbenchmark" : "QA.1 production smoke",
+                    scenes = BuildScenes(artReference),
+                    scenarioPath = artReference ? "Assets/_Game/Configs/TestWave.asset" : "Assets/_Game/Configs/EightWaveAbilityBossV2.asset",
+                    unityVersion = UnityEngine.Application.unityVersion,
                     warnings = report.summary.totalWarnings
-                }, true));
+                }, true);
+                File.WriteAllText(Path.Combine(output, "veilward-build.json"), receipt);
+                if (artReference)
+                {
+                    var raw = Path.Combine(output, "Data/Raw");
+                    Directory.CreateDirectory(raw);
+                    File.WriteAllText(Path.Combine(raw, "art2b-build.json"), receipt);
+                }
             }
             finally
             {
+                PlayerSettings.enableFrameTimingStats = oldTiming;
                 PlayerSettings.bundleVersion = oldVersion;
                 PlayerSettings.iOS.buildNumber = oldNumber;
                 PlayerSettings.SetScriptingBackend(target, oldBackend);
@@ -118,7 +161,8 @@ namespace Veilward.Editor
         [Serializable]
         private sealed class Receipt
         {
-            public string sourceSHA, version, buildNumber, contentId, unityVersion;
+            public string sourceSHA, version, buildNumber, contentId, unityVersion, profile, purpose, scenarioPath;
+            public string[] scenes;
             public int warnings;
         }
     }

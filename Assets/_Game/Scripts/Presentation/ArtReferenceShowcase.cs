@@ -100,6 +100,27 @@ namespace Veilward.Presentation
             RestartShowcase();
         }
 
+        internal void SetDeviceProbeOverride(bool active)
+        {
+            if (active)
+            {
+                foreach (var enemy in _enemies) enemy.gameObject.SetActive(false);
+                foreach (var strike in _strikes) strike.Clear();
+            }
+            else SynchronizeViews();
+        }
+
+        internal Transform CreateDeviceProbeEnemy(Transform parent)
+        {
+            var view = Instantiate(enemyPrefab, parent);
+            ConfigureHealthView(view.GetComponent<EnemyHealthBarView>());
+            if (occlusionMaterial != null) ShadeOcclusionView.Create(view, occlusionMaterial);
+            return view;
+        }
+
+        internal FlameStrikeView CreateDeviceProbeStrike(Transform parent) =>
+            new FlameStrikeView(parent, strikeMaterial, strikeCoreMaterial, 0);
+
         private Material HealthOverlay(string part)
         {
             var source = enemyPrefab.Find("Health Bar/" + part).GetComponent<Renderer>().sharedMaterial;

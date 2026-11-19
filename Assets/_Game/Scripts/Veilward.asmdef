@@ -3,7 +3,8 @@
   "rootNamespace": "Veilward",
   "references": [
     "Veilward.Domain",
-    "Unity.InputSystem"
+    "Unity.InputSystem",
+    "Unity.RenderPipelines.Universal.Runtime"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

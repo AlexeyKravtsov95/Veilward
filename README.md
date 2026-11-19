@@ -240,3 +240,10 @@ PR #69 merged `a9a9ae4`, production boss1000HP/armor5 сохранён. [Нов�
 ## ART.2a.1 — читаемость художественного эталона
 
 Shade за FLAME получает локальный occluded silhouette cue; общий EnemyHealthBarView разносит пересекающиеся HP-полосы в Battle и ArtReference с сохранением ratio/anchor. В ArtReference FlameStrikeView показывает летящую слоистую головку с коротким хвостом: 6 тиков полёта и 5 тиков impact/затухания. Enemy position/HP/death читаются из authoritative snapshots с visual delay 6 тиков; Domain damage остаётся мгновенным. HP имеют приоритет над VFX. Актуальны [контракт снаряда](Docs/ART2A1_PROJECTILE.md) и [новый before/after пакет](Docs/review/ART.2a.1/projectile/README.md). Production Battle пока сохраняет generic beams; это не полный production VFX.1. [Контракт/регрессии](Docs/ART2A1_READABILITY.md), [новые before/after и ограничения](Docs/review/ART.2a.1/README.md). Физический iPhone art/performance остаётся отдельным #43.
+
+
+## ART.2b — отдельный iOS art profile (#43)
+
+`python3 Scripts/export-ios.py --profile art-reference --version 0.1.0 --build-number 43` экспортирует только актуальную ArtReference/TestWave в отдельный `Builds/iOS/art-reference/0.1.0-43`. Production default и его Bootstrap→MainMenu→Battle/content v2 validation сохранены. Receipt различает purpose/profile/scenes/scenario/source/version; копия находится в player Data/Raw. Signing выполняется существующим локальным QA.1 workflow.
+
+Явный launch argument `-art2b normal|front|side|behind|dense` включает изолированный device harness. Normal — настоящий saved combat; остальные — подписанные synthetic placements/HP. Default sampling:5s warmup +30s,3повтора; GUID run directory + completion manifest исключают смешивание прерванных запусков. `Scripts/analyze-art2b.py <run-directory>` пересчитывает raw intervals/доступные CPU/GPU counters и Unity allocated/reserved memory; native resident memory и display-present timing этим не подтверждаются. [Scope/scenarios/границы](Docs/ART2B_DEVICE_PROOF.md). Device acceptance/budgets до фактического evidence не заявляются.

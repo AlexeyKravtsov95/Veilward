@@ -31,7 +31,23 @@ def snapshot(root):
             for p in paths if p}
 
 
-def run_export(root, editor, version, number):
+def production_receipt_fields():
+    return {"profile": "production", "purpose": "QA.1 production smoke",
+            "scenes": ["Assets/_Game/Scenes/Bootstrap.unity", "Assets/_Game/Scenes/MainMenu.unity", "Assets/_Game/Scenes/Battle.unity"],
+            "scenarioPath": "Assets/_Game/Configs/EightWaveAbilityBossV2.asset",
+            "contentId": CONTENT}
+
+
+def art_receipt_fields():
+    return {"profile": "art-reference", "purpose": "ART.2b device microbenchmark",
+            "scenes": ["Assets/_Game/Scenes/ArtReference.unity"],
+            "scenarioPath": "Assets/_Game/Configs/TestWave.asset",
+            "contentId": "legacy-single-wave-v1"}
+
+
+def run_export(root, editor, version, number, profile="production"):
+    if profile not in ("production", "art-reference"):
+        raise ValueError("unknown iOS build profile")
     validate_version(version, number)
     if not editor.is_file() or not os.access(editor, os.X_OK):
         raise ValueError("Unity executable unavailable; set UNITY_EDITOR_PATH")
@@ -47,6 +63,10 @@ def run_export(root, editor, version, number):
     base = root / "Builds/iOS"
     if base.resolve() != root / "Builds/iOS":
         raise ValueError("symlink build directories are not supported")
+    if profile == "art-reference":
+        base = base / "art-reference"
+        if base.resolve() != root / "Builds/iOS/art-reference":
+            raise ValueError("symlink build directories are not supported")
     destination = base / f"{version}-{number}"
     if destination.is_symlink():
         raise ValueError("symlink output is not supported")
@@ -69,7 +89,7 @@ def run_export(root, editor, version, number):
                 result = subprocess.run([
                     str(editor), "-batchmode", "-nographics", "-quit",
                     "-projectPath", str(project), "-buildTarget", "iOS",
-                    "-executeMethod", "Veilward.Editor.IosBuild.Export",
+                    "-executeMethod", ("Veilward.Editor.IosBuild.ExportArtReference" if profile == "art-reference" else "Veilward.Editor.IosBuild.Export"),
                     "-logFile", str(stage / "Unity-export.log")], env=env,
                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                 imported = snapshot(project)
@@ -103,6 +123,7 @@ def run_export(root, editor, version, number):
                         "contentId": CONTENT, "unityVersion": "6000.3.28f1"}
             if not (stage / "Xcode/Unity-iPhone.xcodeproj/project.pbxproj").is_file() or not receipt.is_file():
                 raise ValueError("FAIL: Unity did not produce an Xcode project and receipt")
+            expected.update(art_receipt_fields() if profile == "art-reference" else production_receipt_fields())
             actual = json.loads(receipt.read_text())
             if not isinstance(actual, dict) or any(actual.get(k) != v for k, v in expected.items()):
                 raise ValueError("FAIL: export receipt does not match requested source/version/content")
@@ -120,7 +141,7 @@ def run_export(root, editor, version, number):
                 raise
             if previous.exists():
                 shutil.rmtree(previous)
-        print(f"EXPORTED: Builds/iOS/{version}-{number}/Xcode sourceSHA={source}; review import-audit.json before device acceptance")
+        print(f"EXPORTED: {destination.relative_to(root)}/Xcode profile={profile} sourceSHA={source}; review import-audit.json before device acceptance")
         return destination
     finally:
         lock.rmdir()
@@ -130,12 +151,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", required=True)
     parser.add_argument("--build-number", required=True)
+    parser.add_argument("--profile", choices=("production", "art-reference"), default="production")
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
     match = re.search(r"m_EditorVersion: (.+)", (root / "ProjectSettings/ProjectVersion.txt").read_text())
     editor = Path(os.environ.get("UNITY_EDITOR_PATH", f"/Applications/Unity/Hub/Editor/{match[1]}/Unity.app/Contents/MacOS/Unity"))
     try:
-        run_export(root, editor, args.version, args.build_number)
+        run_export(root, editor, args.version, args.build_number, args.profile)
     except (ValueError, OSError, subprocess.SubprocessError) as error:
         # Не печатать exception с произвольными абсолютными путями/командами.
         print(str(error) if isinstance(error, ValueError) else f"FAIL: {type(error).__name__}; inspect local environment/output", file=sys.stderr)

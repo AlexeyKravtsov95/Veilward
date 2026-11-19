@@ -43,12 +43,65 @@ class IosExportTests(unittest.TestCase):
         (out / "veilward-build.json").write_text(json.dumps({
             "sourceSHA": env["VEILWARD_SOURCE_SHA"], "version": env["VEILWARD_IOS_VERSION"],
             "buildNumber": env["VEILWARD_IOS_BUILD"], "contentId": ios.CONTENT,
-            "unityVersion": "6000.3.28f1"}))
+            "unityVersion": "6000.3.28f1", **ios.production_receipt_fields()}))
         return subprocess.CompletedProcess(command, 0)
 
     def export(self, runner=None):
         with patch.object(ios.subprocess, "run", side_effect=runner or self.fake_unity):
             return ios.run_export(self.root, self.editor, "0.1.0", "42")
+
+    def test_art_profile_uses_separate_entry_output_and_real_scenario(self):
+        before = ios.snapshot(self.root)
+        production = self.export()
+        receipt = (production / "Xcode/veilward-build.json").read_bytes()
+
+        def art(command, **kwargs):
+            result = self.fake_unity(command, **kwargs)
+            if command[0] == str(self.editor):
+                self.assertEqual("Veilward.Editor.IosBuild.ExportArtReference", command[command.index("-executeMethod") + 1])
+                out = Path(kwargs["env"]["VEILWARD_IOS_OUTPUT"])
+                data = json.loads((out / "veilward-build.json").read_text())
+                data.update(ios.art_receipt_fields())
+                (out / "veilward-build.json").write_text(json.dumps(data))
+            return result
+
+        with patch.object(ios.subprocess, "run", side_effect=art):
+            output = ios.run_export(self.root, self.editor, "0.1.0", "43", profile="art-reference")
+        self.assertEqual(self.root / "Builds/iOS/art-reference/0.1.0-43", output)
+        self.assertEqual(receipt, (production / "Xcode/veilward-build.json").read_bytes())
+        self.assertEqual(before, ios.snapshot(self.root))
+
+    def test_art_profile_rejects_production_receipt(self):
+        with patch.object(ios.subprocess, "run", side_effect=self.fake_unity):
+            with self.assertRaisesRegex(ValueError, "receipt does not match"):
+                ios.run_export(self.root, self.editor, "0.1.0", "43", profile="art-reference")
+
+    def test_production_profile_rejects_wrong_profile_scene_scenario_and_purpose(self):
+        for field, value in ios.art_receipt_fields().items():
+            def wrong(command, **kwargs):
+                result = self.fake_unity(command, **kwargs)
+                if command[0] == str(self.editor):
+                    out = Path(kwargs["env"]["VEILWARD_IOS_OUTPUT"]) / "veilward-build.json"
+                    data = json.loads(out.read_text()); data[field] = value
+                    out.write_text(json.dumps(data))
+                return result
+            with self.subTest(field=field), patch.object(ios.subprocess, "run", side_effect=wrong):
+                with self.assertRaisesRegex(ValueError, "receipt does not match"):
+                    ios.run_export(self.root, self.editor, "0.1.0", "42")
+
+    def test_unknown_profile_rejected_before_output_or_unity(self):
+        with self.assertRaisesRegex(ValueError, "profile"):
+            ios.run_export(self.root, self.editor, "0.1.0", "43", profile="anything")
+        self.assertFalse((self.root / "Builds").exists())
+
+    def test_art_profile_symlink_directory_rejected(self):
+        (self.root / "Builds/iOS").mkdir(parents=True)
+        target = self.root.parent / "external-art"
+        target.mkdir()
+        (self.root / "Builds/iOS/art-reference").symlink_to(target)
+        with self.assertRaisesRegex(ValueError, "symlink"):
+            ios.run_export(self.root, self.editor, "0.1.0", "43", profile="art-reference")
+        self.assertEqual([], list(target.iterdir()))
 
     def test_invalid_version_and_build(self):
         for version, number in [("1.0", "42"), ("1.0.0\n", "42"), ("1.0.0", "0"),
