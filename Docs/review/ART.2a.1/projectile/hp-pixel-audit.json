@@ -1,0 +1,6 @@
+{
+  "kind": "synthetic fixed12/.48m, dense-1 vs dense-5, same geometry/HP",
+  "greenMask": "g>180,r<100,b<140; max RGB delta>1",
+  "greenPixels": 2016,
+  "overpaintedPixels": 0
+}

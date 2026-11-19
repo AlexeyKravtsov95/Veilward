@@ -52,7 +52,11 @@ namespace Veilward.Tests.PlayMode
             var guard = 0;
             while (s.ObservedAttacks == 0 && guard++ < 300) s.AdvanceForReview(1);
             Assert.That(guard, Is.LessThan(300));
+            var target = s.LastAttack.TargetEnemyId;
+            Assert.That(s.DisplayedHealth(target), Is.EqualTo(100), "Authoritative pre-hit snapshot stays visible during flight.");
+            s.AdvanceForReview(FlameStrikeView.FlightTicks);
             Assert.That(s.FirstEnemyView.position, Is.Not.EqualTo(first));
+            Assert.That(s.DisplayedHealth(target), Is.LessThan(100), "Post-hit snapshot arrives with the projectile.");
             Assert.That(s.Simulation.State.Enemies[0].Health, Is.LessThan(100));
             Assert.That(s.ActiveStrikeCount, Is.EqualTo(1));
             var attacks = s.ObservedAttacks;
@@ -70,8 +74,8 @@ namespace Veilward.Tests.PlayMode
             Assert.That(attacks, Is.EqualTo(expectedAttacks));
             Assert.That(s.Simulation.State.Enemies[0].Health, Is.EqualTo(expected.State.Enemies[0].Health));
             Assert.That(s.Simulation.State.Enemies[0].DistanceAlongPath, Is.EqualTo(expected.State.Enemies[0].DistanceAlongPath));
-            s.AdvanceForReview(7);
-            Assert.That(s.ActiveStrikeCount, Is.Zero, "Strike expires before the next saved cooldown.");
+            s.AdvanceForReview(5);
+            Assert.That(s.ActiveStrikeCount, Is.Zero, "Flight+impact expire before the unchanged next saved cooldown.");
             Assert.That(s.ObservedAttacks, Is.EqualTo(attacks));
         }
 

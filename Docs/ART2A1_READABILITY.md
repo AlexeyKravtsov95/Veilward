@@ -20,3 +20,7 @@ Presentation-only. Исходная камера (8,11,8), rotation (44.1945,225
 - ART21-06: static38/38, полные доступные EditMode/PlayMode, compile/Console, diff, GUID/meta/import/reference/protected-source checks. Historical ART.1/1.1/2a неизменны; чистый checkout и tracked hashes нового пакета. Независимый source/visual review, PR Refs73 до полного acceptance; self-merge/release запрещены.
 
 Риски: occluded pass может спорить с огнём; высокая стопка HP может терять связь с врагом; VFX может выглядеть линией даже с другим цветом. Оценка по игровому масштабу и нескольким атакам, synthetic probes явно отделены от настоящего боя. Editor не подтверждает iPhone readability/performance/G2/готовность полного VFX.1.
+
+## Обновление владельца — визуальный снаряд, 19.11.2026
+
+Предыдущий FLAME impulse ba87f0f не принят по виду; требование `.065s` статичного trail заменено отдельной летящей головкой/хвостом и отложенным visual impact. Актуальные specification/acceptance до реализации: [ART2A1_PROJECTILE](ART2A1_PROJECTILE.md). Shade/HP-контракт выше сохраняется; старые captures/reports — история, не приёмка нового снаряда.

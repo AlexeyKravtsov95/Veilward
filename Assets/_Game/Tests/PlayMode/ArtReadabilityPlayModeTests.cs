@@ -71,7 +71,7 @@ namespace Veilward.Tests.PlayMode
         }
 
         [UnityTest]
-        public IEnumerator FlameImpulse_TornTrailExpiresBeforeImpactAndClearsWithoutNewObjects()
+        public IEnumerator FlameProjectile_MovingHeadArrivesBeforeImpactAndClearsWithoutNewObjects()
         {
             _probes = new GameObject("ART21 strike regression");
             var flame = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Materials/ART1/" + "MAT_Art1_EmberStroke.mat");
@@ -83,10 +83,22 @@ namespace Veilward.Tests.PlayMode
                 var source = new Vector3(-2, 1.11f, -1); var target = new Vector3(-3, .72f, 0);
                 strike.Play(source, target);
                 Assert.That(strike.Source, Is.EqualTo(source)); Assert.That(strike.Target, Is.EqualTo(target));
+                Assert.That(strike.IsFlying, Is.True);
+                Assert.That(strike.TrailVisible, Is.False, "No tail before the head leaves the source.");
+                Assert.That(strike.ImpactVisible, Is.False);
+                Assert.That(strike.HeadPosition, Is.EqualTo(source));
+                strike.Advance(.10f);
                 Assert.That(strike.TrailVisible, Is.True);
-                strike.Advance(.07f);
-                Assert.That(strike.TrailVisible, Is.False); Assert.That(strike.Remaining, Is.GreaterThan(0));
-                strike.Advance(.16f);
+                Assert.That(strike.HeadPosition, Is.Not.EqualTo(source));
+                Assert.That(strike.HeadPosition, Is.Not.EqualTo(target));
+                Assert.That(Vector3.Distance(strike.HeadPosition, strike.TailEnd), Is.LessThanOrEqualTo(.481f));
+                Assert.That(strike.ImpactVisible, Is.False);
+                strike.Advance(.09f); Assert.That(strike.ImpactVisible, Is.False);
+                strike.Advance(.01f);
+                Assert.That(strike.ImpactVisible, Is.True); Assert.That(strike.TrailVisible, Is.False);
+                Assert.That(strike.HeadPosition, Is.EqualTo(target));
+                Assert.That(strike.Remaining, Is.GreaterThan(0));
+                strike.Advance(.17f);
                 Assert.That(strike.Remaining, Is.Zero);
                 foreach (var line in _probes.GetComponentsInChildren<LineRenderer>()) Assert.That(line.enabled, Is.False);
                 Assert.That(_probes.GetComponentsInChildren<Transform>(true).Length, Is.EqualTo(count));
