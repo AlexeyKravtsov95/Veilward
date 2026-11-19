@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using UnityEngine.Rendering;
+using System.Collections.Generic;
 using Veilward.Domain;
 
 namespace Veilward.Presentation
@@ -10,18 +10,21 @@ namespace Veilward.Presentation
     {
         public const int EnemyCapacity = 12;
         public const int StrikeCapacity = 8;
-        public const float StrikeLifetime = .22f;
+        public const float StrikeLifetime = FlameStrikeView.Lifetime;
         [SerializeField] private BattleScenarioConfig scenario;
         [SerializeField] private Transform towerPrefab;
         [SerializeField] private Transform enemyPrefab;
         [SerializeField] private Material strikeMaterial;
         [SerializeField] private Material strikeCoreMaterial;
+        [SerializeField] private Material occlusionMaterial;
+        [SerializeField] private Material towerOcclusionMask;
         [SerializeField] private Camera worldCamera;
         [SerializeField] private Transform environmentRoot;
         [SerializeField] private Vector2Int towerCell = new Vector2Int(-2, -1);
         private readonly Transform[] _enemies = new Transform[EnemyCapacity];
         private readonly EnemyHealthBarView[] _health = new EnemyHealthBarView[EnemyCapacity];
-        private readonly Strike[] _strikes = new Strike[StrikeCapacity];
+        private readonly FlameStrikeView[] _strikes = new FlameStrikeView[StrikeCapacity];
+        private readonly List<Rect> _healthRects = new List<Rect>(EnemyCapacity);
         private Transform _tower;
         private float _accumulator;
         private float _terminalTime;
@@ -51,16 +54,19 @@ namespace Veilward.Presentation
                 throw new InvalidOperationException("ArtReference serialized references are required.");
             _tower = Instantiate(towerPrefab, transform);
             _tower.name = "FLAME - Ember Lantern";
+            if (towerOcclusionMask != null) ShadeOcclusionView.Create(_tower, towerOcclusionMask);
             for (var i = 0; i < EnemyCapacity; i++)
             {
                 _enemies[i] = Instantiate(enemyPrefab, transform);
                 _enemies[i].name = "Shade Pool " + i;
                 _health[i] = _enemies[i].GetComponent<EnemyHealthBarView>();
                 if (_health[i] == null) throw new InvalidOperationException("Shade health view is required.");
+                _health[i].Face(worldCamera);
+                if (occlusionMaterial != null) ShadeOcclusionView.Create(_enemies[i], occlusionMaterial);
                 _enemies[i].gameObject.SetActive(false);
             }
             for (var i = 0; i < StrikeCapacity; i++)
-                _strikes[i] = new Strike(transform, strikeMaterial, strikeCoreMaterial, i);
+                _strikes[i] = new FlameStrikeView(transform, strikeMaterial, strikeCoreMaterial, i);
             RestartShowcase();
         }
 
@@ -168,6 +174,7 @@ namespace Veilward.Presentation
         private void SynchronizeViews()
         {
             var enemies = Simulation.State.Enemies;
+            _healthRects.Clear();
             if (enemies.Count > EnemyCapacity) throw new InvalidOperationException("ArtReference enemy pool capacity exceeded.");
             for (var i = 0; i < enemies.Count; i++)
             {
@@ -181,52 +188,10 @@ namespace Veilward.Presentation
                 if (direction.sqrMagnitude > .00001f) view.rotation = Quaternion.LookRotation(direction);
                 _health[i].SetNormalizedHealth((float)enemy.Health / enemy.Definition.MaxHealth);
                 _health[i].Face(worldCamera);
+                _health[i].Layout(worldCamera, _healthRects);
             }
             for (var i = enemies.Count; i < EnemyCapacity; i++) _enemies[i].gameObject.SetActive(false);
         }
 
-        private sealed class Strike
-        {
-            private readonly LineRenderer _ribbon;
-            private readonly LineRenderer _core;
-            private readonly LineRenderer _impact;
-            public float Remaining { get; private set; }
-            public Strike(Transform parent, Material outer, Material core, int index)
-            {
-                var root = new GameObject("Ember Strike Pool " + index).transform;
-                root.SetParent(parent, false);
-                _ribbon = Line(root, "Flame Stroke", outer, 7, .13f, .045f);
-                _core = Line(root, "Hot Core", core, 7, .045f, .012f);
-                _impact = Line(root, "Impact Petals", outer, 13, .045f, .012f);
-                Clear();
-            }
-            private static LineRenderer Line(Transform root, string name, Material mat, int count, float a, float b)
-            {
-                var go = new GameObject(name); go.transform.SetParent(root, false);
-                var line = go.AddComponent<LineRenderer>();
-                line.sharedMaterial = mat; line.useWorldSpace = true; line.positionCount = count;
-                line.startWidth = a; line.endWidth = b; line.numCapVertices = 2;
-                line.shadowCastingMode = ShadowCastingMode.Off; line.receiveShadows = false;
-                return line;
-            }
-            public void Play(Vector3 start, Vector3 end)
-            {
-                for (var i = 0; i < 7; i++)
-                {
-                    var t = i / 6f;
-                    var p = Vector3.Lerp(start, end, t) + Vector3.up * (Mathf.Sin(t * Mathf.PI) * .28f);
-                    _ribbon.SetPosition(i, p); _core.SetPosition(i, p + Vector3.up * .008f);
-                }
-                for (var i = 0; i < 13; i++)
-                {
-                    var a = i * Mathf.PI / 6f; var r = i % 2 == 0 ? .22f : .12f;
-                    _impact.SetPosition(i, end + new Vector3(Mathf.Cos(a) * r, .01f, Mathf.Sin(a) * r));
-                }
-                Remaining = StrikeLifetime;
-                _ribbon.enabled = _core.enabled = _impact.enabled = true;
-            }
-            public void Advance(float dt) { if (Remaining <= 0) return; Remaining -= dt; if (Remaining <= 0) Clear(); }
-            public void Clear() { Remaining = 0; _ribbon.enabled = _core.enabled = _impact.enabled = false; }
-        }
     }
 }

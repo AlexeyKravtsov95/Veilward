@@ -85,7 +85,7 @@ namespace Veilward.Tests.EditMode
             Invoke(_battle, "ProcessAttackEvents");
 
             Assert.That(_battle.Simulation.AttackEvents, Is.Empty);
-            var beam = _battle.GetComponentsInChildren<LineRenderer>().SingleOrDefault();
+            var beam = _battle.GetComponentsInChildren<AttackBeamView>().Select(view => view.GetComponent<LineRenderer>()).SingleOrDefault();
             Assert.That(beam, Is.Not.Null);
             Assert.That(beam.positionCount, Is.EqualTo(2));
             Assert.That(Vector3.Distance(beam.GetPosition(0), beam.GetPosition(1)), Is.GreaterThan(0.1f));
@@ -105,7 +105,7 @@ namespace Veilward.Tests.EditMode
 
             Invoke(_battle, "ProcessAttackEvents");
 
-            var beam = _battle.GetComponentsInChildren<LineRenderer>().SingleOrDefault();
+            var beam = _battle.GetComponentsInChildren<AttackBeamView>().Select(view => view.GetComponent<LineRenderer>()).SingleOrDefault();
             Assert.That(beam, Is.Not.Null);
             Assert.That(Vector3.Distance(beam.GetPosition(1), new Vector3(-4.95f, 0.6f, -2f)), Is.LessThan(0.0001f));
             Assert.That(_battle.Simulation.AttackEvents, Is.Empty);
@@ -123,7 +123,7 @@ namespace Veilward.Tests.EditMode
                 Invoke(_battle, "ProcessAttackEvents");
             }
 
-            var beams = _battle.GetComponentsInChildren<LineRenderer>()
+            var beams = _battle.GetComponentsInChildren<AttackBeamView>().Select(view => view.GetComponent<LineRenderer>())
                 .OrderBy(beam => beam.transform.GetSiblingIndex())
                 .ToArray();
             var expectedEnds = new[]

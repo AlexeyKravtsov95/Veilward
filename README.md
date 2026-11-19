@@ -236,3 +236,7 @@ PR #69 merged `a9a9ae4`, production boss1000HP/armor5 сохранён. [Нов�
 ## QA.1 — локальная iOS сборка (#42)
 
 [Спецификация и команды export/build/install/launch](Docs/QA1_IOS_BUILD.md). `python3 Scripts/export-ios.py --version 0.1.0 --build-number 42` требует чистый committed checkout и iOS Build Support для Unity6000.3.28f1; временно закрепляет IL2CPP/ARM64/Metal, проверяет sourceSHA и неизменность исходников. Signing выполняется локально с существующими настройками Xcode, credentials в git не добавляются. [Актуальные проверки и ограничения QA.1 revision2](Docs/review/QA.1/revision-2/validation.md). Physical device acceptance не выводится из Editor/tooling PASS.
+
+## ART.2a.1 — читаемость художественного эталона
+
+Shade за FLAME получает локальный occluded silhouette cue; общий EnemyHealthBarView разносит пересекающиеся HP-полосы в Battle и ArtReference с сохранением ratio/anchor. В ArtReference старую дугу заменяет pooled FlameStrikeView: раздельный короткий trail, локальный impact и угольки. Production Battle пока сохраняет generic beams; это не полный production VFX.1. [Контракт/регрессии](Docs/ART2A1_READABILITY.md), [новые before/after и ограничения](Docs/review/ART.2a.1/README.md). Физический iPhone art/performance остаётся отдельным #43.

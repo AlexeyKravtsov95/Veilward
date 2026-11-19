@@ -1,0 +1,1916 @@
+{
+  "base": "7783dd1bae83784b78f67ebe11108b083d375c82",
+  "method": "Protected current bytes match base Git blob IDs before SHA256 recording. Delivery hashes final source/media; never rewrites historical manifests. Markdown/verifier excluded from self-hashing, all package files still checked tracked.",
+  "protected": [
+    {
+      "path": "ArtSource/Blender/ART1/Enemy_Shade.blend",
+      "baseGitBlob": "8fd43c225fc790e8c26e79b70d6685a0c79302f4",
+      "sha256": "0a34cd9a97af423826e2eb9c22a813004d558c23c88f09dc93a66027d4e0f0af"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/Environment_BuildPad.blend",
+      "baseGitBlob": "85ba407210e9f2c82ffdb712fdcea5d4e4d5c1a8",
+      "sha256": "b58ad491938bce381329af336bf0a5468e57fd751889394cb933d80156b74532"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/Environment_FloatingIsland.blend",
+      "baseGitBlob": "ac8106f87f550aa326dd5f13e5683ca9a901cf5c",
+      "sha256": "0c6f472ee2d4bdeee631f9b7c08cbd4574b3ce70ba98decbc723519cc8024630"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/Environment_PathTile.blend",
+      "baseGitBlob": "f02544caac048eae5cdf3b186560cea91baa3e2e",
+      "sha256": "e7f0f49c98d909bc59e6aff839efecb83a35fac972472e95f6835deed02b68c6"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/Prop_MossRock.blend",
+      "baseGitBlob": "65d2913d991934ee141e0da0caafe48b8e2fe261",
+      "sha256": "53069fd02c8acccbf230d1c844e649767ae86175f53d64ede49ea9efd5207a38"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/Prop_RitualShrub.blend",
+      "baseGitBlob": "4b977940eabe4b98695806f467f22007262f4e4c",
+      "sha256": "a9d23d4fbe769509965000927117d2cb8d654d636d68dd715ecda179c72750be"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/Prop_Waystone.blend",
+      "baseGitBlob": "3c20b27a833908ab9e08220f40521cede000a8e8",
+      "sha256": "af791a396eddec758fb57413cca8fa629a3c76b92feeb273a7b1ba5920b4b576"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/README.md",
+      "baseGitBlob": "ef6bed309c982743408a2ccdd528b3bbfa7721ce",
+      "sha256": "a14bb9e4788a294e0e482a8a9a7d529a47b53917259c518d501f729cf59d064f"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/Tower_FlameLantern.blend",
+      "baseGitBlob": "d6c6bb570e4aaa44ff719abfe94684274b7ba97e",
+      "sha256": "8b6eeba85854b34d14fd94a31362537feb19f6052d7620ccf911209c76145d69"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/create_art1.py",
+      "baseGitBlob": "ef578d1cc45c8d4e1d21ed34660c44af0823044d",
+      "sha256": "acbaf3724f8b60ab95a809b0570a671665ad8595e88bd3b48854f4185ce3cab7"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/export_art1.py",
+      "baseGitBlob": "988e98f1b8d55ecc60086103c444a5d8a4ef3b45",
+      "sha256": "0b91e9f154115ca9e5e1f0fc4aa0642f5b541b8179e01c32d57b4ecb55f5fc66"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/geometry-manifest.json",
+      "baseGitBlob": "10bf79ee7213ef9460cc219f6835764e3c910ef7",
+      "sha256": "65749ce21ac475675ac7dfb9d8859129abef776272b51fed98f6d883e5613474"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/refine_art11.py",
+      "baseGitBlob": "3610709e3c0f3dbcadfb72cbfd018afe58342137",
+      "sha256": "f167fc926aebb2516779161640175fe0563180beef86398c6046a97b56db0cc4"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/tests/check_art11_geometry.py",
+      "baseGitBlob": "296df82de3247ea2c9f398562f7ef96028120ea3",
+      "sha256": "c43aecb614b6e27fed1d60859e6b0b50111b88c72197373c5c204096676020a8"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/tests/check_shade_winding.py",
+      "baseGitBlob": "3695747e9543efffd4b702b4184ac3dd21980cb5",
+      "sha256": "9c592be5a9429ee51488f54ae5f1a80c4cfec276306429ac4df00eb54ba92593"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/tests/test_reexport_failure.py",
+      "baseGitBlob": "9a9d29b30b8be7649244fe019784d81a09eeeafe",
+      "sha256": "e4244713a8d79c3e8511b9f7d072241d54287d658b208dbc2f4703745b37cbb4"
+    },
+    {
+      "path": "ArtSource/Blender/ART1/verify_reexport.py",
+      "baseGitBlob": "a13f240421b50c444518f51f99bed0cf370a77d7",
+      "sha256": "41e219b2e6fbe451f45a026b2dc717b5152f03d7212b3f8c511edb59d5675a3e"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberCore.mat.meta",
+      "baseGitBlob": "4fd324c9181f942320e93ae24d205435efde98ab",
+      "sha256": "7ab5f3ada9935e84453887b9173ab02d56cab2e94374d5e470864940650d9e62"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberStroke.mat.meta",
+      "baseGitBlob": "d036bf1a4d23f5852dd2fd509114dd6a588f209a",
+      "sha256": "2a17f6bd7dd6aef98e62c3e959c971c7d1b83bbe8ae8bd4b6dc481ecdd433706"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+      "baseGitBlob": "3d04b9759b4635dae303d0980af46042fe000b63",
+      "sha256": "b34d8d22c19e952ab8c1bb84541053b4315ba1b24465201557cff7dcfb58987f"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat.meta",
+      "baseGitBlob": "29f8be33197ebfa46cb6b1b40422355dfa8657ff",
+      "sha256": "88b088170488ff0a9edc45df97a2e123be35bad2038ee1570c7efdf395caa957"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+      "baseGitBlob": "be52e5de9074a382879067c2eb9831bb01da4cd7",
+      "sha256": "5b55291d7e6aca5bda90574b56d6a8084ae61901d64d1c0ab70c65d5de594d34"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat.meta",
+      "baseGitBlob": "0f1fe9dd2b25a62f48a56f13e8eea3ec25fd6bab",
+      "sha256": "7b29638d58e98418428745ca15d878b3a9a8df832cf64a763eb253a4b0357e99"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1.meta",
+      "baseGitBlob": "07ca56f8a4b841a87beecd44198b9ebb91938ba3",
+      "sha256": "aaa792e7420eb9ed4fdf7d072d4fc2ede00adcf1177575fc28b70351964ab941"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Enemy_Shade.fbx",
+      "baseGitBlob": "efe8dcde9a897c2c0afb2810bd8bae245d80f0cf",
+      "sha256": "b72e8db4331e9c1222ef85936b459160b5ad7c7274881b7351d6062efbc6ecea"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Enemy_Shade.fbx.meta",
+      "baseGitBlob": "a1fa7d9a5b5f4abae81819e3df69419ae3e765c4",
+      "sha256": "060d4347ada7d5a7b29fc5784d44d03228ae18b08a2170db3174312efcbaa9c3"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Environment_BuildPad.fbx",
+      "baseGitBlob": "b0da88b6f3b46047ccd8c1c805848c8973436fcd",
+      "sha256": "97328b8e39c37717d2f2b2d4360bb38fef55fefd7aca19762c7f37c0e5235e85"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Environment_BuildPad.fbx.meta",
+      "baseGitBlob": "caf1863925bda9cafdb8a31f4cd0cd4bf03ce05f",
+      "sha256": "b4150dad57cf887efb1aa8749e612df7369860bda85902fcac41e52356c53374"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Environment_FloatingIsland.fbx",
+      "baseGitBlob": "95d41b662849ea6b409d1465103607085e0c852e",
+      "sha256": "ec67528f36b78cb4ee524572d8729f37e710f00794cdebecb67b15bee4cc52c5"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Environment_FloatingIsland.fbx.meta",
+      "baseGitBlob": "e85f9da53f28fb70454bd65d06531741d1ef76a5",
+      "sha256": "74ab246252f18480d1070fd5a1a3281ec6e2d2b4bf501ce9545af4da714aab45"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Environment_PathTile.fbx",
+      "baseGitBlob": "1c749486625ba9086a2c04b0dedd984189435ca2",
+      "sha256": "3163b5b3c1b85dbc53fd55a50b5d6f667c2e258efa8039f7015b08fdc46311f9"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Environment_PathTile.fbx.meta",
+      "baseGitBlob": "9e261a2b6f332185e2af0f19be5d3a97ae2f0a60",
+      "sha256": "fc9091db3317e79d015f949e266a8a710919dbf63921aa387021b1c457f40e03"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+      "baseGitBlob": "7f9cd5a87dbc59e218995bf343db41e713d5b812",
+      "sha256": "5bf820cfd8cb91174af3f3658895a18f6a7d22272c90b3229605f7366933754d"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx.meta",
+      "baseGitBlob": "f050a50e81bd01f2c6f7875248d01da910491f16",
+      "sha256": "5a4e294c43d9af46e5f05d1deb202fb2832b3af50831c3fd22c726166436edbf"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+      "baseGitBlob": "d01ec5afded46fe2b2e82d2800642cf0e4c1e3cf",
+      "sha256": "7887b8b8f9ae6d0dcf7456dec4c22d18faac6f177fa0e1069a4592e64b3967d6"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx.meta",
+      "baseGitBlob": "dde108dd2b60a904654f90f9b59fa08143e1115f",
+      "sha256": "ac4c4ddd2f5f1662ab6ba9600af45130eb4b7f50357e496a47f7f63a3c17e5ac"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Prop_Waystone.fbx",
+      "baseGitBlob": "6da2644111b3ef6be2391dfa56cba56f0239f364",
+      "sha256": "ad92d8f5095d3c6f07ca3f2915bbd60d1779e6d109c4f00cca4e906fd1c5a56e"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Prop_Waystone.fbx.meta",
+      "baseGitBlob": "9fd844f53ebed24dd419ce78ad795a194ce116e6",
+      "sha256": "42b1fd059d38a0fd5cb0f8c41cb9f87fa7053755d6aeb7f74a201c9e11bbe1e1"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Tower_FlameLantern.fbx",
+      "baseGitBlob": "7d47c587754486e32cd5a56fd2cfe843dbb63704",
+      "sha256": "e6983107bc7b535ef9d727f2f1b9e467df107c7adcb11c5e6b39354d87d0c7e3"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART1/Tower_FlameLantern.fbx.meta",
+      "baseGitBlob": "b163abe10c3217133100771106a320a1845e2d83",
+      "sha256": "d986864ff786f43f9ab696ed6954efaa2b7baa648b047bfa07ee8fb2378f38dd"
+    },
+    {
+      "path": "Assets/_Game/Art/Textures/ART1.meta",
+      "baseGitBlob": "eefaa8022fc20868da8975f866ae2975f277a7b0",
+      "sha256": "83371eb95689a7df2febbfb7e929ff17581dbb482d1da1ca08844d85b9fc498a"
+    },
+    {
+      "path": "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png",
+      "baseGitBlob": "96aecc57db4f191e7af3521b90f8496b574330ee",
+      "sha256": "04a69863179f0778a6603cb62c419e05749f405fd727acee3ddf7f3f351652ab"
+    },
+    {
+      "path": "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png.meta",
+      "baseGitBlob": "234c2af437a44977c1002fa2a384222d3cb03c0c",
+      "sha256": "dfb7813a177c144f0ad5d4da44ae3242d75f22a8056d9a86d35cab025b5aa48a"
+    },
+    {
+      "path": "Assets/_Game/Configs/EightWave.asset",
+      "baseGitBlob": "657c20191c4750284dc3361e9fa7399a391c0880",
+      "sha256": "5f0c013d73dfa34a1ea2fcc0360baceb0ff36b4196b6e0ef9c700c665caf4182"
+    },
+    {
+      "path": "Assets/_Game/Configs/EightWave.asset.meta",
+      "baseGitBlob": "28f0239ae2ad9817808954d9a2b21f3d0cc10ad8",
+      "sha256": "1d1d536c705b97071bb01f3407891ab0e23cd23e2f918e4713c3f2f6021fb118"
+    },
+    {
+      "path": "Assets/_Game/Configs/EightWaveAbilityBoss.asset",
+      "baseGitBlob": "63082df31f3275354305dd9db47ba50ac2c63be9",
+      "sha256": "33cab710f01f2753090b82cd240298452db78c50336b98fe7ceafdfd25ee9c9e"
+    },
+    {
+      "path": "Assets/_Game/Configs/EightWaveAbilityBoss.asset.meta",
+      "baseGitBlob": "703eb7df6c9f4047aa72577a659aa32cf36699ca",
+      "sha256": "6ff6098e3255e1da441626f1df52a1e2eeb9bd437869c8450dc9189a4b20fb66"
+    },
+    {
+      "path": "Assets/_Game/Configs/EightWaveAbilityBossV2.asset",
+      "baseGitBlob": "3b1b593bebed47104bedaa064267fb664be9f77d",
+      "sha256": "d9e85098df18a3e5bc6b73da31a2a0845af351aabecec45882c9f97b0c6ac661"
+    },
+    {
+      "path": "Assets/_Game/Configs/EightWaveAbilityBossV2.asset.meta",
+      "baseGitBlob": "5faed73557e8075eeb8bc0274b3afa757112ba9a",
+      "sha256": "2fffa771f928ae0495ede2355121be49444982046c7dabcc64a2c2f06e56c63a"
+    },
+    {
+      "path": "Assets/_Game/Configs/TestWave.asset",
+      "baseGitBlob": "df78c787e11ebec75ebf638a4a6cf0353b21a851",
+      "sha256": "4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3"
+    },
+    {
+      "path": "Assets/_Game/Configs/TestWave.asset.meta",
+      "baseGitBlob": "dea6137d27154cbce9c2fa85c04b84331f5eafc0",
+      "sha256": "360ae937e4f6aa11f5a65ee749a3ed09198eb4e25cfe43cc5784879e5270a0c7"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1.meta",
+      "baseGitBlob": "4c24cb6d13ad5cc9c054931cd101876dd54091c1",
+      "sha256": "b6a70e2c750b6f2c9abeba9277b503b77ac982f8dbeac7ec85cbe8524365dd34"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Enemy_Shade.prefab",
+      "baseGitBlob": "9004f7aa8093db970a6d719fad8c2c81f4811234",
+      "sha256": "3763af3c1506f8c2217cc2032c0e3a65eb9ad47a381d7df70fe0e14e33f4ba6e"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Enemy_Shade.prefab.meta",
+      "baseGitBlob": "2575644a1ef66813f9ff602d6b0851da0c3e51ad",
+      "sha256": "9b0554cb4ef35373249d32477abfa5d7e9487a9e937f865c0b956db5fe733848"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Environment_BuildPad.prefab",
+      "baseGitBlob": "65294842ef863a52dbe4ba00fb73bf3fbcbb726b",
+      "sha256": "4786169170d1612fb88df965b24cf52fc3a3c73eaf8a9ca7e5e5d424f4027477"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Environment_BuildPad.prefab.meta",
+      "baseGitBlob": "f50f094d530e25a12574451081701b9d0588d206",
+      "sha256": "218760ff464b709accb1ae6f2f166dee2195699ec99b3618dd9b0c9d59638807"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Environment_FloatingIsland.prefab",
+      "baseGitBlob": "1525712ec2a1bde4ce0b165312e8e5e5208a6211",
+      "sha256": "16d8a3a0cda6d455a050fb740f2746402cbfb5e52ee82c5fc27efcaddf15d654"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Environment_FloatingIsland.prefab.meta",
+      "baseGitBlob": "d8da5a8d66c91d2d802cce43dd811deb42cbba4b",
+      "sha256": "29d3d2813d09ec86c11e6e026caa963833a9c796009bf9575c0d5a2d193b459f"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Environment_PathTile.prefab",
+      "baseGitBlob": "a61226caef932f5ad0ed1906ec908137dc9c82ab",
+      "sha256": "dc416cee3dee81d45f0c4e1fc59f7582e0455667b107b653c45fb16a048d9ae8"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Environment_PathTile.prefab.meta",
+      "baseGitBlob": "cdd8311a14f8f7d5255128294986c352f79444e1",
+      "sha256": "e175730d12a15cbe84d446db5139fff89e03033a95927e49e0ebfcac7570cb31"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Prop_MossRock.prefab",
+      "baseGitBlob": "7e8ac6ad7a746d1ab1e8ef13d818d6e758ddcb06",
+      "sha256": "b254fed15c8b299262c6554f2b774ee15d4de9d8493e5559ddc00ea354bbeef8"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Prop_MossRock.prefab.meta",
+      "baseGitBlob": "7b88b2146c969ad4c52a03d2890da5add9638d5f",
+      "sha256": "8d73e2366d10538b60e651650526c685cf4a22b01e3aacc70d62841c5a90a6fe"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Prop_RitualShrub.prefab",
+      "baseGitBlob": "664e826086bfe0c433f78e781d70c4629104a5c0",
+      "sha256": "10cacf5c9168256579f636f6ece7ac0d7a9e59e87d49a4d6865da2fbb8210738"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Prop_RitualShrub.prefab.meta",
+      "baseGitBlob": "e11f14753a5b310dca48839ade1bfe1e617a1bf6",
+      "sha256": "ae3bdad2328339d974b8b13634746a13f52b8b7d8837f956c6a458cc77b55dfc"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Prop_Waystone.prefab",
+      "baseGitBlob": "265f41fc752a5fe84e8850973e535ecf6d86dca4",
+      "sha256": "122e2bfe9b698dcff344f9c1e6647f39c7d2c6a1337326b9599c54c73bf4f6d0"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Prop_Waystone.prefab.meta",
+      "baseGitBlob": "81f73f4feddda57fde23dd59e7a9c7f6b30b90f6",
+      "sha256": "a7606f75cdbce2f23ce8eb4e1bd3f651ac03a344442d47745c67566efc6bf734"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Tower_FlameLantern.prefab",
+      "baseGitBlob": "da34be8d39f87d41016f22715918e03722a1ad2a",
+      "sha256": "679d8676e81432a1ff338cc1bff7d63832ef3b35bdaf8c66d5d5d9d63ff0c342"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART1/P_Tower_FlameLantern.prefab.meta",
+      "baseGitBlob": "e5a50e230ee9962fc66fca30ecdd1d961f5fb19d",
+      "sha256": "6cadb103ec6bab56eb19431e62b44db3f158643c3b6df807e18b06e8abe5496e"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/Shade.prefab",
+      "baseGitBlob": "26a50357dda3ad7f3f04b26e7c404b91cfdb9d22",
+      "sha256": "3b06b4c52fcad37572fea23de8ff1ee18b8148b700cf805c2b46915a8247562a"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/Shade.prefab.meta",
+      "baseGitBlob": "fbcb57e320c3e31abb31e85e708f422490d61eb8",
+      "sha256": "94b74b5ee2091b866395982e2b53245583b3133e5e5273d7a6e31c139178c024"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/TestTower.prefab",
+      "baseGitBlob": "b6e02fe1690fb48d64cbfb1b3f6113ad91bb5a16",
+      "sha256": "b552a142b3c9e571f2eebdfac5ca1fddb2b563bb8301700964867699894a96d1"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/TestTower.prefab.meta",
+      "baseGitBlob": "f124dd7096bfe6d81cf28f09ac15319d3a221a9c",
+      "sha256": "8a97867f7595e2af862878ad4e36de34d90a79be4516b1915c692ccbd8d04a45"
+    },
+    {
+      "path": "Assets/_Game/Scenes/Battle.unity",
+      "baseGitBlob": "34157cc555cbe1ed789c965e1f1ce6ef3743e3a3",
+      "sha256": "3648126f0d598cc253a184900727ae36b06bd9cbe5efc7674dbcdc7cbbcdf690"
+    },
+    {
+      "path": "Assets/_Game/Scenes/Bootstrap.unity",
+      "baseGitBlob": "81bf7742aee8a486a5013b93fa8f903be3ceb3d9",
+      "sha256": "652bd7911abc2cabd41a8b1a2f7ce9ff4c41a3bc2322c29c9e6d69b079adad1c"
+    },
+    {
+      "path": "Assets/_Game/Scenes/MainMenu.unity",
+      "baseGitBlob": "780203337306b4313f6054ef4ceb562552bc5a13",
+      "sha256": "1dfab903ee8757a1322257f0a79c9c8abcc5fba1851b4b36640a6516ac2ef757"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityCastEvent.cs",
+      "baseGitBlob": "75e0b74b1de44d2d7228296e2f3a82bc5c5c5bef",
+      "sha256": "110d913b23067481e7dfeeae37ec9f0372d956b232e88fb0b300cb8d9d4f4a0a"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityCastEvent.cs.meta",
+      "baseGitBlob": "b81e141a3683f768947f49054c899da39b0c70a4",
+      "sha256": "5a4a1f1bcfbf97c8da6cdfffd85ad897e04f07698263773b191c383f383eb172"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityCastResult.cs",
+      "baseGitBlob": "06858a63962bce7634ebc986065ac5c20cb3d5c7",
+      "sha256": "989512dc9bdff85f54b0c942414d104ede52da17763d89c3ffd87a7020ee015a"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityCastResult.cs.meta",
+      "baseGitBlob": "8b170d627e8a83950c9ea500336e3578c1339c19",
+      "sha256": "51b1b089ab1c31ca46c74ff8181744d45eac005c810f357ff8ff379e744f237b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityCheckpoint.cs",
+      "baseGitBlob": "6e810dba6b267c65802921997ab66b4a409a1840",
+      "sha256": "2f477d7225af0b15508e3742c70c13a3c9f014bf2e2c96273e09be99f0454414"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityCheckpoint.cs.meta",
+      "baseGitBlob": "26138be258ce0c795eb2542e11e0be648edaf183",
+      "sha256": "1607299882c2c87347289821e580853c54779487c8cbceac29f6a9ffe079fff0"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityDefinition.cs",
+      "baseGitBlob": "e688f448b2eaeeaf443d15837cb80416d4ab0ae8",
+      "sha256": "b5db15026af7166d74a60918774aef0418002121b314c73b8689bdc46bc677a5"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityDefinition.cs.meta",
+      "baseGitBlob": "1c067940f28f08d3a7e646c15a08b32316387ea3",
+      "sha256": "770292805bba6f611e0251df313fbd83188320975bf1974e7b569ac3885e2a77"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityDefinitionId.cs",
+      "baseGitBlob": "dea8e7e4338e751e3d77eb39a567ad8a41bcce93",
+      "sha256": "14d743ab4eac47757a5209c2e368364167fb66736998cfd8ca136c1591b26130"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityDefinitionId.cs.meta",
+      "baseGitBlob": "3a19af000fb94b4fefbfd12a57cfdde784f32a56",
+      "sha256": "fbd486b0ff5e5bb21ea531cf456fb4898e93e7309292e848512589963f471a28"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityState.cs",
+      "baseGitBlob": "3564f3d146afa19e3ed33c3c586d346c79a18c2d",
+      "sha256": "4bba869f4106c1a09ea7ec9731dc91a244415f8e38fce43a795bf137d82ab749"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AbilityState.cs.meta",
+      "baseGitBlob": "4ad696fc932396e8aed51e1b04685d524a829e28",
+      "sha256": "5adcdd34ea0919074bad2a6c50b0846ae267ca3de5341756c0ef9159137e225e"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AssemblyInfo.cs",
+      "baseGitBlob": "097467924fdb10370facaac4cc9b86f61772aa07",
+      "sha256": "4293db4e1b64f2009a26127285e9fd01ac2953e9ea715b1d5dcae362d93f31b0"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AssemblyInfo.cs.meta",
+      "baseGitBlob": "156ede90d6ecf65856fb2c4f892b8b2efaad44d5",
+      "sha256": "599cd9cfdb509b1e902b8c8664be5534911866b10296e079330d22ae4adcd212"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AttackEvent.cs",
+      "baseGitBlob": "aee8a141f6fc973b817cd2321829d610191ab2fb",
+      "sha256": "012d5f468c89097b809e31576b6de26a8c78f9899efb376fab150394a9c8dda2"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/AttackEvent.cs.meta",
+      "baseGitBlob": "cb0a8844ed08ee34391c57bd176d310677b9b046",
+      "sha256": "a9f5d424fe52f361c9a194ef3dbab32d40d367110fa83f8f4e1cfdce53acc2cb"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/BattleCheckpoint.cs",
+      "baseGitBlob": "905c93062fb2c9da14b3a8f0472a365a8a0932b0",
+      "sha256": "31dd560fff72f0a1648ebe71ddd18dd313006072c63848e61c4108d6fc59a340"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/BattleCheckpoint.cs.meta",
+      "baseGitBlob": "bbd7e10b6d1e5620448728841cd26b19321d5302",
+      "sha256": "5a3a73e89c00ec7cccc403114e5a87a9cd163ba3c424c4b759e426107861eb14"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/BattleGrid.cs",
+      "baseGitBlob": "09e6603719cd8c7a7de0cb583d85a3268dca1551",
+      "sha256": "a9b7caeef2debd986ef5deb5c722606410a67afad00ffe653060a12e00716931"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/BattleGrid.cs.meta",
+      "baseGitBlob": "527b463b30aff708cd9b286a004d9443c59378bc",
+      "sha256": "b75847f54f6b7d9a43bb46963bc21910a0b1bb92f2ccbb9a6e34e3aaca2df5b8"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/BattlePhase.cs",
+      "baseGitBlob": "980930f7e7beba4a11397f6ae5d1cedd6787b4a9",
+      "sha256": "6a9ecc46de8d8471c61070073a9a6cad682a17c711f5af76d4f9c183b307acf9"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/BattlePhase.cs.meta",
+      "baseGitBlob": "42b1c294eab84c363e3db9a4b2bb65a40d8f0ae3",
+      "sha256": "a90107e536ec058b420784f4a272d7d3a37ceb21b80fb3a07164adbe1b27f3af"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/BattleSimulation.cs",
+      "baseGitBlob": "f02dd42db356e8300a0945e28b850001d95a9fa8",
+      "sha256": "646ee1110dd1a2543e2358ad3158c1d3dce062624cad929e0bf9d62fd0ab6869"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/BattleSimulation.cs.meta",
+      "baseGitBlob": "8a8b4d0c88ff20792cd40db1639204a65654b63c",
+      "sha256": "fdd60597b51fbc371aaaae72debe36c9d3c16b4112408c4960e1cbe352689981"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/BattleState.cs",
+      "baseGitBlob": "50e6e2d86300c94f94583f6312fc2496af4c2267",
+      "sha256": "cbefcd2dfe6fff8d29879fb5cab9111caf1a213186f6eabc01b7596a71abd963"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/BattleState.cs.meta",
+      "baseGitBlob": "ee0c14438a18d4a869403189849316534846db77",
+      "sha256": "982e504ed4d8abf6184f1bc733b676ced1db52b6885fb57d0e5d1130104a7def"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/CastAbilityCommand.cs",
+      "baseGitBlob": "ecbad17038283435bdde0bae070c715a39e75cd2",
+      "sha256": "c636799ecbefacc0a2f745e0e6c008f839b1ff8a9c9840efa32817bee045885d"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/CastAbilityCommand.cs.meta",
+      "baseGitBlob": "c87a201df8e0044e7508e88f0ba378c98dca33b1",
+      "sha256": "e0e3a727ae00de294684292ea2cd01928f7b38bdf408f816c2a0cff9791757b6"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ChooseElementCommand.cs",
+      "baseGitBlob": "3330318e252734ebc365a8c3c1974adea640effd",
+      "sha256": "1af445fe24f1c90f03266aeb2d4a182e85dcaba22f388bae62bcbe96425ded1a"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ChooseElementCommand.cs.meta",
+      "baseGitBlob": "926af43c18c8ec9e96fe28f66ae9dbcbf1a6900b",
+      "sha256": "36f4a12d2bdc0ae88fd643e5ab8dd2457dc6e1270ed17275c1310390b8fb17d5"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/DamageResolvedEvent.cs",
+      "baseGitBlob": "e237733356ab59b94738f9a314aeb189bdbf37bd",
+      "sha256": "7c351691ce0720ee6973fefdda3bc26bd31db8f0da3bd9cd501f97be352d2304"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/DamageResolvedEvent.cs.meta",
+      "baseGitBlob": "5dd84718775838bc6d54d45b302c875638de1ea3",
+      "sha256": "c9318c64ade0afbd9158406a8d2d6556cbe7e08750950003278b005fd3890572"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ElementChoiceResult.cs",
+      "baseGitBlob": "1456631f45c6ee8a431e4601521b7260f288b296",
+      "sha256": "f0cfe584e53e900e067f8ab2e9641dc6ff27b69a533598886e4f62244d7ffc07"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ElementChoiceResult.cs.meta",
+      "baseGitBlob": "ea5ca48c885ad90c8c0649957ae52d50c803f0eb",
+      "sha256": "f4666a5e079900b80eb5c91db186a6eab0b74331014060fc45665f3ec8c69f67"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ElementKind.cs",
+      "baseGitBlob": "e122bf4b6814921d0e6de43cc6f0bedab3884e52",
+      "sha256": "2000f2365fd30861212a4a5f80bc2d8701d1baac25e8961e958aaf1cde69c6f0"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ElementKind.cs.meta",
+      "baseGitBlob": "41cb031965fa3b32f44a64e0b058b9fd1211dc44",
+      "sha256": "1b878b7c75fdf5742c78fc27afd548021f3b161689b57d1f18ddc3ca181f3acc"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ElementProgressionCheckpoint.cs",
+      "baseGitBlob": "72683cb05967a7f64388476fa1cdb85de13620d5",
+      "sha256": "079f667d692d93d8da7090c91f7c2114ee3c25e7bbbe3694689d57b298906db1"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ElementProgressionCheckpoint.cs.meta",
+      "baseGitBlob": "ad178b4d4550d7a7149502ef17db248579d0ba70",
+      "sha256": "ed486903c702a102a0240a599226b9a2a014d6a5f7f91b5f3e8df2f843d3795c"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ElementProgressionState.cs",
+      "baseGitBlob": "569a5e4d18e5337bc85a6508932657b703f99011",
+      "sha256": "09870b89831263ffd5dda71af20e3158caec569b99558a45d6f56d60d8656772"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ElementProgressionState.cs.meta",
+      "baseGitBlob": "f6a0ff020b25da31f9e091967aa79ce3f6f35b3c",
+      "sha256": "21e8f4d9e7d4eec9ab082e67cafd4e72acdfe514058a14b6c263a4084950e46e"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ElementUnlockRules.cs",
+      "baseGitBlob": "8ea87e9ecd8729b9ce75945034e267d53d9c144a",
+      "sha256": "57cdd2df5aa17d83274d31473045683570e074b240c16ef55a856a287c33d090"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ElementUnlockRules.cs.meta",
+      "baseGitBlob": "f6e2050934d7eeecfc4da65bad87c40d625dbecd",
+      "sha256": "a6a04b0265e41e57f799a04ca3083ac610e1b991e70b83d6ddad3a98ffad2549"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/EnemyDefinition.cs",
+      "baseGitBlob": "037ba1bda03c9de364dcb82b50e986c7546d2641",
+      "sha256": "89688bf12bbe428c359b2d6e07f852ed7f06d2398630748827c3369acacc8f08"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/EnemyDefinition.cs.meta",
+      "baseGitBlob": "3adc7ccbf47af552ac82a4f0e9d153b9ee4e4941",
+      "sha256": "adaeab394d2d5d15d53765d0b10f6cb2b14826526476336e39eff36da7a4d8a0"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/EnemyDefinitionId.cs",
+      "baseGitBlob": "273c3e1b1f47fcb74ad8e48880f6ee0d4d2d0a5c",
+      "sha256": "b1d91a9867718019ff4483d43f880e19e265907ffc7da961be89e39958a95ee1"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/EnemyDefinitionId.cs.meta",
+      "baseGitBlob": "669cb415d4cfd3f1f7378ae89e00e45c24a914cd",
+      "sha256": "4bbc6b6481b23a764ebcc1dba73ea05ae2d5797fd7ddec5148500d810c88f226"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/EnemyId.cs",
+      "baseGitBlob": "17e1258e57b97b2eceb22c29fc8cb83148855ec3",
+      "sha256": "e2943d5dac05a5d6a8c283a36be8c01f1367327a380548d0395a4a812fbcd40b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/EnemyId.cs.meta",
+      "baseGitBlob": "c0c56399f268cb542965eeff48c18b39258ce380",
+      "sha256": "8b480c687730a8963a3f7ad54ccc65f38e1ba4f9fa41fda75a8e6117c0e84161"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/EnemyState.cs",
+      "baseGitBlob": "e54766faed95ccc07dadd430fd304de24f74bc0c",
+      "sha256": "2088466781dcc4f830f697e3098754ad548a55ab0ed4645e9d642a4152e92e03"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/EnemyState.cs.meta",
+      "baseGitBlob": "26b279bd89f88e506503b71eb0875645c2d61e17",
+      "sha256": "70d21aa7b9c1d3f6470398aa8fb5a41a093f2739c6249a4234c3e5108922a1fa"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/EnemyTargeting.cs",
+      "baseGitBlob": "5befc9fd060106bf2ea9b20143397d8dadb3ef07",
+      "sha256": "00645b1c6d31405329162c399acaa499ed225386607ecf9d7488a40ea5090454"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/EnemyTargeting.cs.meta",
+      "baseGitBlob": "04d89fd45be09b7d1c43d0af154bda8725dca442",
+      "sha256": "bd908aa77f539391486b6501a1f6342d3308c3b84a62b7b3a8d2d29d03e3a82f"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/GridCellState.cs",
+      "baseGitBlob": "b515208d53d89ae45be03d8a9745c16a4dff7d2d",
+      "sha256": "380f1f4b947bb23ba36467a58e5646aca6f413ba795d12d48a63fb4da7743598"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/GridCellState.cs.meta",
+      "baseGitBlob": "8ac51c479de792aa98b1d71ee1944778d938e91c",
+      "sha256": "946fd08ce57204f5eadb775e7c9835c856f1f76bfd4b8a6abdf830683a7e1954"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/GridCoordinate.cs",
+      "baseGitBlob": "95aa8b7784ca908f21322271301994644f898ca6",
+      "sha256": "4a27058519e74de7b49c648a4cc018e2b38a31ee2a461a6ec521a12ff2086837"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/GridCoordinate.cs.meta",
+      "baseGitBlob": "43f90bebea857bc1085781e73022e72df04811db",
+      "sha256": "ff87d3e38949050d801555ba2c4e25214d584b10825c3d6bb023c26069907193"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/GridMapDefinition.cs",
+      "baseGitBlob": "025f50f119d5d9377bf4bcb4c0b1e3db7e1a42f9",
+      "sha256": "db9b640f0c5eb4520a195e37c711c020cde6858adc27e08657afbaf2b7faf804"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/GridMapDefinition.cs.meta",
+      "baseGitBlob": "ccd06d592f4e3dfc60538b62d949362aaf44807f",
+      "sha256": "37850e76287b840effc88de5e2c2931104b1e5dfcc3af1ffb093abf6b891920b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/IBattleSimulation.cs",
+      "baseGitBlob": "038365cf9f95f1a1ebaa66bec1049353ecc9d95f",
+      "sha256": "7c8fe44d642f776714c7af0dc333a8ed8d9a4d83f24ba58a74f015edfb330215"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/IBattleSimulation.cs.meta",
+      "baseGitBlob": "c8e6bbce9cd316f0459fe5040705a5ddc6bf8cc4",
+      "sha256": "df71b1b722ad5ab1fd497db0aed8cba35fdf19b4db7231c7786b809a2247c7f7"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/PathDefinition.cs",
+      "baseGitBlob": "2bceaada8ffe017e8419c4c2f1f9479a5cbe16a0",
+      "sha256": "a1251676703d4f601e8f038f1eca7b02b8589659c89c97be4301cb819c102d31"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/PathDefinition.cs.meta",
+      "baseGitBlob": "b905455d697aa3a09e44805dbdaa369224ae8d6d",
+      "sha256": "ed69a5c75cc0c84771502a82b91110e0ca34260464f011eca8153988e801386a"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/PathPosition.cs",
+      "baseGitBlob": "03e9a68ca1ec75095e534d9666366c483b7ea3d8",
+      "sha256": "41697a82dff566f0af962a24aa65956677ba237d3a9e657b808ab584559c9fa5"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/PathPosition.cs.meta",
+      "baseGitBlob": "ff76529c50cb0e1c4cf8fd0cde1ae4a4132470ab",
+      "sha256": "ab03f311a97a0296169b09872fe4be7593244c21fc86b99c8a8ceb27550e1990"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/PlaceTowerCommand.cs",
+      "baseGitBlob": "84c00d61eb35165f87ab61da416104a76065f192",
+      "sha256": "c3455a726b82c0a61f7daaebedafaf1ce91c145a76ded10a42c3249e2c704b13"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/PlaceTowerCommand.cs.meta",
+      "baseGitBlob": "909526c03f50c7bd5d196baf588bccc048525069",
+      "sha256": "ecea988de622bc56a14d776ea71cadb1eac8158936225e3ef4e6ca606394940b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/PlaceTowerFailureReason.cs",
+      "baseGitBlob": "61acaa2b6e043bffdb0cafaa05c2d67f8038da7d",
+      "sha256": "0855cf4a2871a0f17f146964bb7880580e0d89ed569afd49508ad1ee78001196"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/PlaceTowerFailureReason.cs.meta",
+      "baseGitBlob": "1910534ea8f4d6690b4d3740d5fb0f20103104dc",
+      "sha256": "ca85c75990481a0a29d5d1ecedf62b1e6067ed5ebcd4015a7043a3fb50032d7e"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/PlaceTowerResult.cs",
+      "baseGitBlob": "b045d519840cbd3641b97cd19ba144a22c64ae80",
+      "sha256": "9edd4b0cebe615890ee0d84742672cfedb2b163d20216f5fd8a305ddcce00688"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/PlaceTowerResult.cs.meta",
+      "baseGitBlob": "205ce0b9ed916c3eafcd5bba47a923cd88bd1700",
+      "sha256": "a3c03550235ad636b54ae92d6a499ca459fe6aaf4adf749e36246a97f45e09a7"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionCatalog.cs",
+      "baseGitBlob": "5a4f3939c15fc2c4cd789fd1d72c0efa8e8bd982",
+      "sha256": "5ce6dc9b5d0e4e7fa2005127e1b4402f8a0caecde994fe30ede6a19a75823919"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionCatalog.cs.meta",
+      "baseGitBlob": "2124218a6a6348a9fe03e05011852976f153982e",
+      "sha256": "093d326889d3248306fb5d890a218f2e9864a776da5e12216928288bc953cfbd"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionDefinition.cs",
+      "baseGitBlob": "3af0e0de80c25aca7f1f3c6297da677f44fd47d1",
+      "sha256": "07f6e433c1906feea50b2ec9d7864402ed792c2f9a15b2cb7436d76fc5485ce6"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionDefinition.cs.meta",
+      "baseGitBlob": "0f13328bfc1ef09e7e7a5180976ffdb575b3337b",
+      "sha256": "89c29c3fa3f3af904ebf164967946ca833d37b53d8758d61a9a2fe49c5dab794"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionEvent.cs",
+      "baseGitBlob": "726c10634b862b4ff3c98afd757430c813d53b84",
+      "sha256": "6b09afd8f064fa24d7802597152b09d4f8346cd8c8a7c40e8eeb7d82eba26a1e"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionEvent.cs.meta",
+      "baseGitBlob": "5a54a3085f36001c842a09249b49a6821bca3bb5",
+      "sha256": "dbe0ee47f303d082b0987b9d8b39327091fecb63792e17c81c8c4acbdc5f5ef0"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionKind.cs",
+      "baseGitBlob": "14028dd8c84551ad90e8c7a4122b30a794920af0",
+      "sha256": "9cf330b9f7cea7e16acd579c2a956081c48cacf6097b4424293f32832ddf014f"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionKind.cs.meta",
+      "baseGitBlob": "4cafedd94d8b1ce59603b4ad09fc8b957fe2538b",
+      "sha256": "7ba9e74a30030301bbd25457bdbacc37b9d9d529ebb43b21eaf638e24463005c"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionPayload.cs",
+      "baseGitBlob": "a02181509a5d3bed84b71e6b1acf2603de459d23",
+      "sha256": "484fee7b1e36231d8319c45788b48bc69ff8d37c13798441879a2506f53e9036"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionPayload.cs.meta",
+      "baseGitBlob": "25e996f9f73820bec88d17efdd47dd8b60372dbf",
+      "sha256": "ae0a65e6c0ca59b10d51306d907e94d667b3138418ffa812e2b30e9797833247"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionResolver.cs",
+      "baseGitBlob": "95cb042b15853900eb810caa732f52bde6705676",
+      "sha256": "b839f38bcbb427e321bf36b802a2b1ce38edade768f38e3471281f0bb0b1310b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/ReactionResolver.cs.meta",
+      "baseGitBlob": "edb41d9b5b3b53f7d6ec0506a6a0a7ff22a122a7",
+      "sha256": "a31c7e6835ab4582ef0d8c797ce8ae01e7e605c07b94413592bac3d7d827cb31"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/SimulationTiming.cs",
+      "baseGitBlob": "44530f609207501222037a9f087c549888fac68f",
+      "sha256": "e6d2eab4b3437e0ba483bbfbe8264565ee14f8be796907ab4e607c287af80a47"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/SimulationTiming.cs.meta",
+      "baseGitBlob": "b95c4103738a0c325f55126d9263f14dc34211db",
+      "sha256": "a9631fb6e185ab0a592e75ea1b3b635de49ed8f82fad9862973374d8a449410a"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/StatusEffectDefinition.cs",
+      "baseGitBlob": "7cb8c6341b5203a699300a9bd378191535a678b3",
+      "sha256": "ab7f7a5d7a8b6ee837895282424de94accda439028e24edde7ba429e8023065e"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/StatusEffectDefinition.cs.meta",
+      "baseGitBlob": "b42f9f4e0f7cd22e6acc12bbfa13b9b627f45e57",
+      "sha256": "f14e1eec8986a3c4624dbda9dec57283c7e8cc362d14742d223e5928fbc4bdc2"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/StatusInstance.cs",
+      "baseGitBlob": "03621e0e5c145aac87e3916dcadc92f2f352442e",
+      "sha256": "806b287bdac52394f752d3a54301d2fcadf101ef99653bc9ca3733ca396fcb2c"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/StatusInstance.cs.meta",
+      "baseGitBlob": "ea8fceaba55195a1f6ae336dfdb75db671408ce9",
+      "sha256": "ee53fa858ad257f82b8d6f3979690ba6e634614cf8af82cf31046b0db48f536d"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/StatusKind.cs",
+      "baseGitBlob": "f9e3a908f7ced2564967a848f11fccd99bb2f5e8",
+      "sha256": "e784b65b8ec9e206a3fb01084a09161022f738f47a94e9ebbf9f9422b8b45de8"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/StatusKind.cs.meta",
+      "baseGitBlob": "a285fbcfbae038500ee90f42eaab6f2d69225e66",
+      "sha256": "a0bebd99c31421a978819a15a20d818a0b69baf6d566b8b91440176dfe41002b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerArchetypeDefinition.cs",
+      "baseGitBlob": "2955fec637f5844f8e042cd4d808b5daa9990b4f",
+      "sha256": "2643607f581e4ab19fe6536369cc1f465c3dc91317229067da1ce8cc46e384b4"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerArchetypeDefinition.cs.meta",
+      "baseGitBlob": "381ba35ab5171fd42453e047ea0dee701468dab7",
+      "sha256": "c724750d46197462761730dcd0ef3e6d8790a051b23f3b6bbd8fca0d7495ec22"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerAvailability.cs",
+      "baseGitBlob": "3069fafc60160ba8d166d9c69d3e0455d62d04a2",
+      "sha256": "230378dac136d8639ef19989693d002cce7a186c8bbf8e8df069db0dc4bb7229"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerAvailability.cs.meta",
+      "baseGitBlob": "80128400bb3fa1ee3e03b4e524208ee95a110f86",
+      "sha256": "7e1349d5e00a155f20c987de4d116e04a97d2788d5d4e26e07d75df9f3aaef39"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerCatalog.cs",
+      "baseGitBlob": "51629e078f82675cdbac07107c1227092e04089c",
+      "sha256": "37db42ae08c00a7bd81aa959031f77d0833edb988bf5505fe13a10c524b5841b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerCatalog.cs.meta",
+      "baseGitBlob": "e679b504aadab5b365e3eb5366a896041091c40d",
+      "sha256": "17f1db4a95d8e67f963f4a18007cf5c3a87c8ec675e022ff38b0551fca567155"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerCheckpoint.cs",
+      "baseGitBlob": "f63f66e297f04dec48f08336af99b92f870c8a42",
+      "sha256": "17eadfb05d4c78a6fc90a114909bc0ac899dd7c1b78d97bf7aea8d15a0b9e00b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerCheckpoint.cs.meta",
+      "baseGitBlob": "6eb6dd9f7336a680eedfea5ae1f27895e3b0a314",
+      "sha256": "878c57350199b2f46c452aab70c139ac2226d73a37c856cf80565e90750b4d4c"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerDefinition.cs",
+      "baseGitBlob": "ca6e4d2c2ca6f4e6ccf5fd78c8c8b70ffe0ba86e",
+      "sha256": "7533b30fe6e292938ef60ae4a06837af09c68cb78bc1f95c5d410bf8ac0e649c"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerDefinition.cs.meta",
+      "baseGitBlob": "5971155aba41cdc54dbc22dc588ab4484cb52562",
+      "sha256": "b5ccd6d5720fb8cd9d9c11ac580602aba8257708514b97d909d474b1d41588a3"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerDefinitionId.cs",
+      "baseGitBlob": "816f22ca329565db708bde42bba0f8d51fcdb419",
+      "sha256": "11527a3ab93016da52eae069b744a5e7e948b703b17025ad69d252ace4d7117c"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerDefinitionId.cs.meta",
+      "baseGitBlob": "8c9597e725170c5000a0821abdeb794ec4603029",
+      "sha256": "555e43e98fb72a0f54b9f141cf7a4dfb81fc463e1acc745d8dc8ad16269f7058"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerId.cs",
+      "baseGitBlob": "f69d00bd7ac55ca1aca6ca9bdd6938df2ca2bcbf",
+      "sha256": "c37efb700ffa7b3ee2a7be374dbb7cafe4fb8be102527770b77c615c5b1498aa"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerId.cs.meta",
+      "baseGitBlob": "735825da25bf5873b9f6a64fbcecd924f4b68adf",
+      "sha256": "0a2ab81ba99f19e3be0bf3bfd21fd1bc2ce3398a7f03a2b8a11651767dbc3546"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerOperationFailureReason.cs",
+      "baseGitBlob": "b65949d6449559f60db6a48a762b278788685a6f",
+      "sha256": "978a36abf9ca76fc6c9545f4a0e161501ffcae7ddf9e58db9732d9f2936af5fc"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerOperationFailureReason.cs.meta",
+      "baseGitBlob": "8fcafd7e837d8192d33a2b96401415551dd29b58",
+      "sha256": "9edae0163b4fa7b36e82d15c432dd593c52975795f295f00836d089d66aa699b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerOperationResult.cs",
+      "baseGitBlob": "2bf6e12ad903f735f57a81f11a349505aa364efa",
+      "sha256": "a14ea82c054883184992b5167cf0b130fe888bd1c539c0da81a1dfa1bd67a44f"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerOperationResult.cs.meta",
+      "baseGitBlob": "78fee2343f4f888f9c2123eb1ab8e20e899a092b",
+      "sha256": "d782b11dace59a5cc36e2e1975b6f95abf5ab521ccec9cd6d3568c0d62b738d6"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerState.cs",
+      "baseGitBlob": "b5da673d0fd1b07643a584067ca5f8b4f62c75eb",
+      "sha256": "b26594d32600733d7af4da2572f9f5bfda69654b4665522cdc0d4cd28416b6ea"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/TowerState.cs.meta",
+      "baseGitBlob": "fb4acd19f7c7672e35f0fd931f7c77b614c70d17",
+      "sha256": "cfaf7dd99bef79320520bccacdada1e8b9d1bdd9f982db9b048030ad271e723c"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/Veilward.Domain.asmdef",
+      "baseGitBlob": "792a86f9124b52bcf20c800ff9816ae8d34a49ef",
+      "sha256": "5229a1210e61d0e158f3ca83149b5e4e7c2f769d682123bd87e2a2a249a8fffa"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/Veilward.Domain.asmdef.meta",
+      "baseGitBlob": "0b0b8a0d90dbd31c28d32ce0815550b76c0dc843",
+      "sha256": "27a080e139ea7596f074d160f7875893bdbcb04249a6d6372def4dd400209052"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/WaveDefinition.cs",
+      "baseGitBlob": "4d2442852a8e4af315101c6dfb8418f45f281a35",
+      "sha256": "2f5c9ab874947d6ae3a7bfc9a127b47d8665d87d13570895f362e008ce606661"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/WaveDefinition.cs.meta",
+      "baseGitBlob": "ebff726bd55541813e7b885601b0397c148cbc15",
+      "sha256": "9f1795e99bd757ee8f614790683e48df7cfae8d83938e369fd93afb9db9e5068"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/WaveSpawnGroup.cs",
+      "baseGitBlob": "131f5a882e396236db14cb040efc810c5eb6ab80",
+      "sha256": "59843bfdcac94280e39134db2465177cb5832032a0106c5ce2e47d647f9ac496"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/WaveSpawnGroup.cs.meta",
+      "baseGitBlob": "9c5af86e1e12e2c92765cc98408a34271dd34d02",
+      "sha256": "b19010be8eecb16231d0f2959bdcac289f1bf5065b3ca7c318c7cbd2af5abdfc"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/WaveTransitionResult.cs",
+      "baseGitBlob": "7bd6fe79ed1f35e0b10d5545e9d11ddf4f0dea7e",
+      "sha256": "ffde2ce160aa6084e805dd4944ff4c4c8ebcb2e6480a93f49aec1b4aeb942bff"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Domain/WaveTransitionResult.cs.meta",
+      "baseGitBlob": "48708804d2f15de2357f8ca34fdf5cbf2753696b",
+      "sha256": "1016a1a83ee28169aee7ea1a37b894ccdf19a2a3a5c9150480110f831d4fca7a"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/.gitkeep",
+      "baseGitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointCompatibility.cs",
+      "baseGitBlob": "f7d84405a5c638dea13713a02095dec6db6ab071",
+      "sha256": "dbb5af812ece43c77907650007a9880da750bf45b6e7332c35323aaf7e3c4641"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointCompatibility.cs.meta",
+      "baseGitBlob": "40e219855d93b6c7ee59cfaabe88f1366d070c74",
+      "sha256": "10f15dfd18f33c0429770309c312a619e4721de88a9c37a9df49216773ccef94"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointEnvelope.cs",
+      "baseGitBlob": "4748f99ebefa309190553313b5a9507aa31d8a73",
+      "sha256": "e6de3b9f484d91c57367a6ee06a5cc80ea4fb1b24a9b4740f90b7d24fd9798b8"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointEnvelope.cs.meta",
+      "baseGitBlob": "0dd82810e37ddd91185893e728ce3e4bce02314b",
+      "sha256": "36c7b40b8ae5b3ac1bbd995d4405a28835311ed34f6a5821715739d13ef9321c"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointJson.cs",
+      "baseGitBlob": "a5d6c49a181145deea03751df9349adeb9b6f187",
+      "sha256": "9a2109a1ecfba8e6756e60bb7ac2c2c1bcf95ebe5b489e703ae607901e2d194b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointJson.cs.meta",
+      "baseGitBlob": "499486cb0d760037c6af926b034528a33d585aea",
+      "sha256": "f047bc66f5fed42c6e04491074a37f474a97b0faf8c706b7292ac9b44e4b37e8"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointLoadResult.cs",
+      "baseGitBlob": "0a2be8d4051826d294f233d17e89e83a75f16f25",
+      "sha256": "ab1a0902c365fcbc28ea29ab96b6f2382d47fc832845a5ad89da69d611d60b53"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointLoadResult.cs.meta",
+      "baseGitBlob": "c31f02f92d711443e492b98f0640fd944869aacb",
+      "sha256": "1a99aad706c941624c5c8f5850850c395d3a6d47b4e9182067448d0c29af3445"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointStore.cs",
+      "baseGitBlob": "88179b775e8d81ef2c1ac2eb3673b516881da578",
+      "sha256": "71d328e9d4167703dc877cb4e10e5827d05382cc91d2416e6acbe8fb8581d062"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointStore.cs.meta",
+      "baseGitBlob": "6b4c86ebfcedbda14d584199b2a8b465abef0bd5",
+      "sha256": "d8f2c91a4a10363fa95ff4e2f3f34d1cd026510aba3c49253c2e769feab8a2bc"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointWire.cs",
+      "baseGitBlob": "ece6aea2affb9bbb9c1aade193d05724f73d9b7b",
+      "sha256": "54c0013a2f1b8b89e3236242b4ae2975bdae8e7f12edf6d92d36aed7fa9b53e5"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Infrastructure/WaveCheckpointWire.cs.meta",
+      "baseGitBlob": "83ed54e3ad3a12a8e38c530481caeb5e1517de62",
+      "sha256": "67051a549b7fbc7859b33401e64de5bbc789e867bdd3c5deb487f492f2089250"
+    },
+    {
+      "path": "Docs/review/ART.1.1/09-playmode-combat.mp4",
+      "baseGitBlob": "28f33166ba07af9ab27220975b0742ef5646b30f",
+      "sha256": "894c80df21a47603502ba5f98e391a12ce469310e5ff6cfe8440de307f6e5157"
+    },
+    {
+      "path": "Docs/review/ART.1.1/EditMode-red.json",
+      "baseGitBlob": "c5975dc642866143513094436a3837538022412b",
+      "sha256": "b08bd09f9708153e1cf3a985f749b25b211cf02e9f137c6181b847bbc86ab0fc"
+    },
+    {
+      "path": "Docs/review/ART.1.1/EditMode.json",
+      "baseGitBlob": "2a832cd838eda6a6e3e5094aeef4739d09c96f2f",
+      "sha256": "cea4f873f90da88588a5547d43771e0da973c6b5780597db4b226d494db851e0"
+    },
+    {
+      "path": "Docs/review/ART.1.1/PlayMode.json",
+      "baseGitBlob": "e55c422adc7beb8ef9e14102900c32c01700f7ad",
+      "sha256": "ac238ca8c4b910e5c348589bde6ba23f4d0fbfa8e2a5ec1517bf13a7fa9bbfe0"
+    },
+    {
+      "path": "Docs/review/ART.1.1/README.md",
+      "baseGitBlob": "bf84c226c02f959ed7fa3909f4a5704449fe1c4b",
+      "sha256": "d571d5aa94d5b316704c7968795e7646d1cf758f86dab7675c98b2935d46887c"
+    },
+    {
+      "path": "Docs/review/ART.1.1/after-01-island-game-camera.png",
+      "baseGitBlob": "05bc19e815261697551d1474931342ab8a15a894",
+      "sha256": "af141a07598b11cfdc8b14e49e6974785e840b484b34e8dc8b95c5a0478775a9"
+    },
+    {
+      "path": "Docs/review/ART.1.1/after-02-combat.png",
+      "baseGitBlob": "05bc19e815261697551d1474931342ab8a15a894",
+      "sha256": "af141a07598b11cfdc8b14e49e6974785e840b484b34e8dc8b95c5a0478775a9"
+    },
+    {
+      "path": "Docs/review/ART.1.1/after-03-flame-behind.png",
+      "baseGitBlob": "3376642b99911a0c4084f14fae68dcc09d6deba9",
+      "sha256": "62b79df7b0b8bf0115e4e80d1f9f00dd3de8c5bc9e3cbfaf9c384518d8ef1e7e"
+    },
+    {
+      "path": "Docs/review/ART.1.1/after-03-flame-front.png",
+      "baseGitBlob": "1e7ab6b783ac0a66899a1e7809c94ab1600a5d04",
+      "sha256": "52584582f7aac3f6eea96dc37f8da0e735468eaa5f76e16548f6aa85033b2227"
+    },
+    {
+      "path": "Docs/review/ART.1.1/after-03-flame-side.png",
+      "baseGitBlob": "aa19ff8e81b311992417266b02623d72c81b2bca",
+      "sha256": "3a7d40cd650b4813489dad793b4c6c7b2e97c5cbe13bfd2d154514c3f40c2eb2"
+    },
+    {
+      "path": "Docs/review/ART.1.1/after-04-shade-light-game-scale.png",
+      "baseGitBlob": "2106c5e666e84c24743dd6e37d223c2c055fc78b",
+      "sha256": "adc4568c9d27498dffeb78650a1f301fac6489372ab78fe833d76399880965d4"
+    },
+    {
+      "path": "Docs/review/ART.1.1/after-05-shade-dark-game-scale.png",
+      "baseGitBlob": "6abe98845e70d29b9cbcac314707c41263eb60ca",
+      "sha256": "8cbed0848d7d2cc296a4e89de24ba62748d79266e1006c017e597a165049df15"
+    },
+    {
+      "path": "Docs/review/ART.1.1/after-06-shade-dark-closeup.png",
+      "baseGitBlob": "76e4dad7dd9c944f97aba91979481de65a5663f3",
+      "sha256": "e6a055e6b18ae70a1879f78227a4344b26ec9982b5b1e1f4119fb5f4296000b7"
+    },
+    {
+      "path": "Docs/review/ART.1.1/after-07-shade-light-closeup.png",
+      "baseGitBlob": "981a876b7fd5c4a887567d673ab485d607782869",
+      "sha256": "d2c4c20d78dda0381c3752b033c8661a9c900fb52db87d2c1e678f37ae9fe9f8"
+    },
+    {
+      "path": "Docs/review/ART.1.1/after-08-shade-dense-game-scale.png",
+      "baseGitBlob": "5178ad3a414eb3db11f1e515575e94bc64c50b07",
+      "sha256": "f34cee1ec1f5037fe24ddf87af6333c2886cdc72d624837f42c4d5c3505c3499"
+    },
+    {
+      "path": "Docs/review/ART.1.1/asset-manifest.md",
+      "baseGitBlob": "b063163c575a5361445843a949019b24a6bc84dc",
+      "sha256": "3a26ea8d3ea84ad8428152c6a56ba898a6ab75841eaf01c176538b879dec6f78"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-01-island-game-camera.png",
+      "baseGitBlob": "e462b70ff3b37d87d21dc97e33320ee6521ede49",
+      "sha256": "120ba4e881e5258ebd46d5974b08d3f90554240ac49a3324acc3fd18024344c7"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-02-combat.png",
+      "baseGitBlob": "e462b70ff3b37d87d21dc97e33320ee6521ede49",
+      "sha256": "120ba4e881e5258ebd46d5974b08d3f90554240ac49a3324acc3fd18024344c7"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-03-flame-behind.png",
+      "baseGitBlob": "9000aa631515ebeacd25807bed740cc909bade9b",
+      "sha256": "366bbe66c273abe10ffd51c44fd838a0e4e387d75107ecb2de9c781b22b90487"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-03-flame-front.png",
+      "baseGitBlob": "8fc8f3e16daadd27ff74536a351f3b74d51f4e6b",
+      "sha256": "0e28a86badfc94388e6b3f22afa55b21996877aba3621d93c8e1b4769fdef957"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-03-flame-side.png",
+      "baseGitBlob": "d19ff23a8d295dea1b3ccc2f979f84c530a98914",
+      "sha256": "d7e28ede2f54741535f2461b6ad822a22832a217895c6dd8535f06c6673266e3"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-04-shade-light-game-scale.png",
+      "baseGitBlob": "a05d97f828afff593ef1646318b4c244aecc2ce8",
+      "sha256": "93c0e133a8754d0451a473f6589e67657e06787a9daf687bb21d46e99558c92d"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-05-shade-dark-game-scale.png",
+      "baseGitBlob": "c69830201fd5788246d0b056c2c331e222a24ed1",
+      "sha256": "11676304653c0bb6c9a6b2a3991a88bd43e46e01bd3b57a87df994ed1073e364"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-06-shade-dark-closeup.png",
+      "baseGitBlob": "d1e9ee68291d588384f2a4de8bc8109573aa1a00",
+      "sha256": "6193cf4dba6a8071193662073cecf5d5295bef85def5f10b93f6784a147f8616"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-07-shade-light-closeup.png",
+      "baseGitBlob": "6042f65e581cd4a93320c100d838dcf4e65e82f8",
+      "sha256": "6ca17fc63ffd2ed16f0858f255b562459eaf63ecfe499abdbe5797aac499aad2"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-08-shade-dense-game-scale.png",
+      "baseGitBlob": "4f71cc1e0364692d1c408d3613f30b4451c632e7",
+      "sha256": "143fc099b53f2d8f058ba029807dfa629aa0d3759cbeb5e2be22c5c5b69fee4b"
+    },
+    {
+      "path": "Docs/review/ART.1.1/before-refinement-import.json",
+      "baseGitBlob": "f7cb742f2e65d7ce494965c91a044bf9227e62fc",
+      "sha256": "291747ad1b41cb40a8472d8baedb01036c1a8480b7289c69b1bbe653debc2012"
+    },
+    {
+      "path": "Docs/review/ART.1.1/capture-log.jsonl",
+      "baseGitBlob": "08f9aa94020ecb76c58fefc1121de569d9927532",
+      "sha256": "162fb5f03ef83501c51533d7bfefcbb671b28dd5af1465cd24d8314c3af482e7"
+    },
+    {
+      "path": "Docs/review/ART.1.1/console-audit.json",
+      "baseGitBlob": "68a5ceafc89d2f8b2fa6eb9273e30a56cc0bb5f9",
+      "sha256": "9ad8231505e0b90d1b18c5efbe89b1a5caee259d635143a2d990c148708df0ab"
+    },
+    {
+      "path": "Docs/review/ART.1.1/export-negative.txt",
+      "baseGitBlob": "38224dd9b60760ae6df4190921e4cf0d867d9ec9",
+      "sha256": "898103a16457eeaabb6a5a632b5dd9a7e8a3b6a822aa382c04d875d4409f05b1"
+    },
+    {
+      "path": "Docs/review/ART.1.1/geometry-green.txt",
+      "baseGitBlob": "18ee0090ca472ea92dff91e30fdab9bcdd0271c7",
+      "sha256": "519dfd016fe6c43d488cf74261020f0b91ae99d03f64b3a14ba4c6e1874fe539"
+    },
+    {
+      "path": "Docs/review/ART.1.1/geometry-red.txt",
+      "baseGitBlob": "c5874ae0abc9665c34494e8044ff31b9a7d90285",
+      "sha256": "bd84899675d7af05132dc5707d7ebaac8fe2e1f43ee751cd14c6cc253ec826a3"
+    },
+    {
+      "path": "Docs/review/ART.1.1/imported-models.json",
+      "baseGitBlob": "d80fccb5cd72ed5a69498567883fb730abfddeec",
+      "sha256": "7003e12e53adaf1e09210728cb9a737bc9ee2d9a57d7d851871a95bf231689cc"
+    },
+    {
+      "path": "Docs/review/ART.1.1/occlusion-sweep.json",
+      "baseGitBlob": "51535b36d2356b0886cb6af36f204475cec0bb8e",
+      "sha256": "0dec6317293d356b78ec4f54b65db04fd85908176e52055eedfe9fa112bcff92"
+    },
+    {
+      "path": "Docs/review/ART.1.1/probe-positions.jsonl",
+      "baseGitBlob": "b1ba093e7b719a8c8847cd1546f40ed8ca7d6aea",
+      "sha256": "c429ebfaf22c849b380620541865ff0aa5b5ea190ae049bee568efe5140e12e0"
+    },
+    {
+      "path": "Docs/review/ART.1.1/qa.md",
+      "baseGitBlob": "f63f0f44f34a09a092aed3908ec8945790da685c",
+      "sha256": "b3c41e1fcccf70c3f24603d031f8bc3aeeea756710af6bf081e6da1b377820e1"
+    },
+    {
+      "path": "Docs/review/ART.1.1/reexport-after.json",
+      "baseGitBlob": "d9edc9fc32ba6edd1aaf66e7d3ae6ceac747e190",
+      "sha256": "a1467782576ce93946a9ba9b64e7f8b5bed55a6ab87e66762e16ca1e6e64d91b"
+    },
+    {
+      "path": "Docs/review/ART.1.1/reexport-before.json",
+      "baseGitBlob": "d9edc9fc32ba6edd1aaf66e7d3ae6ceac747e190",
+      "sha256": "a1467782576ce93946a9ba9b64e7f8b5bed55a6ab87e66762e16ca1e6e64d91b"
+    },
+    {
+      "path": "Docs/review/ART.1.1/reexport.txt",
+      "baseGitBlob": "de51c8e836ed595517942f02ffd80f5392d4b75a",
+      "sha256": "93678bf46037154b6fe1271885da41b72b463b1bd33f2be05548b09b25dc4aef"
+    },
+    {
+      "path": "Docs/review/ART.1.1/reference-audit.json",
+      "baseGitBlob": "0394bfdd86357deccb12e0dd396738cbcc63e3f5",
+      "sha256": "0e551969b90103b17ec0625596c70a796e51471aca91d292ab01c70434776a66"
+    },
+    {
+      "path": "Docs/review/ART.1.1/scope-and-diff-check.txt",
+      "baseGitBlob": "2fe7b98f7573418de6202042c5847fe04a7a5129",
+      "sha256": "c0adb5826a7df2810f06aa8d2a44accf963317255b2787b5caffcd0bdab9f6c1"
+    },
+    {
+      "path": "Docs/review/ART.1.1/static-checks.txt",
+      "baseGitBlob": "b18dfc545b57718055c7580eb85f4f9d7d7c06e3",
+      "sha256": "d77adbbdc0a7693a56fc9d390d56ee1638fad5f38edf55572d087bc3a1277e5a"
+    },
+    {
+      "path": "Docs/review/ART.1.1/technical-review.md",
+      "baseGitBlob": "8c016a270c3809a1e2274560bc53f69af4389461",
+      "sha256": "d67b86c350e1c9fa928a27e967300da66c7447fd22ef4cec79d602f0c547b7de"
+    },
+    {
+      "path": "Docs/review/ART.1.1/verified-source-sha256.json",
+      "baseGitBlob": "2ed3f9b18d2e55284aca1b95d947c4140c693769",
+      "sha256": "9004ab20e0ebff307e3eed0c615b768201ee24b535a23ec2fe8a61a5d94d8da1"
+    },
+    {
+      "path": "Docs/review/ART.1.1/video-capture.json",
+      "baseGitBlob": "8633acaae59867d77212f7d2d814ff3d9a9c9470",
+      "sha256": "759f3fe5acba10a080ee7106cca7f5c5b620667ef8a30b4e7ad278af0e8d1789"
+    },
+    {
+      "path": "Docs/review/ART.1.1/video-probe.json",
+      "baseGitBlob": "c6bfb4b09bb296e4002bff5d28780bfe1e7275a3",
+      "sha256": "1de0a6ea71e20ac7bec646274d839efd86332f80875828bc1638875d05c173d0"
+    },
+    {
+      "path": "Docs/review/ART.1.1/winding-source-fbx.txt",
+      "baseGitBlob": "b35e4120d4cca858a07f67a42e7d0265e5e027f3",
+      "sha256": "1e07b953683209695bc72556b45e2b9e6250471c04d45468250faa81aea4cad9"
+    },
+    {
+      "path": "Docs/review/ART.1/01-game-camera-overview.png",
+      "baseGitBlob": "e462b70ff3b37d87d21dc97e33320ee6521ede49",
+      "sha256": "120ba4e881e5258ebd46d5974b08d3f90554240ac49a3324acc3fd18024344c7"
+    },
+    {
+      "path": "Docs/review/ART.1/02-flame-closeup.png",
+      "baseGitBlob": "8a8782b22f2d30fc53f862ba697f75e01863d37e",
+      "sha256": "e10ad505aa96e17a58a610bb041dc56923e6e09e7b55b06c134454f2a04ea688"
+    },
+    {
+      "path": "Docs/review/ART.1/03-shade-closeup.png",
+      "baseGitBlob": "d9a421fa028a85efab13869a67b601d71c4adb4e",
+      "sha256": "05294d296dcba5f0bcb50812d5c78dca90cff3f9442e0407c7eb0e5c960b379b"
+    },
+    {
+      "path": "Docs/review/ART.1/04-flame-attack-playmode.png",
+      "baseGitBlob": "adeecf63863d6e7ea4b20a1aea9ea3655fc6ab10",
+      "sha256": "2f0cc1edcdd2c13f5131489909db8f2c8142dc0dcacadb4943af12e803a852a8"
+    },
+    {
+      "path": "Docs/review/ART.1/05-flame-light-background.png",
+      "baseGitBlob": "983b3d97da5e7f1955fc05360e89751efd7c7fd8",
+      "sha256": "1dab76f04ed1347a9882f94ed20be073ac98578ae4bef49f06531fd1c10b12b0"
+    },
+    {
+      "path": "Docs/review/ART.1/06-flame-dark-background.png",
+      "baseGitBlob": "5ff0df53e36258a41123f959cdf6ef84fc97fa2f",
+      "sha256": "ebf74d1e93264b82f579f82f51e77e4f5a19e6e21be46757fa9c3d4205f9bbd8"
+    },
+    {
+      "path": "Docs/review/ART.1/07-shade-light-background.png",
+      "baseGitBlob": "eca73bc89ff6897392364ba0281a9799e4cfa437",
+      "sha256": "f01937b8c963a1e1e8b7f8b8368c141e3ff27207916cbc9ce7d7ba5857df622e"
+    },
+    {
+      "path": "Docs/review/ART.1/08-shade-dark-background.png",
+      "baseGitBlob": "6f0a25c5e7db28116fa0090c4c2b7990150e02f0",
+      "sha256": "3176d0b43e99c874f5943b47a9c7e415a790605c8d91edb63401fadf0a7e7f56"
+    },
+    {
+      "path": "Docs/review/ART.1/09-playmode-combat.mp4",
+      "baseGitBlob": "9a20107e246a53f0f1ac5446e0da5f15fa1c002c",
+      "sha256": "6e0923e38a9068cd24b31b3cb509aaf406378ef8692cac0e2343a27888087f6d"
+    },
+    {
+      "path": "Docs/review/ART.1/EditMode.json",
+      "baseGitBlob": "27fa3265be19d7acb3b866edfde1598884a1cd41",
+      "sha256": "b450910bddfdc0f656dece6ff9be46ddfcb67383213edff96f3b3a602071061d"
+    },
+    {
+      "path": "Docs/review/ART.1/PlayMode.json",
+      "baseGitBlob": "d3f1c5c587003f2e8963f23e3a77031d7846fbb7",
+      "sha256": "49565bc6487ba8d9b369424b96389a57d324225c7a2b178c039b6cc0d226d44e"
+    },
+    {
+      "path": "Docs/review/ART.1/README.md",
+      "baseGitBlob": "427a4e639e3d2140bdbd07fc635aa50794c65445",
+      "sha256": "aedbd638ea30b0f6aa7b9e0ca3a096000bef193509afcfec49a6c812cdf50eb0"
+    },
+    {
+      "path": "Docs/review/ART.1/asset-manifest.md",
+      "baseGitBlob": "977df3ea3d051232b261370e353e4f8b0193cb6c",
+      "sha256": "f2bdeee37f8baeea61fd9bcc96a1737deac964bf736816aa3d150923432aa9c5"
+    },
+    {
+      "path": "Docs/review/ART.1/capture-log.jsonl",
+      "baseGitBlob": "de1b8ce383812d641dcfe13b796586e01cc16548",
+      "sha256": "b98bac758889b7cd4bcc087556937126bcbff5a7b030ccabbd87a43e4c16b5d2"
+    },
+    {
+      "path": "Docs/review/ART.1/console-audit.json",
+      "baseGitBlob": "952509f18c447547f1dde08c66ff395773c6926f",
+      "sha256": "d589d7926abab2c608f436fea15e4814368d83d5867818f73fa9c8cfc9b9d79b"
+    },
+    {
+      "path": "Docs/review/ART.1/fixes/blender-exit-code.json",
+      "baseGitBlob": "e5ed331bd2686f1e98b3f31862fdf88bb65211ce",
+      "sha256": "8e9cccfaad80b0033dd4f22efa94dd63a2bf212514bfb09489ef80dc3c283c94"
+    },
+    {
+      "path": "Docs/review/ART.1/fixes/export-negative-green.txt",
+      "baseGitBlob": "9f2d13636a6989c3da48b193f27b98424da78de1",
+      "sha256": "ccc167c94f5e06382a3f33bf2c6466befb334568378e15b80675f5c82d646d60"
+    },
+    {
+      "path": "Docs/review/ART.1/fixes/export-negative-red.txt",
+      "baseGitBlob": "710fc3446df1ef79cc2bc5bc353ec9b1e4e3a33d",
+      "sha256": "29069df5a1194a731e566530d80c5e5b99b55f08c2b8c9cbb41eb2261d81c7db"
+    },
+    {
+      "path": "Docs/review/ART.1/fixes/source-correction.py.txt",
+      "baseGitBlob": "4f45ef8885e95c5c9b5290b5d6e947c534c4b34c",
+      "sha256": "ba393f9519524f83212587f9e860153f5850e1756ffd54c164463a96e04cac9f"
+    },
+    {
+      "path": "Docs/review/ART.1/fixes/winding-blender-green.txt",
+      "baseGitBlob": "b23fbc2139ae18ad38bce7107c5b6731f27c9f26",
+      "sha256": "b0c30694c8a423ca175f94824a93408202ba09ba6fe15440136fbf4b2a3a4203"
+    },
+    {
+      "path": "Docs/review/ART.1/fixes/winding-blender-red.txt",
+      "baseGitBlob": "f42a312755dea2b581d57c8781315871c7232226",
+      "sha256": "10685f00c68f305792c258e756401b98cf55a96be2163681eb6a99db8097bd24"
+    },
+    {
+      "path": "Docs/review/ART.1/fixes/winding-unity-green.json",
+      "baseGitBlob": "98a5b840115b3902d66a6015a67952c08586295b",
+      "sha256": "4c477186518742c4b0c81b4f3ef7cfb8cacb968d8258fd7fcc89312a9cc852c3"
+    },
+    {
+      "path": "Docs/review/ART.1/fixes/winding-unity-red.json",
+      "baseGitBlob": "8fa0bc27e99f6e4e02e5346095b2ed8e9ed4b05f",
+      "sha256": "8e185f1c29cf371e67119c1913b347c41f14fd3bf9f591e7f3da3348adec599b"
+    },
+    {
+      "path": "Docs/review/ART.1/imported-models.json",
+      "baseGitBlob": "8b06da76165e7375d931e954589d96d8c6ff3a19",
+      "sha256": "4b1f555fb2939f0e708344d5dbe6f3b6ccbb53f88e2d04cd5037970c81a60342"
+    },
+    {
+      "path": "Docs/review/ART.1/qa.md",
+      "baseGitBlob": "dcacfd8e1055022714e2523708236afacbe8c92f",
+      "sha256": "cdf00003e4ab95d20978f62136257a29e05bc42a1cc77ee68eb229203cd60abd"
+    },
+    {
+      "path": "Docs/review/ART.1/reexport-after.json",
+      "baseGitBlob": "f7cb742f2e65d7ce494965c91a044bf9227e62fc",
+      "sha256": "291747ad1b41cb40a8472d8baedb01036c1a8480b7289c69b1bbe653debc2012"
+    },
+    {
+      "path": "Docs/review/ART.1/reexport-before.json",
+      "baseGitBlob": "f7cb742f2e65d7ce494965c91a044bf9227e62fc",
+      "sha256": "291747ad1b41cb40a8472d8baedb01036c1a8480b7289c69b1bbe653debc2012"
+    },
+    {
+      "path": "Docs/review/ART.1/reexport.txt",
+      "baseGitBlob": "de51c8e836ed595517942f02ffd80f5392d4b75a",
+      "sha256": "93678bf46037154b6fe1271885da41b72b463b1bd33f2be05548b09b25dc4aef"
+    },
+    {
+      "path": "Docs/review/ART.1/review-fixes.md",
+      "baseGitBlob": "5a49f64930c89d3b895603de19b3775d5cec887f",
+      "sha256": "9b1bf0aa1e96d3bed314e59d20c8d9b6ae86f229b32f9b4944cfd343c3600597"
+    },
+    {
+      "path": "Docs/review/ART.1/static-checks.txt",
+      "baseGitBlob": "94fb11aa28135db60889d3d2d9a240650857bada",
+      "sha256": "41e90629cf19e34068d3036f9f9624b13ab4d1cb38fb1b4fe2bce1019807b3e8"
+    },
+    {
+      "path": "Docs/review/ART.1/technical-review.md",
+      "baseGitBlob": "630a23de1534a3bc98984b16ebfec5c6574dbc52",
+      "sha256": "01d67073c81bab675654aab081afa18703c85b93de11042767ee3573b99419fd"
+    },
+    {
+      "path": "Docs/review/ART.1/video-capture.json",
+      "baseGitBlob": "13d1ec6dd771c812f2603cada8cc3d014e24a77d",
+      "sha256": "21d7d9f62ba1a0defdfa53934cd269d8bd4e17758fd13b4c6708ba943fa1de55"
+    },
+    {
+      "path": "Docs/review/ART.2a/README.md",
+      "baseGitBlob": "268b4a091aabd92b0a128359899341726696ce7f",
+      "sha256": "7fba1454131df93a4a2548792cd5d2a1e6c1cf49f1e0d2b19b560942f5f39dc3"
+    },
+    {
+      "path": "Docs/review/ART.2a/provenance.json",
+      "baseGitBlob": "4233450003bc5f5eb598c3ffd8e8705120dfd9c1",
+      "sha256": "605ef1b13426052e28e89eee86aa903f6a5ef438a9ad2a73b076783360c28eca"
+    },
+    {
+      "path": "Docs/review/ART.2a/reports/package.txt",
+      "baseGitBlob": "36f9448f05082375b1faaf2de45a7f06e10448c0",
+      "sha256": "d412720a9a0abaf39c2781b602463cd7c7d171f6f96c5bac9f26a29fe59581cc"
+    },
+    {
+      "path": "Docs/review/ART.2a/reports/static.txt",
+      "baseGitBlob": "1c51d5fbef449bc576f60201ddb775f767e58265",
+      "sha256": "3a34ad6fd20670012ff1bf3bde44cd949f6a71c16540a2a01458787e587ef188"
+    },
+    {
+      "path": "Docs/review/ART.2a/review.md",
+      "baseGitBlob": "0077c13ebee70c3fd8a3f417b5c04b124f5f311f",
+      "sha256": "08b24146de58f1cafbdf46dbf6467810cfb4247e34c088e1eb5db31af32edad3"
+    },
+    {
+      "path": "Docs/review/ART.2a/specification.md",
+      "baseGitBlob": "e24114ac982222350426dc1bf75483cb50ae694b",
+      "sha256": "96cf2e9745bd597a7d131afb6558ac821a4a7ac30a85158371ec70467db69c62"
+    },
+    {
+      "path": "Docs/review/ART.2a/validation.md",
+      "baseGitBlob": "60e6e2c0e21e4ef15868f756882d8114d99a49a3",
+      "sha256": "5771009597aebcaf8ae5d9c6bce0ee63a6b2a0294a3e037a024f195e468fc8fa"
+    },
+    {
+      "path": "Docs/review/ART.2a/verify.py",
+      "baseGitBlob": "62957c9309e0f1b58d01cc9d1ec06ca55c7d8ff8",
+      "sha256": "d876c9a60fbdecf737bb503badf06ea42239b7ad5db2187fca3f303e10c28ea5"
+    },
+    {
+      "path": "Packages/manifest.json",
+      "baseGitBlob": "58aeb1296411c6fd64522794b7a4bf9b7098a0ff",
+      "sha256": "a78d2c59e34818add54d16dc5954518d2da7db5675de2581d98290da49ef6eef"
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "baseGitBlob": "cf6cf2815f8eccbd236481ab0e656e4adec982bf",
+      "sha256": "aa3863f6781ab09d3883c846faec36322a393dae4955ff3cc9b6b5faa5d9b67e"
+    },
+    {
+      "path": "ProjectSettings/AudioManager.asset",
+      "baseGitBlob": "27287fec5f4e4b712cbdd5b3a6383cbfd900b940",
+      "sha256": "aeedeb3243f07b61dbbe854aa08b5ef6f0b5274dd9852ad9f6129dde3e105a31"
+    },
+    {
+      "path": "ProjectSettings/ClusterInputManager.asset",
+      "baseGitBlob": "e7886b266a005f4d9d80f2fef8d1649dcfd3ed2b",
+      "sha256": "40e65dd214bf254955d2c8829ca8ce2130fd3510485560ce012e9a1ddd93e623"
+    },
+    {
+      "path": "ProjectSettings/DynamicsManager.asset",
+      "baseGitBlob": "fc90ab9589af00aa403b7aeb17cf53779a9aa571",
+      "sha256": "b7c9a9dc08b98990109d4346f68745e15e238de400f96c583e53e1c83c743a78"
+    },
+    {
+      "path": "ProjectSettings/EditorBuildSettings.asset",
+      "baseGitBlob": "9782fa52f6275be449a473719566068263b2f793",
+      "sha256": "fe1f13e8d91cff5a531c1ab8bef061bbc3ceea381fe471b2277af05258933cb4"
+    },
+    {
+      "path": "ProjectSettings/EditorSettings.asset",
+      "baseGitBlob": "878c4cb8d33ea203c002885f3f658b5c52d5e3dd",
+      "sha256": "32d6a9be4c9aa9795a96bd951820a2d9be1bfefab82ed05a5db111af0863938f"
+    },
+    {
+      "path": "ProjectSettings/GraphicsSettings.asset",
+      "baseGitBlob": "84b2182fe3e3bc3e639c1e90e9e979e5a2515cc2",
+      "sha256": "6736f33dc62c35b0e7a88e275242080bc7a1d94c91154d18fceb332b661a6bce"
+    },
+    {
+      "path": "ProjectSettings/InputManager.asset",
+      "baseGitBlob": "b16147e954fd861c2e2db769449894d310aa7b26",
+      "sha256": "7a1bb836a1008d26d0860d143e9d9df7ca41731d30a72901b518063819c62df2"
+    },
+    {
+      "path": "ProjectSettings/MemorySettings.asset",
+      "baseGitBlob": "5b5facecace9276319b6e497953ab0429de65b61",
+      "sha256": "1e8379a461b10ae09f3f696911088c16875d63e87ed5f2d95df9e1892703f9fd"
+    },
+    {
+      "path": "ProjectSettings/MultiplayerManager.asset",
+      "baseGitBlob": "2a936644e0d87339f17484efc93de6f0de5774b1",
+      "sha256": "aba89fd1a1ddad182727ad82727e536d27372e90328a8196da2a4560398983dd"
+    },
+    {
+      "path": "ProjectSettings/NavMeshAreas.asset",
+      "baseGitBlob": "3b0b7c3d183abdd300112f56965916ef11667f54",
+      "sha256": "80106cfa7e6181a1928b142c075f3e510d527441e3d79bc83590e4ac91e7cd66"
+    },
+    {
+      "path": "ProjectSettings/PackageManagerSettings.asset",
+      "baseGitBlob": "be4a7974ec170d9bfa288154684b318966c43f13",
+      "sha256": "a7dabba589abe7fc2b45bd3d3fba3fe9be97043492703f716da2d9131c13a807"
+    },
+    {
+      "path": "ProjectSettings/Physics2DSettings.asset",
+      "baseGitBlob": "6c5cf8a004ac48f27cb36f7cdea139eb4d3e812f",
+      "sha256": "e3cbdbf0be15244b7b67d2f07bdb8e8981911c11a8c7fe8035f5261272fec658"
+    },
+    {
+      "path": "ProjectSettings/PresetManager.asset",
+      "baseGitBlob": "67a94daefe2e6bce3ec73546ad7cda94f702ad22",
+      "sha256": "29c125923fe6e29f90190d4fce1c82d660e7051546e2c9d02908d18c9cf2436c"
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "baseGitBlob": "fd16e8c39ac8117302a6afe7784fa238ca6b904b",
+      "sha256": "f7d3ba987ee70481b8a595d17e1ebbf47b1d4b8c8e4501feb54a1ff0f1b81bfc"
+    },
+    {
+      "path": "ProjectSettings/ProjectVersion.txt",
+      "baseGitBlob": "2f221d9b34681fb9fa6da4b8c4c51eae6414bac8",
+      "sha256": "91b35566b263574c8a513eff3bba6d5d313482d752d961077b47ab5b3ff14981"
+    },
+    {
+      "path": "ProjectSettings/QualitySettings.asset",
+      "baseGitBlob": "f55198a746f15374850c7348fe8a5de9d0c97e5d",
+      "sha256": "6814d6cc3eb850dd7d2a069a8b17ba9f7591deba8b1758a855978bd9c8627643"
+    },
+    {
+      "path": "ProjectSettings/SceneTemplateSettings.json",
+      "baseGitBlob": "ede5887b3a3e5e7ce4e90f0d893a1e4cdb2c7451",
+      "sha256": "bb9098b3bfcde78d93e264b96f7b77b5430e64e8c57a7aad7f5a5d9c3945e16a"
+    },
+    {
+      "path": "ProjectSettings/ShaderGraphSettings.asset",
+      "baseGitBlob": "ce8c2432884fcc0d627b3cef54a6ea51d4f766e4",
+      "sha256": "cdba1e5d65bcf6e3269d76ed3e60b6c21f98322002996642c9d74f1eb89f6b91"
+    },
+    {
+      "path": "ProjectSettings/TagManager.asset",
+      "baseGitBlob": "6413d11ff54dc0a0b364765f1d35bbd42d7d79cf",
+      "sha256": "23fc56b484aa3d7edf5914cd3591f7a823ccef5e3f3496f8a51f30388ead63dc"
+    },
+    {
+      "path": "ProjectSettings/TimeManager.asset",
+      "baseGitBlob": "558a017e1f50b2db73414a1abad3c033922774f8",
+      "sha256": "1a83e54adbbda7c9f4851103a0c6ab7f6448a3343d4ea5b7620452fa08416ecd"
+    },
+    {
+      "path": "ProjectSettings/URPProjectSettings.asset",
+      "baseGitBlob": "6ad563183467c100d393c4c910b8cf697e956ca9",
+      "sha256": "c317fe22b9488785c0611f0642429922e5d324430d929bffb41648130f30c218"
+    },
+    {
+      "path": "ProjectSettings/UnityConnectSettings.asset",
+      "baseGitBlob": "029ad8b9e7fa7b57c7e3b4b8c29a8e6a57f906be",
+      "sha256": "b7dd1e8290598f5ce86919ba1c98b42b766c8c42191a30fa2c4d12195c4ecd00"
+    },
+    {
+      "path": "ProjectSettings/VFXManager.asset",
+      "baseGitBlob": "3a95c98bec50cf72538061fd26eee95398f72128",
+      "sha256": "f066c6483919961332415ee64204f74fe52f38c02e82892eb02b7a5b2e381f0e"
+    },
+    {
+      "path": "ProjectSettings/VersionControlSettings.asset",
+      "baseGitBlob": "dca288142fc043d5a749e9058fe625505008834f",
+      "sha256": "e7bda45bf7a394745fee1316e6c71fa676004d591ad1f3aa247fd3e4ceb86071"
+    },
+    {
+      "path": "ProjectSettings/XRSettings.asset",
+      "baseGitBlob": "482590c196f7a82116679f58176b9d1aff21d7f9",
+      "sha256": "edd2beb4a2e388312b4b7da241aa51070434005d82c59363f1237dd2e567585f"
+    }
+  ],
+  "delivery": [
+    {
+      "path": "ArtSource/Review/CaptureArt21.cs",
+      "sha256": "cb28ecfa32dfd38590a0ab17c7b8be707dafbd2127fc03bcb10c330c489ac26d"
+    },
+    {
+      "path": "ArtSource/Review/MeasureArt21.cs",
+      "sha256": "6816438baebccaa71d13ae898a49f70bec3a94e439ee573a8703fc333211398e"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberCore.mat",
+      "sha256": "5c30864335e7c45b8657587d0615d9654e3c434b327d1ecfa93eaee3350b4ff1"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberStroke.mat",
+      "sha256": "dbf69cfa175fdc6f8314c9b9f7f960e5303459532253b3673e4b1c58d11e62c5"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art21_ShadeOcclusion.mat",
+      "sha256": "34b660123266796a8e8a327ae2a41b99a3cf787099e084f422d478a706dec82d"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art21_ShadeOcclusion.mat.meta",
+      "sha256": "805340e13c9bc793c6b8b655b9efe21562b4a9c41aa5b4c6286bea92b571d09f"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat",
+      "sha256": "0de469ef41854ba8aab1c53ca76c4fac066dd406565c899c180afa021f8a2443"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat.meta",
+      "sha256": "fe45f939baad4df23f8efba975bf30976966f44af9335e4a303aa94ded7d7b27"
+    },
+    {
+      "path": "Assets/_Game/Art/Shaders.meta",
+      "sha256": "d79b519e3bd0f400d8aa6adf586789bd2fe1496af834a29f3210c9f32a879270"
+    },
+    {
+      "path": "Assets/_Game/Art/Shaders/FlameImpulse.shader",
+      "sha256": "6ad2a8f20980e422280bf9e5386626a32f7688dc94ea3caa38523a88c003b363"
+    },
+    {
+      "path": "Assets/_Game/Art/Shaders/FlameImpulse.shader.meta",
+      "sha256": "e924dc3e9d29a8ec59d95cc8951555edb8397043d3534ccff90d4db439d30ac8"
+    },
+    {
+      "path": "Assets/_Game/Art/Shaders/ShadeOcclusion.shader",
+      "sha256": "bbc6aafc654f6019a8a7d8d3338dd81592e5e4d667129694ec86b189d3463adc"
+    },
+    {
+      "path": "Assets/_Game/Art/Shaders/ShadeOcclusion.shader.meta",
+      "sha256": "32ccf05e8033d6e19415e5e9696f2a7aff413750414e49097a92c1c62c4fd014"
+    },
+    {
+      "path": "Assets/_Game/Art/Shaders/TowerOcclusionMask.shader",
+      "sha256": "316cca7a1d483fde5ccaa98a5221fff0a326c2c409243286097edfd03ed7f0f1"
+    },
+    {
+      "path": "Assets/_Game/Art/Shaders/TowerOcclusionMask.shader.meta",
+      "sha256": "7e5fdf6e7f5a49ccffb1c06c4c7de0b45197d324ed3fe2294a57b8dea559a8aa"
+    },
+    {
+      "path": "Assets/_Game/Scenes/ArtReference.unity",
+      "sha256": "108d2b243ad81c8da9914fca0853ea7710a1d81f58b35a8bc29fb19643dcf078"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Editor/ArtReferenceBuilder.cs",
+      "sha256": "c9771bceb396f7969ed71270025c4aac2fbfd9e0797caab0627f83c7cb576d26"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Presentation/ArtReferenceShowcase.cs",
+      "sha256": "a4eb21298234faa2e1345e351aa8cf20c4907ac90f3453a420ce1285a3209c92"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Presentation/BattleSceneController.cs",
+      "sha256": "fb3d57ef7b52da1b14a8a959b7a21e5e88983f8f7b7f406a52aeac087d12de71"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Presentation/EnemyHealthBarView.cs",
+      "sha256": "5b918f2a8bbaaffe8958baa40300e25f6b084998d0ed75deb5f0aabe6902a75b"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Presentation/FlameStrikeView.cs",
+      "sha256": "7a2e8e22ea0573eb549d43d05e7d702836985a7ba8e4d8ef1ef8950c8f47c902"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Presentation/FlameStrikeView.cs.meta",
+      "sha256": "903bb266c315c2c08276170c5d65418e1d13556bfbc481e5cc1d147b8772d0c7"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Presentation/ShadeOcclusionView.cs",
+      "sha256": "493459a7e515bd89a7addcab287e08aa113ecb7504fd492a738b766c9f4c50a2"
+    },
+    {
+      "path": "Assets/_Game/Scripts/Presentation/ShadeOcclusionView.cs.meta",
+      "sha256": "d4e273aab16770d551c37a4eeebe070104673e168d1378404b3676e746cca800"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/ArtReferenceAssetTests.cs",
+      "sha256": "b217301b62ab0657a1b2a2a7fc08e3fadf54c94312e77e3f0f9d7834e0e14d5e"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/BattleCombatVisualTests.cs",
+      "sha256": "d84cd8ad8288a1fd1a77781389a377d8fe2eb9332660ae829e7f74e144dedc7f"
+    },
+    {
+      "path": "Assets/_Game/Tests/PlayMode/ArtReadabilityPlayModeTests.cs",
+      "sha256": "ed191d7beea05e9e295e49621906b448ffb91fe78d9105df7ce6c158d41f61ff"
+    },
+    {
+      "path": "Assets/_Game/Tests/PlayMode/ArtReadabilityPlayModeTests.cs.meta",
+      "sha256": "f1b7f2ed0f5e338f8322f1be6a4bd891ebde31cb54964f1a61ef4baa7c41e216"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/EditMode-red.json",
+      "sha256": "a8e511ae2a5a1961e8112762b634c8c2440de23dfc453f9afddef377a3984370"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/EditMode.json",
+      "sha256": "aa913438c3754276c979f48852157ce7b3ef2c658972e95c805053f7853cbfcc"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/PlayMode-red.json",
+      "sha256": "485574c072325ace180cb6f7f2cb217266d78047391aea42aa61378d5738395c"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/PlayMode-stale.json",
+      "sha256": "f6af99a0ad4f9736fcc122e2a63dec17737406ca4f3acfe38d893874a8303c06"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/PlayMode.json",
+      "sha256": "36217483d3e267d354c0f5058ab7354a89ff4dac441a9f33c326373aff2fecc2"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-01-island-game-camera.png",
+      "sha256": "755f6020d947e67234eb881bcafe9909c936348ad6d63f3adfb1785af97cbdd6"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-02-combat.png",
+      "sha256": "755f6020d947e67234eb881bcafe9909c936348ad6d63f3adfb1785af97cbdd6"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-03-flame-behind.png",
+      "sha256": "b29429cd1ac289c7bddc425d5442f685b21eca20825b654d515591e855cbd2ae"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-03-flame-front.png",
+      "sha256": "52584582f7aac3f6eea96dc37f8da0e735468eaa5f76e16548f6aa85033b2227"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-03-flame-side.png",
+      "sha256": "3a7d40cd650b4813489dad793b4c6c7b2e97c5cbe13bfd2d154514c3f40c2eb2"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-04-shade-light-game-scale.png",
+      "sha256": "adc4568c9d27498dffeb78650a1f301fac6489372ab78fe833d76399880965d4"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-05-shade-dark-game-scale.png",
+      "sha256": "8cbed0848d7d2cc296a4e89de24ba62748d79266e1006c017e597a165049df15"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-06-shade-dark-closeup.png",
+      "sha256": "e6a055e6b18ae70a1879f78227a4344b26ec9982b5b1e1f4119fb5f4296000b7"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-07-shade-light-closeup.png",
+      "sha256": "d2c4c20d78dda0381c3752b033c8661a9c900fb52db87d2c1e678f37ae9fe9f8"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-08-shade-dense-game-scale.png",
+      "sha256": "91800e41293accda0c6b5bd770363b0d315f70edd41a4118e23efcccd227dbf5"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-combat.mp4",
+      "sha256": "e55940258e5a77dd71d2428ec64941b685359dc50321b511d5a34ce871732fb6"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-console-clean.json",
+      "sha256": "5218cc9711ded70014d03e9c1e5a7a2614a6ff796e92ffca0d2edee302c409ad"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-console.json",
+      "sha256": "01e7606a43304e9eb504003cd6332660f8131190cdcd8d75d76558d385183723"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-dense-impact-0.png",
+      "sha256": "d9a0cb926b109cdfb56b92227e5f0f9a8ed0bd11dabf830e824b3d7b50de2ef3"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-dense-impact-1.png",
+      "sha256": "7f5fdf8625b219a3dc08e621002c2efe5602508f7f30cb111a13fde009bf7900"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-dense-impact-2.png",
+      "sha256": "09a8ccca66cd0effd6568f71a91d4161152beda3b63c7cc306aa105f8c8702d3"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-dense-impact-3.png",
+      "sha256": "992b6bca181aa002a1e9d09d69666b750256f4c32da43de4aee0d5df9371ab83"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-hp-layout.json",
+      "sha256": "a8da95c4776c7216aa80b34b297dc6b93ff004a2a26869358449bf6417ce3e81"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-strike-00-onset.png",
+      "sha256": "755f6020d947e67234eb881bcafe9909c936348ad6d63f3adfb1785af97cbdd6"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-strike-01-impact.png",
+      "sha256": "76e0c6e99c6f888f6a4a15859e8a2e0a119c5bc583894b8568ba9f19b90589e8"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-strike-02-decay.png",
+      "sha256": "217684756bd293322d07a391e180cf37fb53b073e5583f2732e92c99353625c0"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-strike-03-expired.png",
+      "sha256": "785c20a2283748d30b4668dc160c2ab89612404be49d8d9492f4b1e7ee894a39"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/after-video-capture.json",
+      "sha256": "41bfb44242e239743d42a4a0b436e8224eec650d8a0066baab18b1f38003df7a"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/baseline-EditMode.json",
+      "sha256": "dbce34379233d28264ec27096ddc85f5dab371268dfe59b6e7ccf9884a137684"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-01-island-game-camera.png",
+      "sha256": "af141a07598b11cfdc8b14e49e6974785e840b484b34e8dc8b95c5a0478775a9"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-02-combat.png",
+      "sha256": "af141a07598b11cfdc8b14e49e6974785e840b484b34e8dc8b95c5a0478775a9"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-03-flame-behind.png",
+      "sha256": "62b79df7b0b8bf0115e4e80d1f9f00dd3de8c5bc9e3cbfaf9c384518d8ef1e7e"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-03-flame-front.png",
+      "sha256": "52584582f7aac3f6eea96dc37f8da0e735468eaa5f76e16548f6aa85033b2227"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-03-flame-side.png",
+      "sha256": "3a7d40cd650b4813489dad793b4c6c7b2e97c5cbe13bfd2d154514c3f40c2eb2"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-04-shade-light-game-scale.png",
+      "sha256": "adc4568c9d27498dffeb78650a1f301fac6489372ab78fe833d76399880965d4"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-05-shade-dark-game-scale.png",
+      "sha256": "8cbed0848d7d2cc296a4e89de24ba62748d79266e1006c017e597a165049df15"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-06-shade-dark-closeup.png",
+      "sha256": "e6a055e6b18ae70a1879f78227a4344b26ec9982b5b1e1f4119fb5f4296000b7"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-07-shade-light-closeup.png",
+      "sha256": "d2c4c20d78dda0381c3752b033c8661a9c900fb52db87d2c1e678f37ae9fe9f8"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-08-shade-dense-game-scale.png",
+      "sha256": "f34cee1ec1f5037fe24ddf87af6333c2886cdc72d624837f42c4d5c3505c3499"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-combat.mp4",
+      "sha256": "894c80df21a47603502ba5f98e391a12ce469310e5ff6cfe8440de307f6e5157"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-console.json",
+      "sha256": "086d4d8a3829c16406c13213827f49a04790415b50c551aec97e5a16f7dc8b95"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/before-video-capture.json",
+      "sha256": "c6baeeb6b4fbcb6ca5f1afdab0ff0afd73171a8790f15a40ddb0d73fa373069d"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/capture-log.jsonl",
+      "sha256": "d1556dcc489b049bd787ad3645a747831c934b947eaceeddf5e2cd13d9b2d81c"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/dense-console.json",
+      "sha256": "f404ae227301c748818b26b2881354686cd40c577ccb7c0b014734a312088bd2"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/hp-baseline-measurement.json",
+      "sha256": "f1cbf7ec5ae6b96e5232a18ee9e76144543ad84bf7556b577dd227480a0dabcc"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/occlusion-mask.json",
+      "sha256": "d5c399007bb98fc8b568b7f42f955319c8d4174a299a44a5462dc53b5e4f08cd"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/probe-positions.jsonl",
+      "sha256": "2ed3f3cfbe2a3d33772d72c9e652bef623fcb7208347cb1e57d50aa7372f8a65"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/static-checks.txt",
+      "sha256": "57e843abbc2ce8c37b372db7b627886e356edeb2853f70a2af0a400d08ae039a"
+    },
+    {
+      "path": "Docs/review/ART.2a.1/static-disk-error.txt",
+      "sha256": "67f6674a0d2ee589f2127fd45d69b4b56c73f1676758fbffddb2220ebb8d3bd0"
+    }
+  ]
+}
