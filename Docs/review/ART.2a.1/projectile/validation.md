@@ -45,6 +45,8 @@ Phases/Dense используют pause+public AdvanceForReview без fake dama
 
 Для обычной скорости финальный MP4 открыт и воспроизведён в QuickTime1×, наблюдены разные моменты боя. Computer-use возвращает дискретные screenshots; это playback check, не заявление о непрерывном human artistic approval. Дополнительно доступны lossless phase PNG и240frame telemetry. UI playback не используется как FPS/device measurement.
 
+[Независимый final review](review.md): commit c3dea66, открытых конкретных P1/P2 нет; clean-checkout398protected/41delivery PASS и5negative controls rejected. [Hosted source Quality Gates — success](https://github.com/AlexeyKravtsov95/Veilward/actions/runs/44525929403); локальные Unity suites отдельно от hosted static.
+
 ## NOT VERIFIED / BLOCKED
 
 Непрерывное human normal-speed motion approval/окончательная художественная оценка снаряда ещё не получены. #73 остаётся open/In progress, PR74 Draft/Refs73. Физический iPhone/readability/performance#43, Simulator, player touch/safe area/background/force quit, frame time/memory/thermal, production FLAME integration/#47, G2 и TestFlight/release не проверены. Новый .2s snapshot delay — только ArtReference, не готовое production feedback решение. Signing/credentials не использовались; self-merge не выполнялся.
