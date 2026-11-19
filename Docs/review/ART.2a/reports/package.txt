@@ -1,0 +1,5 @@
+PASS visualInputs: 125/125 byte-identical, tracked
+PASS historicalEvidence: 79/79 byte-identical, tracked
+PASS delivery: 7 package files tracked, 24 local links, scope ART.2a only
+PASS historical media: 5/5 game-scale PNG, advancing video telemetry, Console audit
+NOT VERIFIED: new Unity run, owner ART approval, ART.2b iPhone readability/performance
