@@ -58,8 +58,16 @@ class IosExportTests(unittest.TestCase):
 
     def test_missing_support(self):
         self.support.rmdir()
-        with self.assertRaisesRegex(ValueError, "iOS Build Support"):
+        with self.assertRaisesRegex(ValueError, "selected Editor layouts"):
             self.export()
+
+    def test_adjacent_support_layout(self):
+        adjacent = self.editor.parents[3] / "PlaybackEngines/iOSSupport"
+        adjacent.parent.mkdir(parents=True)
+        self.support.rename(adjacent)
+        before = ios.snapshot(self.root)
+        self.export()
+        self.assertEqual(before, ios.snapshot(self.root))
 
     def test_dirty_source(self):
         (self.root / "scene.meta").write_text("dirty")
@@ -112,6 +120,58 @@ class IosExportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Unity export failed"):
             self.export(fail)
         self.assertEqual(before, (first / "Xcode/veilward-build.json").read_bytes())
+
+    def log_unity(self, command, **kwargs):
+        result = self.fake_unity(command, **kwargs)
+        if command[0] == str(self.editor):
+            Path(command[command.index("-logFile") + 1]).write_text("new Unity log\n")
+        return result
+
+    def test_log_symlink_to_source_preserves_clean_source(self):
+        before = ios.snapshot(self.root)
+        (self.root / "Builds/iOS").mkdir(parents=True)
+        log = self.root / "Builds/iOS/last-export.log"
+        log.symlink_to(self.root / "scene.meta")
+        self.export(self.log_unity)
+        self.assertEqual(before, ios.snapshot(self.root))
+        self.assertEqual(b"", ios.git(self.root, "status", "--porcelain", "--untracked-files=normal"))
+        self.assertFalse(log.is_symlink())
+        self.assertEqual("new Unity log\n", log.read_text())
+
+    def test_log_symlink_to_external_target_preserves_target(self):
+        target = self.root.parent / "external.txt"
+        target.write_text("external original\n")
+        (self.root / "Builds/iOS").mkdir(parents=True)
+        (self.root / "Builds/iOS/last-export.log").symlink_to(target)
+        self.export(self.log_unity)
+        self.assertEqual("external original\n", target.read_text())
+        self.assertEqual(b"", ios.git(self.root, "status", "--porcelain", "--untracked-files=normal"))
+
+    def test_failed_unity_log_symlink_preserves_targets_and_previous(self):
+        previous = self.export()
+        previous_bytes = (previous / "Xcode/veilward-build.json").read_bytes()
+        target = self.root.parent / "external.txt"
+        target.write_text("external original\n")
+        log = self.root / "Builds/iOS/last-export.log"
+
+        def fail_with_log(command, **kwargs):
+            result = self.log_unity(command, **kwargs)
+            if command[0] == str(self.editor):
+                return subprocess.CompletedProcess(command, 1)
+            return result
+
+        for target in (self.root / "scene.meta", target):
+            with self.subTest(target=target.name):
+                before = ios.snapshot(self.root)
+                target_bytes = target.read_bytes()
+                log.unlink(missing_ok=True)
+                log.symlink_to(target)
+                with self.assertRaisesRegex(ValueError, "Unity export failed"):
+                    self.export(fail_with_log)
+                self.assertEqual(target_bytes, target.read_bytes())
+                self.assertEqual(before, ios.snapshot(self.root))
+                self.assertEqual(b"", ios.git(self.root, "status", "--porcelain", "--untracked-files=normal"))
+                self.assertEqual(previous_bytes, (previous / "Xcode/veilward-build.json").read_bytes())
 
     def test_empty_success_is_failure(self):
         def empty(command, **kwargs):

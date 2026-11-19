@@ -28,7 +28,7 @@ Regression scenarios (сначала спецификация, затем реа
 
 ## Повторение владельцем с чистого checkout
 
-Требуются macOS, Unity точной версии с Hub-активированной license, **iOS Build Support** именно для6000.3.28f1, Xcode и доверенный разблокированный iPhone с Developer Mode. На этой машине модуль отсутствует. Добавить его через Unity Hub → Installs →6000.3.28f1→Add modules→iOS Build Support. Unity CLI1.0.1 также предоставляет `unity install-modules --editor-version 6000.3.28f1 --module ios`; принять условия модуля владельцем. Это изменение локальных инструментов, не Unity/packages репозитория.
+Требуются macOS, Unity точной версии с Hub-активированной license, **iOS Build Support** именно для6000.3.28f1, Xcode и доверенный разблокированный iPhone с Developer Mode. Уточнение19.11.2026: Hub/CLI показывает iOS Installed для того же6000.3.28f1 arm64; модуль найден рядом с Unity.app в version-directory/PlaybackEngines/iOSSupport. Старый Python preflight искал только внутри app bundle и ошибочно останавливался до Unity. Exporter теперь учитывает оба layout и resolved executable. Наличие capability подтверждать внутри выбранного Editor через BuildPipeline.IsBuildTargetSupported, не только по directory или Hub metadata. Повторная установка не назначается. Актуальная диагностика/результаты — [revision2](review/QA.1/revision-2/validation.md).
 
 Не пересылать Apple account/private credentials агенту. Подпись настраивать локально в Xcode существующим доступным team/profile для identifier проекта; если подходящего профиля нет, это отдельный BLOCKED. Две найденные identities не доказывают наличие подходящего provisioning profile.
 
@@ -57,7 +57,7 @@ Version/build обязательны, без timestamp/autoincrement. Для с�
 
 ## Xcode → install → launch (после успешного export)
 
-Следующие команды — инструкция, **на текущем source не выполнялись**: export блокируется отсутствием iOS support. Simulator не используется. Приватные значения задать только в текущем shell, не в tracked `.env`/скриптах; `set -x` не включать.
+Следующие команды — инструкция; статус фактического выполнения и blockers указан в [актуальном evidence](review/QA.1/revision-2/validation.md). Старый app-bundle-only preflight не доказывал отсутствие iOS capability. Simulator не используется. Приватные значения задать только в текущем shell, не в tracked `.env`/скриптах; `set -x` не включать.
 
 ```bash
 set -euo pipefail
@@ -115,3 +115,6 @@ xcrun devicectl device process launch --device "$IOS_DEVICE_ID" \
 ## Тесты tooling
 
 `python3 Scripts/tests/test_ios_export.py` использует fake Unity process и временный Git checkout: проверяет orchestration/source preservation/отказы. Это **не** реальный Unity export. `IosBuildTests` проверяет version и production scene/content contract в Editor. Реальный repeat/export/IL2CPP compilation остаётся отдельным gate с установленным iOS support.
+
+
+Revision2 regressions QA1-08…10: [log symlink safety и Editor/support attribution](review/QA.1/revision-2/specification.md). Последний локальный log публикуется временным файлом и atomic os.replace directory entry: symlink/hardlink target не открывается для записи. Source/external targets и previous-success output сохраняются также при failed Unity run с созданным логом.

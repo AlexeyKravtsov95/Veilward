@@ -35,9 +35,13 @@ def run_export(root, editor, version, number):
     validate_version(version, number)
     if not editor.is_file() or not os.access(editor, os.X_OK):
         raise ValueError("Unity executable unavailable; set UNITY_EDITOR_PATH")
-    # Только стандартная macOS Unity.app структура; версия проверяется в Editor.
-    if not (editor.parent.parent / "PlaybackEngines/iOSSupport").is_dir():
-        raise ValueError("BLOCKED: Unity iOS Build Support is not installed")
+    editor = editor.resolve()
+    # Hub встречается с bundle и adjacent layout. Capability проверяет сам Editor.
+    contents = editor.parent.parent
+    support = (contents / "PlaybackEngines/iOSSupport",
+               contents.parent.parent / "PlaybackEngines/iOSSupport")
+    if not any(path.is_dir() for path in support):
+        raise ValueError("BLOCKED: iOS support not found in selected Editor layouts; compare Hub/executable/capability before reinstalling")
     if (root / "Library/Pipeline/.unity-pipeline-port").exists() or (root / "Temp/UnityLockfile").exists():
         raise ValueError("BLOCKED: close the Editor for this checkout")
     base = root / "Builds/iOS"
@@ -79,7 +83,17 @@ def run_export(root, editor, version, number):
                 git(root, "worktree", "remove", "--force", str(project))
             # Log остаётся локальным: может содержать private paths и signing metadata.
             if (stage / "Unity-export.log").exists():
-                shutil.copyfile(stage / "Unity-export.log", base / "last-export.log")
+                # os.replace заменяет entry, не следует symlink/hardlink назначения.
+                temp_log = None
+                try:
+                    with tempfile.NamedTemporaryFile(dir=base, prefix=".last-export-", delete=False) as stream:
+                        temp_log = Path(stream.name)
+                        with (stage / "Unity-export.log").open("rb") as source_log:
+                            shutil.copyfileobj(source_log, stream)
+                    os.replace(temp_log, base / "last-export.log")
+                finally:
+                    if temp_log is not None:
+                        temp_log.unlink(missing_ok=True)
             if snapshot(root) != before or git(root, "status", "--porcelain", "--untracked-files=normal").strip():
                 raise ValueError("FAIL: Unity changed source files; inspect git diff locally")
             if result.returncode != 0:
