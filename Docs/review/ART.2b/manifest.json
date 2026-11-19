@@ -89,7 +89,7 @@
     "Docs/review/ART.2b/playmode-dense.png": "b0be1d3eb634b709251228bbf7b25a2cdf8030938486813e60372b1493c88962",
     "Docs/review/ART.2b/playmode-normal.png": "2e191a84648c6aa45bce294820b6b8234b2065ad94151de7ad88e3f477053cf2",
     "Docs/review/ART.2b/reports/console-audit.json": "a7296c1e7f991e0292481ce432d7ead168fbba9aa5154d1ec32ba09cc916cda0",
-    "Docs/review/ART.2b/reports/delivery-controls.json": "f63d9726e8a073fc019e98b7feabbf8bbd681546ddb11b5e4798c9330e2c57bd",
+    "Docs/review/ART.2b/reports/delivery-controls.json": "6c0242fe4d37a23a1f54d596eec8e0c4770033dd6c7e3dca83dd3dcec05197c7",
     "Docs/review/ART.2b/reports/device-behind.txt": "8ab37184514335835425d70ea5a408a046012ed3ed514d7ede6706207541d18a",
     "Docs/review/ART.2b/reports/device-dense.txt": "946f72705b7a34e8730f947d5fb870a4a87d393f57e034206ccab3e085245482",
     "Docs/review/ART.2b/reports/device-held-pause.json": "712e42274b8032192fbd25972466e214dea5c068c594253bd213218ddbdbacd4",
@@ -107,7 +107,7 @@
     "Docs/review/ART.2b/reports/native-memory-behind.csv": "e759ee04d34bb433dda5afd05d3f451017ff7142e081ca2e3c6e1b9ae42a808c",
     "Docs/review/ART.2b/reports/native-memory-dense-record.txt": "4a42d09b6d1db27bca408366f7551b022bfac2fd54d581f1227858e07b6dab56",
     "Docs/review/ART.2b/reports/native-memory-dense.csv": "bd2e8f95d871a91ccc3b267906b8f0cc3d64a01c78fc3fa13505e2133ac87d8a",
-    "Docs/review/ART.2b/reports/native-memory-extraction.json": "d98c7849adf182d219c580528209b69fe5b2e88373539379020ad6d9d7382d98",
+    "Docs/review/ART.2b/reports/native-memory-extraction.json": "7c4ecdc0d7db2392eeeee1435a0a157b3ec20826c41f5492cf208948211e84e2",
     "Docs/review/ART.2b/reports/native-memory-normal-record.txt": "c070343a522d6ba8d305f5d7f17f99a7803adcdf79a4e75f257ba6ab10246682",
     "Docs/review/ART.2b/reports/native-memory-normal.csv": "edc61e421102151c9128b869e882eff66939f99503d44551e9d6e54d6238e01a",
     "Docs/review/ART.2b/reports/native-memory-schema.json": "b1192aa0b9ac66b94d82f7019327a4c4776a6e883747a95ae5df328c973a6b0b",
@@ -122,8 +122,8 @@
     "Docs/review/ART.2b/reports/unity-export.txt": "7be804d44879a52e4bf63daca9ba3e0800c222fcaa723d4a42d95fba28377956",
     "Docs/review/ART.2b/reports/video-proof.json": "303e5589a9b7ebddd6476a0737c8e5c7b2485dc7e562894b5397d5a1ab77074c",
     "Docs/review/ART.2b/reports/xcode-build.txt": "34694a58e87dc3dfbc66632b57538f5849edc1d0fabadfa5bee939e238a1719d",
-    "Docs/review/ART.2b/review.md": "09c5b22f22b3628075018b1da12e10a5e347da3d7ede09792970c8aac970ae25",
-    "Docs/review/ART.2b/validation.md": "0d49aafc0f054f9a3d0a39619814890631e8a3ff4118fdd42aeae9ba255c6407",
+    "Docs/review/ART.2b/review.md": "f0f036893726a03535750a287a422f2341643f4f22f50d5ad2ab591352020f15",
+    "Docs/review/ART.2b/validation.md": "98c77e2624bad579b636d5737a2563fb4daa5b85354bd04c155cc2760fb1989e",
     "Docs/review/ART.2b/verify_delivery.py": "23cddaee2c764f14a36f734b1a9510c9dd0eefe70ab465e0152bf3b4a99426d7"
   }
 }

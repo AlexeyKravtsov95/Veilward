@@ -6,4 +6,6 @@ Read-only senior reviewer subagent проверял source, regressions и evide
 
 Reviewer просмотрел device normal sequence, behind/dense/front/side screenshots, pause/restart evidence и кадры нативного normal video. Frame analysis последовательности удара приведён в validation.md. Техническая проверка кадров не заменяет artistic/product approval владельца.
 
-Финальный чистый verifier и negative controls фиксируются в reports/delivery-controls.json; результаты финального review будут добавлены после готовности manifest. Self-merge не выполняется.
+Финальный read-only source/visual/evidence pass: открытых P1/P2 не обнаружено. Reviewer сверил verifierSHA с7negative controls и независимо воспроизвёл3/3 nativeCSV побайтно из локального raw XML (ровно один game PID каждый), без file writes. Commands, model/source/build attribution, normal video vs dense NOT VERIFIED и границы выводов проверены.
+
+Чистый verifier baseline/restored PASS117artifacts/2506protected inputs;7committed negative controls отвергнуты по целевой причине (не из-за dirty checkout). Точные исходы — reports/delivery-controls.json. После этого изменены только evidence reports/summary/manifest; game/editor/exporter source остаётся tested7b753e3. Self-merge не выполняется.
