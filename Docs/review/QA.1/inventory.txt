@@ -1,0 +1,44 @@
+QA.1 inventory, 2026-11-19. Sanitized transcript; identifiers/private paths omitted.
+Base main: de8b9b58f26ca86bfbc352eb214eaee7f7a6992c
+Tested source: ab9c17ad0f4f26e92f9a09851200de098f808412
+
+COMMAND: git fetch origin main; git rev-parse origin/main
+RESULT: de8b9b58f26ca86bfbc352eb214eaee7f7a6992c, PR70 merge; reviewed head4c09210 ancestor.
+COMMAND: cat ProjectSettings/ProjectVersion.txt
+RESULT: 6000.3.28f1 (8f082d2fe476)
+COMMAND: ls /Applications/Unity/Hub/Editor/6000.3.28f1/Unity.app/Contents/PlaybackEngines
+RESULT: MacStandaloneSupport only; iOSSupport absent. No other installed iOSSupport found.
+COMMAND: unity version
+RESULT: 1.0.1 stable, darwin arm64; runtime Rust1.100.0. README historical CLI beta baseline not changed by QA.1.
+COMMAND: sw_vers
+RESULT: macOS27.0.1 build26A434; Python3.12.13
+COMMAND: xcode-select -p
+RESULT: standard Xcode.app developer directory selected.
+COMMAND: xcodebuild -version
+RESULT: Xcode27.1 build27A9275
+COMMAND: xcodebuild -showsdks
+RESULT: iphoneos27.1; iphonesimulator27.1. Simulator not used for acceptance.
+COMMAND: xcrun devicectl list devices --json-output [local temporary file]
+RESULT: exit0. Connected physical iPhone16Pro, iOS27.0.1 build24A446;
+  deviceType=iPhone, pairingState=paired, tunnelState=connected,
+  ddiServicesAvailable=true, developerModeStatus=enabled.
+  Other paired/disconnected entries are not selected devices. IDs/names omitted.
+COMMAND: security find-identity -v -p codesigning [summary only]
+RESULT: 2 valid identities. Certificate names/hashes/teams not published.
+  This does not verify provisioning or authorize choosing a team.
+COMMAND: inspect serialized PlayerSettings/EditorBuildSettings and production config references
+RESULT: com.veilward.spiritdefense, version0.1.0/build0, team/profile empty,
+  automatic signing disabled; iOS17+, landscape, IL2CPP1/ARM641;
+  Metal16 serialized, automatic graphics selection enabled;
+  enabled Bootstrap/MainMenu/Battle; production eight-wave-ability-boss-v2,
+  boss600HP/armor5, historical refs and schema4 unchanged.
+
+COMMAND (clean detached source checkout): python3 Scripts/export-ios.py --version 0.1.0 --build-number 42
+STDERR: BLOCKED: Unity iOS Build Support is not installed
+EXIT: 2
+COMMAND: git status --short
+RESULT: empty; no Xcode output created.
+
+No Unity iOS export, IL2CPP compile, Xcode build, signing, install, launch,
+device smoke, device Console audit or device screenshots were performed.
+No environment modules/packages were installed. No TestFlight/release/self-merge.

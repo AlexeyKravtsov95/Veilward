@@ -1,0 +1,14 @@
+{
+  "command": "unity command script eval (read-only)",
+  "success": true,
+  "version": "6000.3.28f1",
+  "iosSupported": true,
+  "selectedExecutableMatchesEditor": true,
+  "selectedExecutableArchitecture": "arm64",
+  "hostArchitecture": "arm64",
+  "UNITY_EDITOR_PATH": "unset",
+  "supportLayout": "adjacent version-directory/PlaybackEngines/iOSSupport",
+  "hubAndCliModuleState": "Installed",
+  "oldPreflightChecked": "app-bundle Contents/PlaybackEngines/iOSSupport only",
+  "oldPreflightConclusion": "incorrect module absence inference"
+}

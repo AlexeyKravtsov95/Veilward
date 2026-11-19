@@ -1,0 +1,76 @@
+Sanitized actual command output; private paths/signing/device/account metadata redacted.
+Launched application with com.veilward.spiritdefense bundle identifier.
+Waiting for the application to terminate…
+CrashReporter: initialized
+2026-11-19 16:46:39.042 VEILWARDSpiritDefense[81306:23519405] Built from '6000.3/respin/6000.3.28f1-21f78c3e21d1' branch, Version '6000.3.28f1 (8f082d2fe476)', Build type 'Release', Scripting Backend 'il2cpp'
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=262144"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=4194304"
+    "memorysetup-bucket-allocator-block-count=1"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-threa2026-11-19 16:46:39.043 VEILWARDSpiritDefense[81306:23519405] MemoryManager: Using 'Default' Allocator.
+d-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=4194304"
+    "memorysetup-profiler-bucket-allocator-block-count=1"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=4194304"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+-> applicationDidFinishLaunching()
+-> sceneWillEnterForeground()
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Subsystems] Discovering subsystems at path /private/var/containers/Bundle/Application/[UUID]/VEILWARDSpiritDefense.app/Data/UnitySubsystems
+GfxDevice: creating device client; kGfxThreadingModeThreaded
+Initializing Metal device caps: Apple A18 Pro GPU
+Apple GPU Family: 9
+MSL Version: 3.0
+Has Float MSAA: 1
+Has Float Filtering: 1
+ReadWrite Texture Tier: 2
+Initialize engine version: 6000.3.28f1 (8f082d2fe476)
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+CADisplayLink created
+Player Setting 'Adjust iOS FPS based on thermal state' is ON
+thermalStateDidChange: Nominal
+-> applicationWillEnterForeground()
+-> sceneDidBecomeActive()
+-> applicationDidBecomeActive()
+UnloadTime: 1.282417 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.159916 ms
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 2529.
+Total: 1.672833 ms (FindLiveObjects: 0.039500 ms CreateObjectMapping: 0.021375 ms MarkObjects: 1.604334 ms  DeleteObjects: 0.007583 ms)
+
+CrashReporter: No pending report exists at /var/mobile/Containers/Data/Application/[UUID]/Library/Caches/CrashReports/crash-pending.plcrash
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.174875 ms
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 3313.
+Total: 1.824333 ms (FindLiveObjects: 0.050083 ms CreateObjectMapping: 0.031375 ms MarkObjects: 1.738167 ms  DeleteObjects: 0.004708 ms)
+
+App terminated due to signal 9.

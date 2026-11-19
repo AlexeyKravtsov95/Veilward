@@ -1,0 +1,12 @@
+{
+  "auditedFiles": 356,
+  "beforeAfterEqual": true,
+  "changed": [],
+  "newToolFiles": {
+    "Assets/_Game/Scripts/Editor/IosBuild.cs": "980aa225cb7b6297c2ebda1db231847df3609d679884a711773049d30da9e4c0",
+    "Assets/_Game/Scripts/Editor/IosBuild.cs.meta": "16dd16775c8d4a28149b47031fa963bba3e65377ac38290bf1f16745bcd103e8",
+    "Assets/_Game/Tests/EditMode/IosBuildTests.cs": "1ca1f3061fc17ee1c90dc687b4f18a74a9e6654e890c8ede2133fe69d2431450",
+    "Assets/_Game/Tests/EditMode/IosBuildTests.cs.meta": "a92cdeb5e4113cf53f39d912df6baf87c13ddb05a9b4a6f9230fd38cefddbb71"
+  },
+  "sourceSHA": "ab9c17ad0f4f26e92f9a09851200de098f808412"
+}
