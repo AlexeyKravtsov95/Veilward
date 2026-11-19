@@ -1,5 +1,14 @@
+Clean tracked checkout of 68ffcf567574fd40c5e8425407f7d246b712eba3
+POSITIVE: exit 0
 PASS visualInputs: 125/125 byte-identical, tracked
 PASS historicalEvidence: 79/79 byte-identical, tracked
 PASS delivery: 7 package files tracked, 24 local links, scope ART.2a only
 PASS historical media: 5/5 game-scale PNG, advancing video telemetry, Console audit
 NOT VERIFIED: new Unity run, owner ART approval, ART.2b iPhone readability/performance
+NEGATIVE asset drift: rejected, exit 1
+FAIL: Historical drift: Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat
+NEGATIVE missing media: rejected, exit 1
+FAIL: [Errno 2] No such file or directory: '/private/var/folders/_4/yfc3qtdj5kng3lq7rn9170vw0000gn/T/veilward-art2a-delivery-09cgmk8x/checkout/Docs/review/ART.1.1/after-01-island-game-camera.png'
+NEGATIVE untracked package evidence: rejected, exit 1
+FAIL: Untracked package file
+RESTORED: positive exit 0, clean git status; no Unity/Blender launch
