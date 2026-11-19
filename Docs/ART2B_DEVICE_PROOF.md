@@ -28,3 +28,8 @@
 5. Добавить sanitized evidence/manifest/verifier, независимое review и узкий PR.
 
 Риски: недостаток disk space, недоступность CoreDevice recording/profiler counters, отличие Unity allocated от resident footprint, высокая модель iPhone16Pro не представляет базовый iPhone. Неполное evidence не превращается в performance guarantee или разрешение массового арта. #47/#53/#54/G2 остаются отдельными.
+
+
+## Device revision — build44
+
+Build43/source4141764 реально export/build/install/launch прошёл, но managed command-line activation не включила harness на IL2CPP iOS: нет overlay/ART2B logs. Этот первый exploratory art frame не является measurement run. Следующий explicit candidate0.1.0/build44: встроенный `Data/Raw/art2b-build.json` активирует probe только в ArtReference. Обычные production builds этого marker не содержат. Scenario задаётся `VEILWARD_ART2B_SCENARIO=normal|front|side|behind|dense` через `devicectl --environment-variables`; default внутри art profile normal. Managed `-art2b` сохраняется для поддерживающих его сред. Regression: empty managed args+art receipt активирует; без receipt не активирует; Battle не активирует; unknown scenario fail-fast. Actual device proof должен подтвердить ART2B_ATTACH/settings и run completion перед учётом измерений.

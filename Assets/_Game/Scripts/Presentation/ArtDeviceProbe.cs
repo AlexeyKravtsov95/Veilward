@@ -43,17 +43,32 @@ namespace Veilward.Presentation
         public static bool ShouldAttach(string scene, string[] args) =>
             scene == "ArtReference" && Array.IndexOf(args, "-art2b") >= 0;
 
+        public static string[] ResolveLaunchArguments(string[] args, string environmentScenario, bool hasArtReceipt)
+        {
+            if (Array.IndexOf(args, "-art2b") >= 0) return args;
+            if (!hasArtReceipt) return args;
+            var scenario = string.IsNullOrEmpty(environmentScenario) ? "normal" : environmentScenario;
+            if (scenario != "normal" && scenario != "front" && scenario != "side" && scenario != "behind" && scenario != "dense")
+                throw new ArgumentException("Unknown ART2B environment scenario.");
+            return new[] { "art-reference-profile", "-art2b", scenario };
+        }
+
+        private static string[] LaunchArguments() => ResolveLaunchArguments(Environment.GetCommandLineArgs(),
+            Environment.GetEnvironmentVariable("VEILWARD_ART2B_SCENARIO"),
+            File.Exists(Path.Combine(UnityEngine.Application.streamingAssetsPath, "art2b-build.json")));
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Attach()
         {
-            var args = Environment.GetCommandLineArgs();
+            var args = LaunchArguments();
             if (!ShouldAttach(SceneManager.GetActiveScene().name, args)) return;
+            Debug.Log("ART2B_ATTACH explicit art profile/arguments");
             var showcase = FindFirstObjectByType<ArtReferenceShowcase>();
             if (showcase == null) throw new InvalidOperationException("ART2B requires ArtReference.");
             showcase.gameObject.AddComponent<ArtDeviceProbe>();
         }
 
-        private IEnumerator Start() => InitializeFromArguments(Environment.GetCommandLineArgs());
+        private IEnumerator Start() => InitializeFromArguments(LaunchArguments());
 
         public IEnumerator InitializeFromArguments(string[] args, string outputRoot = null)
         {

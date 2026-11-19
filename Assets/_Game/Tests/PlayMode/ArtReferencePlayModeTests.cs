@@ -27,6 +27,19 @@ namespace Veilward.Tests.PlayMode
             Assert.That(ArtDeviceProbe.ShouldAttach("ArtReference", new[] { "app" }), Is.False);
         }
 
+        [Test]
+        public void DeviceArtProfileReceiptActivatesWhenIosOmitsManagedArguments()
+        {
+            var empty = new[] { "app" };
+            CollectionAssert.AreEqual(empty, ArtDeviceProbe.ResolveLaunchArguments(empty, "dense", false));
+            var resolved = ArtDeviceProbe.ResolveLaunchArguments(empty, "dense", true);
+            Assert.That(ArtDeviceProbe.ShouldAttach("ArtReference", resolved), Is.True);
+            Assert.That(ArtDeviceProbe.ShouldAttach("Battle", resolved), Is.False);
+            Assert.That(resolved[2], Is.EqualTo("dense"));
+            Assert.That(ArtDeviceProbe.ResolveLaunchArguments(empty, null, true)[2], Is.EqualTo("normal"));
+            Assert.Throws<System.ArgumentException>(() => ArtDeviceProbe.ResolveLaunchArguments(empty, "unknown", true));
+        }
+
         [UnityTest]
         public IEnumerator DeviceSyntheticProbeLeavesDomainUntouchedAndCleansUp()
         {
