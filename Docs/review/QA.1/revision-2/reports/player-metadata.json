@@ -1,0 +1,29 @@
+{
+  "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+  "bundleIdentifier": "com.veilward.spiritdefense",
+  "version": "0.1.0",
+  "build": "42",
+  "minimumOS": "17.0",
+  "platform": "iphoneos",
+  "sdk": "iphoneos27.1",
+  "architectures": "arm64",
+  "codesignVerifyExitCode": 0,
+  "unityExports": [
+    {
+      "attempt": 1,
+      "exitCode": 2,
+      "reason": "ENOSPC during package resolution; original checkout clean"
+    },
+    {
+      "attempt": 2,
+      "exitCode": 0
+    },
+    {
+      "attempt": 3,
+      "exitCode": 0
+    }
+  ],
+  "successfulReceiptsEqual": true,
+  "successfulSourceAuditsEqual": true,
+  "originalCheckoutCleanAfterBothExports": true
+}

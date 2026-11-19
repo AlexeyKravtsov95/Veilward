@@ -78,7 +78,7 @@ xcodebuild -project "$IOS_EXPORT/Unity-iPhone.xcodeproj" \
   -scheme Unity-iPhone -configuration Debug -sdk iphoneos \
   -destination "platform=iOS,id=$IOS_DEVICE_ID" \
   -derivedDataPath "$IOS_ROOT/DerivedData" \
-  DEVELOPMENT_TEAM="$IOS_TEAM_ID" CODE_SIGN_STYLE=Automatic \
+  DEVELOPMENT_TEAM="$IOS_TEAM_ID" CODE_SIGN_STYLE=Automatic -allowProvisioningUpdates \
   build > "$IOS_ROOT/Xcode-build.log" 2>&1
 xcodebuild -project "$IOS_EXPORT/Unity-iPhone.xcodeproj" \
   -scheme Unity-iPhone -configuration Debug -sdk iphoneos \
@@ -104,7 +104,7 @@ xcrun devicectl device process launch --device "$IOS_DEVICE_ID" \
   --terminate-existing --console "$IOS_BUNDLE_ID" > "$IOS_ROOT/device-console-private.txt" 2>&1
 ```
 
-`--console` остаётся attached до завершения процесса; launch отдельно подтвердить видимым UI на iPhone, exit0 установки сам по себе не доказывает smoke. Для повторного запуска с checkpoint завершить app на самом iPhone, затем снова launch без uninstall (uninstall удаляет saves). При permission/provisioning/DDI/build failures остановиться, сохранить локальный log и отметить BLOCKED, не продолжать шаги с несуществующим app. Публикация, archive/export IPA, TestFlight и `-allowProvisioningUpdates` не требуются.
+`--console` остаётся attached до завершения процесса; launch отдельно подтвердить видимым UI на iPhone, exit0 установки сам по себе не доказывает smoke. Для повторного запуска с checkpoint завершить app на самом iPhone, затем снова launch без uninstall (uninstall удаляет saves). При permission/provisioning/DDI/build failures остановиться, сохранить локальный log и отметить BLOCKED, не продолжать шаги с несуществующим app. Публикация, archive/export IPA, TestFlight не требуются. В проверенном прогоне `-allowProvisioningUpdates` использовал уже доступный локальный Xcode account/team для automatic provisioning; при готовом совместимом profile флаг можно опустить. Не вводить account/team наугад и не передавать credentials агенту.
 
 ## Device smoke и evidence
 
@@ -118,3 +118,6 @@ xcrun devicectl device process launch --device "$IOS_DEVICE_ID" \
 
 
 Revision2 regressions QA1-08…10: [log symlink safety и Editor/support attribution](review/QA.1/revision-2/specification.md). Последний локальный log публикуется временным файлом и atomic os.replace directory entry: symlink/hardlink target не открывается для записи. Source/external targets и previous-success output сохраняются также при failed Unity run с созданным логом.
+
+
+**QA.1 revision2 /19.11.2026:** capability true; два real exports и signed Xcode build/install/launch прошли на iPhone16Pro/iOS27.0.1, оба smoke и persistence проверены. [Актуальное evidence](review/QA.1/revision-2/validation.md). Прежние BLOCKED отчёты остаются историческими. QA.2/QA.3/ART/G2/release отдельно.

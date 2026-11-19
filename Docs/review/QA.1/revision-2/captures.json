@@ -1,0 +1,212 @@
+[
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "01-launch-splash.png",
+    "os": "27.0.1",
+    "sha256": "11618f7531fe5d70aba7f27fc0ff8dea5dd9bc6bcf999269b1e673442b8e5148",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:46:40.093186+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "02-flame-choice-preview.png",
+    "os": "27.0.1",
+    "sha256": "3fed39d818194d0539fd6a952513ba37e3857a065d6f89aedb5cbe3fe8334b1d",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:47:33.708504+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "03-flame-choice-cancel.png",
+    "os": "27.0.1",
+    "sha256": "b838c37c1013a1bf7571f168545136af6fd7d0a068024c84a145aa62f20e3eca",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:47:47.348214+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "04-flame-placement-preview.png",
+    "os": "27.0.1",
+    "sha256": "e108b0f8aa64757f6154a870ce65b9fc0eb8655d9d151984b857068acbb46fd0",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:48:12.399981+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "05-flame-placement-cancel.png",
+    "os": "27.0.1",
+    "sha256": "74dfdfaaac4a12940e38aee80f4e3606d01310a9a37e7be2bba41d848c7a54cc",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:48:25.418129+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "06-flame-built-preparation.png",
+    "os": "27.0.1",
+    "sha256": "41d25a9f35bcffdbff14fdb9ec14d655cdf8a4fe7a812c4632c0ab932e9fc498",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:48:51.333028+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "07-flame-ability-preview.png",
+    "os": "27.0.1",
+    "sha256": "2b2b31d25d689a5a0ae8e5ca910b49c43ddc30bb391befb549ebbf0549f079ce",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:49:09.509149+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "08-flame-wavecomplete-pause.png",
+    "os": "27.0.1",
+    "sha256": "2e4a8faab552fd8d109e2413d4b67503b981b501fb4151bafc98bec7ac2eb08c",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:49:49.811599+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "09-flame-ability-confirm-pause.png",
+    "os": "27.0.1",
+    "sha256": "94828fe64053803df82fc5f30a1375d90d4d03f4c639b58daadd57e6f8f2b1b4",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:50:06.923185+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "10-flame-pause-frozen.png",
+    "os": "27.0.1",
+    "sha256": "94828fe64053803df82fc5f30a1375d90d4d03f4c639b58daadd57e6f8f2b1b4",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:50:40.514141+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "11-flame-relaunch-splash.png",
+    "os": "27.0.1",
+    "sha256": "882706747e1900c4911f31c267b2b2bb060f7228e0f3a980485096d7007a5952",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:51:28.092764+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "12-flame-continued-preparation.png",
+    "os": "27.0.1",
+    "sha256": "41718d8debb1a68c7d1fdf9e644722388728a96a159ae7df122edafffcc4fd96",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:51:51.725601+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "13-flame-repeated-continue.png",
+    "os": "27.0.1",
+    "sha256": "41718d8debb1a68c7d1fdf9e644722388728a96a159ae7df122edafffcc4fd96",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:52:06.055707+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "14-gale-choice-preview.png",
+    "os": "27.0.1",
+    "sha256": "f7ea68d59a1aad3da3b44be9f523ead2342631751a6fe3c2cf113d37fdad935e",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:52:19.841868+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "15-gale-built-preparation.png",
+    "os": "27.0.1",
+    "sha256": "191ee9063c78207764506a0ca6d4a60096a4d969631aea9d065ed98c4f6717a0",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:52:43.731966+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "16-gale-ability-cancel-pause.png",
+    "os": "27.0.1",
+    "sha256": "47602aab890a05fb3e1726751543732dad060e9372423e45e60b1511a872d58d",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:53:41.719677+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "17-gale-ability-confirm-pause.png",
+    "os": "27.0.1",
+    "sha256": "868eeacd690cc60ff587e2e0fae649581da1a4a2eb67189fdc9ec09db1f741f0",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:54:12.711212+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "18-gale-wavecomplete.png",
+    "os": "27.0.1",
+    "sha256": "c82476cabbfc9d9381eff12a4274b0db2f15cb350d4de049cb7e1ab2ae982a4d",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:55:16.892804+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "19-gale-continued-wavecomplete.png",
+    "os": "27.0.1",
+    "sha256": "116404d1e3a29967a7f36db07318424f881a7688f3c854a2768f3f48966df51f",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:56:00.724571+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "20-gale-repeated-continue.png",
+    "os": "27.0.1",
+    "sha256": "88a19f06f1c47ec29e86088e1df9f4e8890e4e183ca80e4b13a360b9137ad13e",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:57:10.419185+00:00",
+    "width": 2622
+  },
+  {
+    "height": 1206,
+    "model": "iPhone 16 Pro",
+    "name": "21-final-main-menu.png",
+    "os": "27.0.1",
+    "sha256": "360e90db8d85926cb0d984c71038c7f8fbcdc637a2993902df314a76d567cd9c",
+    "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+    "utc": "2026-11-19T09:59:08.096268+00:00",
+    "width": 2622
+  }
+]

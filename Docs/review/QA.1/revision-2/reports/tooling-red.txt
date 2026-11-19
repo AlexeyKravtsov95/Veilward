@@ -1,0 +1,69 @@
+Sanitized actual command output; private paths/signing/device/account metadata redacted.
+E...FF...FE.......
+======================================================================
+ERROR: test_adjacent_support_layout (__main__.IosExportTests.test_adjacent_support_layout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[USER_HOME]/Desktop/workspace/Veilward-qa1-ios/Scripts/tests/test_ios_export.py", line 69, in test_adjacent_support_layout
+    self.export()
+  File "[USER_HOME]/Desktop/workspace/Veilward-qa1-ios/Scripts/tests/test_ios_export.py", line 51, in export
+    return ios.run_export(self.root, self.editor, "0.1.0", "42")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[USER_HOME]/Desktop/workspace/Veilward-qa1-ios/Scripts/export-ios.py", line 40, in run_export
+    raise ValueError("BLOCKED: Unity iOS Build Support is not installed")
+ValueError: BLOCKED: Unity iOS Build Support is not installed
+
+======================================================================
+ERROR: test_log_symlink_to_source_preserves_clean_source (__main__.IosExportTests.test_log_symlink_to_source_preserves_clean_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[USER_HOME]/Desktop/workspace/Veilward-qa1-ios/Scripts/tests/test_ios_export.py", line 135, in test_log_symlink_to_source_preserves_clean_source
+    self.export(self.log_unity)
+  File "[USER_HOME]/Desktop/workspace/Veilward-qa1-ios/Scripts/tests/test_ios_export.py", line 51, in export
+    return ios.run_export(self.root, self.editor, "0.1.0", "42")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[USER_HOME]/Desktop/workspace/Veilward-qa1-ios/Scripts/export-ios.py", line 84, in run_export
+    raise ValueError("FAIL: Unity changed source files; inspect git diff locally")
+ValueError: FAIL: Unity changed source files; inspect git diff locally
+
+======================================================================
+FAIL: test_failed_unity_log_symlink_preserves_targets_and_previous (__main__.IosExportTests.test_failed_unity_log_symlink_preserves_targets_and_previous) (target='scene.meta')
+----------------------------------------------------------------------
+ValueError: FAIL: Unity changed source files; inspect git diff locally
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "[USER_HOME]/Desktop/workspace/Veilward-qa1-ios/Scripts/tests/test_ios_export.py", line 169, in test_failed_unity_log_symlink_preserves_targets_and_previous
+    with self.assertRaisesRegex(ValueError, "Unity export failed"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Unity export failed" does not match "FAIL: Unity changed source files; inspect git diff locally"
+
+======================================================================
+FAIL: test_failed_unity_log_symlink_preserves_targets_and_previous (__main__.IosExportTests.test_failed_unity_log_symlink_preserves_targets_and_previous) (target='external.txt')
+----------------------------------------------------------------------
+ValueError: BLOCKED: commit changes/use a clean checkout before export
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "[USER_HOME]/Desktop/workspace/Veilward-qa1-ios/Scripts/tests/test_ios_export.py", line 169, in test_failed_unity_log_symlink_preserves_targets_and_previous
+    with self.assertRaisesRegex(ValueError, "Unity export failed"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Unity export failed" does not match "BLOCKED: commit changes/use a clean checkout before export"
+
+======================================================================
+FAIL: test_log_symlink_to_external_target_preserves_target (__main__.IosExportTests.test_log_symlink_to_external_target_preserves_target)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[USER_HOME]/Desktop/workspace/Veilward-qa1-ios/Scripts/tests/test_ios_export.py", line 147, in test_log_symlink_to_external_target_preserves_target
+    self.assertEqual("external original\n", target.read_text())
+AssertionError: 'external original\n' != 'new Unity log\n'
+- external original
++ new Unity log
+
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.622s
+
+FAILED (failures=3, errors=2)

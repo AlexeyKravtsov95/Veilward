@@ -1,0 +1,5 @@
+Sanitized actual command output; private paths/signing/device/account metadata redacted.
+ERROR: The capability “Screen Recording” is not supported by this device. (com.apple.dt.CoreDeviceError error 1001 (0x3E9))
+       CapabilityFeatureIdentifier = com.apple.coredevice.feature.screenrecording
+       CapabilityName = Screen Recording
+       DeviceIdentifier = [SIGNING_OR_DEVICE_ID]

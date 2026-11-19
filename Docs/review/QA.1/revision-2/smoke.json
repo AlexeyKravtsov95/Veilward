@@ -1,0 +1,94 @@
+{
+  "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+  "physicalDevice": {
+    "model": "iPhone 16 Pro",
+    "os": "27.0.1",
+    "osBuild": "24A446",
+    "input": "macOS Device Hub physical screen remote pointer input",
+    "captures": "CoreDevice screenshot, unmodified PNG",
+    "simulator": false
+  },
+  "FLAME": {
+    "newGameChoicePreviewCancelConfirm": "PASS",
+    "placementPreviewCancelConfirm": {
+      "beforeGold": 150,
+      "afterCancelGold": 150,
+      "afterBuyGold": 80,
+      "towers": 1
+    },
+    "waveProgress": {
+      "phase": "WaveComplete",
+      "wave": 1,
+      "tick": 399,
+      "gold": 100,
+      "hp": 15,
+      "kills": 0
+    },
+    "abilityPreview": "PASS; screenshot07 shows dynamic NoTargets after enemies moved",
+    "abilityConfirmPause": {
+      "phase": "Combat",
+      "wave": 2,
+      "tick": 416,
+      "gold": 105,
+      "hp": 15,
+      "kills": 1,
+      "cooldown": 598
+    },
+    "pauseFrozen": "screenshots09/10 same tick416/cooldown598",
+    "continueAfterInterruptedCombat": {
+      "phase": "Preparation",
+      "wave": 2,
+      "tick": 399,
+      "gold": 100,
+      "hp": 15,
+      "kills": 0,
+      "ability": "Ready"
+    },
+    "checkpointFilesEqual": [
+      "flame-before-interrupted-restart.json",
+      "flame-after-continue.json",
+      "flame-after-repeated-continue.json"
+    ]
+  },
+  "GALE": {
+    "newGameChoicePreviewConfirm": "PASS",
+    "placement": {
+      "beforeGold": 150,
+      "afterBuyGold": 70,
+      "towers": 1
+    },
+    "abilityPreviewCancelPause": {
+      "phase": "Combat",
+      "tick": 35,
+      "gold": 70,
+      "hp": 20,
+      "kills": 0,
+      "ability": "Ready"
+    },
+    "abilityConfirmPause": {
+      "phase": "Combat",
+      "tick": 51,
+      "gold": 75,
+      "hp": 20,
+      "kills": 1,
+      "cooldown": 597
+    },
+    "waveProgressAndContinue": {
+      "phase": "WaveComplete",
+      "wave": 1,
+      "tick": 399,
+      "gold": 95,
+      "hp": 16,
+      "kills": 1,
+      "cooldown": 249
+    },
+    "checkpointFilesEqual": [
+      "gale-wavecomplete.json",
+      "gale-after-continue.json",
+      "gale-after-repeated-continue.json"
+    ]
+  },
+  "newUnityHostRun": false,
+  "qa2Qa3ArtG2Accepted": false,
+  "screenRecording": "NOT AVAILABLE: CoreDevice capability1001; screenshots used"
+}

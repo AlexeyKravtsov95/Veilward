@@ -1,0 +1,25 @@
+{
+  "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+  "unexpectedGameplayExceptions": 0,
+  "scope": "captured device stdout for FLAME/GALE/relaunch/Continue; not full OS unified log/profiling",
+  "sessions": {
+    "1": {
+      "exceptionAssertionAbortSegvMatches": 0,
+      "metalDetected": true,
+      "clientExitCode": 1,
+      "expectedTermination": "controlled CoreDevice terminate-existing, signal9"
+    },
+    "2": {
+      "exceptionAssertionAbortSegvMatches": 0,
+      "metalDetected": true,
+      "clientExitCode": 1,
+      "expectedTermination": "controlled CoreDevice terminate-existing, signal9"
+    },
+    "3": {
+      "exceptionAssertionAbortSegvMatches": 0,
+      "metalDetected": true,
+      "clientExitCode": 1,
+      "expectedTermination": "controlled host client SIGINT, signal2"
+    }
+  }
+}

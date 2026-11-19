@@ -1,0 +1,5 @@
+{
+  "exitCode": 0,
+  "method": "CoreDevice launch --terminate-existing",
+  "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13"
+}

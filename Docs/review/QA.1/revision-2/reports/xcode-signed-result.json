@@ -1,0 +1,7 @@
+{
+  "exitCode": 0,
+  "sourceSHA": "8537c47f320987bb8ea68545831af12d876b0a13",
+  "configuration": "Debug",
+  "sdk": "iphoneos",
+  "signing": "Automatic, existing locally available development team; allowProvisioningUpdates"
+}
