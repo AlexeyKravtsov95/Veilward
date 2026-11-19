@@ -24,20 +24,20 @@ namespace Veilward.Tests.EditMode
         {
             var primary=File.ReadAllBytes(store.PrimaryPath);var backup=File.Exists(store.BackupPath)?File.ReadAllBytes(store.BackupPath):null;
             WaveCheckpointEnvelope result=null;
-            for(var i=0;i<2;i++) {Assert.That(store.TryLoad(WaveCheckpointCompatibility.AbilityBossContentId,BossWaveTests.Config().CreateSimulationForCheckpoint,out var loaded),Is.True,loaded.Error);result=loaded.Envelope;}
+            for(var i=0;i<2;i++) {Assert.That(store.TryLoad(WaveCheckpointCompatibility.BalancedAbilityBossContentId,AbilityBossReplayTests.Config().CreateSimulationForCheckpoint,out var loaded),Is.True,loaded.Error);result=loaded.Envelope;}
             Assert.That(File.ReadAllBytes(store.PrimaryPath),Is.EqualTo(primary));
             if(backup!=null)Assert.That(File.ReadAllBytes(store.BackupPath),Is.EqualTo(backup));return result;
         }
         [TestCase("flame")] [TestCase("gale")]
         public void RegBattle215_WholeFileContinuedTraceMatchesUninterrupted(string start)
         {
-            var control=AbilityBossReplayTests.Replay(start);var run=new AbilityBossTrace.Run(BossWaveTests.Config().CreateSimulation(),AbilityBossTrace.Load(start));
+            var control=AbilityBossReplayTests.Replay(start);var run=new AbilityBossTrace.Run(AbilityBossReplayTests.Config().CreateSimulation(),AbilityBossTrace.Load(start));
             var checkpoint=go.AddComponent<BattleCheckpointController>();var matrix=new List<string>();
             run.stable=(r,boundary)=>
             {
-                checkpoint.Configure(store,r.sim,WaveCheckpointCompatibility.AbilityBossContentId,BossWaveTests.Config().CreateSimulationForCheckpoint);
+                checkpoint.Configure(store,r.sim,WaveCheckpointCompatibility.BalancedAbilityBossContentId,AbilityBossReplayTests.Config().CreateSimulationForCheckpoint);
                 Assert.That(checkpoint.SaveCurrentState(),Is.True);var expected=AbilityBossTrace.Wire(r.sim);var loaded=LoadReadOnly();
-                r.sim=BossWaveTests.Config().CreateSimulationForCheckpoint(loaded);r.sim.RestoreCheckpoint(loaded.state);Clean(r.sim);
+                r.sim=AbilityBossReplayTests.Config().CreateSimulationForCheckpoint(loaded);r.sim.RestoreCheckpoint(loaded.state);Clean(r.sim);
                 Assert.That(AbilityBossTrace.Wire(r.sim),Is.EqualTo(expected));matrix.Add(boundary+"|"+expected);
             };
             run.Play();AbilityBossTrace.Write(AbilityBossTrace.Output+"/files/"+start+".continued",run);
@@ -47,8 +47,8 @@ namespace Veilward.Tests.EditMode
         [TestCase("flame")] [TestCase("gale")]
         public void RegBattle215_NaturalSafeMatrixFailedChooseCompletionNextRestartAndRetry(string start)
         {
-            var run=new AbilityBossTrace.Run(BossWaveTests.Config().CreateSimulation(),AbilityBossTrace.Load(start));var checkpoint=go.AddComponent<BattleCheckpointController>();
-            checkpoint.Configure(store,run.sim,WaveCheckpointCompatibility.AbilityBossContentId,BossWaveTests.Config().CreateSimulationForCheckpoint);
+            var run=new AbilityBossTrace.Run(AbilityBossReplayTests.Config().CreateSimulation(),AbilityBossTrace.Load(start));var checkpoint=go.AddComponent<BattleCheckpointController>();
+            checkpoint.Configure(store,run.sim,WaveCheckpointCompatibility.BalancedAbilityBossContentId,AbilityBossReplayTests.Config().CreateSimulationForCheckpoint);
             var matrix=new List<string>();
             run.stable=(r,boundary)=>
             {
@@ -60,7 +60,7 @@ namespace Veilward.Tests.EditMode
                 Directory.CreateDirectory(store.TempPath);ExpectedFailure();Assert.That(checkpoint.SaveCurrentState(),Is.False);
                 Assert.That(AbilityBossTrace.Snapshot(s),Is.EqualTo(before));Assert.That(File.ReadAllBytes(store.PrimaryPath),Is.EqualTo(primary));
                 if(backup!=null)Assert.That(File.ReadAllBytes(store.BackupPath),Is.EqualTo(backup));
-                var restarted=BossWaveTests.Config().CreateSimulationForCheckpoint(previous);restarted.RestoreCheckpoint(previous.state);Clean(restarted);
+                var restarted=AbilityBossReplayTests.Config().CreateSimulationForCheckpoint(previous);restarted.RestoreCheckpoint(previous.state);Clean(restarted);
                 Assert.That(WaveCheckpointJson.Serialize(LoadReadOnly()),Is.EqualTo(previousJson));
                 if(s.CheckStartWave()==WaveTransitionResult.Started) {ExpectedFailure();Assert.That(checkpoint.SaveForStartWave(),Is.False);}
                 if(s.CheckContinueToNextWave()==WaveTransitionResult.Continued) {ExpectedFailure();Assert.That(checkpoint.SaveForNextWave(),Is.False);}
@@ -76,13 +76,13 @@ namespace Veilward.Tests.EditMode
         [TestCase("flame",7)] [TestCase("flame",8)] [TestCase("gale",7)] [TestCase("gale",8)]
         public void RegBattle215_NaturalCombatKillReactionDirtyFreshRollbackAndTwoPrefixes(string start,int wave)
         {
-            var run=new AbilityBossTrace.Run(BossWaveTests.Config().CreateSimulation(),AbilityBossTrace.Load(start));
+            var run=new AbilityBossTrace.Run(AbilityBossReplayTests.Config().CreateSimulation(),AbilityBossTrace.Load(start));
             var checkedPrefix=false;var attempts=new List<string>();
             run.stable=(r,boundary)=>
             {
                 if(checkedPrefix||boundary!="preparation"||r.sim.State.WaveIndex+1!=wave)return;
                 checkedPrefix=true;var snapshot=AbilityBossTrace.Envelope(r.sim);var expected=AbilityBossTrace.Wire(r.sim);
-                var controller=go.AddComponent<BattleCheckpointController>();controller.Configure(store,r.sim,WaveCheckpointCompatibility.AbilityBossContentId,BossWaveTests.Config().CreateSimulationForCheckpoint);
+                var controller=go.AddComponent<BattleCheckpointController>();controller.Configure(store,r.sim,WaveCheckpointCompatibility.BalancedAbilityBossContentId,AbilityBossReplayTests.Config().CreateSimulationForCheckpoint);
                 Assert.That(controller.SaveCurrentState(),Is.True);var primary=File.ReadAllBytes(store.PrimaryPath);
                 for(var attempt=0;attempt<2;attempt++)
                 {
@@ -102,12 +102,12 @@ namespace Veilward.Tests.EditMode
                     Assert.Throws<ArgumentException>(()=>s.RestoreCheckpoint(invalid));Assert.That(AbilityBossTrace.Snapshot(s),Is.EqualTo(dirty));
                     Assert.That(File.ReadAllBytes(store.PrimaryPath),Is.EqualTo(primary),"Combat cast never becomes durable separately");
                     controller.RestoreCheckpoint(LoadReadOnly());Clean(s);Assert.That(AbilityBossTrace.Wire(s),Is.EqualTo(expected));
-                    var fresh=BossWaveTests.Config().CreateSimulationForCheckpoint(snapshot);fresh.RestoreCheckpoint(snapshot.state.DeepCopy());Clean(fresh);Assert.That(AbilityBossTrace.Wire(fresh),Is.EqualTo(expected));
+                    var freshFile=LoadReadOnly();var fresh=AbilityBossReplayTests.Config().CreateSimulationForCheckpoint(freshFile);fresh.RestoreCheckpoint(freshFile.state.DeepCopy());Clean(fresh);Assert.That(AbilityBossTrace.Wire(fresh),Is.EqualTo(expected));
                     attempts.Add(string.Join("\n",prefix));
                     if(attempt==0)
                     {
                         // Второй prefix и весь остаток матча идут уже из fresh file-restored instance.
-                        r.sim=fresh;controller.Configure(store,r.sim,WaveCheckpointCompatibility.AbilityBossContentId,BossWaveTests.Config().CreateSimulationForCheckpoint);
+                        r.sim=fresh;controller.Configure(store,r.sim,WaveCheckpointCompatibility.BalancedAbilityBossContentId,AbilityBossReplayTests.Config().CreateSimulationForCheckpoint);
                     }
                 }
                 Assert.That(attempts[1],Is.EqualTo(attempts[0]));
@@ -121,7 +121,7 @@ namespace Veilward.Tests.EditMode
         [TestCase("flame")] [TestCase("gale")]
         public void RegBattle215_SyntheticOrderedOldNativeAllOpenNewNativeSlotsAndCorruptFallback(string start)
         {
-            var natural=BossNaturalSmokeTests.Run(start,false,out _,8,missionOverride:AbilityBossTrace.Load(start));
+            var natural=BossNaturalSmokeTests.Run(start,false,out _,8,factory:()=>AbilityBossReplayTests.Config().CreateSimulation(),missionOverride:AbilityBossTrace.Load(start));
             Assert.That(natural.State.Phase,Is.EqualTo(BattlePhase.Preparation));Assert.That(natural.State.WaveIndex,Is.EqualTo(7));
             var old=NativeEightWaveReplayTests.Config();
             var slots=new[]{AbilityBossTrace.Envelope(natural),

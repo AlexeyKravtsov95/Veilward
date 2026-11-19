@@ -18,7 +18,7 @@ namespace Veilward.Tests.EditMode
         [Test]
         public void RegBattle153_DuplicateLocalCatalog_IsRejectedWithoutSaving()
         {
-            const string path = "Assets/_Game/Configs/EightWaveAbilityBoss.asset";
+            const string path = "Assets/_Game/Configs/EightWaveAbilityBossV2.asset";
             var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(path);
             var bytes = File.ReadAllBytes(path);
             var originalJson = EditorJsonUtility.ToJson(config);
@@ -434,6 +434,7 @@ namespace Veilward.Tests.EditMode
                 "Assets/_Game/Scenes/MainMenu.unity",
                 "Assets/_Game/Configs/TestWave.asset",
                 "Assets/_Game/Configs/EightWave.asset",
+                "Assets/_Game/Configs/EightWaveAbilityBossV2.asset",
                 "Assets/_Game/Configs/EightWaveAbilityBoss.asset",
                 "Assets/_Game/Prefabs/Shade.prefab",
                 "Assets/_Game/Prefabs/TestTower.prefab"

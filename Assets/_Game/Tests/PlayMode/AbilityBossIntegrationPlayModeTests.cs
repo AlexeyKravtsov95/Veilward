@@ -82,7 +82,9 @@ namespace Veilward.Tests.PlayMode
         private void CorruptRestoreProbe(WaveCheckpointEnvelope saved)
         {
             var bad=new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=saved.scenarioContentId,state=saved.state.DeepCopy()};bad.state.ability=new AbilityCheckpoint("rift-seal-v1","rift-seal",601,2);
+            var cross=new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.AbilityBossContentId,state=saved.state.DeepCopy()};
             var before=AbilityBossTrace.Snapshot(Battle.Simulation);var owner=Battle.ActiveModalOwner;var lease=Ability.Lease;
+            Assert.Throws<ArgumentException>(()=>Checkpoint.RestoreCheckpoint(cross));Assert.That(AbilityBossTrace.Snapshot(Battle.Simulation),Is.EqualTo(before));Assert.That(Battle.ActiveModalOwner,Is.EqualTo(owner));Assert.That(Ability.Lease.Generation,Is.EqualTo(lease.Generation));
             Assert.Throws<ArgumentException>(()=>Checkpoint.RestoreCheckpoint(bad));Assert.That(AbilityBossTrace.Snapshot(Battle.Simulation),Is.EqualTo(before));Assert.That(Battle.ActiveModalOwner,Is.EqualTo(owner));Assert.That(Ability.Lease.Generation,Is.EqualTo(lease.Generation));
         }
         private IEnumerator Route(string start,int w,int h)
@@ -101,17 +103,18 @@ namespace Veilward.Tests.PlayMode
                     else {Assert.That(Placement.TrySelectCell(s.State.Towers.Single(t=>t.Id.Value==c.id).Coordinate),Is.True);if(c.op=="sell"){Placement.RequestSellSelectedTower();Button("Confirm Sell Button").onClick.Invoke();}else Placement.UpgradeButton.onClick.Invoke();Placement.CancelSelection();}Record(c.op+" "+c.type+" #"+c.id);
                 }
                 if(wave>=7){yield return Continue(AbilityBossTrace.Wire(s),"preparation"+wave);s=Battle.Simulation;}
-                var safe=AbilityBossTrace.Wire(s);var envelope=AbilityBossTrace.Envelope(s);var priorCells=(int[])cells.Clone();var priorKills=abilityKills;
+                var safe=AbilityBossTrace.Wire(s);var envelope=AbilityBossTrace.Envelope(s);var priorCells=(int[])cells.Clone();var priorKills=abilityKills;var priorBossKills=bossKills;
                 Button("Start Wave Button").onClick.Invoke();Assert.That(s.State.Phase,Is.EqualTo(BattlePhase.Combat));var rolled=false;var kill=false;var proc=false;var guard=0;
                 while(s.State.Phase==BattlePhase.Combat&&guard++<20000)
                 {
                     if(script.TryCenter(s,out var center))
                     {
+                        var beforeBoss=s.State.Enemies.Where(e=>e.Definition.Id.Value=="rift-warden").ToArray();
                         var beforeKills=s.State.Kills;var sequence=s.AbilityState.NextCastSequence;Button("Ability Button").onClick.Invoke();Assert.That(Ability.HasInputOwnership,Is.True);yield return null;
                         if(firstShots.Add("world")){var screen=Camera.main.WorldToScreenPoint(Vector3.zero);Placement.DispatchPointer(screen,-1,UnityEngine.InputSystem.TouchPhase.Began);Placement.DispatchPointer(screen,-1,UnityEngine.InputSystem.TouchPhase.Ended);Assert.That(Ability.HasTarget,Is.True,"production world dispatcher");}
                         Assert.That(Ability.SelectTarget(center),Is.True);if(wave>=7)yield return Shot("wave"+wave+"-ability-preview-sequence"+sequence+(rolled?"-replay":""));
                         Button("Confirm Ability Button").onClick.Invoke();Button("Confirm Ability Button").onClick.Invoke();Assert.That(s.AbilityState.NextCastSequence,Is.EqualTo(sequence));if(wave>=7)CorruptRestoreProbe(envelope);
-                        Call(Battle,"LateUpdate");Assert.That(Ability.LastCast.HasValue&&Ability.LastCast.Value.Succeeded,Is.True);Assert.That(s.AbilityState.NextCastSequence,Is.EqualTo(sequence+1));kill|=s.State.Kills>beforeKills;abilityKills+=s.State.Kills-beforeKills;
+                        Call(Battle,"LateUpdate");Assert.That(Ability.LastCast.HasValue&&Ability.LastCast.Value.Succeeded,Is.True);Assert.That(s.AbilityState.NextCastSequence,Is.EqualTo(sequence+1));kill|=s.State.Kills>beforeKills;abilityKills+=s.State.Kills-beforeKills;bossKills+=beforeBoss.Count(e=>!e.IsAlive);
                         Record("Cast sequence="+sequence+" center="+center.X+","+center.Y+" applied="+Ability.LastCast.Value.TotalAppliedHpLoss);if(wave>=7)yield return Shot("wave"+wave+"-ability-hit-sequence"+sequence+(rolled?"-replay":""));
                         var pause=Battle.GetComponent<BattlePauseController>();var before=AbilityBossTrace.Snapshot(s);pause.Pause();Call(Battle,"Update");Assert.That(AbilityBossTrace.Snapshot(s),Is.EqualTo(before));pause.Resume();Call(Battle,"Update");Assert.That(AbilityBossTrace.Snapshot(s),Is.EqualTo(before));
                     }
@@ -122,8 +125,8 @@ namespace Veilward.Tests.PlayMode
                     var interrupt=wave>=7&&!rolled&&kill&&proc&&s.State.Phase==BattlePhase.Combat&&s.State.Enemies.Count>0&&s.DamageEvents.Count>0;
                     if(interrupt){Assert.That(s.DamageEvents,Is.Not.Empty);Assert.That(Battle.GetComponent<EnemyInspectorController>().Select(s.State.Enemies[0].Id),Is.True);CorruptRestoreProbe(envelope);}
                     Call(Battle,"ProcessAttackEvents");Call(Battle,"LateUpdate");foreach(var key in keys)if(firstShots.Add(key))yield return Shot("positive-"+key);
-                    if(wave==8&&s.State.Enemies.Any(e=>e.Definition.Id.Value=="rift-warden")&&firstShots.Add("boss"))yield return Shot("boss1000-armor5");
-                    if(interrupt){yield return Shot("interrupted-combat"+wave);var primary=File.ReadAllBytes(store.PrimaryPath);yield return Continue(safe,"clean-continue"+wave);Assert.That(File.ReadAllBytes(store.PrimaryPath),Is.EqualTo(primary));s=Battle.Simulation;rolled=true;kill=proc=false;cells=(int[])priorCells.Clone();abilityKills=priorKills;Button("Start Wave Button").onClick.Invoke();}
+                    if(wave==8&&s.State.Enemies.Any(e=>e.Definition.Id.Value=="rift-warden")&&firstShots.Add("boss"))yield return Shot("boss600-armor5");
+                    if(interrupt){yield return Shot("interrupted-combat"+wave);var primary=File.ReadAllBytes(store.PrimaryPath);yield return Continue(safe,"clean-continue"+wave);Assert.That(File.ReadAllBytes(store.PrimaryPath),Is.EqualTo(primary));s=Battle.Simulation;rolled=true;kill=proc=false;cells=(int[])priorCells.Clone();abilityKills=priorKills;bossKills=priorBossKills;Button("Start Wave Button").onClick.Invoke();}
                     if(guard%120==0)yield return null;
                 }
                 Assert.That(guard,Is.LessThan(20000));if(wave>=7)Assert.That(rolled,Is.True,"actual ability kill + positive reaction Combat"+wave+" rollback required");Assert.That(AbilityBossTrace.Wire(s),Is.EqualTo(control.report.waves[wave-1].checkpoint));Record("wave complete");if(s.State.Phase!=BattlePhase.WaveComplete)break;
@@ -135,12 +138,12 @@ namespace Veilward.Tests.PlayMode
                 }
                 if(wave==6||wave==7){FailWrite(2);Button("Next Wave Button").onClick.Invoke();Assert.That(Battle.Simulation.State.Phase,Is.EqualTo(BattlePhase.Preparation));Assert.That(Checkpoint.LastSaveSucceeded,Is.False);var live=AbilityBossTrace.Wire(Battle.Simulation);yield return Shot("failed-next-to-preparation"+(wave+1));Button("Retry Save Button").onClick.Invoke();Button("Retry Save Button").onClick.Invoke();Assert.That(Checkpoint.LastSaveSucceeded,Is.True);Assert.That(AbilityBossTrace.Wire(Battle.Simulation),Is.EqualTo(live));yield return Shot("retry-preparation"+(wave+1));}else Button("Next Wave Button").onClick.Invoke();
             }
-            var final=Battle.Simulation;Assert.That(final.State.Phase.ToString(),Is.EqualTo(control.report.outcome));Assert.That(cells,Is.EqualTo(control.report.cells.Select(c=>c.applied).ToArray()));Assert.That(abilityKills,Is.EqualTo(control.report.abilityKills));Assert.That(bossKills,Is.EqualTo(control.report.bossKills));yield return Shot("natural-"+final.State.Phase+"-coverage-control");
-            // Эта suite проверяет matrix при фактическом исходе. Обязательная Victory REG214 остаётся отдельным FAIL.
+            var final=Battle.Simulation;Assert.That(final.State.Phase.ToString(),Is.EqualTo(control.report.outcome));Assert.That(cells,Is.EqualTo(control.report.cells.Select(c=>c.applied).ToArray()));Assert.That(abilityKills,Is.EqualTo(control.report.abilityKills));Assert.That(bossKills,Is.EqualTo(control.report.bossKills));yield return Shot("naturalCoverage-"+final.State.Phase);
+            Assert.That(final.State.Phase,Is.EqualTo(BattlePhase.Victory));Assert.That(bossKills,Is.EqualTo(1));Assert.That(abilityKills,Is.GreaterThan(0));Assert.That(cells.All(c=>c>0),Is.True);
             Button("Main Menu Button").onClick.Invoke();yield return null;yield return null;Assert.That(Object.FindFirstObjectByType<MainMenuController>().ContinueButton.interactable,Is.False);Assert.That(Object.FindFirstObjectByType<MainMenuController>().PrepareContinueSession(),Is.False);yield return Shot("terminal-continue-off");Assert.That(expectedErrors,Is.Zero);Assert.That(console.Any(c=>c.StartsWith("Error|")||c.StartsWith("Exception|")||c.StartsWith("Assert|")),Is.False,string.Join("\n",console));
         }
         private void Record(string message){var s=Battle?.Simulation;telemetry.Add("frame="+Time.frameCount+"|"+message+(s==null?"":$"|wave={s.State.WaveIndex+1}|tick={s.State.Tick}|phase={s.State.Phase}|HP={s.State.BaseHealth}|Gold={s.State.Gold}|Kills={s.State.Kills}|cooldown={s.AbilityState.CooldownRemainingTicks}|sequence={s.AbilityState.NextCastSequence}"));}
-        private void Label(){var go=new GameObject("P24f Evidence Label",typeof(RectTransform),typeof(Text));go.transform.SetParent(Object.FindFirstObjectByType<Canvas>().transform,false);var text=go.GetComponent<Text>();text.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");text.fontSize=16;text.alignment=TextAnchor.MiddleCenter;text.raycastTarget=false;text.text="P2.4f production coverage CONTROL | public-command test clock | Editor Play Mode | Victory NOT VERIFIED";var rect=text.rectTransform;rect.anchorMin=rect.anchorMax=new Vector2(.5f,0);rect.pivot=new Vector2(.5f,0);rect.anchoredPosition=new Vector2(0,6);rect.sizeDelta=new Vector2(1260,32);}
+        private void Label(){var go=new GameObject("P24f Evidence Label",typeof(RectTransform),typeof(Text));go.transform.SetParent(Object.FindFirstObjectByType<Canvas>().transform,false);var text=go.GetComponent<Text>();text.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");text.fontSize=16;text.alignment=TextAnchor.MiddleCenter;text.raycastTarget=false;text.text="P2.4f production v2 | public-command test clock | Editor Play Mode | same-run coverage Victory assertions";var rect=text.rectTransform;rect.anchorMin=rect.anchorMax=new Vector2(.5f,0);rect.pivot=new Vector2(.5f,0);rect.anchoredPosition=new Vector2(0,6);rect.sizeDelta=new Vector2(1260,32);}
         private IEnumerator Shot(string name){if(Battle!=null)Call(Battle,"LateUpdate");yield return null;Record("SHOT "+name);if(!capture)yield break;yield return new WaitForEndOfFrame();var texture=ScreenCapture.CaptureScreenshotAsTexture();Assert.That(texture.width,Is.EqualTo(width));Assert.That(texture.height,Is.EqualTo(height));Directory.CreateDirectory(output);File.WriteAllBytes(output+"/"+name+".png",texture.EncodeToPNG());Object.Destroy(texture);}
         private static void ConfigureGameView(int w,int h)
         {

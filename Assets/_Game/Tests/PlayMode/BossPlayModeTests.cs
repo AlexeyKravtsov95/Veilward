@@ -58,13 +58,13 @@ namespace Veilward.Tests.PlayMode
         private IEnumerator Natural(string start,bool leak,int w,int h)
         {
             capture=Environment.GetEnvironmentVariable("P24E_CAPTURE")=="1";width=w;height=h;
-            output="TestResults/P2.4e/revision-3/play/"+start+(leak?"-leak":"-victory")+"-"+w+"x"+h;
+            output="TestResults/P2.4f/revision-3/stone-play/"+start+(leak?"-leak":"-victory")+"-"+w+"x"+h;
             if(capture)ConfigureGameView(w,h);
             yield return SceneManager.LoadSceneAsync("MainMenu");yield return null;
             Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke();yield return null;yield return null;
             Battle.enabled=false;Label();Assert.That(Battle.Simulation.State.Gold,Is.EqualTo(150));Assert.That(Battle.Simulation.State.BaseHealth,Is.EqualTo(20));
-            Assert.That((string)typeof(BattleScenarioConfig).GetProperty("ScenarioContentId").GetValue(typeof(BattleSceneController).GetField("scenario",Flags).GetValue(Battle)),Is.EqualTo(WaveCheckpointCompatibility.AbilityBossContentId));
-            var script=BossMissionScript.Load(start,leak);
+            Assert.That((string)typeof(BattleScenarioConfig).GetProperty("ScenarioContentId").GetValue(typeof(BattleSceneController).GetField("scenario",Flags).GetValue(Battle)),Is.EqualTo(WaveCheckpointCompatibility.BalancedAbilityBossContentId));
+            var script=leak?AbilityBossTrace.Load(start+"-leak"):BossMissionScript.Load(start);
             Choose(start);var bossKills=0;var bossLeaks=0;long bossLoss=0;var captured=new HashSet<string>();
             while(Battle.Simulation.State.Phase==BattlePhase.Preparation)
             {
@@ -90,11 +90,11 @@ namespace Veilward.Tests.PlayMode
                     yield return Shot("01b-injected-safe-area");
                     typeof(BattleHudSafeArea).GetMethod("ApplySafeArea",Flags).Invoke(safe,new object[]{Screen.safeArea,new Vector2(Screen.width,Screen.height),scale});
                     // Real disk MainMenu Continue, whole Preparation8; no DTO edits.
-                    var expected=WaveCheckpointJson.Serialize(new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.AbilityBossContentId,state=s.ExportCheckpoint()});
+                    var expected=WaveCheckpointJson.Serialize(new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.BalancedAbilityBossContentId,state=s.ExportCheckpoint()});
                     Button("Main Menu Button").onClick.Invoke();yield return null;yield return null;
                     Object.FindFirstObjectByType<MainMenuController>().ContinueButton.onClick.Invoke();yield return null;yield return null;
                     Battle.enabled=false;Label();s=Battle.Simulation;
-                    Assert.That(WaveCheckpointJson.Serialize(new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.AbilityBossContentId,state=s.ExportCheckpoint()}),Is.EqualTo(expected));
+                    Assert.That(WaveCheckpointJson.Serialize(new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.BalancedAbilityBossContentId,state=s.ExportCheckpoint()}),Is.EqualTo(expected));
                     Assert.That(Ability.HasInputOwnership,Is.False);Assert.That(Battle.GetComponent<EnemyInspectorController>().SelectedEnemyId,Is.Null);yield return Shot("02-clean-continue8");
                 }
                 Button("Start Wave Button").onClick.Invoke();Assert.That(s.State.Phase,Is.EqualTo(BattlePhase.Combat));
@@ -146,19 +146,19 @@ namespace Veilward.Tests.PlayMode
             {
                 var checkpoint=Battle.GetComponent<BattleCheckpointController>();var s=Battle.Simulation;var store=new WaveCheckpointStore(root);
                 var config=(BattleScenarioConfig)typeof(BattleSceneController).GetField("scenario",Flags).GetValue(Battle);
-                var envelope=new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.AbilityBossContentId,state=s.ExportCheckpoint()};
+                var envelope=new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.BalancedAbilityBossContentId,state=s.ExportCheckpoint()};
                 var expected=WaveCheckpointJson.Serialize(envelope);var gold=s.State.Gold;var kills=s.State.Kills;var sequence=s.AbilityState.NextCastSequence;
                 Assert.That(checkpoint.LastSaveSucceeded,Is.False);Assert.That(expectedCompletionFault,Is.False);Assert.That(console.Count(c=>c.StartsWith("ExpectedError|")),Is.EqualTo(1));
-                Assert.That(store.TryLoad(WaveCheckpointCompatibility.AbilityBossContentId,config.CreateSimulationForCheckpoint,out var previous),Is.True);
+                Assert.That(store.TryLoad(WaveCheckpointCompatibility.BalancedAbilityBossContentId,config.CreateSimulationForCheckpoint,out var previous),Is.True);
                 Assert.That(previous.Envelope.state.phase,Is.EqualTo(BattlePhase.Preparation));Assert.That(previous.Envelope.state.waveIndex,Is.EqualTo(7));
                 yield return Shot("09-victory-completion-save-failed");
                 Directory.Delete(store.TempPath);Button("Retry Save Button").onClick.Invoke();
                 Assert.That(checkpoint.LastSaveSucceeded,Is.True);Assert.That(s.State.Gold,Is.EqualTo(gold));Assert.That(s.State.Kills,Is.EqualTo(kills));Assert.That(s.AbilityState.NextCastSequence,Is.EqualTo(sequence));
-                Assert.That(WaveCheckpointJson.Serialize(new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.AbilityBossContentId,state=s.ExportCheckpoint()}),Is.EqualTo(expected));
+                Assert.That(WaveCheckpointJson.Serialize(new WaveCheckpointEnvelope{schemaVersion=4,scenarioContentId=WaveCheckpointCompatibility.BalancedAbilityBossContentId,state=s.ExportCheckpoint()}),Is.EqualTo(expected));
                 yield return Shot("10-victory-retry-saved");
                 var primary=File.ReadAllBytes(store.PrimaryPath);var backup=File.ReadAllBytes(store.BackupPath);
                 for(var i=0;i<2;i++)
-                {Assert.That(store.TryLoad(WaveCheckpointCompatibility.AbilityBossContentId,config.CreateSimulationForCheckpoint,out var loaded),Is.True);Assert.That(WaveCheckpointJson.Serialize(loaded.Envelope),Is.EqualTo(expected));}
+                {Assert.That(store.TryLoad(WaveCheckpointCompatibility.BalancedAbilityBossContentId,config.CreateSimulationForCheckpoint,out var loaded),Is.True);Assert.That(WaveCheckpointJson.Serialize(loaded.Envelope),Is.EqualTo(expected));}
                 Assert.That(File.ReadAllBytes(store.PrimaryPath),Is.EqualTo(primary));Assert.That(File.ReadAllBytes(store.BackupPath),Is.EqualTo(backup));
                 checkpoint.RestoreCheckpoint(envelope);
                 Assert.That(Ability.HasTarget,Is.False);Assert.That(Ability.HasInputOwnership,Is.False);Assert.That(Battle.GetComponent<EnemyInspectorController>().SelectedEnemyId,Is.Null);

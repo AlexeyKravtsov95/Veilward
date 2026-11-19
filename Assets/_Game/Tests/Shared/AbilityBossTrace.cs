@@ -19,9 +19,9 @@ namespace Veilward.Tests.Shared
     {
         public const string Output = "TestResults/P2.4f";
         public static BossMissionScript Load(string start) => JsonUtility.FromJson<BossMissionScript>(
-            File.ReadAllText("Docs/review/P2.4f/" + start + ".commands.json"));
+            File.ReadAllText("Docs/review/P2.4f/revision-3/inputs/" + start + ".commands.json"));
         public static WaveCheckpointEnvelope Envelope(BattleSimulation s) => new WaveCheckpointEnvelope
-        { schemaVersion = 4, scenarioContentId = WaveCheckpointCompatibility.AbilityBossContentId, state = s.ExportCheckpoint() };
+        { schemaVersion = 4, scenarioContentId = WaveCheckpointCompatibility.BalancedAbilityBossContentId, state = s.ExportCheckpoint() };
         public static string Wire(BattleSimulation s)
         {
             var cp=s.ExportCheckpoint();var a=cp.ability;

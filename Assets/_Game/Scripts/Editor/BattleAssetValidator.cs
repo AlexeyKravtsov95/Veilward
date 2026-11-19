@@ -12,7 +12,7 @@ namespace Veilward.Editor
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
         private const string MainMenuScenePath = "Assets/_Game/Scenes/MainMenu.unity";
-        private const string ConfigPath = "Assets/_Game/Configs/EightWaveAbilityBoss.asset";
+        private const string ConfigPath = "Assets/_Game/Configs/EightWaveAbilityBossV2.asset";
         private const string EnemyPrefabPath = "Assets/_Game/Prefabs/Shade.prefab";
         private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
 
