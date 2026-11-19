@@ -1531,13 +1531,17 @@
     "sha256": "0345a5158048a8c4fdf8ff21bd3801827c627116e15b382fe982fdfdabbb9c1d",
     "bytes": 1074
   },
+  "review.md": {
+    "sha256": "9807f58d633da02a1d4427c17581420ae26fd750200efeb8b4ae27b4046047d2",
+    "bytes": 4008
+  },
   "source-sha256.json": {
     "sha256": "5e8be81c66d56193017b71c2a0baa37e209563d336047fb4d461ca4b6960f73c",
     "bytes": 68194
   },
   "specification.md": {
-    "sha256": "660b32d1a7a9ebdfa06b2ca36132513c3d10bf5a4e5230dfbc7623ab2e052e82",
-    "bytes": 5898
+    "sha256": "6fbd1d6d007c59e85fb50f9230191a3faf017d436bb503e216174e909fe51796",
+    "bytes": 6021
   },
   "stone-play/flame-leak-1600x900/01-preparation8-notice.png": {
     "sha256": "d1f93e49fcc621d8bab2e612d96191ac86eb7176d31fa5c97cfa7399a5485af7",
