@@ -14,7 +14,7 @@ namespace Veilward.Tests.EditMode
         [Test]
         public void RegBattle185_BuilderRecreatesMissingEightWaveWithNativeSettings()
         {
-            const string path = "Assets/_Game/Configs/EightWaveAbilityBoss.asset";
+            const string path = "Assets/_Game/Configs/EightWaveAbilityBossV2.asset";
             var paths = new List<string> { path, path + ".meta", "Assets/_Game/Configs/TestWave.asset",
                 "Assets/_Game/Scenes/Battle.unity", "Assets/_Game/Scenes/MainMenu.unity",
                 "Assets/_Game/Prefabs/Shade.prefab", "Assets/_Game/Prefabs/TestTower.prefab" };
@@ -26,7 +26,7 @@ namespace Veilward.Tests.EditMode
                 Assert.That(AssetDatabase.DeleteAsset(path), Is.True);
                 Assert.DoesNotThrow(() => BattleSceneBuilder.Build());
                 var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(path);
-                Assert.That(config.ScenarioContentId, Is.EqualTo("eight-wave-ability-boss-v1"));
+                Assert.That(config.ScenarioContentId, Is.EqualTo("eight-wave-ability-boss-v2"));
                 var simulation = config.CreateSimulation();
                 Assert.That(simulation.State.WaveCount, Is.EqualTo(8));
                 Assert.That(simulation.State.ElementProgression.PendingChoiceId, Is.EqualTo("start-resonance"));
@@ -179,8 +179,10 @@ namespace Veilward.Tests.EditMode
                 "Assets/_Game/Scenes/MainMenu.unity",
                 "Assets/_Game/Configs/EightWave.asset",
                 "Assets/_Game/Configs/EightWave.asset.meta",
+                "Assets/_Game/Configs/EightWaveAbilityBossV2.asset",
                 "Assets/_Game/Configs/EightWaveAbilityBoss.asset",
                 "Assets/_Game/Configs/EightWaveAbilityBoss.asset.meta",
+                "Assets/_Game/Configs/EightWaveAbilityBossV2.asset.meta",
                 "Assets/_Game/Prefabs/Shade.prefab",
                 "Assets/_Game/Prefabs/TestTower.prefab"
             };

@@ -1,0 +1,112 @@
+frame=27|SHOT 01-initial-pending|wave=1|tick=0|phase=Preparation|HP=20|Gold=150|Kills=0|cooldown=0|sequence=1
+frame=36|SHOT 02-start-confirmed|wave=1|tick=0|phase=Preparation|HP=20|Gold=150|Kills=0|cooldown=0|sequence=1
+frame=36|place flame #0|wave=1|tick=0|phase=Preparation|HP=20|Gold=80|Kills=0|cooldown=0|sequence=1
+frame=36|place flame #0|wave=1|tick=0|phase=Preparation|HP=20|Gold=10|Kills=0|cooldown=0|sequence=1
+frame=37|Cast sequence=1 center=-5,-2 applied=100|wave=1|tick=0|phase=Combat|HP=20|Gold=15|Kills=1|cooldown=600|sequence=2
+frame=40|wave complete|wave=1|tick=399|phase=WaveComplete|HP=18|Gold=45|Kills=3|cooldown=201|sequence=2
+frame=42|Cast sequence=2 center=-0.4500012,-0.9499955 applied=300|wave=2|tick=600|phase=Combat|HP=18|Gold=65|Kills=7|cooldown=600|sequence=3
+frame=44|wave complete|wave=2|tick=775|phase=WaveComplete|HP=18|Gold=95|Kills=9|cooldown=425|sequence=3
+frame=48|Cast sequence=3 center=4.050032,2 applied=152|wave=3|tick=1200|phase=WaveComplete|HP=15|Gold=135|Kills=13|cooldown=600|sequence=4
+frame=48|wave complete|wave=3|tick=1200|phase=WaveComplete|HP=15|Gold=135|Kills=13|cooldown=600|sequence=4
+frame=57|SHOT pending3|wave=3|tick=1200|phase=WaveComplete|HP=15|Gold=135|Kills=13|cooldown=600|sequence=4
+frame=58|SHOT failed-confirm3|wave=3|tick=1200|phase=WaveComplete|HP=15|Gold=135|Kills=13|cooldown=600|sequence=4
+frame=67|SHOT failed-save-restart3|wave=3|tick=1200|phase=WaveComplete|HP=15|Gold=135|Kills=13|cooldown=600|sequence=4
+frame=76|SHOT confirmed3|wave=3|tick=1200|phase=WaveComplete|HP=15|Gold=135|Kills=13|cooldown=600|sequence=4
+frame=76|place tide #0|wave=4|tick=1200|phase=Preparation|HP=15|Gold=75|Kills=13|cooldown=600|sequence=4
+frame=76|positive Steam/StatusPair applied=24|wave=4|tick=1281|phase=Combat|HP=15|Gold=75|Kills=13|cooldown=519|sequence=4
+frame=77|SHOT positive-Steam-StatusPair|wave=4|tick=1281|phase=Combat|HP=15|Gold=75|Kills=13|cooldown=519|sequence=4
+frame=78|positive Steam/StatusPair applied=10|wave=4|tick=1367|phase=Combat|HP=15|Gold=80|Kills=14|cooldown=433|sequence=4
+frame=78|positive Steam/StatusPair applied=12|wave=4|tick=1426|phase=Combat|HP=15|Gold=85|Kills=15|cooldown=374|sequence=4
+frame=79|positive Steam/StatusPair applied=10|wave=4|tick=1519|phase=Combat|HP=15|Gold=90|Kills=16|cooldown=281|sequence=4
+frame=80|positive Steam/StatusPair applied=12|wave=4|tick=1581|phase=Combat|HP=14|Gold=90|Kills=16|cooldown=219|sequence=4
+frame=80|positive Steam/StatusPair applied=12|wave=4|tick=1611|phase=Combat|HP=13|Gold=90|Kills=16|cooldown=189|sequence=4
+frame=80|positive Steam/StatusPair applied=12|wave=4|tick=1641|phase=Combat|HP=12|Gold=90|Kills=16|cooldown=159|sequence=4
+frame=81|wave complete|wave=4|tick=1701|phase=WaveComplete|HP=10|Gold=110|Kills=16|cooldown=99|sequence=4
+frame=81|place steam #0|wave=5|tick=1701|phase=Preparation|HP=10|Gold=0|Kills=16|cooldown=99|sequence=4
+frame=81|positive Steam/StatusPair applied=24|wave=5|tick=1782|phase=Combat|HP=10|Gold=0|Kills=16|cooldown=18|sequence=4
+frame=82|Cast sequence=4 center=-3.000001,-2 applied=288|wave=5|tick=1800|phase=Combat|HP=10|Gold=15|Kills=19|cooldown=600|sequence=5
+frame=83|positive Steam/StatusPair applied=24|wave=5|tick=1901|phase=Combat|HP=10|Gold=20|Kills=20|cooldown=499|sequence=5
+frame=84|positive Steam/Intrinsic applied=18|wave=5|tick=1975|phase=Combat|HP=10|Gold=25|Kills=21|cooldown=425|sequence=5
+frame=85|SHOT positive-Steam-Intrinsic|wave=5|tick=1975|phase=Combat|HP=10|Gold=25|Kills=21|cooldown=425|sequence=5
+frame=85|positive Steam/Intrinsic applied=18|wave=5|tick=2013|phase=Combat|HP=10|Gold=30|Kills=22|cooldown=387|sequence=5
+frame=85|positive Steam/Intrinsic applied=18|wave=5|tick=2051|phase=Combat|HP=10|Gold=35|Kills=23|cooldown=349|sequence=5
+frame=86|positive Steam/StatusPair applied=12|wave=5|tick=2106|phase=Combat|HP=10|Gold=40|Kills=24|cooldown=294|sequence=5
+frame=86|wave complete|wave=5|tick=2141|phase=WaveComplete|HP=10|Gold=65|Kills=25|cooldown=259|sequence=5
+frame=86|positive Steam/StatusPair applied=24|wave=6|tick=2222|phase=Combat|HP=10|Gold=65|Kills=25|cooldown=178|sequence=5
+frame=87|positive Steam/Intrinsic applied=18|wave=6|tick=2296|phase=Combat|HP=10|Gold=70|Kills=26|cooldown=104|sequence=5
+frame=87|positive Steam/Intrinsic applied=18|wave=6|tick=2334|phase=Combat|HP=10|Gold=75|Kills=27|cooldown=66|sequence=5
+frame=87|positive Steam/Intrinsic applied=18|wave=6|tick=2372|phase=Combat|HP=10|Gold=80|Kills=28|cooldown=28|sequence=5
+frame=88|positive Steam/StatusPair applied=12|wave=6|tick=2427|phase=Combat|HP=10|Gold=85|Kills=29|cooldown=0|sequence=5
+frame=88|positive Steam/Intrinsic applied=36|wave=6|tick=2486|phase=Combat|HP=10|Gold=90|Kills=30|cooldown=0|sequence=5
+frame=89|positive Steam/StatusPair applied=12|wave=6|tick=2547|phase=Combat|HP=10|Gold=95|Kills=31|cooldown=0|sequence=5
+frame=89|positive Steam/StatusPair applied=12|wave=6|tick=2577|phase=Combat|HP=10|Gold=100|Kills=32|cooldown=0|sequence=5
+frame=89|positive Steam/StatusPair applied=10|wave=6|tick=2612|phase=Combat|HP=10|Gold=100|Kills=32|cooldown=0|sequence=5
+frame=90|wave complete|wave=6|tick=2690|phase=WaveComplete|HP=7|Gold=120|Kills=32|cooldown=0|sequence=5
+frame=99|SHOT pending6|wave=6|tick=2690|phase=WaveComplete|HP=7|Gold=120|Kills=32|cooldown=0|sequence=5
+frame=100|SHOT failed-confirm6|wave=6|tick=2690|phase=WaveComplete|HP=7|Gold=120|Kills=32|cooldown=0|sequence=5
+frame=101|SHOT retry-confirm6|wave=6|tick=2690|phase=WaveComplete|HP=7|Gold=120|Kills=32|cooldown=0|sequence=5
+frame=110|SHOT confirmed6|wave=6|tick=2690|phase=WaveComplete|HP=7|Gold=120|Kills=32|cooldown=0|sequence=5
+frame=111|SHOT failed-next-to-preparation7|wave=7|tick=2690|phase=Preparation|HP=7|Gold=120|Kills=32|cooldown=0|sequence=5
+frame=112|SHOT retry-preparation7|wave=7|tick=2690|phase=Preparation|HP=7|Gold=120|Kills=32|cooldown=0|sequence=5
+frame=112|place gale #0|wave=7|tick=2690|phase=Preparation|HP=7|Gold=40|Kills=32|cooldown=0|sequence=5
+frame=121|SHOT preparation7|wave=7|tick=2690|phase=Preparation|HP=7|Gold=40|Kills=32|cooldown=0|sequence=5
+frame=123|SHOT wave7-ability-preview-sequence5|wave=7|tick=2691|phase=Combat|HP=7|Gold=40|Kills=32|cooldown=0|sequence=5
+frame=123|Cast sequence=5 center=-4.95,-2 applied=100|wave=7|tick=2691|phase=Combat|HP=7|Gold=45|Kills=33|cooldown=600|sequence=6
+frame=124|SHOT wave7-ability-hit-sequence5|wave=7|tick=2691|phase=Combat|HP=7|Gold=45|Kills=33|cooldown=600|sequence=6
+frame=124|positive Storm/StatusPair applied=7|wave=7|tick=2772|phase=Combat|HP=7|Gold=45|Kills=33|cooldown=519|sequence=6
+frame=125|SHOT positive-Storm-StatusPair|wave=7|tick=2772|phase=Combat|HP=7|Gold=45|Kills=33|cooldown=519|sequence=6
+frame=126|SHOT interrupted-combat7|wave=7|tick=2772|phase=Combat|HP=7|Gold=45|Kills=33|cooldown=519|sequence=6
+frame=135|SHOT clean-continue7|wave=7|tick=2690|phase=Preparation|HP=7|Gold=40|Kills=32|cooldown=0|sequence=5
+frame=137|SHOT wave7-ability-preview-sequence5-replay|wave=7|tick=2691|phase=Combat|HP=7|Gold=40|Kills=32|cooldown=0|sequence=5
+frame=137|Cast sequence=5 center=-4.95,-2 applied=100|wave=7|tick=2691|phase=Combat|HP=7|Gold=45|Kills=33|cooldown=600|sequence=6
+frame=138|SHOT wave7-ability-hit-sequence5-replay|wave=7|tick=2691|phase=Combat|HP=7|Gold=45|Kills=33|cooldown=600|sequence=6
+frame=139|positive Storm/StatusPair applied=7|wave=7|tick=2772|phase=Combat|HP=7|Gold=45|Kills=33|cooldown=519|sequence=6
+frame=139|positive Steam/StatusPair applied=24|wave=7|tick=2800|phase=Combat|HP=7|Gold=45|Kills=33|cooldown=491|sequence=6
+frame=139|positive Storm/StatusPair applied=14|wave=7|tick=2848|phase=Combat|HP=7|Gold=50|Kills=34|cooldown=443|sequence=6
+frame=140|positive Steam/StatusPair applied=20|wave=7|tick=2886|phase=Combat|HP=7|Gold=55|Kills=35|cooldown=405|sequence=6
+frame=140|positive Storm/StatusPair applied=14|wave=7|tick=2924|phase=Combat|HP=7|Gold=60|Kills=36|cooldown=367|sequence=6
+frame=140|positive Steam/StatusPair applied=20|wave=7|tick=2962|phase=Combat|HP=7|Gold=65|Kills=37|cooldown=329|sequence=6
+frame=141|positive Storm/StatusPair applied=14|wave=7|tick=3000|phase=Combat|HP=7|Gold=70|Kills=38|cooldown=291|sequence=6
+frame=141|positive Steam/Intrinsic applied=36|wave=7|tick=3011|phase=Combat|HP=7|Gold=75|Kills=39|cooldown=280|sequence=6
+frame=141|positive Storm/StatusPair applied=7|wave=7|tick=3076|phase=Combat|HP=7|Gold=85|Kills=41|cooldown=215|sequence=6
+frame=141|positive Steam/StatusPair applied=24|wave=7|tick=3085|phase=Combat|HP=7|Gold=85|Kills=41|cooldown=206|sequence=6
+frame=142|wave complete|wave=7|tick=3133|phase=WaveComplete|HP=7|Gold=115|Kills=43|cooldown=158|sequence=6
+frame=143|SHOT failed-next-to-preparation8|wave=8|tick=3133|phase=Preparation|HP=7|Gold=115|Kills=43|cooldown=158|sequence=6
+frame=144|SHOT retry-preparation8|wave=8|tick=3133|phase=Preparation|HP=7|Gold=115|Kills=43|cooldown=158|sequence=6
+frame=144|place storm #0|wave=8|tick=3133|phase=Preparation|HP=7|Gold=5|Kills=43|cooldown=158|sequence=6
+frame=153|SHOT preparation8|wave=8|tick=3133|phase=Preparation|HP=7|Gold=5|Kills=43|cooldown=158|sequence=6
+frame=153|positive Storm/StatusPair applied=7|wave=8|tick=3186|phase=Combat|HP=7|Gold=5|Kills=43|cooldown=105|sequence=6
+frame=153|positive Steam/StatusPair applied=24|wave=8|tick=3214|phase=Combat|HP=7|Gold=5|Kills=43|cooldown=77|sequence=6
+frame=154|positive Storm/StatusPair applied=14|wave=8|tick=3262|phase=Combat|HP=7|Gold=10|Kills=44|cooldown=29|sequence=6
+frame=156|SHOT wave8-ability-preview-sequence6|wave=8|tick=3291|phase=Combat|HP=7|Gold=15|Kills=45|cooldown=0|sequence=6
+frame=156|Cast sequence=6 center=-3.050001,-2 applied=293|wave=8|tick=3291|phase=Combat|HP=7|Gold=30|Kills=48|cooldown=600|sequence=7
+frame=157|SHOT wave8-ability-hit-sequence6|wave=8|tick=3291|phase=Combat|HP=7|Gold=30|Kills=48|cooldown=600|sequence=7
+frame=158|SHOT interrupted-combat8|wave=8|tick=3295|phase=Combat|HP=7|Gold=30|Kills=48|cooldown=596|sequence=7
+frame=167|SHOT clean-continue8|wave=8|tick=3133|phase=Preparation|HP=7|Gold=5|Kills=43|cooldown=158|sequence=6
+frame=167|positive Storm/StatusPair applied=7|wave=8|tick=3186|phase=Combat|HP=7|Gold=5|Kills=43|cooldown=105|sequence=6
+frame=168|positive Steam/StatusPair applied=24|wave=8|tick=3214|phase=Combat|HP=7|Gold=5|Kills=43|cooldown=77|sequence=6
+frame=168|positive Storm/StatusPair applied=14|wave=8|tick=3262|phase=Combat|HP=7|Gold=10|Kills=44|cooldown=29|sequence=6
+frame=170|SHOT wave8-ability-preview-sequence6-replay|wave=8|tick=3291|phase=Combat|HP=7|Gold=15|Kills=45|cooldown=0|sequence=6
+frame=170|Cast sequence=6 center=-3.050001,-2 applied=293|wave=8|tick=3291|phase=Combat|HP=7|Gold=30|Kills=48|cooldown=600|sequence=7
+frame=171|SHOT wave8-ability-hit-sequence6-replay|wave=8|tick=3291|phase=Combat|HP=7|Gold=30|Kills=48|cooldown=600|sequence=7
+frame=171|positive Steam/StatusPair applied=10|wave=8|tick=3300|phase=Combat|HP=7|Gold=30|Kills=48|cooldown=591|sequence=7
+frame=172|positive Storm/StatusPair applied=7|wave=8|tick=3365|phase=Combat|HP=7|Gold=35|Kills=49|cooldown=526|sequence=7
+frame=172|positive Steam/StatusPair applied=24|wave=8|tick=3393|phase=Combat|HP=7|Gold=35|Kills=49|cooldown=498|sequence=7
+frame=172|positive Storm/StatusPair applied=14|wave=8|tick=3441|phase=Combat|HP=7|Gold=40|Kills=50|cooldown=450|sequence=7
+frame=174|SHOT boss1000-armor5|wave=8|tick=3463|phase=Combat|HP=7|Gold=45|Kills=51|cooldown=428|sequence=7
+frame=174|positive Steam/StatusPair applied=20|wave=8|tick=3479|phase=Combat|HP=7|Gold=45|Kills=51|cooldown=412|sequence=7
+frame=174|positive Storm/Intrinsic applied=6|wave=8|tick=3505|phase=Combat|HP=7|Gold=50|Kills=52|cooldown=386|sequence=7
+frame=175|SHOT positive-Storm-Intrinsic|wave=8|tick=3505|phase=Combat|HP=7|Gold=50|Kills=52|cooldown=386|sequence=7
+frame=175|positive Steam/StatusPair applied=12|wave=8|tick=3530|phase=Combat|HP=7|Gold=55|Kills=53|cooldown=361|sequence=7
+frame=176|positive Steam/StatusPair applied=7|wave=8|tick=3580|phase=Combat|HP=7|Gold=60|Kills=54|cooldown=311|sequence=7
+frame=176|positive Steam/StatusPair applied=7|wave=8|tick=3640|phase=Combat|HP=7|Gold=60|Kills=54|cooldown=251|sequence=7
+frame=177|positive Steam/StatusPair applied=7|wave=8|tick=3700|phase=Combat|HP=7|Gold=60|Kills=54|cooldown=191|sequence=7
+frame=177|positive Steam/StatusPair applied=7|wave=8|tick=3760|phase=Combat|HP=7|Gold=60|Kills=54|cooldown=131|sequence=7
+frame=178|positive Steam/StatusPair applied=7|wave=8|tick=3820|phase=Combat|HP=7|Gold=60|Kills=54|cooldown=71|sequence=7
+frame=178|positive Steam/StatusPair applied=7|wave=8|tick=3880|phase=Combat|HP=7|Gold=60|Kills=54|cooldown=11|sequence=7
+frame=180|SHOT wave8-ability-preview-sequence7-replay|wave=8|tick=3891|phase=Combat|HP=7|Gold=60|Kills=54|cooldown=0|sequence=7
+frame=180|Cast sequence=7 center=3.05999,2 applied=115|wave=8|tick=3891|phase=Combat|HP=7|Gold=60|Kills=54|cooldown=600|sequence=8
+frame=181|SHOT wave8-ability-hit-sequence7-replay|wave=8|tick=3891|phase=Combat|HP=7|Gold=60|Kills=54|cooldown=600|sequence=8
+frame=182|wave complete|wave=8|tick=3955|phase=Defeat|HP=0|Gold=60|Kills=54|cooldown=536|sequence=8
+frame=183|SHOT natural-Defeat-coverage-control|wave=8|tick=3955|phase=Defeat|HP=0|Gold=60|Kills=54|cooldown=536|sequence=8
+frame=186|SHOT terminal-continue-off

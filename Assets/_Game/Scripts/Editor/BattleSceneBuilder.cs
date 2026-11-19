@@ -15,7 +15,7 @@ namespace Veilward.Editor
         private const string MainMenuScenePath = "Assets/_Game/Scenes/MainMenu.unity";
         private const string LegacyConfigPath = "Assets/_Game/Configs/TestWave.asset";
         private const string HistoricalConfigPath = "Assets/_Game/Configs/EightWave.asset";
-        private const string ConfigPath = "Assets/_Game/Configs/EightWaveAbilityBoss.asset";
+        private const string ConfigPath = "Assets/_Game/Configs/EightWaveAbilityBossV2.asset";
         private const string EnemyPrefabPath = "Assets/_Game/Prefabs/Shade.prefab";
         private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
         private const string MaterialsFolder = "Assets/_Game/Art/Materials";
@@ -142,14 +142,17 @@ namespace Veilward.Editor
             var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath);
             if (config == null)
             {
-                config = Object.Instantiate(historical); config.name = "EightWaveAbilityBoss";
+                config = Object.Instantiate(historical); config.name = "EightWaveAbilityBossV2";
                 var data = new SerializedObject(config);
-                data.FindProperty("scenarioContentId").stringValue = "eight-wave-ability-boss-v1";
+                data.FindProperty("scenarioContentId").stringValue = "eight-wave-ability-boss-v2";
                 data.FindProperty("historicalScenario").objectReferenceValue = historical;
+                var previous = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWaveAbilityBoss.asset");
+                if (previous == null) throw new System.InvalidOperationException("Missing historical boss v1 source.");
+                data.FindProperty("historicalBossScenario").objectReferenceValue = previous;
                 data.FindProperty("abilityRulesId").stringValue = "rift-seal-v1";
                 var boss = data.FindProperty("boss");
                 boss.FindPropertyRelative("id").stringValue = "rift-warden";
-                boss.FindPropertyRelative("maxHealth").intValue = 1000;
+                boss.FindPropertyRelative("maxHealth").intValue = 600;
                 boss.FindPropertyRelative("speed").floatValue = 1;
                 boss.FindPropertyRelative("armor").intValue = 5;
                 boss.FindPropertyRelative("leakDamage").intValue = 20;

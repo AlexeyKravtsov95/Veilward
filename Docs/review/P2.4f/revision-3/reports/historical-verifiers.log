@@ -1,0 +1,5 @@
+READ-ONLY detached a5faca3f8133a46335e6c224e23b9cb2158bc65c; Docs/review/P2.4f/verify-evidence.py
+P2.4f evidence verified: 199 artifacts, 927 historical files unchanged; EditMode1069/1071 with two mandatory REG214 FAIL; Play60/60; Visual5/5. Acceptance BLOCKED.
+
+READ-ONLY detached a5faca3f8133a46335e6c224e23b9cb2158bc65c; Docs/review/P2.4f/revision-2/verify-evidence.py
+Revision2 verified: 173 artifacts; 1127 historical files unchanged; 99992 wave-only +4 full-NewGame outcomes, Victory0; Edit1075/1077(2mandatory FAIL), Play60/60,Visual5/5. REG214 BLOCKED.

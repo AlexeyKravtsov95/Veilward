@@ -66,6 +66,7 @@ namespace Veilward.Presentation
 
         [Header("Versioned ability + boss mission")]
         [SerializeField] private BattleScenarioConfig historicalScenario;
+        [SerializeField] private BattleScenarioConfig historicalBossScenario;
         [SerializeField] private string abilityRulesId;
         [SerializeField] private EnemySettings boss;
 
@@ -94,7 +95,7 @@ namespace Veilward.Presentation
 
         private ElementUnlockRules CreateProgressionRules()
         {
-            if ((scenarioContentId != WaveCheckpointCompatibility.NativeContentId && scenarioContentId != WaveCheckpointCompatibility.AbilityBossContentId) || progression == null ||
+            if ((scenarioContentId != WaveCheckpointCompatibility.NativeContentId && !WaveCheckpointCompatibility.IsAbilityBossContent(scenarioContentId)) || progression == null ||
                 progression.rulesId != "wave-unlocks-v1" || waves == null || waves.Length != 8 ||
                 progression.startingOptions == null || progression.startingOptions.Length != 2 ||
                 progression.startingOptions[0] != ElementKind.Flame || progression.startingOptions[1] != ElementKind.Gale ||
@@ -199,9 +200,11 @@ namespace Veilward.Presentation
         internal BattleSimulation CreateSessionSimulation(string contentId)
         {
             if (contentId == scenarioContentId) return CreateSimulation();
-            if (scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId)
+            if (WaveCheckpointCompatibility.IsAbilityBossContent(scenarioContentId))
             {
                 ValidateFinalMission();
+                if (scenarioContentId == WaveCheckpointCompatibility.BalancedAbilityBossContentId && contentId == WaveCheckpointCompatibility.AbilityBossContentId)
+                    return historicalBossScenario.CreateSimulation();
                 if (contentId == WaveCheckpointCompatibility.NativeContentId) return historicalScenario.CreateSimulation();
                 if (contentId == WaveCheckpointCompatibility.LegacyEightWaveContentId) return historicalScenario.CreateSimulationCore(null, false);
             }
@@ -216,14 +219,19 @@ namespace Veilward.Presentation
                 !WaveCheckpointCompatibility.TryNormalize(normalized, requestedId, out _, out var error))
                 throw new ArgumentException("Checkpoint is incompatible with this scenario.", nameof(normalized));
             if (normalized.scenarioContentId != scenarioContentId &&
-                scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId)
+                WaveCheckpointCompatibility.IsAbilityBossContent(scenarioContentId))
             {
+                if (normalized.scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId)
+                {
+                    ValidateFinalMission();
+                    return historicalBossScenario.CreateSimulationForCheckpoint(normalized);
+                }
                 if (historicalScenario == null || historicalScenario.ScenarioContentId != WaveCheckpointCompatibility.NativeContentId)
                     throw new ArgumentException("Missing historical source.");
                 return historicalScenario.CreateSimulationForCheckpoint(normalized);
             }
             return normalized.scenarioContentId == WaveCheckpointCompatibility.NativeContentId ||
-                   normalized.scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId
+                   WaveCheckpointCompatibility.IsAbilityBossContent(normalized.scenarioContentId)
                 ? CreateSimulationCore(null, historical: false, CreateProgressionRules())
                 : CreateSimulationCore(null, historical: false);
         }
@@ -234,9 +242,17 @@ namespace Veilward.Presentation
                 historicalScenario.ScenarioContentId != WaveCheckpointCompatibility.NativeContentId ||
                 sharedScenario == null || sharedScenario.enemyId != "shade" || historicalScenario.sharedScenario != sharedScenario ||
                 abilityRulesId != "rift-seal-v1" || boss == null || boss.id != "rift-warden" ||
-                boss.maxHealth != 1000 || boss.speed != 1f || boss.armor != 5 || boss.leakDamage != 20 || boss.reward != 50 ||
+                boss.maxHealth != (scenarioContentId == WaveCheckpointCompatibility.BalancedAbilityBossContentId ? 600 : 1000) || boss.speed != 1f || boss.armor != 5 || boss.leakDamage != 20 || boss.reward != 50 ||
                 enemyReward != 5 || waveCompletionBonus != 20 || waves == null || waves.Length != 8)
                 throw new ArgumentException("Final mission requires versioned boss, enabled ability and historical source.");
+            if (scenarioContentId == WaveCheckpointCompatibility.BalancedAbilityBossContentId)
+            {
+                if (historicalBossScenario == null || historicalBossScenario == this ||
+                    historicalBossScenario.scenarioContentId != WaveCheckpointCompatibility.AbilityBossContentId ||
+                    historicalBossScenario.historicalScenario != historicalScenario || historicalBossScenario.sharedScenario != sharedScenario)
+                    throw new ArgumentException("Balanced mission requires exact historical boss source.");
+                historicalBossScenario.CreateSimulation();
+            }
             historicalScenario.CreateSimulation();
             if (towerArchetypes == null || towerArchetypes.Length != 0 || reactions == null || reactions.Length != 0)
                 throw new ArgumentException("Final wrapper must use the shared catalogs.");
@@ -259,7 +275,7 @@ namespace Veilward.Presentation
 
         // Явный исторический test path; production New Game никогда его не вызывает.
         internal BattleSimulation CreateHistoricalAllOpenSimulation(ReactionCatalog reactions = null) =>
-            scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId
+            WaveCheckpointCompatibility.IsAbilityBossContent(scenarioContentId)
                 ? historicalScenario.CreateHistoricalAllOpenSimulation(reactions)
                 : CreateSimulationCore(reactions, historical: ReferenceEquals(reactions, ReactionCatalog.Empty));
 
@@ -287,7 +303,7 @@ namespace Veilward.Presentation
         private BattleSimulation CreateSimulationCore(ReactionCatalog reactionCatalog, bool historical,
             ElementUnlockRules rules = null)
         {
-            var final = scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId;
+            var final = WaveCheckpointCompatibility.IsAbilityBossContent(scenarioContentId);
             if (final) ValidateFinalMission();
             var shared = sharedScenario != null ? sharedScenario : this;
             // Даже historical override сначала проверяет production data, без fallback на Empty.

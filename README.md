@@ -218,3 +218,16 @@ AbilityController/preview/Confirm/Cancel, Ready/cooldown, одноразовый
 Доработка PR #69: расширены все ordered choices и законные стратегии, лучшие попытки FLAME/GALE оставляют boss154/68 HP. **Draft / BLOCKED**, Victory assertions не ослаблены; EditMode1016/1018, PlayMode56/58, graphical1/3. Новые26 Play Mode кадров и точные лимиты поиска — [R2 evidence](Docs/review/P2.4e/revision-2/validation.md). Старый FAIL evidence сохранён; Refs #39 / Refs #40, без merge/release/TestFlight.
 
 **Актуальный R3 итог PR #69:** выбран1000HP/armor5. Static38/38, EditMode1048/1048, PlayMode58/58, graphical3/3 PASS; failed/skipped/inconclusive0. [Матрица/выбор/34кадра/persistence/границы](Docs/review/P2.4e/revision-3/validation.md). R1/R2 выше — история; G2/device/ART/#40 отдельно, без self-merge/release/TestFlight.
+
+
+### P2.4f / #40 — draft, acceptance BLOCKED
+
+PR #69 merged `a9a9ae4`, production boss1000HP/armor5 сохранён. [Новая интеграционная проверка](Docs/review/P2.4f/specification.md) добавляет четыре-stream traces/HP-Gold accounting, file/menu/Retry и Combat7–8 rollback обоих стартов. Обязательный same-run Victory с четырьмя positive reactions пока FAIL: конечный поиск20000×2 не нашёл winning coverage. Это не доказательство непроходимости. Точные gates/кадры/ограничения — [P2.4f evidence](Docs/review/P2.4f/validation.md); исторические evidence сохранены. G2/device/ART/release отдельно.
+
+
+**PR70 / P2.4f — целевая revision2, BLOCKED:** один новый pass обеих F/T/G histories, ранние upgrades и разные final armies:99992wave outcomes+4fullNewGame,0Victory. Лучшие bossHP376/434/376/369; баланс1000/5 и REG214 неизменны. Existing trace/file/menu/rollback matrix и old inputs сохранены. Full static38/38,Edit1075/1077(2mandatory FAIL),Play60/60,Visual5/5. [Результаты/границы/следующее решение](Docs/review/P2.4f/revision-2/validation.md).
+
+
+### P2.4f revision3 — winning production integration
+
+По делегации владельца выбран boss600HP/armor5 для нового `eight-wave-ability-boss-v2`; v1/1000/5 и старые saves сохраняют прежние правила. [Матрица, экономика и timing](Docs/review/P2.4f/revision-3/decision.md). Оба старта дают Victory в том же run с ability kill, boss kill и всеми четырьмя positive Steam/Storm pair/intrinsic cells. Полная trace/file/menu/failed-save/Retry/Combat7–8 matrix повторена на winning routes. [Gates,114 реальных кадров и независимое review](Docs/review/P2.4f/revision-3/validation.md). Числа выбраны в делегированном scope; human G2/device/ART/release отдельно. PR70 передаётся на повторный review, self-merge не выполняется. Прежние BLOCKED записи выше — история v1.

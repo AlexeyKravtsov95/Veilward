@@ -5,13 +5,15 @@ namespace Veilward.Infrastructure
 {
     public static class WaveCheckpointCompatibility
     {
+        public const string BalancedAbilityBossContentId = "eight-wave-ability-boss-v2";
+        public static bool IsAbilityBossContent(string id) => id == AbilityBossContentId || id == BalancedAbilityBossContentId;
         public const string AbilityBossContentId = "eight-wave-ability-boss-v1";
         public const string NativeContentId = "eight-wave-unlocks-v1";
         public const string LegacyEightWaveContentId = "eight-wave-v1";
         public const string LegacySingleWaveContentId = "legacy-single-wave-v1";
         internal const string SyntheticAbilityContentId = "synthetic-p24-ability-v1";
 
-        public static bool IsProductionContent(string id) => id == AbilityBossContentId || id == NativeContentId ||
+        public static bool IsProductionContent(string id) => IsAbilityBossContent(id) || id == NativeContentId ||
             id == LegacyEightWaveContentId || id == LegacySingleWaveContentId;
 
         public static bool TryNormalize(WaveCheckpointEnvelope source, string requestedScenarioContentId,
@@ -30,9 +32,10 @@ namespace Veilward.Infrastructure
             var synthetic = allowSynthetic && (id == SyntheticAbilityContentId || id == "test-scenario-v1");
             if (!IsProductionContent(id) && !synthetic) return false;
             var eightWave = (id == NativeContentId || id == LegacyEightWaveContentId) &&
-                (requestedScenarioContentId == AbilityBossContentId || requestedScenarioContentId == NativeContentId || requestedScenarioContentId == LegacyEightWaveContentId);
-            if (id != requestedScenarioContentId && !eightWave) return false;
-            var syntheticAbility = id == SyntheticAbilityContentId || id == AbilityBossContentId;
+                (IsAbilityBossContent(requestedScenarioContentId) || requestedScenarioContentId == NativeContentId || requestedScenarioContentId == LegacyEightWaveContentId);
+            var historicalBoss = id == AbilityBossContentId && requestedScenarioContentId == BalancedAbilityBossContentId;
+            if (id != requestedScenarioContentId && !eightWave && !historicalBoss) return false;
+            var syntheticAbility = id == SyntheticAbilityContentId || IsAbilityBossContent(id);
             var native = id == NativeContentId || syntheticAbility;
             if (native && source.schemaVersion < (syntheticAbility ? 4 : 3)) return false;
             var progression = source.state.elementProgression;

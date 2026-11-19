@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "directory": "play/flame-1600x900",
+      "screenshots": 41,
+      "resolution": [
+        1600,
+        900
+      ],
+      "min_frame": 27,
+      "max_frame": 187,
+      "expected_errors": 6,
+      "warnings": 24,
+      "unexpected_errors": 0
+    },
+    {
+      "directory": "play/gale-1280x960",
+      "screenshots": 41,
+      "resolution": [
+        1280,
+        960
+      ],
+      "min_frame": 206,
+      "max_frame": 364,
+      "expected_errors": 6,
+      "warnings": 24,
+      "unexpected_errors": 0
+    },
+    {
+      "directory": "stone-play/flame-leak-1600x900",
+      "screenshots": 6,
+      "resolution": [
+        1600,
+        900
+      ],
+      "min_frame": 405,
+      "max_frame": 414,
+      "expected_errors": 0,
+      "warnings": 4,
+      "unexpected_errors": 0
+    },
+    {
+      "directory": "stone-play/flame-victory-1600x900",
+      "screenshots": 13,
+      "resolution": [
+        1600,
+        900
+      ],
+      "min_frame": 425,
+      "max_frame": 443,
+      "expected_errors": 1,
+      "warnings": 6,
+      "unexpected_errors": 0
+    },
+    {
+      "directory": "stone-play/gale-victory-1280x960",
+      "screenshots": 13,
+      "resolution": [
+        1280,
+        960
+      ],
+      "min_frame": 376,
+      "max_frame": 394,
+      "expected_errors": 1,
+      "warnings": 6,
+      "unexpected_errors": 0
+    }
+  ],
+  "screenshots": 114,
+  "unexpected_errors": 0,
+  "expected_errors": 14,
+  "warnings": 64
+}

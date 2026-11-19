@@ -16397,7 +16397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af8178be35f9436b93a8b723632f1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Veilward::Veilward.Presentation.BattleSceneController
-  scenario: {fileID: 11400000, guid: 43e53ce61ea242419696125a22d08d4a, type: 2}
+  scenario: {fileID: 11400000, guid: 51112ffff0ed421f84c8f7820a54ceba, type: 2}
   enemyPrefab: {fileID: 8610946186364702524, guid: 1b22335062b814d4ca031183c8751afe, type: 3}
   towerPrefab: {fileID: 6628681064324196385, guid: ce1e21b89ff564f58be023fcbb56e252, type: 3}
   hudText: {fileID: 2087191008}

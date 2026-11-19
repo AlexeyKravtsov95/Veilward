@@ -52,7 +52,9 @@ namespace Veilward.Presentation
         public void RestoreCheckpoint(WaveCheckpointEnvelope envelope)
         {
             EnsureConfigured();
-            if (!WaveCheckpointCompatibility.TryNormalize(envelope, _scenarioContentId, _simulationFactory == null,
+            // Continue создаёт matching simulation; dirty restore не может менять её versioned rules.
+            if (envelope == null || envelope.scenarioContentId != _scenarioContentId ||
+                !WaveCheckpointCompatibility.TryNormalize(envelope, _scenarioContentId, _simulationFactory == null,
                     out var normalized, out _))
             {
                 throw new ArgumentException("Checkpoint envelope is incompatible with this Battle.", nameof(envelope));

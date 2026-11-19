@@ -12,7 +12,7 @@ namespace Veilward.Editor
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
         private const string MainMenuScenePath = "Assets/_Game/Scenes/MainMenu.unity";
-        private const string ConfigPath = "Assets/_Game/Configs/EightWaveAbilityBoss.asset";
+        private const string ConfigPath = "Assets/_Game/Configs/EightWaveAbilityBossV2.asset";
         private const string EnemyPrefabPath = "Assets/_Game/Prefabs/Shade.prefab";
         private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
 
@@ -71,6 +71,7 @@ namespace Veilward.Editor
                         new[] { "scenario", "newGameButton", "continueButton", "statusText" },
                         errors);
                     RequireAssetPath(references["scenario"], ConfigPath, "Main Menu scenario", errors);
+                    RequireProductionContent(references["scenario"], errors);
                 }
 
                 var canvases = FindComponents<Canvas>(roots);
@@ -231,6 +232,7 @@ namespace Veilward.Editor
                 },
                 errors);
             RequireAssetPath(references["scenario"], ConfigPath, "scenario", errors);
+            RequireProductionContent(references["scenario"], errors);
             RequireAssetPath(references["enemyPrefab"], EnemyPrefabPath, "enemyPrefab", errors);
             RequireAssetPath(references["towerPrefab"], TowerPrefabPath, "towerPrefab", errors);
 
@@ -279,6 +281,13 @@ namespace Veilward.Editor
             }
 
             return references;
+        }
+
+        private static void RequireProductionContent(UnityEngine.Object asset, List<string> errors)
+        {
+            if (asset is BattleScenarioConfig config &&
+                config.ScenarioContentId != Veilward.Infrastructure.WaveCheckpointCompatibility.BalancedAbilityBossContentId)
+                errors.Add("Production content must be eight-wave-ability-boss-v2.");
         }
 
         private static void RequireAssetPath(

@@ -1,0 +1,20 @@
+{
+    "waveOutcomes": 49996,
+    "fullNewGameOutcomes": 2,
+    "generatedMaterials": 19342089,
+    "unaffordable": 18091407,
+    "duplicates": 8244,
+    "invalidSuffixes": 0,
+    "defeated": 20484,
+    "victories": 0,
+    "eligible": 0,
+    "retained": 392,
+    "beamPruned": 29120,
+    "materialPruned": 397647,
+    "armyCapPruned": 765950,
+    "lockedPackPruned": 92408,
+    "materialDuplicates": 65238,
+    "ticks": 30250036,
+    "seconds": 41.4982338,
+    "stop": "outcome cap"
+}

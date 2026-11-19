@@ -1,0 +1,42 @@
+1|0|place flame 2,1 #0|gold=80
+1|0|place flame -1,-1 #0|gold=10
+CAST|wave=1|tick=289|sequence=1|remaining=600|Печать: 3 hits, 264 HP
+WAVE|1|tick=296|phase=WaveComplete|hp=20|gold=55|kills=5|remaining=593|sequence=2
+WAVE|2|tick=725|phase=WaveComplete|hp=16|gold=85|kills=7|remaining=164|sequence=2
+3|725|place flame -2,0 #0|gold=15
+CAST|wave=3|tick=889|sequence=2|remaining=600|Печать: 3 hits, 300 HP
+WAVE|3|tick=1080|phase=WaveComplete|hp=16|gold=70|kills=14|remaining=409|sequence=3
+4|1080|place tide -1,0 #0|gold=10
+CAST|wave=4|tick=1519|sequence=3|remaining=600|Печать: 2 hits, 84 HP
+WAVE|4|tick=1519|phase=WaveComplete|hp=16|gold=70|kills=22|remaining=600|sequence=4
+5|1519|place tide 2,-1 #0|gold=10
+WAVE|5|tick=2024|phase=WaveComplete|hp=16|gold=75|kills=31|remaining=95|sequence=4
+WAVE|6|tick=2589|phase=WaveComplete|hp=16|gold=145|kills=41|remaining=0|sequence=4
+7|2589|sell flame 0,0 #2|gold=194
+7|2589|place gale 1,0 #0|gold=114
+7|2589|place steam 2,0 #0|gold=4
+CAST|wave=7|tick=2590|sequence=4|remaining=600|Печать: 1 hits, 100 HP
+WAVE|7|tick=3021|phase=WaveComplete|hp=16|gold=79|kills=52|remaining=169|sequence=5
+8|3021|sell tide 0,0 #4|gold=121
+8|3021|place storm 1,-1 #0|gold=11
+8|3021|sell flame 0,0 #1|gold=60
+8|3021|sell flame 0,0 #3|gold=109
+8|3021|sell tide 0,0 #5|gold=151
+8|3021|sell gale 0,0 #6|gold=207
+8|3021|sell steam 0,0 #7|gold=284
+8|3021|sell storm 0,0 #8|gold=361
+SHOT 01-preparation8-notice|frame=405|wave=8|tick=3021|hp=16|gold=361|kills=52|boss=|notice=Волна 8: 11 Shade + Страж Разрыва (spawn 330, 11 с).
+HP 600 • Armor 5 • Speed 1 • Kill +50 • Wave +20
+Пропуск: 20 урона — разрушит Сердце. Статусы и Печать действуют.
+SHOT 01b-injected-safe-area|frame=406|wave=8|tick=3021|hp=16|gold=361|kills=52|boss=|notice=Волна 8: 11 Shade + Страж Разрыва (spawn 330, 11 с).
+HP 600 • Armor 5 • Speed 1 • Kill +50 • Wave +20
+Пропуск: 20 урона — разрушит Сердце. Статусы и Печать действуют.
+SHOT 02-clean-continue8|frame=411|wave=8|tick=3021|hp=16|gold=361|kills=52|boss=|notice=Волна 8: 11 Shade + Страж Разрыва (spawn 330, 11 с).
+HP 600 • Armor 5 • Speed 1 • Kill +50 • Wave +20
+Пропуск: 20 урона — разрушит Сердце. Статусы и Печать действуют.
+SHOT 03-waiting-spawn330|frame=412|wave=8|tick=3350|hp=14|gold=361|kills=52|boss=|notice=Волна 8: 11 Shade + Страж Разрыва (spawn 330, 11 с).
+HP 600 • Armor 5 • Speed 1 • Kill +50 • Wave +20
+Пропуск: 20 урона — разрушит Сердце. Статусы и Печать действуют.
+SHOT 04-boss-hp-armor|frame=413|wave=8|tick=3351|hp=14|gold=361|kills=52|boss=Страж Разрыва  •  HP 600/600  •  Armor 5|notice=Пропуск: 20 урона — разрушит Сердце. Убийство: +50 gold. Статусы и Печать действуют.
+WAVE|8|tick=3770|phase=Defeat|hp=0|gold=361|kills=52|remaining=0|sequence=5
+SHOT 08-defeat|frame=414|wave=8|tick=3770|hp=0|gold=361|kills=52|boss=Страж Разрыва  •  HP 600/600  •  Armor 5|notice=Страж достиг Сердца: 20 урона. Нет награды за босса и бонуса волны.

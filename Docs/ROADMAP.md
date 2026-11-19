@@ -55,7 +55,7 @@
 | P2.2f | Детерминированные матчи/rollback и измерения, независимое review/merge | DONE: PR #23 / a506bed |
 | Эталон арта | Фрагмент карты, одна башня, один враг и эффект в едином направлении; Blender `.blend` → FBX → Unity по [ART_PIPELINE](ART_PIPELINE.md) | ART.1 merged PR #24; ART.1.1 технически merged #25; утверждение владельца и iPhone check открыты |
 | P2.3 | Настоящее открытие стихий/требования гибридов в Domain и UI | P2.3b/c merged #27/#28; P2.3d merged #30. P2.3e historical Defeat5 сохранён; P2.3e.1: оба старта natural Victory8, оба Steam/Storm pair+intrinsic positive, after6/file/Combat7/menu/visual PASS; [новое evidence](review/P2.3e.1/validation.md). Технический scope DONE после merge #32 / 8128010; G2/device отдельно |
-| P2.4 | Базовая способность и босс, проверяемая интеграция восьми волн | #35–38 merged; #39 R3 Editor acceptance VERIFIED / Review; #40 не выполнен |
+| P2.4 | Базовая способность и босс, проверяемая интеграция восьми волн | #35–39 merged; #40 PR70 revision3 — winning integration, Review до merge |
 | Оформление первого среза | Одна оформленная карта, все шесть башен, враги/босс и согласованные UI/VFX/звук | Не выполнено |
 | P2.5 | Обучение, объяснения, внешние плейтесты и согласование баланса; G2 остаётся gate | Не выполнен |
 | Device QA | Физический iPhone: touch/safe area, background/force quit/Continue, allocations/frame time/memory/thermal | Не выполнен |
@@ -120,3 +120,6 @@ Playtest comprehension: >=70% discover or execute first reaction following the t
 Доработка PR #69: расширены все ordered choices и законные стратегии, лучшие попытки FLAME/GALE оставляют boss154/68 HP. **Draft / BLOCKED**, Victory assertions не ослаблены; EditMode1016/1018, PlayMode56/58, graphical1/3. Новые26 Play Mode кадров и точные лимиты поиска — [R2 evidence](review/P2.4e/revision-2/validation.md). Старый FAIL evidence сохранён; Refs #39 / Refs #40, без merge/release/TestFlight.
 
 **Актуальный R3 / #39 — Review:** выбран1000HP/armor5 из разрешённой owner matrix, оба natural starts Victory8 и положительная ability по boss, четыре F/T/G coverage counters, natural Victory checkpoint/IO/Retry и terminal Continueoff проверены. Static38/38, Edit1048/1048, Play58/58, graphical3/3 PASS,34кадра; [R3 evidence](review/P2.4e/revision-3/validation.md). R1/R2 BLOCKED выше — исторические итоги. Done только после merge; G2/device/ART/#40 отдельно.
+
+
+**P2.4f / #40 — revision3, Review до merge:** делегированный HP-проход выбрал600/5 в новом content v2; v1/1000/5 и все прежние evidence bytes сохранены. REG214 обоих стартов и полная winning trace/file/menu/Retry/Combat7–8 matrix зелёные. [Результаты, gates, timing-ограничения и независимое review](review/P2.4f/revision-3/validation.md). #40 остаётся open до фактического merge; human G2/device/ART/#52/#56/release отдельно. Без self-merge/release/TestFlight.

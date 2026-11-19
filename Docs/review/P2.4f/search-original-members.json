@@ -1,0 +1,14 @@
+{
+  "source": "5656fb2",
+  "journal_limitation": "post-lethal Cast WaveElapsedTicks0; corrected known-seeds separately",
+  "files": {
+    "flame/best.commands.json": "8d476732174ef855c44797bcb138a01ddd3b8b8980d771f5fc0698cb352c6edb",
+    "flame/candidates.txt": "b0b5ed69e4386d3a1d6d3a880d51aab7fcb5c2e252efbae42ecf97fc7137a5da",
+    "flame/limits.txt": "56887fde80a5524c603346b96ed7085d3c3042f2afb9fe8466a17f3359345ceb",
+    "flame/progress.txt": "86af3a4f94c78baea277bd5acdc89cf64e8bad42b4630f194598adf74c3eb7fa",
+    "gale/best.commands.json": "714d9c44503bd5f512399a2c1a2d67205461edec6545ac6893c45b517eec8348",
+    "gale/candidates.txt": "26b1de0e52ee49cb20bdc0f251880c6ea978e0decf799d784f3b2100d31a3ce8",
+    "gale/limits.txt": "b57eb8e132cdafa31bfd36d89dfdc06ca007180d578bbd26200d1883dd0a4e3f",
+    "gale/progress.txt": "dab816fb87e1eb749dfca3c3aa4ba3bc5851d50b5190aff099ec4e5e411750fe"
+  }
+}

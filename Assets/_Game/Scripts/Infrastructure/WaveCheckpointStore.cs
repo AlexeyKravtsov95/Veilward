@@ -60,11 +60,11 @@ namespace Veilward.Infrastructure
                 catch (Exception e) when (IsValidationException(e)) { error = e.Message; return false; }
             }
             // Каждый previous primary проверяется собственной factory, включая new→old session.
-            var eightWave = envelope.scenarioContentId == WaveCheckpointCompatibility.AbilityBossContentId ||
+            var eightWave = WaveCheckpointCompatibility.IsAbilityBossContent(envelope.scenarioContentId) ||
                 envelope.scenarioContentId == WaveCheckpointCompatibility.NativeContentId ||
                 envelope.scenarioContentId == WaveCheckpointCompatibility.LegacyEightWaveContentId;
             var requestedId = simulationFactory != null && eightWave
-                ? WaveCheckpointCompatibility.AbilityBossContentId : envelope.scenarioContentId;
+                ? WaveCheckpointCompatibility.BalancedAbilityBossContentId : envelope.scenarioContentId;
             try
             {
                 Directory.CreateDirectory(RootDirectory);

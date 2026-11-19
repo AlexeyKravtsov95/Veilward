@@ -1,0 +1,147 @@
+{
+    "id": 33643,
+    "parent": 25135,
+    "wave": 8,
+    "hp": 0,
+    "gold": 56,
+    "kills": 63,
+    "remaining": 96,
+    "abilityKills": 13,
+    "bossKills": 0,
+    "bossHp": 434,
+    "tick": 3564,
+    "sequence": 6,
+    "history": "flame-gale-tide",
+    "phase": "Defeat",
+    "army": "2:flameL1@-1,0=70;4:galeL1@1,0=80;6:tideL1@1,-1=60;8:flameL1@2,0=70;9:tideL1@-1,-1=60;10:stormL1@-1,1=110",
+    "policy": "400:0:False:False:1",
+    "cells": [
+        267,
+        36,
+        45,
+        60
+    ],
+    "bossApplied": [
+        374,
+        28,
+        49,
+        115
+    ],
+    "commands": [
+        {
+            "wave": 8,
+            "x": 0,
+            "y": 0,
+            "id": 5,
+            "op": "sell",
+            "type": "gale"
+        },
+        {
+            "wave": 8,
+            "x": 0,
+            "y": 0,
+            "id": 7,
+            "op": "sell",
+            "type": "steam"
+        },
+        {
+            "wave": 8,
+            "x": 2,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "flame"
+        },
+        {
+            "wave": 8,
+            "x": -1,
+            "y": -1,
+            "id": 0,
+            "op": "place",
+            "type": "tide"
+        },
+        {
+            "wave": 8,
+            "x": -1,
+            "y": 1,
+            "id": 0,
+            "op": "place",
+            "type": "storm"
+        }
+    ],
+    "casts": [
+        {
+            "wave": 8,
+            "relativeTick": 330,
+            "x": -4.208333492279053,
+            "y": -2.0
+        }
+    ],
+    "receipts": [
+        {
+            "op": "sell",
+            "type": "gale",
+            "result": "None",
+            "wave": 8,
+            "id": 5,
+            "x": 0,
+            "y": 0,
+            "before": 108,
+            "after": 164,
+            "price": 0,
+            "refund": 56
+        },
+        {
+            "op": "sell",
+            "type": "steam",
+            "result": "None",
+            "wave": 8,
+            "id": 7,
+            "x": 0,
+            "y": 0,
+            "before": 164,
+            "after": 241,
+            "price": 0,
+            "refund": 77
+        },
+        {
+            "op": "place",
+            "type": "flame",
+            "result": "None",
+            "wave": 8,
+            "id": 8,
+            "x": 2,
+            "y": 0,
+            "before": 241,
+            "after": 171,
+            "price": 70,
+            "refund": 0
+        },
+        {
+            "op": "place",
+            "type": "tide",
+            "result": "None",
+            "wave": 8,
+            "id": 9,
+            "x": -1,
+            "y": -1,
+            "before": 171,
+            "after": 111,
+            "price": 60,
+            "refund": 0
+        },
+        {
+            "op": "place",
+            "type": "storm",
+            "result": "None",
+            "wave": 8,
+            "id": 10,
+            "x": -1,
+            "y": 1,
+            "before": 111,
+            "after": 1,
+            "price": 110,
+            "refund": 0
+        }
+    ]
+}
