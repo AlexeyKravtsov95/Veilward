@@ -40,4 +40,4 @@ Actual Play Mode **synthetic probe**: 12Shade, 4×3, .48m, ratios50/60/70/80%; �
 
 **Scope интеграции:** `FlameStrikeView` — отдельный переиспользуемый presentation класс, сейчас подключён только в ArtReference через prewarmed pool8. Production Battle сохраняет generic AttackBeamView; это не production FLAME-VFX и не закрытие VFX.1/#47. Статусы, damage timing/fire rate/range/Burn, content600/5/schema4/saves/rewards/ability прежние. Окклюзионный pass тоже только для художественного эталона; Battle пока graybox.
 
-[Проверки, команды, VERIFIED и ограничения](validation.md). Исторические ART.1/1.1/2a не переписаны. Physical iPhone art/performance (#43), UI.1, G2, TestFlight/release не проверены и не объявляются готовыми. Self-merge не выполняется.
+[Проверки, команды, VERIFIED и ограничения](validation.md) · [независимое review](review.md) · [чистая доставка](delivery-audit.md). Исторические ART.1/1.1/2a не переписаны. Physical iPhone art/performance (#43), UI.1, G2, TestFlight/release не проверены и не объявляются готовыми. Self-merge не выполняется.

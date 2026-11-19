@@ -55,4 +55,6 @@ Before записан до runtime edits на base7783dd1; after определ�
 
 ## NOT VERIFIED / BLOCKED
 
-Physical iPhone/Simulator, iOS export/signing/device run, touch/safe area/background в player, frame-time/memory/thermal/overdraw budgets, G2/баланс, production FLAME/art integration, готовый UI и весь VFX.1 не проверены. #43 не закрывается Editor evidence. До final source/visual review и полной проверки новых regressions PR использует Refs73. Художественная субъективная оценка и device proof не подменяются rectangles/mask samples. Self-merge/release/TestFlight не выполнялись.
+Physical iPhone/Simulator, iOS export/signing/device run, touch/safe area/background в player, frame-time/memory/thermal/overdraw budgets, G2/баланс, production FLAME/art integration, готовый UI и весь VFX.1 не проверены. #43 не закрывается Editor evidence. Final source/frame-sample review и все новые regressions подтверждены: [review](review.md). [Чистая доставка и negative controls](delivery-audit.md) проверены. DraftPR#74 использует Refs73 из-за открытого human continuous-motion acceptance. Художественная субъективная оценка и device proof не подменяются rectangles/mask samples. Self-merge/release/TestFlight не выполнялись.
+
+Editor Run In Background override восстановлен: `unity command 'editor.playmode set_run_in_background' --caller plugin --skill unity-cli --project-path . --format json -- --enabled false` → off, project value unchanged.
