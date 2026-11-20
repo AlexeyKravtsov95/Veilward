@@ -1,0 +1,150 @@
+[
+  {
+    "label": "upgrade-L1-solo",
+    "observedUtc": "2026-11-20T09:35:59.126468+00:00",
+    "schema": 4,
+    "content": "eight-wave-ability-boss-v2",
+    "phase": 0,
+    "waveIndex": 6,
+    "tick": 2815,
+    "hp": 7,
+    "gold": 282,
+    "kills": 32,
+    "towers": [
+      {
+        "towerId": 1,
+        "towerTypeId": "flame",
+        "x": 2,
+        "y": 1,
+        "level": 1,
+        "investedGold": 70,
+        "nextAttackTick": 2845
+      }
+    ],
+    "checkpointSha256": "117a0fe9dfa346aaff177776235a48039cd30b435fee6af69311b26a7411cfef",
+    "nativeSize": [
+      2622,
+      1206
+    ]
+  },
+  {
+    "label": "upgrade-L2-inspect",
+    "observedUtc": "2026-11-20T09:36:16.888396+00:00",
+    "schema": 4,
+    "content": "eight-wave-ability-boss-v2",
+    "phase": 0,
+    "waveIndex": 6,
+    "tick": 2815,
+    "hp": 7,
+    "gold": 177,
+    "kills": 32,
+    "towers": [
+      {
+        "towerId": 1,
+        "towerTypeId": "flame",
+        "x": 2,
+        "y": 1,
+        "level": 2,
+        "investedGold": 175,
+        "nextAttackTick": 2845
+      }
+    ],
+    "checkpointSha256": "9e4e9826efc2ce0b8e92d10e9f8bb9e3afee783f8be3b0aa8cff0bead01ce7b9",
+    "nativeSize": [
+      2622,
+      1206
+    ]
+  },
+  {
+    "label": "upgrade-L3-inspect",
+    "observedUtc": "2026-11-20T09:36:26.894561+00:00",
+    "schema": 4,
+    "content": "eight-wave-ability-boss-v2",
+    "phase": 0,
+    "waveIndex": 6,
+    "tick": 2815,
+    "hp": 7,
+    "gold": 37,
+    "kills": 32,
+    "towers": [
+      {
+        "towerId": 1,
+        "towerTypeId": "flame",
+        "x": 2,
+        "y": 1,
+        "level": 3,
+        "investedGold": 315,
+        "nextAttackTick": 2845
+      }
+    ],
+    "checkpointSha256": "f43a641efed172ea219790e309d07bc5271377dc3b8120ec7a1beaef7a7eff80",
+    "nativeSize": [
+      2622,
+      1206
+    ]
+  },
+  {
+    "label": "rollback-L3",
+    "observedUtc": "2026-11-20T09:43:42.288544+00:00",
+    "schema": 4,
+    "content": "eight-wave-ability-boss-v2",
+    "phase": 0,
+    "waveIndex": 6,
+    "tick": 2815,
+    "hp": 7,
+    "gold": 37,
+    "kills": 32,
+    "towers": [
+      {
+        "towerId": 1,
+        "towerTypeId": "flame",
+        "x": 2,
+        "y": 1,
+        "level": 3,
+        "investedGold": 315,
+        "nextAttackTick": 2845
+      }
+    ],
+    "checkpointSha256": "f43a641efed172ea219790e309d07bc5271377dc3b8120ec7a1beaef7a7eff80",
+    "nativeSize": [
+      2622,
+      1206
+    ]
+  },
+  {
+    "label": "sold-L3",
+    "observedUtc": "2026-11-20T09:44:01.360141+00:00",
+    "schema": 4,
+    "content": "eight-wave-ability-boss-v2",
+    "phase": 0,
+    "waveIndex": 6,
+    "tick": 2815,
+    "hp": 7,
+    "gold": 257,
+    "kills": 32,
+    "towers": [],
+    "checkpointSha256": "47045012b5b3888ca262105948c94d40965dff66552f7df8ff896f384e24a582",
+    "nativeSize": [
+      2622,
+      1206
+    ]
+  },
+  {
+    "label": "sold-continue",
+    "observedUtc": "2026-11-20T09:44:19.156856+00:00",
+    "schema": 4,
+    "content": "eight-wave-ability-boss-v2",
+    "phase": 0,
+    "waveIndex": 6,
+    "tick": 2815,
+    "hp": 7,
+    "gold": 257,
+    "kills": 32,
+    "towers": [],
+    "checkpointSha256": "47045012b5b3888ca262105948c94d40965dff66552f7df8ff896f384e24a582",
+    "nativeSize": [
+      2622,
+      1206
+    ]
+  }
+]

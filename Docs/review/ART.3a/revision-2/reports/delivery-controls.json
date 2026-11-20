@@ -1,0 +1,20 @@
+{
+  "testedDeliveryCommit": "efacfc09611257d3ac0d4f7849b129faec26603e",
+  "verifierSha256": "365aba3963c2e63241fcf936747e10057f29e92f26fd0603476dbe07685296b5",
+  "positivePlainPythonReadOnly": {
+    "exitCode": 0,
+    "output": "PASS R2: 2774 exact tested source files; 2270 baseline + 78 R1 protected; 191 evidence artifacts; suites1126/77; roundtrip3; native77 flow + continuous videos; matched78 four variants. Owner ART approval separate.\n"
+  },
+  "untrackedFileRejected": {
+    "exitCode": 1,
+    "output": "FAIL: clean checkout required (including untracked files)\n"
+  },
+  "committedForeignSourceRejected": {
+    "exitCode": 1,
+    "output": "FAIL: current source inventory differs from tested source\n"
+  },
+  "restoredCleanReadOnly": {
+    "exitCode": 0,
+    "output": "PASS R2: 2774 exact tested source files; 2270 baseline + 78 R1 protected; 191 evidence artifacts; suites1126/77; roundtrip3; native77 flow + continuous videos; matched78 four variants. Owner ART approval separate.\n"
+  }
+}

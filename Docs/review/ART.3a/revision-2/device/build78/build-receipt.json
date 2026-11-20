@@ -1,0 +1,14 @@
+{
+    "sourceSHA": "ff6a333940e707366bdf6b8df42a12f311d3e143",
+    "version": "0.1.0",
+    "buildNumber": "78",
+    "contentId": "legacy-single-wave-v1",
+    "unityVersion": "6000.3.28f1",
+    "profile": "art-reference",
+    "purpose": "ART.2b device microbenchmark",
+    "scenarioPath": "Assets/_Game/Configs/TestWave.asset",
+    "scenes": [
+        "Assets/_Game/Scenes/ArtReference.unity"
+    ],
+    "warnings": 1
+}

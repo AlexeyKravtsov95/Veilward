@@ -40,6 +40,53 @@ namespace Veilward.Tests.PlayMode
             Assert.Throws<System.ArgumentException>(() => ArtDeviceProbe.ResolveLaunchArguments(empty, "unknown", true));
         }
 
+        [Test]
+        public void Art3A_ModelSelectorDefaultsToReferenceAndRejectsUnknownVariants()
+        {
+            Assert.That(ArtDeviceProbe.ResolveModelVariant(null), Is.EqualTo("ART1"));
+            foreach (var value in new[] { "ART1", "L1", "L2", "L3" })
+                Assert.That(ArtDeviceProbe.ResolveModelVariant(value), Is.EqualTo(value));
+            foreach (var value in new[] { "L0", "L4", "flame", "l2", "L2\n" })
+                Assert.Throws<System.ArgumentException>(() => ArtDeviceProbe.ResolveModelVariant(value));
+        }
+
+        [UnityTest]
+        public IEnumerator Art3A_ModelComparisonPreservesPlacementDomainAndRecordsExactVariant()
+        {
+            var output = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "art3a-model-" + System.Guid.NewGuid().ToString("N"));
+            try
+            {
+                for (var level = 1; level <= 3; level++)
+                {
+                    yield return Load();
+                    var showcase = Object.FindFirstObjectByType<ArtReferenceShowcase>(); showcase.SetPaused(true);
+                    var tick = showcase.Simulation.State.Tick; var gold = showcase.Simulation.State.Gold;
+                    var previous = showcase.TowerView; var position = previous.position;
+                    var probe = showcase.gameObject.AddComponent<ArtDeviceProbe>();
+                    var serialized = new UnityEditor.SerializedObject(probe);
+                    var refs = serialized.FindProperty("flameLevelPrefabs"); refs.arraySize = 3;
+                    for (var i = 0; i < 3; i++) refs.GetArrayElementAtIndex(i).objectReferenceValue =
+                        UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL" + (i + 1) + ".prefab").transform;
+                    serialized.ApplyModifiedPropertiesWithoutUndo();
+                    yield return probe.InitializeFromArguments(new[] { "app", "-art2b", "dense" }, output, "L" + level);
+                    yield return null;
+                    Assert.That(previous == null, Is.True, "No duplicate active/deferred reference model.");
+                    Assert.That(showcase.TowerView.position, Is.EqualTo(position));
+                    Assert.That(showcase.TowerView.localScale, Is.EqualTo(Vector3.one));
+                    Assert.That(showcase.TowerView.GetComponentsInChildren<MeshRenderer>().Length, Is.EqualTo(2), "Model and exactly one authored stencil mask.");
+                    Assert.That(showcase.Simulation.State.Tick, Is.EqualTo(tick));
+                    Assert.That(showcase.Simulation.State.Gold, Is.EqualTo(gold));
+                    Assert.That(probe.ProbeCount, Is.EqualTo(12));
+                    var metadata = System.IO.File.ReadAllText(System.IO.Path.Combine(probe.MeasurementDirectory, "run.json"));
+                    StringAssert.Contains("\"modelVariant\":\"L" + level + "\"", metadata);
+                    StringAssert.Contains("\"modelRendererCount\":2", metadata);
+                    StringAssert.Contains("\"modelMaterialSubmissions\":4", metadata);
+                    Object.Destroy(probe); yield return null;
+                }
+            }
+            finally { if (System.IO.Directory.Exists(output)) System.IO.Directory.Delete(output, true); }
+        }
+
         [UnityTest]
         public IEnumerator DeviceSyntheticProbeLeavesDomainUntouchedAndCleansUp()
         {

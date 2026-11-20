@@ -78,7 +78,12 @@ namespace Veilward.Tests.EditMode
             Assert.That(_placement.HasSelection, Is.False);
             Invoke(_battle, "LateUpdate");
             Assert.That(GameObject.Find("Tower 1"), Is.Not.Null);
-            Assert.That(ColorOf(GameObject.Find("Tower 1")), Is.EqualTo(previewColor));
+            if (id == "flame")
+            {
+                Assert.That(Vector4.Distance(previewColor, new Color(1f, .36f, .16f)), Is.LessThan(.000001f));
+                AssertFlamePalette(GameObject.Find("Tower 1"), 1);
+            }
+            else Assert.That(ColorOf(GameObject.Find("Tower 1")), Is.EqualTo(previewColor));
         }
 
         [Test]
@@ -120,13 +125,23 @@ namespace Veilward.Tests.EditMode
             var tower = _battle.Simulation.State.Towers.Single();
             var levels = _battle.Simulation.TowerCatalog.Get(tower.Definition.Id).Levels;
             Color? previousColor = null;
+            Mesh previousFlameMesh = null;
             for (var level = 1; level <= 3; level++)
             {
                 Invoke(_battle, "LateUpdate");
                 var view = GameObject.Find($"Tower {tower.Id.Value}");
-                var color = ColorOf(view);
-                if (previousColor.HasValue) Assert.That(color, Is.Not.EqualTo(previousColor.Value));
-                previousColor = color;
+                if (id == "flame")
+                {
+                    var mesh = AssertFlamePalette(view, level);
+                    if (previousFlameMesh != null) Assert.That(mesh, Is.Not.SameAs(previousFlameMesh), "level changes geometry, not brightness");
+                    previousFlameMesh = mesh;
+                }
+                else
+                {
+                    var color = ColorOf(view);
+                    if (previousColor.HasValue) Assert.That(color, Is.Not.EqualTo(previousColor.Value));
+                    previousColor = color;
+                }
                 var range = Object.FindObjectsByType<LineRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None)
                     .Single(r => r.name == "Range Preview");
                 Assert.That(range.GetPosition(0).magnitude, Is.EqualTo(levels[level - 1].Range).Within(0.001));
@@ -149,6 +164,21 @@ namespace Veilward.Tests.EditMode
             Assert.That(_placement.ConfirmSellSelectedTower().Success, Is.False);
             Assert.That(_battle.Simulation.State.Gold, Is.EqualTo(gold + refund));
             Assert.That(_battle.Simulation.State.Towers, Is.Empty);
+        }
+
+        private static Mesh AssertFlamePalette(GameObject view, int level)
+        {
+            var binding = view.GetComponent<FlameModelBinding>();
+            Assert.That(binding.Level, Is.EqualTo(level));
+            var expected = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(
+                "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL" + level + ".prefab");
+            var mesh = binding.Model.GetComponentInChildren<MeshFilter>().sharedMesh;
+            Assert.That(mesh, Is.SameAs(expected.GetComponentInChildren<MeshFilter>().sharedMesh));
+            var renderer = binding.Model.GetComponentInChildren<MeshRenderer>();
+            CollectionAssert.AreEqual(expected.GetComponentInChildren<MeshRenderer>().sharedMaterials, renderer.sharedMaterials);
+            Assert.That(renderer.HasPropertyBlock(), Is.False, "authored palette replaces graybox type tint");
+            Assert.That(view.transform.Find("Foundation").GetComponent<Renderer>().enabled, Is.False);
+            return mesh;
         }
 
         [Test]

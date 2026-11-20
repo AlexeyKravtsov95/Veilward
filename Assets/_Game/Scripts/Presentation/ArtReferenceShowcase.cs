@@ -63,6 +63,17 @@ namespace Veilward.Presentation
             return null;
         }
         public Transform TowerView => _tower;
+        // Только явный ArtReference probe; simulation и production Battle не меняются.
+        public void ReplaceDeviceProbeTower(Transform prefab)
+        {
+            if (prefab == null || _tower == null) throw new InvalidOperationException("Initialized model probe required.");
+            var previous = _tower;
+            _tower = Instantiate(prefab, transform);
+            _tower.SetPositionAndRotation(previous.position, previous.rotation);
+            _tower.name = "FLAME model comparison - " + prefab.name;
+            previous.gameObject.SetActive(false);
+            Destroy(previous.gameObject);
+        }
         public Camera WorldCamera => worldCamera;
         public Transform EnvironmentRoot => environmentRoot;
         public int ActiveStrikeCount

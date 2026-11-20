@@ -1,0 +1,30 @@
+{
+  "runs": [
+    {
+      "variant": "ART1",
+      "privateXmlSha256": "221eac95ab070a4c8c9926116d998f824a9ba00e0c4f3f146ce35d4b53fa794d",
+      "numericCsvSha256": "5a52865a6a7e2195c336bc9cf101954e735b9af66293832dfdbfde10f85bada3",
+      "byteEqualReextraction": true
+    },
+    {
+      "variant": "L1",
+      "privateXmlSha256": "e6c964e224d3f3b32b6d0698ec0f057ec8c350ea82fa0c70333af782e35dfac1",
+      "numericCsvSha256": "0599480f4d9f0bfc7d5c8b09d03915939ef715d45015feae9bb5d238704c969a",
+      "byteEqualReextraction": true
+    },
+    {
+      "variant": "L2",
+      "privateXmlSha256": "bb5144c4538611f2c3e303de689faee1574bac03c0aebef25093349476cffb9f",
+      "numericCsvSha256": "85e4b5b50e0f6f5769a94f2baa22b0ca7a4bdbe626b73de78e59b3691e776d00",
+      "byteEqualReextraction": true
+    },
+    {
+      "variant": "L3",
+      "privateXmlSha256": "975cd61807e3b473c72c69bec5389a608aa594e33235c2d9220f007785c05a7c",
+      "numericCsvSha256": "1143676638d9a0fde8402c808c602fc8bb1d936a46f828ff2eeee1535e85970c",
+      "byteEqualReextraction": true
+    }
+  ],
+  "wrongExecutableNegativeControl": "REJECTED: expected samples from exactly one game PID",
+  "privateAllProcessXmlPublished": false
+}

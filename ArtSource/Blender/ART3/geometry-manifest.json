@@ -1,0 +1,89 @@
+[
+  {
+    "level": 1,
+    "middleProjectedWidth": 0.9333809882554693,
+    "source": "ArtSource/Blender/ART3/Tower_FlameLanternL1.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL1.fbx",
+    "vertices": 724,
+    "triangles": 1275,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.4699999988079071,
+        0.4699999988079071
+      ],
+      [
+        -0.4699999988079071,
+        0.4699999988079071
+      ],
+      [
+        0.0,
+        2.2850000858306885
+      ]
+    ],
+    "degenerateTessellationTriangles": 19,
+    "nondegenerateTriangles": 1256,
+    "preservedBaselineVertices": 708,
+    "preservedBaselineRoofVertices": 151,
+    "appliedTransforms": true,
+    "packedPalette": true
+  },
+  {
+    "level": 2,
+    "middleProjectedWidth": 1.2515789892131974,
+    "source": "ArtSource/Blender/ART3/Tower_FlameLanternL2.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL2.fbx",
+    "vertices": 916,
+    "triangles": 1599,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.4699999988079071,
+        0.4699999988079071
+      ],
+      [
+        -0.4699999988079071,
+        0.4699999988079071
+      ],
+      [
+        0.0,
+        2.2850000858306885
+      ]
+    ],
+    "degenerateTessellationTriangles": 19,
+    "nondegenerateTriangles": 1580,
+    "preservedBaselineVertices": 708,
+    "preservedBaselineRoofVertices": 151,
+    "appliedTransforms": true,
+    "packedPalette": true
+  },
+  {
+    "level": 3,
+    "middleProjectedWidth": 1.2515789892131974,
+    "source": "ArtSource/Blender/ART3/Tower_FlameLanternL3.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL3.fbx",
+    "vertices": 1014,
+    "triangles": 1755,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.4699999988079071,
+        0.4699999988079071
+      ],
+      [
+        -0.4699999988079071,
+        0.4699999988079071
+      ],
+      [
+        0.0,
+        2.505000114440918
+      ]
+    ],
+    "degenerateTessellationTriangles": 19,
+    "nondegenerateTriangles": 1736,
+    "preservedBaselineVertices": 708,
+    "preservedBaselineRoofVertices": 151,
+    "appliedTransforms": true,
+    "packedPalette": true
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "scenario": "dense",
+  "sourceReceipt": {
+    "sourceSHA": "ff6a333940e707366bdf6b8df42a12f311d3e143",
+    "version": "0.1.0",
+    "buildNumber": "78",
+    "contentId": "legacy-single-wave-v1",
+    "unityVersion": "6000.3.28f1",
+    "profile": "art-reference",
+    "purpose": "ART.2b device microbenchmark",
+    "scenarioPath": "Assets/_Game/Configs/TestWave.asset",
+    "scenes": [
+      "Assets/_Game/Scenes/ArtReference.unity"
+    ],
+    "warnings": 1
+  },
+  "intervalMs": {
+    "samples": 5400,
+    "median": 16.660895500002937,
+    "p95": 17.13970900000561,
+    "max": 18.3491250000003
+  },
+  "cpuFrameMs": {
+    "samples": 5400,
+    "median": 16.6613125,
+    "p95": 17.064125,
+    "max": 18.139917
+  },
+  "gpuFrameMs": {
+    "samples": 5400,
+    "median": 1.961125060915947,
+    "p95": 2.259250031784177,
+    "max": 5.37133333273232
+  },
+  "memory": [
+    {
+      "unityAllocatedBaseline": 96121642,
+      "unityAllocatedPeak": 96124026,
+      "unityAllocatedAfter": 96072976,
+      "unityReservedPeak": 112710241
+    },
+    {
+      "unityAllocatedBaseline": 96090401,
+      "unityAllocatedPeak": 96276921,
+      "unityAllocatedAfter": 96115786,
+      "unityReservedPeak": 112772049
+    },
+    {
+      "unityAllocatedBaseline": 96116139,
+      "unityAllocatedPeak": 96120708,
+      "unityAllocatedAfter": 96117179,
+      "unityReservedPeak": 112719410
+    }
+  ],
+  "limitations": "CPU frame includes pacing; zeros are unavailable. Unity allocated/reserved is not native resident footprint. No display-present or broad device guarantee."
+}

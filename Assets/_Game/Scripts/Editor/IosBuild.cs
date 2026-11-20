@@ -166,4 +166,32 @@ namespace Veilward.Editor
             public int warnings;
         }
     }
+
+    // Build scene only: ссылки включают три production модели в явный art profile.
+    // Saved ArtReference и production scene contract не сериализуются заново.
+    public sealed class FlameArtProfileSceneProcessor : IProcessSceneWithReport
+    {
+        public int callbackOrder => 0;
+        public void OnProcessScene(Scene scene, BuildReport report)
+        {
+            if (report == null || report.summary.platform != BuildTarget.iOS || scene.name != "ArtReference") return;
+            Configure(scene);
+        }
+
+        public static void Configure(Scene scene)
+        {
+            if (scene.name != "ArtReference") throw new InvalidOperationException("ArtReference build scene required.");
+            var showcase = scene.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<ArtReferenceShowcase>(true)).Single();
+            var probe = showcase.GetComponent<ArtDeviceProbe>() ?? showcase.gameObject.AddComponent<ArtDeviceProbe>();
+            var serialized = new SerializedObject(probe);
+            var references = serialized.FindProperty("flameLevelPrefabs"); references.arraySize = 3;
+            for (var i = 0; i < 3; i++)
+            {
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(FlameModelBuilder.PrefabPath(i + 1));
+                if (prefab == null) throw new InvalidOperationException("Missing FLAME model prefab.");
+                references.GetArrayElementAtIndex(i).objectReferenceValue = prefab.transform;
+            }
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+        }
+    }
 }

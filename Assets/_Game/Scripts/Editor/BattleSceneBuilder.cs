@@ -17,7 +17,7 @@ namespace Veilward.Editor
         private const string HistoricalConfigPath = "Assets/_Game/Configs/EightWave.asset";
         private const string ConfigPath = "Assets/_Game/Configs/EightWaveAbilityBossV2.asset";
         private const string EnemyPrefabPath = "Assets/_Game/Prefabs/Shade.prefab";
-        private const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
+        internal const string TowerPrefabPath = "Assets/_Game/Prefabs/TestTower.prefab";
         private const string MaterialsFolder = "Assets/_Game/Art/Materials";
 
         [MenuItem("VEILWARD/P1.4b Build")]
@@ -90,6 +90,7 @@ namespace Veilward.Editor
             enemy.GetComponent<Renderer>().sharedMaterial = enemyMaterial;
             AddHealthBar(enemy, healthBackgroundMaterial, healthFillMaterial);
             AddStatusSlots(enemy);
+            FlameModelBuilder.BindEnemyOcclusion(enemy);
             var enemyPrefab = PrefabUtility.SaveAsPrefabAsset(enemy, EnemyPrefabPath);
             Object.DestroyImmediate(enemy);
             var towerPrefab = CreateTowerPrefab(towerMaterial);
@@ -421,6 +422,7 @@ namespace Veilward.Editor
             spirit.transform.localPosition = new Vector3(0f, 0.75f, 0f);
             spirit.transform.localScale = new Vector3(0.55f, 0.7f, 0.55f);
             spirit.GetComponent<Renderer>().sharedMaterial = material;
+            FlameModelBuilder.Bind(root);
             var prefab = PrefabUtility.SaveAsPrefabAsset(root, TowerPrefabPath);
             Object.DestroyImmediate(root);
             return prefab;
@@ -491,6 +493,8 @@ namespace Veilward.Editor
         private static Transform CreatePreview(GameObject towerPrefab, Material material, float cellSize)
         {
             var preview = Object.Instantiate(towerPrefab);
+            // Preview сохраняет текущую полупрозрачную graybox форму и footprint.
+            Object.DestroyImmediate(preview.GetComponent<FlameModelBinding>());
             preview.name = "Tower Preview";
             preview.transform.localScale = Vector3.one * cellSize;
             foreach (var renderer in preview.GetComponentsInChildren<Renderer>())

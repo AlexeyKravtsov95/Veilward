@@ -189,6 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6628681064324196385}
+  - component: {fileID: 84824653350763289}
   m_Layer: 0
   m_Name: TestTower
   m_TagString: Untagged
@@ -213,3 +214,22 @@ Transform:
   - {fileID: 1092008461628640797}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &84824653350763289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296660222699452753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc04ce85a48b4754bb4e99eceacb703, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Veilward::Veilward.Presentation.FlameModelBinding
+  levels:
+  - {fileID: 5278852750503148099, guid: 413b128386b134c9cbef8c15d0d6621e, type: 3}
+  - {fileID: 8185074883150346371, guid: 7e31aabeb661d4a53aa19d5f6b61076a, type: 3}
+  - {fileID: 3216327903702225028, guid: 1c694c6059bed447eb287425134af792, type: 3}
+  fallbackRenderers:
+  - {fileID: 713528253380421574}
+  - {fileID: 3441986707608010543}

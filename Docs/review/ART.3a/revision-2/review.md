@@ -1,0 +1,11 @@
+# Независимое review R2
+
+Read-only reviewer по skill codex-agent-code-reviewer, отдельно от автора implementation. Reviewed source31369a2→f890a51: новых runtime P1/P2 не найдено; L2 по крупной раме/чашам различим, ART1/L1 bytes сохранены. Полные1126/77 Passed records сверены; Unity reviewer заново не запускал.
+
+Reviewer независимо проверил580inputs обоих builds77/78, шесть native checkpoint states/экономику, полностью декодировал оба native видео без errors (1749/2439frames), сверил hashes/PTS. Defeat7 первого clip и подготовленный replay второго раскрыты в validation. Изменения verifier по review: запрет bytecode записи, schema/content checks, exact5s matched warmup. Это technical review, не approval владельца/merge/release.
+
+Matched review: reviewer независимо пересчитал все4raw runs/12windows/21600positiveCPU/GPU/interval samples, summaries/comparison/settings и4nativeCSV/84samples. Просмотрены4dense и9front/side/behind PNG, synthetic scope и HP/body читаемы. Новых P1/P2 в этих evidence/финальных текстах не найдено. Рекомендация явно раскрыть ART1 GPUmax5.371ms выше исторического max5ms внесена в performance.md; новый guardrail PASS не заявляется. Private trace reviewer повторно не извлекал.
+
+Автор запустил verifier в отдельном clean detached checkout efacfc0:2774tested source/2270baseline/78R1protected/191artifacts, suites1126/77, roundtrip3, native77 и matched78 PASS. Plain python не создал bytecode/dirty files. Negative controls: addeduntracked отвергнут; committedforeignC# отвергнут по source inventory; возврат к clean checkout снова PASS. [Точные outputs и verifier hash](reports/delivery-controls.json). Последующие evidence-only commits обновляют review/manifest; runtime source не меняется.
+
+Остаются owner ART approval/внешняя повторная приёмка, thermal/general production QA и counters вне scope. Никакого self-merge/release. Независимый reviewer отдельно переключил clean detached checkout на b6d1915 и запустил обычным python3: verifier PASS (2774source/2270baseline+78R1/192artifacts), clean status после запуска и diff --check baseline..HEAD PASS. Russian PR body также проверен: Defeat/replay/synthetic/GPUoutlier/ограничения раскрыты, новых P1/P2 нет. Эта запись результата меняет только review/manifest; PR metadata проверяется после публикации.

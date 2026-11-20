@@ -1,0 +1,263 @@
+{
+  "clips": [
+    {
+      "file": "Docs/review/ART.3a/revision-2/device/upgrade-native.mp4",
+      "sourceFile": "FMHU3517.MP4",
+      "sourceSha256": "af2aa3eab87529aff67eb6716f1a671af1cebb4c38f5db0b91c1ef9295889c32",
+      "outputSha256": "ebe63c106f0c494d2d139cbafad892c8753d8036c084c5ead745ac604ca5025a",
+      "sourceMetadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "hevc",
+            "width": 1206,
+            "height": 2622,
+            "r_frame_rate": "60/1",
+            "avg_frame_rate": "309375/10058",
+            "duration": "134.070000",
+            "nb_frames": "4125",
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "creation_time": "2026-11-20T09:35:26.000000Z",
+              "language": "und",
+              "handler_name": "Core Media Video"
+            },
+            "side_data_list": [
+              {
+                "side_data_type": "Display Matrix",
+                "displaymatrix": "\n00000000:            0      -65536           0\n00000001:        65536           0           0\n00000002:            0           0  1073741824\n",
+                "rotation": 90
+              }
+            ]
+          }
+        ],
+        "format": {
+          "duration": "134.070000",
+          "tags": {
+            "major_brand": "mp42",
+            "minor_version": "1",
+            "compatible_brands": "isommp41mp42",
+            "creation_time": "2026-11-20T09:35:26.000000Z"
+          }
+        }
+      },
+      "outputMetadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 2622,
+            "height": 1206,
+            "r_frame_rate": "60/1",
+            "avg_frame_rate": "1049400/34787",
+            "duration": "57.978333",
+            "nb_frames": "1749",
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "encoder": "Lavc63.1.102 libx264"
+            }
+          }
+        ],
+        "format": {
+          "duration": "57.978333",
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf63.1.102"
+          }
+        }
+      },
+      "sourceStartSeconds": 36,
+      "requestedDurationSeconds": 58,
+      "speed": 1.0,
+      "continuous": true,
+      "splices": 0,
+      "audio": false,
+      "rotation": "original display matrix applied by ffmpeg; landscape output2622x1206",
+      "outputFrames": 1749,
+      "outputFirstPts": 0.006667,
+      "outputLastPts": 57.966667,
+      "outputMinDelta": 0.016665999999999848,
+      "outputMaxDelta": 0.06666699999999981,
+      "command": "ffmpeg -ss 36 -i \"$PRIVATE_NATIVE_VIDEO\" -t 58 -map 0:v:0 -an -c:v libx264 -preset fast -crf 18 -fps_mode passthrough -enc_time_base:v 1:60000 -video_track_timescale 60000 -map_metadata -1 -movflags +faststart \"$PUBLIC_VIDEO\""
+    },
+    {
+      "file": "Docs/review/ART.3a/revision-2/device/combat-rollback-native.mp4",
+      "sourceFile": "OGJJ8342.MP4",
+      "sourceSha256": "1698af17ec34d57c517b5f1b48a047dae7a0a1a7df28e47cd32dc4fdc90233d1",
+      "outputSha256": "c089656103f958aecd91a0af3345a5ce850de48fa321a04abcce984a492007d6",
+      "sourceMetadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "hevc",
+            "width": 1206,
+            "height": 2622,
+            "r_frame_rate": "60/1",
+            "avg_frame_rate": "1955400/67891",
+            "duration": "113.151667",
+            "nb_frames": "3259",
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "creation_time": "2026-11-20T09:42:42.000000Z",
+              "language": "und",
+              "handler_name": "Core Media Video"
+            },
+            "side_data_list": [
+              {
+                "side_data_type": "Display Matrix",
+                "displaymatrix": "\n00000000:            0      -65536           0\n00000001:        65536           0           0\n00000002:            0           0  1073741824\n",
+                "rotation": 90
+              }
+            ]
+          }
+        ],
+        "format": {
+          "duration": "113.152109",
+          "tags": {
+            "major_brand": "mp42",
+            "minor_version": "1",
+            "compatible_brands": "isommp41mp42",
+            "creation_time": "2026-11-20T09:42:42.000000Z"
+          }
+        }
+      },
+      "outputMetadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 2622,
+            "height": 1206,
+            "r_frame_rate": "60/1",
+            "avg_frame_rate": "121950/4049",
+            "duration": "80.980000",
+            "nb_frames": "2439",
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "encoder": "Lavc63.1.102 libx264"
+            }
+          }
+        ],
+        "format": {
+          "duration": "80.980000",
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf63.1.102"
+          }
+        }
+      },
+      "sourceStartSeconds": 16,
+      "requestedDurationSeconds": 81,
+      "speed": 1.0,
+      "continuous": true,
+      "splices": 0,
+      "audio": false,
+      "rotation": "original display matrix applied by ffmpeg; landscape output2622x1206",
+      "outputFrames": 2439,
+      "outputFirstPts": 0.02,
+      "outputLastPts": 80.966667,
+      "outputMinDelta": 0.016665999999999848,
+      "outputMaxDelta": 0.06666699999999981,
+      "command": "ffmpeg -ss 16 -i \"$PRIVATE_NATIVE_VIDEO\" -t 81 -map 0:v:0 -an -c:v libx264 -preset fast -crf 18 -fps_mode passthrough -enc_time_base:v 1:60000 -video_track_timescale 60000 -map_metadata -1 -movflags +faststart \"$PUBLIC_VIDEO\""
+    }
+  ],
+  "frame": {
+    "file": "combat-L3-inspect-video-frame.png",
+    "sourceFile": "OGJJ8342.MP4",
+    "sourcePtsSeconds": 26.35,
+    "type": "native video frame; not CoreDevice screenshot"
+  },
+  "privacy": "OS lead-in/tail and notification excluded by temporal trimming only; gameplay pixels not redacted or rearranged. Raw remains ignored locally."
+}

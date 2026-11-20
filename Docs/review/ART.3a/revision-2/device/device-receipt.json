@@ -1,0 +1,16 @@
+{
+  "testedRuntimeSource": "f890a51c9df2f506a46bbe3f10f5f2607368e319",
+  "buildSource": "ff6a333940e707366bdf6b8df42a12f311d3e143",
+  "productionBuild": "77",
+  "artProfileBuild": "78",
+  "device": "iPhone16 Pro (iPhone17,1)",
+  "os": "iOS27.0.1",
+  "nativeResolution": [
+    2622,
+    1206
+  ],
+  "unityDevelopmentBuild": false,
+  "xcodeConfiguration": "Debug, local development signing; DEBUG_INFORMATION_FORMAT=dwarf",
+  "productionAcceptance": "Local model/economy/readability flow verified; owner ART approval pending",
+  "credentials": "Existing local signing only; no Apple passwords/private credentials requested or published"
+}

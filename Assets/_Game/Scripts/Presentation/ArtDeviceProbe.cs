@@ -14,6 +14,8 @@ namespace Veilward.Presentation
     public sealed class ArtDeviceProbe : MonoBehaviour
     {
         private const int Capacity = 8192;
+        [SerializeField] private Transform[] flameLevelPrefabs;
+        public string ModelVariant { get; private set; } = "ART1";
         private double _warmup = 5, _duration = 30;
         private readonly double[] _intervals = new double[Capacity];
         private readonly double[] _cpu = new double[Capacity], _gpu = new double[Capacity];
@@ -65,20 +67,37 @@ namespace Veilward.Presentation
             Debug.Log("ART2B_ATTACH explicit art profile/arguments");
             var showcase = FindFirstObjectByType<ArtReferenceShowcase>();
             if (showcase == null) throw new InvalidOperationException("ART2B requires ArtReference.");
-            showcase.gameObject.AddComponent<ArtDeviceProbe>();
+            if (showcase.GetComponent<ArtDeviceProbe>() == null) showcase.gameObject.AddComponent<ArtDeviceProbe>();
         }
 
-        private IEnumerator Start() => InitializeFromArguments(LaunchArguments());
+        public static string ResolveModelVariant(string value)
+        {
+            if (string.IsNullOrEmpty(value)) return "ART1";
+            if (value == "ART1" || value == "L1" || value == "L2" || value == "L3") return value;
+            throw new ArgumentException("Unknown ART3A model variant.");
+        }
 
-        public IEnumerator InitializeFromArguments(string[] args, string outputRoot = null)
+        private IEnumerator Start() => InitializeFromArguments(LaunchArguments(), modelVariant:
+            Environment.GetEnvironmentVariable("VEILWARD_ART3A_MODEL"));
+
+        public IEnumerator InitializeFromArguments(string[] args, string outputRoot = null, string modelVariant = null)
         {
             if (_configured || !ShouldAttach(gameObject.scene.name, args)) yield break;
+            var selectedModel = ResolveModelVariant(modelVariant);
+            var level = selectedModel == "ART1" ? -1 : selectedModel[1] - '1';
+            if (level >= 0 && (flameLevelPrefabs == null || flameLevelPrefabs.Length != 3 || flameLevelPrefabs[level] == null))
+                throw new InvalidOperationException("Art profile FLAME model references missing.");
             var showcase = GetComponent<ArtReferenceShowcase>();
             var deadline = Time.realtimeSinceStartupAsDouble + 5;
             while (showcase != null && showcase.Simulation == null && Time.realtimeSinceStartupAsDouble < deadline) yield return null;
             if (showcase == null || showcase.Simulation == null) throw new InvalidOperationException("ART2B showcase initialization failed.");
             if (_configured) yield break;
             Initialize(showcase, outputRoot);
+            ModelVariant = selectedModel;
+            if (ModelVariant != "ART1")
+            {
+                showcase.ReplaceDeviceProbeTower(flameLevelPrefabs[level]);
+            }
             var index = Array.IndexOf(args, "-art2b");
             SelectScenario(index + 1 < args.Length ? args[index + 1] : "normal");
             BeginMeasurements();
@@ -101,7 +120,7 @@ namespace Veilward.Presentation
             _measuring = false;
             ClearProbes();
             _scenario = scenario; _paused = false; _skipVisualDelta = true;
-            _label = "ART2B | " + scenario + (scenario == "normal" ? " actual saved combat" : " SYNTHETIC assigned positions/HP");
+            _label = "ART2B | " + ModelVariant + " | " + scenario + (scenario == "normal" ? " actual saved combat" : " SYNTHETIC assigned positions/HP");
             if (scenario == "normal") { _showcase.SetDeviceProbeOverride(false); _showcase.SetPaused(false); return; }
             for (var i = 0; i < ArtReferenceShowcase.StrikeCapacity; i++) _showcase.GetStrike(i).Clear();
             _showcase.SetPaused(true); _showcase.SetDeviceProbeOverride(true);
@@ -142,7 +161,11 @@ namespace Veilward.Presentation
             if (!UnityEngine.Application.isEditor && !File.Exists(metadata))
                 throw new InvalidOperationException("ART2B exact source receipt missing from player.");
             var pipeline = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
-            var settings = JsonUtility.ToJson(new Settings { scenario = _scenario,
+            var modelRenderers = _showcase.TowerView.GetComponentsInChildren<Renderer>();
+            var slots = 0;
+            foreach (var renderer in modelRenderers) slots += renderer.sharedMaterials.Length;
+            var settings = JsonUtility.ToJson(new Settings { scenario = _scenario, modelVariant = ModelVariant,
+                modelRendererCount = modelRenderers.Length, modelMaterialSubmissions = slots,
                 renderPipeline = pipeline == null ? "none" : pipeline.name,
                 renderScale = pipeline == null ? 1 : pipeline.renderScale,
                 effectiveMsaa = pipeline == null ? QualitySettings.antiAliasing : pipeline.msaaSampleCount,
@@ -272,7 +295,7 @@ namespace Veilward.Presentation
             if (_configured)
             {
                 UnityEngine.Application.targetFrameRate = _oldTarget; QualitySettings.vSyncCount = _oldVsync;
-                _scenario = "normal"; _label = "ART2B | normal actual saved combat";
+                _scenario = "normal"; _label = "ART2B | " + ModelVariant + " | normal actual saved combat";
                 if (_showcase != null) { _showcase.SetDeviceProbeOverride(false); _showcase.SetPaused(_initialPaused); }
             }
         }
@@ -295,7 +318,7 @@ namespace Veilward.Presentation
             var y = (Screen.height - safe.yMax) * 1311 / Screen.width;
             GUI.Box(new Rect(x, y, 790, 30), _label);
             if (GUI.Button(new Rect(x, y + 32, 95, 38), "Pause")) TogglePause();
-            if (GUI.Button(new Rect(x + 100, y + 32, 95, 38), "Restart")) { _measuring = false; ClearProbes(); _scenario = "normal"; _label = "ART2B | normal actual saved combat"; _showcase.RestartShowcase(); _showcase.SetPaused(false); }
+            if (GUI.Button(new Rect(x + 100, y + 32, 95, 38), "Restart")) { _measuring = false; ClearProbes(); _scenario = "normal"; _label = "ART2B | " + ModelVariant + " | normal actual saved combat"; _showcase.RestartShowcase(); _showcase.SetPaused(false); }
             GUI.matrix = Matrix4x4.identity;
         }
 
@@ -308,7 +331,8 @@ namespace Veilward.Presentation
         }
         [Serializable] private sealed class Settings
         {
-            public string scenario, sourceReceipt, renderPipeline;
+            public string scenario, sourceReceipt, renderPipeline, modelVariant;
+            public int modelRendererCount, modelMaterialSubmissions;
             public float renderScale, shadowDistance;
             public int effectiveMsaa, mainShadowResolution, shadowCascades, cameraPixelWidth, cameraPixelHeight,
                 cameraScaledPixelWidth, cameraScaledPixelHeight;
