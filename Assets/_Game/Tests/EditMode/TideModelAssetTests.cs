@@ -88,8 +88,11 @@ namespace Veilward.Tests.EditMode
                 {
                     var array = serialized.FindProperty(field); Assert.That(array.arraySize, Is.EqualTo(3));
                     for (var i = 0; i < 3; i++)
-                        Assert.That(AssetDatabase.GetAssetPath(array.GetArrayElementAtIndex(i).objectReferenceValue),
-                            Is.EqualTo(field == "levels" ? FlameModelBuilder.PrefabPath(i + 1) : TideModelBuilder.PrefabPath(i + 1)));
+                    {
+                        var expectedPath = field == "levels" ? FlameModelBuilder.PrefabPath(i + 1) : TideModelBuilder.PrefabPath(i + 1);
+                        var expectedRoot = AssetDatabase.LoadAssetAtPath<GameObject>(expectedPath).transform;
+                        Assert.That(array.GetArrayElementAtIndex(i).objectReferenceValue, Is.SameAs(expectedRoot));
+                    }
                 }
                 var fallback = serialized.FindProperty("fallbackRenderers");
                 Assert.That(fallback.arraySize, Is.EqualTo(2));
