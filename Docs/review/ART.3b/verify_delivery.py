@@ -134,7 +134,8 @@ def main():
     require(len(rows) == completion['frames'] and all(float(b[1]) > float(a[1]) and int(b[2]) > int(a[2]) for a, b in zip(rows, rows[1:])), 'advancing capture time/frame')
     wet = [r for r in rows if int(r[9]) > 0]
     require(wet and max(int(r[4]) for r in wet) > min(int(r[4]) for r in wet), 'actual advancing Wet combat')
-    require(any('rollback' in r[3] for r in rows) and any('sold /' in r[3] for r in rows), 'rollback/Sell video stages')
+    require(any('restored Preparation' in r[3] for r in rows) and any('sold /' in r[3] for r in rows),
+            'rollback/Sell video stages')
     video = read(FOLDER / 'reports/video-proof.json')
     require(video['sourceFrames'] == len(rows) and video['splices'] == 0 and video['speed'] == 1, 'continuous Editor recording')
     probe = json.loads(subprocess.check_output(['ffprobe', '-v', 'quiet', '-select_streams', 'v:0', '-show_entries',
