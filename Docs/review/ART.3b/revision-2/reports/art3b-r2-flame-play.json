@@ -1,0 +1,1 @@
+{"status":"completed","duration":3.93,"summary":{"total":1,"passed":1,"failed":0,"skipped":0,"inconclusive":0},"results":[{"FullName":"Veilward.Tests.PlayMode.FlameModelPlayModeTests.Art3A03_NaturalBattleLevelsContinueRollbackSellAndRestart","Status":"Passed","Duration":3.9205811,"Message":null,"StackTrace":null}]}

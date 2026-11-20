@@ -78,10 +78,11 @@ namespace Veilward.Tests.EditMode
             Assert.That(_placement.HasSelection, Is.False);
             Invoke(_battle, "LateUpdate");
             Assert.That(GameObject.Find("Tower 1"), Is.Not.Null);
-            if (id == "flame")
+            if (id == "flame" || id == "tide")
             {
-                Assert.That(Vector4.Distance(previewColor, new Color(1f, .36f, .16f)), Is.LessThan(.000001f));
-                AssertFlamePalette(GameObject.Find("Tower 1"), 1);
+                var expectedPreview = id == "flame" ? new Color(1f, .36f, .16f) : new Color(.2f, .72f, 1f);
+                Assert.That(Vector4.Distance(previewColor, expectedPreview), Is.LessThan(.000001f));
+                AssertProductionPalette(GameObject.Find("Tower 1"), id, 1);
             }
             else Assert.That(ColorOf(GameObject.Find("Tower 1")), Is.EqualTo(previewColor));
         }
@@ -125,16 +126,16 @@ namespace Veilward.Tests.EditMode
             var tower = _battle.Simulation.State.Towers.Single();
             var levels = _battle.Simulation.TowerCatalog.Get(tower.Definition.Id).Levels;
             Color? previousColor = null;
-            Mesh previousFlameMesh = null;
+            Mesh previousModelMesh = null;
             for (var level = 1; level <= 3; level++)
             {
                 Invoke(_battle, "LateUpdate");
                 var view = GameObject.Find($"Tower {tower.Id.Value}");
-                if (id == "flame")
+                if (id == "flame" || id == "tide")
                 {
-                    var mesh = AssertFlamePalette(view, level);
-                    if (previousFlameMesh != null) Assert.That(mesh, Is.Not.SameAs(previousFlameMesh), "level changes geometry, not brightness");
-                    previousFlameMesh = mesh;
+                    var mesh = AssertProductionPalette(view, id, level);
+                    if (previousModelMesh != null) Assert.That(mesh, Is.Not.SameAs(previousModelMesh), "level changes geometry, not brightness");
+                    previousModelMesh = mesh;
                 }
                 else
                 {
@@ -166,18 +167,28 @@ namespace Veilward.Tests.EditMode
             Assert.That(_battle.Simulation.State.Towers, Is.Empty);
         }
 
-        private static Mesh AssertFlamePalette(GameObject view, int level)
+        private static Mesh AssertProductionPalette(GameObject view, string id, int level)
         {
             var binding = view.GetComponent<FlameModelBinding>();
+            Assert.That(binding, Is.Not.Null);
             Assert.That(binding.Level, Is.EqualTo(level));
-            var expected = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(
-                "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL" + level + ".prefab");
+            Assert.That(binding.Model, Is.Not.Null);
+            Assert.That(binding.Model.name, Is.EqualTo(id.ToUpperInvariant() + " L" + level));
+            Assert.That(binding.ShotSource, Is.Not.Null);
+            var expectedPath = id == "flame" ? "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL" + level + ".prefab"
+                : "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL" + level + ".prefab";
+            var expected = AssetDatabase.LoadAssetAtPath<GameObject>(expectedPath);
+            Assert.That(expected, Is.Not.Null);
             var mesh = binding.Model.GetComponentInChildren<MeshFilter>().sharedMesh;
             Assert.That(mesh, Is.SameAs(expected.GetComponentInChildren<MeshFilter>().sharedMesh));
             var renderer = binding.Model.GetComponentInChildren<MeshRenderer>();
             CollectionAssert.AreEqual(expected.GetComponentInChildren<MeshRenderer>().sharedMaterials, renderer.sharedMaterials);
             Assert.That(renderer.HasPropertyBlock(), Is.False, "authored palette replaces graybox type tint");
+            Assert.That(binding.Model.GetComponentsInChildren<Renderer>().All(r => r.enabled && !r.HasPropertyBlock()), Is.True);
             Assert.That(view.transform.Find("Foundation").GetComponent<Renderer>().enabled, Is.False);
+            Assert.That(view.transform.Find("Spirit").GetComponent<Renderer>().enabled, Is.False);
+            Assert.That(view.transform.Cast<Transform>().Count(t => t.gameObject.activeSelf &&
+                (t.name.StartsWith("FLAME L") || t.name.StartsWith("TIDE L"))), Is.EqualTo(1));
             return mesh;
         }
 

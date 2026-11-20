@@ -1,0 +1,60 @@
+{
+  "success": true,
+  "source": "Read-only historical R1 frame metadata; no R1 evidence rewritten",
+  "picks": {
+    "video-L1.png": {
+      "manifestIndex": 28,
+      "sourceFrameIndex": 28,
+      "sourceFile": "00028.png",
+      "gameFrame": 162176,
+      "elapsed": 3.094484540999929,
+      "stage": "TIDE L1 / Inspect + real Upgrade price",
+      "sha256": "8b918e06933426a50442285e8bcc553113530760c25925522707e3d4f6740f02"
+    },
+    "video-L2.png": {
+      "manifestIndex": 48,
+      "sourceFrameIndex": 48,
+      "sourceFile": "00048.png",
+      "gameFrame": 164399,
+      "elapsed": 5.101188582999839,
+      "stage": "TIDE L2 / same TowerId + cell / earned budget",
+      "sha256": "50596aebbbc11645289e6fe576709251fbaf183f8d098005eac9f167e0908b8e"
+    },
+    "video-L3.png": {
+      "manifestIndex": 68,
+      "sourceFrameIndex": 68,
+      "sourceFile": "00068.png",
+      "gameFrame": 166578,
+      "elapsed": 7.106558333000066,
+      "stage": "TIDE L3 / same TowerId + cell / MAX + range",
+      "sha256": "9388786d24250668eab481a77c8f3174e0f5c8b5decf9509e207a5f34fffb8fa"
+    },
+    "video-Wet-inspect.png": {
+      "manifestIndex": 122,
+      "sourceFrameIndex": 122,
+      "sourceFile": "00122.png",
+      "gameFrame": 172184,
+      "elapsed": 12.525967832999868,
+      "stage": "advancing combat / actual Wet enemy Inspect + HP",
+      "sha256": "0088370db56629ff7be57357fb2b0f77328d87909c46cbba92433234de17cab2"
+    },
+    "video-rollback.png": {
+      "manifestIndex": 159,
+      "sourceFrameIndex": 159,
+      "sourceFile": "00159.png",
+      "gameFrame": 176609,
+      "elapsed": 16.546330332999787,
+      "stage": "restored Preparation / TIDE L3 / unchanged Gold-HP-kills",
+      "sha256": "29c5a0342918277ccc229f05b59619b4cb3c5fb9ab87d611de4afdda38a66d24"
+    },
+    "video-sold.png": {
+      "manifestIndex": 194,
+      "sourceFrameIndex": 194,
+      "sourceFile": "00194.png",
+      "gameFrame": 180688,
+      "elapsed": 20.055466457999955,
+      "stage": "sold / no model roots / public-command Editor proof complete",
+      "sha256": "e6585eea53c7c9b54fa82a747fb01d471e2c6b69d6188fcf17219cea1c45f3c4"
+    }
+  }
+}

@@ -422,7 +422,7 @@ namespace Veilward.Editor
             spirit.transform.localPosition = new Vector3(0f, 0.75f, 0f);
             spirit.transform.localScale = new Vector3(0.55f, 0.7f, 0.55f);
             spirit.GetComponent<Renderer>().sharedMaterial = material;
-            FlameModelBuilder.Bind(root);
+            TideModelBuilder.Bind(root);
             var prefab = PrefabUtility.SaveAsPrefabAsset(root, TowerPrefabPath);
             Object.DestroyImmediate(root);
             return prefab;
@@ -436,7 +436,8 @@ namespace Veilward.Editor
             var healthBar = enemy.AddComponent<EnemyHealthBarView>();
             var barRoot = new GameObject("Health Bar").transform;
             barRoot.SetParent(enemy.transform, false);
-            barRoot.localPosition = new Vector3(0f, 0.85f, 0f);
+            // Полная HP quad выше projected capsule head и между двумя существующими status glyph slots.
+            barRoot.localPosition = new Vector3(0f, 2f, 0f);
 
             var background = CreatePrimitive(PrimitiveType.Quad, "Health Background");
             background.transform.SetParent(barRoot, false);

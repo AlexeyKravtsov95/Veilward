@@ -1,0 +1,204 @@
+0|0.0060086250000495056|159311|earned L1 checkpoint replay / menu Continue|0|150|20|0|0|0|
+1|0.23046183299993572|159312|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+2|0.33059629099989252|159329|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+3|0.43078849999983504|159437|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+4|0.5309543329999542|159572|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+5|0.631233207999685|159703|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+6|0.73176937500011263|159839|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+7|0.83183066599985978|159969|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+8|0.93203924999988885|160101|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+9|1.0326037909999286|160237|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+10|1.1328705830001127|160376|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+11|1.233338915999866|160512|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+12|1.3338806659999136|160653|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+13|1.4345908749996852|160754|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+14|1.5349489159998484|160870|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+15|1.6354257499997402|160993|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+16|1.7380389579998337|161100|menu Continue / unchanged earned TIDE L1 checkpoint||||||0|
+17|1.9906962079999175|161101|menu Continue / unchanged earned TIDE L1 checkpoint|2589|316|16|41|0|0|6:tide:L1
+18|2.0912601659997563|161193|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+19|2.1914953749997039|161286|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+20|2.2915005410000049|161372|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+21|2.391903082999761|161463|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+22|2.4919795410000916|161559|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+23|2.5926096250000228|161658|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+24|2.6933248329996786|161764|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+25|2.7933618749998459|161867|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+26|2.8935495000000628|161966|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+27|2.9940714999997908|162066|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+28|3.0944845409999289|162176|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+29|3.1950819159997081|162291|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+30|3.2951998329999697|162407|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+31|3.395449374999771|162522|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+32|3.4955943750001097|162638|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+33|3.5960237909998796|162753|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+34|3.6963032499998008|162871|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+35|3.7968403330000911|162981|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+36|3.897082040999976|163091|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+37|3.9971353329997328|163206|TIDE L1 / Inspect + real Upgrade price|2589|316|16|41|0|0|6:tide:L1
+38|4.097229083000002|163308|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+39|4.1976279999998951|163416|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+40|4.2981553750000785|163530|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+41|4.3987533750000694|163639|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+42|4.4992542909999429|163752|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+43|4.5994723750000048|163859|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+44|4.699653957999999|163968|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+45|4.8000744159999158|164075|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+46|4.90066004099981|164183|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+47|5.0007255830000759|164289|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+48|5.1011885829998391|164399|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+49|5.2013284999998177|164506|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+50|5.3014089159996729|164609|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+51|5.4017716660000588|164716|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+52|5.5020660000000134|164826|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+53|5.60209312500001|164930|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+54|5.7023249579997355|165037|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+55|5.80303449999974|165146|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+56|5.9032702909998989|165255|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+57|6.0036833750000369|165366|TIDE L2 / same TowerId + cell / earned budget|2589|226|16|41|0|0|6:tide:L2
+58|6.104190749999816|165472|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+59|6.2043729580000218|165581|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+60|6.3046091249998426|165694|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+61|6.40468487499993|165804|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+62|6.5048888749997786|165915|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+63|6.6050731249997625|166025|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+64|6.7055295410000326|166136|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+65|6.8055335829999422|166246|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+66|6.9059569999999439|166352|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+67|7.0059697500000766|166464|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+68|7.1065583330000663|166578|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+69|7.2067399160000605|166690|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+70|7.3070712079997975|166798|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+71|7.40720787500004|166905|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+72|7.5072084159996848|167015|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+73|7.6078585410000414|167128|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+74|7.7082746249998308|167234|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+75|7.8083402499996737|167345|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+76|7.908351957999912|167456|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+77|8.0086835829997653|167570|TIDE L3 / same TowerId + cell / MAX + range|2589|106|16|41|0|0|6:tide:L3
+78|8.1087886249997609|167675|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2591|106|16|41|1|0|6:tide:L3
+79|8.20894245799991|167785|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2594|106|16|41|1|0|6:tide:L3
+80|8.3090997079998488|167859|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2597|106|16|41|1|0|6:tide:L3
+81|8.409149915999933|167962|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2600|106|16|41|1|0|6:tide:L3
+82|8.5092685829999937|168069|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2603|106|16|41|1|0|6:tide:L3
+83|8.6095150000001013|168177|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2606|106|16|41|1|0|6:tide:L3
+84|8.7099359579997326|168286|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2609|106|16|41|1|0|6:tide:L3
+85|8.81005712499973|168398|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2612|106|16|41|1|0|6:tide:L3
+86|8.9103149580000718|168510|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2615|106|16|41|1|0|6:tide:L3
+87|9.0104744159998518|168624|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2618|106|16|41|1|0|6:tide:L3
+88|9.1107646659997954|168734|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2621|106|16|41|2|0|6:tide:L3
+89|9.2108817909997924|168846|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2624|106|16|41|2|0|6:tide:L3
+90|9.31112766599972|168956|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2627|106|16|41|2|0|6:tide:L3
+91|9.41156216599984|169072|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2630|106|16|41|2|0|6:tide:L3
+92|9.51195929100004|169176|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2633|106|16|41|2|0|6:tide:L3
+93|9.6122639579998577|169284|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2636|106|16|41|2|0|6:tide:L3
+94|9.71279929100001|169393|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2639|106|16|41|2|0|6:tide:L3
+95|9.812945457999831|169504|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2642|106|16|41|2|0|6:tide:L3
+96|9.913368083000023|169614|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2645|106|16|41|2|0|6:tide:L3
+97|10.013536999999815|169720|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2648|106|16|41|2|0|6:tide:L3
+98|10.113868665999689|169821|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2651|106|16|41|3|0|6:tide:L3
+99|10.214045875000011|169922|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2654|106|16|41|3|0|6:tide:L3
+100|10.314604707999933|170031|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2657|106|16|41|3|0|6:tide:L3
+101|10.415174207999826|170145|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2660|106|16|41|3|0|6:tide:L3
+102|10.515768040999774|170259|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2663|106|16|41|3|0|6:tide:L3
+103|10.615903165999953|170370|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2666|106|16|41|3|0|6:tide:L3
+104|10.716124957999909|170477|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2669|106|16|41|3|0|6:tide:L3
+105|10.816584832999979|170579|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2672|106|16|41|3|0|6:tide:L3
+106|10.917112582999835|170684|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2675|106|16|41|3|0|6:tide:L3
+107|11.018934374999844|170756|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2678|106|16|41|3|0|6:tide:L3
+108|11.119375124999806|170817|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2681|106|16|41|4|0|6:tide:L3
+109|11.220083124999746|170916|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2684|106|16|41|4|0|6:tide:L3
+110|11.320917374999681|171005|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2687|106|16|41|4|0|6:tide:L3
+111|11.421639582999887|171093|advancing REAL-TIME Combat / HP + Wet / generic beam #47|2690|106|16|41|4|0|6:tide:L3
+112|11.522322457999962|171180|advancing combat / actual Wet enemy Inspect + HP|2693|106|16|41|4|1|6:tide:L3
+113|11.62294087500004|171273|advancing combat / actual Wet enemy Inspect + HP|2696|106|16|41|4|1|6:tide:L3
+114|11.723404082999878|171372|advancing combat / actual Wet enemy Inspect + HP|2699|106|16|41|4|1|6:tide:L3
+115|11.823507290999714|171479|advancing combat / actual Wet enemy Inspect + HP|2702|106|16|41|4|1|6:tide:L3
+116|11.924000999999862|171579|advancing combat / actual Wet enemy Inspect + HP|2705|106|16|41|4|1|6:tide:L3
+117|12.024173540999982|171672|advancing combat / actual Wet enemy Inspect + HP|2708|106|16|41|4|1|6:tide:L3
+118|12.124725374999798|171771|advancing combat / actual Wet enemy Inspect + HP|2711|106|16|41|5|1|6:tide:L3
+119|12.225188665999667|171873|advancing combat / actual Wet enemy Inspect + HP|2714|106|16|41|5|1|6:tide:L3
+120|12.325540165999882|171980|advancing combat / actual Wet enemy Inspect + HP|2717|106|16|41|5|1|6:tide:L3
+121|12.425589874999787|172083|advancing combat / actual Wet enemy Inspect + HP|2720|106|16|41|5|1|6:tide:L3
+122|12.525967832999868|172184|advancing combat / actual Wet enemy Inspect + HP|2723|106|16|41|5|1|6:tide:L3
+123|12.626021582999783|172290|advancing combat / actual Wet enemy Inspect + HP|2726|106|16|41|5|1|6:tide:L3
+124|12.726058249999824|172395|advancing combat / actual Wet enemy Inspect + HP|2729|106|16|41|5|1|6:tide:L3
+125|12.826393082999857|172507|advancing combat / actual Wet enemy Inspect + HP|2732|106|16|41|5|1|6:tide:L3
+126|12.926397124999767|172617|advancing combat / actual Wet enemy Inspect + HP|2735|106|16|41|5|1|6:tide:L3
+127|13.026611875000071|172728|advancing combat / actual Wet enemy Inspect + HP|2738|106|16|41|5|1|6:tide:L3
+128|13.126659707999806|172837|advancing combat / actual Wet enemy Inspect + HP|2741|106|16|41|6|1|6:tide:L3
+129|13.227097125|172949|advancing combat / actual Wet enemy Inspect + HP|2744|106|16|41|6|1|6:tide:L3
+130|13.327493499999946|173054|advancing combat / actual Wet enemy Inspect + HP|2747|106|16|41|6|1|6:tide:L3
+131|13.428021582999918|173154|advancing combat / actual Wet enemy Inspect + HP|2750|106|16|41|6|1|6:tide:L3
+132|13.698233957999946|173173|advancing combat / actual Wet enemy Inspect + HP||||||0|
+133|13.798746624999694|173295|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+134|13.899206582999796|173446|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+135|13.999221499999749|173597|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+136|14.099670540999796|173746|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+137|14.199768333000065|173883|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+138|14.300166166000054|174025|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+139|14.400451083000007|174168|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+140|14.500922707999962|174310|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+141|14.601438958000017|174457|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+142|14.701914708000004|174598|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+143|14.80232229100011|174745|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+144|14.902744749999783|174890|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+145|15.00290508299986|175034|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+146|15.103348040999663|175180|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+147|15.203348624999762|175323|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+148|15.443492915999741|175325|interrupted Combat / file-menu Continue rolls back to Preparation|2589|106|16|41|0|0|6:tide:L3
+149|15.543677290999767|175426|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+150|15.643879165999806|175545|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+151|15.744249874999696|175668|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+152|15.84460050000007|175786|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+153|15.94470470799979|175903|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+154|16.045034374999886|176024|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+155|16.145043083000019|176144|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+156|16.245327832999919|176261|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+157|16.345808457999738|176381|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+158|16.446182374999808|176496|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+159|16.546330332999787|176609|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+160|16.646827665999808|176721|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+161|16.746996458000012|176832|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+162|16.847437874999741|176949|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+163|16.947776375000103|177067|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+164|17.047790707999866|177184|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+165|17.147801874999914|177297|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+166|17.247961832999863|177411|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+167|17.348002082999756|177529|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+168|17.448373082999751|177641|restored Preparation / TIDE L3 / unchanged Gold-HP-kills|2589|106|16|41|0|0|6:tide:L3
+169|17.548941332999675|177753|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+170|17.64939137500005|177870|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+171|17.749750624999706|177986|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+172|17.849906458000078|178103|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+173|17.950304540999696|178219|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+174|18.050437249999959|178334|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+175|18.150574249999863|178446|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+176|18.250683624999965|178563|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+177|18.350769665999906|178677|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+178|18.451014499999928|178784|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+179|18.551604958000098|178896|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+180|18.651712750000115|179013|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+181|18.751904415999888|179124|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+182|18.852082124999924|179237|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+183|18.9521903750001|179351|Sell confirmation / actual configured refund|2589|106|16|41|0|0|6:tide:L3
+184|19.052269207999871|179464|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+185|19.152776749999703|179585|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+186|19.253173000000061|179711|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+187|19.353635707999729|179834|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+188|19.454003207999904|179954|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+189|19.554052375000083|180071|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+190|19.654110416000094|180193|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+191|19.754571999999825|180316|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+192|19.854818040999817|180442|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+193|19.955107207999845|180565|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+194|20.055466457999955|180688|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+195|20.155573499999718|180810|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+196|20.255819874999816|180928|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+197|20.3562794999998|181050|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+198|20.456614082999749|181169|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+199|20.556825415999811|181289|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+200|20.657150415999695|181412|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+201|20.757230832999994|181532|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+202|20.857368333000068|181652|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|
+203|20.957877583000027|181766|sold / no model roots / public-command Editor proof complete|2589|295|16|41|0|0|

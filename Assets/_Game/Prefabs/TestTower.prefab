@@ -233,3 +233,7 @@ MonoBehaviour:
   fallbackRenderers:
   - {fileID: 713528253380421574}
   - {fileID: 3441986707608010543}
+  tideLevels:
+  - {fileID: 2131310192900557697, guid: 3cf9e50e9575943e38a3c63cc46284bf, type: 3}
+  - {fileID: 7046194532261259951, guid: feaff7ad556084a84adfeb5e7876a0dc, type: 3}
+  - {fileID: 8053507034659493476, guid: 7d44862ee6a724c72831f8d9be5915b1, type: 3}

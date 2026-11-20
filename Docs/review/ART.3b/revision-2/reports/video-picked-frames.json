@@ -1,0 +1,56 @@
+{
+  "video-L1.png": {
+    "manifestIndex": 28,
+    "sourceFrameIndex": 28,
+    "sourceFile": "00028.png",
+    "gameFrame": 127811,
+    "elapsed": 3.0757522919998337,
+    "stage": "TIDE L1 / Inspect + real Upgrade price",
+    "sha256": "53f7709a854bca872cdea8d0fbd73ee64278284e84bdb69e4cbca415aa3bc413"
+  },
+  "video-L2.png": {
+    "manifestIndex": 48,
+    "sourceFrameIndex": 48,
+    "sourceFile": "00048.png",
+    "gameFrame": 130364,
+    "elapsed": 5.0816218749998825,
+    "stage": "TIDE L2 / same TowerId + cell / earned budget",
+    "sha256": "0793c9b864a6b03ed29feee514ba02741dba4fa4e7a4fdfc61891be12cf4fb2e"
+  },
+  "video-L3.png": {
+    "manifestIndex": 68,
+    "sourceFrameIndex": 68,
+    "sourceFile": "00068.png",
+    "gameFrame": 132912,
+    "elapsed": 7.086871333999852,
+    "stage": "TIDE L3 / same TowerId + cell / MAX + range",
+    "sha256": "4e6fae3186d5b0734bba4f2aa8f5be136dcb78290656f674617684d940c5e552"
+  },
+  "video-Wet-inspect.png": {
+    "manifestIndex": 122,
+    "sourceFrameIndex": 122,
+    "sourceFile": "00122.png",
+    "gameFrame": 139594,
+    "elapsed": 12.50430758399989,
+    "stage": "advancing combat / actual Wet enemy Inspect + HP",
+    "sha256": "add68d48354c7d027454a0bfaafa0eb920eea5fe7b3ce2b8692521243ed95f5d"
+  },
+  "video-rollback.png": {
+    "manifestIndex": 159,
+    "sourceFrameIndex": 159,
+    "sourceFile": "00159.png",
+    "gameFrame": 144431,
+    "elapsed": 16.48353604199997,
+    "stage": "restored Preparation / TIDE L3 / unchanged Gold-HP-kills",
+    "sha256": "0e0c6ec7398b33a302e14a7034cd7557af4746cbdc3fb89966c3865c8cb2d7c3"
+  },
+  "video-sold.png": {
+    "manifestIndex": 194,
+    "sourceFrameIndex": 194,
+    "sourceFile": "00194.png",
+    "gameFrame": 148990,
+    "elapsed": 19.991893291999986,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "940b45abba72afc329d5bcf41d7c3fa1a627d6bdea57e0ea915b7d80a1a7844e"
+  }
+}

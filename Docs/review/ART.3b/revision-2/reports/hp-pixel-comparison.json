@@ -1,0 +1,65 @@
+{
+  "method": "Read-only RGB analysis of original1600x900 PNG; longest contiguous green run in fixed ROI x765..839,y280..344; G>120,G>1.7R,G>1.5B; no crop/resampling/output image edits",
+  "results": [
+    {
+      "revision": "R1",
+      "level": 1,
+      "path": "Docs/review/ART.3b/playmode/occlusion-L1-behind.png",
+      "greenRunPixels": 4,
+      "start": [
+        786,
+        326
+      ]
+    },
+    {
+      "revision": "R2",
+      "level": 1,
+      "path": "Docs/review/ART.3b/revision-2/playmode/occlusion-L1-behind.png",
+      "greenRunPixels": 17,
+      "start": [
+        786,
+        302
+      ]
+    },
+    {
+      "revision": "R1",
+      "level": 2,
+      "path": "Docs/review/ART.3b/playmode/occlusion-L2-behind.png",
+      "greenRunPixels": 4,
+      "start": [
+        786,
+        326
+      ]
+    },
+    {
+      "revision": "R2",
+      "level": 2,
+      "path": "Docs/review/ART.3b/revision-2/playmode/occlusion-L2-behind.png",
+      "greenRunPixels": 17,
+      "start": [
+        786,
+        302
+      ]
+    },
+    {
+      "revision": "R1",
+      "level": 3,
+      "path": "Docs/review/ART.3b/playmode/occlusion-L3-behind.png",
+      "greenRunPixels": 4,
+      "start": [
+        786,
+        326
+      ]
+    },
+    {
+      "revision": "R2",
+      "level": 3,
+      "path": "Docs/review/ART.3b/revision-2/playmode/occlusion-L3-behind.png",
+      "greenRunPixels": 17,
+      "start": [
+        786,
+        302
+      ]
+    }
+  ]
+}

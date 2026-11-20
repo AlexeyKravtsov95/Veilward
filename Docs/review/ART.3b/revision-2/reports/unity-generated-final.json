@@ -1,0 +1,114 @@
+{
+  "source": "696dc8ae3cc7799bea586c57d44749163300b06c",
+  "reason": "Only ordinary Unity builder/import/suite serialization; exact tested source restored after full gates",
+  "files": [
+    {
+      "path": "Assets/Settings/Mobile_RPAsset.asset",
+      "sourceSha256": "077b30c366ee79c2b0906284297c3433c470b59a7bca563801901512d6cabf64",
+      "generatedSha256": "2d5182d2b8884ac88bc6ed033a0a722c23cfb15a7bc8b7daa38db37227bafd09",
+      "restoredSha256": "077b30c366ee79c2b0906284297c3433c470b59a7bca563801901512d6cabf64"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/AttackBeam.mat",
+      "sourceSha256": "c1b84083940598bd2e502a3f8d8ccb9e4d6cae262da451b41b1df9377dcba516",
+      "generatedSha256": "b483fc95afccba997713dc0cfd3f961366569cbb3647e6350e1a585f524e88be",
+      "restoredSha256": "c1b84083940598bd2e502a3f8d8ccb9e4d6cae262da451b41b1df9377dcba516"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxGround.mat",
+      "sourceSha256": "8df22d96585a4527359cfae575e97c9b19fd3e20312f49c15490f86349274a24",
+      "generatedSha256": "4f928d2f6c878bfcafd8dfc0393134952481ba82dcf59c4af1c4e546480f942f",
+      "restoredSha256": "8df22d96585a4527359cfae575e97c9b19fd3e20312f49c15490f86349274a24"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxHeart.mat",
+      "sourceSha256": "bda65cab8072fc09d3e2f086a0419b19fcc5091f22290fc6ce06ee0579dcf02f",
+      "generatedSha256": "a8c76ae59c80ea71d2fb8c3318ea95a2ac212a8f8660068bc5308567701f6a3f",
+      "restoredSha256": "bda65cab8072fc09d3e2f086a0419b19fcc5091f22290fc6ce06ee0579dcf02f"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxPath.mat",
+      "sourceSha256": "bb023f1c463dc6467363d80bb350ca9628d3bad86d75b6e4c5d6acb8f1687175",
+      "generatedSha256": "d980a7bbdfbec4f5187900b72a84d0ea3e536d6cc955ee0957370760305b5c71",
+      "restoredSha256": "bb023f1c463dc6467363d80bb350ca9628d3bad86d75b6e4c5d6acb8f1687175"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxSelection.mat",
+      "sourceSha256": "ccaef8a0a76ed900829aac9ea559afe00c858411838002b73a227e3d9c386f64",
+      "generatedSha256": "81d88cfae866346c0a0d5b7f0ec5524e596223405969cbdd6540bb4e9197d65a",
+      "restoredSha256": "ccaef8a0a76ed900829aac9ea559afe00c858411838002b73a227e3d9c386f64"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxShade.mat",
+      "sourceSha256": "26263cc48bc3fd9487336a3852445a4f076309d3f3ef7bd23362a7a042ec6596",
+      "generatedSha256": "e1f200c94f0594e77b80a963cb35bc24acedd1c2189666314afb63aa989be1b2",
+      "restoredSha256": "26263cc48bc3fd9487336a3852445a4f076309d3f3ef7bd23362a7a042ec6596"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxSpawn.mat",
+      "sourceSha256": "95e8596688eb9a0144e94d96a53013ea16fd8449eab49ebec862e1af9380cc13",
+      "generatedSha256": "9907df34afad8ca6e668b14cf0b2b9a83d3e1b046243a6c175953811f7abd64f",
+      "restoredSha256": "95e8596688eb9a0144e94d96a53013ea16fd8449eab49ebec862e1af9380cc13"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxTower.mat",
+      "sourceSha256": "a8a2f3b33accbad57da378055c7d93da4b440eb0cb38daf7b93b6943409c17a1",
+      "generatedSha256": "ec4d49ece0c341c70b936457f82c4c96e1759622e1b06a5e0c5b3eaf5f5df60b",
+      "restoredSha256": "a8a2f3b33accbad57da378055c7d93da4b440eb0cb38daf7b93b6943409c17a1"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat",
+      "sourceSha256": "072b877ec1184ee60be1c533cfc6aaddf1ff3b382117f0c942fc641fcb3c873b",
+      "generatedSha256": "f59dacd2fd8035a34496b90e96740492e44af2953d33cd9bed62d2e12d3e1d11",
+      "restoredSha256": "072b877ec1184ee60be1c533cfc6aaddf1ff3b382117f0c942fc641fcb3c873b"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/HealthBackground.mat",
+      "sourceSha256": "5110677ea68472656d16750227b8951541f357b38cbe6748fae9491ded252cea",
+      "generatedSha256": "63b4be038cc0dec06d22a8c6e61608d74d074e4d86490e84c468cc5a8f26eafc",
+      "restoredSha256": "5110677ea68472656d16750227b8951541f357b38cbe6748fae9491ded252cea"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/HealthFill.mat",
+      "sourceSha256": "d8eab10147f883570bc8c6aaa56e0615abf8e098f7da41f9f2110ea4d95a3e3f",
+      "generatedSha256": "4e6d40fe731dfcc7092f109c76a905abc43f542905fe43d0f4e240bc2125fefe",
+      "restoredSha256": "d8eab10147f883570bc8c6aaa56e0615abf8e098f7da41f9f2110ea4d95a3e3f"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/RangePreview.mat",
+      "sourceSha256": "fe2754907be728f15f08d2d1f619745db38454f9ebe4b0d6e5c2621baac92b28",
+      "generatedSha256": "b4f39fd218f324a697ee697bba664e74238cc26b7335dbd4364699f702aff60e",
+      "restoredSha256": "fe2754907be728f15f08d2d1f619745db38454f9ebe4b0d6e5c2621baac92b28"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ReactionEffect.mat",
+      "sourceSha256": "c5726f7f7e26cef3ef94a623517383dda9285414805310b0dc81e106ff44cf52",
+      "generatedSha256": "38fd34da1f255e8589a991cb150d20e9cf9a943bfeb49941a962dc8ec6950e50",
+      "restoredSha256": "c5726f7f7e26cef3ef94a623517383dda9285414805310b0dc81e106ff44cf52"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/Shade.prefab",
+      "sourceSha256": "7bac68b25bf10bf3b01db91111f913b3d90c98ca34c599468dcaab7432a761c9",
+      "generatedSha256": "8a176f47d22c7d6ab3d86bae1245b0c1a1dad9201e41ce24fab066a91cd1d910",
+      "restoredSha256": "7bac68b25bf10bf3b01db91111f913b3d90c98ca34c599468dcaab7432a761c9"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/TestTower.prefab",
+      "sourceSha256": "127015dfc79a4cc545019d66221d5b2145b97db291f69b508fed53b15f56a8fd",
+      "generatedSha256": "46140e0be28ee38556566e9ba4eaf4c8f30e416eb6f2d089de7ea89d2cf159a7",
+      "restoredSha256": "127015dfc79a4cc545019d66221d5b2145b97db291f69b508fed53b15f56a8fd"
+    },
+    {
+      "path": "Assets/_Game/Scenes/Battle.unity",
+      "sourceSha256": "3648126f0d598cc253a184900727ae36b06bd9cbe5efc7674dbcdc7cbbcdf690",
+      "generatedSha256": "6e51f65f79b418f8bf87d725eeac9c11e0e70d61b7fdea4f06b36a9b061a549b",
+      "restoredSha256": "3648126f0d598cc253a184900727ae36b06bd9cbe5efc7674dbcdc7cbbcdf690"
+    },
+    {
+      "path": "Assets/_Game/Scenes/MainMenu.unity",
+      "sourceSha256": "1dfab903ee8757a1322257f0a79c9c8abcc5fba1851b4b36640a6516ac2ef757",
+      "generatedSha256": "a1d175ee267a566a40f9d037db61383f2d2d4d7c00fa6cc0d1b8c36920f21666",
+      "restoredSha256": "1dfab903ee8757a1322257f0a79c9c8abcc5fba1851b4b36640a6516ac2ef757"
+    }
+  ]
+}
