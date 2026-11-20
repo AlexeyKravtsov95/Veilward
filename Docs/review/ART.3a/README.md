@@ -1,6 +1,6 @@
 # ART.3a — FLAME L1–L3 / частичный пакет #76
 
-**Draft / Refs #76, Refs #44.** Модели и Battle binding проверены в Editor. Physical iPhone acceptance и performance не выполнены: paired iPhone16Pro/iOS27.0.1 имеет `tunnelState=unavailable`, DDI недоступен. Это не закрытие #76/#44 и не художественное approval владельца.
+**Draft / Refs #76, Refs #44.** Модели и Battle binding проверены в Editor и в production-profile IL2CPP build76 на физическом iPhone16Pro/iOS27.0.1. Device acceptance частичный: L1→L2→L3/Continue/rollback/Sell подтверждены; сопоставимый performance run, опубликованное видео и полная dense/status matrix ещё не готовы. Это не закрытие #76/#44 и не художественное approval владельца.
 
 ![FLAME L1–L3 в одной игровой камере, synthetic lineup](playmode/lineup.png)
 
@@ -10,6 +10,7 @@
 - [Inspect/MAX/range](playmode/inspect-L3.png), [build preview без покупки](playmode/build-preview.png).
 - Behind/HP .6, synthetic: [L1](playmode/occlusion-L1-behind.png), [L2](playmode/occlusion-L2-behind.png), [L3](playmode/occlusion-L3-behind.png). Соответствующие front/side PNG входят в manifest.
 - Настоящий advancing Battle.Update из этого L3 checkpoint: [начало](playmode/motion-00.png), [бой](playmode/motion-08.png), [generic beam](playmode/motion-10.png), [конец](playmode/motion-11.png), [12-frame telemetry](playmode/motion-telemetry.txt). 7.71s, tick2590→2822, kill41→42. Редкие кадры не подтверждают полную плавность и не являются FPS measurement или видео.
+- Физический iPhone build76: [L1](device/natural-L1-solo.png), [L2](device/natural-L2-solo.png), [L3](device/natural-L3-solo.png), [Inspect/MAX](device/natural-L3-inspect.png), [Sell](device/natural-L3-sold.png), [Continue после Sell](device/natural-sold-final.png); [device scope и воспроизведение](device.md), [checkpoint trace](device/phone-flow.json), [native memory samples](device/production-memory.csv).
 - [Результаты/ограничения](validation.md), [команды](commands.md), [независимый review](review.md), [manifest](manifest.json).
 
 Из чистого checkout:
@@ -18,4 +19,4 @@
 PYTHONDONTWRITEBYTECODE=1 python3 Docs/review/ART.3a/verify_delivery.py
 ```
 
-Verifier проверяет exact tested source, сохранность baseline/history, tracked hashes/inventory, непустые полные1123/75 suites и реальный трёхуровневый roundtrip. Он не запускает Unity и не объявляет device PASS. Generic attack beam остаётся до #47; принятый projectile в ArtReference не переносился в production вместе с model integration.
+Verifier проверяет exact tested source, сохранность baseline/history, tracked hashes/inventory, непустые полные1123/75 suites и реальный трёхуровневый roundtrip. Дополнительно сверяет580 build inputs и9 native checkpoint observations. Он не запускает Unity и не объявляет полный device PASS. Generic attack beam остаётся до #47; принятый projectile в ArtReference не переносился в production вместе с model integration.

@@ -1,0 +1,30 @@
+{
+  "model": "iPhone 16 Pro",
+  "os": "iOS 27.0.1",
+  "nativeScreenshotSize": [
+    2622,
+    1206
+  ],
+  "version": "0.1.0",
+  "buildNumber": "76",
+  "bundleId": "com.veilward.spiritdefense",
+  "buildSource": "aa6e0e1b58defc5516ca2ffe707d7b1a1af62b1d",
+  "testedRuntimeSource": "d2bf5bf06e3a04ea05c30f24419b46b690cd42e7",
+  "runtimeInputCount": 580,
+  "runtimeInputsMatchTestedSource": true,
+  "exportProfile": "production",
+  "unityDevelopmentBuild": false,
+  "xcodeConfiguration": "Debug",
+  "codesignVerificationExit": 0,
+  "installExit": 0,
+  "launch": "verified actual gameplay after unlocking",
+  "binarySha256": "921ccb517bce166b9692c4ee46d44c2ecbd2027dc3bb92dcc5fc14a038862371",
+  "deviceAcceptance": "PARTIAL",
+  "recording": "native iOS screen recording saved to Photos, transfer blocked by Image Capture AX timeout; no published video",
+  "failedAttempts": [
+    "initial paired device unavailable, later connected/unlocked",
+    "old build44 baseline launch rejected Locked, no fresh baseline",
+    "Game Performance trace failed disk full, not usable",
+    "CoreDevice screen-record unsupported capability error1001"
+  ]
+}

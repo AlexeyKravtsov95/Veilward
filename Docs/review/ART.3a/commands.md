@@ -49,3 +49,22 @@ git diff --check
 Synthetic capture — actual Camera.Render в Play Mode, HUD не включён и подписи находятся в самом кадре. Natural test captures/inspect/build — Game View с настоящим Overlay HUD. Real-time sequence использует обычный Battle.Update и unmodified checkpoint из natural test, изолированный file store. Ни custom simulation clock, ни позиции/HP/Gold не редактируются для этой sequence. Это последовательные PNG, не видео/FPS measurement.
 
 Повторный roundtrip после закрытия/повторного открытия Editor проверяет также финальную whitespace-normalized сериализацию. Static/diff, exact-SHA commit, manifest и read-only verifier из нового detached checkout завершают delivery. Свои import serialization deltas восстанавливались только в task worktree; исходный пользовательский checkout не сбрасывался.
+
+## Physical device / build76
+
+Локальные device/team значения подставлены из существующего подключённого device и успешной прежней подписи; private signing credentials не запрашивались. Ниже placeholders намеренно не являются готовыми идентификаторами.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 Scripts/export-ios.py --version 0.1.0 --build-number 76
+xcodebuild -project Builds/iOS/0.1.0-76/Xcode/Unity-iPhone.xcodeproj -scheme Unity-iPhone -configuration Debug -sdk iphoneos -destination 'platform=iOS,id=<DEVICE>' -derivedDataPath Builds/iOS/0.1.0-76/DerivedData DEVELOPMENT_TEAM=<EXISTING_TEAM> CODE_SIGN_STYLE=Automatic -allowProvisioningUpdates build
+codesign --verify --deep --strict Builds/iOS/0.1.0-76/DerivedData/Build/Products/Debug-iphoneos/VEILWARDSpiritDefense.app
+xcrun devicectl device install app --device <DEVICE> <SIGNED_APP>
+xcrun devicectl device process launch --device <DEVICE> --console com.veilward.spiritdefense
+xcrun devicectl device capture screenshot --device <DEVICE> --destination <NATIVE_PNG>
+xcrun devicectl device copy from --device <DEVICE> --domain-type appDataContainer --domain-identifier com.veilward.spiritdefense --source Documents/wave-checkpoint-v1.json --destination <READ_ONLY_COPY>
+xcrun xctrace record --template 'Activity Monitor' --device <DEVICE> --all-processes --time-limit 20s --output <PRIVATE_TRACE>
+xcrun xctrace export --input <PRIVATE_TRACE> --xpath '/trace-toc/run[@number="1"]/data/table[@schema="activity-monitor-process-live"]' --output <PRIVATE_XML>
+python3 Docs/review/ART.2b/extract_native_memory.py <PRIVATE_XML> > <GAME_ONLY_CSV>
+```
+
+Build export source receipt aa6e0e1;580 runtime input hashes cross-checked against tested d2bf5bf. Screenshots/JSON copied after observed UI actions; helper only reads app container, never writes. Device source/settings import patch retained. See [device scope](device.md) for failures/limitations. Screen Sharing отключён после последнего Continue; запись остановлена и сохранена iOS. Raw MP4 не импортирован из-за Image Capture AX timeouts.

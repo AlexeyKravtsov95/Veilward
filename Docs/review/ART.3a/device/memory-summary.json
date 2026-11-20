@@ -1,0 +1,45 @@
+{
+  "template": "Activity Monitor",
+  "requestedSeconds": 20,
+  "sampleCount": 21,
+  "sampleSpanSeconds": 19.941590375,
+  "context": "production build 76, wave 5 preparation/combat, Screen Sharing ON; no matched baseline",
+  "metrics": {
+    "memory-physical-footprint": {
+      "min": 264505424.0,
+      "mean": 269856750.47619045,
+      "max": 292685904.0,
+      "samples": 21
+    },
+    "memory-real": {
+      "min": 277725184.0,
+      "mean": 278059885.71428573,
+      "max": 278216704.0,
+      "samples": 21
+    },
+    "memory-real-private": {
+      "min": 48644096.0,
+      "mean": 89577569.52380952,
+      "max": 130269184.0,
+      "samples": 21
+    },
+    "cpu-percent": {
+      "min": 19.682395407,
+      "mean": 27.10980652565,
+      "max": 32.415302009,
+      "samples": 20
+    },
+    "thread-count": {
+      "min": 43.0,
+      "mean": 43.0,
+      "max": 43.0,
+      "samples": 21
+    }
+  },
+  "units": {
+    "memory": "bytes",
+    "cpu-percent": "utilization percent, NOT frame time",
+    "thread-count": "count"
+  },
+  "acceptance": "NOT VERIFIED: CPU/GPU frame times, thermal/draw calls, dense matrix and matched ART2b comparison"
+}

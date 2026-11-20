@@ -1,0 +1,6 @@
+Xcode log: ** BUILD SUCCEEDED **
+Signature verification: codesign --verify --deep --strict, exit 0
+CoreDevice install exit 0; launch and gameplay observed.
+Raw console SHA256: 572696f202c438aa3f68e57efc059d6cc1f1ae27c4ab6a161ae97234de522fee
+Raw logs retained locally, excluded for device/signing identifiers.
+No claim of globally warning-free native console.

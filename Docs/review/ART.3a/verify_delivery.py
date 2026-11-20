@@ -3,6 +3,8 @@ import hashlib
 import json
 import subprocess
 import struct
+import csv
+import statistics
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -84,6 +86,50 @@ require(int(rows[-1]['kills']) > int(rows[0]['kills']) and any(int(r['beams']) >
 for png in (FOLDER/'playmode').glob('*.png'):
     data = png.read_bytes()
     require(data[:8] == b'\x89PNG\r\n\x1a\n' and struct.unpack('>II', data[16:24]) == (1600, 900), 'capture dimensions: '+png.name)
-require(manifest['deviceAcceptance'] == 'NOT VERIFIED', 'partial package cannot claim device acceptance')
+require(manifest['deviceAcceptance'] == 'PARTIAL', 'partial package cannot claim full device acceptance')
+device = FOLDER/'device'
+receipt = json.loads((device/'device-receipt.json').read_text())
+build = json.loads((device/'build-receipt.json').read_text())
+require(receipt['testedRuntimeSource'] == source and build['sourceSHA'] == receipt['buildSource'], 'device source receipt')
+subprocess.run(['git', 'merge-base', '--is-ancestor', receipt['buildSource'], 'HEAD'], cwd=ROOT, check=True)
+require(build['buildNumber'] == receipt['buildNumber'] == '76' and build['profile'] == 'production', 'device build profile')
+require(not receipt['unityDevelopmentBuild'] and receipt['deviceAcceptance'] == 'PARTIAL', 'device scope')
+runtime = json.loads((device/'runtime-input-hashes.json').read_text())
+expected_runtime = [p for p in inputs if p.startswith(('Assets/', 'Packages/', 'ProjectSettings/'))]
+require(sorted(runtime) == sorted(expected_runtime) and len(runtime) == receipt['runtimeInputCount'], 'device runtime inventory')
+for path, digest in runtime.items():
+    require(sha(git('show', source+':'+path)) == digest, 'device runtime input: '+path)
+    require(sha(git('show', receipt['buildSource']+':'+path)) == digest, 'device built source input: '+path)
+with (device/'production-memory.csv').open() as handle:
+    samples = list(csv.DictReader(handle))
+memory = json.loads((device/'memory-summary.json').read_text())
+require(len(samples) == memory['sampleCount'] == 21, 'native memory sample count')
+times = [int(row['start']) for row in samples]
+require(all(b > a for a, b in zip(times, times[1:])), 'native memory sample order')
+require((times[-1]-times[0])/1e9 == memory['sampleSpanSeconds'], 'native memory span')
+for key, saved in memory['metrics'].items():
+    values = [float(row[key]) for row in samples if row[key]]
+    require(saved == dict(min=min(values), mean=statistics.mean(values), max=max(values), samples=len(values)), 'native memory summary: '+key)
+flow = json.loads((device/'phone-flow.json').read_text())
+states = {r['label']: r for r in flow}
+require(len(states) == len(flow) == 9, 'device observation inventory')
+for row in flow:
+    require(sha((device/(row['label']+'.json')).read_bytes()) == row['checkpointSha256'], 'device checkpoint hash')
+    checkpoint = json.loads((device/(row['label']+'.json')).read_text())
+    require(checkpoint['schemaVersion'] == row['schema'] == 4 and checkpoint['scenarioContentId'] == row['content'], 'device schema/content')
+    for observed, saved in [('phase', 'phase'), ('waveIndex', 'waveIndex'), ('tick', 'tick'), ('hp', 'baseHealth'), ('gold', 'gold'), ('kills', 'kills'), ('towers', 'towers')]:
+        require(row[observed] == checkpoint['state'][saved], 'device state cross-check: '+observed)
+    require((row['tick'], row['hp'], row['kills'], row['waveIndex'], row['phase']) == (2815, 7, 32, 6, 0), 'device checkpoint context')
+    if row['publishedScreenshot']:
+        data = (device/row['publishedScreenshot']).read_bytes()
+        require(data[:8] == b'\x89PNG\r\n\x1a\n' and struct.unpack('>II', data[16:24]) == (2622, 1206), 'native dimensions')
+for label, level, gold, invested in [('natural-L1-solo', 1, 282, 70), ('natural-L2-solo', 2, 177, 175), ('natural-L3-solo', 3, 37, 315)]:
+    row = states[label]
+    require(row['gold'] == gold and len(row['towers']) == 1, 'device economy: '+label)
+    tower = row['towers'][0]
+    require((tower['towerId'], tower['towerTypeId'], tower['x'], tower['y'], tower['level'], tower['investedGold']) == (1, 'flame', 2, 1, level, invested), 'device identity/level')
+for a, b in [('natural-L2-inspect', 'natural-L2-solo'), ('natural-L3-inspect', 'natural-L3-solo'), ('natural-L3-solo', 'natural-L3-rollback'), ('natural-L3-sold', 'natural-sold-continue'), ('natural-L3-sold', 'natural-sold-final')]:
+    require(states[a]['checkpointSha256'] == states[b]['checkpointSha256'], 'device Continue/rollback drift')
+require(states['natural-L3-sold']['gold'] == 257 and not states['natural-L3-sold']['towers'], 'device Sell cleanup')
 print(f'PASS: {len(inputs)} tested source files, {len(protected)} protected baseline/history files, '
-      f'{len(actual)} tracked evidence artifacts; full nonempty suites and 3-level roundtrip. Device NOT VERIFIED.')
+      f'{len(actual)} tracked evidence artifacts; full nonempty suites and 3-level roundtrip. Device PARTIAL (build76, 9 observations).')

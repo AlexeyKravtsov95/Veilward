@@ -1,0 +1,16 @@
+{
+    "sourceSHA": "aa6e0e1b58defc5516ca2ffe707d7b1a1af62b1d",
+    "version": "0.1.0",
+    "buildNumber": "76",
+    "contentId": "eight-wave-ability-boss-v2",
+    "unityVersion": "6000.3.28f1",
+    "profile": "production",
+    "purpose": "QA.1 production smoke",
+    "scenarioPath": "Assets/_Game/Configs/EightWaveAbilityBossV2.asset",
+    "scenes": [
+        "Assets/_Game/Scenes/Bootstrap.unity",
+        "Assets/_Game/Scenes/MainMenu.unity",
+        "Assets/_Game/Scenes/Battle.unity"
+    ],
+    "warnings": 1
+}
