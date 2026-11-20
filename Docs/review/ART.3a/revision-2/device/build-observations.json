@@ -1,0 +1,47 @@
+{
+  "builds": [
+    {
+      "buildNumber": "77",
+      "profile": "production",
+      "export": "PASS",
+      "xcodeBuildExit": 0,
+      "codesignStrictDeepExit": 0,
+      "installExit": 0,
+      "bundleVersion": "77",
+      "bundleShortVersion": "0.1.0",
+      "artProbeMarkerPresent": false,
+      "scenePaths": [
+        "Assets/_Game/Scenes/Bootstrap.unity",
+        "Assets/_Game/Scenes/MainMenu.unity",
+        "Assets/_Game/Scenes/Battle.unity"
+      ],
+      "unityDevelopmentBuild": false,
+      "xcodeConfiguration": "Debug",
+      "debugInformationFormat": "dwarf",
+      "sourceSHA": "ff6a333940e707366bdf6b8df42a12f311d3e143",
+      "importDeltaCount": 5,
+      "localSigning": "Existing automatic development signing; identifiers/private credentials omitted"
+    },
+    {
+      "buildNumber": "78",
+      "profile": "art-reference",
+      "export": "PASS",
+      "xcodeBuildExit": 0,
+      "codesignStrictDeepExit": 0,
+      "installExit": 0,
+      "bundleVersion": "78",
+      "bundleShortVersion": "0.1.0",
+      "artProbeMarkerPresent": true,
+      "scenePaths": [
+        "Assets/_Game/Scenes/ArtReference.unity"
+      ],
+      "unityDevelopmentBuild": false,
+      "xcodeConfiguration": "Debug",
+      "debugInformationFormat": "dwarf",
+      "sourceSHA": "ff6a333940e707366bdf6b8df42a12f311d3e143",
+      "importDeltaCount": 5,
+      "localSigning": "Existing automatic development signing; identifiers/private credentials omitted"
+    }
+  ],
+  "productionFinalState": "Prep7/tick2815/HP7/Gold257/kills32/towers0, earned save; art-profile does not claim production QA acceptance"
+}

@@ -1,0 +1,401 @@
+{
+  "protocol": {
+    "buildNumber": "78",
+    "sourceSHA": "ff6a333940e707366bdf6b8df42a12f311d3e143",
+    "scenario": "dense",
+    "syntheticEnemies": 12,
+    "warmupSecondsPerWindow": 5,
+    "measurementSecondsPerWindow": 30,
+    "windowsPerVariant": 3,
+    "order": [
+      "ART1",
+      "L1",
+      "L2",
+      "L3"
+    ],
+    "screenSharing": false,
+    "nativeRecording": false,
+    "xctraceDuringTiming": false,
+    "consoleAttached": true,
+    "nativeMemory": "Activity Monitor20s, separate after timing windows; same ongoing dense workload",
+    "temperature": "Not instrumented; sequential fresh launches, no randomization or thermal guarantee"
+  },
+  "variants": {
+    "ART1": {
+      "timing": {
+        "scenario": "dense",
+        "sourceReceipt": {
+          "sourceSHA": "ff6a333940e707366bdf6b8df42a12f311d3e143",
+          "version": "0.1.0",
+          "buildNumber": "78",
+          "contentId": "legacy-single-wave-v1",
+          "unityVersion": "6000.3.28f1",
+          "profile": "art-reference",
+          "purpose": "ART.2b device microbenchmark",
+          "scenarioPath": "Assets/_Game/Configs/TestWave.asset",
+          "scenes": [
+            "Assets/_Game/Scenes/ArtReference.unity"
+          ],
+          "warnings": 1
+        },
+        "intervalMs": {
+          "samples": 5400,
+          "median": 16.660895500002937,
+          "p95": 17.13970900000561,
+          "max": 18.3491250000003
+        },
+        "cpuFrameMs": {
+          "samples": 5400,
+          "median": 16.6613125,
+          "p95": 17.064125,
+          "max": 18.139917
+        },
+        "gpuFrameMs": {
+          "samples": 5400,
+          "median": 1.961125060915947,
+          "p95": 2.259250031784177,
+          "max": 5.37133333273232
+        },
+        "memory": [
+          {
+            "unityAllocatedBaseline": 96121642,
+            "unityAllocatedPeak": 96124026,
+            "unityAllocatedAfter": 96072976,
+            "unityReservedPeak": 112710241
+          },
+          {
+            "unityAllocatedBaseline": 96090401,
+            "unityAllocatedPeak": 96276921,
+            "unityAllocatedAfter": 96115786,
+            "unityReservedPeak": 112772049
+          },
+          {
+            "unityAllocatedBaseline": 96116139,
+            "unityAllocatedPeak": 96120708,
+            "unityAllocatedAfter": 96117179,
+            "unityReservedPeak": 112719410
+          }
+        ],
+        "limitations": "CPU frame includes pacing; zeros are unavailable. Unity allocated/reserved is not native resident footprint. No display-present or broad device guarantee."
+      },
+      "nativeMemory": {
+        "sampleCount": 21,
+        "sampleSpanSeconds": 19.656727458,
+        "metrics": {
+          "memory-physical-footprint": {
+            "min": 274516072.0,
+            "median": 274892904.0,
+            "max": 274942056.0,
+            "samples": 21
+          },
+          "memory-real": {
+            "min": 254738432.0,
+            "median": 254787584.0,
+            "max": 286113792.0,
+            "samples": 21
+          },
+          "memory-real-private": {
+            "min": 41582592.0,
+            "median": 86212608.0,
+            "max": 131284992.0,
+            "samples": 21
+          },
+          "cpu-percent": {
+            "min": 38.791419287,
+            "median": 39.395826985,
+            "max": 42.453914902,
+            "samples": 20
+          },
+          "thread-count": {
+            "min": 44.0,
+            "median": 44.0,
+            "max": 44.0,
+            "samples": 21
+          }
+        }
+      }
+    },
+    "L1": {
+      "timing": {
+        "scenario": "dense",
+        "sourceReceipt": {
+          "sourceSHA": "ff6a333940e707366bdf6b8df42a12f311d3e143",
+          "version": "0.1.0",
+          "buildNumber": "78",
+          "contentId": "legacy-single-wave-v1",
+          "unityVersion": "6000.3.28f1",
+          "profile": "art-reference",
+          "purpose": "ART.2b device microbenchmark",
+          "scenarioPath": "Assets/_Game/Configs/TestWave.asset",
+          "scenes": [
+            "Assets/_Game/Scenes/ArtReference.unity"
+          ],
+          "warnings": 1
+        },
+        "intervalMs": {
+          "samples": 5400,
+          "median": 16.669458499997347,
+          "p95": 16.823125000001937,
+          "max": 24.990541000001087
+        },
+        "cpuFrameMs": {
+          "samples": 5400,
+          "median": 16.6700625,
+          "p95": 16.78925,
+          "max": 24.979916
+        },
+        "gpuFrameMs": {
+          "samples": 5400,
+          "median": 1.7976873787119985,
+          "p95": 2.184166805818677,
+          "max": 2.6693749241530895
+        },
+        "memory": [
+          {
+            "unityAllocatedBaseline": 96070999,
+            "unityAllocatedPeak": 96071591,
+            "unityAllocatedAfter": 96021089,
+            "unityReservedPeak": 112656955
+          },
+          {
+            "unityAllocatedBaseline": 96037746,
+            "unityAllocatedPeak": 96066901,
+            "unityAllocatedAfter": 96063523,
+            "unityReservedPeak": 112663993
+          },
+          {
+            "unityAllocatedBaseline": 96063676,
+            "unityAllocatedPeak": 96117966,
+            "unityAllocatedAfter": 96114076,
+            "unityReservedPeak": 112716024
+          }
+        ],
+        "limitations": "CPU frame includes pacing; zeros are unavailable. Unity allocated/reserved is not native resident footprint. No display-present or broad device guarantee."
+      },
+      "nativeMemory": {
+        "sampleCount": 21,
+        "sampleSpanSeconds": 19.697367916,
+        "metrics": {
+          "memory-physical-footprint": {
+            "min": 272123984.0,
+            "median": 272173136.0,
+            "max": 272173136.0,
+            "samples": 21
+          },
+          "memory-real": {
+            "min": 318668800.0,
+            "median": 318734336.0,
+            "max": 318832640.0,
+            "samples": 21
+          },
+          "memory-real-private": {
+            "min": 98189312.0,
+            "median": 139116544.0,
+            "max": 180584448.0,
+            "samples": 21
+          },
+          "cpu-percent": {
+            "min": 38.709359945,
+            "median": 39.390295886,
+            "max": 40.542738365,
+            "samples": 20
+          },
+          "thread-count": {
+            "min": 43.0,
+            "median": 43.0,
+            "max": 43.0,
+            "samples": 21
+          }
+        }
+      }
+    },
+    "L2": {
+      "timing": {
+        "scenario": "dense",
+        "sourceReceipt": {
+          "sourceSHA": "ff6a333940e707366bdf6b8df42a12f311d3e143",
+          "version": "0.1.0",
+          "buildNumber": "78",
+          "contentId": "legacy-single-wave-v1",
+          "unityVersion": "6000.3.28f1",
+          "profile": "art-reference",
+          "purpose": "ART.2b device microbenchmark",
+          "scenarioPath": "Assets/_Game/Configs/TestWave.asset",
+          "scenes": [
+            "Assets/_Game/Scenes/ArtReference.unity"
+          ],
+          "warnings": 1
+        },
+        "intervalMs": {
+          "samples": 5400,
+          "median": 16.66754150000216,
+          "p95": 16.82825000000321,
+          "max": 18.009875000004172
+        },
+        "cpuFrameMs": {
+          "samples": 5400,
+          "median": 16.6698125,
+          "p95": 16.793708,
+          "max": 16.956041
+        },
+        "gpuFrameMs": {
+          "samples": 5400,
+          "median": 1.8100624438375235,
+          "p95": 2.2127917036414146,
+          "max": 2.9531249310821295
+        },
+        "memory": [
+          {
+            "unityAllocatedBaseline": 96071837,
+            "unityAllocatedPeak": 96072765,
+            "unityAllocatedAfter": 96021279,
+            "unityReservedPeak": 112659440
+          },
+          {
+            "unityAllocatedBaseline": 96037248,
+            "unityAllocatedPeak": 96066923,
+            "unityAllocatedAfter": 96063761,
+            "unityReservedPeak": 112663578
+          },
+          {
+            "unityAllocatedBaseline": 96063858,
+            "unityAllocatedPeak": 96118492,
+            "unityAllocatedAfter": 96114554,
+            "unityReservedPeak": 112716872
+          }
+        ],
+        "limitations": "CPU frame includes pacing; zeros are unavailable. Unity allocated/reserved is not native resident footprint. No display-present or broad device guarantee."
+      },
+      "nativeMemory": {
+        "sampleCount": 21,
+        "sampleSpanSeconds": 19.81317875,
+        "metrics": {
+          "memory-physical-footprint": {
+            "min": 271583336.0,
+            "median": 271632488.0,
+            "max": 271632488.0,
+            "samples": 21
+          },
+          "memory-real": {
+            "min": 318767104.0,
+            "median": 318783488.0,
+            "max": 318849024.0,
+            "samples": 21
+          },
+          "memory-real-private": {
+            "min": 68583424.0,
+            "median": 138461184.0,
+            "max": 208928768.0,
+            "samples": 21
+          },
+          "cpu-percent": {
+            "min": 38.775869522,
+            "median": 39.5724571745,
+            "max": 40.936500369,
+            "samples": 20
+          },
+          "thread-count": {
+            "min": 43.0,
+            "median": 43.0,
+            "max": 43.0,
+            "samples": 21
+          }
+        }
+      }
+    },
+    "L3": {
+      "timing": {
+        "scenario": "dense",
+        "sourceReceipt": {
+          "sourceSHA": "ff6a333940e707366bdf6b8df42a12f311d3e143",
+          "version": "0.1.0",
+          "buildNumber": "78",
+          "contentId": "legacy-single-wave-v1",
+          "unityVersion": "6000.3.28f1",
+          "profile": "art-reference",
+          "purpose": "ART.2b device microbenchmark",
+          "scenarioPath": "Assets/_Game/Configs/TestWave.asset",
+          "scenes": [
+            "Assets/_Game/Scenes/ArtReference.unity"
+          ],
+          "warnings": 1
+        },
+        "intervalMs": {
+          "samples": 5400,
+          "median": 16.667021500001766,
+          "p95": 16.828000000000287,
+          "max": 18.309958000003235
+        },
+        "cpuFrameMs": {
+          "samples": 5400,
+          "median": 16.6685,
+          "p95": 16.791042,
+          "max": 17.356709
+        },
+        "gpuFrameMs": {
+          "samples": 5400,
+          "median": 1.8259999342262745,
+          "p95": 2.319458406418562,
+          "max": 2.8713750652968884
+        },
+        "memory": [
+          {
+            "unityAllocatedBaseline": 96351301,
+            "unityAllocatedPeak": 96352165,
+            "unityAllocatedAfter": 96301519,
+            "unityReservedPeak": 112938127
+          },
+          {
+            "unityAllocatedBaseline": 96318360,
+            "unityAllocatedPeak": 96346587,
+            "unityAllocatedAfter": 96343737,
+            "unityReservedPeak": 112942897
+          },
+          {
+            "unityAllocatedBaseline": 96344306,
+            "unityAllocatedPeak": 96348588,
+            "unityAllocatedAfter": 96344698,
+            "unityReservedPeak": 112946922
+          }
+        ],
+        "limitations": "CPU frame includes pacing; zeros are unavailable. Unity allocated/reserved is not native resident footprint. No display-present or broad device guarantee."
+      },
+      "nativeMemory": {
+        "sampleCount": 21,
+        "sampleSpanSeconds": 19.384434541,
+        "metrics": {
+          "memory-physical-footprint": {
+            "min": 274090088.0,
+            "median": 274122856.0,
+            "max": 274155624.0,
+            "samples": 21
+          },
+          "memory-real": {
+            "min": 318554112.0,
+            "median": 318586880.0,
+            "max": 318668800.0,
+            "samples": 21
+          },
+          "memory-real-private": {
+            "min": 78741504.0,
+            "median": 138559488.0,
+            "max": 199000064.0,
+            "samples": 21
+          },
+          "cpu-percent": {
+            "min": 38.586702562,
+            "median": 39.420873649499995,
+            "max": 41.314236086,
+            "samples": 20
+          },
+          "thread-count": {
+            "min": 42.0,
+            "median": 43.0,
+            "max": 43.0,
+            "samples": 21
+          }
+        }
+      }
+    }
+  }
+}

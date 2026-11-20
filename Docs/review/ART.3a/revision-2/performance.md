@@ -1,0 +1,20 @@
+# Matched model measurement — art78 / R2
+
+VERIFIED: четыре fresh completed runs одной signed binary0.1.0(78), sourceff6a333/runtimef890a51. ART1→L1→L2→L3 последовательно, по3окна30s после5s warmup **перед каждым окном**. По5400interval/positiveCPU/positiveGPU samples на вариант, total21600 каждого. Settings побайтно совпадают по всем полям кроме modelVariant/structural renderer/slot observations. [Raw windows/run/completion/summary и numeric memory](device/matched/), [comparison](device/matched/comparison.json); штатный Scripts/analyze-art2b.py пересчитывает summaries.
+
+Одинаковые iPhone16Pro/iPhone17,1, iOS27.0.1, AppleA18ProGPU/Metal, Unity6000.3.28f1, UnityDevelopmentOFF, XcodeDebug local signing. Mobile_RPAsset renderScale.8000000119, MSAA1, main shadows1024/distance50/cascade1, softOFF, quality0, target60/vsync0, display120Hz. Width2622×1206 и camera/scaledPixel2622×1206 — фактические значения API metadata, не вывод о внутреннем raster resolution. SafeArea186,60,2250,1146. Исходная ArtReference camera/scale/light сохранена. Во всех вариантах controlled SYNTHETIC dense12 с теми же assigned positions/HP, периодическим projectile и frozen Domain; это model microbenchmark, не production wave.
+
+Во время105s sampling каждого запуска: ScreenSharingOFF, native recordingOFF, xctraceOFF; console attached одинаково. После complete — отдельный Activity Monitor20s на том же продолжающемся dense workload, затем PNG. Timing не включает native profiling/capture. Native CSV21numeric samples на вариант (~20s); all-process XML фильтруется существующим exact executable/PID extractor, прочие процессы/идентификаторы не публикуются. CPU utilization Activity Monitor включает profiling overhead и не равен CPU execution frame time.
+
+| Model | Interval ms median/p95/max | CPU frame ms median/p95 | GPU ms median/p95/max | Unity allocated/reserved peak MiB | Native footprint median/max MiB |
+|---|---|---|---|---|---|
+| ART1 | 16.661/17.140/18.349 | 16.661/17.064 | 1.961/2.259/5.371 | 91.82/107.55 | 262.16/262.21 |
+| L1 | 16.669/16.823/24.991 | 16.670/16.789 | 1.798/2.184/2.669 | 91.67/107.49 | 259.56/259.56 |
+| L2 | 16.668/16.828/18.010 | 16.670/16.794 | 1.810/2.213/2.953 | 91.67/107.50 | 259.05/259.05 |
+| L3 | 16.667/16.828/18.310 | 16.669/16.791 | 1.826/2.319/2.871 | 91.89/107.71 | 261.42/261.46 |
+
+В этом коротком matched workload L2/L3 сохраняют pacing около16.67ms и GPU p95≤2.320ms. L1 имеет единичный interval max24.991ms; raw max не скрыт. Различия native memory порядка нескольких MiB и меньшая median GPU у новых вариантов **не доказывают**, что более сложная модель быстрее/дешевле: один последовательный эксперимент, состояние caches/температуры не изолировано, повторная рандомизация/thermal soak вне scope. Числа не превращаются в regression PASS для всего Battle или прежних ART2b guardrails.
+
+Все четыре model roots имеют2Renderer/4potential material submissions (включая mask), palette sharing сохранён. Это metadata structural audit; Unity draw batching/actual per-frame draw calls из этих counts не выводятся. Геометрия новых imported meshes1256/1580/1736tri/2slots; inherited mask/cue passes уже есть в ART1 setup. Все три prefab references находятся в одном art build scene и загружены также при ART1, поэтому total memory включает постоянный общий catalog; это не isolated VRAM delta отдельного prefab.
+
+**NOT AVAILABLE / NOT VERIFIED:** отдельный CPU PlayerLoop execution counter и present/display FPS. Существующий FrameTiming.cpuFrameTime включает pacing, interval — длительность player loop/frame, не чистое время выполнения C# или displayed frame. Нулевые counters analyzer отбрасывает как unavailable (в этих four runs все5400positive каждого CPU/GPU). Actual draw-call/overdraw/VRAM counters не получены; renderer slots и Metal encoder definitions не выдаются за них. Нет production thermal guarantee, long-session memory leak proof, широкого QA54/device matrix или новой render feature. Production77 video/share overhead не используется в этой таблице.

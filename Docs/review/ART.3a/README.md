@@ -1,3 +1,5 @@
+**Текущая revision-2:** [новый L2, native77 и matched78 evidence](revision-2/README.md). Ниже сохранён исторический R1; его device blockers и triangle counts не описывают текущую R2. Проверка текущей поставки: `PYTHONDONTWRITEBYTECODE=1 python3 Docs/review/ART.3a/verify_delivery.py`.
+
 # ART.3a — FLAME L1–L3 / частичный пакет #76
 
 **Draft / Refs #76, Refs #44.** Модели и Battle binding проверены в Editor и в production-profile IL2CPP build76 на физическом iPhone16Pro/iOS27.0.1. Device acceptance частичный: L1→L2→L3/Continue/rollback/Sell подтверждены; сопоставимый performance run, опубликованное видео и полная dense/status matrix ещё не готовы. Это не закрытие #76/#44 и не художественное approval владельца.
