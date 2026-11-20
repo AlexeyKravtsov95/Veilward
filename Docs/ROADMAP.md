@@ -1,5 +1,7 @@
 # VEILWARD — Development Roadmap v0.1
 
+20.11.2026 / #78: ART.3a FLAME принята владельцем merge PR77; ART.3b добавляет только TIDE L1–L3. Следующие ART/VFX/UI/аудио/обучающие пакеты проходят Editor/Play Mode/source/import/roundtrip и независимое review, а physical iPhone video/performance/readability отложены до общей prerelease QA #53/#54/#55. Отсутствие per-family device proof само по себе не блокирует приёмку/закрытие завершённого Editor scope. Родитель #44, остальные семейства, G2 и release остаются отдельными gates; старые записи ниже — исторические статусы.
+
 **Planning assumption:** один сильный AI-разработчик (Kimi K3.1) + человек, который утверждает продуктовые решения и проводит device-тесты + GPT-6 как независимый ревьювер. Оценка 16–24 недели до первой товарной версии при готовности ассетов; с нуля до polished premium-визуала может занять дольше. Это не обязательства по срокам.
 
 ## Decisions / Gates

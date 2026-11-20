@@ -1,5 +1,7 @@
 # VEILWARD — Art Pipeline (подготовительный контракт)
 
+**Порядок device-проверок с 20.11.2026 (#78):** для следующих ART/VFX/UI/аудио/обучающих пакетов физический iPhone подключается на общей prerelease QA #53/#54/#55 перед первой TestFlight. Отдельные per-family native video/matched runs заменены реальными Unity Editor/Play Mode кадрами и коротким видео, полными затронутыми suites, source/import/roundtrip/reference checks и независимым review. Device acceptance обозначается **Deferred to prerelease QA #53/#54/#55**, а не PASS/FAIL. Полностью выполненный Editor/source/Battle scope может быть принят и закрыт после review/owner merge. Исторические реальные ART2b/FLAME device evidence сохраняются; правила ниже описывают исходный pipeline и требования итогового device gate.
+
 Это правила будущей работы, не запуск массового производства. Первый эталонный ассет, окончательные budgets и визуальный стиль утверждаются владельцем после проверки в Unity и на реальном iPhone. Exporter, asset manager и новая render system в этот тикет не входят.
 
 ## Source of truth и форматы

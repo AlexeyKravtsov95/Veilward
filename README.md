@@ -1,5 +1,7 @@
 # VEILWARD: Spirit Defense
 
+ART.3b/#78 выполняется от принятой FLAME линейки PR77: TIDE «Колокол прилива» L1–L3 и общий production FLAME/TIDE model binding. [Спецификация/regressions](Docs/ART3B_TIDE_LEVELS.md). Device Deferred to prerelease QA #53/#54/#55 по решению владельца20.11.2026; текущая приёмка — source/import и реальные Unity Editor/Play Mode проверки. Исторические device evidence прежних пакетов сохраняются; итоговый iPhone performance/readability PASS этим не заявляется.
+
 Unity-проект мобильной tower defense игры для iOS. **Технический P2.3 DONE** после merged [PR #32](https://github.com/AlexeyKravtsov95/Veilward/pull/32), `8128010`: native FLAME/GALE, unlock3/6, schema3/legacy Continue, natural Victory8 обоих стартов и late file/menu/Combat7. [Evidence P2.3e.1](Docs/review/P2.3e.1/validation.md) дополняет сохранённый исторический P2.3e Defeat5. Баланс/G2, device QA и ART approval отдельно открыты.
 
 P2.4a–d merged в PR #65–68; D-01…D-07 приняты владельцем. **P2.4e/#39 — R3 Review:** по разрешённому balance pass выбран boss1000HP/armor5; оба natural starts Victory8, прежние saves/rules сохранены. Editor acceptance и полные suites зелёные; merge/release не выполнялись. [Evidence P2.4e](Docs/review/P2.4e/validation.md), [план #36–40](Docs/P2.4A_IMPLEMENTATION_PLAN.md). M0/device/G2/ART и полная #40 integration matrix — отдельные gates.

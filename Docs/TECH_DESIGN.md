@@ -1,5 +1,7 @@
 # VEILWARD — Technical Design / Architecture v0.1
 
+ART.3b/#78: production `FlameModelBinding` сохраняет GUID/class и прежние serialized FLAME `levels`/`fallbackRenderers`, добавляет `tideLevels`. Это один владелец model/fallback, keyed по definitionId+level; другие типы/неизвестные уровни возвращаются к graybox. Старый model child отключается до deferred Destroy, palette renderers не tint-ятся. Отдельный TIDE builder не пересоздаёт FLAME assets. ShotSource остаётся presentation anchor без изменения Domain coordinates/generic beam. [Контракт и регрессии](ART3B_TIDE_LEVELS.md). Device Deferred to prerelease QA #53/#54/#55 по решению владельца20.11.2026; Editor proof не является iPhone PASS.
+
 ## 1. Stack
 
 - **Unity 6.3 LTS** (конкретный патч закрепить в `ProjectVersion.txt`), C#.
