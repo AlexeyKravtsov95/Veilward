@@ -25,4 +25,10 @@ Place→Upgrade2→Upgrade3→file/menu Continue→Combat rollback→Sell→rest
 
 Риски: FBX localID drift; fallback поверх поддерживаемой модели; cache только по level; palette tint; deferred roots; occlusion HP/Wet; мелкий L2; save proof с незаработанными ресурсами; serialization drift при builders. Проверки привязаны к ART3B-01…06. Общие suites сохраняют исторические goldens/traces/assertions, кроме явно заменённого TIDE fallback контракта.
 
+### R2 — обязательные правки по независимому whole-branch review
+
+На R1 `aaeffdb` за TIDE голова graybox врага перекрывала середину HP-полосы; сохранённая FLAME behind имела полную полосу. ART3B-05 пока не выполнен, это Editor defect. Минимальный delta: поднять существующий HP anchor production Shade над его проекцией головы в исходной Battle camera, сохранив ratio, local anchor semantics, status markers, число passes и shared materials. Исправление затрагивает только graybox HP presentation/builder/prefab и проверяется реальными повторными front/side/behind/dense кадрами плюс regression test по projected bounds. Domain, geometry TIDE/FLAME, здоровье и gameplay coordinates прежние. Это разрешённая необходимость HP cue для читаемости модели, без новой UI/render системы.
+
+R1 video extraction по подстроке ошибочно выбирал L3 из rollback. R2 использует точную stage identity и сохраняет SHA/source-frame provenance каждого PNG pick. После HP delta нужна новая запись и полные gates. R1 screenshots/reports/video остаются историческими в `Docs/review/ART.3b/`; новый пакет — `revision-2/`. Device deferral не переносит и не закрывает этот Editor defect. Final Closes78 только после R2 review.
+
 **Device Deferred to prerelease QA #53/#54/#55** по решению владельца 20.11.2026. Телефон не подключается, native recording/matched benchmark и новые device binaries не создаются. Editor proof не является iPhone performance/readability PASS. Bootstrap→MainMenu→Battle export contract сохраняется. Final водные VFX #47, карта #45, враги #46, UI #48, остальные семейства и родитель #44 отдельно. PR Closes78 при полном Editor/source/Battle scope и приёмке; Refs44; без self-merge/release/TestFlight.

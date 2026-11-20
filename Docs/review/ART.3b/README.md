@@ -1,5 +1,7 @@
 # ART.3b — TIDE «Колокол прилива» L1–L3
 
+**Исторический R1, не принят по ART3B-05.** Whole-branch review `aaeffdb` нашёл закрытую головой середину HP-полосы за TIDE и неверный stage у PNG `video-L3`. Полные R1 suites и source audit ниже действительны для указанных SHA, но не подтверждают полный visual acceptance. Исправления и актуальная проверка — [revision-2](revision-2/README.md). R1 PNG/JSON/MP4 сохраняются без подмены.
+
 Вторая из шести production линеек. Вход: main57cae61/merge77, [spec/regressions](../../ART3B_TIDE_LEVELS.md). FLAME/ART1 и их исторические proofs сохранены. Это Editor/source/Battle пакет для review владельцем; родитель44 и finalVFX47 отдельно.
 
 **VERIFIED:** original editable .blend→FBX→Unity TIDE, один shared binding owner с FLAME, targeted18/18Edit+2/2Play; actual all3 roundtrip geometry/UV/normals/materials/GUID/localIDs/refs; реальные Play Mode кадры и continuous real-time Editor clip. Полные финальные suites и delivery audit — [validation](validation.md), независимые замечания/исправления — [review](review.md).
