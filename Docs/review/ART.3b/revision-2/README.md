@@ -2,7 +2,7 @@
 
 Актуальный пакет после независимого R1 review. [Исторический R1](../README.md) сохранён: его HP behind и дублированный video-L3 не выдаются за исправленный результат. SourceSHA **696dc8ae3cc7799bea586c57d44749163300b06c**; production HP delta8a3bce0. Последующие source изменения — только надёжный Editor capture driver.
 
-Выполнены original TIDE Bell L1–L3, совместный single-owner FLAME/TIDE binding, source/import/regression checks и реальные новые Editor кадры/видео. HP anchor production Shade поднят с localY.85 до2.0, чтобы полоса находилась над проекцией головы и между неперекрывающимися status slots. Новых материалов, passes, моделей или Domain изменений нет. Финальные полные gates и delivery audit записываются в [validation](validation.md), scoped re-review — [review](review.md).
+Выполнены original TIDE Bell L1–L3, совместный single-owner FLAME/TIDE binding, source/import/regression checks и реальные новые Editor кадры/видео. HP anchor production Shade поднят с localY.85 до2.0, чтобы полоса находилась над проекцией головы и между неперекрывающимися status slots. Новых материалов, passes, моделей или Domain изменений нет. **VERIFIED:** Static38/38, EditMode1144/1144, PlayMode79/79,0failed/skipped/inconclusive, roundtrip3/3, clean-checkout verifier и3negativecontrols. Подробности — [validation](validation.md), scoped re-review — [review](review.md).
 
 **Device Deferred to prerelease QA #53/#54/#55**, решение владельца20.11.2026. Editor proof не является iPhone performance/readability PASS. Без self-merge/release/TestFlight; родитель44 и остальные семейства отдельно.
 

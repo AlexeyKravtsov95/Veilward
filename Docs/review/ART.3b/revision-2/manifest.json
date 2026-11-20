@@ -11,7 +11,7 @@
   },
   "sourceInventorySha256": "407bb6bb70ec54d87131b7252ff4da8187837184574054c210e102e36e6828b6",
   "artifacts": {
-    "Docs/review/ART.3b/revision-2/README.md": "a2d2945531f4ce3adccbc8a201f3fe05d9c67003c4dc5714b6743dce8495e88b",
+    "Docs/review/ART.3b/revision-2/README.md": "fce3c905b0bcf29a4508f6bf118936a550f5b853c2d900fe5c650bf62d7d4080",
     "Docs/review/ART.3b/revision-2/commands.md": "6a74fb3a28a99b108a702e40438accb9363e583ecdd133e4c068878eee57fb8a",
     "Docs/review/ART.3b/revision-2/editor-flow.mp4": "7619996eaa1afba9674fa4a21ceefac58b505036b7a3e4fb7a233229fce73b09",
     "Docs/review/ART.3b/revision-2/playmode/01-natural-TIDE-L1.png": "912ec5c7a81848ab82ef394366641f8a61dc8887b4c4e73c47b6b4b44d8ee20e",
@@ -72,6 +72,7 @@
     "Docs/review/ART.3b/revision-2/reports/build-preview.json": "59663100d9ef267a973c8dd0d5c93a9b9df8aeb378c5a1167cd2543fffb05d12",
     "Docs/review/ART.3b/revision-2/reports/compile.json": "2c44db1fc72fdacb496c6666de014e054c671a3e76f075ad61b5b16da601acb2",
     "Docs/review/ART.3b/revision-2/reports/console.txt": "dcde88c3862c0a401803ea97df1063c40532c38cbe8c784e326a29274ec9ec5a",
+    "Docs/review/ART.3b/revision-2/reports/delivery-controls.json": "ce5b50decb75479e40c13ccc44a7d38390b12f9f3e65485ad70cd48dbd84d342",
     "Docs/review/ART.3b/revision-2/reports/edit-mode.json": "7c863f938496c4fa04f06026bbcdc743205820c45c1c56f667cef446f646ca6d",
     "Docs/review/ART.3b/revision-2/reports/hp-pixel-comparison.json": "a79c00d71bad3cc8bb7d5a8342b3772e86a4fde369f8f7c69e192617b4898e8a",
     "Docs/review/ART.3b/revision-2/reports/natural-L1-checkpoint.json": "2ab6aa15df3c8d753a27dfba0da1fb8516fc975bc34000dd45a6c2d092bd82a0",
@@ -100,8 +101,8 @@
     "Docs/review/ART.3b/revision-2/reports/video-sold.json": "4162fa82cbb62db6f4126f91dd71c7c0222df5e5886617f11523f600b760bf67",
     "Docs/review/ART.3b/revision-2/reports/video-source-frames.json": "216d36c25c7b5422a4fb0df67ce4fc7c4f9aa931f0576db2938ab434786156af",
     "Docs/review/ART.3b/revision-2/reports/video.ffconcat": "5f3b24104d372ba3479bcb7330f1637a5cc39da1ca42008ddb126ee3a391b0b5",
-    "Docs/review/ART.3b/revision-2/review.md": "4d8c19832fa2ca2ed0b5af4e2f32994f1333b0c4d780f0eafa0f590f99376c1e",
-    "Docs/review/ART.3b/revision-2/validation.md": "2373d2570548819dbbec090daa6f4ebf5840aecaa479e2923d201176700be3c8",
+    "Docs/review/ART.3b/revision-2/review.md": "5b7277787356e43bbc6f6eabbfcb40addc9c417b80d5b3854664520ab88efd76",
+    "Docs/review/ART.3b/revision-2/validation.md": "428f2e90a179f01b1145737ac7e7f866cd7b5295753961f187b3ee2fb6a23809",
     "Docs/review/ART.3b/revision-2/verify_delivery.py": "23945c43e64180af2aab7bb29acd7b0fc6d41da34c4e127bf6b6f5fd77509d90"
   }
 }

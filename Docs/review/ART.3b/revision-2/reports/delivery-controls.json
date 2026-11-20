@@ -1,0 +1,71 @@
+{
+  "checkout": "/Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/worktrees/art3b-controls",
+  "head": "d27165bd9635fcbef87502f27152c7c4e97f05d7",
+  "readOnlyVerifier": true,
+  "unityRerun": false,
+  "sourceSHA": "696dc8ae3cc7799bea586c57d44749163300b06c",
+  "cases": [
+    {
+      "case": "clean baseline PASS",
+      "command": [
+        "python3",
+        "Docs/review/ART.3b/revision-2/verify_delivery.py"
+      ],
+      "exitCode": 0,
+      "stdout": "PASS ART3B R2: 3001 tested source files, 2534 protected baseline files, 92 tracked artifacts, full suites {'edit-mode': 1144, 'play-mode': 79}, roundtrip3, Editor video/Wet/rollback/Sell. Device Deferred.\n",
+      "stderr": ""
+    },
+    {
+      "case": "untracked file rejected",
+      "command": [
+        "python3",
+        "Docs/review/ART.3b/revision-2/verify_delivery.py"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "FAIL: clean checkout including untracked files required\n"
+    },
+    {
+      "case": "committed foreign C# rejected",
+      "controlCommit": "[detached HEAD 76053fa] test(art): delivery negative source control\n 1 file changed, 1 insertion(+)\n create mode 100644 ArtSource/Review/DeliveryNegativeControl.cs\n",
+      "command": [
+        "python3",
+        "Docs/review/ART.3b/revision-2/verify_delivery.py"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "FAIL: tested source inventory\n"
+    },
+    {
+      "case": "committed artifact tamper rejected",
+      "controlCommit": "[detached HEAD 2d7d956] test(art): delivery negative artifact control\n 1 file changed, 0 insertions(+), 0 deletions(-)\n",
+      "command": [
+        "python3",
+        "Docs/review/ART.3b/revision-2/verify_delivery.py"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "FAIL: artifact digest Docs/review/ART.3b/revision-2/playmode/video-L3.png\n"
+    },
+    {
+      "case": "restored clean PASS",
+      "command": [
+        "python3",
+        "Docs/review/ART.3b/revision-2/verify_delivery.py"
+      ],
+      "exitCode": 0,
+      "stdout": "PASS ART3B R2: 3001 tested source files, 2534 protected baseline files, 92 tracked artifacts, full suites {'edit-mode': 1144, 'play-mode': 79}, roundtrip3, Editor video/Wet/rollback/Sell. Device Deferred.\n",
+      "stderr": ""
+    }
+  ],
+  "finalStatus": {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

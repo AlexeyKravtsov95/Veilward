@@ -35,3 +35,9 @@ Physical iPhone Deferred to prerelease QA #53/#54/#55 по решению вла
 ## Независимая перепроверка visual/evidence R2
 
 Fresh R1 reviewer продолжил scoped re-review final fix wave. Оба P2 ADDRESSED: независимо измерены17green pixels во всех behind, front17/side18; dense и actual Wet/Inspect читаемы. Проверены projected mesh/две glyphslots, builder/prefab anchor согласованы, отсутствие новых passes/materials/Domain. Vendor capture RT/encoder прочитан, все204 raw PNG SHA и6picks сверены со stage/telemetry. L3№68 и rollback№159 различны. FFmpeg decode чист,204PTS, maxошибка0.583ms. Новых code/visual замечаний нет; final Evidence verdict ждёт записанные negative controls.
+
+## VERIFIED — clean checkout и negative controls
+
+В отдельном detached `art3b-controls` наd27165b выполнен plain `python3 .../revision-2/verify_delivery.py`: PASS для3001 source files,2534 protected baseline files,92 R2 artifacts, full suites1144/79, reexport3 и нового video/Wet/rollback/Sell. После verifier `git status --porcelain` пуст, bytecode/изменений не появилось.
+
+Три реальных отрицательных контроля отвергнуты сexit1: untracked file (`clean checkout required`), committed foreign C# (`tested source inventory`), committed append кvideo-L3.png (`artifact digest`). После каждого controls checkout возвращён к исходному detachedHEAD; заключительный verifier сноваPASS, statusclean. Exact command arrays/stdout/stderr/control commits — [delivery-controls.json](reports/delivery-controls.json). Эти временные commits не находятся в PR branch. Unity в controls checkout не запускалась, tests повторно не выдаются за отдельныйrun.

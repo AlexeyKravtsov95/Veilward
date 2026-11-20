@@ -11,3 +11,9 @@ Whole-branch R1 review: fresh GPT-6.2 Astra / High, read-only clean checkout `aa
 Один final fix wave поручен implementation agent. Минимальный HP anchor проверяется projected bounds/двумя status slots и actual pixels; новых passes/materials/Domain или изменений моделей нет. R2 требует новой записи, full gates, exactsource/artifact manifests, negative controls и scoped re-review. R1 data остаётся исторической.
 
 Финальный verdict R2 будет записан после исполнения проверок. Owner ART approval/merge/release отдельно; physical iPhone Deferred QA53/54/55.
+
+## Scoped R2 source/visual review — промежуточный результат
+
+На696dc8a reviewer независимо закрыл оба P2: completeHP за всеми3TIDE, green17px/front17/side18, dense иactualWet/Inspect. Shader/material/pass/Domain delta отсутствует; anchor согласован в builder/prefab, regression читает mesh/glyphbounds. Exact source PNG204 SHA/6picks/stages/telemetry сверены; L3№68 иrollback№159 разные, decodeFFmpeg чист,204PTS/maxошибка0.583ms. Прочитан vendorGameViewRT/encoder; новых runtime dependencies нет. Новых code/visual замечаний нет.
+
+Root после этого получил fullEdit1144/1144,Play79/79,Static38 иactual3roundtrip/canonicalreadback. P3 закрыт выполненными clean/negative controls (reports/delivery-controls.json); финальное независимое подтверждение этого report будет добавлено после review.
