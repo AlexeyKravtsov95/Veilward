@@ -30,6 +30,16 @@ namespace Veilward.Tests.PlayMode
         private BattleSceneController Battle => Object.FindFirstObjectByType<BattleSceneController>();
         private static void Call(object target, string method) => target.GetType().GetMethod(method, Flags).Invoke(target, null);
 
+        private object _gameView;
+        private PropertyInfo _gameViewSizeProperty;
+        private int _previousGameViewSize = -1;
+
+        [OneTimeSetUp] public void BeginConsoleReport()
+        {
+            Directory.CreateDirectory(Output);
+            File.WriteAllText(Output + "/console.txt", string.Empty);
+        }
+
         [SetUp] public void Setup()
         {
             _root = Path.GetFullPath(Path.Combine("TestResults", "Art3bSaves", Guid.NewGuid().ToString("N")));
@@ -49,7 +59,11 @@ namespace Veilward.Tests.PlayMode
             UnityEngine.Application.logMessageReceived -= Log;
             Directory.CreateDirectory(Output);
             File.WriteAllLines(Output + "/" + (TestContext.CurrentContext.Test.Name.StartsWith("Art3B04") ? "natural-trace" : "binding-trace") + ".txt", _trace);
-            File.WriteAllLines(Output + "/console.txt", _console);
+            var testName = TestContext.CurrentContext.Test.Name;
+            File.WriteAllLines(Output + "/" + testName + ".console.txt", _console);
+            File.AppendAllLines(Output + "/console.txt", new[] { "BEGIN|" + testName }
+                .Concat(_console).Concat(new[] { "END|" + testName }));
+            RestoreGameView();
             MainMenuController.CheckpointStoreFactory = null; BattleSessionContext.Clear();
             yield return SceneManager.LoadSceneAsync("Battle"); yield return null;
             if (Directory.Exists(_root)) Directory.Delete(_root, true);
@@ -259,18 +273,46 @@ namespace Veilward.Tests.PlayMode
             var rect = text.rectTransform; rect.anchorMin = rect.anchorMax = new Vector2(.5f, 0); rect.pivot = new Vector2(.5f, 0);
             rect.anchoredPosition = new Vector2(0, 4); rect.sizeDelta = new Vector2(1500, 30);
         }
-        private static void ConfigureGameView()
+        private void ConfigureGameView()
         {
 #if UNITY_EDITOR
             var assembly = typeof(UnityEditor.Editor).Assembly; var type = assembly.GetType("UnityEditor.GameViewSizes");
             var sizes = typeof(UnityEditor.ScriptableSingleton<>).MakeGenericType(type).GetProperty("instance").GetValue(null);
             var group = type.GetMethod("GetGroup").Invoke(sizes, new[] { type.GetProperty("currentGroupType").GetValue(sizes) });
-            var kind = Enum.Parse(assembly.GetType("UnityEditor.GameViewSizeType"), "FixedResolution");
-            var size = Activator.CreateInstance(assembly.GetType("UnityEditor.GameViewSize"), new object[] { kind, 1600, 900, "ART3b evidence" });
-            group.GetType().GetMethod("AddCustomSize").Invoke(group, new[] { size });
-            var view = UnityEditor.EditorWindow.GetWindow(assembly.GetType("UnityEditor.GameView"));
-            view.GetType().GetProperty("selectedSizeIndex", Flags | BindingFlags.Public).SetValue(view, (int)group.GetType().GetMethod("GetTotalCount").Invoke(group, null)-1); view.Focus();
+            _gameView = UnityEditor.EditorWindow.GetWindow(assembly.GetType("UnityEditor.GameView"));
+            _gameViewSizeProperty = _gameView.GetType().GetProperty("selectedSizeIndex", Flags | BindingFlags.Public);
+            _previousGameViewSize = (int)_gameViewSizeProperty.GetValue(_gameView);
+            var count = (int)group.GetType().GetMethod("GetTotalCount").Invoke(group, null);
+            var selected = -1;
+            for (var i = 0; i < count; i++)
+            {
+                var candidate = group.GetType().GetMethod("GetGameViewSize").Invoke(group, new object[] { i });
+                var candidateType = candidate.GetType();
+                if ((string)candidateType.GetProperty("baseText").GetValue(candidate) == "ART3b evidence" &&
+                    (int)candidateType.GetProperty("width").GetValue(candidate) == 1600 &&
+                    (int)candidateType.GetProperty("height").GetValue(candidate) == 900)
+                { selected = i; break; }
+            }
+            if (selected < 0)
+            {
+                var kind = Enum.Parse(assembly.GetType("UnityEditor.GameViewSizeType"), "FixedResolution");
+                var size = Activator.CreateInstance(assembly.GetType("UnityEditor.GameViewSize"), new object[] { kind, 1600, 900, "ART3b evidence" });
+                group.GetType().GetMethod("AddCustomSize").Invoke(group, new[] { size });
+                selected = count;
+            }
+            _gameViewSizeProperty.SetValue(_gameView, selected);
+            ((UnityEditor.EditorWindow)_gameView).Focus();
 #endif
         }
+        private void RestoreGameView()
+        {
+#if UNITY_EDITOR
+            if (_gameView != null && _previousGameViewSize >= 0)
+                _gameViewSizeProperty.SetValue(_gameView, _previousGameViewSize);
+            _gameView = null;
+            _previousGameViewSize = -1;
+#endif
+        }
+
     }
 }

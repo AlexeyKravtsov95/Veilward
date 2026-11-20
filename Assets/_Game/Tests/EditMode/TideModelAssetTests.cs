@@ -74,15 +74,15 @@ namespace Veilward.Tests.EditMode
                 .Select(asset => { Assert.That(AssetDatabase.TryGetGUIDAndLocalFileIdentifier(asset, out string guid, out long id), Is.True);
                     return guid + ":" + id + ":" + asset.name; }).OrderBy(id => id).ToArray();
             var refs = References();
-            TideModelBuilder.Build(); TideModelBuilder.Build();
-            CollectionAssert.AreEqual(refs, References());
-            CollectionAssert.AreEqual(hashes, protectedPaths.Select(Hash));
-            var root = Tower();
-            try
+            var outputPaths = Enumerable.Range(1, 3).SelectMany(level => new[] {
+                TideModelBuilder.ModelFolder + "Tower_TideBellL" + level + ".fbx",
+                TideModelBuilder.ModelFolder + "Tower_TideBellL" + level + ".fbx.meta",
+                TideModelBuilder.PrefabPath(level), TideModelBuilder.PrefabPath(level) + ".meta" })
+                .Concat(new[] { "Assets/_Game/Prefabs/TestTower.prefab", "Assets/_Game/Prefabs/TestTower.prefab.meta" });
+            var before = outputPaths.ToDictionary(path => path, File.ReadAllBytes);
+            void AssertBindings(FlameModelBinding binding)
             {
-                var binding = root.GetComponent<FlameModelBinding>();
-                Assert.That(binding.Apply(new TowerDefinitionId("tide"), 1), Is.True);
-                TideModelBuilder.Bind(root); FlameModelBuilder.Bind(root); TideModelBuilder.Bind(root);
+                Assert.That(binding, Is.Not.Null);
                 var serialized = new SerializedObject(binding);
                 foreach (var field in new[] { "levels", "tideLevels" })
                 {
@@ -91,13 +91,43 @@ namespace Veilward.Tests.EditMode
                         Assert.That(AssetDatabase.GetAssetPath(array.GetArrayElementAtIndex(i).objectReferenceValue),
                             Is.EqualTo(field == "levels" ? FlameModelBuilder.PrefabPath(i + 1) : TideModelBuilder.PrefabPath(i + 1)));
                 }
-                Assert.That(serialized.FindProperty("fallbackRenderers").arraySize, Is.EqualTo(2));
-                Assert.That(binding.Apply(new TowerDefinitionId("flame"), 1), Is.True);
-                Assert.That(binding.Apply(new TowerDefinitionId("tide"), 1), Is.True);
-                Assert.That(root.GetComponents<FlameModelBinding>().Length, Is.EqualTo(1));
-                Assert.That(root.transform.Find("Foundation").GetComponent<Renderer>().enabled, Is.False);
+                var fallback = serialized.FindProperty("fallbackRenderers");
+                Assert.That(fallback.arraySize, Is.EqualTo(2));
+                CollectionAssert.AreEquivalent(new[] {
+                    binding.transform.Find("Foundation").GetComponent<Renderer>(),
+                    binding.transform.Find("Spirit").GetComponent<Renderer>() },
+                    Enumerable.Range(0, fallback.arraySize).Select(i => fallback.GetArrayElementAtIndex(i).objectReferenceValue));
             }
-            finally { Object.DestroyImmediate(root); }
+            try
+            {
+                // Проверяем authored refs до Build: тест не должен сначала чинить повреждённый prefab.
+                AssertBindings(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/TestTower.prefab")
+                    .GetComponent<FlameModelBinding>());
+                TideModelBuilder.Build(); TideModelBuilder.Build();
+                CollectionAssert.AreEqual(refs, References());
+                CollectionAssert.AreEqual(hashes, protectedPaths.Select(Hash));
+                var root = Tower();
+                try
+                {
+                    var binding = root.GetComponent<FlameModelBinding>();
+                    AssertBindings(binding);
+                    Assert.That(binding.Apply(new TowerDefinitionId("tide"), 1), Is.True);
+                    TideModelBuilder.Bind(root); FlameModelBuilder.Bind(root); TideModelBuilder.Bind(root);
+                    AssertBindings(binding);
+                    Assert.That(binding.Apply(new TowerDefinitionId("flame"), 1), Is.True);
+                    Assert.That(binding.Apply(new TowerDefinitionId("tide"), 1), Is.True);
+                    Assert.That(root.GetComponents<FlameModelBinding>().Length, Is.EqualTo(1));
+                    Assert.That(root.transform.Find("Foundation").GetComponent<Renderer>().enabled, Is.False);
+                }
+                finally { Object.DestroyImmediate(root); }
+            }
+            finally
+            {
+                // Включает первый Build и failed assertions; remap .meta и authored prefab bytes возвращаются точно.
+                foreach (var pair in before) File.WriteAllBytes(pair.Key, pair.Value);
+                AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
+                foreach (var pair in before) CollectionAssert.AreEqual(pair.Value, File.ReadAllBytes(pair.Key), pair.Key);
+            }
         }
 
         [Test]
