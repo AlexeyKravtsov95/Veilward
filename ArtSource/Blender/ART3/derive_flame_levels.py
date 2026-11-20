@@ -6,6 +6,7 @@ import bpy
 import bmesh
 import json
 import math
+import sys
 from pathlib import Path
 from mathutils import Vector
 
@@ -45,7 +46,10 @@ def cone(name, position, r1, r2, depth, tone, glow=False):
     return finish(obj, tone, glow)
 
 
-for level in range(1, 4):
+# Выбор уровней позволяет дорабатывать L2/L3, сохраняя принятую L1 побайтно.
+levels = [int(v) for v in sys.argv[sys.argv.index('--')+1:]] if '--' in sys.argv else [1, 2, 3]
+assert levels and all(level in (1, 2, 3) for level in levels)
+for level in levels:
     bpy.ops.wm.open_mainfile(filepath=str(BASELINE))
     base = bpy.data.objects['Tower_FlameLantern']
     parts = [base]
@@ -53,13 +57,18 @@ for level in range(1, 4):
     for x in (-.29, .29):
         beam('HearthBinding', (x, -.29, .36), (x, .29, .36), .028, 9)
     if level >= 2:
-        # Боковые открытые рёбра/чаши, просвет перед ядром сохраняется.
+        # Крупные диагональные кронштейны раскрывают силуэт поперёк Battle camera.
+        # Две чаши вынесены из корпуса, но остаются внутри исходного footprint.
         for side in (-1, 1):
-            x = side * .33
-            beam('BronzeFlyingRib', (side*.28, 0, .43), (x, 0, 1.24), .065, 8)
-            beam('RibReturn', (x, 0, 1.24), (side*.27, 0, 1.57), .055, 9)
-            cone('SideBrazier', (x, 0, .91), .10, .13, .12, 8)
-            cone('SideEmber', (x, 0, 1.07), .09, .015, .25, 15, True)
+            x, y = side * .285, -side * .285
+            outer = side * .405
+            beam('BronzeFlyingRib', (side*.20, -side*.20, .40), (outer, -outer, .93), .085, 8)
+            beam('BrazierPillar', (outer, -outer, .93), (outer, -outer, 1.48), .075, 9)
+            beam('RibReturn', (outer, -outer, 1.48), (side*.21, -side*.21, 1.67), .075, 8)
+            cone('SideBrazierFoot', (x, y, 1.02), .095, .07, .14, 9)
+            cone('SideBrazier', (x, y, 1.18), .075, .18, .24, 8)
+            cone('SideBrazierRim', (x, y, 1.31), .185, .185, .055, 9)
+            cone('SideEmber', (x, y, 1.50), .135, .015, .38, 15, True)
         # Сильная форма нижней чаши вместо изменения общей яркости.
         cone('RaisedHearth', (0, 0, .49), .31, .26, .14, 9)
     if level == 3:

@@ -24,3 +24,13 @@
 ## Локальная правка по первому visual probe
 
 Первый synthetic behind probe выявил скрытый корпус graybox врага. Используется уже проверенный #73 stencil mask/cue: один mask renderer на модели FLAME; body и две HP-плоскости врага получают overlay только в пикселях маски, где они скрыты башней. Обычный body/color/HP ratio/anchor/status прежние; HP cue следует той же fill transform, два маленьких material assets сохраняют исходные background/fill colors. Нет нового shader/render feature, анимации, масштаба или изменения gameplay. Это три дополнительных presentation passes на враге и один на FLAME; их фактическая device стоимость остаётся NOT VERIFIED до physical proof. REG ART3A-05 дополняется проверкой idempotent mesh sharing и ratio/цвета HP cue. Final VFX отдельно #47.
+
+## Доработка R2 после независимого review #76 (20.11.2026)
+
+Вход: PR77 reviewed head31369a2. Ранее L2 имел недостаточно крупное отличие от L1; существующие device кадры/память остаются историческим PARTIAL evidence.
+
+Узкий delta: открытые диагональные бронзовые кронштейны и две крупные чаши в средней части L2, унаследованные L3; L1 и принятый ART1 не меняются. Максимальные XY±.47m/крыша/ground/scale/shared palette и budgets прежние. Geometry regression дополнительно проверяет раскрытие средней конструкции в проекции игровой камеры; реальная визуальная приёмка отдельно, числовой extent её не заменяет.
+
+Для сопоставимой стоимости — существующий art-reference profile и ArtDeviceProbe sampling5s+30s×3; явный selector ART1/L1/L2/L3, одинаковые camera/quality/12enemy dense+projectile/ScreenSharingOFF. Ссылки на production prefabs внедряются только в build scene ArtReference; saved scene и production Bootstrap→MainMenu→Battle contract сохраняются. Новых ресурсов/пакетов/Domain/save fields нет. Regression: пустой selector сохраняет ART1, unknown selector отклонён, три prefab refs присутствуют только в art build scene, единственный tower model без дублей/повторного mask, measurement metadata фиксирует вариант и structural renderer/slots. Существующие raw CPU/playerloop/GPU/Unity memory samples сохраняются,0counters не становятся измерениями; native memory собирается одинаково отдельным инструментом с раскрытым overhead.
+
+Evidence R2 хранится отдельно в review/ART.3a/revision-2. Сопоставимые singles/lineup/occlusion перед сборкой, затем полные EditMode/PlayMode и source roundtrip. На iPhone: естественный earned Upgrade L1→L2→L3 и advancing combat на непрерывном native video; front/side/behind/dense probes явно synthetic, actual Battle HP/status/inspect отдельно. Transfer failure должен оставлять точную диагностику и незакрытый gate. После конечного source — manifest/verifier/чистый checkout/независимый review; PR77 остаётся Refs76/44 до принятия.

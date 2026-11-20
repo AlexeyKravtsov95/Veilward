@@ -11,7 +11,7 @@ using Veilward.Infrastructure;
 
 public static class CaptureArt3a
 {
-    private const string Output = "Docs/review/ART.3a/playmode/";
+    private const string Output = "Docs/review/ART.3a/revision-2/playmode/";
     public static string PrepareMotion()
     {
         if (!EditorApplication.isPlaying) throw new InvalidOperationException("Play Mode required.");

@@ -22,6 +22,34 @@ namespace Veilward.Tests.EditMode
             IosBuild.ValidateProject();
         }
 
+        [Test]
+        public void Art3A_BuildSceneModelReferencesAreIsolatedAndIdempotent()
+        {
+            const string path = "Assets/_Game/Scenes/ArtReference.unity";
+            var before = System.IO.File.ReadAllBytes(path);
+            var scene = UnityEditor.SceneManagement.EditorSceneManager.NewPreviewScene();
+            try
+            {
+                scene.name = "ArtReference";
+                var root = new UnityEngine.GameObject("Build-only showcase");
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(root, scene);
+                root.AddComponent<Veilward.Presentation.ArtReferenceShowcase>();
+                FlameArtProfileSceneProcessor.Configure(scene);
+                FlameArtProfileSceneProcessor.Configure(scene);
+                var probes = root.GetComponents<Veilward.Presentation.ArtDeviceProbe>();
+                Assert.That(probes.Length, Is.EqualTo(1));
+                var references = new UnityEditor.SerializedObject(probes[0]).FindProperty("flameLevelPrefabs");
+                Assert.That(references.arraySize, Is.EqualTo(3));
+                for (var i = 0; i < 3; i++)
+                    Assert.That(UnityEditor.AssetDatabase.GetAssetPath(references.GetArrayElementAtIndex(i).objectReferenceValue),
+                        Is.EqualTo(FlameModelBuilder.PrefabPath(i + 1)));
+                scene.name = "Battle";
+                Assert.Throws<InvalidOperationException>(() => FlameArtProfileSceneProcessor.Configure(scene));
+                CollectionAssert.AreEqual(before, System.IO.File.ReadAllBytes(path));
+            }
+            finally { UnityEditor.SceneManagement.EditorSceneManager.ClosePreviewScene(scene); }
+        }
+
         [TestCase("0.1.0", "42")]
         [TestCase("9999.99.99", "9999")]
         public void AcceptsExplicitVersion(string version, string number) => IosBuild.ValidateVersion(version, number);

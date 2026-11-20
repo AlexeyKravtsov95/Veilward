@@ -10,6 +10,21 @@ namespace Veilward.Tests.EditMode
 {
     public sealed class FlameModelAssetTests
     {
+        [TestCase(2)] [TestCase(3)]
+        public void Art3A_R2_OpenBrazierFrameExpandsAcrossGameplayCamera(int level)
+        {
+            float MiddleWidth(int index)
+            {
+                var mesh = AssetDatabase.LoadAssetAtPath<GameObject>(FlameModelBuilder.ModelFolder + "Tower_FlameLanternL" + index + ".fbx")
+                    .GetComponentInChildren<MeshFilter>().sharedMesh;
+                var projected = mesh.vertices.Where(p => p.y >= .8f && p.y <= 1.65f)
+                    .Select(p => (p.x - p.z) / Mathf.Sqrt(2)).ToArray();
+                return projected.Max() - projected.Min();
+            }
+            // Не заменяет visual acceptance: ловит раму, случайно развёрнутую вдоль глубины камеры.
+            Assert.That(MiddleWidth(level), Is.GreaterThanOrEqualTo(MiddleWidth(1) * 1.3f));
+        }
+
         [TestCase(1)] [TestCase(2)] [TestCase(3)]
         public void Art3A01_ModelImportPreservesBudgetsGroundAndPalette(int level)
         {

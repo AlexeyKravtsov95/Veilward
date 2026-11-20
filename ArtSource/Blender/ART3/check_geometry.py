@@ -30,7 +30,11 @@ for level in (1, 2, 3):
         mesh.vertices[t.vertices[2]].co-mesh.vertices[t.vertices[0]].co).length < 1e-10 for t in mesh.loop_triangles)
     assert abs(bounds[2][0]) < 1e-6
     assert max(abs(x) for axis in bounds[:2] for x in axis) <= .471
-    records.append(dict(level=level, source=str((FOLDER/(name+'.blend')).relative_to(ROOT)),
+    middle = [(v.co.x-v.co.y)/2**.5 for v in mesh.vertices if .8 <= v.co.z <= 1.65]
+    middle_width = max(middle)-min(middle)
+    if level >= 2:
+        assert middle_width >= 1.15, "L2 open frame must expand across the gameplay camera, not along its depth"
+    records.append(dict(level=level, middleProjectedWidth=middle_width, source=str((FOLDER/(name+'.blend')).relative_to(ROOT)),
         fbx='Assets/_Game/Art/Models/ART3/'+name+'.fbx', vertices=len(mesh.vertices),
         triangles=len(mesh.loop_triangles), materialSlots=len(mesh.materials), bounds=bounds,
         degenerateTessellationTriangles=zero_triangles, nondegenerateTriangles=len(mesh.loop_triangles)-zero_triangles,

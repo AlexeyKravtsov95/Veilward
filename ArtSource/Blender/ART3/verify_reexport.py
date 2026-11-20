@@ -53,7 +53,7 @@ for source in sorted(Path(__file__).parent.glob('*.blend')):
 after = snapshot()
 if before != after:
     raise RuntimeError('Roundtrip changed imported geometry/GUID/local IDs/references/serialized bytes')
-output = ROOT/'Docs/review/ART.3a/reports'
+output = ROOT/'Docs/review/ART.3a/revision-2/reports'
 output.mkdir(parents=True, exist_ok=True)
 for name, data in (('reexport-before.json', before), ('reexport-after.json', after)):
     (output/name).write_text(json.dumps(data, indent=2)+'\n')
