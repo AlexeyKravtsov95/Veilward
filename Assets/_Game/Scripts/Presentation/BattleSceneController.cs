@@ -522,7 +522,10 @@ namespace Veilward.Presentation
                 if (UnityEngine.Application.isPlaying) Destroy(view.Transform.gameObject); else DestroyImmediate(view.Transform.gameObject);
             _enemyViews.Clear();
             foreach (var view in _towerViews.Values)
+            {
+                view.gameObject.SetActive(false);
                 if (UnityEngine.Application.isPlaying) Destroy(view.gameObject); else DestroyImmediate(view.gameObject);
+            }
             _towerViews.Clear(); _towerViewLevels.Clear();
             if (enemyInspector != null) enemyInspector.ClearSelection();
             if (placementController != null) placementController.ClearSelection();
@@ -575,6 +578,7 @@ namespace Veilward.Presentation
             {
                 var towerId = _staleTowerIds[index];
                 var staleView = _towerViews[towerId].gameObject;
+                staleView.SetActive(false);
                 if (UnityEngine.Application.isPlaying)
                 {
                     Destroy(staleView);

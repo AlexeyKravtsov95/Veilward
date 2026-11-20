@@ -74,6 +74,8 @@ namespace Veilward.Presentation
 
         public static void ApplyVisual(Transform view, TowerDefinition definition, int level)
         {
+            var model = view.GetComponent<FlameModelBinding>();
+            if (model != null && model.Apply(definition.Id, level)) return;
             // PropertyBlock не создаёт копии material assets; footprint сохраняется при Upgrade.
             var color = new Color(0.95f, 0.7f, 0.2f);
             switch (definition.StatusEffect?.Kind)
