@@ -1,0 +1,16 @@
+{
+  "positiveCleanCheckout": "PASS: 2774 source / 2270 protected / 51 artifacts",
+  "negativeControls": [
+    {
+      "control": "untracked extra runtime source rejected",
+      "exitCode": 1,
+      "output": "FAIL: clean checkout required (including untracked files)"
+    },
+    {
+      "control": "clean committed extra runtime source rejected",
+      "exitCode": 1,
+      "output": "FAIL: current source inventory differs from tested source"
+    }
+  ],
+  "checkoutRestoredClean": true
+}

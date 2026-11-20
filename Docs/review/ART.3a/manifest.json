@@ -43,6 +43,7 @@
     "Docs/review/ART.3a/playmode/single-L3.png": "4febece1a3ef2f9cce1390953332963a15bf6877a533d94e768b457986b0507e",
     "Docs/review/ART.3a/reports/compile.json": "53a3cef4d1f9bc6c7bc96c71797a6a350137a33edcc91b46b052ba570deb4224",
     "Docs/review/ART.3a/reports/console.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Docs/review/ART.3a/reports/delivery-controls.json": "17501b8b46b5512aadd486cbaa65bec13c1e59f14ed0e50f93be83755f57f937",
     "Docs/review/ART.3a/reports/device-availability.json": "d0464fce62e0e42e056decc68889ad2b389a26d605981af9a4ffc7d8f8515234",
     "Docs/review/ART.3a/reports/edit-mode.json": "3597d55a30aca55717da2ed688b4be776483854acbeaad649d6b3055e323bfca",
     "Docs/review/ART.3a/reports/motion-console.json": "8843e977049c3a9e78de324ed01098d89201f3f75390bedf07ef8d96181c0bf6",
@@ -52,8 +53,8 @@
     "Docs/review/ART.3a/reports/reexport-after.json": "a441eea01751096001f840eb733303b94d3b71a2be68f5c7fbf0ec2300e48e7b",
     "Docs/review/ART.3a/reports/reexport-before.json": "a441eea01751096001f840eb733303b94d3b71a2be68f5c7fbf0ec2300e48e7b",
     "Docs/review/ART.3a/reports/static.txt": "b8a3f1c6e4c46638c84b9ce828bed71b05c101804853769c708155ba3a72cd35",
-    "Docs/review/ART.3a/review.md": "5f244c0dd50f4deec4204fb0a89034c698e8fa149d7f8c3cba371fee05ab4137",
-    "Docs/review/ART.3a/validation.md": "cbca89944197c4220be7865b5810b0813705272e72250b30eeb510b5e09568ed",
+    "Docs/review/ART.3a/review.md": "0efa4c04721663a3fea9f1e6c38a5baf20aebd3a3d05aad5f6ae437722426c82",
+    "Docs/review/ART.3a/validation.md": "32c085b0539e4d337ea7e74709b14bcf1c9a9e174ec897021dbbb3cdc4822ed6",
     "Docs/review/ART.3a/verify_delivery.py": "dbfe8f83aecc55370bca9380b2a7429eb416c34dc05a1d39646c376d7aadfa3a"
   }
 }
