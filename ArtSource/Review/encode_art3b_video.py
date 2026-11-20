@@ -68,7 +68,7 @@ def main():
     proof = dict(sourceFrames=len(rows), outputFrames=len(pts), firstPts=pts[0], lastPts=pts[-1],
                  sourceFirstElapsed=float(rows[0][1]), sourceLastElapsed=float(rows[-1][1]),
                  speed=1, splices=0, resolution=[1600, 900], editor=True, device=False,
-                 source='actual ScreenCapture composited GameView frames, variable real-time capture intervals',
+                 source='actual Pipeline capture game_view composited render-target frames, variable real-time capture intervals',
                  limitation='Capture/encoding overhead is not a performance benchmark. Sparse captured frames are not native display presentation timing.',
                  command=command, outputSha256=hashlib.sha256((OUTPUT / 'editor-flow.mp4').read_bytes()).hexdigest())
     # PNG не перерисовываются; проверяем exact stage и SHA исходного и скопированного кадра.

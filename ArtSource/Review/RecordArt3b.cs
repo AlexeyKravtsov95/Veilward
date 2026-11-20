@@ -29,6 +29,7 @@ public sealed class Art3bEditorRecording : MonoBehaviour
     private int _number;
     private TowerId _id;
     private GridCoordinate _cell;
+    private System.Reflection.MethodInfo _encodeFrame, _prepareView;
     private BattleSceneController Battle => UnityEngine.Object.FindFirstObjectByType<BattleSceneController>();
 
     public static string BeginRecording()
@@ -44,7 +45,14 @@ public sealed class Art3bEditorRecording : MonoBehaviour
 
     private void Begin()
     {
-        Require(Screen.width==1600&&Screen.height==900,"Configure the actual GameView1600x900 before starting the flow.");
+        // ScreenCapture/Screen.width в unfocused Editor могут читать SceneView/backbuffer.
+        // Используем тот же composited GameView RT и encoder, что установленная capture game_view.
+        var captureType=AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.Capture.CaptureCommands")).FirstOrDefault(t=>t!=null);
+        Require(captureType!=null,"Installed Pipeline capture implementation required.");
+        var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic;
+        _encodeFrame=captureType.GetMethod("EncodeScreenToPng",flags);_prepareView=captureType.GetMethod("PrepareGameView",flags);
+        var target=(RenderTexture)captureType.GetMethod("GetGameViewTargetTexture",flags).Invoke(null,new object[]{false});
+        Require(target!=null&&target.width==1600&&target.height==900&&_encodeFrame!=null&&_prepareView!=null,"Actual composited GameView1600x900 required before flow.");
         Directory.CreateDirectory(Frames); Directory.CreateDirectory(Reports);
         if (Directory.GetFiles(Frames, "*.png").Length != 0)
             throw new InvalidOperationException("Use an empty task-owned video-frames directory.");
@@ -95,10 +103,10 @@ public sealed class Art3bEditorRecording : MonoBehaviour
             _rows.Add(string.Join("|",_number,now.ToString("R",System.Globalization.CultureInfo.InvariantCulture),Time.frameCount,
                 _stage,s!=null?s.State.Tick.ToString():"",s!=null?s.State.Gold.ToString():"",s!=null?s.State.BaseHealth.ToString():"",
                 s!=null?s.State.Kills.ToString():"",s!=null?s.State.Enemies.Count.ToString():"",wet,towers));
-            var pixels=ScreenCapture.CaptureScreenshotAsTexture();
-            Require(pixels.width==1600&&pixels.height==900,"GameView1600x900 required");
-            File.WriteAllBytes(Frames+_number.ToString("D5")+".png",pixels.EncodeToPNG());
-            Destroy(pixels); _number++;next=now+.1;
+            _prepareView.Invoke(null,null);
+            var pixels=(byte[])_encodeFrame.Invoke(null,new object[]{1600,900});
+            File.WriteAllBytes(Frames+_number.ToString("D5")+".png",pixels);
+            _number++;next=now+.1;
         }
     }
 
