@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using NUnit.Framework;
 using Veilward.Editor;
 
@@ -8,6 +9,18 @@ namespace Veilward.Tests.EditMode
     {
         [Test]
         public void SavedProjectHasProductionBuildContract() => IosBuild.ValidateProject();
+
+        [Test]
+        public void ArtProfilePreservesProductionAndReportsActualSavedScenario()
+        {
+            IosBuild.ValidateProject();
+            var before = UnityEditor.EditorBuildSettings.scenes.Select(s => s.path + ":" + s.enabled).ToArray();
+            Assert.That(IosBuild.ValidateArtReference().ScenarioContentId, Is.EqualTo("legacy-single-wave-v1"));
+            CollectionAssert.AreEqual(new[] { "Assets/_Game/Scenes/ArtReference.unity" }, IosBuild.BuildScenes(true));
+            CollectionAssert.AreEqual(new[] { "Assets/_Game/Scenes/Bootstrap.unity", "Assets/_Game/Scenes/MainMenu.unity", "Assets/_Game/Scenes/Battle.unity" }, IosBuild.BuildScenes(false));
+            CollectionAssert.AreEqual(before, UnityEditor.EditorBuildSettings.scenes.Select(s => s.path + ":" + s.enabled).ToArray());
+            IosBuild.ValidateProject();
+        }
 
         [TestCase("0.1.0", "42")]
         [TestCase("9999.99.99", "9999")]

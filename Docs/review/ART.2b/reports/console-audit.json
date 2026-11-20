@@ -1,0 +1,23 @@
+{
+  "scope": "Captured stdout of the three instrumented physical-player sampling sessions only; not full iOS unified log; later front/side/video separately scoped; intentional terminate-existing/signals are not gameplay exceptions",
+  "sessions": {
+    "normal": {
+      "lines": 118,
+      "unexpectedGameplayExceptionLines": [],
+      "completedWindows": 3,
+      "complete": true
+    },
+    "behind": {
+      "lines": 118,
+      "unexpectedGameplayExceptionLines": [],
+      "completedWindows": 3,
+      "complete": true
+    },
+    "dense": {
+      "lines": 118,
+      "unexpectedGameplayExceptionLines": [],
+      "completedWindows": 3,
+      "complete": true
+    }
+  }
+}

@@ -19,6 +19,168 @@ namespace Veilward.Tests.PlayMode
             yield return null;
         }
 
+        [Test]
+        public void DeviceProbeRequiresArtSceneAndExplicitArgument()
+        {
+            Assert.That(ArtDeviceProbe.ShouldAttach("ArtReference", new[] { "app", "-art2b", "normal" }), Is.True);
+            Assert.That(ArtDeviceProbe.ShouldAttach("Battle", new[] { "app", "-art2b", "dense" }), Is.False);
+            Assert.That(ArtDeviceProbe.ShouldAttach("ArtReference", new[] { "app" }), Is.False);
+        }
+
+        [Test]
+        public void DeviceArtProfileReceiptActivatesWhenIosOmitsManagedArguments()
+        {
+            var empty = new[] { "app" };
+            CollectionAssert.AreEqual(empty, ArtDeviceProbe.ResolveLaunchArguments(empty, "dense", false));
+            var resolved = ArtDeviceProbe.ResolveLaunchArguments(empty, "dense", true);
+            Assert.That(ArtDeviceProbe.ShouldAttach("ArtReference", resolved), Is.True);
+            Assert.That(ArtDeviceProbe.ShouldAttach("Battle", resolved), Is.False);
+            Assert.That(resolved[2], Is.EqualTo("dense"));
+            Assert.That(ArtDeviceProbe.ResolveLaunchArguments(empty, null, true)[2], Is.EqualTo("normal"));
+            Assert.Throws<System.ArgumentException>(() => ArtDeviceProbe.ResolveLaunchArguments(empty, "unknown", true));
+        }
+
+        [UnityTest]
+        public IEnumerator DeviceSyntheticProbeLeavesDomainUntouchedAndCleansUp()
+        {
+            yield return Load();
+            var s = Object.FindFirstObjectByType<ArtReferenceShowcase>();
+            s.SetPaused(true);
+            var tick = s.Simulation.State.Tick;
+            var gold = s.Simulation.State.Gold;
+            var probe = s.gameObject.AddComponent<ArtDeviceProbe>();
+            probe.Initialize(s);
+            probe.SelectScenario("dense");
+            Assert.That(probe.ProbeCount, Is.EqualTo(12));
+            Assert.That(s.Simulation.State.Tick, Is.EqualTo(tick));
+            Assert.That(s.Simulation.State.Gold, Is.EqualTo(gold));
+            probe.SelectScenario("behind");
+            yield return null;
+            Assert.That(probe.ProbeCount, Is.EqualTo(1));
+            probe.SelectScenario("normal");
+            yield return null;
+            Assert.That(probe.ProbeCount, Is.Zero);
+            Object.Destroy(probe);
+            yield return null;
+            Assert.That(s.transform.Find("ART2B Synthetic Probes"), Is.Null);
+        }
+
+        [UnityTest]
+        public IEnumerator DeviceColdStartupWaitsForShowcaseReadiness()
+        {
+            var output = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "art2b-cold-" + System.Guid.NewGuid().ToString("N"));
+            ArtDeviceProbe probe = null;
+            UnityEngine.Events.UnityAction<Scene, LoadSceneMode> onLoaded = (scene, mode) =>
+            {
+                if (scene.name != "ArtReference") return;
+                var showcase = Object.FindFirstObjectByType<ArtReferenceShowcase>();
+                Assert.That(showcase.Simulation, Is.Null, "Exercise actual pre-Start scene-loaded boundary.");
+                probe = showcase.gameObject.AddComponent<ArtDeviceProbe>();
+                probe.StartCoroutine(probe.InitializeFromArguments(new[] { "app", "-art2b", "dense" }, output));
+            };
+            SceneManager.sceneLoaded += onLoaded;
+            try
+            {
+                yield return Load(); yield return null;
+                Assert.That(probe, Is.Not.Null);
+                Assert.That(probe.ProbeCount, Is.EqualTo(12));
+                Assert.That(probe.MeasurementActive, Is.True);
+                Assert.That(System.IO.File.Exists(System.IO.Path.Combine(probe.MeasurementDirectory, "run.json")), Is.True);
+            }
+            finally
+            {
+                SceneManager.sceneLoaded -= onLoaded;
+                if (probe != null) Object.Destroy(probe);
+                if (System.IO.Directory.Exists(output)) System.IO.Directory.Delete(output, true);
+            }
+        }
+
+        [UnityTest]
+        public IEnumerator WarmupActivityCannotApproveFrozenSampleWindow()
+        {
+            yield return Load();
+            var s = Object.FindFirstObjectByType<ArtReferenceShowcase>(); s.SetPaused(true); s.RestartShowcase();
+            while (s.ObservedAttacks == 0) s.AdvanceForReview(1);
+            s.SendMessage("OnApplicationFocus", true); s.SetPaused(false);
+            var output = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "art2b-frozen-" + System.Guid.NewGuid().ToString("N"));
+            var probe = s.gameObject.AddComponent<ArtDeviceProbe>(); probe.Initialize(s, output);
+            try
+            {
+                probe.BeginMeasurements(.2, .05);
+                yield return new WaitForSeconds(.1f);
+                s.SetPaused(true);
+                LogAssert.Expect(LogType.Exception, new System.Text.RegularExpressions.Regex("InvalidOperationException: Frozen normal combat"));
+                yield return new WaitForSeconds(.25f);
+                Assert.That(probe.MeasurementActive, Is.False);
+                Assert.That(System.IO.File.Exists(System.IO.Path.Combine(probe.MeasurementDirectory, "complete.json")), Is.False);
+                Assert.That(System.IO.Directory.GetFiles(probe.MeasurementDirectory, "window-*.json"), Is.Empty);
+            }
+            finally { Object.Destroy(probe); if (System.IO.Directory.Exists(output)) System.IO.Directory.Delete(output, true); }
+        }
+
+        [UnityTest]
+        public IEnumerator DeviceProbeDisableRestoresSettingsAndDelayedEnemyViews()
+        {
+            yield return Load();
+            var s = Object.FindFirstObjectByType<ArtReferenceShowcase>();
+            s.SetPaused(true); s.RestartShowcase();
+            while (!s.LastAttack.WasLethal) s.AdvanceForReview(1);
+            var target = s.LastAttack.TargetEnemyId;
+            var retained = s.FindEnemyView(target);
+            Assert.That(retained, Is.Not.Null, "Lethal Domain removal still has delayed live view.");
+            var oldRate = UnityEngine.Application.targetFrameRate;
+            var oldVsync = QualitySettings.vSyncCount;
+            var probe = s.gameObject.AddComponent<ArtDeviceProbe>(); probe.Initialize(s);
+            probe.SelectScenario("dense");
+            Assert.That(retained.gameObject.activeSelf, Is.False);
+            probe.enabled = false;
+            yield return null;
+            Assert.That(probe.ProbeCount, Is.Zero);
+            Assert.That(s.FindEnemyView(target), Is.SameAs(retained));
+            Assert.That(s.IsPaused, Is.True);
+            Assert.That(UnityEngine.Application.targetFrameRate, Is.EqualTo(oldRate));
+            Assert.That(QualitySettings.vSyncCount, Is.EqualTo(oldVsync));
+            probe.enabled = true;
+            probe.SelectScenario("behind");
+            Object.Destroy(probe);
+            yield return null;
+            Assert.That(s.transform.Find("ART2B Synthetic Probes"), Is.Null);
+            Assert.That(s.FindEnemyView(target), Is.SameAs(retained));
+            Assert.That(UnityEngine.Application.targetFrameRate, Is.EqualTo(oldRate));
+        }
+
+        [UnityTest]
+        public IEnumerator DeviceMeasurementsUseSeparateRunsAndSuspendWithoutCompletion()
+        {
+            yield return Load();
+            var s = Object.FindFirstObjectByType<ArtReferenceShowcase>(); s.SetPaused(true);
+            var output = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "art2b-test-" + System.Guid.NewGuid().ToString("N"));
+            var probe = s.gameObject.AddComponent<ArtDeviceProbe>(); probe.Initialize(s, output); probe.SelectScenario("dense");
+            try
+            {
+                probe.BeginMeasurements(0, .05);
+                var first = probe.MeasurementDirectory;
+                var deadline = Time.realtimeSinceStartup + 3;
+                while (probe.MeasurementActive && Time.realtimeSinceStartup < deadline) yield return null;
+                Assert.That(probe.MeasurementActive, Is.False);
+                Assert.That(System.IO.File.Exists(System.IO.Path.Combine(first, "complete.json")), Is.True);
+                Assert.That(System.IO.Directory.GetFiles(first, "window-*.json").Length, Is.EqualTo(3));
+                probe.BeginMeasurements(0, .05);
+                var second = probe.MeasurementDirectory;
+                Assert.That(second, Is.Not.EqualTo(first));
+                probe.SendMessage("OnApplicationPause", true);
+                Assert.That(probe.MeasurementActive, Is.False);
+                Assert.Throws<System.InvalidOperationException>(() => probe.BeginMeasurements());
+                var line = s.transform.Find("ART2B Synthetic Probes").GetComponentInChildren<LineRenderer>();
+                var head = line.GetPosition(1);
+                yield return new WaitForSeconds(.1f);
+                Assert.That(line.GetPosition(1), Is.EqualTo(head));
+                Assert.That(System.IO.File.Exists(System.IO.Path.Combine(second, "complete.json")), Is.False);
+                Assert.That(System.IO.File.Exists(System.IO.Path.Combine(first, "complete.json")), Is.True);
+            }
+            finally { Object.Destroy(probe); if (System.IO.Directory.Exists(output)) System.IO.Directory.Delete(output, true); }
+        }
+
         [UnityTest]
         public IEnumerator Art11_OriginalCameraTowerScaleAndPadPositionsSurvivePlayMode()
         {

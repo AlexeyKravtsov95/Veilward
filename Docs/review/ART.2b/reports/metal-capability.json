@@ -1,0 +1,70 @@
+{
+  "sourceSHA": "7b753e3f8a44abdaca07cb9a3030ac8eac13c0ba",
+  "build": "44",
+  "device": "physical iPhone 16 Pro / iOS 27.0.1",
+  "template": "Metal System Trace",
+  "seconds": 10,
+  "recordExit": 0,
+  "tables": {
+    "metal-application-encoders-list.xml": {
+      "rows": 2608,
+      "columns": [
+        "Creation",
+        "Duration",
+        "Thread",
+        "Process",
+        "Metal Device",
+        "Frame",
+        "Command Buffer",
+        "Command Buffer (Indexed)",
+        "Encoder",
+        "Encoder (Indexed)",
+        "Event Type",
+        "Commmand Buffer Id",
+        "Encoder Id"
+      ]
+    },
+    "gpu-counter-info.xml": {
+      "rows": 1,
+      "columns": [
+        "Timestamp",
+        "Counter ID",
+        "Name",
+        "Max Value",
+        "Accelerator ID",
+        "Description",
+        "Group Index",
+        "Type",
+        "Ring Buffer Count",
+        "Require Weighted Accumulation",
+        "Sample Interval"
+      ]
+    },
+    "metal-resource-allocations.xml": {
+      "rows": 0,
+      "columns": [
+        "Timestamp",
+        "Lifetime",
+        "Process",
+        "Thread",
+        "ID",
+        "Parent ID",
+        "Label",
+        "Video Memory Bytes",
+        "System Memory Bytes",
+        "Resource Size",
+        "Description",
+        "Metal Device",
+        "Resource Type",
+        "Event Type",
+        "Backtrace",
+        "Event Icon"
+      ]
+    }
+  },
+  "conclusions": {
+    "drawCalls": "NOT VERIFIED: encoder records are not draw-call counts",
+    "overdraw": "NOT VERIFIED: RT Unit Active is counter definition, not measured raster overdraw",
+    "internalRenderTargetDimensions": "NOT VERIFIED: no width/height allocation rows; renderScale is configuration only"
+  }
+}

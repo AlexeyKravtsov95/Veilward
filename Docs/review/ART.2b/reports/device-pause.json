@@ -1,0 +1,17 @@
+{
+  "kind": "physical device remote pointer Pause; synthetic dense scene",
+  "elapsedSeconds": 2.38297700881958,
+  "decodedPixelsIdentical": false,
+  "captures": [
+    {
+      "file": "dense-paused-0.png",
+      "timeUnix": 1795098281.251015,
+      "sha256": "5eebe62c6ad40944c29ae0fca25cddc26e40f73e32982b51cb5bce78f183d86d"
+    },
+    {
+      "file": "dense-paused-1.png",
+      "timeUnix": 1795098283.633992,
+      "sha256": "21a44e3669c79fb13fd5f9ccc5851d71edaef2a9a94da5e616a93f0a94bd8e6c"
+    }
+  ]
+}

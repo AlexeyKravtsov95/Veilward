@@ -1,0 +1,20 @@
+{
+  "normal": {
+    "gameOnlyCSVReproduced": true,
+    "samples": 21,
+    "wrongProcessRejected": true,
+    "byteIdenticalReproduction": true
+  },
+  "behind": {
+    "gameOnlyCSVReproduced": true,
+    "samples": 21,
+    "wrongProcessRejected": true,
+    "byteIdenticalReproduction": true
+  },
+  "dense": {
+    "gameOnlyCSVReproduced": true,
+    "samples": 21,
+    "wrongProcessRejected": true,
+    "byteIdenticalReproduction": true
+  }
+}

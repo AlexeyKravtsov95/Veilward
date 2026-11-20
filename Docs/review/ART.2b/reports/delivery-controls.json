@@ -1,0 +1,44 @@
+{
+  "baselineEvidenceCommit": "6be6f609162c1c1a7406f37ab179fddc24e2f9cc",
+  "testedSourceSHA": "7b753e3f8a44abdaca07cb9a3030ac8eac13c0ba",
+  "verifierSHA256": "23cddaee2c764f14a36f734b1a9510c9dd0eefe70ab465e0152bf3b4a99426d7",
+  "method": "Isolated detached checkout; each tamper committed clean before verifier; artifact hashes updated except intentionally omitted inventory entry; no Unity/device run",
+  "baseline": {
+    "exit": 0,
+    "output": "PASS: 117 tracked artifacts, 2506 protected source/history inputs, EditMode1111/PlayMode74, three complete measured scenarios"
+  },
+  "negativeControls": {
+    "emptyAudit": {
+      "exit": 1,
+      "output": "FAIL: source audit is empty/subset/extra compared with tested Git tree"
+    },
+    "subsetAudit": {
+      "exit": 1,
+      "output": "FAIL: source audit is empty/subset/extra compared with tested Git tree"
+    },
+    "omittedArtifact": {
+      "exit": 1,
+      "output": "FAIL: artifact inventory omitted/added files"
+    },
+    "ignoredSuitePath": {
+      "exit": 1,
+      "output": "FAIL: suite outside tracked delivery"
+    },
+    "fakeOneCaseSuite": {
+      "exit": 1,
+      "output": "FAIL: not a full positive suite PASS"
+    },
+    "protectedSourceDrift": {
+      "exit": 1,
+      "output": "FAIL: tested-source drift: Assets/_Game/Scripts/Presentation/ArtDeviceProbe.cs"
+    },
+    "incompleteRun": {
+      "exit": 1,
+      "output": "FAIL: invalid completion"
+    }
+  },
+  "restoredBaseline": {
+    "exit": 0,
+    "output": "PASS: 117 tracked artifacts, 2506 protected source/history inputs, EditMode1111/PlayMode74, three complete measured scenarios"
+  }
+}

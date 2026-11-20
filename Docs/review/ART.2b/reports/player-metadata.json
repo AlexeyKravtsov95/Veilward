@@ -1,0 +1,14 @@
+{
+  "sourceSHA": "7b753e3f8a44abdaca07cb9a3030ac8eac13c0ba",
+  "profile": "art-reference",
+  "version": "0.1.0",
+  "build": "44",
+  "identifier": "com.veilward.spiritdefense",
+  "minimumOS": "17.0",
+  "platform": "iphoneos",
+  "xcodeBuildExit": 0,
+  "codesignExit": 0,
+  "installExit": 0,
+  "embeddedReceiptMatches": true,
+  "nativeArchitecture": "arm64"
+}
