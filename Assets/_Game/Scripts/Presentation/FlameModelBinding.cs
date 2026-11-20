@@ -8,8 +8,10 @@ namespace Veilward.Presentation
     {
         [SerializeField] private Transform[] levels;
         [SerializeField] private Renderer[] fallbackRenderers;
+        [SerializeField] private Transform[] tideLevels;
         private Transform _model;
         private int _level;
+        private TowerDefinitionId _definitionId;
 
         public Transform Model => _model;
         public int Level => _level;
@@ -17,18 +19,19 @@ namespace Veilward.Presentation
 
         public bool Apply(TowerDefinitionId definitionId, int level)
         {
-            var supported = definitionId.Value == "flame" && levels != null &&
-                level >= 1 && level <= levels.Length && levels[level - 1] != null;
+            var family = definitionId.Value == "flame" ? levels : definitionId.Value == "tide" ? tideLevels : null;
+            var supported = family != null && level >= 1 && level <= family.Length && family[level - 1] != null;
             if (!supported)
             {
                 ClearModel();
                 SetFallback(true);
                 return false;
             }
-            if (_model != null && _level == level) return true;
+            if (_model != null && _definitionId == definitionId && _level == level) return true;
             ClearModel();
-            _model = Instantiate(levels[level - 1], transform, false);
-            _model.name = "FLAME L" + level;
+            _model = Instantiate(family[level - 1], transform, false);
+            _model.name = definitionId.Value.ToUpperInvariant() + " L" + level;
+            _definitionId = definitionId;
             _level = level;
             SetFallback(false);
             return true;
@@ -52,6 +55,7 @@ namespace Veilward.Presentation
             }
             _model = null;
             _level = 0;
+            _definitionId = default;
         }
     }
 }

@@ -1,0 +1,156 @@
+[
+  {
+    "level": 1,
+    "source": "ArtSource/Blender/ART3/TIDE/Tower_TideBellL1.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/TIDE/Tower_TideBellL1.fbx",
+    "vertices": 768,
+    "triangles": 1356,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        1.7119451761245728
+      ]
+    ],
+    "middleProjectedWidth": 0.9333809461086209,
+    "semanticGroups": [
+      "ArchBronzeCap",
+      "BasinBronzeRim",
+      "BellCrownBand",
+      "BellHanger",
+      "BellIndigoBand",
+      "BronzeBell",
+      "BronzePillarInlay",
+      "Clapper",
+      "FoundationStone",
+      "FramePedestal",
+      "JadeStep",
+      "JadeSuspensionPillar",
+      "MainBasin",
+      "OpenSuspensionArch",
+      "StillWater",
+      "WaterIndigoSeal"
+    ],
+    "waterFaces": 14,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  },
+  {
+    "level": 2,
+    "source": "ArtSource/Blender/ART3/TIDE/Tower_TideBellL2.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/TIDE/Tower_TideBellL2.fbx",
+    "vertices": 1188,
+    "triangles": 2084,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.4681723713874817,
+        0.4681720733642578
+      ],
+      [
+        -0.46817225217819214,
+        0.46817222237586975
+      ],
+      [
+        0.0,
+        1.810999870300293
+      ]
+    ],
+    "middleProjectedWidth": 1.2341910539789371,
+    "semanticGroups": [
+      "ArchBronzeCap",
+      "BasinBronzeRim",
+      "BellCrownBand",
+      "BellHanger",
+      "BellIndigoBand",
+      "BronzeBell",
+      "BronzePillarInlay",
+      "Clapper",
+      "CollectorArch",
+      "CollectorBronzeRim",
+      "CollectorWater",
+      "FoundationStone",
+      "FramePedestal",
+      "JadeStep",
+      "JadeSuspensionPillar",
+      "MainBasin",
+      "OpenSuspensionArch",
+      "RaisedWaterSeal",
+      "ReinforcedWaterButtress",
+      "SideWaterCollector",
+      "StillWater",
+      "WaterChannel",
+      "WaterIndigoSeal"
+    ],
+    "waterFaces": 42,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  },
+  {
+    "level": 3,
+    "source": "ArtSource/Blender/ART3/TIDE/Tower_TideBellL3.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/TIDE/Tower_TideBellL3.fbx",
+    "vertices": 1332,
+    "triangles": 2308,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.4681723713874817,
+        0.4681720733642578
+      ],
+      [
+        -0.46817225217819214,
+        0.46817222237586975
+      ],
+      [
+        0.0,
+        2.382697582244873
+      ]
+    ],
+    "middleProjectedWidth": 1.2341910539789371,
+    "semanticGroups": [
+      "ArchBronzeCap",
+      "BasinBronzeRim",
+      "BellCrownBand",
+      "BellHanger",
+      "BellIndigoBand",
+      "BronzeBell",
+      "BronzePillarInlay",
+      "Clapper",
+      "CollectorArch",
+      "CollectorBronzeRim",
+      "CollectorWater",
+      "CrownBronzeTip",
+      "CrownHorn",
+      "CrownRoot",
+      "CrownWaterInlay",
+      "FoundationStone",
+      "FramePedestal",
+      "GrandBellLowerBand",
+      "JadeStep",
+      "JadeSuspensionPillar",
+      "MainBasin",
+      "OpenSuspensionArch",
+      "RaisedWaterSeal",
+      "ReinforcedWaterButtress",
+      "SideWaterCollector",
+      "StillWater",
+      "WaterChannel",
+      "WaterIndigoSeal"
+    ],
+    "waterFaces": 42,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  }
+]

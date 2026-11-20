@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using Veilward.Presentation;
@@ -115,7 +116,9 @@ namespace Veilward.Editor
                 if (prefab == null) throw new InvalidOperationException("Import FLAME production prefabs first.");
                 levels.GetArrayElementAtIndex(i).objectReferenceValue = prefab.transform;
             }
-            var renderers = root.GetComponentsInChildren<Renderer>();
+            // Повторный Bind живого root не записывает production model в fallback.
+            var renderers = root.GetComponentsInChildren<Renderer>()
+                .Where(renderer => binding.Model == null || !renderer.transform.IsChildOf(binding.Model)).ToArray();
             var fallback = serialized.FindProperty("fallbackRenderers"); fallback.arraySize = renderers.Length;
             for (var i = 0; i < renderers.Length; i++)
                 fallback.GetArrayElementAtIndex(i).objectReferenceValue = renderers[i];
