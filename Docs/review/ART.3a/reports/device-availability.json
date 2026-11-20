@@ -1,0 +1,14 @@
+{
+  "observedUtc": "2026-11-20T07:40:34.965821+00:00",
+  "physicalDevices": [
+    {
+      "model": "iPhone 16 Pro",
+      "os": "27.0.1",
+      "tunnelState": "unavailable",
+      "ddiServicesAvailable": false,
+      "pairingState": "paired"
+    }
+  ],
+  "deviceProof": "NOT VERIFIED \u2014 no connected available physical device",
+  "editorIsNotDevice": true
+}

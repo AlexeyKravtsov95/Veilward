@@ -1,0 +1,133 @@
+{
+  "models": [
+    {
+      "level": 1,
+      "ids": [
+        "GameObject:Tower_FlameLanternL1:09b12e4a4dcec4ab0b7dafc8f49a5188:919132149155446097",
+        "Mesh:Tower_FlameLanternL1:09b12e4a4dcec4ab0b7dafc8f49a5188:559317195486142723",
+        "MeshFilter:Tower_FlameLanternL1:09b12e4a4dcec4ab0b7dafc8f49a5188:-5754084199372789682",
+        "MeshRenderer:Tower_FlameLanternL1:09b12e4a4dcec4ab0b7dafc8f49a5188:-7511558181221131132",
+        "Transform:Tower_FlameLanternL1:09b12e4a4dcec4ab0b7dafc8f49a5188:-8679921383154817045"
+      ],
+      "geometrySha256": "95-E4-EC-AC-F4-F4-C8-79-93-AD-39-DE-89-FF-A3-24-90-54-31-08-1A-C5-E5-EF-61-9D-B7-27-18-54-CB-5B",
+      "triangles": 1256,
+      "materialSlots": 2,
+      "dependencies": [
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat",
+        "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL1.fbx",
+        "Assets/_Game/Art/Shaders/TowerOcclusionMask.shader",
+        "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png",
+        "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL1.prefab",
+        "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader"
+      ]
+    },
+    {
+      "level": 2,
+      "ids": [
+        "GameObject:Tower_FlameLanternL2:d7445f4bb9c4b4834ad64d6f4560211f:919132149155446097",
+        "Mesh:Tower_FlameLanternL2:d7445f4bb9c4b4834ad64d6f4560211f:-2233143865413501449",
+        "MeshFilter:Tower_FlameLanternL2:d7445f4bb9c4b4834ad64d6f4560211f:-5754084199372789682",
+        "MeshRenderer:Tower_FlameLanternL2:d7445f4bb9c4b4834ad64d6f4560211f:-7511558181221131132",
+        "Transform:Tower_FlameLanternL2:d7445f4bb9c4b4834ad64d6f4560211f:-8679921383154817045"
+      ],
+      "geometrySha256": "3E-6B-1F-CF-21-EE-19-FB-A4-94-BB-BF-8A-4F-62-E0-A6-B9-F8-32-68-D2-36-BD-07-CC-3C-B5-E3-0A-1F-E9",
+      "triangles": 1444,
+      "materialSlots": 2,
+      "dependencies": [
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat",
+        "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL2.fbx",
+        "Assets/_Game/Art/Shaders/TowerOcclusionMask.shader",
+        "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png",
+        "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL2.prefab",
+        "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader"
+      ]
+    },
+    {
+      "level": 3,
+      "ids": [
+        "GameObject:Tower_FlameLanternL3:87f3e73032b764c39a6070ebc59fb230:919132149155446097",
+        "Mesh:Tower_FlameLanternL3:87f3e73032b764c39a6070ebc59fb230:713930228770985985",
+        "MeshFilter:Tower_FlameLanternL3:87f3e73032b764c39a6070ebc59fb230:-5754084199372789682",
+        "MeshRenderer:Tower_FlameLanternL3:87f3e73032b764c39a6070ebc59fb230:-7511558181221131132",
+        "Transform:Tower_FlameLanternL3:87f3e73032b764c39a6070ebc59fb230:-8679921383154817045"
+      ],
+      "geometrySha256": "AD-10-E7-3F-2D-21-5E-C9-6D-AD-8E-40-E7-69-E5-C4-74-14-82-20-97-5E-F9-1E-A1-51-E9-AC-08-17-08-FF",
+      "triangles": 1600,
+      "materialSlots": 2,
+      "dependencies": [
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat",
+        "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL3.fbx",
+        "Assets/_Game/Art/Shaders/TowerOcclusionMask.shader",
+        "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png",
+        "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL3.prefab",
+        "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL1.fbx.meta",
+      "sha256": "1F-3D-BD-77-22-C9-86-6C-47-96-11-E3-0C-BC-A9-70-9B-CE-DA-AC-16-2A-76-9A-6E-51-42-69-C8-2E-3B-90"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL2.fbx.meta",
+      "sha256": "AB-43-4B-28-8A-37-FB-C3-AB-97-89-5C-CB-BC-00-7D-D5-AD-13-26-15-D7-7F-37-28-5A-28-5C-AB-3A-66-A3"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL3.fbx.meta",
+      "sha256": "BE-F2-22-E4-5F-E0-CC-35-39-11-94-CF-DB-B2-3C-86-B0-A4-F4-8F-C9-62-35-47-72-F9-41-25-96-60-01-8C"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL1.prefab",
+      "sha256": "CE-5C-89-52-95-85-C5-D6-80-BA-E1-79-64-64-A7-BF-B3-E5-1A-E5-A2-D7-0E-5A-76-D2-2A-42-D1-FC-DA-51"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL1.prefab.meta",
+      "sha256": "1B-75-A5-7A-F4-7D-85-17-27-60-A2-C5-00-12-20-DA-CB-4C-8F-9C-7A-9E-2C-F7-9E-A6-65-9F-FB-2D-66-53"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL2.prefab",
+      "sha256": "22-CE-27-1B-D3-E9-E1-C6-E1-B6-42-40-D0-BE-3D-B6-E7-E7-79-B3-10-C4-D5-66-BA-39-B6-D0-68-63-BF-BA"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL2.prefab.meta",
+      "sha256": "60-3D-1E-51-64-94-C9-4D-64-57-E3-18-4C-9E-7E-10-46-36-E7-46-8B-7A-AB-FB-38-3F-43-B9-05-81-A8-12"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL3.prefab",
+      "sha256": "8A-2B-A8-31-A6-4B-09-A3-AE-41-A4-37-07-A7-35-63-F6-19-02-6D-21-BD-69-0F-01-6D-E3-29-19-65-C1-55"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL3.prefab.meta",
+      "sha256": "34-53-B3-3A-78-EB-76-83-0B-17-5C-E8-A3-63-97-F3-03-B2-97-5E-F5-F0-C1-95-12-68-17-77-19-D7-DE-F6"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/TestTower.prefab",
+      "sha256": "30-41-84-34-2C-8C-36-B8-23-28-8B-DF-D1-41-DA-4F-0E-AE-72-DB-9A-87-B3-9B-AB-F5-26-78-B1-EE-32-5A"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/TestTower.prefab.meta",
+      "sha256": "8A-97-86-7F-75-95-E2-AF-86-28-78-AD-4E-36-DE-34-D9-0A-79-BE-45-16-B1-91-5C-69-2C-CB-D8-D0-4A-45"
+    },
+    {
+      "path": "Assets/_Game/Scenes/Battle.unity",
+      "sha256": "36-48-12-6F-0D-59-8C-C2-53-A1-84-90-07-27-AE-36-B0-6B-D9-CB-E5-EF-C7-67-4D-BC-DC-7C-BB-CD-F6-90"
+    },
+    {
+      "path": "Assets/_Game/Scenes/Battle.unity.meta",
+      "sha256": "33-CA-FD-C1-26-5D-4C-1E-D9-33-D1-D1-70-A6-45-C1-D0-85-92-5C-E2-39-6E-50-0E-AF-8E-F1-DB-AD-BA-F8"
+    }
+  ]
+}

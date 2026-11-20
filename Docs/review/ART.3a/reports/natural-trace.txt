@@ -1,0 +1,30 @@
+frame=2544|verified ID=1 L1|wave=1|tick=0|phase=Preparation|gold=10|hp=20|kills=0
+frame=2545|SHOT 01-natural-L1|wave=1|tick=0|phase=Preparation|gold=10|hp=20|kills=0
+frame=2559|verified ID=1 L1|wave=1|tick=0|phase=Preparation|gold=10|hp=20|kills=0
+frame=2563|verified ID=1 L1|wave=1|tick=0|phase=Preparation|gold=10|hp=20|kills=0
+frame=2563|repeated Continue L1|wave=1|tick=0|phase=Preparation|gold=10|hp=20|kills=0
+frame=2564|SHOT 02-natural-combat-generic-beam|wave=1|tick=24|phase=Combat|gold=10|hp=20|kills=0
+frame=2576|wave complete|wave=1|tick=296|phase=WaveComplete|gold=55|hp=20|kills=5
+frame=2579|wave complete|wave=2|tick=725|phase=WaveComplete|gold=85|hp=16|kills=7
+frame=2581|wave complete|wave=3|tick=1080|phase=WaveComplete|gold=70|hp=16|kills=14
+frame=2584|wave complete|wave=4|tick=1519|phase=WaveComplete|gold=70|hp=16|kills=22
+frame=2588|wave complete|wave=5|tick=2024|phase=WaveComplete|gold=75|hp=16|kills=31
+frame=2592|wave complete|wave=6|tick=2589|phase=WaveComplete|gold=145|hp=16|kills=41
+frame=2592|verified ID=1 L2|wave=7|tick=2589|phase=Preparation|gold=222|hp=16|kills=41
+frame=2593|SHOT 03-natural-L2|wave=7|tick=2589|phase=Preparation|gold=222|hp=16|kills=41
+frame=2607|verified ID=1 L2|wave=7|tick=2589|phase=Preparation|gold=222|hp=16|kills=41
+frame=2611|verified ID=1 L2|wave=7|tick=2589|phase=Preparation|gold=222|hp=16|kills=41
+frame=2611|repeated Continue L2|wave=7|tick=2589|phase=Preparation|gold=222|hp=16|kills=41
+frame=2611|verified ID=1 L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2612|SHOT 04-natural-L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2626|verified ID=1 L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2630|verified ID=1 L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2630|repeated Continue L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2635|SHOT 05-natural-L3-interrupted-combat|wave=7|tick=2649|phase=Combat|gold=82|hp=16|kills=41
+frame=2649|verified ID=1 L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2653|verified ID=1 L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2653|repeated Continue L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2653|verified ID=1 L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2653|verified ID=1 L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2654|verified ID=1 L3|wave=7|tick=2589|phase=Preparation|gold=82|hp=16|kills=41
+frame=2656|SHOT 06-natural-sold-no-roots|wave=7|tick=2589|phase=Preparation|gold=302|hp=16|kills=41
