@@ -44,6 +44,7 @@ public sealed class Art3bEditorRecording : MonoBehaviour
 
     private void Begin()
     {
+        Require(Screen.width==1600&&Screen.height==900,"Configure the actual GameView1600x900 before starting the flow.");
         Directory.CreateDirectory(Frames); Directory.CreateDirectory(Reports);
         if (Directory.GetFiles(Frames, "*.png").Length != 0)
             throw new InvalidOperationException("Use an empty task-owned video-frames directory.");
@@ -156,6 +157,8 @@ public sealed class Art3bEditorRecording : MonoBehaviour
     private void Finish(bool success,string error)
     {
         if(!_recording)return;_recording=false;
+        // Ошибка capture должна остановить и gameplay coroutine, прежде чем снять isolated store factory.
+        StopAllCoroutines();
         UnityEngine.Application.logMessageReceived-=Log;MainMenuController.CheckpointStoreFactory=null;
         File.WriteAllLines(Reports+"video-frames.txt",_rows);File.WriteAllLines(Reports+"video-console.txt",_console);
         File.WriteAllText(Reports+"video-completion.json",JsonUtility.ToJson(new Completion {
