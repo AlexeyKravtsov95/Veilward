@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 
 ROOT = Path(__file__).resolve().parents[4]
 FOLDER = Path(__file__).resolve().parent
-OUTPUT = ROOT / 'Docs/review/ART.3b/reports'
+OUTPUT = ROOT / 'Docs/review/ART.3b/revision-2/reports'
 CODE = r'''
 using System;
 using System.IO;
@@ -39,7 +39,7 @@ var models=Enumerable.Range(1,3).Select(level=>{
 var files=Directory.GetFiles(TideModelBuilder.PrefabFolder,"*",SearchOption.AllDirectories)
     .Concat(Directory.GetFiles(TideModelBuilder.ModelFolder,"*.meta"))
     .Concat(Directory.GetFiles(FlameModelBuilder.PrefabFolder,"*",SearchOption.TopDirectoryOnly))
-    .Concat(new[]{"Assets/_Game/Prefabs/TestTower.prefab","Assets/_Game/Prefabs/TestTower.prefab.meta","Assets/_Game/Scenes/Battle.unity","Assets/_Game/Scenes/Battle.unity.meta"})
+    .Concat(new[]{"Assets/_Game/Prefabs/TestTower.prefab","Assets/_Game/Prefabs/TestTower.prefab.meta","Assets/_Game/Prefabs/Shade.prefab","Assets/_Game/Prefabs/Shade.prefab.meta","Assets/_Game/Scenes/Battle.unity","Assets/_Game/Scenes/Battle.unity.meta"})
     .Distinct().OrderBy(p=>p).Select(p=>new{path=p.Replace('\\','/'),sha256=Hash(File.ReadAllBytes(p))}).ToArray();
 return new{models,files};
 '''

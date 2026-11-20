@@ -12,7 +12,7 @@ using Veilward.Domain;
 
 public static class CaptureArt3b
 {
-    private const string Output = "Docs/review/ART.3b/playmode/";
+    private const string Output = "Docs/review/ART.3b/revision-2/playmode/";
     public static string LoadPreview()
     {
         if(!EditorApplication.isPlaying)throw new InvalidOperationException("Play Mode required");

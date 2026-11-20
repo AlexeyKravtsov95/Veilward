@@ -16,6 +16,54 @@ namespace Veilward.Tests.EditMode
     {
         private static GameObject Tower() => Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/TestTower.prefab"));
 
+        [Test]
+        public void Art3B05_FullHealthQuadClearsProjectedCapsuleHeadAndBothStatusGlyphs()
+        {
+            var enemy = Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/Shade.prefab"));
+            var cameraRoot = new GameObject("Production camera projection regression");
+            try
+            {
+                var camera = cameraRoot.AddComponent<Camera>();
+                camera.transform.position = new Vector3(8, 11, 8); camera.transform.LookAt(Vector3.zero);
+                camera.orthographic = true; camera.orthographicSize = 8.5f; camera.aspect = 1600f / 900;
+                float ProjectY(Vector3 point) => camera.WorldToViewportPoint(point).y * 900;
+                var body = enemy.GetComponent<MeshFilter>();
+                var health = enemy.GetComponent<EnemyHealthBarView>();
+                var bar = enemy.transform.Find("Health Bar");
+                var anchor = bar.localPosition;
+                var background = bar.Find("Health Background"); var fill = bar.Find("Health Fill");
+                var statuses = enemy.transform.Find("Status slots"); var statusAnchor = statuses.localPosition;
+                var glyphs = statuses.GetComponentsInChildren<UnityEngine.UI.Text>(true);
+                Assert.That(glyphs.Length, Is.EqualTo(2));
+                glyphs[0].text = "● Wet"; glyphs[1].text = "» Gust";
+                var positions = new[] { new Vector3(.53f, .6f, .53f), new Vector3(-.53f, .6f, -.53f), new Vector3(.53f, .6f, -.53f) };
+                foreach (var position in positions)
+                {
+                    enemy.transform.position = position; health.SetNormalizedHealth(.6f); health.Face(camera); health.Face(camera);
+                    statuses.rotation = camera.transform.rotation;
+                    var head = body.sharedMesh.vertices.Max(vertex => ProjectY(body.transform.TransformPoint(vertex)));
+                    var quad = background.GetComponent<MeshFilter>().sharedMesh.vertices.Select(vertex => ProjectY(background.TransformPoint(vertex))).ToArray();
+                    // Проверяем всю реальную projected quad относительно actual capsule mesh, а не число localY.
+                    Assert.That(quad.Min() - head, Is.GreaterThanOrEqualTo(3), "HP background must clear the complete projected head");
+                    foreach (var glyph in glyphs)
+                    {
+                        var center = ProjectY(glyph.transform.position);
+                        var halfHeight = glyph.preferredHeight * glyph.transform.lossyScale.y * 900 / (2 * camera.orthographicSize) / 2;
+                        Assert.That(quad.Max() + 3 <= center - halfHeight || quad.Min() - 3 >= center + halfHeight,
+                            Is.True, "HP must not overlap either authored status glyph: " + glyph.name);
+                    }
+                    Assert.That(Vector3.Distance(health.AnchorPosition, enemy.transform.TransformPoint(anchor)), Is.LessThan(.00001f));
+                    Assert.That(Vector3.Distance(health.BarPosition, health.AnchorPosition), Is.LessThan(.00001f));
+                    Assert.That(health.LeaderVisible, Is.False);
+                    Assert.That(fill.localScale.x / background.localScale.x, Is.EqualTo(.6f).Within(.00001));
+                    Assert.That(fill.localPosition.x, Is.EqualTo(-.18f).Within(.00001));
+                    Assert.That(statuses.localPosition, Is.EqualTo(statusAnchor));
+                    Assert.That(enemy.GetComponentsInChildren<MeshFilter>(true).Length, Is.EqualTo(6), "three sources plus the existing three occlusion cues");
+                }
+            }
+            finally { Object.DestroyImmediate(enemy); Object.DestroyImmediate(cameraRoot); }
+        }
+
         [TestCase(1, 1356)] [TestCase(2, 2084)] [TestCase(3, 2308)]
         public void Art3B01_ImportedOriginalGeometryHasGroundFootprintPaletteUvAndNormals(int level, int triangles)
         {

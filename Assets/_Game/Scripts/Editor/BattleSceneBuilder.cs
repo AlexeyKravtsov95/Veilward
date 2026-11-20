@@ -436,7 +436,8 @@ namespace Veilward.Editor
             var healthBar = enemy.AddComponent<EnemyHealthBarView>();
             var barRoot = new GameObject("Health Bar").transform;
             barRoot.SetParent(enemy.transform, false);
-            barRoot.localPosition = new Vector3(0f, 0.85f, 0f);
+            // Полная HP quad выше projected capsule head и между двумя существующими status glyph slots.
+            barRoot.localPosition = new Vector3(0f, 2f, 0f);
 
             var background = CreatePrimitive(PrimitiveType.Quad, "Health Background");
             background.transform.SetParent(barRoot, false);

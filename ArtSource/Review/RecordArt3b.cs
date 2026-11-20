@@ -17,8 +17,8 @@ using Veilward.Presentation;
 
 public sealed class Art3bEditorRecording : MonoBehaviour
 {
-    private const string Frames = "TestResults/ART3B/video-frames/";
-    private const string Reports = "Docs/review/ART.3b/reports/";
+    private const string Frames = "TestResults/ART3B/R2/video-frames/";
+    private const string Reports = "Docs/review/ART.3b/revision-2/reports/";
     private readonly List<string> _rows = new List<string>();
     private readonly List<string> _console = new List<string>();
     private WaveCheckpointStore _store;

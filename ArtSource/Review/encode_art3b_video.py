@@ -6,8 +6,33 @@ import shutil
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
-OUTPUT = ROOT / 'Docs/review/ART.3b'
-FRAMES = ROOT / 'TestResults/ART3B/video-frames'
+OUTPUT = ROOT / 'Docs/review/ART.3b/revision-2'
+FRAMES = ROOT / 'TestResults/ART3B/R2/video-frames'
+
+
+# Полные stage IDs исключают совпадение TIDE L3 с более поздним rollback stage.
+PICK_STAGES = {
+    'video-L1.png': 'TIDE L1 / Inspect + real Upgrade price',
+    'video-L2.png': 'TIDE L2 / same TowerId + cell / earned budget',
+    'video-L3.png': 'TIDE L3 / same TowerId + cell / MAX + range',
+    'video-Wet-inspect.png': 'advancing combat / actual Wet enemy Inspect + HP',
+    'video-rollback.png': 'restored Preparation / TIDE L3 / unchanged Gold-HP-kills',
+    'video-sold.png': 'sold / no model roots / public-command Editor proof complete',
+}
+
+
+def select_stage_frames(manifest):
+    picks = {}
+    for filename, expected_stage in PICK_STAGES.items():
+        matches = [(i, frame) for i, frame in enumerate(manifest) if frame['stage'] == expected_stage]
+        assert matches, expected_stage
+        index, frame = matches[len(matches) // 2]
+        picks[filename] = dict(manifestIndex=index, sourceFrameIndex=int(Path(frame['file']).stem),
+                               sourceFile=frame['file'], gameFrame=frame['frame'], elapsed=frame['elapsed'],
+                               stage=frame['stage'], sha256=frame['sha256'])
+    assert len({pick['sourceFrameIndex'] for pick in picks.values()}) == len(PICK_STAGES)
+    assert len({pick['sha256'] for pick in picks.values()}) == len(PICK_STAGES), 'Distinct stages must have distinct source pixels'
+    return picks
 
 
 def main():
@@ -20,7 +45,8 @@ def main():
     assert all(f.is_file() for f in files)
     manifest = [{'file': f.name, 'elapsed': float(row[1]), 'frame': int(row[2]),
                  'stage': row[3], 'sha256': hashlib.sha256(f.read_bytes()).hexdigest()} for f, row in zip(files, rows)]
-    concat = ROOT / 'TestResults/ART3B/video.ffconcat'
+    picks = select_stage_frames(manifest)
+    concat = ROOT / 'TestResults/ART3B/R2/video.ffconcat'
     lines = ['ffconcat version 1.0']
     for index, file in enumerate(files):
         lines.append("file '" + str(file).replace("'", "'\\''") + "'")
@@ -45,15 +71,19 @@ def main():
                  source='actual ScreenCapture composited GameView frames, variable real-time capture intervals',
                  limitation='Capture/encoding overhead is not a performance benchmark. Sparse captured frames are not native display presentation timing.',
                  command=command, outputSha256=hashlib.sha256((OUTPUT / 'editor-flow.mp4').read_bytes()).hexdigest())
+    # PNG не перерисовываются; проверяем exact stage и SHA исходного и скопированного кадра.
+    for filename, pick in picks.items():
+        assert pick['stage'] == PICK_STAGES[filename]
+        source = FRAMES / pick['sourceFile']
+        assert hashlib.sha256(source.read_bytes()).hexdigest() == pick['sha256']
+        destination = OUTPUT / 'playmode' / filename
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, destination)
+        assert hashlib.sha256(destination.read_bytes()).hexdigest() == pick['sha256']
+    proof['picks'] = picks
     (OUTPUT / 'reports/video-proof.json').write_text(json.dumps(proof, indent=2) + '\n')
+    (OUTPUT / 'reports/video-picked-frames.json').write_text(json.dumps(picks, indent=2) + '\n')
     (OUTPUT / 'reports/video-source-frames.json').write_text(json.dumps(manifest, indent=2) + '\n')
-    # Не перерисовываем кадры. Эти PNG — точные source pixels, выбранные по stage.
-    picks = {'TIDE L1 /': 'video-L1', 'TIDE L2 /': 'video-L2', 'TIDE L3 /': 'video-L3',
-             'actual Wet enemy': 'video-Wet-inspect', 'restored Preparation': 'video-rollback', 'sold /': 'video-sold'}
-    for needle, name in picks.items():
-        matches = [i for i, r in enumerate(rows) if needle in r[3]]
-        assert matches, needle
-        shutil.copyfile(files[matches[len(matches)//2]], OUTPUT / ('playmode/' + name + '.png'))
     print(f'PASS: {len(rows)} real-time Editor frames, {pts[-1]:.3f}s, no splices/speed change; exact PNG picks copied')
 
 
