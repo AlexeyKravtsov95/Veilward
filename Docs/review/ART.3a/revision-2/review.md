@@ -4,4 +4,8 @@ Read-only reviewer по skill codex-agent-code-reviewer, отдельно от �
 
 Reviewer независимо проверил580inputs обоих builds77/78, шесть native checkpoint states/экономику, полностью декодировал оба native видео без errors (1749/2439frames), сверил hashes/PTS. Defeat7 первого clip и подготовленный replay второго раскрыты в validation. Изменения verifier по review: запрет bytecode записи, schema/content checks, exact5s matched warmup. Это technical review, не approval владельца/merge/release.
 
-Финальная matched evidence/manifest/clean-checkout проверка готовится отдельным шагом; итог будет добавлен перед передачей PR на повторное внешнее review.
+Matched review: reviewer независимо пересчитал все4raw runs/12windows/21600positiveCPU/GPU/interval samples, summaries/comparison/settings и4nativeCSV/84samples. Просмотрены4dense и9front/side/behind PNG, synthetic scope и HP/body читаемы. Новых P1/P2 в этих evidence/финальных текстах не найдено. Рекомендация явно раскрыть ART1 GPUmax5.371ms выше исторического max5ms внесена в performance.md; новый guardrail PASS не заявляется. Private trace reviewer повторно не извлекал.
+
+Автор запустил verifier в отдельном clean detached checkout efacfc0:2774tested source/2270baseline/78R1protected/191artifacts, suites1126/77, roundtrip3, native77 и matched78 PASS. Plain python не создал bytecode/dirty files. Negative controls: addeduntracked отвергнут; committedforeignC# отвергнут по source inventory; возврат к clean checkout снова PASS. [Точные outputs и verifier hash](reports/delivery-controls.json). Последующие evidence-only commits обновляют review/manifest; финальная read-only проверка выполняется перед push.
+
+Остаются owner ART approval/внешняя повторная приёмка, thermal/general production QA и counters вне scope. Никакого self-merge/release. Финальный clean-checkout/PR metadata review выполняется после фиксации окончательного evidence commit.

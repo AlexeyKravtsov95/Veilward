@@ -30,10 +30,12 @@ iPhone16 Pro (iPhone17,1), iOS27.0.1, landscape2622×1206. Unity6000.3.28f1/URP1
 
 [Методика и результаты](performance.md), [raw comparison](device/matched/comparison.json). Четыре fresh запуска одной signed art78, selector ART1/L1/L2/L3, одинаковые camera/quality/dense12/enemy HP/projectile/sampling. Screen Sharing/recording/xctrace OFF во время каждого5s+30s×3. Отдельный Activity Monitor20s после timing windows для native memory; extractor публикует только numeric samples одного game PID. Partial visual runs не подмешиваются в completed timing runs.
 
-Native front/side/behind каждого уровня — **явно SYNTHETIC**: назначенные позиции/HP, frozen Domain. Dense12 — тот же controlled workload, не production wave. Actual Battle8enemy/Burn/Inspect в production77 описан отдельно выше.
+[Native front/side/behind каждого уровня](device/occlusion/capture-settings.json) — **явно SYNTHETIC**: назначенные позиции/HP, frozen Domain. Dense12 — тот же controlled workload, не production wave. Actual Battle8enemy/Burn/Inspect в production77 описан отдельно выше.
 
 ## NOT VERIFIED / отдельные gates
 
 Утверждение художественного результата владельцем и повторная PR приёмка остаются открыты. Локальная iPhone model/readability/economy/perf проверка не закрывает всю #44 ART direction, QA.1/#54, broad device matrix, long-session thermal, human multi-touch или release. Generic Battle beam остаётся до#47. Player-loop execution, actual draw-call/overdraw/VRAM counters не выводятся из structural renderer/slot counts, frame pacing или Activity Monitor. Недоступные counters перечислены в performance.md; это не zero-cost PASS.
+
+После art78/visual probes production77 вновь установлена/запущена; readback заработанного final checkpoint совпал с sold-continue.json (Gold257/towers0).
 
 Оставить #76/#44 открытыми, PR77 Draft/Refs до повторной приёмки; self-merge/release не выполняются.
