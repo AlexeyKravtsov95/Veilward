@@ -237,3 +237,7 @@ MonoBehaviour:
   - {fileID: 2131310192900557697, guid: 3cf9e50e9575943e38a3c63cc46284bf, type: 3}
   - {fileID: 7046194532261259951, guid: feaff7ad556084a84adfeb5e7876a0dc, type: 3}
   - {fileID: 8053507034659493476, guid: 7d44862ee6a724c72831f8d9be5915b1, type: 3}
+  galeLevels:
+  - {fileID: 3051116084032894858, guid: de33983f11d7f4acda6ac1c32280f876, type: 3}
+  - {fileID: 1066953143938428051, guid: 990cfed9f2ca74041b1357e002473242, type: 3}
+  - {fileID: 1733025233146785056, guid: 368b0f8cecaeb479c995c027fc87a256, type: 3}

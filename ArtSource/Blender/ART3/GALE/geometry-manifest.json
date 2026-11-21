@@ -1,0 +1,135 @@
+[
+  {
+    "level": 1,
+    "source": "ArtSource/Blender/ART3/GALE/Tower_GaleTalismanL1.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL1.fbx",
+    "vertices": 348,
+    "triangles": 552,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        1.6368629932403564
+      ]
+    ],
+    "middleProjectedWidth": 1.0255179398306196,
+    "semanticGroups": [
+      "BronzeSuspension",
+      "BronzeWindSeal",
+      "FoundationStone",
+      "JadeFrameFoot",
+      "JadeSplitPedestal",
+      "JadeStep",
+      "JadeTalisman",
+      "OpenWindFrame",
+      "TalismanBronzeEdge",
+      "WindRune",
+      "WindSealGlow",
+      "WindTassel"
+    ],
+    "windFaces": 14,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  },
+  {
+    "level": 2,
+    "source": "ArtSource/Blender/ART3/GALE/Tower_GaleTalismanL2.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL2.fbx",
+    "vertices": 748,
+    "triangles": 1152,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.4697124660015106,
+        0.4697124660015106
+      ],
+      [
+        -0.4697124660015106,
+        0.4697124660015106
+      ],
+      [
+        0.0,
+        1.7847845554351807
+      ]
+    ],
+    "middleProjectedWidth": 1.2585475069991403,
+    "semanticGroups": [
+      "BronzeSuspension",
+      "BronzeWindSeal",
+      "FoundationStone",
+      "JadeFrameFoot",
+      "JadeSplitPedestal",
+      "JadeStep",
+      "JadeTalisman",
+      "OpenWindFrame",
+      "SailBronzeRoot",
+      "TalismanBronzeEdge",
+      "TwinWindSail",
+      "WindRune",
+      "WindSailInlay",
+      "WindSealGlow",
+      "WindTassel"
+    ],
+    "windFaces": 14,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  },
+  {
+    "level": 3,
+    "source": "ArtSource/Blender/ART3/GALE/Tower_GaleTalismanL3.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL3.fbx",
+    "vertices": 1140,
+    "triangles": 1740,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.4697124660015106,
+        0.4697124660015106
+      ],
+      [
+        -0.4697124660015106,
+        0.4697124660015106
+      ],
+      [
+        0.0,
+        2.4010305404663086
+      ]
+    ],
+    "middleProjectedWidth": 1.2585475069991403,
+    "semanticGroups": [
+      "BronzeSuspension",
+      "BronzeWindSeal",
+      "CrossWindArc",
+      "FoundationStone",
+      "JadeFrameFoot",
+      "JadeSplitPedestal",
+      "JadeStep",
+      "JadeTalisman",
+      "OpenWindFrame",
+      "SailBronzeRoot",
+      "SpiralSupport",
+      "TalismanBronzeEdge",
+      "TwinWindSail",
+      "UpperJadeSpiral",
+      "UpperSpiral",
+      "WindRune",
+      "WindSailInlay",
+      "WindSealGlow",
+      "WindTassel"
+    ],
+    "windFaces": 14,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  }
+]

@@ -1,0 +1,8 @@
+{
+    "origin": "TestResults/ART3C/natural-L1-checkpoint.json; fresh earned public-command lifecycle test",
+    "restore": "isolated TestResults/ART3C/VideoStore primary, before MainMenu Continue",
+    "sha256": "a60206e05c5cc751f1ff8606a588f3cc42a22d53a43e8ae7d1f95d1109f562c3",
+    "readbackSha256": "a60206e05c5cc751f1ff8606a588f3cc42a22d53a43e8ae7d1f95d1109f562c3",
+    "freshRun": false,
+    "liveResourceMutation": false
+}

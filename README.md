@@ -1,5 +1,7 @@
 # VEILWARD: Spirit Defense
 
+ART.3c/#80: GALE «Ветряной талисман» L1–L3 и единый FLAME/TIDE/GALE binding. [Спецификация/regressions](Docs/ART3C_GALE_LEVELS.md), [текущий Editor/source proof и read-only verifier](Docs/review/ART.3c/README.md). Device Deferred to prerelease QA #53/#54/#55; родитель #44 и остальные три семейства отдельно.
+
 ART.3b/#78 выполняется от принятой FLAME линейки PR77: TIDE «Колокол прилива» L1–L3 и общий production FLAME/TIDE model binding. [Спецификация/regressions](Docs/ART3B_TIDE_LEVELS.md), [Editor кадры/видео и проверки](Docs/review/ART.3b/README.md). Device Deferred to prerelease QA #53/#54/#55 по решению владельца20.11.2026; текущая приёмка — source/import и реальные Unity Editor/Play Mode проверки. Исторические device evidence прежних пакетов сохраняются; итоговый iPhone performance/readability PASS этим не заявляется.
 
 Unity-проект мобильной tower defense игры для iOS. **Технический P2.3 DONE** после merged [PR #32](https://github.com/AlexeyKravtsov95/Veilward/pull/32), `8128010`: native FLAME/GALE, unlock3/6, schema3/legacy Continue, natural Victory8 обоих стартов и late file/menu/Combat7. [Evidence P2.3e.1](Docs/review/P2.3e.1/validation.md) дополняет сохранённый исторический P2.3e Defeat5. Баланс/G2, device QA и ART approval отдельно открыты.

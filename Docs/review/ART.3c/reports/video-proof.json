@@ -1,0 +1,102 @@
+{
+  "sourceFrames": 193,
+  "outputFrames": 193,
+  "firstPts": 0.0,
+  "lastPts": 19.748,
+  "sourceFirstElapsed": 0.005086333999997805,
+  "sourceLastElapsed": 19.753299,
+  "speed": 1,
+  "splices": 0,
+  "resolution": [
+    1600,
+    900
+  ],
+  "editor": true,
+  "device": false,
+  "source": "actual Pipeline capture game_view composited render-target frames, variable real-time capture intervals",
+  "limitation": "Capture/encoding overhead is not a performance benchmark. Sparse captured frames are not native display presentation timing.",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-f",
+    "concat",
+    "-safe",
+    "0",
+    "-i",
+    "/Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/worktrees/art3c-gale/TestResults/ART3C/video.ffconcat",
+    "-fps_mode",
+    "vfr",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-video_track_timescale",
+    "1000000",
+    "-movflags",
+    "+faststart",
+    "/Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/worktrees/art3c-gale/Docs/review/ART.3c/editor-flow.mp4"
+  ],
+  "outputSha256": "7fa962c94cc0aa783ef67faef07610bb55c6c12864e992fd9d7c4bba1f864f5c",
+  "picks": {
+    "video-L1.png": {
+      "manifestIndex": 28,
+      "sourceFrameIndex": 28,
+      "sourceFile": "00028.png",
+      "gameFrame": 28280,
+      "elapsed": 3.007795417000011,
+      "stage": "GALE L1 / Inspect + real Upgrade price",
+      "sha256": "8d8c534ceab1e2679810bb328cbcf5b9b56d6fbc48b846dce6c646ef1b253a22"
+    },
+    "video-L2.png": {
+      "manifestIndex": 48,
+      "sourceFrameIndex": 48,
+      "sourceFile": "00048.png",
+      "gameFrame": 30818,
+      "elapsed": 5.013833500000004,
+      "stage": "GALE L2 / same TowerId + cell / earned budget",
+      "sha256": "a4b15829c4067d880275196482b90a17dd799872907a84b71e2a0471eadf752c"
+    },
+    "video-L3.png": {
+      "manifestIndex": 68,
+      "sourceFrameIndex": 68,
+      "sourceFile": "00068.png",
+      "gameFrame": 33376,
+      "elapsed": 7.018884750000012,
+      "stage": "GALE L3 / same TowerId + cell / MAX + range",
+      "sha256": "95d28f5aea12c153079380381dabe5f3f91542e666090ad5aab03f97ebaab041"
+    },
+    "video-Gust-inspect.png": {
+      "manifestIndex": 117,
+      "sourceFrameIndex": 117,
+      "sourceFile": "00117.png",
+      "gameFrame": 39553,
+      "elapsed": 11.936037999999996,
+      "stage": "advancing combat / actual Gust enemy Inspect + HP",
+      "sha256": "2349d31739f997ba7ceeb058e61832126bd6b0f1511eda144e6e7b04dee4508d"
+    },
+    "video-rollback.png": {
+      "manifestIndex": 149,
+      "sourceFrameIndex": 149,
+      "sourceFile": "00149.png",
+      "gameFrame": 43342,
+      "elapsed": 15.370701249999996,
+      "stage": "restored Preparation / GALE L3 / unchanged Gold-HP-kills",
+      "sha256": "5752ade374b13883c4b9497c6a3820e8cd0c5d844ac28cfbec48debe68b52867"
+    },
+    "video-sold.png": {
+      "manifestIndex": 183,
+      "sourceFrameIndex": 183,
+      "sourceFile": "00183.png",
+      "gameFrame": 45515,
+      "elapsed": 18.847307,
+      "stage": "sold / no model roots / public-command Editor proof complete",
+      "sha256": "3584b17acfacf82f6c5e006713fbe24085c57b94209a382e171e1881e19c54f7"
+    }
+  }
+}

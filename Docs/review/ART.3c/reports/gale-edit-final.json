@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "command": "command",
+  "data": null,
+  "errors": [
+    {
+      "code": "COMMAND_FAILED",
+      "message": "Failed to execute command 'test': the Editor closed the connection before the command finished; it may not have run"
+    }
+  ],
+  "warnings": []
+}
