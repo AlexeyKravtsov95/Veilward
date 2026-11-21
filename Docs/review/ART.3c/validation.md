@@ -25,6 +25,10 @@ Unity-generated serialization после suites сохранена audit/patch �
 
 **VERIFIED:** отдельный task-owned detached checkout на e2f48d4: read-only verifier PASS для3219source files/2741protected baseline files/111tracked artifacts, suites1161/81, roundtrip3/video. Три negative controls реально отклонены exit1: untracked foreign file, committed foreign C# source и committed append кvideo-L3.png. После каждого восстановлен только этот controls checkout; финальный verifier сноваPASS, git status пуст. Точные arrays/exit/stdout/stderr и control commit SHAs — [delivery-controls.json](reports/delivery-controls.json). Эти controls не являются дополнительными Unity runs; negative commits не отправляются в PR ветку.
 
+## Независимое review
+
+PR81/head36ec2b8: final code/asset/visual/evidence **PASS**, новых P1/P2 нет. Reviewer самостоятельно выполнил read-only verifier3219/2741/112, decode clip и соответствие всех6PNG exact video frames; source/runtime не менялся после tested9871af64. [Полный review](review.md).
+
 ## NOT VERIFIED / Device Deferred
 
 **Physical iPhone Deferred to prerelease QA #53/#54/#55.** Новые phone binaries/native video/matched benchmark/iOS export/Xcode signing не запускались. Нет device performance/memory/GPU/thermal/touch/safearea/background PASS. Editor не заменяет device. Юридическое/коммерческое approval AI-assisted результата и художественная приёмка владельцем не заявлены агентом. Parent44 и STONE/STEAM/STORM, карта45/враги46/VFX47/UI48, G2 и release/TestFlight отдельно. Self-merge/release не выполняются.
