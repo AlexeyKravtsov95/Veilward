@@ -26,3 +26,7 @@ Domain/Infrastructure/configs/баланс/цены/волны/ability/boss600/a
 Риски: нечитаемый L2, большой глухой объём перед HP, localID drift, type-less cache, stale deferred roots, palette tint, недостаточный законный бюджет, неточная video-stage provenance. Каждый покрывается tests/evidence выше.
 
 **Device Deferred to prerelease QA #53/#54/#55.** iPhone/native binaries/iOS export не нужны; Editor не device PASS. Parent44 остаётся open: STEAM/STORM отдельно.
+
+## Коррекция после первого реального Battle кадра
+
+Первая версия source ошибочно направляла лицевую нормаль поперёк Battle camera: FBX preset в фактическом Unity readback сохраняет BlenderY как UnityZ, и печать была видна ребром. Source projection исправлена: горизонталь u=(X−Y)/√2, глубина d=(X+Y)/√2; normals пересчитаны в Blender, все3 source/FBX обновлены. Regression проверяет центр glowing seal vertices по диагонали +X/+Z и её поперечный extent. Initial edge-on PNG сохранены attempt-1, не считаются final visual PASS. Gameplay/root/scale/camera не менялись.
