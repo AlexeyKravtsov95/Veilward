@@ -1,0 +1,72 @@
+{
+  "checkout": "/Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/worktrees/art3c-controls",
+  "checkedHead": "e2f48d48acf6c2c4aa0d5c9352d2b478da714fa8",
+  "source": "9871af64f09d082d971da020aa6d289ce782146f",
+  "records": [
+    {
+      "command": [
+        "python3",
+        "Docs/review/ART.3c/verify_delivery.py"
+      ],
+      "exitCode": 0,
+      "stdout": "PASS ART3C: 3219 tested source files, 2741 protected baseline files, 111 tracked artifacts, full suites {'edit-mode': 1161, 'play-mode': 81}, roundtrip3, Editor video/Gust/rollback/Sell. Device Deferred.\n",
+      "stderr": "",
+      "control": "clean-checkout",
+      "head": "e2f48d48acf6c2c4aa0d5c9352d2b478da714fa8"
+    },
+    {
+      "command": [
+        "python3",
+        "Docs/review/ART.3c/verify_delivery.py"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "FAIL: clean checkout including untracked files required\n",
+      "control": "untracked foreign file",
+      "head": "e2f48d48acf6c2c4aa0d5c9352d2b478da714fa8"
+    },
+    {
+      "command": [
+        "python3",
+        "Docs/review/ART.3c/verify_delivery.py"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "FAIL: tested source inventory\n",
+      "control": "committed foreign source",
+      "head": "e13be896359fa334d714d5d43774992f48dc7d74"
+    },
+    {
+      "command": [
+        "python3",
+        "Docs/review/ART.3c/verify_delivery.py"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "FAIL: artifact digest Docs/review/ART.3c/playmode/video-L3.png\n",
+      "control": "committed artifact tamper",
+      "head": "482744d65da983484f7f75b3f6e3950f280f5898"
+    },
+    {
+      "command": [
+        "python3",
+        "Docs/review/ART.3c/verify_delivery.py"
+      ],
+      "exitCode": 0,
+      "stdout": "PASS ART3C: 3219 tested source files, 2741 protected baseline files, 111 tracked artifacts, full suites {'edit-mode': 1161, 'play-mode': 81}, roundtrip3, Editor video/Gust/rollback/Sell. Device Deferred.\n",
+      "stderr": "",
+      "control": "final clean restore",
+      "head": "e2f48d48acf6c2c4aa0d5c9352d2b478da714fa8"
+    }
+  ],
+  "finalStatus": {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

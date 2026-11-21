@@ -23,7 +23,7 @@ Exact stage PNG picks: L1frame28, L2frame48, L3доCombat68, Gust/Inspect117, ro
 
 Unity-generated serialization после suites сохранена audit/patch и возвращена точно к tested source (edit-restored/metal-restored/capture-restored). Это не runtime delta. Saved Battle/MainMenu/Shade/materials/URP и accepted family assets не входят в source diff; source bytes проверяются inventory и protected baseline. Packages/ProjectVersion прежние. [Актуальный verifier](verify_delivery.py) read-only и не запускает Unity. Исторические verifiers/evidence не переписаны.
 
-Clean-checkout и negative-control результаты будут добавлены после фактического запуска; до этого данный gate не заявляется PASS.
+**VERIFIED:** отдельный task-owned detached checkout на e2f48d4: read-only verifier PASS для3219source files/2741protected baseline files/111tracked artifacts, suites1161/81, roundtrip3/video. Три negative controls реально отклонены exit1: untracked foreign file, committed foreign C# source и committed append кvideo-L3.png. После каждого восстановлен только этот controls checkout; финальный verifier сноваPASS, git status пуст. Точные arrays/exit/stdout/stderr и control commit SHAs — [delivery-controls.json](reports/delivery-controls.json). Эти controls не являются дополнительными Unity runs; negative commits не отправляются в PR ветку.
 
 ## NOT VERIFIED / Device Deferred
 
