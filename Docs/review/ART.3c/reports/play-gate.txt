@@ -1,0 +1,3 @@
+./Scripts/run-unity-tests.sh: line 207: 81727 Segmentation fault: 11  "$UNITY_BIN" -batchmode -nographics -projectPath "$PROJECT_PATH" -buildTarget iOS -runTests -testPlatform "$TEST_MODE" -testResults "$RESULT_PATH" -logFile "$LOG_PATH"
+ERROR: No XML test reports found: /Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/worktrees/art3c-gale/TestResults/PlayMode.xml
+Unity test report: FAIL

@@ -1,0 +1,23 @@
+{
+  "source": "9871af6",
+  "files": [
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxSelection.mat",
+      "generatedSha256": "6107f7e1b6deb79ceb4489599637fdb16c5e01870013e0cc3a71d2c50b35ad65",
+      "sourceSha256": "ccaef8a0a76ed900829aac9ea559afe00c858411838002b73a227e3d9c386f64",
+      "restoredSha256": "ccaef8a0a76ed900829aac9ea559afe00c858411838002b73a227e3d9c386f64"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxTower.mat",
+      "generatedSha256": "71ced636160a68dca7cf26fd2338913b0d0620aeb891c4ea106d7cacba94f275",
+      "sourceSha256": "a8a2f3b33accbad57da378055c7d93da4b440eb0cb38daf7b93b6943409c17a1",
+      "restoredSha256": "a8a2f3b33accbad57da378055c7d93da4b440eb0cb38daf7b93b6943409c17a1"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat",
+      "generatedSha256": "1b49d268ffb66f7e898a81d0a4a7b02e404d14dc7d884cae98cac05bdfa4ce70",
+      "sourceSha256": "072b877ec1184ee60be1c533cfc6aaddf1ff3b382117f0c942fc641fcb3c873b",
+      "restoredSha256": "072b877ec1184ee60be1c533cfc6aaddf1ff3b382117f0c942fc641fcb3c873b"
+    }
+  ]
+}

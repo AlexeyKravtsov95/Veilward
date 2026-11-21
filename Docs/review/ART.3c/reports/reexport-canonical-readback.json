@@ -1,0 +1,230 @@
+{
+  "models": [
+    {
+      "level": 1,
+      "ids": [
+        "GameObject:Tower_GaleTalismanL1:6039755b2f97542d2bea83e94a2330ce:919132149155446097",
+        "Mesh:Tower_GaleTalismanL1:6039755b2f97542d2bea83e94a2330ce:5584643038255454145",
+        "MeshFilter:Tower_GaleTalismanL1:6039755b2f97542d2bea83e94a2330ce:-5754084199372789682",
+        "MeshRenderer:Tower_GaleTalismanL1:6039755b2f97542d2bea83e94a2330ce:-7511558181221131132",
+        "Transform:Tower_GaleTalismanL1:6039755b2f97542d2bea83e94a2330ce:-8679921383154817045"
+      ],
+      "geometrySha256": "ac0949677998adab8b538b4303baef3b9ef1745fbfa9f9fbd57313d448d42a18",
+      "vertices": 1056,
+      "normals": 1056,
+      "uv": 1056,
+      "triangles": 552,
+      "materialSlots": 2,
+      "importerRemaps": [
+        "Art1Glow:Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000",
+        "Art1Surface:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000"
+      ],
+      "rendererMaterials": [
+        "Occlusion presentation pass:Material:MAT_Art21_TowerMask:2bacc00b58c9e4e7b9f90ed164ea6ed4:2100000;Material:MAT_Art21_TowerMask:2bacc00b58c9e4e7b9f90ed164ea6ed4:2100000",
+        "Tower_GaleTalismanL1:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000;Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000"
+      ],
+      "dependencies": [
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat",
+        "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL1.fbx",
+        "Assets/_Game/Art/Shaders/TowerOcclusionMask.shader",
+        "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png",
+        "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL1.prefab",
+        "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader"
+      ]
+    },
+    {
+      "level": 2,
+      "ids": [
+        "GameObject:Tower_GaleTalismanL2:245e344e0d60a4f64977fb1504d17f99:919132149155446097",
+        "Mesh:Tower_GaleTalismanL2:245e344e0d60a4f64977fb1504d17f99:1095617817337358673",
+        "MeshFilter:Tower_GaleTalismanL2:245e344e0d60a4f64977fb1504d17f99:-5754084199372789682",
+        "MeshRenderer:Tower_GaleTalismanL2:245e344e0d60a4f64977fb1504d17f99:-7511558181221131132",
+        "Transform:Tower_GaleTalismanL2:245e344e0d60a4f64977fb1504d17f99:-8679921383154817045"
+      ],
+      "geometrySha256": "e79d1bf9d331bf014f0a4921ccd6d6ae8ae77e5aff04790527e8765922d4bc88",
+      "vertices": 2256,
+      "normals": 2256,
+      "uv": 2256,
+      "triangles": 1152,
+      "materialSlots": 2,
+      "importerRemaps": [
+        "Art1Glow:Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000",
+        "Art1Surface:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000"
+      ],
+      "rendererMaterials": [
+        "Occlusion presentation pass:Material:MAT_Art21_TowerMask:2bacc00b58c9e4e7b9f90ed164ea6ed4:2100000;Material:MAT_Art21_TowerMask:2bacc00b58c9e4e7b9f90ed164ea6ed4:2100000",
+        "Tower_GaleTalismanL2:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000;Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000"
+      ],
+      "dependencies": [
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat",
+        "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL2.fbx",
+        "Assets/_Game/Art/Shaders/TowerOcclusionMask.shader",
+        "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png",
+        "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL2.prefab",
+        "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader"
+      ]
+    },
+    {
+      "level": 3,
+      "ids": [
+        "GameObject:Tower_GaleTalismanL3:4df991a2e3c9740f7a657bd4b7fe6c5d:919132149155446097",
+        "Mesh:Tower_GaleTalismanL3:4df991a2e3c9740f7a657bd4b7fe6c5d:-8824214478506388528",
+        "MeshFilter:Tower_GaleTalismanL3:4df991a2e3c9740f7a657bd4b7fe6c5d:-5754084199372789682",
+        "MeshRenderer:Tower_GaleTalismanL3:4df991a2e3c9740f7a657bd4b7fe6c5d:-7511558181221131132",
+        "Transform:Tower_GaleTalismanL3:4df991a2e3c9740f7a657bd4b7fe6c5d:-8679921383154817045"
+      ],
+      "geometrySha256": "dbf782af19a92ca6de9c529fa359abe991bdfceffc5ca050546e007307c480a2",
+      "vertices": 3432,
+      "normals": 3432,
+      "uv": 3432,
+      "triangles": 1740,
+      "materialSlots": 2,
+      "importerRemaps": [
+        "Art1Glow:Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000",
+        "Art1Surface:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000"
+      ],
+      "rendererMaterials": [
+        "Occlusion presentation pass:Material:MAT_Art21_TowerMask:2bacc00b58c9e4e7b9f90ed164ea6ed4:2100000;Material:MAT_Art21_TowerMask:2bacc00b58c9e4e7b9f90ed164ea6ed4:2100000",
+        "Tower_GaleTalismanL3:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000;Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000"
+      ],
+      "dependencies": [
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat",
+        "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL3.fbx",
+        "Assets/_Game/Art/Shaders/TowerOcclusionMask.shader",
+        "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png",
+        "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL3.prefab",
+        "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL1.fbx.meta",
+      "sha256": "efbefddce5b99fa0fe0c592d498313be5d2b23c16be0f2ffb8d74d45034d375e"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL2.fbx.meta",
+      "sha256": "e396a893aff65e5925986dcf91c5d41ed6582eb58f75b40ecc6f59ac5c409ff9"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL3.fbx.meta",
+      "sha256": "3d611743d826991ef03b574963a7b983dbaed9e25a3b8f797a17853f42c62b94"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/GALE.meta",
+      "sha256": "d2a872e58085e6b2d0f734f306e04dd64884adec7024d2a5fe414b15d777f765"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL1.prefab",
+      "sha256": "c5d9987dd31f505e38ead8f42fe8da1853f2f638092edb29a75f1c1963b0fba4"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL1.prefab.meta",
+      "sha256": "d5fe6d35337f3fe45671268cfaa34b297b42e5a4772cd0bf0da4486324775a20"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL2.prefab",
+      "sha256": "33a030bc0fce86fec2bf69da7f5cf1bc08340e77a8a288f2380faedb1ebe098c"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL2.prefab.meta",
+      "sha256": "ec72149c2ebc0ee7f8af9cdb674f1569c2195099d1e2b32e654fbe8292d9e74f"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL3.prefab",
+      "sha256": "b9005f72b0fab22be1d7e5ac40b5c7d59992d192db093a6ed95b15bee1e9ed30"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL3.prefab.meta",
+      "sha256": "957a94432efa7d2de60858fdbd5fdcda4791bd32e6be408bb5eae9b837f98ef1"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL1.prefab",
+      "sha256": "ce5c89529585c5d680bae1796464a7bfb3e51ae5a2d70e5a76d22a42d1fcda51"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL1.prefab.meta",
+      "sha256": "1b75a57af47d85172760a2c5001220dacb4c8f9c7a9e2cf79ea6659ffb2d6653"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL2.prefab",
+      "sha256": "22ce271bd3e9e1c6e1b64240d0be3db6e7e779b310c4d566ba39b6d06863bfba"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL2.prefab.meta",
+      "sha256": "603d1e516494c94d6457e3184c9e7e104636e7468b7aabfb383f43b90581a812"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL3.prefab",
+      "sha256": "8a2ba831a64b09a3ae41a43707a73563f619026d21bd690f016de3291965c155"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL3.prefab.meta",
+      "sha256": "3453b33a78eb76830b175ce8a36397f303b2975ef5f0c1951268177719d7def6"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/TIDE.meta",
+      "sha256": "80366a5af1bdd83749a74dd19a0f7b9b00700e601368bc29d251581dd30f557c"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL1.prefab",
+      "sha256": "9381de1f64fb7a53aa8f83616c2ed3e65daa9db464cc04a744b6977082eac443"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL1.prefab.meta",
+      "sha256": "f1ad0c026a9871c4d050eff9d44daf01fa34619c0cadc81577b3d05e27fca34f"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL2.prefab",
+      "sha256": "3d06f1f5e374f7a09bd454831320954484f42bed7aade0ce50ac3ebb2af3f550"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL2.prefab.meta",
+      "sha256": "a12084d2d6745207d21fefd4a334fdbe9d76afaa54a42f6a74e965504ea3bf6a"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL3.prefab",
+      "sha256": "68e8fb37e5e194c962647abccc6812b48596b4bb1fbff711abd857dd876de51c"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL3.prefab.meta",
+      "sha256": "b24e8965098bc6805e4421ff05fef39958737694f23665f3e614c99ff4a3c0e2"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/Shade.prefab",
+      "sha256": "7bac68b25bf10bf3b01db91111f913b3d90c98ca34c599468dcaab7432a761c9"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/Shade.prefab.meta",
+      "sha256": "94b74b5ee2091b866395982e2b53245583b3133e5e5273d7a6e31c139178c024"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/TestTower.prefab",
+      "sha256": "a55cfaf748ab76137b0dcd1d090c372aa08fc8621f80eea3cca8bbbffedc0df9"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/TestTower.prefab.meta",
+      "sha256": "8a97867f7595e2af862878ad4e36de34d90a79be4516b1915c692ccbd8d04a45"
+    },
+    {
+      "path": "Assets/_Game/Scenes/Battle.unity",
+      "sha256": "3648126f0d598cc253a184900727ae36b06bd9cbe5efc7674dbcdc7cbbcdf690"
+    },
+    {
+      "path": "Assets/_Game/Scenes/Battle.unity.meta",
+      "sha256": "33cafdc1265d4c1ed933d1d170a645c1d085925ce2396e500eaf8ef1dbadbaf8"
+    }
+  ]
+}
