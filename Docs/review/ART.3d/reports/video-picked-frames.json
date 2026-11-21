@@ -1,0 +1,56 @@
+{
+  "video-L1.png": {
+    "manifestIndex": 28,
+    "sourceFrameIndex": 28,
+    "sourceFile": "00028.png",
+    "gameFrame": 140701,
+    "elapsed": 3.033250209000016,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  "video-L2.png": {
+    "manifestIndex": 48,
+    "sourceFrameIndex": 48,
+    "sourceFile": "00048.png",
+    "gameFrame": 143024,
+    "elapsed": 5.0409667499999955,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  "video-L3.png": {
+    "manifestIndex": 68,
+    "sourceFrameIndex": 68,
+    "sourceFile": "00068.png",
+    "gameFrame": 145371,
+    "elapsed": 7.0472802500000284,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  "video-Crack-inspect.png": {
+    "manifestIndex": 121,
+    "sourceFrameIndex": 121,
+    "sourceFile": "00121.png",
+    "gameFrame": 151200,
+    "elapsed": 12.374068875000034,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "24d301e595cda9c458bd6597c70077735a045a131b4d7c82ce0d3b1e8e2c7c2b"
+  },
+  "video-rollback.png": {
+    "manifestIndex": 153,
+    "sourceFrameIndex": 153,
+    "sourceFile": "00153.png",
+    "gameFrame": 155212,
+    "elapsed": 15.861266999999998,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  "video-sold.png": {
+    "manifestIndex": 188,
+    "sourceFrameIndex": 188,
+    "sourceFile": "00188.png",
+    "gameFrame": 159369,
+    "elapsed": 19.371679416999996,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  }
+}

@@ -1,0 +1,32 @@
+# ART3d — результаты и ограничения
+
+TestedSource **4c40545a91c46bd000d2335c31af132ba45ded62**, baseline main **d2df69de476151823d0a6b727ec90b243cbf97ac** (PR81). Runtime delta — optional stoneLevels в прежнем FlameModelBinding + StoneModelBuilder/Battle wiring. Domain/Infrastructure/configs/schema4/content600/armor5/цены/скорости/волны/ability, accepted ART1/FLAME/TIDE/GALE и прежние proof bytes защищены. [Команды/окружение/неуспешные попытки](commands.md).
+
+## VERIFIED
+
+- Static **38/38**, project checks и diff PASS. Полный конечный PlayMode **83/83**, failed/skipped/inconclusive0, graphical Metal; unfiltered report reports/play-mode.json.
+- Полный конечный EditMode **1179/1179**, failed/skipped/inconclusive0. Raw unfiltered report в reports/edit-mode.json; focused Edit21/21 и targeted capture2/2 не подменяют полный suite. Seal-facing assertion предотвращает найденный initial edge-on defect. Заменены только superseded STONE-graybox assertions, прежние F/T/G geometry/lifecycle assertions сохранены.
+- Три оригинальных editable sources: **384/472/584tri**, два shared palette slots, один mesh/уровень с semantic vertex groups, meters/root identity/ground0/footprint≤.94m/UV/normals. L2 middle width .86 против .58 L1 (+48%); L3 height2.15 против1.58L2, плюс отдельные верхние зубцы/нижние опоры. Это structural checks; визуальные различия проверены actual Play Mode lineup/comparison.
+- Actual reexport **3/3**: Unity before==after по imported geometry+UV+normals/submeshes/material remaps/GUID/localIDs/dependencies и prefab/scene references. Canonical readback совпадает; timestamp header FBX не считается geometry drift. Этот новый STONE asset впервые фиксируется в canonical bytes после реального reexport; accepted FBX не перезаписывались.
+- Четыре семейства при одинаковых L1/2/3, cache/type+level/no tint/no graybox/no duplicates/deferred inactive cleanup, root/collider/selection/range/.5/1scale. Repeated Bind/Build сохраняет authored refs и accepted assets. Legacy/unknown/STEAM/STORM/missing-level сохраняют fallback. ShotSource только future presentation anchor.
+- Actual Play Mode singles/lineup/four-family comparison,9front/side/behind+dense12 и public catalog/preview. Synthetic assigned positions/HP/copy actual Crack snapshots подписаны. HP/head/Crack видны; production Shade anchor/status slots не менялись. Preview не покупает, Gold41/Towers1 неизменны.
+
+- После suites retained Pipeline buffer содержит114 ожидаемых negative-path error entries:107save,4verification,2delete и1Frozen normal measurement exception (LogAssert.Expect в ArtReferencePlayModeTests:159). Текущий Console после suites показывает25errors/0warnings, это не unexpected capture errors и не скрывается. Raw retained errors/status/classification сохранены. Compile up_to_date0errors/0warnings; ранний CS0219 warning в неизменённом search test раскрыт в commands. Capture/video Console0unexpected errors/warnings. После отдельного scoped restart production startup/compile имеют0errors/0warnings в новом Console audit; Console clear не вызывался.
+
+## Законный earned STONE
+
+Fresh production MainMenu New Game → public FLAME start → семь волн исходной F/T армии; первые волны исполняются явно подписанным test clock. После3 public Choose TIDE, после6 public Choose STONE; все commands волны7 из GALE script исключены, никаких подмен typeId/DTO/Gold/HP. После7 tick3186/HP15/kills51/Gold215. Public Sell армии даёт общий доступный бюджет446. STONE TowerId6/cell(2,1): L1Gold356/invested90 → Upgrade135 → L2Gold221/invested225 → Upgrade180 → L3Gold41/invested405. Sellrefund283 → Gold324.
+
+Duplicate Place/MAX/repeated Sell отклоняются без state drift. File/menu Continue дважды на каждом уровне без byte/reward drift. После interrupted Combat8 (tick3366/Gold46/kills52) full safe wire возвращается в tick3186/Gold41/kills51, включая ability/progression/next IDs/cooldowns. Sell/restart без model roots. Raw trace/checkpoints/Console — reports.
+
+Отдельное непрерывное **Editor видео198frames/20.269s** воспроизводит побайтно unchanged earnedL1 checkpoint через isolated store/MainMenu Continue — **не новый fresh run**. Public UI Upgrade1→2→3 → StartWave/advancing combat/реальная Crack → Enemy57 Inspect (PNGHP25/100/Crack104ticks, позже readback90ticks) → Menu Continue/полный Preparation rollback → Request/ConfirmSell. Origin/restore/readback SHA совпадают, live resource mutation=false; safe-wire до/после rollback byte-identical.
+
+Шесть PNG picks имеют exact stage identity и разные frame indices/hashes; L3 взят доCombat, не из rollback. Video198PTS строго возрастают и соответствуют реальным timestamps; без cuts/speed change. Capture≈.1s с overhead, не native presentation timing/performance benchmark. Используется установленный Pipeline composited GameView RT/encoder, игровые pixels/camera вручную не перерисовываются. Generic attack beam остаётся до #47.
+
+## Canonical source / delivery
+
+Unity-generated serialization после suites сохраняется в patches/hash audit и возвращается к tested source. Это не gameplay/runtime delta. Accepted families/materials/URP/scene/configs/ProjectVersion/packages прежние; [актуальный verifier](verify_delivery.py) проверяет bytes/inventory и не запускает Unity. Historical verifiers не изменяются. Clean task-owned delivery controls и независимое review фиксируются ниже после фактического выполнения.
+
+## NOT VERIFIED / Device Deferred
+
+**Physical iPhone Deferred to prerelease QA #53/#54/#55.** Новые device binaries/native video/matched benchmark/iOS export/Xcode signing не запускались. Device performance/memory/GPU/thermal/touch/safearea/background PASS отсутствует. Editor этого не заменяет. Коммерческое/юридическое approval AI-assisted результата и окончательная художественная приёмка — владельцем. Parent44 и STEAM/STORM, карта45/враги46/VFX47/UI48/G2/release/TestFlight отдельно. Self-merge/release не выполняются.
