@@ -1,1 +1,12 @@
-{"diagnostics":[],"compileMs":61,"executeMs":1,"assemblyName":"PipelineRunScript_CaptureArt3c_ea69e6dc089142229d9de481bc15901c","success":true,"result":"Loading unchanged earned L3 checkpoint into isolated PreviewStore"}
+{
+  "success": false,
+  "command": "command",
+  "data": null,
+  "errors": [
+    {
+      "code": "EDITOR_NOT_RUNNING",
+      "message": "No Pipeline instance found for project: /Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/worktrees/art3c-gale. Make sure Unity Editor is running with the Pipeline package installed."
+    }
+  ],
+  "warnings": []
+}

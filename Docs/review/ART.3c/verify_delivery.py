@@ -122,7 +122,7 @@ def main():
         require(sha((ROOT / record['path']).read_bytes()) == record['sha256'], 'roundtrip reference bytes')
     for png in (FOLDER / 'playmode').glob('*.png'):
         data = png.read_bytes()
-        require(data[:8] == b'\x89PNG\r\n\x1a\n' and struct.unpack('>II', data[16:24]) == (1600, 900), 'PlayMode image dimensions')
+        require(data[:8] == b'\x89PNG\r\n\x1a\n' and struct.unpack('>II', data[16:24]) == (1600, 900), 'PlayMode image dimensions '+png.name)
     checkpoints=[read(FOLDER/f'reports/natural-L{level}-checkpoint.json') for level in (1,2,3)]
     for level, cp, gold, invested in zip((1,2,3),checkpoints,(296,176,16),(80,200,360)):
         state=cp['state']; tower=state['towers'][0]
