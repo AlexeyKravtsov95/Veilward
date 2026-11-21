@@ -37,3 +37,5 @@ BatchPlayMode `-nographics` дал Null Device и crash в существующ�
 CLI initial advisory AGENT_PLUGIN_AVAILABLE не требовал установки: host Unity skills уже доступны. Новые plugins/packages, telemetry, phone connection, iOS export/signing/release не выполнялись. Physical iPhone Deferred до53/54/55.
 
 Первый catalog screenshot был сохранён Pipeline default1280×720; verifier выявил mismatch. Catalog повторно снят explicit --width1600 --height900, исходный capture metadata сохранён preview-capture-initial-1280.json. Остальные PNG/видеокадры изначально1600×900.
+
+При повторном preview setup сразу после Play reload получен transient EDITOR_NOT_RUNNING; ранний Select был отклонён pending setup. После готовности Pipeline отдельно выполнены LoadPreview→SelectPreview→capture1600×900, оба success:true. Failed driver responses сохранены preview-transient-*.json, не считаются product PASS.
