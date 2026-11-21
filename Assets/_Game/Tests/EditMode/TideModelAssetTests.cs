@@ -249,7 +249,7 @@ namespace Veilward.Tests.EditMode
             finally { Object.DestroyImmediate(root); }
         }
 
-        [TestCase("unknown", 1)] [TestCase("test-tower", 1)] [TestCase("gale", 1)]
+        [TestCase("unknown", 1)] [TestCase("test-tower", 1)]
         [TestCase("stone", 1)] [TestCase("steam", 1)] [TestCase("storm", 1)]
         [TestCase("tide", 0)] [TestCase("tide", 4)] [TestCase("flame", 0)] [TestCase("flame", 4)]
         public void Art3B03_UnsupportedPairClearsModelAndReenablesOnlyFallback(string type, int level)

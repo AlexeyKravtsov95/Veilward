@@ -9,6 +9,7 @@ namespace Veilward.Presentation
         [SerializeField] private Transform[] levels;
         [SerializeField] private Renderer[] fallbackRenderers;
         [SerializeField] private Transform[] tideLevels;
+        [SerializeField] private Transform[] galeLevels;
         private Transform _model;
         private int _level;
         private TowerDefinitionId _definitionId;
@@ -19,7 +20,7 @@ namespace Veilward.Presentation
 
         public bool Apply(TowerDefinitionId definitionId, int level)
         {
-            var family = definitionId.Value == "flame" ? levels : definitionId.Value == "tide" ? tideLevels : null;
+            var family = definitionId.Value == "flame" ? levels : definitionId.Value == "tide" ? tideLevels : definitionId.Value == "gale" ? galeLevels : null;
             var supported = family != null && level >= 1 && level <= family.Length && family[level - 1] != null;
             if (!supported)
             {

@@ -422,7 +422,7 @@ namespace Veilward.Editor
             spirit.transform.localPosition = new Vector3(0f, 0.75f, 0f);
             spirit.transform.localScale = new Vector3(0.55f, 0.7f, 0.55f);
             spirit.GetComponent<Renderer>().sharedMaterial = material;
-            TideModelBuilder.Bind(root);
+            GaleModelBuilder.Bind(root);
             var prefab = PrefabUtility.SaveAsPrefabAsset(root, TowerPrefabPath);
             Object.DestroyImmediate(root);
             return prefab;

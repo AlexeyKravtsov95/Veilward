@@ -78,9 +78,9 @@ namespace Veilward.Tests.EditMode
             Assert.That(_placement.HasSelection, Is.False);
             Invoke(_battle, "LateUpdate");
             Assert.That(GameObject.Find("Tower 1"), Is.Not.Null);
-            if (id == "flame" || id == "tide")
+            if (id == "flame" || id == "tide" || id == "gale")
             {
-                var expectedPreview = id == "flame" ? new Color(1f, .36f, .16f) : new Color(.2f, .72f, 1f);
+                var expectedPreview = id == "flame" ? new Color(1f, .36f, .16f) : id == "tide" ? new Color(.2f, .72f, 1f) : new Color(.45f, .95f, .7f);
                 Assert.That(Vector4.Distance(previewColor, expectedPreview), Is.LessThan(.000001f));
                 AssertProductionPalette(GameObject.Find("Tower 1"), id, 1);
             }
@@ -131,7 +131,7 @@ namespace Veilward.Tests.EditMode
             {
                 Invoke(_battle, "LateUpdate");
                 var view = GameObject.Find($"Tower {tower.Id.Value}");
-                if (id == "flame" || id == "tide")
+                if (id == "flame" || id == "tide" || id == "gale")
                 {
                     var mesh = AssertProductionPalette(view, id, level);
                     if (previousModelMesh != null) Assert.That(mesh, Is.Not.SameAs(previousModelMesh), "level changes geometry, not brightness");
@@ -176,7 +176,8 @@ namespace Veilward.Tests.EditMode
             Assert.That(binding.Model.name, Is.EqualTo(id.ToUpperInvariant() + " L" + level));
             Assert.That(binding.ShotSource, Is.Not.Null);
             var expectedPath = id == "flame" ? "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL" + level + ".prefab"
-                : "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL" + level + ".prefab";
+                : id == "tide" ? "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL" + level + ".prefab"
+                : "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL" + level + ".prefab";
             var expected = AssetDatabase.LoadAssetAtPath<GameObject>(expectedPath);
             Assert.That(expected, Is.Not.Null);
             var mesh = binding.Model.GetComponentInChildren<MeshFilter>().sharedMesh;
@@ -188,7 +189,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(view.transform.Find("Foundation").GetComponent<Renderer>().enabled, Is.False);
             Assert.That(view.transform.Find("Spirit").GetComponent<Renderer>().enabled, Is.False);
             Assert.That(view.transform.Cast<Transform>().Count(t => t.gameObject.activeSelf &&
-                (t.name.StartsWith("FLAME L") || t.name.StartsWith("TIDE L"))), Is.EqualTo(1));
+                (t.name.StartsWith("FLAME L") || t.name.StartsWith("TIDE L") || t.name.StartsWith("GALE L"))), Is.EqualTo(1));
             return mesh;
         }
 
