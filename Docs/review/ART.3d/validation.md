@@ -25,7 +25,7 @@ Duplicate Place/MAX/repeated Sell отклоняются без state drift. Fil
 
 ## Canonical source / delivery
 
-Unity-generated serialization после suites сохраняется в patches/hash audit и возвращается к tested source. Это не gameplay/runtime delta. Accepted families/materials/URP/scene/configs/ProjectVersion/packages прежние; [актуальный verifier](verify_delivery.py) проверяет bytes/inventory и не запускает Unity. Historical verifiers не изменяются. Clean task-owned delivery controls и независимое review фиксируются ниже после фактического выполнения.
+Unity-generated serialization после suites сохраняется в patches/hash audit и возвращается к tested source. Это не gameplay/runtime delta. Accepted families/materials/URP/scene/configs/ProjectVersion/packages прежние; [актуальный verifier](verify_delivery.py) проверяет bytes/inventory и не запускает Unity. Historical verifiers не изменяются. **VERIFIED:** отдельный task-owned local clone на07a3630: read-only verifier PASS для3366source/2877protected/106artifacts. Три negative controls реально отклонены exit1: untracked foreign file, committed foreign C# source, committed append кvideo-L3.png. Только этот controls checkout сброшен между пробами; финальный verifier сноваPASS, git status пуст. Точные commands/exit/stdout/stderr/control commit SHAs — reports/delivery-controls.json. Negative commits не отправляются в PR ветку. Независимое whole-branch review — следующий gate.
 
 ## NOT VERIFIED / Device Deferred
 

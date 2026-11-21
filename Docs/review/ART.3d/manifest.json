@@ -14,7 +14,7 @@
     "Docs/review/ART.3d/attempt-1-edge-on/03-natural-STONE-L3.png": "595fa67e9afa714599eed1766c8db74fd2292b7a766e727ed80407fba77d7a5d",
     "Docs/review/ART.3d/attempt-1-edge-on/04-natural-STONE-interrupted-combat.png": "2377ee6951c8adffb70f22c7adb0731d431bac64a4fa725b7a77c5a1a34c4170",
     "Docs/review/ART.3d/attempt-1-edge-on/05-natural-sold-no-model-roots.png": "f2f9d8e4ab4a90d7dbfd603ba31e2a04973a0d22c6e1b26855d37c565de9cecb",
-    "Docs/review/ART.3d/commands.md": "69df85bb5f7f1d07b98a82c30eee0c971b5d0881f4e528ae8fba755ab1331ece",
+    "Docs/review/ART.3d/commands.md": "1015d0bb3b7b24ca8be99abfb65ed8a54a2e171fcbd691dce9e6bb2f6594a26d",
     "Docs/review/ART.3d/editor-flow.mp4": "8a07a296d0e17db27a06e278918513fc67c9899ce5567a7c89f75b44386944a3",
     "Docs/review/ART.3d/playmode/01-natural-STONE-L1.png": "40bec79f4b86f6714577d3c7ebecb858f30edce266e3fd9ad6ce94f5c8f4daf3",
     "Docs/review/ART.3d/playmode/02-natural-STONE-L2.png": "e39caf3ebc61ea225a2eb7c481135d05eedabf07dace203b9e7a793dd4802920",
@@ -57,6 +57,7 @@
     "Docs/review/ART.3d/reports/console-retained-errors.json": "5c1aaceeb036f11f792ea6b2a11dcc175d509ee08a62724c084bab949dd4681e",
     "Docs/review/ART.3d/reports/console-suite-classification.json": "30e0c829ee9dc92c9005f8ede8ae3730f001581de74212cb214d4213f3506f06",
     "Docs/review/ART.3d/reports/console.txt": "a9e1b33185d2443f570802bfbf5189979aceb0be768c6befcc917abaf4f31f23",
+    "Docs/review/ART.3d/reports/delivery-controls.json": "f1272a98bbb5a1c01785204d5c8e5728eb5bd21cc11de822a6a4b2b2c2bb2f57",
     "Docs/review/ART.3d/reports/diff-check.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "Docs/review/ART.3d/reports/edit-generated.patch.gz": "f5f399899a824e9b319a9dbbc1d517ae6bf6ec9a80db72e5ea2a0d4688ee0ef4",
     "Docs/review/ART.3d/reports/edit-mode.json": "5d673ce72e8a7c78ad9ff41066df48803b6845037d3b46f5743e0339a7c630a4",
@@ -112,7 +113,7 @@
     "Docs/review/ART.3d/reports/video-source-frames.json": "3ee9071ad7131e6e54ba8887ac9044b22e5f843df28aaa483cd5f35c1a0ecb45",
     "Docs/review/ART.3d/reports/video-start.json": "419a5b76f86d66e2400ec77f60ee411e2f65e526fd6b3691e3a7863e9f86c41f",
     "Docs/review/ART.3d/review.md": "b87f32d3550bf75cadcae239e75c4655a55c2262616e7c63e3b6de78f29ffb4a",
-    "Docs/review/ART.3d/validation.md": "88c3276e2f5b2da867f7245f54f3a6ef71c341845291d7b723140a16e6adb162",
+    "Docs/review/ART.3d/validation.md": "ca47c823fcfd9635862cc0102b2b45f08aa65211f55f31db19676b2830bd077e",
     "Docs/review/ART.3d/verify_delivery.py": "7fbfee03e13ba8dd70dcafaa2a02c17ae216603f7ada4c21551de6b8f8712cc0"
   }
 }
