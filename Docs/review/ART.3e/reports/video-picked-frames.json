@@ -1,0 +1,56 @@
+{
+  "video-L1.png": {
+    "manifestIndex": 21,
+    "sourceFrameIndex": 21,
+    "sourceFile": "00021.png",
+    "gameFrame": 105,
+    "elapsed": 2.9983786249999866,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  "video-L2.png": {
+    "manifestIndex": 388,
+    "sourceFrameIndex": 388,
+    "sourceFile": "00388.png",
+    "gameFrame": 1206,
+    "elapsed": 54.54518604099985,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  "video-L3.png": {
+    "manifestIndex": 521,
+    "sourceFrameIndex": 521,
+    "sourceFile": "00521.png",
+    "gameFrame": 1605,
+    "elapsed": 73.25429341600011,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  "video-Intrinsic-Steam-inspect.png": {
+    "manifestIndex": 554,
+    "sourceFrameIndex": 554,
+    "sourceFile": "00554.png",
+    "gameFrame": 1704,
+    "elapsed": 77.88432775000001,
+    "stage": "advancing combat / actual intrinsic Steam enemy Inspect + HP",
+    "sha256": "71f4e66f56e73b674ed965fee8ba295a15cd9c464856b8e5a91f6a4cbe1e04a3"
+  },
+  "video-rollback.png": {
+    "manifestIndex": 577,
+    "sourceFrameIndex": 577,
+    "sourceFile": "00577.png",
+    "gameFrame": 1769,
+    "elapsed": 81.16750687500007,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  "video-sold.png": {
+    "manifestIndex": 603,
+    "sourceFrameIndex": 603,
+    "sourceFile": "00603.png",
+    "gameFrame": 1847,
+    "elapsed": 84.83104983300018,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  }
+}

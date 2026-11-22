@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "command": "recompile",
+  "data": null,
+  "errors": [
+    {
+      "code": "RECOMPILE_TIMEOUT",
+      "message": "Timed out after 120 seconds waiting for compilation to finish. Raise the limit with --timeout."
+    }
+  ],
+  "warnings": []
+}

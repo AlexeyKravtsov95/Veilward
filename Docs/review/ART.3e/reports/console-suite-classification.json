@@ -1,0 +1,28 @@
+{
+  "testedSource": "9654133029902fb2541ee833d6ef80710755a5bb",
+  "entries": 114,
+  "counts": {
+    "expectedCheckpointErrors": 113,
+    "expectedFrozenMeasurementGuard": 1
+  },
+  "ownerFiles": {
+    "Assets/_Game/Tests/EditMode/AbilityBossFileTests.cs": 46,
+    "Assets/_Game/Tests/EditMode/AbilityCheckpointControllerTests.cs": 4,
+    "Assets/_Game/Tests/EditMode/BattleCheckpointControllerTests.cs": 4,
+    "Assets/_Game/Tests/EditMode/BossPersistenceTests.cs": 3,
+    "Assets/_Game/Tests/EditMode/BossVictoryPersistenceTests.cs": 6,
+    "Assets/_Game/Tests/EditMode/ElementProgressionControllerTests.cs": 12,
+    "Assets/_Game/Tests/EditMode/MainMenuControllerTests.cs": 2,
+    "Assets/_Game/Tests/EditMode/NativeEightWaveFileTests.cs": 12,
+    "Assets/_Game/Tests/PlayMode/AbilityBossIntegrationPlayModeTests.cs": 12,
+    "Assets/_Game/Tests/PlayMode/AbilityPlayModeTests.cs": 3,
+    "Assets/_Game/Tests/PlayMode/BattleElementUnlockPlayModeTests.cs": 1,
+    "Assets/_Game/Tests/PlayMode/BossPlayModeTests.cs": 2,
+    "Assets/_Game/Tests/PlayMode/NativeEightWaveIntegrationPlayModeTests.cs": 2,
+    "Assets/_Game/Tests/PlayMode/NativeStrategyIntegrationPlayModeTests.cs": 4
+  },
+  "allMatchExistingLogAssertExpectations": true,
+  "unexpectedEntries": 0,
+  "consoleCleared": false,
+  "notes": "114 captured error/exception records; groundTruth has25 distinct Editor errors. These are expected negative-test logs, not zero Console. Feature capture console.txt/video-console.txt have zero error/assert/exception; startup audit separately zero."
+}

@@ -1,0 +1,4 @@
+Command: PYTHONDONTWRITEBYTECODE=1 python3 Docs/review/ART.3e/verify_delivery.py
+Exit: 1
+FAIL: clean tracked checkout required
+Result: BLOCKED; original four tracked user modifications preserved; later full-entry-point checks not reached.

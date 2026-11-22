@@ -1,0 +1,29 @@
+{
+  "tick": 3234,
+  "enemy": 57,
+  "hp": 15,
+  "reaction": {
+    "Tick": 3234,
+    "SequenceInTick": 1,
+    "Kind": 0,
+    "TriggerKind": 1,
+    "SourceTowerId": {
+      "Value": 3
+    },
+    "PrimaryEnemyId": {
+      "Value": 57
+    },
+    "PrimaryPosition": {
+      "X": -1.700002,
+      "Y": -2.0
+    },
+    "CauseFirstKind": 0,
+    "CauseSecondKind": 1,
+    "RadiusOrHopRange": 1.75,
+    "TargetLimit": 4
+  },
+  "hitCount": 2,
+  "appliedHpLoss": 102,
+  "source": "read-only production ReactionPresentationState",
+  "synthetic": false
+}

@@ -1,0 +1,71 @@
+{
+    "schemaVersion": 4,
+    "scenarioContentId": "eight-wave-ability-boss-v2",
+    "state": {
+        "phase": 0,
+        "waveIndex": 6,
+        "tick": 2668,
+        "baseHealth": 14,
+        "gold": 50,
+        "kills": 39,
+        "nextEnemyId": 46,
+        "nextTowerId": 4,
+        "towers": [
+            {
+                "towerId": 1,
+                "towerTypeId": "flame",
+                "x": -3,
+                "y": -1,
+                "level": 1,
+                "investedGold": 70,
+                "nextAttackTick": 2524
+            },
+            {
+                "towerId": 2,
+                "towerTypeId": "flame",
+                "x": 2,
+                "y": 1,
+                "level": 1,
+                "investedGold": 70,
+                "nextAttackTick": 2668
+            },
+            {
+                "towerId": 3,
+                "towerTypeId": "steam",
+                "x": 1,
+                "y": 0,
+                "level": 2,
+                "investedGold": 275,
+                "nextAttackTick": 2665
+            }
+        ],
+        "elementProgression": {
+            "rulesId": "wave-unlocks-v1",
+            "startResonanceId": "flame",
+            "unlockedElementIds": [
+                "flame",
+                "tide",
+                "gale"
+            ],
+            "choicesEarned": 2,
+            "choicesSpent": 2,
+            "spentChoices": [
+                {
+                    "choiceId": "after-wave-3",
+                    "elementId": "tide"
+                },
+                {
+                    "choiceId": "after-wave-6",
+                    "elementId": "gale"
+                }
+            ],
+            "pendingChoiceId": "none"
+        },
+        "ability": {
+            "rulesId": "rift-seal-v1",
+            "abilityId": "rift-seal",
+            "cooldownRemainingTicks": 392,
+            "nextCastSequence": 6
+        }
+    }
+}

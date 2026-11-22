@@ -1,0 +1,4272 @@
+[
+  {
+    "file": "00000.png",
+    "elapsed": 0.006102666000060708,
+    "frame": 45,
+    "stage": "earned L1 checkpoint replay / menu Continue",
+    "sha256": "1278d84fd28bd3fc74806618c5690c5ace42b497e1453cec9bb94907de328253"
+  },
+  {
+    "file": "00001.png",
+    "elapsed": 0.16838999999981752,
+    "frame": 46,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00002.png",
+    "elapsed": 0.3273146659998929,
+    "frame": 50,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00003.png",
+    "elapsed": 0.458179624999957,
+    "frame": 53,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00004.png",
+    "elapsed": 0.593101458000092,
+    "frame": 56,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00005.png",
+    "elapsed": 0.7279447910000272,
+    "frame": 59,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00006.png",
+    "elapsed": 0.863140666000163,
+    "frame": 62,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00007.png",
+    "elapsed": 0.9977090829997906,
+    "frame": 65,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00008.png",
+    "elapsed": 1.1340545409998413,
+    "frame": 68,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00009.png",
+    "elapsed": 1.2724799580000763,
+    "frame": 71,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00010.png",
+    "elapsed": 1.4023230409998177,
+    "frame": 74,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00011.png",
+    "elapsed": 1.5373207500001627,
+    "frame": 77,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00012.png",
+    "elapsed": 1.696825041000011,
+    "frame": 80,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "524d731dc3f9a8f5206cbe8cdfde1f3f595c64cebce978bcffba54158fa14e8a"
+  },
+  {
+    "file": "00013.png",
+    "elapsed": 1.8988828749997992,
+    "frame": 81,
+    "stage": "menu Continue / unchanged earned STEAM L1 checkpoint",
+    "sha256": "2b1a681bba6dc3d6308bc06bd1054d63509617f20ba69b3b2546923a9c3f313a"
+  },
+  {
+    "file": "00014.png",
+    "elapsed": 2.0301036249998106,
+    "frame": 84,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00015.png",
+    "elapsed": 2.1659514580001087,
+    "frame": 87,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00016.png",
+    "elapsed": 2.298725457999808,
+    "frame": 90,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00017.png",
+    "elapsed": 2.4379281659998924,
+    "frame": 93,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00018.png",
+    "elapsed": 2.5784663330000512,
+    "frame": 96,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00019.png",
+    "elapsed": 2.7185309159999633,
+    "frame": 99,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00020.png",
+    "elapsed": 2.8572772080001414,
+    "frame": 102,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00021.png",
+    "elapsed": 2.9983786249999866,
+    "frame": 105,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00022.png",
+    "elapsed": 3.139244291000068,
+    "frame": 108,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00023.png",
+    "elapsed": 3.2680984580001677,
+    "frame": 111,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00024.png",
+    "elapsed": 3.3984693329998663,
+    "frame": 114,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00025.png",
+    "elapsed": 3.5287431249998917,
+    "frame": 117,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00026.png",
+    "elapsed": 3.6576242500000262,
+    "frame": 120,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00027.png",
+    "elapsed": 3.7868389999998726,
+    "frame": 123,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00028.png",
+    "elapsed": 3.914764374999777,
+    "frame": 126,
+    "stage": "STEAM L1 / Inspect + real Upgrade price",
+    "sha256": "8a943f8d3626ac62ce32d2675d545c9fb7a84f121eb6cb8df082f4d76f85ea64"
+  },
+  {
+    "file": "00029.png",
+    "elapsed": 4.052302832999885,
+    "frame": 129,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ee141fdab7f5089ced14ac7211825ebb8c31f300bc9b2434bc1efcc38e5cde02"
+  },
+  {
+    "file": "00030.png",
+    "elapsed": 4.18326791599975,
+    "frame": 132,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "26fd19a43fd9b83eb39b5c79195a5fbc43bc62c125a1bc727959d2bb996bd2fd"
+  },
+  {
+    "file": "00031.png",
+    "elapsed": 4.311937291000049,
+    "frame": 135,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "46e05728d9ef80a39538647bd50db71e4d4c1ea447c7a73a012615b10419504c"
+  },
+  {
+    "file": "00032.png",
+    "elapsed": 4.439532750000126,
+    "frame": 138,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "dcfeaeb3f4d13c5dc121db7560ca604d3f9fc721dac7e49aa63d6cef683c5a51"
+  },
+  {
+    "file": "00033.png",
+    "elapsed": 4.575810290999925,
+    "frame": 141,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a43c5852a95db89b030ecf9dd3033940c65b488260818e392d7814142f561ff8"
+  },
+  {
+    "file": "00034.png",
+    "elapsed": 4.715246040999773,
+    "frame": 144,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ccba259b6925dc0d2a503f51977cf04c7777eff0577d91bc089d8ea33c667b96"
+  },
+  {
+    "file": "00035.png",
+    "elapsed": 4.856444125000053,
+    "frame": 147,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "525a4bd49734ddc4a55000cd56aae59480ba38e7c1fdb675b84a1a5d5388892a"
+  },
+  {
+    "file": "00036.png",
+    "elapsed": 4.997558333000143,
+    "frame": 150,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b375f971c0eecba494a9e4d604fc8f686c4e62f4c49ba001bf5cb81c7a6fd834"
+  },
+  {
+    "file": "00037.png",
+    "elapsed": 5.136574208000184,
+    "frame": 153,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "708428ae026eb6eb6f3a2e3d06082b6d2f1c74ef31d3f23cd5ef379ae94c88fd"
+  },
+  {
+    "file": "00038.png",
+    "elapsed": 5.276982833000147,
+    "frame": 156,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "7ec5d6c999ed21f7cdd2bfd76ad07cf16da2a447384f6c960c9d2d6614dcafe4"
+  },
+  {
+    "file": "00039.png",
+    "elapsed": 5.405564457999844,
+    "frame": 159,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ce4caa2357ca3d2eef4a48e78c4ead76fede6ad0884b51edc94b9c018936a08b"
+  },
+  {
+    "file": "00040.png",
+    "elapsed": 5.535718707999877,
+    "frame": 162,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "064a949b05e3584237fd480e0e5742711a1921c667d30a7a4f12e37b4cc37356"
+  },
+  {
+    "file": "00041.png",
+    "elapsed": 5.661881832999825,
+    "frame": 165,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f81a90289eac409d22857fa0c6287859f1e07b85a197a66f4a6bcb7c2b67a5d4"
+  },
+  {
+    "file": "00042.png",
+    "elapsed": 5.795684499999879,
+    "frame": 168,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "15a86d1f758f85dd0412cb0e686a362186213b0e0407a85c8d2661815ecd92b9"
+  },
+  {
+    "file": "00043.png",
+    "elapsed": 5.934894541000176,
+    "frame": 171,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9da6e370cafc4f6751a33a866a467b94ec1228a714feb18660d2db1d232d8e2b"
+  },
+  {
+    "file": "00044.png",
+    "elapsed": 6.0752863329998945,
+    "frame": 174,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "96a1e1b0ceb8567611c4d1edc44e47f9c47387c82a78efe22f2f791613fc5d0a"
+  },
+  {
+    "file": "00045.png",
+    "elapsed": 6.214761875000022,
+    "frame": 177,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "38fd34077f4822c57c2abee6d2ed95d9b3c7b8b852544fcbc85e1b1b60d6edd8"
+  },
+  {
+    "file": "00046.png",
+    "elapsed": 6.35450016599998,
+    "frame": 180,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f384ea7dd7cc47e9a13f894386bd3a924b0dd1c029bd305e183ba6032c88c4e6"
+  },
+  {
+    "file": "00047.png",
+    "elapsed": 6.500499165999827,
+    "frame": 183,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a0279d7ae98cc3e8c455a57f80d473829746680a53ee71f3fe4c54e9d48d1b72"
+  },
+  {
+    "file": "00048.png",
+    "elapsed": 6.641970832999959,
+    "frame": 186,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a4c0c41246dbd3d53029ce9f706f8a8282a8897931859cb3df597cb8c2262dda"
+  },
+  {
+    "file": "00049.png",
+    "elapsed": 6.769220499999847,
+    "frame": 189,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "df06f46b3db7932d9834505ca8a6e0a2e1a08086890c983fc74b622edabdc323"
+  },
+  {
+    "file": "00050.png",
+    "elapsed": 6.903436540999792,
+    "frame": 192,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6bcf9c95251a0f768c7d90261e6e2f4e05c35f82effaecac839dd3a6f980cb3b"
+  },
+  {
+    "file": "00051.png",
+    "elapsed": 7.043327082999895,
+    "frame": 195,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8e9462899407edea940535bae5f3394b6ac093e3c74010af2fcbe9671de96148"
+  },
+  {
+    "file": "00052.png",
+    "elapsed": 7.182431624999936,
+    "frame": 198,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c2af85036f6143726ee7ea88bed93ccc229da08622ed0da4c21bb9bebe160b19"
+  },
+  {
+    "file": "00053.png",
+    "elapsed": 7.32330624999986,
+    "frame": 201,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5bb512bdf73f00bd2cf4385770415b2eecea05483fc77a8ba8602e842e484e9b"
+  },
+  {
+    "file": "00054.png",
+    "elapsed": 7.461390708000181,
+    "frame": 204,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a87bc99b5576f2665592df1a8fadd6cbcc11c63ca6acbd86df17c09fccd94f92"
+  },
+  {
+    "file": "00055.png",
+    "elapsed": 7.601144750000003,
+    "frame": 207,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2f47cb663b56518a865d97ed5210be5f9fdde27367d6366719b29bf37f26cb86"
+  },
+  {
+    "file": "00056.png",
+    "elapsed": 7.739397290999932,
+    "frame": 210,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "88041dfd3f4dda5d470260a45971d0cdf73ca9ab9db245b615213a971b1d1bd6"
+  },
+  {
+    "file": "00057.png",
+    "elapsed": 7.878089499999987,
+    "frame": 213,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b4bc299a3603558e4a57a5f1803bf2812a8f3826846413d62aac3427d09c8fec"
+  },
+  {
+    "file": "00058.png",
+    "elapsed": 8.01723420799999,
+    "frame": 216,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a0ce3dab911a8d9f458eda15e5036e5822e7164a15fd0bdb250548692bb75682"
+  },
+  {
+    "file": "00059.png",
+    "elapsed": 8.15828912500001,
+    "frame": 219,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "47b0d8ef9ee10d3dd4aae47a2231138406689caba7effb1d41342b6b6a0b6d2f"
+  },
+  {
+    "file": "00060.png",
+    "elapsed": 8.298145707999993,
+    "frame": 222,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "704d98b57fddb1cc221fba177455f7b3ccb00acf558b3ff4418d9a77acfff542"
+  },
+  {
+    "file": "00061.png",
+    "elapsed": 8.438135875000171,
+    "frame": 225,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "7e859e52719b947da4f0f86f9c830d2712fc2fa2b2cfe1b2774ce846c51e2482"
+  },
+  {
+    "file": "00062.png",
+    "elapsed": 8.57222766599989,
+    "frame": 228,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d20064318c951926e3acb2886b43a45c0bcbc68ccd7ade959c0839d1e1829e76"
+  },
+  {
+    "file": "00063.png",
+    "elapsed": 8.709453333000056,
+    "frame": 231,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c4ef05473a972389d1feae7c397c95ac3dd49c79367b666b33e1e4b6f027a83d"
+  },
+  {
+    "file": "00064.png",
+    "elapsed": 8.844079874999807,
+    "frame": 234,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b288db3ef36b59a9da1d877df6af198eb9eb1daa600fad09557891ea289781ab"
+  },
+  {
+    "file": "00065.png",
+    "elapsed": 8.973636582999916,
+    "frame": 237,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a6d996c2a72a6f931bfef21f6b162f79e09e84efa9712bc6ae8363bbb8bd2330"
+  },
+  {
+    "file": "00066.png",
+    "elapsed": 9.108892624999953,
+    "frame": 240,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2247075a23ae9aa268e58653e8b0b61b36af99a0e0bcddab2038a89eb17a5d03"
+  },
+  {
+    "file": "00067.png",
+    "elapsed": 9.236573125000177,
+    "frame": 243,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4dbeb0d6d0988c4b879dcfd02a4af9c1aefc5cd188bb9d38c1a64b185c8ab47a"
+  },
+  {
+    "file": "00068.png",
+    "elapsed": 9.370420457999899,
+    "frame": 246,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b322e2ebfe13a33b9affc714c77ffd03efa118e4e5201b1092d10b93b4b69f78"
+  },
+  {
+    "file": "00069.png",
+    "elapsed": 9.509061875000043,
+    "frame": 249,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f6657da85b2a060afb1d4ce0400171b024549bec85f9f6c35261821fd8fdf49c"
+  },
+  {
+    "file": "00070.png",
+    "elapsed": 9.64834295799983,
+    "frame": 252,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f4ba8d75c2a64b8c1de6b732dfd61c34a758da3553568875034d892d18ccf18c"
+  },
+  {
+    "file": "00071.png",
+    "elapsed": 9.790090999999848,
+    "frame": 255,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a6eb2820664df64336c4dadfa6e3a3ece3efb4c8b2ad8feef41b94fa5839accb"
+  },
+  {
+    "file": "00072.png",
+    "elapsed": 9.93241529099987,
+    "frame": 258,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e76beb0ec86fe279294907126beaef0dd62113518799b173159854a80392c5c9"
+  },
+  {
+    "file": "00073.png",
+    "elapsed": 10.073599875000127,
+    "frame": 261,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5435459d484e6f7f0ab172387d9fab489f947f92c02923c00e5457fda1a7b63f"
+  },
+  {
+    "file": "00074.png",
+    "elapsed": 10.213976582999749,
+    "frame": 264,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d88f644bbfa222f6d51c6da8157f19e04ec52203ff6b9fe86618dacc3be53e81"
+  },
+  {
+    "file": "00075.png",
+    "elapsed": 10.354808166000112,
+    "frame": 267,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4e4e91c0827b75670d838d3b61765a152845a3dafc37549d30dd0903ee15a065"
+  },
+  {
+    "file": "00076.png",
+    "elapsed": 10.494940582999789,
+    "frame": 270,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5e2b6e69068aba9650678c2f8ed9b9efe83cf18284a095affd3031e5560afe05"
+  },
+  {
+    "file": "00077.png",
+    "elapsed": 10.635456624999733,
+    "frame": 273,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "cc4d41645bd6333aa1586ebc5e6aa09b15bfb9f6a2f66032d384f347137466c6"
+  },
+  {
+    "file": "00078.png",
+    "elapsed": 10.765446583000085,
+    "frame": 276,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "14f744d863b115e1e84e668a499e17c75b4ab511686c24e3c7b0d607a583b7fe"
+  },
+  {
+    "file": "00079.png",
+    "elapsed": 10.909203790999982,
+    "frame": 279,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8a7df85294de1bd0604cd00f77b2b7ed8beeccc1320530252ad34e50c3283d9a"
+  },
+  {
+    "file": "00080.png",
+    "elapsed": 11.05112999999983,
+    "frame": 282,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "94b703dee956fd23cd8166bad1db865a1e3b95cf0b4ee179efcbe83448b10155"
+  },
+  {
+    "file": "00081.png",
+    "elapsed": 11.191816499999732,
+    "frame": 285,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2674172eb700db5fd6ca5b56762f9d6003a0c878a0da07dfa9693db773b098ed"
+  },
+  {
+    "file": "00082.png",
+    "elapsed": 11.327236832999915,
+    "frame": 288,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "771a5a951d85a4737373c30a72290bae469ec6eb114265ab578c8c1d3eb8af04"
+  },
+  {
+    "file": "00083.png",
+    "elapsed": 11.463344290999885,
+    "frame": 291,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "15d80cbbab16fba32ba1e40c1f11f232ff97af0ee26772e3f9b64ad35bef752e"
+  },
+  {
+    "file": "00084.png",
+    "elapsed": 11.602982124999926,
+    "frame": 294,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f1a89d8a19a482b3c427c71fd400e286705fd2510041123cb259f232feff5afd"
+  },
+  {
+    "file": "00085.png",
+    "elapsed": 11.743822124999951,
+    "frame": 297,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e524cffc9c51bba2d30255bb6ffb1b6af58e36ca2c13673c6cae82726a5f135e"
+  },
+  {
+    "file": "00086.png",
+    "elapsed": 11.884496624999883,
+    "frame": 300,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8f765a7ff7870814eb593ccb5580d2d80a2e70995cf7dfed9270b05fa04bb056"
+  },
+  {
+    "file": "00087.png",
+    "elapsed": 12.018251416000112,
+    "frame": 303,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a0ce9dc931b23f208b88a0e36709451750b8d99f2da40bec9977e8322d96717f"
+  },
+  {
+    "file": "00088.png",
+    "elapsed": 12.154711707999923,
+    "frame": 306,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ab321966fe8709ccf6c16337ce420f5902b8b6f1b992ad723d3dac248aa045b3"
+  },
+  {
+    "file": "00089.png",
+    "elapsed": 12.296272874999886,
+    "frame": 309,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b66ae519056a480adabfbe0ca146ee61545713fd761af7d5bc9d178c458418e9"
+  },
+  {
+    "file": "00090.png",
+    "elapsed": 12.436445875000118,
+    "frame": 312,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "de9ac0a53d9c1fdcab8522398bcd5bbf3cb7a61715c443830239d56a7710b5c2"
+  },
+  {
+    "file": "00091.png",
+    "elapsed": 12.57741762500018,
+    "frame": 315,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ed3b49fd5f37f374aec729a4cbbf335d5756ee3428d5f3c71673e5b26c78ec0d"
+  },
+  {
+    "file": "00092.png",
+    "elapsed": 12.718377041000167,
+    "frame": 318,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "171522687ec6d688020c8885f4d35bf8f509fc0c9719bbbd67cab2a8ae999efe"
+  },
+  {
+    "file": "00093.png",
+    "elapsed": 12.859384750000117,
+    "frame": 321,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "94d0e324155751f7d4ef8c91ff44180f2986ec898db236fd9a98dade9454ef93"
+  },
+  {
+    "file": "00094.png",
+    "elapsed": 12.993493957999817,
+    "frame": 324,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "745bbd4f7e43b115064f2b65859f92614b0298d52769e94de6a93dd24c13052e"
+  },
+  {
+    "file": "00095.png",
+    "elapsed": 13.131956249999803,
+    "frame": 327,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8dd1e02ee022463c409197ff845e69764fd4951a7de07391783bfb390fb1bd37"
+  },
+  {
+    "file": "00096.png",
+    "elapsed": 13.273341915999936,
+    "frame": 330,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "00e02193cbf9fe1f7ea79d85353ebcb404e535f36300d1419a24354dbb65feb8"
+  },
+  {
+    "file": "00097.png",
+    "elapsed": 13.41361199999983,
+    "frame": 333,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "17fa400f32d27b4c6098258160b42d6ddd10678e40f119f9e60dadae06a7750b"
+  },
+  {
+    "file": "00098.png",
+    "elapsed": 13.554071375000149,
+    "frame": 336,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9079366190876b9cf0dfc3bbb0c257c5b1cc2e4d3979313a11404332412e1f9a"
+  },
+  {
+    "file": "00099.png",
+    "elapsed": 13.696581790999971,
+    "frame": 339,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8bfff2e0133f84a06ce534b49280d3aa254a7236323da4d0d538bdb9769abefa"
+  },
+  {
+    "file": "00100.png",
+    "elapsed": 13.836516040999868,
+    "frame": 342,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "bb6d4bb61c52a0dab08763b6b898676a2c9c9d1baac10ab507dcfa95dea5d0cb"
+  },
+  {
+    "file": "00101.png",
+    "elapsed": 13.978914625000016,
+    "frame": 345,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f72a149e7c79fb1497300a3e6075b7327701b51919eaec5b48a5458b05a25df2"
+  },
+  {
+    "file": "00102.png",
+    "elapsed": 14.121017416000086,
+    "frame": 348,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "83db19eecdf1fe532fbe2acb1c7cedbcf24fac25a44fbdbe42592daf1a556c9f"
+  },
+  {
+    "file": "00103.png",
+    "elapsed": 14.26238824999973,
+    "frame": 351,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5f0e93bff5701642f926fa137e6fa97165704b59f3f399228efda138d392a523"
+  },
+  {
+    "file": "00104.png",
+    "elapsed": 14.404340375000174,
+    "frame": 354,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5a338ba510fd0421cab4c9dd9358346ecac0d577541b1fa81f66ded8843d7e4d"
+  },
+  {
+    "file": "00105.png",
+    "elapsed": 14.54579241600004,
+    "frame": 357,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "dd1a0de4b6878d2d4fb87da8b73b3266a920408ca3890d707612acb4142aa51d"
+  },
+  {
+    "file": "00106.png",
+    "elapsed": 14.686730375000025,
+    "frame": 360,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "573fe97c186ada86558054a4f1d0bab7f42986e965ff5c34c810d0220004606c"
+  },
+  {
+    "file": "00107.png",
+    "elapsed": 14.828329458000098,
+    "frame": 363,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "948f2ddb8ee6b7be98a0b7a7db28c3f3eecec7a01bd2d0a212d8f151eb5690ea"
+  },
+  {
+    "file": "00108.png",
+    "elapsed": 14.970471540999824,
+    "frame": 366,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "66ffab4643724f27df95e66def3d8e4cf939be210f1ff8fbe8fbfd6414163b01"
+  },
+  {
+    "file": "00109.png",
+    "elapsed": 15.111384958000144,
+    "frame": 369,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "414e5db3c0790f6460ac98d7ab669275f59cc10f0e2c495342f6b42f3e6f601d"
+  },
+  {
+    "file": "00110.png",
+    "elapsed": 15.252702249999857,
+    "frame": 372,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "14f7c0ab8bb9aa7bf1ab4d48fcc13622ae5a7b27122e98df7a69d04bb8b69cb1"
+  },
+  {
+    "file": "00111.png",
+    "elapsed": 15.391850416000125,
+    "frame": 375,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "33a9f99860e611d0fb9a8fdaa56c456a8121b3f346cec8c307c952a93ae6030e"
+  },
+  {
+    "file": "00112.png",
+    "elapsed": 15.531810250000035,
+    "frame": 378,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "71f7117caa4ca31d8c0a50094dc32cc19dfffae998407f3904d67181bf76b394"
+  },
+  {
+    "file": "00113.png",
+    "elapsed": 15.673129415999938,
+    "frame": 381,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d06f35d33996b72dc35d68560e71586fbe4eb42041f03f749172a00708ee20dc"
+  },
+  {
+    "file": "00114.png",
+    "elapsed": 15.814242708000165,
+    "frame": 384,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "56ac603ae7511034773e520af3c4ef2e537907ce75228414a5eb62f5a30d8a71"
+  },
+  {
+    "file": "00115.png",
+    "elapsed": 15.955240415999924,
+    "frame": 387,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c804062fcfaa7d5d2923e6afc4013f8bbce7f1b4879b674f0549a7a591ead11f"
+  },
+  {
+    "file": "00116.png",
+    "elapsed": 16.095760415999848,
+    "frame": 390,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0f7bc654268ff84ee25083a5b25ad91adc86d5fec785b6c88bd16941d0917d5a"
+  },
+  {
+    "file": "00117.png",
+    "elapsed": 16.236596332999852,
+    "frame": 393,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2224ebfce3365f21d0568c3c38649b66fe693275f180e8f1bdbada539f320c77"
+  },
+  {
+    "file": "00118.png",
+    "elapsed": 16.377370332999817,
+    "frame": 396,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "935a33a5f445474237b91f57f6cf285834b9f8ef66a71e6b546e5f38e53cd7d9"
+  },
+  {
+    "file": "00119.png",
+    "elapsed": 16.51864470800001,
+    "frame": 399,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ac49750e8736f075c9480f24b9cf6d333798cc8abb6b9b4db5f81ae74fcdcc66"
+  },
+  {
+    "file": "00120.png",
+    "elapsed": 16.66280879099986,
+    "frame": 402,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "bfbc97890306f83572e57be06eb228a02d402d39928851624923eabaf0afaaf5"
+  },
+  {
+    "file": "00121.png",
+    "elapsed": 16.804064500000095,
+    "frame": 405,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "1114059c411d9586421945dbaede962cf6de00cf19ae0c6564c68d05cd4d3750"
+  },
+  {
+    "file": "00122.png",
+    "elapsed": 16.94423666600005,
+    "frame": 408,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e6360c0522ce46cec7c630e6fee1ce9a32ece16f024e110f30d64c1dc82bbed7"
+  },
+  {
+    "file": "00123.png",
+    "elapsed": 17.08479616600016,
+    "frame": 411,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "95845a45f04c0edfe76f7b59af56bf8267db394e8316cce0454a3cb8699b572e"
+  },
+  {
+    "file": "00124.png",
+    "elapsed": 17.225398166000105,
+    "frame": 414,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "1f0199fc01014ff4155a943931408a7e46077c2c613520e626ef518503be2898"
+  },
+  {
+    "file": "00125.png",
+    "elapsed": 17.365449500000068,
+    "frame": 417,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "48e27d294ecba5fca9cb666eb1e8b946f98b75740007f2362de00da61d2da241"
+  },
+  {
+    "file": "00126.png",
+    "elapsed": 17.506354208000175,
+    "frame": 420,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6a5076f3e88b47c9376abb41a672c67daa0ff61eaee636dee7503f419e7b66eb"
+  },
+  {
+    "file": "00127.png",
+    "elapsed": 17.64822883299985,
+    "frame": 423,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8a274f2e5a21de8dad279cba14940759b37310ceab580a335a6ca900dcde49ea"
+  },
+  {
+    "file": "00128.png",
+    "elapsed": 17.788643374999992,
+    "frame": 426,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "1683217159eb2d2156b874afabc2994e6fc326db69ed16e145905b277c343fb4"
+  },
+  {
+    "file": "00129.png",
+    "elapsed": 17.92978333300016,
+    "frame": 429,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "073646c0dcb5a80fc59eba26ab78784470dfcacfafcee68212a65f698d55636a"
+  },
+  {
+    "file": "00130.png",
+    "elapsed": 18.069738041000164,
+    "frame": 432,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "005d00f126c9feb47f018eb1b981d382b5713791240f1ddd750ef64ef5f16c48"
+  },
+  {
+    "file": "00131.png",
+    "elapsed": 18.208899374999874,
+    "frame": 435,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e9711a579ea4fae6d3a67d36668445bffff4eeae6aa94b71dd402ecc198dfa6e"
+  },
+  {
+    "file": "00132.png",
+    "elapsed": 18.35172641600002,
+    "frame": 438,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d6c513318cc572c212cbfe60b485bf68493da7429a54929e136b84800807c228"
+  },
+  {
+    "file": "00133.png",
+    "elapsed": 18.493423541000084,
+    "frame": 441,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "126a2f85db3ca4cc5bc766411b3f5cbf47949a6f2c326eec844f1dbc4b5e1251"
+  },
+  {
+    "file": "00134.png",
+    "elapsed": 18.635099374999754,
+    "frame": 444,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "595292ee8619449a42f35b3760fea18007089b6d7eae5cf8a83077a6aff58bb6"
+  },
+  {
+    "file": "00135.png",
+    "elapsed": 18.77417258300011,
+    "frame": 447,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e5261681b051eecc0a775438ab9a6e31a61789b69f6c904f5dc1650ebf83a6f2"
+  },
+  {
+    "file": "00136.png",
+    "elapsed": 18.915967791000185,
+    "frame": 450,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9bbad58d86ef73c4d91700f576d3ab5f0597f2420f7d2aa010e51e6d7474318c"
+  },
+  {
+    "file": "00137.png",
+    "elapsed": 19.055359124999995,
+    "frame": 453,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "58c57a5a7aa4a553895947607f13c918cc8d9ee2002a18929b09f2213664aff8"
+  },
+  {
+    "file": "00138.png",
+    "elapsed": 19.196490082999844,
+    "frame": 456,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a3aff68adb5a339648220377fada9ad1fff5728e9ff2b29fc34a587e16d8a17f"
+  },
+  {
+    "file": "00139.png",
+    "elapsed": 19.33612683299998,
+    "frame": 459,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "54136c95275350cdf87e22b636301c8e8d3891a36cd213eb74b66abd878d4896"
+  },
+  {
+    "file": "00140.png",
+    "elapsed": 19.476245625000047,
+    "frame": 462,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2f695a7db6f4e11fcf54de1a63cc90659034ce6f16db5bb67ed69dcfc4ee6068"
+  },
+  {
+    "file": "00141.png",
+    "elapsed": 19.61542766599996,
+    "frame": 465,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "61bab8aa6e4a1053fc00465c0de5955a4f1066ecccf4344549d824eb847e6c6a"
+  },
+  {
+    "file": "00142.png",
+    "elapsed": 19.757851958000174,
+    "frame": 468,
+    "stage": "earned wave 4 / test clock30Hz / public commands / advancing combat",
+    "sha256": "7cce8f4fd2b121493205f4942c8f971bfeff7f9bcc6f224c9a7721e41dc0c584"
+  },
+  {
+    "file": "00143.png",
+    "elapsed": 19.905537041000116,
+    "frame": 471,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "37446b6070216beceaac4811d340f62f201b245bf7984916cd9ab852cb04f6cf"
+  },
+  {
+    "file": "00144.png",
+    "elapsed": 20.04634658299983,
+    "frame": 474,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ca8a5ec18d2078e98b7c93a1151ab2f98e50c64eb1aad5d3319b26a41892a2b1"
+  },
+  {
+    "file": "00145.png",
+    "elapsed": 20.188343499999974,
+    "frame": 477,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4deb1647986847c04d11f20782a8359e87be2e41813d6815dd87642af54b167c"
+  },
+  {
+    "file": "00146.png",
+    "elapsed": 20.3305687080001,
+    "frame": 480,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2533b67367b60e455a87ac796b0370553a41530fed91438f9e538b1a8d77d4e7"
+  },
+  {
+    "file": "00147.png",
+    "elapsed": 20.47245429099985,
+    "frame": 483,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "651a968078b25cd6eb3fe74513b4c1fd0a2fbca3f7192672392d48ed8f87505e"
+  },
+  {
+    "file": "00148.png",
+    "elapsed": 20.613132291000056,
+    "frame": 486,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c81dfa75979722cd26ea7ea56a126cd832baed9f1a5a7696a393de8112808349"
+  },
+  {
+    "file": "00149.png",
+    "elapsed": 20.753294540999832,
+    "frame": 489,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a045a9bff6d514e599b8159462ec2075821d89cd7914b4aa9820664467b3c4eb"
+  },
+  {
+    "file": "00150.png",
+    "elapsed": 20.893866957999762,
+    "frame": 492,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4aa5277d724870d91fc64ed2299093429b2a606415d05ef44abbbf72023131fa"
+  },
+  {
+    "file": "00151.png",
+    "elapsed": 21.033706332999827,
+    "frame": 495,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "59bb452eccff12f4110b4990b92262730b0fb3d9d81f921666b6c2d2b0ae2f72"
+  },
+  {
+    "file": "00152.png",
+    "elapsed": 21.175224332999733,
+    "frame": 498,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "fd40cc30289135e1bba63dad2c369b3cdb23d70b09bfd461d8eb729f0a36cd2f"
+  },
+  {
+    "file": "00153.png",
+    "elapsed": 21.31344254099986,
+    "frame": 501,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "587f4ef84be455275c2da4dd6e1d776eada1124a25074143bbde0807aeaf77d1"
+  },
+  {
+    "file": "00154.png",
+    "elapsed": 21.453395874999842,
+    "frame": 504,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "911d021ebedf9c95a08effb6022bf3af474a74e2f341516f0f73d3c19d1a79bb"
+  },
+  {
+    "file": "00155.png",
+    "elapsed": 21.59426195800006,
+    "frame": 507,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "bc652ef2c3f639abd772994655deb8372be0c35f3b85e1afc9fa936bf6f4331f"
+  },
+  {
+    "file": "00156.png",
+    "elapsed": 21.734454500000083,
+    "frame": 510,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "278672777d8b54128c5d9ab3dd35a79d8f30ccc6f813d69d264a73ab83217d46"
+  },
+  {
+    "file": "00157.png",
+    "elapsed": 21.876884040999812,
+    "frame": 513,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "513f710b2201de15d1394a6bebe5533529c9a59bc5ae7cdce950a4eda486546f"
+  },
+  {
+    "file": "00158.png",
+    "elapsed": 22.018153915999847,
+    "frame": 516,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a621dc3e51f841605f63b01a33463d176b1f8bb5ea76c3f1a75df3e500ad26e6"
+  },
+  {
+    "file": "00159.png",
+    "elapsed": 22.158907375000126,
+    "frame": 519,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4528d39b811975dcbc5273c9037d07bf3c7aeafd11d3b51d065e75cd3a0462a2"
+  },
+  {
+    "file": "00160.png",
+    "elapsed": 22.299509166000007,
+    "frame": 522,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "7d7e38d8549468616891703400cf8d72c9eda60428bfad55fbe1aff831b0995d"
+  },
+  {
+    "file": "00161.png",
+    "elapsed": 22.441244749999896,
+    "frame": 525,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6ed60f349ba0ba9f88337911240535d5157b3f7cb4e9b4099f2a5017912ee589"
+  },
+  {
+    "file": "00162.png",
+    "elapsed": 22.585378040999785,
+    "frame": 528,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "31d207b46bc397e3afba2d12bdab8b16c91498cba72653984f72bda37578caab"
+  },
+  {
+    "file": "00163.png",
+    "elapsed": 22.72478887499983,
+    "frame": 531,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e0036e3d118e7018ffcda04b27a05fa2632fee11242a48ea5167050bf1c419c5"
+  },
+  {
+    "file": "00164.png",
+    "elapsed": 22.865403791000062,
+    "frame": 534,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "cd0bdbb943f5a04afb865968940576017d14fedc4f384ade70ec922b55284acf"
+  },
+  {
+    "file": "00165.png",
+    "elapsed": 23.00620195800002,
+    "frame": 537,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "445538153649136030efbfc3138b18dcac0dbcfbdf81fcaa8fa47071b9f55966"
+  },
+  {
+    "file": "00166.png",
+    "elapsed": 23.14548049999985,
+    "frame": 540,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4afbde159497f8434ff395e546f5f706a8e417cf8638974fe4dea5c74d82a589"
+  },
+  {
+    "file": "00167.png",
+    "elapsed": 23.286261124999783,
+    "frame": 543,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "abd01ccc6adca9a7179dea67daa4de335613c917bcb7d3455b7a0d3fafff1984"
+  },
+  {
+    "file": "00168.png",
+    "elapsed": 23.424437665999903,
+    "frame": 546,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e316f43f064a746319a353e550582587bee5c094bf76c0673a93067b25927d58"
+  },
+  {
+    "file": "00169.png",
+    "elapsed": 23.56616966599995,
+    "frame": 549,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "32ad069b5cf41c024b8a2f8ec6483729fab0af023be3cb7f1a2781d92ce2646a"
+  },
+  {
+    "file": "00170.png",
+    "elapsed": 23.706936582999788,
+    "frame": 552,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9f38932b7331164be9095971c4ecde1d20dfb0c75301fa5b1c306e5509a69b83"
+  },
+  {
+    "file": "00171.png",
+    "elapsed": 23.84691170799988,
+    "frame": 555,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "3b8c595cc7860eaaab26923b8b7da3290fe2fc1f3195d48edef9995aa5f1ae92"
+  },
+  {
+    "file": "00172.png",
+    "elapsed": 23.988027708000118,
+    "frame": 558,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "7b86413ba293599aa302af5819eb940f6b14fc15ed91a42d5ab3adf2f9a40b23"
+  },
+  {
+    "file": "00173.png",
+    "elapsed": 24.12904075000006,
+    "frame": 561,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "90c9bb3db49fba76f67bfd4a150e82fe47a91daba0ab8278de6faec9965066c7"
+  },
+  {
+    "file": "00174.png",
+    "elapsed": 24.26993187500011,
+    "frame": 564,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "3843ce87e2caded484e2aa445293bc0a8dddb9566f4b7531e41b1ec5f72fd4bc"
+  },
+  {
+    "file": "00175.png",
+    "elapsed": 24.408934125000087,
+    "frame": 567,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "248812aedc2c4b9d135bad98b99c02262f92aefcb515dd476e68a9fdb830e14f"
+  },
+  {
+    "file": "00176.png",
+    "elapsed": 24.549491750000016,
+    "frame": 570,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a4faeea0da29fa2e5e843552c59870a2e9aac9498f151b8b6e384ff20f7dfef9"
+  },
+  {
+    "file": "00177.png",
+    "elapsed": 24.691256291000172,
+    "frame": 573,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "79819e6e9f9baf9b4b1178dc72243c464383d3268af777fd216f76090d9bbc04"
+  },
+  {
+    "file": "00178.png",
+    "elapsed": 24.8317287079999,
+    "frame": 576,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "05b0a03261476ad2ecb3e68874eade376a481a4a6ca5d609220470cd32644a9e"
+  },
+  {
+    "file": "00179.png",
+    "elapsed": 24.97350883299987,
+    "frame": 579,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6b58b1695600d9b4776b89c7a7bf0691dbb2b284d6ff75e7a7dc541012ca36cf"
+  },
+  {
+    "file": "00180.png",
+    "elapsed": 25.115319375000126,
+    "frame": 582,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "cf72e02eed94239a1a62ae1edafbb1bb621829737053620cffd849a919a66fa4"
+  },
+  {
+    "file": "00181.png",
+    "elapsed": 25.255300415999955,
+    "frame": 585,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "61d5b7ebec73c8cdfd66ef0db5970e155f0816c4fc234898adaede4ac88df5b6"
+  },
+  {
+    "file": "00182.png",
+    "elapsed": 25.397292041000128,
+    "frame": 588,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4fa8e8689d494067a8ebd2fb36bd3b54c60a926fcf60dd9779b592343a4cb8ca"
+  },
+  {
+    "file": "00183.png",
+    "elapsed": 25.538566332999835,
+    "frame": 591,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "84795388bf8584aea6691320256fb1022a89efa3e2bc6e006f21daff82a1d5ed"
+  },
+  {
+    "file": "00184.png",
+    "elapsed": 25.680583458,
+    "frame": 594,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "06f58e3eeb5326e61b8e0eeae90ad3a991b69800b4479098ce85ffbff9792552"
+  },
+  {
+    "file": "00185.png",
+    "elapsed": 25.822835124999983,
+    "frame": 597,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5583ec1b33e0b2f03cff826d172f23d817d38e8790ca7984b29c324fb2683d8e"
+  },
+  {
+    "file": "00186.png",
+    "elapsed": 25.96439329099985,
+    "frame": 600,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c9d2cb0688e667112fb6fa267149361d0d18a8cfb853b6c751365b8689c2a6c2"
+  },
+  {
+    "file": "00187.png",
+    "elapsed": 26.107669333000104,
+    "frame": 603,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6d538c7285a70e64640326e7bb469eba6cf926051bb598d4569ae98dd285ae6a"
+  },
+  {
+    "file": "00188.png",
+    "elapsed": 26.24980083299988,
+    "frame": 606,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "33caa4e1574764d740aad0fb6d723700445a853c4d93bf1eef12d64e52e02109"
+  },
+  {
+    "file": "00189.png",
+    "elapsed": 26.390977540999756,
+    "frame": 609,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0c4295db24a756cc19d51f6c734e92ffa27a3c5ac3b0de8e3f5d284fecb4e5da"
+  },
+  {
+    "file": "00190.png",
+    "elapsed": 26.530799125000158,
+    "frame": 612,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d0761b2357b36a007efdca271dceb818de9954f49b0ba7dee5a0b197e98d4f19"
+  },
+  {
+    "file": "00191.png",
+    "elapsed": 26.671298833000037,
+    "frame": 615,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4e2758d1c7fd767bd66b1aae192c40669e8fe76b61e9ac5f08baf8ed2ca434c2"
+  },
+  {
+    "file": "00192.png",
+    "elapsed": 26.814054583000143,
+    "frame": 618,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "40d08550f9c9eb3597e8eebbf35d85180f1da6a12aa06ecc1e238a1e331a8a5d"
+  },
+  {
+    "file": "00193.png",
+    "elapsed": 26.955085957999927,
+    "frame": 621,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "78673c5cbc8cf6b5e90bbd32b5f28f8d16364d982693b9e66060dc48711f2571"
+  },
+  {
+    "file": "00194.png",
+    "elapsed": 27.09168541600002,
+    "frame": 624,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "db43669d8c09b1f68ae726b826390b5579264e69f73a2b2f95c4e223b1ba777f"
+  },
+  {
+    "file": "00195.png",
+    "elapsed": 27.23286429100017,
+    "frame": 627,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b4fee71ae544ddfacf9482554cc7fba75044f29fff6a2491a86201ec71c48f64"
+  },
+  {
+    "file": "00196.png",
+    "elapsed": 27.373394540999925,
+    "frame": 630,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2bc87ece6f3dd56fda0a325764bf97f989abb532f81a98a62c1a5b596016e022"
+  },
+  {
+    "file": "00197.png",
+    "elapsed": 27.515031458000067,
+    "frame": 633,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5d03ee3e75f5b440f23327ce8a7b6ab0d427e038ff949ab1fff78464e61909df"
+  },
+  {
+    "file": "00198.png",
+    "elapsed": 27.657312290999926,
+    "frame": 636,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "dcfb7c8cffb16cf94124c3decbfa6e7da28d6424c258a12c2b09f53a9c758044"
+  },
+  {
+    "file": "00199.png",
+    "elapsed": 27.798199249999925,
+    "frame": 639,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "cc03b4379759212279000f27271674c247eb0d62bbebc9f501ced1ce131b7979"
+  },
+  {
+    "file": "00200.png",
+    "elapsed": 27.94019520799975,
+    "frame": 642,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "041d7c227f8ab38b7a3686061cf50c93ddbf859c84aeb444ead3fe35ab0ab1bb"
+  },
+  {
+    "file": "00201.png",
+    "elapsed": 28.08096416599983,
+    "frame": 645,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "19395843fd71e4fefc7fe7c879c926ba1fcdca87bfc485fa640268215d237967"
+  },
+  {
+    "file": "00202.png",
+    "elapsed": 28.223474833000182,
+    "frame": 648,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2af41b6aa2bba289ba43b48d668506a7f14173654bd6c966280be3256c560926"
+  },
+  {
+    "file": "00203.png",
+    "elapsed": 28.362144582999917,
+    "frame": 651,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9b86e03dc576676f6b86ae1a22c52bc2489cbe4bd9b480c316039e53f81eec00"
+  },
+  {
+    "file": "00204.png",
+    "elapsed": 28.50338954100016,
+    "frame": 654,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6e37a596adc9fef6317675cb2ef02df1d67560efdcd02b6c8de10406dcdcb2fa"
+  },
+  {
+    "file": "00205.png",
+    "elapsed": 28.645862750000106,
+    "frame": 657,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e33e0bcb99aca28204261684765734db950b7821d460f9082bb0258b9537ae91"
+  },
+  {
+    "file": "00206.png",
+    "elapsed": 28.787628083000072,
+    "frame": 660,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "cce3b6f479c06a6466ac5daa8032a3cfb243abce89dca2c0b2602984c5387eeb"
+  },
+  {
+    "file": "00207.png",
+    "elapsed": 28.930739666000136,
+    "frame": 663,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4496c0598625003624a1a6a6fd74c6f263bc43036c283576d592adde5d939ceb"
+  },
+  {
+    "file": "00208.png",
+    "elapsed": 29.070522125000025,
+    "frame": 666,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "7f5ee20c6d7698a767bfdf76915da24bbc3b5e64fc69d10bdb4a68e7ab53aba8"
+  },
+  {
+    "file": "00209.png",
+    "elapsed": 29.212054957999953,
+    "frame": 669,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f28f443e6242b2410da80c1fdefe818bc0d6fe48a8cc8947e9d39de7d7c55e92"
+  },
+  {
+    "file": "00210.png",
+    "elapsed": 29.353375499999856,
+    "frame": 672,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "16577c8ee13abb7593955f691357d0d73ae1fe5867216b990ea4ae86d569da33"
+  },
+  {
+    "file": "00211.png",
+    "elapsed": 29.49538308299998,
+    "frame": 675,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "115d7a1df67bb7d37a79fa49328bee29b6f7f33bf135327af20cd334efff944d"
+  },
+  {
+    "file": "00212.png",
+    "elapsed": 29.62964145800015,
+    "frame": 678,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "23442e2e02a63e49a37d33fef68460107657a79046b9ffbe7f3e3937bbd62fee"
+  },
+  {
+    "file": "00213.png",
+    "elapsed": 29.767694665999898,
+    "frame": 681,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "3caeb6b63eba1bc0e4b9bc5ba1bd3055b3acaa799c052f5ce09bb0181abb835b"
+  },
+  {
+    "file": "00214.png",
+    "elapsed": 29.906678791000104,
+    "frame": 684,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c9e6b8f68e6aa78710691643133297343f1e8f7bf39936a86a4166a6907e722f"
+  },
+  {
+    "file": "00215.png",
+    "elapsed": 30.047833208000156,
+    "frame": 687,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b49cdbb7dbea281d8a68348c61600079c841a82fa1a12019986350748ad27848"
+  },
+  {
+    "file": "00216.png",
+    "elapsed": 30.188167082999826,
+    "frame": 690,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c52e311ec9bb4e539ff2fc7f13f20c735cab3691a1a958cb4baac1c0c59044c1"
+  },
+  {
+    "file": "00217.png",
+    "elapsed": 30.33035749999999,
+    "frame": 693,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "24e4f952d5f812dda40c981a43a10d940b98e18f56faaf6b8c8123098736bae2"
+  },
+  {
+    "file": "00218.png",
+    "elapsed": 30.471088833000067,
+    "frame": 696,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b61a2fcfb9542fc5ef0c121ddfdc1d1da0cd6652f71b2e50fa49c656235fff52"
+  },
+  {
+    "file": "00219.png",
+    "elapsed": 30.612259707999783,
+    "frame": 699,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "274f69ba3dae13902f6b4569189fd01d30f4ce2f0e9ba62a60b6475e37c9a0d6"
+  },
+  {
+    "file": "00220.png",
+    "elapsed": 30.753704207999817,
+    "frame": 702,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "360d2ffc675d85904905a9e554c705a4fb1eea4ad6e7d0ec47c726aa55b83504"
+  },
+  {
+    "file": "00221.png",
+    "elapsed": 30.894904750000023,
+    "frame": 705,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4ff11bebf35bb4e30df6fd6493b350d161cd7da54b8c576b2c0d6bc210cf889e"
+  },
+  {
+    "file": "00222.png",
+    "elapsed": 31.036520499999824,
+    "frame": 708,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "bf46c19e9cebf5eddbb2906bd605e099ac236dc1b598065fc2c87c10332b0f21"
+  },
+  {
+    "file": "00223.png",
+    "elapsed": 31.17820216600012,
+    "frame": 711,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ead41a46e7cedd260da511ad47fd20e56de3c34293d5e20fb9c34853a3ec4127"
+  },
+  {
+    "file": "00224.png",
+    "elapsed": 31.318707416000052,
+    "frame": 714,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "55df34a6e338cdbb23635e4f8901204e4065d36c08a04c9050d96746822968eb"
+  },
+  {
+    "file": "00225.png",
+    "elapsed": 31.46092458300018,
+    "frame": 717,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "672cb15342ff60510e8aaed979a143d985b4de06737b888426098eba37ed177f"
+  },
+  {
+    "file": "00226.png",
+    "elapsed": 31.60108083299974,
+    "frame": 720,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b46a3fd16f167f22970541ff64c807e17b5389f15fbe2559e01feea63538615b"
+  },
+  {
+    "file": "00227.png",
+    "elapsed": 31.739747957999953,
+    "frame": 723,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "de765edaeed0c72ff578dee6c072c72f2a6096fe354424305344dd08a7bd615d"
+  },
+  {
+    "file": "00228.png",
+    "elapsed": 31.880629040999793,
+    "frame": 726,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "dac2258d21288b4440b38012a02f23e4e7bf72656b4894b6e8bd24e5c95fe56b"
+  },
+  {
+    "file": "00229.png",
+    "elapsed": 32.020226041000114,
+    "frame": 729,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "24fb7451961c7f9359bed56ba6ab1dc85f14f1e24cd95b7e670387a63f1aef20"
+  },
+  {
+    "file": "00230.png",
+    "elapsed": 32.15984345800007,
+    "frame": 732,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5bcb8123668e0df3f14679693926f71e60444e65b0ed9ae311f9cb67de81ea76"
+  },
+  {
+    "file": "00231.png",
+    "elapsed": 32.298554707999756,
+    "frame": 735,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "93a6d6ac288d5db8bc927e62ecbb4466d2ea90789adfe9b9f3267cfb9636bedf"
+  },
+  {
+    "file": "00232.png",
+    "elapsed": 32.43641291599988,
+    "frame": 738,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9a3ce4a198af071cf790c9aa31e9ccb90027bceecc7b1e26a49cf8c54f94c7a2"
+  },
+  {
+    "file": "00233.png",
+    "elapsed": 32.57819829099981,
+    "frame": 741,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5e1498fff06aafce4eb5d56b19f7d2a78979e8de70e480edf8260e3fb67dbbc4"
+  },
+  {
+    "file": "00234.png",
+    "elapsed": 32.71825204100014,
+    "frame": 744,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ef2daeb9916f32895ec867b3fcdbe35b8d6f87aedd83caf747b6aa48582ec43f"
+  },
+  {
+    "file": "00235.png",
+    "elapsed": 32.86002508299998,
+    "frame": 747,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "08229860f0ec2316f92c83c14955aa88179fef1a4f61038e9b49f6211afdc872"
+  },
+  {
+    "file": "00236.png",
+    "elapsed": 33.002610874999846,
+    "frame": 750,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d49fd941a3e7d2a5a390f4b04e4c25e78ddeb49da428b11ddddb624e277f1da0"
+  },
+  {
+    "file": "00237.png",
+    "elapsed": 33.14433912499999,
+    "frame": 753,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "47da99329294762dd19ef299dbfe44d34861a2ffa6f8f37c071501f1defb62ee"
+  },
+  {
+    "file": "00238.png",
+    "elapsed": 33.283501875000184,
+    "frame": 756,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c9c3cea52d58fdc8b18b4a3773b57bbe52acdefc158b37c2a5e261da1eaa95f1"
+  },
+  {
+    "file": "00239.png",
+    "elapsed": 33.42451029099993,
+    "frame": 759,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6c340cd9b9f112a1cfe39123c8d38f967ce4da7992b660c6c492e75bc53a0179"
+  },
+  {
+    "file": "00240.png",
+    "elapsed": 33.564194041000064,
+    "frame": 762,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6e9a9376e208ce939a3000e7f8cd87119932324a27c96ca7da33c83b12f44304"
+  },
+  {
+    "file": "00241.png",
+    "elapsed": 33.70418666600017,
+    "frame": 765,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4bf96088b515463a5cf4af830ad0bf7a29d124893d82a0ad43aa815268cd7bf1"
+  },
+  {
+    "file": "00242.png",
+    "elapsed": 33.84556974999987,
+    "frame": 768,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "3fbb4ea65d8a420b452b05e9f66bdfb580e8231ae04bc7b78762341646c7d280"
+  },
+  {
+    "file": "00243.png",
+    "elapsed": 33.98553462500013,
+    "frame": 771,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b87cc0574cc6cf85c5b4f63d5bd5e7365ae48e7a1833746e6fde4814a6896845"
+  },
+  {
+    "file": "00244.png",
+    "elapsed": 34.12710762500001,
+    "frame": 774,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d714d4726974fdddf5021e78f2db739cfcd64651a7df323ddeea722be1efbb13"
+  },
+  {
+    "file": "00245.png",
+    "elapsed": 34.26645950000011,
+    "frame": 777,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0fd9bfcd5963f7cc99bf48472243e542c82ca43a7dd34505d6b03f272e0fe26c"
+  },
+  {
+    "file": "00246.png",
+    "elapsed": 34.40720462499985,
+    "frame": 780,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "7a7ad2b5d29a537d495da722d22c02ed1f47ca2b401d0d78932f5f661f8dd4c2"
+  },
+  {
+    "file": "00247.png",
+    "elapsed": 34.54610445800017,
+    "frame": 783,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f54795c3938edb6229aabe698177110004ad9f3a50152106b0a175313cde122a"
+  },
+  {
+    "file": "00248.png",
+    "elapsed": 34.686161083000115,
+    "frame": 786,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "741fd1e851bc3f0560516a9d4404340b7e4137fc74c1614e021d00a5ee16a728"
+  },
+  {
+    "file": "00249.png",
+    "elapsed": 34.82908908299987,
+    "frame": 789,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e2dbbc60deaa4bc07e0355a3bdd76644bb7d43f2ebd67a518433432635358fc9"
+  },
+  {
+    "file": "00250.png",
+    "elapsed": 34.96929354099984,
+    "frame": 792,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "48e316959e321c93ab65e1bdd06d36e7b3b8ef4894caf51cc36f614852e26c09"
+  },
+  {
+    "file": "00251.png",
+    "elapsed": 35.10905562500011,
+    "frame": 795,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b42ce937e883a8169b5aede46ff7d6508c6da864aa060c2113fb42d97868e80d"
+  },
+  {
+    "file": "00252.png",
+    "elapsed": 35.249359915999776,
+    "frame": 798,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "88ae1e50e9c635c9d60837af780888301acec6f22d6d7330fde87d51ade35ea6"
+  },
+  {
+    "file": "00253.png",
+    "elapsed": 35.39172229099995,
+    "frame": 801,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e265c4bba0f2b145b1623f0502af44d3c541bdde5bb5644f8256da913d643aa4"
+  },
+  {
+    "file": "00254.png",
+    "elapsed": 35.53076304099977,
+    "frame": 804,
+    "stage": "earned wave 5 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4d74f49b8895a3dfedea25c8982179341fd8f4ff9b8d00ba59b01331369f1e24"
+  },
+  {
+    "file": "00255.png",
+    "elapsed": 35.67937387499978,
+    "frame": 807,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e3020f088a3a31732820eb34dd8f2cc40359e746e8bcdd0e8da605087f424a6d"
+  },
+  {
+    "file": "00256.png",
+    "elapsed": 35.81567962500003,
+    "frame": 810,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "fe736bf01513fba8eecd5983c4df87aa4cfd2f3c3e2829188d91f8a85e5d48d5"
+  },
+  {
+    "file": "00257.png",
+    "elapsed": 35.95672887499995,
+    "frame": 813,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f25db2d20fc9010e490b22f74f631a14427ce6c2f2fe3a5e23464c4f7707e898"
+  },
+  {
+    "file": "00258.png",
+    "elapsed": 36.09813249999979,
+    "frame": 816,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "89a3feb9e26298a33c968a3ee649899dfc3c6227a969632ea0266a350b4696f0"
+  },
+  {
+    "file": "00259.png",
+    "elapsed": 36.23998354100013,
+    "frame": 819,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8dc58077d4de16d9ecec306e093e65280e7d03cc53e3176135472633d5f9ccf4"
+  },
+  {
+    "file": "00260.png",
+    "elapsed": 36.379017833000034,
+    "frame": 822,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e85ab5fbd2dce33fbb2fe2952aaf46091033d52700798e00df61873d76ca44c2"
+  },
+  {
+    "file": "00261.png",
+    "elapsed": 36.51902549999977,
+    "frame": 825,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "458799cb2d06a3b4933237b02ce95db79e132dc25ca65a175ec22703faf5a2df"
+  },
+  {
+    "file": "00262.png",
+    "elapsed": 36.65985054099974,
+    "frame": 828,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9db017b9464c3734eccaecb3ce6a736d2206296f6668466e7ce935f3ad4f64cd"
+  },
+  {
+    "file": "00263.png",
+    "elapsed": 36.80250858299996,
+    "frame": 831,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e840ba4c59da3adbcee12dd9eed5daf26aa220ca3312adb37bfe7a339254f31f"
+  },
+  {
+    "file": "00264.png",
+    "elapsed": 36.94693958300013,
+    "frame": 834,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "30aa834347d7291f9795643a3206bd0986d7d0e3931beb4ae407ba36cb6907c6"
+  },
+  {
+    "file": "00265.png",
+    "elapsed": 37.089396750000105,
+    "frame": 837,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "3f4d28b19f68dadcb40c7f098f8143469e8c89a4ecf9967722032675f2fc0405"
+  },
+  {
+    "file": "00266.png",
+    "elapsed": 37.23211437500004,
+    "frame": 840,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b04800a19ce908d4beb01bacedcdde785b8a9eb2b5fc85cc3c30df472fa1f3c5"
+  },
+  {
+    "file": "00267.png",
+    "elapsed": 37.37317995800004,
+    "frame": 843,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "436ec18879615d068cbffb762681adf0df7cc63b76967706330b64b17a48d80c"
+  },
+  {
+    "file": "00268.png",
+    "elapsed": 37.51277104100018,
+    "frame": 846,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "39b4c44e5290895452fa8c6a1e032180a20f150c625c67fb91db81d9542070cc"
+  },
+  {
+    "file": "00269.png",
+    "elapsed": 37.65576462499985,
+    "frame": 849,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "679cccd4c155dac2947a8c8d8463044fd62b7d866155302ab65d7363627e402d"
+  },
+  {
+    "file": "00270.png",
+    "elapsed": 37.799219790999814,
+    "frame": 852,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "396ffe9201b88410a0e69a8a3991923ac5f5b481b22168b5da7064a79bbfbda9"
+  },
+  {
+    "file": "00271.png",
+    "elapsed": 37.9412444579998,
+    "frame": 855,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a65204e38836a182adb1fb0b1f0fb3205587cc83a0ac1d6585e7f44360f9be02"
+  },
+  {
+    "file": "00272.png",
+    "elapsed": 38.083652124999844,
+    "frame": 858,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9a8e2be3764aae599ebd8dc37f36896557ecb2e11f17d0505b53aca1c7ee94a1"
+  },
+  {
+    "file": "00273.png",
+    "elapsed": 38.22449016600012,
+    "frame": 861,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2b350512d1afabade1a4fb770a1148dc28d58232419d5ce03f17ff87d134dd4b"
+  },
+  {
+    "file": "00274.png",
+    "elapsed": 38.364980124999875,
+    "frame": 864,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4cca5216c36a8b253f83936f34a5afef7fc93db31f6b7d53762f648e816fd51b"
+  },
+  {
+    "file": "00275.png",
+    "elapsed": 38.506457541000145,
+    "frame": 867,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "3fde16f4393e6249e65d6147cf653e77a962b6b2a6448266afc812fe54fd6ae9"
+  },
+  {
+    "file": "00276.png",
+    "elapsed": 38.646526874999836,
+    "frame": 870,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "44a5801aeef26bcb8b157c3fdd7a48415307435961429db2ae60d9ead8129b15"
+  },
+  {
+    "file": "00277.png",
+    "elapsed": 38.78724208299991,
+    "frame": 873,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "20ffba07931c70f8d7c60c0e9e1a4e02ee626e22cde7dc39cbd930414712ddb9"
+  },
+  {
+    "file": "00278.png",
+    "elapsed": 38.929241207999894,
+    "frame": 876,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a2c868f741450289cdb6a963d44a5d42b26c24ae89c1f425c1fcea2bc2dd2523"
+  },
+  {
+    "file": "00279.png",
+    "elapsed": 39.071989999999914,
+    "frame": 879,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "922b6deee25a68d70048e80b87265f404b9b083fefd54a0339cfa419950756d3"
+  },
+  {
+    "file": "00280.png",
+    "elapsed": 39.21215820799989,
+    "frame": 882,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9b482d59edbbcb5652914cf45574a230516e39a98fdcd36e6c317d77ae9fbd4f"
+  },
+  {
+    "file": "00281.png",
+    "elapsed": 39.35161258300013,
+    "frame": 885,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "75fb4d174b807425b88f93697f0cd2b13214d1ddda815e642546f82587baf523"
+  },
+  {
+    "file": "00282.png",
+    "elapsed": 39.49277208300009,
+    "frame": 888,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "89baa1928acfd35df4affa94063a63fc9ff0a13a693eeb6047037d5763a33503"
+  },
+  {
+    "file": "00283.png",
+    "elapsed": 39.63244362500018,
+    "frame": 891,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e9b943d035f7dab7aa2f78a43b5a49ca2005783cf1bbe8a93c86816a0973789f"
+  },
+  {
+    "file": "00284.png",
+    "elapsed": 39.77302579099978,
+    "frame": 894,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0b7f645eadee4c9deb63363e463cbcbc77033bcf3c7d19b7ab9062c5b69ee3af"
+  },
+  {
+    "file": "00285.png",
+    "elapsed": 39.91373570799988,
+    "frame": 897,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "263f220a9b19728931b74aef9dc0c3a48c6c22c3a6c0a622e08a0bec0eeb066c"
+  },
+  {
+    "file": "00286.png",
+    "elapsed": 40.05435858300007,
+    "frame": 900,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "94bc8383908ed2a52d9c4656c36985446a1dc405ccf9e870ed752bcaa980a5cd"
+  },
+  {
+    "file": "00287.png",
+    "elapsed": 40.19548937499985,
+    "frame": 903,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "56f88cc83b6924c8dd5448dc81e0c9d7e56c9cc5f4b86f36948a8c5af65d028a"
+  },
+  {
+    "file": "00288.png",
+    "elapsed": 40.337135082999794,
+    "frame": 906,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d7077390217b547a4bf6e3755163690e1495d3eb9fe3e0e3fa3a43f04aa81fa0"
+  },
+  {
+    "file": "00289.png",
+    "elapsed": 40.47916166599998,
+    "frame": 909,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "74f90338793ca9291e4818ba62ad7e0ff4b63dd4672690aa04c1f803715c3921"
+  },
+  {
+    "file": "00290.png",
+    "elapsed": 40.61866466599986,
+    "frame": 912,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "cbe6ca01f98bf86ca1fe491b093ba205e4125b03540d2e0bdf2ee219ea74fdde"
+  },
+  {
+    "file": "00291.png",
+    "elapsed": 40.760631832999934,
+    "frame": 915,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f9269cf2dd99b806150d392736dfe02805eeaf7b85841696e1d2d64cfcfe7c53"
+  },
+  {
+    "file": "00292.png",
+    "elapsed": 40.901103624999905,
+    "frame": 918,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "57309c1925876ddc32acf4f5f58bcf2532efa3c12062289ad44767732e667429"
+  },
+  {
+    "file": "00293.png",
+    "elapsed": 41.04266208299987,
+    "frame": 921,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "605b2b9b238dd4786eef47528c81f634382d8db8793ed4148c147f9c26e738ea"
+  },
+  {
+    "file": "00294.png",
+    "elapsed": 41.183318124999914,
+    "frame": 924,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "13250b33398644ccdba484aa84c0547f4f0f13ddebf0bc27fd070eee637f561b"
+  },
+  {
+    "file": "00295.png",
+    "elapsed": 41.322630707999906,
+    "frame": 927,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0ee043a9bb30ae139ca9d7c1997ed4007db365e69984987d5790c2758798ad35"
+  },
+  {
+    "file": "00296.png",
+    "elapsed": 41.46311083299997,
+    "frame": 930,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "bb6f3bcf727125cb15f128a3bd7da9410285f6fe2c8d332a818d756587868e8c"
+  },
+  {
+    "file": "00297.png",
+    "elapsed": 41.604886540999814,
+    "frame": 933,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c4e6808834749f1b53aec9c2e986c0a3161edb7dd4604e4b46fddc67d2a75e80"
+  },
+  {
+    "file": "00298.png",
+    "elapsed": 41.748076500000025,
+    "frame": 936,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "05ca853fa57f91feba82f7cf630a5c125d99b4ae1291fcfec8a4b2f6c8229645"
+  },
+  {
+    "file": "00299.png",
+    "elapsed": 41.890651499999876,
+    "frame": 939,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0e9c510a1b46b5f357c55aba25ad93f6166c119d400c2f88332d7edb304dcc05"
+  },
+  {
+    "file": "00300.png",
+    "elapsed": 42.033977540999786,
+    "frame": 942,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0151a18c0c98709141229c4facfde7967648eb1c3871087934fab1c78e4baf81"
+  },
+  {
+    "file": "00301.png",
+    "elapsed": 42.173635332999766,
+    "frame": 945,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6959f88926982f8891bf825ccdcef4189ee12abb4f36ca6890ec6f3b9d9c04af"
+  },
+  {
+    "file": "00302.png",
+    "elapsed": 42.31378879099975,
+    "frame": 948,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2abfca0cbc582417bdfcf447bc94e473b6814579e2515e8908f7881aad085697"
+  },
+  {
+    "file": "00303.png",
+    "elapsed": 42.453456040999754,
+    "frame": 951,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4fe5d06527bb4ad26737ef57690eca778a28bd2ccab6a078273c09f73b4d0209"
+  },
+  {
+    "file": "00304.png",
+    "elapsed": 42.59434212499991,
+    "frame": 954,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "1e341ddf3ece06489bb141693a9839a6428568de2f348e9f43a8c3895de7f668"
+  },
+  {
+    "file": "00305.png",
+    "elapsed": 42.73595091600009,
+    "frame": 957,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "96d17ca70363fe4bc213ef3f9fee97ccb449e925e619a9214af9a7d39ee27887"
+  },
+  {
+    "file": "00306.png",
+    "elapsed": 42.87740399999984,
+    "frame": 960,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e81d023f595d67b5546202168d7af3e83d11615ccb9dcecc5fcc61f948b0fb05"
+  },
+  {
+    "file": "00307.png",
+    "elapsed": 43.01618170799975,
+    "frame": 963,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "50942b3dddbbcf7fd288cd40351f4053c5f2462253b11455ac406994e3ad3c53"
+  },
+  {
+    "file": "00308.png",
+    "elapsed": 43.158128832999864,
+    "frame": 966,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8050718807ad0b1ef1638d193b992e4b2e2e8bab3bdd52a69496bab1608de33e"
+  },
+  {
+    "file": "00309.png",
+    "elapsed": 43.297485499999766,
+    "frame": 969,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "61dd0011025b1c0ee8af3f2ef9dba16c9d5261f7f8ce4893827e0200726078a1"
+  },
+  {
+    "file": "00310.png",
+    "elapsed": 43.43671458300014,
+    "frame": 972,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ac9b5f2e37b355549dcb9d4b7845f4956cb96b61bf7d6d1690558f422191e438"
+  },
+  {
+    "file": "00311.png",
+    "elapsed": 43.57829491599978,
+    "frame": 975,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2d1b3af35fc0288b4b995bb6c69d70c6a5fd4ec36075b67327342d2a2429f8c2"
+  },
+  {
+    "file": "00312.png",
+    "elapsed": 43.722202040999946,
+    "frame": 978,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9cb7ccba76f25f094a69998c111b757807fdabfa93a98024ec73c6aead37d215"
+  },
+  {
+    "file": "00313.png",
+    "elapsed": 43.96834445800005,
+    "frame": 981,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ba24f7851e833f28722d91e0e75579376fc523688cea6fdbe7fee1010c09179a"
+  },
+  {
+    "file": "00314.png",
+    "elapsed": 44.11451649999981,
+    "frame": 984,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9ae45b7a9af20d14361da810b86b10d8aff79db09e394c0af2d7c8339cffb181"
+  },
+  {
+    "file": "00315.png",
+    "elapsed": 44.2566905409999,
+    "frame": 987,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "fe11e8295f9012d4ed3982b01dec4a75301b79ccc075020e6bfef32593850a45"
+  },
+  {
+    "file": "00316.png",
+    "elapsed": 44.39920912499974,
+    "frame": 990,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "68b271e2a91f097fbe491ce0ab7ebd432f8d246281c19b1a291b41c525975a82"
+  },
+  {
+    "file": "00317.png",
+    "elapsed": 44.5426648749999,
+    "frame": 993,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d8e8e22feac8c6a93aec7877f1c37e8d080a7edd28a76179636ffdaa008ed918"
+  },
+  {
+    "file": "00318.png",
+    "elapsed": 44.684499250000044,
+    "frame": 996,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2a6a9b30fbc90113f7d88ea18b0f2f58f15cbc66d47d57e1e85cae6baa20f8c6"
+  },
+  {
+    "file": "00319.png",
+    "elapsed": 44.8262850000001,
+    "frame": 999,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b997225c0e9e70ab35ad1d13cc270390694ffda78d54a773e69a5a7c73bdfd78"
+  },
+  {
+    "file": "00320.png",
+    "elapsed": 44.96835079099992,
+    "frame": 1002,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "38ea7a3f5c0124b2f41fe477e2f202cdbd89ac4291f94fc4cf28a1cdb4d2a5f5"
+  },
+  {
+    "file": "00321.png",
+    "elapsed": 45.10422316599988,
+    "frame": 1005,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "cf40dc8959cf40770a20488bafef13d19fe3956a8e5b56e0b0e5e9024bf7e722"
+  },
+  {
+    "file": "00322.png",
+    "elapsed": 45.24442358299984,
+    "frame": 1008,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "50aa2bd0b3daf040b736c9a6782ab1f53abf5de5c762a4b8366f21591e8fb3d6"
+  },
+  {
+    "file": "00323.png",
+    "elapsed": 45.38457708299984,
+    "frame": 1011,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "92e67b23abd3060d5223e0927fab2dd0cfeed8a3ba3cfb780341d0d3d31b0e05"
+  },
+  {
+    "file": "00324.png",
+    "elapsed": 45.524853082999925,
+    "frame": 1014,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9b2c264dfc1951b4426eccedb06427bc9b90b0b8965f7a3ea14c77a29bab4333"
+  },
+  {
+    "file": "00325.png",
+    "elapsed": 45.66705316599973,
+    "frame": 1017,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b3c04856f2c76d663f52e1a003335e923da862f15014461c3328eaf4c58d9201"
+  },
+  {
+    "file": "00326.png",
+    "elapsed": 45.80696516599983,
+    "frame": 1020,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0f53ee0894aada4d56572692f886a918f9f2c6b816d615027c8b1a7d98cd03dd"
+  },
+  {
+    "file": "00327.png",
+    "elapsed": 45.94835474999991,
+    "frame": 1023,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2721e5df6f4bbd8c2d719b753d99e663836cf9be9c40ed6543e662970e787014"
+  },
+  {
+    "file": "00328.png",
+    "elapsed": 46.08976225000015,
+    "frame": 1026,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "57a61eeaee2fa272c28eb9e7a3d99f5fb83033fbb104229beb9fb076c68493ea"
+  },
+  {
+    "file": "00329.png",
+    "elapsed": 46.23033112499979,
+    "frame": 1029,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "12e80c157053c7c7d3eadea30c4f0ea05ac12f662eae953de992b5ff4c0c595f"
+  },
+  {
+    "file": "00330.png",
+    "elapsed": 46.37072850000004,
+    "frame": 1032,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6d24f1a1487eb681c769c941da4073a0c9e62072936ffd82511474f1b2ab7f41"
+  },
+  {
+    "file": "00331.png",
+    "elapsed": 46.51159520800002,
+    "frame": 1035,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c749f4ac6978d54382731d9b010d8a9cea679c749457943ac1a725309594e5b4"
+  },
+  {
+    "file": "00332.png",
+    "elapsed": 46.65619108300007,
+    "frame": 1038,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "454702c8b0c295e324116848a24f1a7891b523bd5e20778953ab05ab73434e35"
+  },
+  {
+    "file": "00333.png",
+    "elapsed": 46.7955649999999,
+    "frame": 1041,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9b7bc5e9750534d1ba28bf840cc3ae727f50b1bd83723372c6c44346136c1162"
+  },
+  {
+    "file": "00334.png",
+    "elapsed": 46.93763812499992,
+    "frame": 1044,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d3b0757147a8ffa76a86c121d1e293a0a872d0e808d71c2b35e06b18e8b31ef9"
+  },
+  {
+    "file": "00335.png",
+    "elapsed": 47.07934441599991,
+    "frame": 1047,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "fac69d3860423d58bd140bd237840b2cca505a65bbef99fd1cc51ae98bf39f70"
+  },
+  {
+    "file": "00336.png",
+    "elapsed": 47.22049458299989,
+    "frame": 1050,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e1fea8211cb9e5446cacc1af8e2d02d3a3f7401875a0627af82d7c6f697ce3f6"
+  },
+  {
+    "file": "00337.png",
+    "elapsed": 47.36269274999995,
+    "frame": 1053,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "fd4d20887ae130ef0a2f3b3ba8a3d132185a4ce298e8a316680bf8c2e12abc76"
+  },
+  {
+    "file": "00338.png",
+    "elapsed": 47.505106624999826,
+    "frame": 1056,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "20bafa748c3be338a81a6ff633515c51c194c696c96c6015c5ba1b0059955c5a"
+  },
+  {
+    "file": "00339.png",
+    "elapsed": 47.6463194160001,
+    "frame": 1059,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "82ea6d1ab881ff2ad942380365e9e4ba3440cb687991c8a72647b40f4f186566"
+  },
+  {
+    "file": "00340.png",
+    "elapsed": 47.78749262500014,
+    "frame": 1062,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "1256a6f90295a691e7424919792dbc4134d1875056d0d3ce7489ca633df43a98"
+  },
+  {
+    "file": "00341.png",
+    "elapsed": 47.92701583300004,
+    "frame": 1065,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d5cb93fae66f6e51128b7c0e04cd406ec2602c211ecde987350b253516067bfd"
+  },
+  {
+    "file": "00342.png",
+    "elapsed": 48.066445208000005,
+    "frame": 1068,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "231f6f6f672e53951ce48c44d8f8431bdce8f816b86a309dd6fe536a9643196d"
+  },
+  {
+    "file": "00343.png",
+    "elapsed": 48.20607620800001,
+    "frame": 1071,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "02e2ea94fe4772294a3d66cfa4d863bc85867d1ca964b3a3e1136a6f368b7d77"
+  },
+  {
+    "file": "00344.png",
+    "elapsed": 48.34724766599993,
+    "frame": 1074,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6e73ff849bdd6f523742e4c743d1f01991d687f690847e1806033de6e1c115ce"
+  },
+  {
+    "file": "00345.png",
+    "elapsed": 48.48843658299984,
+    "frame": 1077,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8139d3bde3045df5481599ef56424522b095ab999964beed2a9c9c3ca4572f9e"
+  },
+  {
+    "file": "00346.png",
+    "elapsed": 48.62603316600007,
+    "frame": 1080,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6991787e2409120aaac24d9648e31b942ffb7e6467fa1f1c8644ff83ad18ef04"
+  },
+  {
+    "file": "00347.png",
+    "elapsed": 48.76619779099974,
+    "frame": 1083,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "645c93efa28617de3a647ce225abba53eeb888bca4ca7f2ec55d718b582b8cf8"
+  },
+  {
+    "file": "00348.png",
+    "elapsed": 48.90649662499982,
+    "frame": 1086,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "490ad2836d8735a794f1df9782a854a7eff9d745fb31008aff98ec434b071812"
+  },
+  {
+    "file": "00349.png",
+    "elapsed": 49.04733225000018,
+    "frame": 1089,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "942fd79fe4c410044aec514f25a9a74ef2403173e9bcef440924bc4a82542c9c"
+  },
+  {
+    "file": "00350.png",
+    "elapsed": 49.18700954099995,
+    "frame": 1092,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4cc1a1ef9e74f24da06db15b8ddf68eb179c8c7f805d2eaa6fc5385f655f18a4"
+  },
+  {
+    "file": "00351.png",
+    "elapsed": 49.32746962500005,
+    "frame": 1095,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "1152b120a46d153c5d1b479c22e65f1ee869f787159253e63f48484cfd4c5248"
+  },
+  {
+    "file": "00352.png",
+    "elapsed": 49.467576333000125,
+    "frame": 1098,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "01b1d4b7aa896f2b8d91387f047ae7f7eb1811c2b76cc289ad797f63da907fe7"
+  },
+  {
+    "file": "00353.png",
+    "elapsed": 49.61056570799974,
+    "frame": 1101,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ce67f9cf07512d7983ae6672887f03d39b3cc878890ed834923612e8f75d5480"
+  },
+  {
+    "file": "00354.png",
+    "elapsed": 49.75043208299985,
+    "frame": 1104,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "7489c00b64c1b134c183d5471c6d2e3cce26f56df3a4d0b0c7f444495a2719c8"
+  },
+  {
+    "file": "00355.png",
+    "elapsed": 49.891038707999996,
+    "frame": 1107,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "73a6552b57b3592081aeb7b2422ce88a21ee2a55da25f986853410b92211594b"
+  },
+  {
+    "file": "00356.png",
+    "elapsed": 50.03198320799993,
+    "frame": 1110,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d5b3d7f9b7f7ed57a52968582652661375577f5c99504dd2c7771fa046ea3883"
+  },
+  {
+    "file": "00357.png",
+    "elapsed": 50.16420320799989,
+    "frame": 1113,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "abb79ce659f3255543d144366343e72d8920cd571bd8f1e8faeb11b24d012d68"
+  },
+  {
+    "file": "00358.png",
+    "elapsed": 50.30396295799983,
+    "frame": 1116,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2716e78b40d2d0cac28ec59e5806113930ba5538960a558cf39626d91295dfeb"
+  },
+  {
+    "file": "00359.png",
+    "elapsed": 50.44456933299989,
+    "frame": 1119,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f1f710f1d0895188ada7728f758261e6fe953ffbf2da5bc61d5faa9bbe05ef05"
+  },
+  {
+    "file": "00360.png",
+    "elapsed": 50.586358624999775,
+    "frame": 1122,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a4cf19f8364b43124d8d57b09bcff7a0dbbe9edf521248281b0269ec644c6a8d"
+  },
+  {
+    "file": "00361.png",
+    "elapsed": 50.728407499999776,
+    "frame": 1125,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "68871d4d523d5f3fd7feee52f63b9c727491d29b0baa9e8c00fcda2868419cb2"
+  },
+  {
+    "file": "00362.png",
+    "elapsed": 50.871721250000064,
+    "frame": 1128,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e0329e83b8808ec03853774a5f80564098e8571163dc4cb2964770ed119f2968"
+  },
+  {
+    "file": "00363.png",
+    "elapsed": 51.01192745800017,
+    "frame": 1131,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "737cdd891650a2506b564529648b6f1ed98431cc737ca83f950e33875a2c4d54"
+  },
+  {
+    "file": "00364.png",
+    "elapsed": 51.15386470800013,
+    "frame": 1134,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e1b3027eeeecabbb2e4271444ff17195a38f674f6a72d4e010eb2364dd624441"
+  },
+  {
+    "file": "00365.png",
+    "elapsed": 51.292777041000136,
+    "frame": 1137,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a28b169a2143f866cd47dc1179d4ccd4709bc5dfec48127da32a9b92759e5291"
+  },
+  {
+    "file": "00366.png",
+    "elapsed": 51.43321508300005,
+    "frame": 1140,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "fc828b5e094f878ba6c0338262843c846dfb16fdde488f4eb3662b7a1af5c4ba"
+  },
+  {
+    "file": "00367.png",
+    "elapsed": 51.57420816600006,
+    "frame": 1143,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0395a140deb8755b0fe3b9dd0095dd0f82083099b215c37983c028b58d81097f"
+  },
+  {
+    "file": "00368.png",
+    "elapsed": 51.714390374999766,
+    "frame": 1146,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "1af124241fbe4bef0c48cc932de6398ca3e59b650b7000afe5d48f7c5067a423"
+  },
+  {
+    "file": "00369.png",
+    "elapsed": 51.854451916000016,
+    "frame": 1149,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4f2ca20dfb36cb1bcf3f0c1f7d2a64d37a0890f66bb2401a74a769be0cecd2b2"
+  },
+  {
+    "file": "00370.png",
+    "elapsed": 51.99535504100004,
+    "frame": 1152,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4f6f851c5c25dadd2ae89bb3d3415752ea827b4f5bbd5fc23d5da11b430a179f"
+  },
+  {
+    "file": "00371.png",
+    "elapsed": 52.13428350000004,
+    "frame": 1155,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b7a9ac6fce3935f7a36ce767baef07a2cafc19a68f403f0f489e4630bfcc906c"
+  },
+  {
+    "file": "00372.png",
+    "elapsed": 52.27621450000015,
+    "frame": 1158,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9f2ab025e6d136c8cd43cd5ef7a7815637a7f6adb26f12e9ef844a429138459a"
+  },
+  {
+    "file": "00373.png",
+    "elapsed": 52.41693637499975,
+    "frame": 1161,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "546d4b828c9d860ed769034208aa498b1ca8e264cd13da87f8c3a0fa8467e98d"
+  },
+  {
+    "file": "00374.png",
+    "elapsed": 52.55876699999999,
+    "frame": 1164,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9ab2ad6ec9b6c27096a5191f2efaf9a6e27493c8a9ee3bbc41a4b99907aead68"
+  },
+  {
+    "file": "00375.png",
+    "elapsed": 52.69775483300009,
+    "frame": 1167,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2448f732ff8489bca383c7b54a64663a300a13c196c2e8609586736ce8fa018e"
+  },
+  {
+    "file": "00376.png",
+    "elapsed": 52.838656999999785,
+    "frame": 1170,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5764e359e98a7c3cafd7842342509084c64b8a756550d763fd3f78f016795339"
+  },
+  {
+    "file": "00377.png",
+    "elapsed": 52.98047749999978,
+    "frame": 1173,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4acd974423637f6efe772dc94169681e4ba1118ae15540940f9bbe64db012400"
+  },
+  {
+    "file": "00378.png",
+    "elapsed": 53.120813375000125,
+    "frame": 1176,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6d6a71b60c3f08aa4a0736602a8c48b8bd3d62150fb57acbe77717acf7ab939d"
+  },
+  {
+    "file": "00379.png",
+    "elapsed": 53.26147616599974,
+    "frame": 1179,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d257082d904ae6ce31d9de552bcc35424363c3f6311c87e3d9ca38531bb7f2d7"
+  },
+  {
+    "file": "00380.png",
+    "elapsed": 53.400482957999884,
+    "frame": 1182,
+    "stage": "earned wave 6 / test clock30Hz / public commands / advancing combat",
+    "sha256": "55994165fcde19dc01b60c0099956d8fe00486fb66f25b61d2ee1212a91737e9"
+  },
+  {
+    "file": "00381.png",
+    "elapsed": 53.55653845799998,
+    "frame": 1185,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "6ee877d8df08ddd3ccdd944afe665174b229749145953e2c4f699d99a60cce0b"
+  },
+  {
+    "file": "00382.png",
+    "elapsed": 53.69433066600004,
+    "frame": 1188,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00383.png",
+    "elapsed": 53.836259790999975,
+    "frame": 1191,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00384.png",
+    "elapsed": 53.97843220799996,
+    "frame": 1194,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00385.png",
+    "elapsed": 54.119091665999804,
+    "frame": 1197,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00386.png",
+    "elapsed": 54.26098587499973,
+    "frame": 1200,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00387.png",
+    "elapsed": 54.40301550000004,
+    "frame": 1203,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00388.png",
+    "elapsed": 54.54518604099985,
+    "frame": 1206,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00389.png",
+    "elapsed": 54.68631675000006,
+    "frame": 1209,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00390.png",
+    "elapsed": 54.82840083300016,
+    "frame": 1212,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00391.png",
+    "elapsed": 54.96928512500017,
+    "frame": 1215,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00392.png",
+    "elapsed": 55.1113042500001,
+    "frame": 1218,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00393.png",
+    "elapsed": 55.25364491599976,
+    "frame": 1221,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00394.png",
+    "elapsed": 55.397353332999955,
+    "frame": 1224,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00395.png",
+    "elapsed": 55.53695245800009,
+    "frame": 1227,
+    "stage": "STEAM L2 / same TowerId + cell / earned budget",
+    "sha256": "ae63d2e196c0705e2e568abe5b1ed971f99884cfd72da1b82881f6499ea123cc"
+  },
+  {
+    "file": "00396.png",
+    "elapsed": 55.68048279100003,
+    "frame": 1230,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b0b1f94adc4587225a021b728e2e772ad3b71131d3718075632141f319ab60e3"
+  },
+  {
+    "file": "00397.png",
+    "elapsed": 55.82049983299976,
+    "frame": 1233,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c8a68f3b3329390876e2343fa1b99f21f839521a697134c67459b915240bff3f"
+  },
+  {
+    "file": "00398.png",
+    "elapsed": 55.9619465830001,
+    "frame": 1236,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f91867c0ba83a544bda370e3b7bccb658ccb3e0d06ff2f7d1e0054c06d7b62c7"
+  },
+  {
+    "file": "00399.png",
+    "elapsed": 56.10231037499989,
+    "frame": 1239,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4c7f0ca8324b06564623df4ba82ed792887cf6a1833963d8108b26b67dd62e1c"
+  },
+  {
+    "file": "00400.png",
+    "elapsed": 56.24239904099977,
+    "frame": 1242,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d24f9bda4220d6eab1b19735e94e923b2d3c71878a696ad7b7edddb0555b0b2e"
+  },
+  {
+    "file": "00401.png",
+    "elapsed": 56.3828992079998,
+    "frame": 1245,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f521b5eaefca03509d8412ff21cfee58ab415435158797b42e1489e2991a51cf"
+  },
+  {
+    "file": "00402.png",
+    "elapsed": 56.52466620799987,
+    "frame": 1248,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "69ef4b766f00ebd977287ca4f69e69d7e2efcd207c2eb75e95f92b5e34745789"
+  },
+  {
+    "file": "00403.png",
+    "elapsed": 56.66542424999989,
+    "frame": 1251,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a2f5054447718c60c2648edbe7c2e49a6d56e1c13183dafec0e0437d6ff78e46"
+  },
+  {
+    "file": "00404.png",
+    "elapsed": 56.795681582999805,
+    "frame": 1254,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d2d192b1c87405c2d4621c9ba309bb3494888ea7645cfac4043c4637a7100b44"
+  },
+  {
+    "file": "00405.png",
+    "elapsed": 56.93049070799998,
+    "frame": 1257,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "51c3fbd968c61a1431ef7661358212176d7ca868837dd41511a84b58b287db60"
+  },
+  {
+    "file": "00406.png",
+    "elapsed": 57.068159915999786,
+    "frame": 1260,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5a960d314123fee41afd030200753f6f02d0f117f9648c8ccf7590357a5533e4"
+  },
+  {
+    "file": "00407.png",
+    "elapsed": 57.208518040999934,
+    "frame": 1263,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "592919628a7e8508504b3ff1429fbf51e5fd3de572855db04ff7e7b6341e45ea"
+  },
+  {
+    "file": "00408.png",
+    "elapsed": 57.34834104099991,
+    "frame": 1266,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "483cb77a2d485d5dd1ffdf495a393c258e0f2a539416f4d96e274da6060fbe65"
+  },
+  {
+    "file": "00409.png",
+    "elapsed": 57.490455499999825,
+    "frame": 1269,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a03f5791f8ad6fe0223331c518a4d04e92703c07a932f017e79b2cf314804560"
+  },
+  {
+    "file": "00410.png",
+    "elapsed": 57.63197837500002,
+    "frame": 1272,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f8c1ec06f40e5e4fa427c00e6c46ceb408cd75cc6fa8d9390cd271bc5d224960"
+  },
+  {
+    "file": "00411.png",
+    "elapsed": 57.772911083000054,
+    "frame": 1275,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "7fd98b407651a85797ed9c54469512eb1287f33961e5ee81cf7a3569b548c8ad"
+  },
+  {
+    "file": "00412.png",
+    "elapsed": 57.91375820799976,
+    "frame": 1278,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "aff3d8e4ae8f5daf85c0e038dd9afaff5c95dbee56967bdb0570bf75a1616de6"
+  },
+  {
+    "file": "00413.png",
+    "elapsed": 58.055830916000104,
+    "frame": 1281,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a686fc30499ae960cf37455a4135cb6d69e864b0514295b022e63b6095e74f3d"
+  },
+  {
+    "file": "00414.png",
+    "elapsed": 58.19795695799985,
+    "frame": 1284,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "f26096a3ae184f0b770d6b94604abc4b0b4d660f0be74e996bfd4213a2d7ab5c"
+  },
+  {
+    "file": "00415.png",
+    "elapsed": 58.34026649999987,
+    "frame": 1287,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8db5eb4f7b7cb44c37b845ad9a62a72dcb962ba098f7f682360759acaf600074"
+  },
+  {
+    "file": "00416.png",
+    "elapsed": 58.48169474999986,
+    "frame": 1290,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "95fd2829f7658db4b50095add317c7d67b7eab3c17152e6fde49242d026e8e48"
+  },
+  {
+    "file": "00417.png",
+    "elapsed": 58.623371874999975,
+    "frame": 1293,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0bca3298ce83ace143812695d20a529d4089b02ec6c12d10829274282cbbb654"
+  },
+  {
+    "file": "00418.png",
+    "elapsed": 58.766667375,
+    "frame": 1296,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c80ba3d3a6c6bf2ee22a7fe0d8ea62ba88cb4b65513c522eb348bf2f792a3f18"
+  },
+  {
+    "file": "00419.png",
+    "elapsed": 58.90910291599994,
+    "frame": 1299,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "31626f6c8789b56ee9fec359f6dd48ec520a8205d7d52ca87b6d4d4466cb5648"
+  },
+  {
+    "file": "00420.png",
+    "elapsed": 59.05086941599984,
+    "frame": 1302,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "88f5cdea2f311b79abda989ef6d28c0d98f2535e86b56db405eb45ac1f34ca8b"
+  },
+  {
+    "file": "00421.png",
+    "elapsed": 59.18676391600002,
+    "frame": 1305,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "93e02be68b1c3bcf72f45fc46050db5d9de65c8d8c23d9456f88d36dcab2bdbd"
+  },
+  {
+    "file": "00422.png",
+    "elapsed": 59.326971125,
+    "frame": 1308,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "dd59d02d02dd52f91878a10390dd26887bf75827943c490d9805a80fcc85e8e4"
+  },
+  {
+    "file": "00423.png",
+    "elapsed": 59.466083875000095,
+    "frame": 1311,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8a23ac6e0259f4f7f711f570c89bcb722901505219e4252e2d40c8191893be62"
+  },
+  {
+    "file": "00424.png",
+    "elapsed": 59.60710341599997,
+    "frame": 1314,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d617dc41a706ddd992430e4a6583cec5538388a63c9428b95da6bb702a7a4b71"
+  },
+  {
+    "file": "00425.png",
+    "elapsed": 59.74840325000014,
+    "frame": 1317,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a9b01b7c9d89a09dc9f607e36966056b06c9d41150008e0e8ffa2ecb1797103d"
+  },
+  {
+    "file": "00426.png",
+    "elapsed": 59.88916054099991,
+    "frame": 1320,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8d80298dfc3141bb63c32de39390a96d394082c3bd55a10113a91ad09270f224"
+  },
+  {
+    "file": "00427.png",
+    "elapsed": 60.030428333000145,
+    "frame": 1323,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "462e3a54124d89db49377e5e36486decadda8bac67801871cc86f3eeb0255c79"
+  },
+  {
+    "file": "00428.png",
+    "elapsed": 60.1728263330001,
+    "frame": 1326,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "cef4dcb86765465dfdc3c1108b993a2fb3a43e7d894bd01c7b9ec7370eb6309e"
+  },
+  {
+    "file": "00429.png",
+    "elapsed": 60.31320616599987,
+    "frame": 1329,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "56a7aa985416fe65fec1a8761ca83acd539060f8fe502917f4c93ce84de7d449"
+  },
+  {
+    "file": "00430.png",
+    "elapsed": 60.45375550000017,
+    "frame": 1332,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "db339fb66495d05a7eddc14f08591745b6a6ef4caeaa1ccaf583e4139094b796"
+  },
+  {
+    "file": "00431.png",
+    "elapsed": 60.59458700000005,
+    "frame": 1335,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2de53edd3175b170752cdd6160a21b13d8ec86b3b24d7a8341307b3d38abe961"
+  },
+  {
+    "file": "00432.png",
+    "elapsed": 60.735431166000126,
+    "frame": 1338,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "65e45a519b1850c38f15c19c3073dd39068a4b0decb292a563b2c5a92fd97b1e"
+  },
+  {
+    "file": "00433.png",
+    "elapsed": 60.8779662500001,
+    "frame": 1341,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "dd6b0326291d9aec5e88053bb78d023a916987657a26b9b7c1276f0ef2e21ac0"
+  },
+  {
+    "file": "00434.png",
+    "elapsed": 61.018373583000084,
+    "frame": 1344,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6e43489daa15de6235191bd45d1d629a941f3f93ecada9f69d1e1d03a80e5cc3"
+  },
+  {
+    "file": "00435.png",
+    "elapsed": 61.158956165999825,
+    "frame": 1347,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5dc6c48a3288a6f440f2c14182f5e07804e0326f389b6ae00174644c7a092954"
+  },
+  {
+    "file": "00436.png",
+    "elapsed": 61.29862404100004,
+    "frame": 1350,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "27d9984fba5704226ed0b1db38101d235c9d51366e2cd9fcac52e05562fae150"
+  },
+  {
+    "file": "00437.png",
+    "elapsed": 61.440405958000156,
+    "frame": 1353,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "80baf5437da1a517afa6bd8b007edc272df84461dd2c765a64ef9241e88da920"
+  },
+  {
+    "file": "00438.png",
+    "elapsed": 61.58300362499995,
+    "frame": 1356,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "27d45313a41651addac5e80bbeca0a7ae69c7382a58740e98938e88161a3c64b"
+  },
+  {
+    "file": "00439.png",
+    "elapsed": 61.72310687499976,
+    "frame": 1359,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4604fd176af83619448c6a0d50557f1eccd91db2a3e51435728437ec1d8fca78"
+  },
+  {
+    "file": "00440.png",
+    "elapsed": 61.86446329099999,
+    "frame": 1362,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4d4767703a45ed0f61c3d7e2e8c97bce01e7200940742eba809d3b4cc48398a7"
+  },
+  {
+    "file": "00441.png",
+    "elapsed": 62.00603587500018,
+    "frame": 1365,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "69217a670536bea95fe70551ac2903adbdd83a437e8002922db1cbecef9b021c"
+  },
+  {
+    "file": "00442.png",
+    "elapsed": 62.146474958,
+    "frame": 1368,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a2876ddb40c6f88cc6a2a4ffc8fdc589c8336a5b79d97d4f3e9b9c3a05be992f"
+  },
+  {
+    "file": "00443.png",
+    "elapsed": 62.28861212499987,
+    "frame": 1371,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "95d647288a8c5cd9d0789293b7e0b5e86a8b208f31a304c292c7a3a7383d9162"
+  },
+  {
+    "file": "00444.png",
+    "elapsed": 62.42971345800015,
+    "frame": 1374,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c4d1578522f6a5c3d8bb83d544e14ff9d1ab5959002ac25637bf23c5cebbb1dd"
+  },
+  {
+    "file": "00445.png",
+    "elapsed": 62.57178833299986,
+    "frame": 1377,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5617806dc44fdca6c629de49ec9ef7526efb169c35e7f63c49612138f8bc5b8f"
+  },
+  {
+    "file": "00446.png",
+    "elapsed": 62.71375316600006,
+    "frame": 1380,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5bbb1bb438441d15eecf7938524e4bedd986df0b91f23a63915dc1cfcc8d3145"
+  },
+  {
+    "file": "00447.png",
+    "elapsed": 62.85487941600013,
+    "frame": 1383,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6feaab3bab3259bf1225f871e8d5d3526aa097f20adc811f5be09419a22ab62a"
+  },
+  {
+    "file": "00448.png",
+    "elapsed": 62.99372099999982,
+    "frame": 1386,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "3ebcf9600821b5fa556d4fed91329471a26d1eef45aef0a1fcb0fa0d282f57c3"
+  },
+  {
+    "file": "00449.png",
+    "elapsed": 63.13529537500017,
+    "frame": 1389,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a15f7832254b61503f0d224d95046342906c4c3d5c233ba56b11c93c012a0bad"
+  },
+  {
+    "file": "00450.png",
+    "elapsed": 63.27629533299978,
+    "frame": 1392,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ee3b78a86b459489cbf4016caf1cff9e0a764d1f093d6fa2e31e4a3e6a559aaa"
+  },
+  {
+    "file": "00451.png",
+    "elapsed": 63.41626550000001,
+    "frame": 1395,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6c04a77377d964ef3745dc1f892ef94044f15d4e6ab2a067c45c04d53e67cc10"
+  },
+  {
+    "file": "00452.png",
+    "elapsed": 63.558510666000075,
+    "frame": 1398,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e0b3770c81f43b140de6e961f532915c0bb9f8944db34f2e08b415a444191523"
+  },
+  {
+    "file": "00453.png",
+    "elapsed": 63.70143049999979,
+    "frame": 1401,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "286beabaf772a1dbb10adbbb2fa850d3d9c98fab1e0521645172c965598cb643"
+  },
+  {
+    "file": "00454.png",
+    "elapsed": 63.83434249999982,
+    "frame": 1404,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "eb92c9fae8163d913232f85cb5ef62fd4dab3bbe1846c7ef9c3517aadf4eb8d0"
+  },
+  {
+    "file": "00455.png",
+    "elapsed": 63.96341604100007,
+    "frame": 1407,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "262ea035fff4e2dd67a09d6f3b1ae1145a5b7abfbd80fea0580842ac5adcba01"
+  },
+  {
+    "file": "00456.png",
+    "elapsed": 64.09769837500016,
+    "frame": 1410,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d2302ba970b9f687daa9a7cebc2973cc05287e6f5c7110d0bbff7dca80238cd7"
+  },
+  {
+    "file": "00457.png",
+    "elapsed": 64.23557475000007,
+    "frame": 1413,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "148a8752d34bea840c18ef6c308328174fdf59411a40b8f21c67d48998cc7260"
+  },
+  {
+    "file": "00458.png",
+    "elapsed": 64.37673066600019,
+    "frame": 1416,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "8c52bd6e928288f5a49c114937b7dae6a68191490ecaad489cf90fe5991b1747"
+  },
+  {
+    "file": "00459.png",
+    "elapsed": 64.51669824999999,
+    "frame": 1419,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e2378a19fba1c024bef6fa638b6112be1da8313ab16c3c0dd73e2fa227d4b275"
+  },
+  {
+    "file": "00460.png",
+    "elapsed": 64.65937191600005,
+    "frame": 1422,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "beec20e9fa8689f0bfa82a3f6c47c0f21f6642b4dffa1be8a248f33450e15613"
+  },
+  {
+    "file": "00461.png",
+    "elapsed": 64.80122095800016,
+    "frame": 1425,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "575657db8144e67ae964e399078c6c85b1a7505bc161e0d20d590dd499f1ffb9"
+  },
+  {
+    "file": "00462.png",
+    "elapsed": 64.94255495800007,
+    "frame": 1428,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6556cbcc1718c3c9844e489cd14cd361fe20efcdae087e40fe241373166ff6b4"
+  },
+  {
+    "file": "00463.png",
+    "elapsed": 65.08589141599987,
+    "frame": 1431,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "996330eb1e55fe975b5cf1189023178faa53c5b8ec11e35b30cac6edcaf7cf1a"
+  },
+  {
+    "file": "00464.png",
+    "elapsed": 65.22731199999998,
+    "frame": 1434,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "a775139c57adc0ec55b15a78ced83df21fd3cef1961afa6b0809c4eded6bea60"
+  },
+  {
+    "file": "00465.png",
+    "elapsed": 65.36905049999996,
+    "frame": 1437,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "eef1eb28dcc5e02e87a175d6d1ec0d81f32301faf7efd78ec05fc9b7be6b2aeb"
+  },
+  {
+    "file": "00466.png",
+    "elapsed": 65.51186229099994,
+    "frame": 1440,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "79d3f08eeddf47a865435c1b9a765d15c8249c20d753889c998a2886f237b2ec"
+  },
+  {
+    "file": "00467.png",
+    "elapsed": 65.65481541600002,
+    "frame": 1443,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2cb9d5b5eade4bf41d3c1b70892cce3c0791a623fdefc4c326c726d9b606b457"
+  },
+  {
+    "file": "00468.png",
+    "elapsed": 65.79672058300002,
+    "frame": 1446,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ef5bc80670c1a92d4894ceb58113810cdda8ac45a5a46ec52c6d385b80f4c8c7"
+  },
+  {
+    "file": "00469.png",
+    "elapsed": 65.93935295799974,
+    "frame": 1449,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "60886cfdd5cf953279252ee44b9fcf5510c0949fdd115865bd32c40f494c57cc"
+  },
+  {
+    "file": "00470.png",
+    "elapsed": 66.08136979099982,
+    "frame": 1452,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "85713e1154409899f4e70cc3adcc9e509dc7e6585661dfeccec4ae2215c79190"
+  },
+  {
+    "file": "00471.png",
+    "elapsed": 66.22263991599993,
+    "frame": 1455,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "78e8197998dc56231876131e77db58fd08758b21a2d054a25dd9926e1240d967"
+  },
+  {
+    "file": "00472.png",
+    "elapsed": 66.36384199999975,
+    "frame": 1458,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ec602c6bf87a7dd819ea42044ca076e230669abb0fa0101d72de22273919e3c2"
+  },
+  {
+    "file": "00473.png",
+    "elapsed": 66.5069974160001,
+    "frame": 1461,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "03fd910d2ce52ac72a294693104f3ca5f1260852bbe00b3b55b2fdb8b82a2198"
+  },
+  {
+    "file": "00474.png",
+    "elapsed": 66.64809662500011,
+    "frame": 1464,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "14550a2d1aebff7cf67494f047428f1c548ca1d8489c2d5be23694414b3d8945"
+  },
+  {
+    "file": "00475.png",
+    "elapsed": 66.78909804099976,
+    "frame": 1467,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "597d53ea5d626991417493a3b19f50ebd1028bbdd0f1487360ed26fa1747894a"
+  },
+  {
+    "file": "00476.png",
+    "elapsed": 66.92947041600019,
+    "frame": 1470,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "eb3f3185191ac66966ba08335d1ee125ecdd0af5d4b513965692b9a16130b905"
+  },
+  {
+    "file": "00477.png",
+    "elapsed": 67.06942033299993,
+    "frame": 1473,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "2fd907ba5edee62659ee5b542a1b0a63ef7cae54c4ead2ea740b5f37fca2a644"
+  },
+  {
+    "file": "00478.png",
+    "elapsed": 67.21122391600011,
+    "frame": 1476,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "055ae45a2e8abccb220a14c49c17499ab59d44dc12c9e0c03fb3729ba0072c9f"
+  },
+  {
+    "file": "00479.png",
+    "elapsed": 67.35288295800001,
+    "frame": 1479,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "fb377e20dde09575e0048908dd0cf8e7bbc160883e778aacdfb7166736709664"
+  },
+  {
+    "file": "00480.png",
+    "elapsed": 67.49450750000005,
+    "frame": 1482,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "93490e2d11e24967341d73a9c680e3109e3527f7fbb3f97710284b16c54f9cbd"
+  },
+  {
+    "file": "00481.png",
+    "elapsed": 67.63700129100016,
+    "frame": 1485,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "7aa4736719a7da671de898429bd5fe37cdd27b3da3ed64c7153462b02e05d528"
+  },
+  {
+    "file": "00482.png",
+    "elapsed": 67.77863149999985,
+    "frame": 1488,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e4a9115e7ba442449885599e6e2ef6b4b675ea6530825412342ed6effbd32363"
+  },
+  {
+    "file": "00483.png",
+    "elapsed": 67.92169054099986,
+    "frame": 1491,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "bfb90f37a5347c68c95bbe0221f740c0c9b5433f986e1af221aa7ebd791ca760"
+  },
+  {
+    "file": "00484.png",
+    "elapsed": 68.0635319160001,
+    "frame": 1494,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "83456d4e8856f9619c376753d81d1848e02d1fa3a21d4f880582db7215ff6eac"
+  },
+  {
+    "file": "00485.png",
+    "elapsed": 68.20420195799989,
+    "frame": 1497,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "1d3c8d7e27f1f3fd607e7062e170dc0df21bc1ff9871f0e972ef3f7f2d8a1637"
+  },
+  {
+    "file": "00486.png",
+    "elapsed": 68.34618820800006,
+    "frame": 1500,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e48b9ab650cd8d8f086bd46d184c7ee060e937f247c215402edd1831c356aba6"
+  },
+  {
+    "file": "00487.png",
+    "elapsed": 68.48853554100015,
+    "frame": 1503,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "857b85e31824bbc3f182eefc7891b98e0df2e6aaf9db92ce07ef800f7a71ac0c"
+  },
+  {
+    "file": "00488.png",
+    "elapsed": 68.63189179099982,
+    "frame": 1506,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "9f5bfa38d74a514c9dc18fe1c6a4dfc992f213ee45fb5123c980507370350daa"
+  },
+  {
+    "file": "00489.png",
+    "elapsed": 68.77271758300003,
+    "frame": 1509,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "74e2ef8a5e41d3aa128800622f52d3de1932b668e713213e38fa55e8083a5b92"
+  },
+  {
+    "file": "00490.png",
+    "elapsed": 68.90169187499987,
+    "frame": 1512,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "6b98d720138cba47bcd6ff387e040cbbd28293face1dbced42f7c45481096686"
+  },
+  {
+    "file": "00491.png",
+    "elapsed": 69.03222187499978,
+    "frame": 1515,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "befda4edfb131f40d690ba68b86563f2e3c4c41168ff9970c494d6f4a553c638"
+  },
+  {
+    "file": "00492.png",
+    "elapsed": 69.16730058299981,
+    "frame": 1518,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "3f52a8d01aebaad39610fe7011a707d5f3d556010685f6b8b37772a23ef15255"
+  },
+  {
+    "file": "00493.png",
+    "elapsed": 69.3138013329999,
+    "frame": 1521,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "cd35ee77910dd305ea1fdbe22c7474aaa17ba916ae7bff1f395eb4c04a598f62"
+  },
+  {
+    "file": "00494.png",
+    "elapsed": 69.45666470800006,
+    "frame": 1524,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c595049728664ca73b0787b3fb91f6e06b5316f6d31d5d831ad8988033ce781a"
+  },
+  {
+    "file": "00495.png",
+    "elapsed": 69.58595695799977,
+    "frame": 1527,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "e1dd49dd72ad8c7d12820e6a1e520c00a20681e97d5013b74f50c5c05080afa8"
+  },
+  {
+    "file": "00496.png",
+    "elapsed": 69.71740495799986,
+    "frame": 1530,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d85801141eca99857aad60e93e37433c86e3f054afdea5a0cee23d5ffafd6b7d"
+  },
+  {
+    "file": "00497.png",
+    "elapsed": 69.86165625000012,
+    "frame": 1533,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b73ee9d31f0eedbc3a4b79f0cd873f8c5b7540e4d048a127c63b2414b9672f8d"
+  },
+  {
+    "file": "00498.png",
+    "elapsed": 70.00506470799974,
+    "frame": 1536,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "73cdbc17cdbc9380e0e039664fe2f5fd59fdacc2f48524e3d120ee6f954546ca"
+  },
+  {
+    "file": "00499.png",
+    "elapsed": 70.1458331660001,
+    "frame": 1539,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b014905416cfdc81aefa55dec88194d4cc9aa69d3ab7358f88d90756e849034a"
+  },
+  {
+    "file": "00500.png",
+    "elapsed": 70.28718733300002,
+    "frame": 1542,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d558da16a73898e67df281a040342ebd53155667b5478d5315f8fe83459f0bb0"
+  },
+  {
+    "file": "00501.png",
+    "elapsed": 70.42914129100018,
+    "frame": 1545,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d0a12b5ecfcca9930261dedfa754f80760e3e2af917918302f4d435d7786568b"
+  },
+  {
+    "file": "00502.png",
+    "elapsed": 70.5702568329998,
+    "frame": 1548,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "c05965e4a0d651bb2048072607f56cfad45c9a4295a03168b4633e9afaf60158"
+  },
+  {
+    "file": "00503.png",
+    "elapsed": 70.70968208299973,
+    "frame": 1551,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "68d500237983c752dc13a9842b4d37f424d8ef8fdfb9b0f2e32772e9c45e153c"
+  },
+  {
+    "file": "00504.png",
+    "elapsed": 70.84911091599997,
+    "frame": 1554,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "b217f082223e57d8b6551e24137c90980fdf65015996743e2c4a1244051c1903"
+  },
+  {
+    "file": "00505.png",
+    "elapsed": 70.99052379099976,
+    "frame": 1557,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "87ac10183a2b9d6a4fd8ea45c5bc5e2dc29919840d4d3d3f4b9fe20b02b4d978"
+  },
+  {
+    "file": "00506.png",
+    "elapsed": 71.13117766599999,
+    "frame": 1560,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d239cf3cec070749da16516666fc82a08da7d851db557849faa02283883d1495"
+  },
+  {
+    "file": "00507.png",
+    "elapsed": 71.27160025000012,
+    "frame": 1563,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "ed69dbe5f5a5121b1647e90b0e39bd2f2accd5a7b096be9be8d7780e55e05db2"
+  },
+  {
+    "file": "00508.png",
+    "elapsed": 71.4137948749999,
+    "frame": 1566,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "d28bc7d601eae1386d596a8561b801d87c77672a1413ff43fc06293b8519db8e"
+  },
+  {
+    "file": "00509.png",
+    "elapsed": 71.55296712500012,
+    "frame": 1569,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "5d5e286e1de5c30e5255657aac7a174601db81b42f5eef1e7adf63633180325e"
+  },
+  {
+    "file": "00510.png",
+    "elapsed": 71.6911893749998,
+    "frame": 1572,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "24e303c9c3f24788afdc90875a94656a972f0cf0963d83cd60895480c7523379"
+  },
+  {
+    "file": "00511.png",
+    "elapsed": 71.83045737500015,
+    "frame": 1575,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "28f2b255bf4bf23fc3227eaaa648e6d049abda9bef2a932fa4043e7813fc36c7"
+  },
+  {
+    "file": "00512.png",
+    "elapsed": 71.970038166,
+    "frame": 1578,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "0725988c2901e29c9fa1f405a92c672d4e8e64a840ef6af461bb984ca3ba638e"
+  },
+  {
+    "file": "00513.png",
+    "elapsed": 72.11112341599983,
+    "frame": 1581,
+    "stage": "earned wave 7 / test clock30Hz / public commands / advancing combat",
+    "sha256": "4e34a6974f871892cac679ff60067f8bcd6ffb4b410e7f3fd3992c0c1d9a7925"
+  },
+  {
+    "file": "00514.png",
+    "elapsed": 72.26885349999975,
+    "frame": 1584,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "a9434823add843d790766fc572509402b2a279e911d452e357e29a1b4c1b86f8"
+  },
+  {
+    "file": "00515.png",
+    "elapsed": 72.40562987500016,
+    "frame": 1587,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "75955f97b7bb1f66e816dc742593ff54bdc2829d22869ad790aed16bce9f46f6"
+  },
+  {
+    "file": "00516.png",
+    "elapsed": 72.54593370800012,
+    "frame": 1590,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "62a2ad160ca68e0cf18135879449e228a1faec52c08f7d3fe1bd808a40fbdc48"
+  },
+  {
+    "file": "00517.png",
+    "elapsed": 72.68892020800013,
+    "frame": 1593,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "ccc5787df4dd74997c426fb99668e8b7c5f3fa7de39e1b26746b4ded4160840c"
+  },
+  {
+    "file": "00518.png",
+    "elapsed": 72.82911629099999,
+    "frame": 1596,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00519.png",
+    "elapsed": 72.97069308299979,
+    "frame": 1599,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00520.png",
+    "elapsed": 73.11285691600006,
+    "frame": 1602,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00521.png",
+    "elapsed": 73.25429341600011,
+    "frame": 1605,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00522.png",
+    "elapsed": 73.39613474999987,
+    "frame": 1608,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00523.png",
+    "elapsed": 73.53807154100014,
+    "frame": 1611,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00524.png",
+    "elapsed": 73.68020641600015,
+    "frame": 1614,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00525.png",
+    "elapsed": 73.8234944159999,
+    "frame": 1617,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00526.png",
+    "elapsed": 73.96358962500017,
+    "frame": 1620,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00527.png",
+    "elapsed": 74.10600554099983,
+    "frame": 1623,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00528.png",
+    "elapsed": 74.24782724999977,
+    "frame": 1626,
+    "stage": "STEAM L3 / same TowerId + cell / MAX + range",
+    "sha256": "31ba9910dcdf733bc1b549d203b8cae11c31b65800058e2ced2a4e9827a4c54a"
+  },
+  {
+    "file": "00529.png",
+    "elapsed": 74.40295741599994,
+    "frame": 1629,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "2a73ab7c487c3610718a91ac924d7100ba0f0d1a76bc9a1dec51d419bcf7bec9"
+  },
+  {
+    "file": "00530.png",
+    "elapsed": 74.5453984159999,
+    "frame": 1632,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "2a73ab7c487c3610718a91ac924d7100ba0f0d1a76bc9a1dec51d419bcf7bec9"
+  },
+  {
+    "file": "00531.png",
+    "elapsed": 74.68229733299995,
+    "frame": 1635,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "2a73ab7c487c3610718a91ac924d7100ba0f0d1a76bc9a1dec51d419bcf7bec9"
+  },
+  {
+    "file": "00532.png",
+    "elapsed": 74.82213033300013,
+    "frame": 1638,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "2a73ab7c487c3610718a91ac924d7100ba0f0d1a76bc9a1dec51d419bcf7bec9"
+  },
+  {
+    "file": "00533.png",
+    "elapsed": 74.96256370799983,
+    "frame": 1641,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "2a73ab7c487c3610718a91ac924d7100ba0f0d1a76bc9a1dec51d419bcf7bec9"
+  },
+  {
+    "file": "00534.png",
+    "elapsed": 75.1032606660001,
+    "frame": 1644,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "2a73ab7c487c3610718a91ac924d7100ba0f0d1a76bc9a1dec51d419bcf7bec9"
+  },
+  {
+    "file": "00535.png",
+    "elapsed": 75.24506549999978,
+    "frame": 1647,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "2a73ab7c487c3610718a91ac924d7100ba0f0d1a76bc9a1dec51d419bcf7bec9"
+  },
+  {
+    "file": "00536.png",
+    "elapsed": 75.38587975000019,
+    "frame": 1650,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "fca123a5773e3e05ef9d344af113d7619db53aa67be129431549d1cf51f7ae77"
+  },
+  {
+    "file": "00537.png",
+    "elapsed": 75.51965599999994,
+    "frame": 1653,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "a4d71aaad8a3603714be96ca878fbe9c3e400165836bf18d8384fec35f1dfbdf"
+  },
+  {
+    "file": "00538.png",
+    "elapsed": 75.64513029099999,
+    "frame": 1656,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "1c0b2f5f6e8c4f3e7046e1827f94a1a7bb18dd576d5e5f2c29a8190b5a9cc655"
+  },
+  {
+    "file": "00539.png",
+    "elapsed": 75.77779562500018,
+    "frame": 1659,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "88e99b28cc03553dd7fde81b29bd7d950d71ee4b2b1b3c95e159a7b2bb9581e9"
+  },
+  {
+    "file": "00540.png",
+    "elapsed": 75.91517199999998,
+    "frame": 1662,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "d1ae76d87b620b0e733fb75ceec9178f91b6294ca1337453d6196fe2c989be46"
+  },
+  {
+    "file": "00541.png",
+    "elapsed": 76.0555603329999,
+    "frame": 1665,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "98bead4a6b1a6b34e92526f75592a82459c3cb43a4be0e34994a8933eaf6cefa"
+  },
+  {
+    "file": "00542.png",
+    "elapsed": 76.19562520799991,
+    "frame": 1668,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "7adc622d2961a4f75486e3207d9b5dfc6f13240b86c28cc3033e98bc600007ac"
+  },
+  {
+    "file": "00543.png",
+    "elapsed": 76.33538954100004,
+    "frame": 1671,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "d0b7643fb0441e3f51a0d49e193975a3d4da5eda4113d4b0b2c42a0eaa6b452d"
+  },
+  {
+    "file": "00544.png",
+    "elapsed": 76.47639608300005,
+    "frame": 1674,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "48970f8dddac0c912803cb689fa89e6bb0759c236b4e5349c7baaa9e834a4702"
+  },
+  {
+    "file": "00545.png",
+    "elapsed": 76.61730099999977,
+    "frame": 1677,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "e37c65220788a7b8914010fb42e5d3ee14cd14b1fcacc5c99dfbb8479c326220"
+  },
+  {
+    "file": "00546.png",
+    "elapsed": 76.75720112499994,
+    "frame": 1680,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "182ef3626485b959feec142506d40d509edc4e89d526410d1c30c0296d65d385"
+  },
+  {
+    "file": "00547.png",
+    "elapsed": 76.89846987500005,
+    "frame": 1683,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "43b36ebb30ff3c3386a6a411e210b7b0933e015a284d029cb8e455affe74dc7c"
+  },
+  {
+    "file": "00548.png",
+    "elapsed": 77.03974470799994,
+    "frame": 1686,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "60bad9c134f5d10b6aa9b4959b906825023509507626067b529e3988529ee2c6"
+  },
+  {
+    "file": "00549.png",
+    "elapsed": 77.17110870799979,
+    "frame": 1689,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "a81be68b525ed7aa2c87ba634892682ce2010f825abededc1758a1859e815b46"
+  },
+  {
+    "file": "00550.png",
+    "elapsed": 77.31069245800018,
+    "frame": 1692,
+    "stage": "advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47",
+    "sha256": "71fd35eca1fd45e15dc8caf2a7567dee98662dc533fddc72bd68fd28ae4e1421"
+  },
+  {
+    "file": "00551.png",
+    "elapsed": 77.46272287500005,
+    "frame": 1695,
+    "stage": "advancing combat / actual intrinsic Steam enemy Inspect + HP",
+    "sha256": "eb1f14582e3cc8155f49c49d21c13df746d5b36da9835a117e11dffafddeaa85"
+  },
+  {
+    "file": "00552.png",
+    "elapsed": 77.60047183300003,
+    "frame": 1698,
+    "stage": "advancing combat / actual intrinsic Steam enemy Inspect + HP",
+    "sha256": "bc622b7636e325dc4f3230ad33c15ce1104f4e5223c6d0a385c57bd09866ab45"
+  },
+  {
+    "file": "00553.png",
+    "elapsed": 77.74135662499975,
+    "frame": 1701,
+    "stage": "advancing combat / actual intrinsic Steam enemy Inspect + HP",
+    "sha256": "fb92d9deed19806e084e61dd709b3b751fc55a6a61f50faf9d608c2395cd521f"
+  },
+  {
+    "file": "00554.png",
+    "elapsed": 77.88432775000001,
+    "frame": 1704,
+    "stage": "advancing combat / actual intrinsic Steam enemy Inspect + HP",
+    "sha256": "71f4e66f56e73b674ed965fee8ba295a15cd9c464856b8e5a91f6a4cbe1e04a3"
+  },
+  {
+    "file": "00555.png",
+    "elapsed": 78.02907745799985,
+    "frame": 1707,
+    "stage": "advancing combat / actual intrinsic Steam enemy Inspect + HP",
+    "sha256": "a67f34f937c935e0cd557aee879a41d188c32b4cace03448848fb4cecbe1ca67"
+  },
+  {
+    "file": "00556.png",
+    "elapsed": 78.2431432909998,
+    "frame": 1708,
+    "stage": "advancing combat / actual intrinsic Steam enemy Inspect + HP",
+    "sha256": "cdfff04fa9effa02570936618f19bd0349f1d4aca2655c7206f609dbd567e0b7"
+  },
+  {
+    "file": "00557.png",
+    "elapsed": 78.36832562500013,
+    "frame": 1711,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00558.png",
+    "elapsed": 78.49872874999983,
+    "frame": 1714,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00559.png",
+    "elapsed": 78.62737954099975,
+    "frame": 1717,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00560.png",
+    "elapsed": 78.75324758299985,
+    "frame": 1720,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00561.png",
+    "elapsed": 78.886655625,
+    "frame": 1723,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00562.png",
+    "elapsed": 79.02218520799988,
+    "frame": 1726,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00563.png",
+    "elapsed": 79.15972654100005,
+    "frame": 1729,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00564.png",
+    "elapsed": 79.29709812500005,
+    "frame": 1732,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00565.png",
+    "elapsed": 79.4351857910001,
+    "frame": 1735,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00566.png",
+    "elapsed": 79.57156487500015,
+    "frame": 1738,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00567.png",
+    "elapsed": 79.70776904100012,
+    "frame": 1741,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00568.png",
+    "elapsed": 79.85458837499982,
+    "frame": 1744,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "4bff490d7e56b1ce5e655a0e5feff0aedac8a969d426bf2da0ec752f699ba524"
+  },
+  {
+    "file": "00569.png",
+    "elapsed": 80.05831099999978,
+    "frame": 1745,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "904ba81dfcfdab2e9c5f3ff6efedfd12770112c7cde27c953da87634d0bd7e63"
+  },
+  {
+    "file": "00570.png",
+    "elapsed": 80.18891691599993,
+    "frame": 1748,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00571.png",
+    "elapsed": 80.32500704099994,
+    "frame": 1751,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00572.png",
+    "elapsed": 80.46543783300012,
+    "frame": 1754,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00573.png",
+    "elapsed": 80.604450541,
+    "frame": 1757,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00574.png",
+    "elapsed": 80.74486258299976,
+    "frame": 1760,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00575.png",
+    "elapsed": 80.88507229100014,
+    "frame": 1763,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00576.png",
+    "elapsed": 81.02685020799981,
+    "frame": 1766,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00577.png",
+    "elapsed": 81.16750687500007,
+    "frame": 1769,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00578.png",
+    "elapsed": 81.30351370800008,
+    "frame": 1772,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00579.png",
+    "elapsed": 81.43636125000012,
+    "frame": 1775,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00580.png",
+    "elapsed": 81.57343745800017,
+    "frame": 1778,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00581.png",
+    "elapsed": 81.71313291600018,
+    "frame": 1781,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00582.png",
+    "elapsed": 81.8547591659999,
+    "frame": 1784,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00583.png",
+    "elapsed": 81.9975112080001,
+    "frame": 1787,
+    "stage": "restored Preparation / STEAM L3 / unchanged Gold-HP-kills",
+    "sha256": "34c2ae99fc49986b96934cf9b2bfdcef1670ccb03022108cc5ddf2a9c5926c1a"
+  },
+  {
+    "file": "00584.png",
+    "elapsed": 82.14096095800005,
+    "frame": 1790,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00585.png",
+    "elapsed": 82.28200362500002,
+    "frame": 1793,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00586.png",
+    "elapsed": 82.42348437500004,
+    "frame": 1796,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00587.png",
+    "elapsed": 82.56384854099997,
+    "frame": 1799,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00588.png",
+    "elapsed": 82.70720683299987,
+    "frame": 1802,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00589.png",
+    "elapsed": 82.8483289159999,
+    "frame": 1805,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00590.png",
+    "elapsed": 82.99089854099975,
+    "frame": 1808,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00591.png",
+    "elapsed": 83.13285229099984,
+    "frame": 1811,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00592.png",
+    "elapsed": 83.27718787499998,
+    "frame": 1814,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00593.png",
+    "elapsed": 83.4190175409999,
+    "frame": 1817,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00594.png",
+    "elapsed": 83.56063220799979,
+    "frame": 1820,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "1ee22ccb956e17dfa57c9a7c5b7aed87e89c5884edca8dfc3af1140bfd50fc4c"
+  },
+  {
+    "file": "00595.png",
+    "elapsed": 83.70619283299993,
+    "frame": 1823,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "879e17e8a7f575609ee4fefa29fa88addd07d254b245165bc4e376eb4c73c3e9"
+  },
+  {
+    "file": "00596.png",
+    "elapsed": 83.8455765409999,
+    "frame": 1826,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00597.png",
+    "elapsed": 83.98678658300014,
+    "frame": 1829,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00598.png",
+    "elapsed": 84.12719187499988,
+    "frame": 1832,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00599.png",
+    "elapsed": 84.26649829100006,
+    "frame": 1835,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00600.png",
+    "elapsed": 84.40799737499992,
+    "frame": 1838,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00601.png",
+    "elapsed": 84.54797049999979,
+    "frame": 1841,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00602.png",
+    "elapsed": 84.68999558299993,
+    "frame": 1844,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00603.png",
+    "elapsed": 84.83104983300018,
+    "frame": 1847,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00604.png",
+    "elapsed": 84.96449512499976,
+    "frame": 1850,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00605.png",
+    "elapsed": 85.09211374999995,
+    "frame": 1853,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00606.png",
+    "elapsed": 85.22824783299984,
+    "frame": 1856,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00607.png",
+    "elapsed": 85.36781366600007,
+    "frame": 1859,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00608.png",
+    "elapsed": 85.50646116600001,
+    "frame": 1862,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  },
+  {
+    "file": "00609.png",
+    "elapsed": 85.64507470799981,
+    "frame": 1865,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "24090c013da88eede69714481bd9d4989e7f66bf8cc14fc23e6243512529282f"
+  }
+]
