@@ -210,8 +210,9 @@ namespace Veilward.Tests.PlayMode
             {
                 var hits = s.DamageEvents.Where(d => ReactionPresentationState.Matches(reaction, d) && d.AppliedHpLoss > 0).ToArray();
                 Assert.That(s.AttackEvents.Any(a => a.Tick == reaction.Tick && a.AttackerTowerId == reaction.SourceTowerId && a.TargetEnemyId == reaction.PrimaryEnemyId), Is.True);
-                _intrinsicObserved |= hits.Any(d => d.TargetEnemyId == reaction.PrimaryEnemyId);
-                _secondaryObserved |= hits.Any(d => d.TargetEnemyId != reaction.PrimaryEnemyId);
+                var primaryHit = hits.Any(d => d.TargetEnemyId == reaction.PrimaryEnemyId);
+                _intrinsicObserved |= primaryHit;
+                _secondaryObserved |= primaryHit && hits.Any(d => d.TargetEnemyId != reaction.PrimaryEnemyId);
                 _trace.Add("ACTUAL INTRINSIC | " + AbilityBossTrace.Snapshot(s));
             }
         }
