@@ -1,11 +1,11 @@
 {
-  "verifierSha256": "a8c980e21de1f3673d16cc110e92248479a66843a1bac4b0d0346dad40c617f2",
+  "verifierSha256": "0fb8aca10dfdc637224ac06df231ccd6df897499c7f7ed2504d7e0698c4b1d29",
   "positive": {
     "passed": true,
     "clean": true,
     "sourceFiles": 1,
     "artifactFiles": 1,
-    "baseline": "348aca9b459d003a674a0ab110ec783e66d048a0"
+    "baseline": "5acb52067a5a93b4a59e445a48b098799ad3c67c"
   },
   "negative": [
     {
@@ -14,7 +14,7 @@
       "expectedExit": 1,
       "reason": "FAIL: tested source inventory",
       "clean": true,
-      "head": "6b8ff604adaf74a80817d6eba73833347782a168"
+      "head": "4ba42bbe5870e6b8e97193dc2e291dd735f0e488"
     },
     {
       "name": "foreign source bytes",
@@ -22,7 +22,7 @@
       "expectedExit": 1,
       "reason": "FAIL: source/history drift Assets/Fixture.txt",
       "clean": true,
-      "head": "14c5428c5432eaba408f6d6e271ca23a14e1f729"
+      "head": "8ab46d1c95da0e20021887384a861d91725a1204"
     },
     {
       "name": "artifact bytes",
@@ -30,7 +30,7 @@
       "expectedExit": 1,
       "reason": "FAIL: artifact digest Docs/review/ART.3e/fixture.json",
       "clean": true,
-      "head": "c5690bbbb347e793355083083cc8f25c512fa0f9"
+      "head": "6a07cb7c032d3a36b908e5e36ec101c8dcb5b5af"
     }
   ],
   "commands": [
@@ -40,7 +40,7 @@
         "init"
       ],
       "exit": 0,
-      "stdout": "Initialized empty Git repository in /private/var/folders/_4/yfc3qtdj5kng3lq7rn9170vw0000gn/T/art3e-small-verifier-fixture-sg8f4zoj/.git/\n",
+      "stdout": "Initialized empty Git repository in /private/var/folders/_4/yfc3qtdj5kng3lq7rn9170vw0000gn/T/art3e-small-verifier-fixture-5hf2_hra/.git/\n",
       "stderr": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n"
     },
     {
@@ -65,7 +65,7 @@
         "fixture baseline"
       ],
       "exit": 0,
-      "stdout": "[master (root-commit) 348aca9] fixture baseline\n 2 files changed, 2 insertions(+)\n create mode 100644 Assets/Fixture.txt\n create mode 100644 Docs/review/ART.3e/fixture.json\n",
+      "stdout": "[master (root-commit) 5acb520] fixture baseline\n 2 files changed, 2 insertions(+)\n create mode 100644 Assets/Fixture.txt\n create mode 100644 Docs/review/ART.3e/fixture.json\n",
       "stderr": ""
     },
     {
@@ -85,7 +85,7 @@
         "HEAD"
       ],
       "exit": 0,
-      "stdout": "348aca9b459d003a674a0ab110ec783e66d048a0\n",
+      "stdout": "5acb52067a5a93b4a59e445a48b098799ad3c67c\n",
       "stderr": ""
     },
     {
@@ -128,7 +128,7 @@
         "foreign source inventory"
       ],
       "exit": 0,
-      "stdout": "[master 6b8ff60] foreign source inventory\n 1 file changed, 1 insertion(+)\n create mode 100644 Assets/ForeignFixture.txt\n",
+      "stdout": "[master 4ba42bb] foreign source inventory\n 1 file changed, 1 insertion(+)\n create mode 100644 Assets/ForeignFixture.txt\n",
       "stderr": ""
     },
     {
@@ -167,7 +167,7 @@
         "HEAD"
       ],
       "exit": 0,
-      "stdout": "6b8ff604adaf74a80817d6eba73833347782a168\n",
+      "stdout": "4ba42bbe5870e6b8e97193dc2e291dd735f0e488\n",
       "stderr": ""
     },
     {
@@ -192,7 +192,7 @@
         "foreign source bytes"
       ],
       "exit": 0,
-      "stdout": "[master 14c5428] foreign source bytes\n 2 files changed, 1 insertion(+), 2 deletions(-)\n delete mode 100644 Assets/ForeignFixture.txt\n",
+      "stdout": "[master 8ab46d1] foreign source bytes\n 2 files changed, 1 insertion(+), 2 deletions(-)\n delete mode 100644 Assets/ForeignFixture.txt\n",
       "stderr": ""
     },
     {
@@ -231,7 +231,7 @@
         "HEAD"
       ],
       "exit": 0,
-      "stdout": "14c5428c5432eaba408f6d6e271ca23a14e1f729\n",
+      "stdout": "8ab46d1c95da0e20021887384a861d91725a1204\n",
       "stderr": ""
     },
     {
@@ -256,7 +256,7 @@
         "foreign artifact bytes"
       ],
       "exit": 0,
-      "stdout": "[master c5690bb] foreign artifact bytes\n 2 files changed, 2 insertions(+), 2 deletions(-)\n",
+      "stdout": "[master 6a07cb7] foreign artifact bytes\n 2 files changed, 2 insertions(+), 2 deletions(-)\n",
       "stderr": ""
     },
     {
@@ -304,7 +304,7 @@
         "HEAD"
       ],
       "exit": 0,
-      "stdout": "c5690bbbb347e793355083083cc8f25c512fa0f9\n",
+      "stdout": "6a07cb7c032d3a36b908e5e36ec101c8dcb5b5af\n",
       "stderr": ""
     }
   ],

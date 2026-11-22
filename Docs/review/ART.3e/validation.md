@@ -1,5 +1,7 @@
 # Проверки ART.3e
 
+**P2 из review #84:** к прежним gates добавлены [exact Git/carry-in bytes, полный diff и field-by-field equivalence proof](canonical-inputs/README.md). Новые Python controls21/21 и Static38/38; старые Unity1195/85 не пересчитаны как новый run. Набор actual-input SHA, all remaining bytes, URP defaults/migration/reloader, Lit consumers, refs/keywords/quality и dependency hashes проверяются read-only. Полная идентичность Editor dirty/delay state не заявляется. [Receipt](canonical-inputs/actual-inputs.json), [re-review](canonical-inputs/re-review.md).
+
 TestedSourceSHA: `9654133029902fb2541ee833d6ef80710755a5bb`; baseline main после PR83: `62d4dbd17ef9a8179f2a9ee6163dd7da75a72e12`. Проверки выполнены в существующем checkout, без нового worktree, клона или копии Unity project. [Точные команды и неуспешные попытки](commands.md).
 
 ## VERIFIED

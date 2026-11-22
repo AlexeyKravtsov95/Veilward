@@ -1,5 +1,7 @@
 # ART.3e — STEAM L1–L3 / #84
 
+**Актуальная доработка P2 canonical inputs:** [exact bytes/diff/семантический certificate и controls](canonical-inputs/README.md), [actual-input receipt](canonical-inputs/actual-inputs.json). Новых Unity1195/85 или кадров не заявлено: ниже сохранён исторический proof; эквивалентность его четырёх rendering inputs проверяется отдельным недеструктивным инструментом.
+
 Пятая production линейка: оригинальная нефритовая скульптура лисицы с острыми ушами, мордой, лапами и объёмными хвостами. L2 — второй поднятый хвост; L3 — третий хвост и открытые паровые завитки. Прежний FlameModelBinding выбирает FLAME/TIDE/GALE/STONE/STEAM по authoritative type+level; STORM/legacy/unknown/missing-level сохраняют fallback. [Контракт](../../ART3E_STEAM_LEVELS.md), [source/provenance](../../../ArtSource/Blender/ART3/STEAM/README.md).
 
 ![STEAM L1/L2/L3, исходная Battle camera/scale/light](playmode/lineup.png)

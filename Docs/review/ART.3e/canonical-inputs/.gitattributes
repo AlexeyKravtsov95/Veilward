@@ -1,0 +1,4 @@
+# Exact serialized evidence bytes; do not normalize whitespace/line endings.
+canonical/* binary
+carry-in/* binary
+git-to-carry-in.diff binary

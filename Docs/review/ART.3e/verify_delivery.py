@@ -221,6 +221,12 @@ def main():
     controls=read(FOLDER/'reports/delivery-controls.json')
     require(controls['verifierSha256']==sha(Path(__file__).read_bytes()), 'current verifier controls pin')
     require(controls['positive']['passed'] and all(c['passed'] for c in controls['negative']), 'current small-fixture controls')
+    # P2: прежние clean/source/artifact gates сохранены; дополнительно проверяем rendering inputs.
+    import runpy
+    runpy.run_path(str(FOLDER/'canonical-inputs/verify_inputs.py'))['main']()
+    input_tests = (FOLDER/'canonical-inputs/tests-final.txt').read_text()
+    require('Ran 21 tests' in input_tests and '\nOK\n' in input_tests and 'FAILED' not in input_tests,
+            'rendering equivalence positive/negative controls')
     print(f"PASS ART3E: {len(paths)} tested source files, {len(protected)} protected baseline files, "
           f"{len(actual)} tracked artifacts, full suites {m['suites']}, roundtrip3, Editor video/Steam/rollback/Sell. Device Deferred.")
 

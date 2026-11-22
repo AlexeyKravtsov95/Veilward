@@ -1,0 +1,27 @@
+test_active_material_color_rejected (__main__.RenderingInputsTests.test_active_material_color_rejected) ... ok
+test_active_pipeline_render_scale_rejected (__main__.RenderingInputsTests.test_active_pipeline_render_scale_rejected) ... ok
+test_all_nine_explicit_defaults_rejected_if_changed (__main__.RenderingInputsTests.test_all_nine_explicit_defaults_rejected_if_changed) ... ok
+test_effective_default_code_drift_rejected (__main__.RenderingInputsTests.test_effective_default_code_drift_rejected) ... ok
+test_embedded_old_material_version_rejected (__main__.RenderingInputsTests.test_embedded_old_material_version_rejected) ... ok
+test_exact_positive_pipeline (__main__.RenderingInputsTests.test_exact_positive_pipeline) ... ok
+test_exact_positive_three_materials (__main__.RenderingInputsTests.test_exact_positive_three_materials) ... ok
+test_keyword_rejected (__main__.RenderingInputsTests.test_keyword_rejected) ... ok
+test_legacy_alias_arbitrary_color_rejected (__main__.RenderingInputsTests.test_legacy_alias_arbitrary_color_rejected) ... ok
+test_null_reload_reference_rejected (__main__.RenderingInputsTests.test_null_reload_reference_rejected) ... ok
+test_project_version_triggering_reimport_rejected (__main__.RenderingInputsTests.test_project_version_triggering_reimport_rejected) ... ok
+test_quality_setting_drift_rejected (__main__.RenderingInputsTests.test_quality_setting_drift_rejected) ... ok
+test_real_complete_proof_matches_record (__main__.RenderingInputsTests.test_real_complete_proof_matches_record) ... ok
+test_render_queue_rejected (__main__.RenderingInputsTests.test_render_queue_rejected) ... ok
+test_renderer_reference_rejected (__main__.RenderingInputsTests.test_renderer_reference_rejected) ... ok
+test_shader_active_legacy_color_consumer_rejected (__main__.RenderingInputsTests.test_shader_active_legacy_color_consumer_rejected) ... ok
+test_shader_reference_rejected (__main__.RenderingInputsTests.test_shader_reference_rejected) ... ok
+test_texture_reference_rejected (__main__.RenderingInputsTests.test_texture_reference_rejected) ... ok
+test_unknown_material_field_rejected (__main__.RenderingInputsTests.test_unknown_material_field_rejected) ... ok
+test_unknown_pipeline_field_rejected (__main__.RenderingInputsTests.test_unknown_pipeline_field_rejected) ... ok
+test_version_change_rejected (__main__.RenderingInputsTests.test_version_change_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.735s
+
+OK
+PASS rendering inputs: exact4 canonical/carry bytes; explicit12 pipeline fields +3 legacy aliases; all other bytes preserved; Lit include graph and settings pinned

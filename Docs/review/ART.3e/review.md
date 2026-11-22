@@ -30,3 +30,7 @@ Reviewer независимо проверил:
 **Итог: новых P1/P2 нет; clean gate закрыт.** Можно снять Draft, перевести PR85 в Ready for Review и заменить Refs84 на Closes84, сохранив Refs44. Продуктовая приёмка и merge остаются за владельцем; self-merge не разрешён. Unity suites/media в clean окне не повторялись: этот PASS проверяет поставленные source/artifacts и сохранённые результаты, не является новым canonical Unity run или device QA. Device Deferred #53/#54/#55 сохраняется.
 
 После этой допроверки меняются только evidence/manifest; исходники и verifier остаются прежними.
+
+## P2 canonical-input re-review / 23.11.2026
+
+Внешнее замечание о невоспроизводимых rendering inputs устранено отдельным [недеструктивным proof и независимым re-review](canonical-inputs/re-review.md). Exact bytes/diff/defaults/Reload/material import versions/Lit dataflow/settings закреплены; component PASS,21/21 controls, новых P1/P2 нет. Это equivalence-first путь, разрешённый обновлённым #84, а не новый Unity1195/85 run. Исторические proofs и их ограничения сохранены.
