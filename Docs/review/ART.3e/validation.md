@@ -50,3 +50,7 @@ Historical ART3d tamper matrix не запускалась заново. Current
 **Device Deferred to prerelease QA #53/#54/#55.** Physical iPhone, native recording/benchmarks/binaries, iOS export/signing/TestFlight не выполнялись. Editor captures не подтверждают device performance, touch/safe-area/background. Sparse capture overhead не является benchmark. Видеопрефикс волн 4–7 использует подписанный test clock; Combat8 — production Update. Synthetic positions/HP/copied Wet snapshots не являются естественным боем и не приписывают STEAM basic Wet.
 
 STORM, parent #44, карта #45, враги #46, VFX #47, UI #48, G2 и release остаются отдельно. Merge/release не выполнялись; продуктовая приёмка — владельцем после независимого review.
+
+## Итог P2 / 23.11.2026
+
+Equivalence-first доработка прошла [независимое re-review](canonical-inputs/re-review.md). Полный current verifier с добавленными input checks независимо PASS3511/3008/120 на committed P2 head; [receipt](canonical-inputs/delivery.json) фиксирует exact restoration4/4. P2 закрыт в заявленном Battle scope. Static38/38 и Python21/21 — новые проверки; Unity1195/85 остаются сохранёнными положительными результатами на исходных, теперь доказанно эквивалентных для Battle rendering inputs. Новый canonical Unity run, device/baking/console/VFXGraph и полная идентичность Editor state не заявляются.
