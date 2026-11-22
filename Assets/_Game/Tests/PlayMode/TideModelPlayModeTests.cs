@@ -184,7 +184,7 @@ namespace Veilward.Tests.PlayMode
                     Assert.That(binding.Model, Is.SameAs(previous));
                     Assert.That(root.transform.Cast<Transform>().Count(t => t.gameObject.activeSelf && (t.name.StartsWith("FLAME L") || t.name.StartsWith("TIDE L"))), Is.EqualTo(1));
                 }
-                Assert.That(binding.Apply(new TowerDefinitionId("stone"), 1), Is.False);
+                Assert.That(binding.Apply(new TowerDefinitionId("steam"), 1), Is.False);
                 Assert.That(previous.gameObject.activeSelf, Is.False);
                 Assert.That(root.transform.Find("Foundation").GetComponent<Renderer>().enabled, Is.True);
                 Assert.That(binding.Apply(new TowerDefinitionId("tide"), 3), Is.True);

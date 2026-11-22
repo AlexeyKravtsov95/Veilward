@@ -1,5 +1,7 @@
 # VEILWARD: Spirit Defense
 
+ART.3d/#82: STONE «Осколочная печать» L1–L3 и единый FLAME/TIDE/GALE/STONE binding. [Спецификация/regressions](Docs/ART3D_STONE_LEVELS.md), [актуальный Editor/source proof и read-only verifier](Docs/review/ART.3d/README.md). Добавляется optional stoneLevels, прежние serialized fields/GUID и один fallback owner сохраняются. Domain/configs/schema4 неизменны. Device Deferred to prerelease QA #53/#54/#55; Parent44 и STEAM/STORM отдельно.
+
 ART.3c/#80: GALE «Ветряной талисман» L1–L3 и единый FLAME/TIDE/GALE binding. [Спецификация/regressions](Docs/ART3C_GALE_LEVELS.md), [текущий Editor/source proof и read-only verifier](Docs/review/ART.3c/README.md). Device Deferred to prerelease QA #53/#54/#55; родитель #44 и остальные три семейства отдельно.
 
 ART.3b/#78 выполняется от принятой FLAME линейки PR77: TIDE «Колокол прилива» L1–L3 и общий production FLAME/TIDE model binding. [Спецификация/regressions](Docs/ART3B_TIDE_LEVELS.md), [Editor кадры/видео и проверки](Docs/review/ART.3b/README.md). Device Deferred to prerelease QA #53/#54/#55 по решению владельца20.11.2026; текущая приёмка — source/import и реальные Unity Editor/Play Mode проверки. Исторические device evidence прежних пакетов сохраняются; итоговый iPhone performance/readability PASS этим не заявляется.

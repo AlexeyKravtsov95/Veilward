@@ -1,0 +1,27 @@
+{
+  "retainedErrorEntries": 114,
+  "retainedGroups": {
+    "Checkpoint save failed": 107,
+    "Checkpoint temporary file verification failed": 4,
+    "Checkpoint delete failed": 2,
+    "InvalidOperationException": 1
+  },
+  "groundTruthAfterSuites": {
+    "sampledUtc": "2026-11-21T20:51:00.340144Z",
+    "ageMs": 1050,
+    "compilationFailed": false,
+    "compiling": false,
+    "consoleErrors": 25,
+    "consoleWarnings": 0,
+    "consoleLogs": 16,
+    "seeded": true
+  },
+  "expectedSources": [
+    "Assets/_Game/Tests/EditMode/BattleCheckpointControllerTests.cs LogAssert.Expect checkpoint IO failures",
+    "Assets/_Game/Tests/PlayMode/ArtReferencePlayModeTests.cs:159 LogAssert.Expect InvalidOperationException Frozen normal combat",
+    "Other existing checkpoint negative-path test fixtures; all1179Edit/83Play cases Passed"
+  ],
+  "captureUnexpectedErrors": 0,
+  "videoUnexpectedErrors": 0,
+  "consoleClearedByAgent": false
+}

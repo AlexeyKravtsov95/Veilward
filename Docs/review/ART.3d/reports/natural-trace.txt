@@ -1,0 +1,33 @@
+frame=29|earned wave complete|wave=1|tick=296|phase=WaveComplete|gold=55|hp=20|kills=5
+frame=32|earned wave complete|wave=2|tick=725|phase=WaveComplete|gold=85|hp=16|kills=7
+frame=34|earned wave complete|wave=3|tick=1080|phase=WaveComplete|gold=70|hp=16|kills=14
+frame=37|earned wave complete|wave=4|tick=1519|phase=WaveComplete|gold=70|hp=16|kills=22
+frame=41|earned wave complete|wave=5|tick=2024|phase=WaveComplete|gold=75|hp=16|kills=31
+frame=45|earned wave complete|wave=6|tick=2589|phase=WaveComplete|gold=145|hp=16|kills=41
+frame=49|earned wave complete|wave=7|tick=3186|phase=WaveComplete|gold=215|hp=15|kills=51
+frame=49|verified ID=6 L1|wave=8|tick=3186|phase=Preparation|gold=356|hp=15|kills=51
+frame=49|unmodified earned checkpoint TestResults/ART3D/natural-L1-checkpoint.json|wave=8|tick=3186|phase=Preparation|gold=356|hp=15|kills=51
+frame=50|SHOT 01-natural-STONE-L1|wave=8|tick=3186|phase=Preparation|gold=356|hp=15|kills=51
+frame=64|verified ID=6 L1|wave=8|tick=3186|phase=Preparation|gold=356|hp=15|kills=51
+frame=68|verified ID=6 L1|wave=8|tick=3186|phase=Preparation|gold=356|hp=15|kills=51
+frame=68|repeated Continue L1|wave=8|tick=3186|phase=Preparation|gold=356|hp=15|kills=51
+frame=68|verified ID=6 L2|wave=8|tick=3186|phase=Preparation|gold=221|hp=15|kills=51
+frame=68|unmodified earned checkpoint TestResults/ART3D/natural-L2-checkpoint.json|wave=8|tick=3186|phase=Preparation|gold=221|hp=15|kills=51
+frame=69|SHOT 02-natural-STONE-L2|wave=8|tick=3186|phase=Preparation|gold=221|hp=15|kills=51
+frame=83|verified ID=6 L2|wave=8|tick=3186|phase=Preparation|gold=221|hp=15|kills=51
+frame=87|verified ID=6 L2|wave=8|tick=3186|phase=Preparation|gold=221|hp=15|kills=51
+frame=87|repeated Continue L2|wave=8|tick=3186|phase=Preparation|gold=221|hp=15|kills=51
+frame=87|verified ID=6 L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=87|unmodified earned checkpoint TestResults/ART3D/natural-L3-checkpoint.json|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=88|SHOT 03-natural-STONE-L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=102|verified ID=6 L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=106|verified ID=6 L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=106|repeated Continue L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=119|SHOT 04-natural-STONE-interrupted-combat|wave=8|tick=3366|phase=Combat|gold=46|hp=15|kills=52
+frame=133|verified ID=6 L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=137|verified ID=6 L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=137|repeated Continue L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=137|verified ID=6 L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=137|verified ID=6 L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=138|verified ID=6 L3|wave=8|tick=3186|phase=Preparation|gold=41|hp=15|kills=51
+frame=140|SHOT 05-natural-sold-no-model-roots|wave=8|tick=3186|phase=Preparation|gold=324|hp=15|kills=51

@@ -1,0 +1,126 @@
+[
+  {
+    "level": 1,
+    "source": "ArtSource/Blender/ART3/STONE/Tower_StoneSealL1.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/STONE/Tower_StoneSealL1.fbx",
+    "vertices": 240,
+    "triangles": 384,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        1.3700000047683716
+      ]
+    ],
+    "middleProjectedWidth": 0.5799999888093174,
+    "semanticGroups": [
+      "BronzeSealRim",
+      "BronzeStoneStaple",
+      "CarvedBasePlate",
+      "FoundationStone",
+      "FractureLight",
+      "IvoryStoneSeal",
+      "JadeStep",
+      "SplitMonolithLeft",
+      "SplitMonolithRight"
+    ],
+    "sealFaces": 48,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  },
+  {
+    "level": 2,
+    "source": "ArtSource/Blender/ART3/STONE/Tower_StoneSealL2.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/STONE/Tower_StoneSealL2.fbx",
+    "vertices": 296,
+    "triangles": 472,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        1.5800000429153442
+      ]
+    ],
+    "middleProjectedWidth": 0.8599999953969705,
+    "semanticGroups": [
+      "BronzeSealRim",
+      "BronzeStoneStaple",
+      "ButtressBronzeBinding",
+      "CarvedBasePlate",
+      "FoundationStone",
+      "FractureLight",
+      "InclinedButtress",
+      "IvoryStoneSeal",
+      "JadeStep",
+      "SplitMonolithLeft",
+      "SplitMonolithRight",
+      "TabletCarving"
+    ],
+    "sealFaces": 48,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  },
+  {
+    "level": 3,
+    "source": "ArtSource/Blender/ART3/STONE/Tower_StoneSealL3.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/STONE/Tower_StoneSealL3.fbx",
+    "vertices": 368,
+    "triangles": 584,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.459619402885437,
+        0.44999998807907104
+      ],
+      [
+        -0.459619402885437,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        2.1500000953674316
+      ]
+    ],
+    "middleProjectedWidth": 0.9200000171294124,
+    "semanticGroups": [
+      "BronzeSealRim",
+      "BronzeStoneStaple",
+      "ButtressBronzeBinding",
+      "CarvedBasePlate",
+      "CrownSealLine",
+      "FoundationStone",
+      "FractureLight",
+      "InclinedButtress",
+      "IvoryStoneSeal",
+      "JadeStep",
+      "OuterAnchorSlab",
+      "OuterBronzeTie",
+      "SplitCrownTooth",
+      "SplitMonolithLeft",
+      "SplitMonolithRight",
+      "TabletCarving"
+    ],
+    "sealFaces": 60,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  }
+]

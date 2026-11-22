@@ -1,0 +1,1388 @@
+[
+  {
+    "file": "00000.png",
+    "elapsed": 0.0054678340000009484,
+    "frame": 137265,
+    "stage": "earned L1 checkpoint replay / menu Continue",
+    "sha256": "23b9cc38bb942241c87cc41ef8f892c842ed33da044e750b29d627bf8c688811"
+  },
+  {
+    "file": "00001.png",
+    "elapsed": 0.1982473340000297,
+    "frame": 137266,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00002.png",
+    "elapsed": 0.2984648749999792,
+    "frame": 137324,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00003.png",
+    "elapsed": 0.398561500000028,
+    "frame": 137469,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00004.png",
+    "elapsed": 0.4989156249999951,
+    "frame": 137622,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00005.png",
+    "elapsed": 0.5993122500000254,
+    "frame": 137779,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00006.png",
+    "elapsed": 0.6998271670000236,
+    "frame": 137933,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00007.png",
+    "elapsed": 0.8002275840000266,
+    "frame": 138086,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00008.png",
+    "elapsed": 0.9007132920000345,
+    "frame": 138238,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00009.png",
+    "elapsed": 1.000796959000013,
+    "frame": 138385,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00010.png",
+    "elapsed": 1.1016943750000223,
+    "frame": 138534,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00011.png",
+    "elapsed": 1.2018611670000041,
+    "frame": 138685,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00012.png",
+    "elapsed": 1.3021533340000246,
+    "frame": 138835,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00013.png",
+    "elapsed": 1.4022032500000137,
+    "frame": 138983,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00014.png",
+    "elapsed": 1.5022532090000027,
+    "frame": 139132,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00015.png",
+    "elapsed": 1.6026423750000163,
+    "frame": 139279,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00016.png",
+    "elapsed": 1.7120924590000186,
+    "frame": 139412,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "bc96c069090c82e053f4d0fdf845a81efed4cd3e65e50c3e71227b4860b4b597"
+  },
+  {
+    "file": "00017.png",
+    "elapsed": 1.9300995840000041,
+    "frame": 139413,
+    "stage": "menu Continue / unchanged earned STONE L1 checkpoint",
+    "sha256": "7f71c2c517d699a2f318a959b070244a7cb50feb4c94743f52e46dbac8b4e3aa"
+  },
+  {
+    "file": "00018.png",
+    "elapsed": 2.0303104590000203,
+    "frame": 139515,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "5f20d9b5532aa82b7cc2abb3c5d4e76c0e3c207b6357e976546c463c74d73723"
+  },
+  {
+    "file": "00019.png",
+    "elapsed": 2.13048683400001,
+    "frame": 139632,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00020.png",
+    "elapsed": 2.2307387089999793,
+    "frame": 139750,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00021.png",
+    "elapsed": 2.331011999999987,
+    "frame": 139870,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00022.png",
+    "elapsed": 2.431062417000021,
+    "frame": 139984,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00023.png",
+    "elapsed": 2.531500584000014,
+    "frame": 140104,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00024.png",
+    "elapsed": 2.6317617920000203,
+    "frame": 140225,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00025.png",
+    "elapsed": 2.7318843340000285,
+    "frame": 140346,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00026.png",
+    "elapsed": 2.832396875000029,
+    "frame": 140466,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00027.png",
+    "elapsed": 2.93268525000002,
+    "frame": 140583,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00028.png",
+    "elapsed": 3.033250209000016,
+    "frame": 140701,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00029.png",
+    "elapsed": 3.133792249999999,
+    "frame": 140817,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00030.png",
+    "elapsed": 3.2342946670000288,
+    "frame": 140932,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00031.png",
+    "elapsed": 3.3348126249999837,
+    "frame": 141049,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00032.png",
+    "elapsed": 3.435070584000016,
+    "frame": 141164,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00033.png",
+    "elapsed": 3.535711666999987,
+    "frame": 141282,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00034.png",
+    "elapsed": 3.6360940420000247,
+    "frame": 141402,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00035.png",
+    "elapsed": 3.7361885419999794,
+    "frame": 141519,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00036.png",
+    "elapsed": 3.836792375000016,
+    "frame": 141635,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00037.png",
+    "elapsed": 3.9371639590000314,
+    "frame": 141754,
+    "stage": "STONE L1 / Inspect + real Upgrade price",
+    "sha256": "f86964e7ce334a061f318fa2ff5225a0ac8b4df17ed3a31061c5d320d7534a37"
+  },
+  {
+    "file": "00038.png",
+    "elapsed": 4.037587541999983,
+    "frame": 141864,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00039.png",
+    "elapsed": 4.137781458999996,
+    "frame": 141983,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00040.png",
+    "elapsed": 4.238523292000025,
+    "frame": 142102,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00041.png",
+    "elapsed": 4.339033374999985,
+    "frame": 142220,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00042.png",
+    "elapsed": 4.439198292000015,
+    "frame": 142334,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00043.png",
+    "elapsed": 4.539483000000018,
+    "frame": 142447,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00044.png",
+    "elapsed": 4.639618459000019,
+    "frame": 142561,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00045.png",
+    "elapsed": 4.740077708999991,
+    "frame": 142679,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00046.png",
+    "elapsed": 4.840601417000016,
+    "frame": 142793,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00047.png",
+    "elapsed": 4.94082800000001,
+    "frame": 142909,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00048.png",
+    "elapsed": 5.0409667499999955,
+    "frame": 143024,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00049.png",
+    "elapsed": 5.141462375000003,
+    "frame": 143136,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00050.png",
+    "elapsed": 5.241695375000006,
+    "frame": 143252,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00051.png",
+    "elapsed": 5.341696542000022,
+    "frame": 143368,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00052.png",
+    "elapsed": 5.4419546670000045,
+    "frame": 143487,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00053.png",
+    "elapsed": 5.542482875000019,
+    "frame": 143606,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00054.png",
+    "elapsed": 5.642777583999987,
+    "frame": 143723,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00055.png",
+    "elapsed": 5.742862833999993,
+    "frame": 143839,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00056.png",
+    "elapsed": 5.843367791999981,
+    "frame": 143956,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00057.png",
+    "elapsed": 5.943865291999998,
+    "frame": 144072,
+    "stage": "STONE L2 / same TowerId + cell / earned budget",
+    "sha256": "4f863c04be04a589fbdd4ed28e335f2a83a8a8b0751959f05004061137502587"
+  },
+  {
+    "file": "00058.png",
+    "elapsed": 6.044170750000035,
+    "frame": 144187,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00059.png",
+    "elapsed": 6.144467083999984,
+    "frame": 144303,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00060.png",
+    "elapsed": 6.244608083999992,
+    "frame": 144423,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00061.png",
+    "elapsed": 6.344806124999991,
+    "frame": 144542,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00062.png",
+    "elapsed": 6.445139541999993,
+    "frame": 144660,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00063.png",
+    "elapsed": 6.545733584000004,
+    "frame": 144779,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00064.png",
+    "elapsed": 6.646304334000035,
+    "frame": 144899,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00065.png",
+    "elapsed": 6.746427750000009,
+    "frame": 145019,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00066.png",
+    "elapsed": 6.846590584000012,
+    "frame": 145135,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00067.png",
+    "elapsed": 6.946847666999986,
+    "frame": 145253,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00068.png",
+    "elapsed": 7.0472802500000284,
+    "frame": 145371,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00069.png",
+    "elapsed": 7.147636250000005,
+    "frame": 145489,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00070.png",
+    "elapsed": 7.247986374999982,
+    "frame": 145608,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00071.png",
+    "elapsed": 7.348453584000026,
+    "frame": 145726,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00072.png",
+    "elapsed": 7.448478249999994,
+    "frame": 145839,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00073.png",
+    "elapsed": 7.548909834000028,
+    "frame": 145959,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00074.png",
+    "elapsed": 7.649446042000022,
+    "frame": 146083,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00075.png",
+    "elapsed": 7.750030417000005,
+    "frame": 146200,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00076.png",
+    "elapsed": 7.850444874999994,
+    "frame": 146321,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00077.png",
+    "elapsed": 7.950578542000017,
+    "frame": 146440,
+    "stage": "STONE L3 / same TowerId + cell / MAX + range",
+    "sha256": "3ba8af767bf2b9b574b4384040674b1584c36c912a00d6e3db86377877bf7a1e"
+  },
+  {
+    "file": "00078.png",
+    "elapsed": 8.05062512500001,
+    "frame": 146548,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "a1a3b211d931b3713db02b5549d9f478852f1b1383e070011531cde90bec73af"
+  },
+  {
+    "file": "00079.png",
+    "elapsed": 8.150968000000034,
+    "frame": 146668,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "7ff4fb2b8c8a3a5c66fbe864c9f531bbcd387b300206538255ae15d75fc13cb0"
+  },
+  {
+    "file": "00080.png",
+    "elapsed": 8.251090667000028,
+    "frame": 146787,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "0f568e1d06992304352e1fef8a18ce925182cc12772c7d59dcecebb9f6c7538a"
+  },
+  {
+    "file": "00081.png",
+    "elapsed": 8.351575916999991,
+    "frame": 146904,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "0e58688c83b7481b6d47dd80a6ce575eed64d81bb47a09fb7cef42d33d1ee591"
+  },
+  {
+    "file": "00082.png",
+    "elapsed": 8.451827292000019,
+    "frame": 147023,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "75ffd10d3c07950c08ddfb047e30441b3475bf9505d889673bb937f13aa1d47b"
+  },
+  {
+    "file": "00083.png",
+    "elapsed": 8.552046542000028,
+    "frame": 147144,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "f3b965294728e4da6bea94a8df3cd66aa975064b0d244640f686e21c0945e68f"
+  },
+  {
+    "file": "00084.png",
+    "elapsed": 8.652567500000032,
+    "frame": 147268,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "7cad874a0fc9c4fd12556fc2b68146a026e9ad0853432c2e529fd187de1ca8a2"
+  },
+  {
+    "file": "00085.png",
+    "elapsed": 8.75307187499999,
+    "frame": 147389,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "5476b3b840f5d7e2978f44553884904021c8cf2356992be220fa3589ac04af74"
+  },
+  {
+    "file": "00086.png",
+    "elapsed": 8.853588750000029,
+    "frame": 147513,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "300b330f3ab42f83ee72a8ac971fd020360bf05d4d3a6aa42b5a96f2d248b0f3"
+  },
+  {
+    "file": "00087.png",
+    "elapsed": 8.953863084000034,
+    "frame": 147633,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "017b15faa1c621d527d32e2c5237953738346306aeb5b3f83fb3d38da6d52c68"
+  },
+  {
+    "file": "00088.png",
+    "elapsed": 9.054294542000036,
+    "frame": 147749,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "9b630aa35f12029947cbe3460e557dff7d733b4470f30139df7b307f9774adb2"
+  },
+  {
+    "file": "00089.png",
+    "elapsed": 9.154386959000021,
+    "frame": 147869,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "705b194231c8a5ca3d4cb75e0c5965741bc4d1f1892fd41d3fec84ac6acf76e2"
+  },
+  {
+    "file": "00090.png",
+    "elapsed": 9.25492437500003,
+    "frame": 147985,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "d38691ca830df96f11bdb5410ead40f08844254d9bdf88c00b60c0400d8b25b4"
+  },
+  {
+    "file": "00091.png",
+    "elapsed": 9.355452791999994,
+    "frame": 148102,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "efb82a06335aefc7b38fbf84656beea2819d5a39c5cb374c4071abc27339e3c8"
+  },
+  {
+    "file": "00092.png",
+    "elapsed": 9.455576709000013,
+    "frame": 148220,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "76530c6f01ebe1f65ba32fb8ee6c359cd7da10c76467467a4abc174dc817a683"
+  },
+  {
+    "file": "00093.png",
+    "elapsed": 9.556078875000026,
+    "frame": 148342,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "fd818cedd8afd888b5c9bb4f2e595f2aab96baac6d2e1b7d2f3386feb0abfac8"
+  },
+  {
+    "file": "00094.png",
+    "elapsed": 9.656275375000007,
+    "frame": 148464,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "b25b6e454e49dfe647591d15182c9fa442e7f34242b7a0a0db75cca5e7afc9b6"
+  },
+  {
+    "file": "00095.png",
+    "elapsed": 9.75634875000003,
+    "frame": 148582,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "482eedc6836f0aa077729ba8e4ecd80bff1a753e16e00dfee0d47fe924de9042"
+  },
+  {
+    "file": "00096.png",
+    "elapsed": 9.856991459000028,
+    "frame": 148693,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "02fa8f043772c3cdf05beaeec1e99b375224b7569028ab874b6fc12435e0668f"
+  },
+  {
+    "file": "00097.png",
+    "elapsed": 9.957505167000022,
+    "frame": 148811,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "48d3e6a6ec1ecfe0ac872f1c5bd850eaf2be363fe430bb4207cd55ff590b4e60"
+  },
+  {
+    "file": "00098.png",
+    "elapsed": 10.057886584000016,
+    "frame": 148927,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "d66a877e700870c780358fccfa15194b13d204634f622579fcb06f59d7e3caac"
+  },
+  {
+    "file": "00099.png",
+    "elapsed": 10.16186916700002,
+    "frame": 148963,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "8bc83357483e33d37eace60636b88e825e4d79b9e2cf117e942f49150cdf67e7"
+  },
+  {
+    "file": "00100.png",
+    "elapsed": 10.263447541999994,
+    "frame": 148981,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "4fb7fd880f6c66e1d88d9fb9c55117830248bb68bf87b6b9d4fcc2b167323e1a"
+  },
+  {
+    "file": "00101.png",
+    "elapsed": 10.365993124999989,
+    "frame": 148999,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "fbd046450c762fbb1551588e0422abd29bf091ad0526c017e4084f2dd1d79b35"
+  },
+  {
+    "file": "00102.png",
+    "elapsed": 10.46646479200001,
+    "frame": 149062,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "b285d838f3532daba052108c032eaf7cee8ee924a19fdc3324a7177c7d3ceb38"
+  },
+  {
+    "file": "00103.png",
+    "elapsed": 10.566652834000024,
+    "frame": 149181,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "6b451e1097594581e4347d41dc40321315d3563a3c4fb08260520ade6758aae3"
+  },
+  {
+    "file": "00104.png",
+    "elapsed": 10.666889874999981,
+    "frame": 149294,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "c30141145622783b7ed4dcfef6d596db09273993261b99d314b2c1fce9de5e25"
+  },
+  {
+    "file": "00105.png",
+    "elapsed": 10.767329209000025,
+    "frame": 149390,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "f5fca9f3c72f9ce95129395f221a7fd3214d9deec25a60dc46910eae3caecd0f"
+  },
+  {
+    "file": "00106.png",
+    "elapsed": 10.867928167000002,
+    "frame": 149483,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "7366d8e6b999656cb093581baaed2ba99e8c65a2cf35c638c71792ba2501dbc3"
+  },
+  {
+    "file": "00107.png",
+    "elapsed": 10.968052084000021,
+    "frame": 149593,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "30eb21c23fd93166c8ebbbd6f36e630119b20c34614f8350cb29dbd5dbb3517d"
+  },
+  {
+    "file": "00108.png",
+    "elapsed": 11.068074249999995,
+    "frame": 149704,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "56d7dc23f2c3bb1a14a6c9f34e23f8906a0c2d85fd63907e44ad35a2487075e2"
+  },
+  {
+    "file": "00109.png",
+    "elapsed": 11.168297833999986,
+    "frame": 149822,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "8daf6f9bec7064f805bfe7c1b39990e1b7de9d5c82c14e4c644f1530116f60db"
+  },
+  {
+    "file": "00110.png",
+    "elapsed": 11.269075084000008,
+    "frame": 149944,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "bcbad284d58f274b6da042528fe19b97342abc8dd9767e662164e804cfb871e5"
+  },
+  {
+    "file": "00111.png",
+    "elapsed": 11.369991249999998,
+    "frame": 150055,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "1e6e395997d3e64d1eae789c4e19e6bb01a743a3e338071fd1b9d3ed28423399"
+  },
+  {
+    "file": "00112.png",
+    "elapsed": 11.470618875000014,
+    "frame": 150173,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "1d9a3d28b46772a20fdcdbb935af88a45102fb7055be0609502e2d580c2e0d97"
+  },
+  {
+    "file": "00113.png",
+    "elapsed": 11.571458458999984,
+    "frame": 150292,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "88bde5d5f2e758ac30debff45e0a8bbb507e7ace8e6f840e8f837afd01e0d44f"
+  },
+  {
+    "file": "00114.png",
+    "elapsed": 11.672002334000013,
+    "frame": 150410,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "9c2c81b2a50803336073610e007fa68ab0a3c889438750c60f0208c3ce407291"
+  },
+  {
+    "file": "00115.png",
+    "elapsed": 11.772100083999987,
+    "frame": 150526,
+    "stage": "advancing REAL-TIME Combat / HP + Crack / generic beam #47",
+    "sha256": "6ddc4c0c865c1067fc1a8611ccdf4b6333476c9034c39ecc1704ecebd418febd"
+  },
+  {
+    "file": "00116.png",
+    "elapsed": 11.87247341699998,
+    "frame": 150640,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "4e336eeff601834c0d0ef06a9cda04239fddef2e59d749b3d82d513828235b00"
+  },
+  {
+    "file": "00117.png",
+    "elapsed": 11.972690084000021,
+    "frame": 150752,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "143bf0fcd950d95f7bb2763f95e52ea7649d850800a6106ea8d30c75fa0a26ac"
+  },
+  {
+    "file": "00118.png",
+    "elapsed": 12.072958749999998,
+    "frame": 150866,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "868f78514d634a2e89104e4da66dbd5dc563f4056578e2ec2d96d3cdfc8ee991"
+  },
+  {
+    "file": "00119.png",
+    "elapsed": 12.17357608399999,
+    "frame": 150976,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "a951bf18f04dba7a97c125ba570d4fa165e021850fcd36cd086d53df6959405a"
+  },
+  {
+    "file": "00120.png",
+    "elapsed": 12.274002959000029,
+    "frame": 151088,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "4bce444f1e76d94af1ee9b385bd2d964f56185db319227fccd5db7a58f7c0b5e"
+  },
+  {
+    "file": "00121.png",
+    "elapsed": 12.374068875000034,
+    "frame": 151200,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "24d301e595cda9c458bd6597c70077735a045a131b4d7c82ce0d3b1e8e2c7c2b"
+  },
+  {
+    "file": "00122.png",
+    "elapsed": 12.47468275,
+    "frame": 151316,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "ca8273f06352d82060d72f2a4eb1feb7987d6bc91100e80f283f6e817553a395"
+  },
+  {
+    "file": "00123.png",
+    "elapsed": 12.574768084000027,
+    "frame": 151432,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "0617c82de130789817654dadc16f7daf56f80188dda52d57bf1290ef52a529f0"
+  },
+  {
+    "file": "00124.png",
+    "elapsed": 12.675058750000005,
+    "frame": 151545,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "3b08a760b4a2b098bbca2fdd9641b616317e735e2140dc38e0f11c54d98fa3ce"
+  },
+  {
+    "file": "00125.png",
+    "elapsed": 12.775613625000005,
+    "frame": 151652,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "747e2468456a4e74f81a10a2249886eff01f097dde1bb8a95cc25b0ecedfb76f"
+  },
+  {
+    "file": "00126.png",
+    "elapsed": 13.033621084000004,
+    "frame": 151712,
+    "stage": "advancing combat / actual Crack enemy Inspect + HP",
+    "sha256": "47471fc461e61f7e0d805103900d62d856abaff1c99a38ab955b9549f53a4f62"
+  },
+  {
+    "file": "00127.png",
+    "elapsed": 13.13364929200003,
+    "frame": 151848,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00128.png",
+    "elapsed": 13.233908834000033,
+    "frame": 151991,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00129.png",
+    "elapsed": 13.334356791999994,
+    "frame": 152137,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00130.png",
+    "elapsed": 13.435238125000012,
+    "frame": 152281,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00131.png",
+    "elapsed": 13.535510541999997,
+    "frame": 152422,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00132.png",
+    "elapsed": 13.635662583999988,
+    "frame": 152566,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00133.png",
+    "elapsed": 13.735903124999993,
+    "frame": 152718,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00134.png",
+    "elapsed": 13.836023417000035,
+    "frame": 152864,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00135.png",
+    "elapsed": 13.936421959000029,
+    "frame": 153012,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00136.png",
+    "elapsed": 14.037310042000001,
+    "frame": 153166,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00137.png",
+    "elapsed": 14.137513709000018,
+    "frame": 153318,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00138.png",
+    "elapsed": 14.237736917000007,
+    "frame": 153469,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00139.png",
+    "elapsed": 14.338232417000029,
+    "frame": 153622,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00140.png",
+    "elapsed": 14.438574209000024,
+    "frame": 153776,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00141.png",
+    "elapsed": 14.538840833999984,
+    "frame": 153922,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "af328e0b68cf48f01e76c2a04c60aa0aecb0cfb4185fafb676d09dbd82a4d4ae"
+  },
+  {
+    "file": "00142.png",
+    "elapsed": 14.758552458999986,
+    "frame": 153924,
+    "stage": "interrupted Combat / file-menu Continue rolls back to Preparation",
+    "sha256": "ae71828785917bb3a2c7fb8fea6588529bd0148b2e935700b9c590f2b1b942f2"
+  },
+  {
+    "file": "00143.png",
+    "elapsed": 14.858981125000014,
+    "frame": 154030,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00144.png",
+    "elapsed": 14.959017000000017,
+    "frame": 154149,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00145.png",
+    "elapsed": 15.059278250000034,
+    "frame": 154269,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00146.png",
+    "elapsed": 15.159572249999997,
+    "frame": 154386,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00147.png",
+    "elapsed": 15.259873542000037,
+    "frame": 154503,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00148.png",
+    "elapsed": 15.359928625000009,
+    "frame": 154615,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00149.png",
+    "elapsed": 15.459938958999999,
+    "frame": 154734,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00150.png",
+    "elapsed": 15.560279625000021,
+    "frame": 154853,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00151.png",
+    "elapsed": 15.660470125000018,
+    "frame": 154973,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00152.png",
+    "elapsed": 15.760827458999984,
+    "frame": 155095,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00153.png",
+    "elapsed": 15.861266999999998,
+    "frame": 155212,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00154.png",
+    "elapsed": 15.961343375000013,
+    "frame": 155328,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00155.png",
+    "elapsed": 16.061622417000024,
+    "frame": 155438,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00156.png",
+    "elapsed": 16.161820917,
+    "frame": 155553,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00157.png",
+    "elapsed": 16.26235066700002,
+    "frame": 155670,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00158.png",
+    "elapsed": 16.36256858400003,
+    "frame": 155785,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00159.png",
+    "elapsed": 16.462577334000002,
+    "frame": 155901,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00160.png",
+    "elapsed": 16.56260208399999,
+    "frame": 156018,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00161.png",
+    "elapsed": 16.663086916999987,
+    "frame": 156136,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00162.png",
+    "elapsed": 16.763154541999995,
+    "frame": 156255,
+    "stage": "restored Preparation / STONE L3 / unchanged Gold-HP-kills",
+    "sha256": "c399463255d1c842f53e453f0614553be476cd89e3b9eaf9b2bfa3bd47b0175a"
+  },
+  {
+    "file": "00163.png",
+    "elapsed": 16.863655709,
+    "frame": 156372,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00164.png",
+    "elapsed": 16.963967249999996,
+    "frame": 156488,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00165.png",
+    "elapsed": 17.064352999999983,
+    "frame": 156604,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00166.png",
+    "elapsed": 17.164665624999998,
+    "frame": 156719,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00167.png",
+    "elapsed": 17.264949,
+    "frame": 156841,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00168.png",
+    "elapsed": 17.365529667000033,
+    "frame": 156959,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00169.png",
+    "elapsed": 17.4656655,
+    "frame": 157077,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00170.png",
+    "elapsed": 17.565771167000037,
+    "frame": 157201,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00171.png",
+    "elapsed": 17.66608154200003,
+    "frame": 157320,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00172.png",
+    "elapsed": 17.766544624999995,
+    "frame": 157439,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00173.png",
+    "elapsed": 17.86661379200001,
+    "frame": 157559,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00174.png",
+    "elapsed": 17.96662920900002,
+    "frame": 157675,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00175.png",
+    "elapsed": 18.06663341699999,
+    "frame": 157794,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00176.png",
+    "elapsed": 18.167164084000035,
+    "frame": 157911,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00177.png",
+    "elapsed": 18.267759249999983,
+    "frame": 158031,
+    "stage": "Sell confirmation / actual configured refund",
+    "sha256": "402cead883f47bae300d26c0946f170d9335489aa22612903e72255dcc54a858"
+  },
+  {
+    "file": "00178.png",
+    "elapsed": 18.368308749999983,
+    "frame": 158141,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00179.png",
+    "elapsed": 18.468410667,
+    "frame": 158262,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00180.png",
+    "elapsed": 18.568965542,
+    "frame": 158386,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00181.png",
+    "elapsed": 18.668992417000027,
+    "frame": 158510,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00182.png",
+    "elapsed": 18.769579667000016,
+    "frame": 158634,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00183.png",
+    "elapsed": 18.869722500000023,
+    "frame": 158753,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00184.png",
+    "elapsed": 18.970263166999985,
+    "frame": 158874,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00185.png",
+    "elapsed": 19.071095249999985,
+    "frame": 158998,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00186.png",
+    "elapsed": 19.171484667000016,
+    "frame": 159122,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00187.png",
+    "elapsed": 19.271575874999996,
+    "frame": 159247,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00188.png",
+    "elapsed": 19.371679416999996,
+    "frame": 159369,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00189.png",
+    "elapsed": 19.471938583999986,
+    "frame": 159492,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00190.png",
+    "elapsed": 19.572034667000025,
+    "frame": 159616,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00191.png",
+    "elapsed": 19.672266750000006,
+    "frame": 159741,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00192.png",
+    "elapsed": 19.772279959000002,
+    "frame": 159869,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00193.png",
+    "elapsed": 19.872951166999997,
+    "frame": 159991,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00194.png",
+    "elapsed": 19.973554750000005,
+    "frame": 160097,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00195.png",
+    "elapsed": 20.073821709000015,
+    "frame": 160211,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00196.png",
+    "elapsed": 20.174255749999986,
+    "frame": 160331,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  },
+  {
+    "file": "00197.png",
+    "elapsed": 20.27486404199999,
+    "frame": 160455,
+    "stage": "sold / no model roots / public-command Editor proof complete",
+    "sha256": "8db4b1c1140f7a125b5bb72d5e9cfa545d5e9c33e2d4eabacf1dacd7b35eb51d"
+  }
+]

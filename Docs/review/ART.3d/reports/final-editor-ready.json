@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "command": "status",
+  "data": {
+    "count": 1,
+    "instances": [
+      {
+        "port": 7800,
+        "project": "/Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/worktrees/art3d-stone",
+        "projectPath": "/Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/worktrees/art3d-stone",
+        "version": "6000.3.28f1",
+        "editorVersion": "6000.3.28f1",
+        "pid": 32445,
+        "state": "ready",
+        "role": "main",
+        "instanceName": "Main Editor"
+      }
+    ],
+    "items": [
+      {
+        "port": 7800,
+        "project": "/Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/worktrees/art3d-stone",
+        "projectPath": "/Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/worktrees/art3d-stone",
+        "version": "6000.3.28f1",
+        "editorVersion": "6000.3.28f1",
+        "pid": 32445,
+        "state": "ready",
+        "role": "main",
+        "instanceName": "Main Editor"
+      }
+    ],
+    "total": 1,
+    "nextPage": null,
+    "partial": false
+  },
+  "errors": [],
+  "warnings": []
+}

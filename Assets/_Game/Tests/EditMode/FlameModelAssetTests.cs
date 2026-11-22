@@ -89,7 +89,6 @@ namespace Veilward.Tests.EditMode
             finally { Object.DestroyImmediate(root); }
         }
 
-        [TestCase("stone")]
         [TestCase("steam")] [TestCase("storm")] [TestCase("test-tower")]
         public void Art3A04_OtherTypesKeepGrayboxAndTint(string id)
         {

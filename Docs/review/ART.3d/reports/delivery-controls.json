@@ -1,0 +1,66 @@
+{
+  "checkout": "/Users/alexeykravtsov/Desktop/workspace/Veilward/.tools/art3d-delivery-controls",
+  "sourceCommit": "07a363061efd3b42e38277dc45c89c60a891eac3",
+  "device": "Deferred to prerelease QA #53/#54/#55",
+  "records": [
+    {
+      "command": [
+        "python3",
+        "Docs/review/ART.3d/verify_delivery.py"
+      ],
+      "exitCode": 0,
+      "stdout": "PASS ART3D: 3366 tested source files, 2877 protected baseline files, 106 tracked artifacts, full suites {'edit-mode': 1179, 'play-mode': 83}, roundtrip3, Editor video/Crack/rollback/Sell. Device Deferred.\n",
+      "stderr": "",
+      "control": "clean checkout baseline"
+    },
+    {
+      "command": [
+        "python3",
+        "Docs/review/ART.3d/verify_delivery.py"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "FAIL: clean checkout including untracked files required\n",
+      "control": "untracked foreign file"
+    },
+    {
+      "control": "committed foreign source",
+      "commit": "7905d9ca202023c3aa012a6f9df6fc6d22f36236"
+    },
+    {
+      "command": [
+        "python3",
+        "Docs/review/ART.3d/verify_delivery.py"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "FAIL: tested source inventory\n",
+      "control": "committed foreign source"
+    },
+    {
+      "control": "committed altered artifact",
+      "commit": "de71b011f4dec47faad1fb775e874938dbd1b6e8"
+    },
+    {
+      "command": [
+        "python3",
+        "Docs/review/ART.3d/verify_delivery.py"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "FAIL: artifact digest Docs/review/ART.3d/playmode/video-L3.png\n",
+      "control": "committed altered artifact"
+    },
+    {
+      "command": [
+        "python3",
+        "Docs/review/ART.3d/verify_delivery.py"
+      ],
+      "exitCode": 0,
+      "stdout": "PASS ART3D: 3366 tested source files, 2877 protected baseline files, 106 tracked artifacts, full suites {'edit-mode': 1179, 'play-mode': 83}, roundtrip3, Editor video/Crack/rollback/Sell. Device Deferred.\n",
+      "stderr": "",
+      "control": "restored clean checkout"
+    }
+  ],
+  "finalStatus": ""
+}
