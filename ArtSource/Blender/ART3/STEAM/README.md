@@ -1,0 +1,11 @@
+# STEAM «Туманная лисица», ART.3e / #84
+
+Оригинальная геометрия создана Codex для VEILWARD 22.11.2026 по заданию владельца #84: AI-assisted code-driven Blender mesh authoring. Входы — issue84, GDD «Туманная лисица», принятые ART3A–D/palette/import conventions. Внешние модели, reference images и image-generation services не использовались. Service/model: OpenAI Codex / GPT-6 family; точный runtime snapshot инструментами не раскрыт. Seed/jobID не применимы, mesh script deterministic. Авторское/коммерческое approval результата остаётся за владельцем; наличие файла не доказывает исключительных прав.
+
+Из собственного принятого ART1 source загружаются только Surface/Glow материалы и packed palette. Геометрия других семейств не заимствуется и не меняется. Новых сторонних creative assets/лицензий нет. L1 — сидящая лисица с острыми ушами, мордой, лапами и одним объёмным хвостом. L2 — второй поднятый хвост; L3 — третий высокий хвост и два открытых паровых завитка. Одна редактируемая mesh/semantic vertex groups на уровень; meters/applied identity/ground0/footprint≤.94m/two palette slots, без новых текстур/материалов/света/render features.
+
+`author_steam.py` заменяет только три STEAM .blend; после ручных Blender правок запускать `export_steam.py`, который whitelist-ит три source имени/директорию и пишет только STEAM FBX проверенным ART1 preset. `check_geometry.py` читает actual sources и проверяет budgets/pivot/transforms/UV/normals/ненулевые triangles/объёмные semantic forms; пишет geometry-manifest.json. `verify_reexport.py` реально реэкспортирует3/3 и сравнивает Unity geometry/UV/normals/remaps/GUID/localIDs/prefab-scene refs при открытом Edit Mode текущего checkout. Timestamp header FBX не используется как geometry hash; финальные canonical bytes/readback отдельно в evidence.
+
+Первая проверка source выявила вырожденный sweep на воротнике: tangent совпадал с reference axis. Выбор reference исправлен, author/export повторены; ранний FAIL не выдан за PASS. Source checker после этого исправлен на STEAM semantic group names (остаток адаптации), production mechanics не менялись.
+
+**Device Deferred to prerelease QA #53/#54/#55.** Generic beam/финальные Steam VFX — #47. ShotSource только presentation anchor, не источник Domain damage.

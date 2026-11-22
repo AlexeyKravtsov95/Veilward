@@ -121,3 +121,7 @@ Workflow **не активирует лицензию** и не содержит
 - Direct batch fallback для P1.4a — **NOT VERIFIED**; обязательные локальные suites выполнены через реальный Unity CLI resident path. Fake CLI contract tests выполнены отдельно.
 - Физический iPhone, touch/safe area, thermal/performance, Simulator и signing — **NOT VERIFIED** этим тикетом.
 - Полный визуальный Victory — **NOT VERIFIED**; визуальный terminal evidence получен для Defeat.
+
+## Проверки в существующем checkout — #84, 22.11.2026
+
+Новые worktree/клоны/полные копии Unity проекта для implementation/review/controls не создаются. Отдельная ветка в текущем checkout переиспользует Library и рабочие TestResults; один владелец последовательно выполняет изменения/Unity runs. Сначала status/process audit, чужие изменения не сбрасываются/не stash-ятся автоматически, прежние evidence/verifiers не переписываются. Текущий read-only verifier проверяет финальные source inventory/artifact hashes на чистом состоянии этого checkout. Negative source/artifact controls выполняются малыми fixtures или временными собственными изменениями с точным восстановлением. При неизменной verifier logic допускается историческая ссылка с явной отметкой, что controls заново не запускались. Незапущенный/неуспешный gate остаётся NOT VERIFIED / BLOCKED.

@@ -1,0 +1,157 @@
+[
+  {
+    "level": 1,
+    "source": "ArtSource/Blender/ART3/STEAM/Tower_SteamFoxL1.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/STEAM/Tower_SteamFoxL1.fbx",
+    "vertices": 904,
+    "triangles": 1696,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        -0.4592118263244629,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        1.399999976158142
+      ]
+    ],
+    "middleProjectedWidth": 0.6675340303750321,
+    "semanticGroups": [
+      "BronzeCollar",
+      "BronzePlinth",
+      "EyeGlint",
+      "Foreleg",
+      "FoundationStone",
+      "FoxHead",
+      "FoxNose",
+      "FrontPaw",
+      "HindHaunch",
+      "IndigoEye",
+      "InnerEar",
+      "IvoryCheek",
+      "IvoryChest",
+      "JadeCushion",
+      "LongMuzzle",
+      "PointedEar",
+      "RightTail",
+      "RightTailTip",
+      "SeatedFoxBody",
+      "SteamMedallion"
+    ],
+    "glowFaces": 240,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  },
+  {
+    "level": 2,
+    "source": "ArtSource/Blender/ART3/STEAM/Tower_SteamFoxL2.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/STEAM/Tower_SteamFoxL2.fbx",
+    "vertices": 968,
+    "triangles": 1816,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.4664223790168762,
+        0.44999998807907104
+      ],
+      [
+        -0.4592118263244629,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        1.5422977209091187
+      ]
+    ],
+    "middleProjectedWidth": 0.912745838540975,
+    "semanticGroups": [
+      "BronzeCollar",
+      "BronzePlinth",
+      "EyeGlint",
+      "Foreleg",
+      "FoundationStone",
+      "FoxHead",
+      "FoxNose",
+      "FrontPaw",
+      "HindHaunch",
+      "IndigoEye",
+      "InnerEar",
+      "IvoryCheek",
+      "IvoryChest",
+      "JadeCushion",
+      "LeftTailTip",
+      "LongMuzzle",
+      "PointedEar",
+      "RaisedLeftTail",
+      "RightTail",
+      "RightTailTip",
+      "SeatedFoxBody",
+      "SteamMedallion"
+    ],
+    "glowFaces": 240,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  },
+  {
+    "level": 3,
+    "source": "ArtSource/Blender/ART3/STEAM/Tower_SteamFoxL3.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/STEAM/Tower_SteamFoxL3.fbx",
+    "vertices": 1112,
+    "triangles": 2088,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.4664223790168762,
+        0.44999998807907104
+      ],
+      [
+        -0.4592118263244629,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        2.0869359970092773
+      ]
+    ],
+    "middleProjectedWidth": 0.912745838540975,
+    "semanticGroups": [
+      "BronzeCollar",
+      "BronzePlinth",
+      "EyeGlint",
+      "Foreleg",
+      "FoundationStone",
+      "FoxHead",
+      "FoxNose",
+      "FrontPaw",
+      "HighRearTail",
+      "HindHaunch",
+      "IndigoEye",
+      "InnerEar",
+      "IvoryCheek",
+      "IvoryChest",
+      "JadeCushion",
+      "LeftTailTip",
+      "LongMuzzle",
+      "OpenSteamCurl",
+      "OpenSteamWisp",
+      "PointedEar",
+      "RaisedLeftTail",
+      "RearTailTip",
+      "RightTail",
+      "RightTailTip",
+      "SeatedFoxBody",
+      "SteamMedallion"
+    ],
+    "glowFaces": 308,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  }
+]

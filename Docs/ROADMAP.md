@@ -1,5 +1,7 @@
 # VEILWARD — Development Roadmap v0.1
 
+22.11.2026 / #84: STEAM L1–L3 «Туманная лисица» реализуется на базе принятого PR83/STONE; [ART3e](ART3E_STEAM_LEVELS.md). Общий binding пяти семейств, законный hybrid/earned498 flow и Editor/source proof; итоговые gates/review/owner merge фиксируются в новом evidence. Parent44/STORM остаются открыты. Device Deferred53/54/55; текущий checkout, без новых worktrees/clones.
+
 21.11.2026 / #80: после owner merge PR79 следующая третья линейка — GALE L1–L3, общий binding трёх семейств и Editor/source proof. [ART3c](ART3C_GALE_LEVELS.md). Parent #44 остаётся открытым: STONE/STEAM/STORM отдельно. Device Deferred до prerelease #53/#54/#55; завершение implementation определяется review/owner merge.
 
 20.11.2026 / #78: ART.3a FLAME принята владельцем merge PR77; ART.3b добавляет только TIDE L1–L3. Следующие ART/VFX/UI/аудио/обучающие пакеты проходят Editor/Play Mode/source/import/roundtrip и независимое review, а physical iPhone video/performance/readability отложены до общей prerelease QA #53/#54/#55. Отсутствие per-family device proof само по себе не блокирует приёмку/закрытие завершённого Editor scope. Родитель #44, остальные семейства, G2 и release остаются отдельными gates; старые записи ниже — исторические статусы.
