@@ -17,24 +17,31 @@ TestedSourceSHA: `9654133029902fb2541ee833d6ef80710755a5bb`; baseline main по�
 | Hybrid/earned flow | Настоящие unlocks; 50 kills / HP14; бюджет 498, investment 495, Gold3; repeated file/menu Continue; полный rollback с live Grid; Sell refund346, Gold349 | [trace](reports/natural-trace.txt), [commands](inputs/earned.commands.json), checkpoints L1/L2/L3 и video-safe/rollback-wire |
 | Intrinsic Steam | Настоящий AttackEvent + связанный primary/secondary positive HP loss; в видео 2 hits / 102 applied HP loss, primary HP15; basic status payload пуст | [receipt](reports/video-intrinsic.json), [Inspect](reports/video-inspector.txt), финальные PlayMode cases |
 | Визуальные проверки | Actual Play Mode singles/lineup/пять семейств, все 9 front/side/behind и dense12; catalog/preview/Inspect/range; continuous Editor video и exact-stage PNG picks | [обзор и изображения](README.md), [video proof](reports/video-proof.json) |
+| Полный delivery verifier | PASS в clean tracked состоянии того же checkout: 3511 source / 3008 protected baseline / 96 artifacts; пользовательские bytes восстановлены 4/4 | [receipt](reports/delivery-approved.json) |
 | Малые negative controls | Positive fixture и отклонение clean committed foreign source inventory/source bytes/artifact bytes | [current controls](reports/delivery-controls.json) |
-| Независимое финальное review после PR | Новых P1/P2 нет; source/artifact hashes, full saved suite results, модели/occlusion/video/PTS/earned flow проверены отдельно; merge BLOCKED clean gate | [заключение](review.md) |
+| Независимое финальное review после PR | Новых P1/P2 нет; source/artifact hashes, full saved suite results, модели/occlusion/video/PTS/earned flow проверены отдельно; первоначальный clean gate BLOCKED снят после разрешённой проверки | [заключение](review.md) |
 | Восстановление после suites | Только 17 созданных тестами сериализаций возвращены к pre-run bytes; четыре исходных пользовательских файла сохранены; прочий Assets/Packages/ProjectSettings совпадает с source | [byte audit](reports/final-gates-restored.json), [generated-only patch](reports/final-gates-generated-only.patch.gz) |
 
 Общая Console **не объявляется нулевой**: все 114 записей сохранены, checkpoint stacks связаны с существующими LogAssert.Expect, frozen guard ожидается ArtReferencePlayModeTests.WarmupActivityCannotApproveFrozenSampleWindow. До suites новый task Editor имел 0 errors / 0 warnings ([startup](reports/console-startup.json)). Console не очищалась ради итогового результата.
 
 Исходные четыре dirty файла присутствовали при тестах и визуальных captures. Их список и SHA256 сохранены в byte audit. Они исключены из PR, но это ограничивает утверждение о проверке полностью канонических source inputs. Media/product inputs заморожены в `2a0e05175b87a636b86db5136a7252a357241194`; delta до TestedSource — только более строгая same-event assertion, после которой полные suites запущены заново.
 
-## NOT VERIFIED / BLOCKED
+## Clean-checkout gate после разрешения владельца
 
-**Обязательный полный read-only delivery verifier в clean tracked checkout — BLOCKED.** В существующем checkout сохранены исходные пользовательские изменения:
+Первоначальный [BLOCKED run](reports/delivery-gate.txt) сохранён как история. Владелец явно разрешил временно сохранить и восстановить четыре исходных файла. Сначала остановлен только task-owned Editor74060; другой Editor не затронут. Ровно четыре файла сохранены вне проекта в приватной папке backup; их SHA256 сверены с initial carry-in bytes:
 
 - `Assets/Settings/Mobile_RPAsset.asset`
 - `Assets/_Game/Art/Materials/GrayboxSelection.mat`
 - `Assets/_Game/Art/Materials/GrayboxTower.mat`
 - `Assets/_Game/Art/Materials/GrayboxTowerPreview.mat`
 
-Текущий entry point `PYTHONDONTWRITEBYTECODE=1 python3 Docs/review/ART.3e/verify_delivery.py` обязан отклонить их как dirty tracked source. Это не PASS и не отменяется положительными малыми controls. По правилу #84 чужие изменения не сбрасывались. Запрошено разрешение сохранить ровно эти четыре файла вне проекта, временно проверить Git bytes в том же checkout, затем восстановить пользовательские bytes; без ответа этот шаг не выполняется. Draft/Refs #84 нужны из-за этого незакрытого gate, а не из-за iPhone Deferred.
+На head `5a616f31e120580de0a089764cd572c6c9587f71` временно записаны Git bytes этих четырёх файлов; tracked checkout чист до и после read-only verifier. Полный `PYTHONDONTWRITEBYTECODE=1 python3 Docs/review/ART.3e/verify_delivery.py` завершился exit0 / PASS: 3511 source, 3008 protected baseline, 96 artifacts, full saved suites Edit1195/Play85, roundtrip3/video/earned rollback/Sell. Clean check не обходился, verifier не менялся. [Raw stdout, SHA256 и restoration receipt](reports/delivery-approved.json).
+
+В finally восстановлены исходные пользовательские bytes 4/4, original tracked change set совпал. Поэтому обычный запуск verifier после восстановления снова отклоняет dirty tracked checkout — это ожидаемое сохранение пользовательской работы, а не отмена PASS, полученного в разрешённом clean состоянии. Эти четыре изменения по-прежнему не входят в PR. Никаких reset/clean/stash, новых worktrees/клонов/копий проекта нет.
+
+## NOT VERIFIED
+
+В разрешённом clean окне выполнялся только read-only verifier. Unity suites и media не переснимались; исторические full-suite/capture inputs с четырьмя исходными сериализациями остаются явно указанным ограничением выше. PASS verifier проверяет весь поставленный source/artifact contract и сохранённые results, не является новым Unity run.
 
 Historical ART3d tamper matrix не запускалась заново. Current small-fixture controls проверяют только common inventory/blob/artifact validators; не доказывают полный entry point. Никакого заменяющего clean checkout или обхода clean check не создавалось.
 

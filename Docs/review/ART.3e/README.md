@@ -18,4 +18,6 @@ TestedSourceSHA: `9654133029902fb2541ee833d6ef80710755a5bb`. Media/product input
 
 [Текущие negative controls](reports/delivery-controls.json) выполняют реальные common inventory/blob/artifact validators на двух tiny files и clean Git commits во временной fixture — **без копии Unity project, нового worktree или клона**. Historical ART3d tamper matrix повторно не запускалась; текущий полный read-only entry point выполняется отдельно.
 
+**Полный delivery gate — PASS после явного разрешения владельца.** В том же checkout временно использованы Git bytes ровно четырёх исходных файлов; backup вне проекта и восстановление original bytes 4/4 подтверждены [receipt](reports/delivery-approved.json). Verifier не менялся. После восстановления рабочий checkout снова содержит исходные изменения; обычный запуск на этом dirty состоянии обязан отказать. Полные Unity suites/captures в этом окне не повторялись.
+
 **Device Deferred to prerelease QA #53/#54/#55.** iPhone/native binaries/iOS export/signing/TestFlight не запускались. Editor не device/performance/touch/safe-area/background PASS. Parent44 остаётся open: STORM отдельно; карта45/враги46/VFX47/UI48/G2/release не закрываются. Без self-merge/release, приёмка и merge — владельцем после review.

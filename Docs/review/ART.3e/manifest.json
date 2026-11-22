@@ -7,10 +7,10 @@
     "play-mode": 85
   },
   "device": "Deferred to prerelease QA #53/#54/#55",
-  "deliveryGate": "BLOCKED: four original tracked user modifications; no clean entry-point PASS",
+  "deliveryGate": "PASS at clean tracked head5a616f31e120580de0a089764cd572c6c9587f71 after explicit user authorization; original four user files restored exactly",
   "artifacts": {
-    "Docs/review/ART.3e/README.md": "1d493118c8a3dd3966bf44b7cf2a6509f5c7cac83aef45b90f1d0bc17abbcf12",
-    "Docs/review/ART.3e/commands.md": "438d9af6572bffb27163e07101436de0a8936ee9e402530d37fa3376b8003966",
+    "Docs/review/ART.3e/README.md": "eb6dc1a2a26c7fed51ad934568585430c664a05d04b77e3f967e78498d2828e5",
+    "Docs/review/ART.3e/commands.md": "c46cfc086f7e028f7a8a632030639b9a54925774c6e2c8c611f19f18032dcb0e",
     "Docs/review/ART.3e/editor-flow.mp4": "6595d90abe9a787a5283a9cd70accacf44e58629c7ffbb2bf191c418b13968cf",
     "Docs/review/ART.3e/inputs/earned.commands.json": "1365ced5655a9bac598d7905193b5504e22ac345df2ac8d0c6774fd1e60d763c",
     "Docs/review/ART.3e/inputs/search-settings.json": "859d28d5de06574cabebecc00b70a69ef666766de1ece686c8e42d3b7b8e1ab1",
@@ -52,6 +52,7 @@
     "Docs/review/ART.3e/reports/console-suite-classification.json": "76bc8c2658264aae153ac46495e3fa26c8663fbe068d1e7a4e9e632896876b2a",
     "Docs/review/ART.3e/reports/console-suite-errors.json": "18ad9b62bcc353fd8d240d58dc424e86387d0f46257388e2d11e71c587075a37",
     "Docs/review/ART.3e/reports/console.txt": "3ab07c59169322dffd5d7e8996f0eb0620bac600f39f121e34860051b29cccca",
+    "Docs/review/ART.3e/reports/delivery-approved.json": "963732240459c0850ba7071155bba8f521e2400462cae41b75b9e81db2007291",
     "Docs/review/ART.3e/reports/delivery-controls.json": "cf8c39b460d82bd53a24d091df1649e7d6744b7cec1126f4d553ed7a139e0c3e",
     "Docs/review/ART.3e/reports/delivery-gate.txt": "3a44f4786e452da2faa97c8f88a6752cbe27ce8a6bad2733c3a231cb1f54dd1b",
     "Docs/review/ART.3e/reports/edit-before-final-assertion.json": "4fe36c4d16bd16ec8eae565733f9ea835ef92dbce09238acc3f27decabc3350f",
@@ -101,8 +102,8 @@
     "Docs/review/ART.3e/reports/video-source-frames.json": "a49d4e9abb576760c6f1c1e5e7efa8aa6b59430c24053b9fdf1b59b55cb05e20",
     "Docs/review/ART.3e/reports/video-view.json": "58bfaa6c540f864dedff58148a1c662282c69ab2fad0cddc44ee8aa6b0d15949",
     "Docs/review/ART.3e/reports/view-restored.json": "7c2ae129e7e11c9166af4327072cb657e6b245dbff2a3e2aab63c34ff0bd22a7",
-    "Docs/review/ART.3e/review.md": "954da4771dbf7c235c80e57ae1a585f1432d6c6c81a89ee3426e337dd33a9765",
-    "Docs/review/ART.3e/validation.md": "d4487ff33edf3819224b7cd5fd212b9539fb88da4546e3a2070cbcc48cab87a7",
+    "Docs/review/ART.3e/review.md": "451288d768084874ae20bfde7101f8d3eed595a80e90abac47d48c8223236ada",
+    "Docs/review/ART.3e/validation.md": "a360cb869508eba24b7031439f5111a3804cab30d6c0f070f8a0e441a17e31d7",
     "Docs/review/ART.3e/verify_controls.py": "7482075e1e11582bba82aa8ad71b8999cbb9ba062e5a05e808bf323b9c94291f",
     "Docs/review/ART.3e/verify_delivery.py": "a8c980e21de1f3673d16cc110e92248479a66843a1bac4b0d0346dad40c617f2"
   }

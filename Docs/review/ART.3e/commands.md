@@ -42,3 +42,9 @@ Bounded strategy experiments: первоначальные F/T/GALE/one-tower в
 Автоматический approval review отклонил одну shell-команду из-за `rm -f` для временного bytecode cache; команда целиком не выполнилась. Вместо неё syntax проверен ast.parse без создания/удаления cache. Новых approval обходов или удаления чужих файлов нет.
 
 Для `git diff --check` у экспортированного `video-inspector.txt` удалена только завершающая пустая строка; содержимое Inspect не менялось.
+
+## Разрешённый clean-checkout verifier
+
+После явного ответа владельца «Да, временно сохранить и восстановить» остановлен только task Editor74060 (identity проверена по executable и project path). Ровно четыре carry-in файла сохранены вне проекта в `~/.codex/backups/veilward-art3e-carry-in-s843u3s1/`, directory mode0700. Имена, original/Git SHA256, head, UTC и stdout — в `reports/delivery-approved.json`.
+
+Операция выполнялась одним Python process с try/finally: проверить исходные bytes и ровно четыре tracked изменения → записать `git show HEAD:<path>` bytes этих четырёх файлов → убедиться в clean tracked checkout → `PYTHONDONTWRITEBYTECODE=1 python3 Docs/review/ART.3e/verify_delivery.py` → проверить отсутствие новых tracked изменений → finally восстановить backup bytes и сверить все четыре original SHA256 и original change set. Exit0, PASS3511/3008/96. Первая остановка по identity guard не послала сигнал: CLI использовал lowercase `-projectpath`; после проверки flag case без вывода process arguments остановлен верный task Editor. Source/assets вне разрешённых четырёх файлов не менялись. Unity/tests/media в этом окне не запускались.
