@@ -43,5 +43,25 @@
   "restoredTrackedChangeSetMatches": true,
   "fullSuitesRerunDuringApprovedWindow": false,
   "unityRestartedDuringApprovedWindow": false,
-  "scope": "Authorized temporary Git bytes for the read-only delivery verifier; no Unity/test/media rerun"
+  "scope": "Authorized temporary Git bytes for the read-only delivery verifier; no Unity/test/media rerun",
+  "evidenceUpdateRecheck": {
+    "head": "db213879c21581bb47766a497e02435c6b6c089b",
+    "utc": "2026-11-22T09:05:59.135460+00:00",
+    "exitCode": 0,
+    "stdout": "PASS ART3E: 3511 tested source files, 3008 protected baseline files, 97 tracked artifacts, full suites {'edit-mode': 1195, 'play-mode': 85}, roundtrip3, Editor video/Steam/rollback/Sell. Device Deferred.\n",
+    "stderr": "",
+    "cleanTrackedBefore": true,
+    "originalBytesRestored": true,
+    "restoredTrackedChangeSetMatches": true,
+    "restoredUtc": "2026-11-22T09:06:58.031427+00:00"
+  },
+  "independentReview": {
+    "reviewer": "/root/early_review",
+    "head": "db213879c21581bb47766a497e02435c6b6c089b",
+    "exitCode": 0,
+    "stdout": "PASS ART3E: 3511 tested source files, 3008 protected baseline files, 97 tracked artifacts, full suites {'edit-mode': 1195, 'play-mode': 85}, roundtrip3, Editor video/Steam/rollback/Sell. Device Deferred.\n",
+    "newP1P2": 0,
+    "decision": "Ready for Review / Closes84 / Refs44; owner acceptance and merge required",
+    "originalBytesRestoredAfterReview": true
+  }
 }

@@ -22,3 +22,11 @@ Reviewer независимо проверил:
 **Исторический NOT VERIFIED / BLOCKED на reviewed head:** повторный полный `verify_delivery.py` ожидаемо остановился на `FAIL: clean tracked checkout required`; последующие проверки entry point не достигнуты. Отдельные validators не заменяют gate. Reviewer не запускал mutation controls, Unity suites или device QA; canonical visual/test inputs без четырёх пользовательских изменений пока не подтверждены. Файлы/ветка/Unity state reviewer не менял, GitHub comments не публиковал.
 
 Этот финальный evidence-only commit записывает результат review и обновляет manifest; product/source inputs не меняются.
+
+## Допроверка после разрешённого clean gate
+
+Владелец разрешил временное сохранение/Git bytes/точное восстановление исходных четырёх файлов. Reviewer прочитал [receipt](reports/delivery-approved.json) и evidence-only delta `5a616f3..db21387`; source и verifier logic не изменены. Затем независимо запустил полный текущий read-only verifier на clean head `db213879c21581bb47766a497e02435c6b6c089b`: exit0 / PASS3511 source, 3008 protected baseline, 97 artifacts, saved Edit1195/Play85, roundtrip3, Editor video/Steam/rollback/Sell. Root после проверки восстановил original bytes4/4; original tracked change set совпал.
+
+**Итог: новых P1/P2 нет; clean gate закрыт.** Можно снять Draft, перевести PR85 в Ready for Review и заменить Refs84 на Closes84, сохранив Refs44. Продуктовая приёмка и merge остаются за владельцем; self-merge не разрешён. Unity suites/media в clean окне не повторялись: этот PASS проверяет поставленные source/artifacts и сохранённые результаты, не является новым canonical Unity run или device QA. Device Deferred #53/#54/#55 сохраняется.
+
+После этой допроверки меняются только evidence/manifest; исходники и verifier остаются прежними.
