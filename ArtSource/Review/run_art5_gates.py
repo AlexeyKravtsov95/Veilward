@@ -11,6 +11,46 @@ OUT=ROOT/'Docs/review/ART.5/reports'
 def sha(b):return hashlib.sha256(b).hexdigest()
 def inputs():
     return {str(p.relative_to(ROOT)):sha(p.read_bytes()) for prefix in ('Assets','Packages','ProjectSettings') for p in (ROOT/prefix).rglob('*') if p.is_file() and not p.is_symlink()}
+def run_editor(stage,code):
+    command=[str(Path.home()/'.unity/bin/unity'),'command','script eval','--caller','plugin','--skill','unity-cli','--project-path',str(ROOT),'--format','json','--timeout','45','--code',code]
+    try:
+        result=subprocess.run(command,cwd=ROOT,capture_output=True,text=True,timeout=55)
+    except subprocess.TimeoutExpired as error:
+        output=error.stdout or '';output=output.decode(errors='replace') if isinstance(output,bytes) else output
+        (OUT/(stage+'.json')).write_text(output)
+        raise
+    (OUT/(stage+'.json')).write_text(result.stdout)
+    (OUT/(stage+'-stderr.txt')).write_text(result.stderr)
+    payload=json.loads(result.stdout) if result.stdout else {}
+    if result.returncode!=0 or payload.get('success') is not True:
+        raise RuntimeError(stage+' failed exit='+str(result.returncode)+' '+result.stdout+' '+result.stderr)
+    return payload
+
+def restore_known_inputs(saved,before,after,execute=run_editor):
+    # Audit и exact known-byte restoration обязательны даже при timeout/ошибке Editor.
+    changed=[{'path':p,'before':digest,'generated':after.get(p)} for p,digest in before.items() if after.get(p)!=digest]
+    unexpected=[r['path'] for r in changed if r['path'] not in saved]
+    diagnostics=[];detached=False;refreshed=False
+    try:
+        execute('pre-restore-empty-scene','if (UnityEditor.EditorApplication.isPlaying) throw new System.InvalidOperationException("Stop task test Play Mode first"); UnityEditor.SceneManagement.EditorSceneManager.NewScene(UnityEditor.SceneManagement.NewSceneSetup.EmptyScene, UnityEditor.SceneManagement.NewSceneMode.Single); return "Closed task suite scene before exact disk restoration";')
+        detached=True
+    except Exception as error:
+        diagnostics.append(dict(stage='detach',error=repr(error)))
+    finally:
+        for row in changed:
+            if row['path'] in saved:
+                try:(ROOT/row['path']).write_bytes(saved[row['path']])
+                except Exception as error:diagnostics.append(dict(stage='restore',path=row['path'],error=repr(error)))
+        # При failed detach не enqueue Refresh/Open за неизвестным modal; disk preservation имеет приоритет.
+        if detached:
+            try:
+                execute('restored-refresh','UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceSynchronousImport); UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity"); return "Refreshed exact restored inputs and reopened saved Battle";')
+                refreshed=True
+            except Exception as error:diagnostics.append(dict(stage='refresh',error=repr(error)))
+        final=inputs()
+    return dict(trackedInputs=len(before),changed=changed,unexpected=unexpected,newInputs=sorted(set(after)-set(before)),allOriginalInputsRestored=before==final,
+        editorSceneDetached=detached,editorInputsRefreshed=refreshed,recoveryNeeded=bool(diagnostics),commandDiagnostics=diagnostics,copiedWholeProject=False)
+
 def main():
     historical=json.loads((ROOT/'Docs/review/ART.3e/reports/final-gates-restored.json').read_text())
     paths={r['path'] for r in historical['changed']}|set(historical['carryInSha256'])|{'Assets/_Game/Prefabs/TestTower.prefab'}
@@ -31,22 +71,11 @@ def main():
                 if raw.is_file():(OUT/(name+'.json')).write_bytes(raw.read_bytes())
             if results[name]!=0:raise RuntimeError(name+' failed; raw result preserved')
     finally:
-        after=inputs()
-        # Только собственная post-suite scene: закрываем ДО disk restore, иначе native reload modal блокирует queue.
-        detach_code='if (UnityEditor.EditorApplication.isPlaying) throw new System.InvalidOperationException("Stop task test Play Mode first"); UnityEditor.SceneManagement.EditorSceneManager.NewScene(UnityEditor.SceneManagement.NewSceneSetup.EmptyScene, UnityEditor.SceneManagement.NewSceneMode.Single); return "Closed task suite scene before exact disk restoration";'
-        with (OUT/'pre-restore-empty-scene.json').open('w') as log:
-            subprocess.run([str(Path.home()/'.unity/bin/unity'),'command','script eval','--caller','plugin','--skill','unity-cli','--project-path',str(ROOT),'--format','json','--code',detach_code],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=90)
-        changed=[{'path':p,'before':digest,'generated':after.get(p)} for p,digest in before.items() if after.get(p)!=digest]
-        unexpected=[r['path'] for r in changed if r['path'] not in saved]
-        # Не маскируем неизвестную mutation произвольным overwrite.
-        for r in changed:
-            if r['path'] in saved:(ROOT/r['path']).write_bytes(saved[r['path']])
-        subprocess.run([str(Path.home()/'.unity/bin/unity'),'command','script eval','--caller','plugin','--skill','unity-cli','--project-path',str(ROOT),'--format','json','--code','UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceSynchronousImport); UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity"); return "Refreshed exact restored serialized inputs and reopened saved Battle";'],cwd=ROOT,stdout=(OUT/'restored-refresh.json').open('w'),check=True)
+        report=restore_known_inputs(saved,before,inputs())
         final=inputs()
-        report=dict(testedSource=head,results=results,trackedInputs=len(before),changed=changed,unexpected=unexpected,
-            newInputs=sorted(set(after)-set(before)),allOriginalInputsRestored=before==final,
-            carryInSha256={p:sha((ROOT/p).read_bytes()) for p in historical['carryInSha256']},copiedWholeProject=False)
+        report.update(testedSource=head,results=results,carryInSha256={p:final.get(p) for p in historical['carryInSha256']})
         (OUT/'gates-byte-audit.json').write_text(json.dumps(report,indent=2)+'\n')
-        if unexpected or before!=final:raise RuntimeError('unexpected source drift; inspect byte audit')
+        if report['unexpected'] or not report['allOriginalInputsRestored'] or report['recoveryNeeded']:
+            raise RuntimeError('source drift or Editor recovery needed; exact byte/command audit preserved')
     print(json.dumps(results))
 if __name__=='__main__':main()
