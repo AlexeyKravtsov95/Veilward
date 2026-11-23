@@ -73,4 +73,4 @@ Default receipt явно показывает NOT_REQUESTED для local preserv
 
 Только новые Static/controls/read-only verifier/preservation/re-review receipts размещаются здесь. Старые UnityEdit1233/Play88, compile, mesh reexport иmedia остаются прежними runs наtestedb10e8b8/media03af; новый Unity run, reexport, video или device-тест для verifier-only правки не выполняются.
 
-Независимое re-review — [review](review.md). До него P2 не считается закрытым. Self-merge/release не выполняются.
+Независимое re-review **PASS на359b762**, finding P2 устранён, новыхP1/P2нет: [review](review.md)/[receipt](re-review.json). Заключительный metadata-only head проверяется ещё раз; source/Unity/media прежние. Owner review/merge отдельно, self-merge/release не выполняются.

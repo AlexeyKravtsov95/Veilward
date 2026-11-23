@@ -52,4 +52,4 @@
 - [x] Default delivery отделить от explicit local preservation; exact4/source/protected/artifacts/actual66 иостальные acceptance checks оставить строгими.
 - [x] Добавить малые14fixturecontrols; source/gameplay/карта/lighting/Unity/media не меняются.
 - [x] Полный read-only entrypoint control missing3, strict-preservation controls иновые receipts; текущиеStatic38/controls/verifier, manifest/commands/docs.
-- [ ] Push втотжеPR88 и независимое re-review P2; безновогоUnityrun/reexport/video/merge/release.
+- [x] Push втотжеPR88 и независимое re-review P2; безновогоUnityrun/reexport/video/merge/release.
