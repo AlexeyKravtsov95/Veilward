@@ -14,6 +14,7 @@ def inputs():
 def main():
     historical=json.loads((ROOT/'Docs/review/ART.3e/reports/final-gates-restored.json').read_text())
     paths={r['path'] for r in historical['changed']}|set(historical['carryInSha256'])|{'Assets/_Game/Prefabs/TestTower.prefab'}
+    paths|={'Assets/_Game/Art/Materials/GrayboxCellAvailable.mat','Assets/_Game/Art/Materials/GrayboxCellBlocked.mat'}
     paths|={str(p.relative_to(ROOT)) for folder in ('Assets/_Game/Prefabs/ART3/STORM','Assets/_Game/Art/Models/ART3/STORM','Assets/_Game/Prefabs/ART4','Assets/_Game/Art/Models/ART4') for p in (ROOT/folder).glob('*') if p.suffix in ('.meta','.prefab')}
     saved={p:(ROOT/p).read_bytes() for p in sorted(paths)}
     before=inputs();head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
