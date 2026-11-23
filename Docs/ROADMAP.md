@@ -1,5 +1,8 @@
 # VEILWARD — Development Roadmap v0.1
 
+23.11.2026 — VFX.1a/#90 от merge89: production FLAME projectile/pool/pause/Continue, [spec/regressions](VFX1A_FLAME_PROJECTILE.md). Editor scope реализован: Static38/Edit1252/Play96, [production Update evidence](review/VFX.1a/README.md), Review до owner merge; parent47 остаётся0/4 до первого owner merge. Device Deferred QA53/54/55; остальные VFX/review/merge/release отдельно.
+
+
 23.11.2026 — ART.5 / #46 в работе после merge88/ART4: Shade+rift-warden и production animation/lifetime/occlusion. [Spec](ART5_ENEMIES.md); full Editor/source/Battle acceptance и independent review до owner merge. Device Deferred to prerelease QA #53/#54/#55.
 
 

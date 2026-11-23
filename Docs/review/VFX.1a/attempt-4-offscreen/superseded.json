@@ -1,0 +1,1 @@
+{"reason":"Functional earned flow PASS; immediate offscreen Camera.Render showed stale URP geometry. Replaced visual evidence with actual end-of-frame composited GameView capture. Runtime unchanged."}

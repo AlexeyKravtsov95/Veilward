@@ -1,0 +1,639 @@
+0|0.0039453749996027909|111930|fresh MainMenu / NewGame||||||0||
+1|0.18270120800025325|111931|MainMenu / fresh NewGame||||||0||
+2|0.24115441599951737|111932|MainMenu / fresh NewGame||||||0||
+3|0.27449499999966065|111948|MainMenu / fresh NewGame||||||0||
+4|0.30813354099973367|111973|MainMenu / fresh NewGame||||||0||
+5|0.34149341600004846|112000|MainMenu / fresh NewGame||||||0||
+6|0.37486929100032285|112025|MainMenu / fresh NewGame||||||0||
+7|0.40850454100018396|112053|MainMenu / fresh NewGame||||||0||
+8|0.44185283299975708|112081|MainMenu / fresh NewGame||||||0||
+9|0.47575716600022133|112107|MainMenu / fresh NewGame||||||0||
+10|0.50926470800004608|112133|MainMenu / fresh NewGame||||||0||
+11|0.54261195799972484|112160|MainMenu / fresh NewGame||||||0||
+12|0.57621474999996281|112186|MainMenu / fresh NewGame||||||0||
+13|0.60968837499967776|112213|MainMenu / fresh NewGame||||||0||
+14|0.64318704099969182|112240|MainMenu / fresh NewGame||||||0||
+15|0.67669183299949509|112270|MainMenu / fresh NewGame||||||0||
+16|0.71013633300026413|112296|MainMenu / fresh NewGame||||||0||
+17|0.74367483300011372|112324|MainMenu / fresh NewGame||||||0||
+18|0.77723195799990208|112352|MainMenu / fresh NewGame||||||0||
+19|0.81089562499983|112379|MainMenu / fresh NewGame||||||0||
+20|0.84446574999947188|112405|MainMenu / fresh NewGame||||||0||
+21|0.8779727080000157|112432|MainMenu / fresh NewGame||||||0||
+22|0.91191487499963841|112460|MainMenu / fresh NewGame||||||0||
+23|0.94546216599974287|112485|MainMenu / fresh NewGame||||||0||
+24|0.97929229100009252|112512|MainMenu / fresh NewGame||||||0||
+25|1.0127659999998286|112538|MainMenu / fresh NewGame||||||0||
+26|1.0464734999995926|112565|MainMenu / fresh NewGame||||||0||
+27|1.0801750829996308|112592|MainMenu / fresh NewGame||||||0||
+28|1.1136314160003167|112617|MainMenu / fresh NewGame||||||0||
+29|1.1473842909999803|112644|MainMenu / fresh NewGame||||||0||
+30|1.2082292909999524|112671|MainMenu / fresh NewGame||||||0||
+31|1.4275796249994528|112672|MainMenu / fresh NewGame|0|150|20|0|0|0||
+32|1.4621520829996371|112673|Build preview / public placement|0|150|20|0|0|0||
+33|1.4960177909997583|112679|Build preview / public placement|0|150|20|0|0|0||
+34|1.5298379999994722|112686|Build preview / public placement|0|150|20|0|0|0||
+35|1.5632622499997524|112694|Build preview / public placement|0|150|20|0|0|0||
+36|1.5968322500002614|112707|Build preview / public placement|0|150|20|0|0|0||
+37|1.6306594999996378|112719|Build preview / public placement|0|150|20|0|0|0||
+38|1.6646056660001705|112728|Build preview / public placement|0|150|20|0|0|0||
+39|1.698119124999721|112738|Build preview / public placement|0|150|20|0|0|0||
+40|1.7319225000001097|112748|Build preview / public placement|0|150|20|0|0|0||
+41|1.7654543749995355|112760|Build preview / public placement|0|150|20|0|0|0||
+42|1.7992113749996861|112773|Build preview / public placement|0|150|20|0|0|0||
+43|1.8325723749994722|112785|Build preview / public placement|0|150|20|0|0|0||
+44|1.8663590409996687|112800|Build preview / public placement|0|150|20|0|0|0||
+45|1.9000506659995153|112812|Build preview / public placement|0|150|20|0|0|0||
+46|1.9339437079997879|112826|Build preview / public placement|0|150|20|0|0|0||
+47|1.9677790830000959|112840|Build preview / public placement|0|150|20|0|0|0||
+48|2.00167670799965|112854|Build preview / public placement|0|150|20|0|0|0||
+49|2.0354218749998836|112868|Build preview / public placement|0|150|20|0|0|0||
+50|2.0690349999995306|112880|Build preview / public placement|0|150|20|0|0|0||
+51|2.1026230830002532|112888|Build preview / public placement|0|150|20|0|0|0||
+52|2.1359598749995712|112895|Build preview / public placement|0|150|20|0|0|0||
+53|2.1696681249995891|112899|FLAME L1 / production Update combat|0|80|20|0|1|0|1:flame:L1|Move
+54|2.204033666000214|112908|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+55|2.2378704579996338|112919|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+56|2.2712165829998412|112933|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+57|2.3047269580001739|112947|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+58|2.3385261659996104|112961|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+59|2.3726936249995561|112972|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+60|2.4061418749997756|112985|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+61|2.4398101249998945|112999|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+62|2.4736447079994832|113015|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+63|2.5074387080003362|113029|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+64|2.5409954999995534|113041|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+65|2.5744188329999815|113056|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+66|2.6083360829998128|113072|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+67|2.6419994999996561|113086|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+68|2.6757631250002305|113102|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+69|2.7093938329999219|113115|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+70|2.7430045000000973|113128|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+71|2.7763709159999053|113140|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+72|2.8099771659999533|113153|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+73|2.8435919579997062|113167|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+74|2.8770804999994652|113178|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+75|2.9108085409998239|113190|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+76|2.9445145409999895|113204|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+77|2.9785493330000463|113216|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+78|3.0119972080001389|113229|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+79|3.0458177499995145|113242|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+80|3.0794760409999071|113253|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+81|3.1128847909994874|113263|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+82|3.1464940830001069|113272|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+83|3.1802737910002179|113285|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+84|3.2140587499998219|113300|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+85|3.2475753329999861|113314|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+86|3.2823765000002822|113325|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+87|3.3158800000001065|113337|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+88|3.3492727499997272|113350|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+89|3.3830459159999009|113364|Pause / frozen FLAME flight|1|80|20|0|1|0|1:flame:L1|Hit
+90|3.4166384159998415|113375|Resume / production Update flight without catch-up|1|80|20|0|1|0|1:flame:L1|Hit
+91|3.4505848329999935|113385|Resume / production Update flight without catch-up|2|80|20|0|1|0|1:flame:L1|Hit
+92|3.4846167910000077|113396|Resume / production Update flight without catch-up|3|80|20|0|1|0|1:flame:L1|Hit
+93|3.5181428750001942|113406|Resume / production Update flight without catch-up|4|80|20|0|1|0|1:flame:L1|Hit
+94|3.5515971249997165|113414|Resume / production Update flight without catch-up|5|80|20|0|1|0|1:flame:L1|Hit
+95|3.5852517080002144|113422|Resume / production Update flight without catch-up|6|80|20|0|1|0|1:flame:L1|Hit
+96|3.6192037079999864|113428|Resume / production Update flight without catch-up|7|80|20|0|1|0|1:flame:L1|Hit
+97|3.6528086660000554|113436|Resume / production Update flight without catch-up|8|80|20|0|1|0|1:flame:L1|Hit
+98|3.6863277909997123|113442|Resume / production Update flight without catch-up|9|80|20|0|1|0|1:flame:L1|Hit
+99|3.7198534999997719|113454|Resume / production Update flight without catch-up|10|80|20|0|1|0|1:flame:L1|Hit
+100|3.7536593750000975|113467|Resume / production Update flight without catch-up|11|80|20|0|1|0|1:flame:L1|Hit
+101|3.7871986660002221|113480|Resume / production Update flight without catch-up|12|80|20|0|1|0|1:flame:L1|Hit
+102|3.8207640410000749|113493|Resume / production Update flight without catch-up|13|80|20|0|1|0|1:flame:L1|Move
+103|3.8574451659997067|113506|Resume / production Update flight without catch-up|14|80|20|0|1|0|1:flame:L1|Move
+104|3.8909757080000418|113518|Resume / production Update flight without catch-up|15|80|20|0|1|0|1:flame:L1|Move
+105|3.9244156249997104|113532|Resume / production Update flight without catch-up|16|80|20|0|1|0|1:flame:L1|Hit
+106|3.9579171659997883|113546|Resume / production Update flight without catch-up|17|80|20|0|1|0|1:flame:L1|Hit
+107|3.9912730409996584|113560|Resume / production Update flight without catch-up|18|80|20|0|1|0|1:flame:L1|Hit
+108|4.0251153749995865|113575|Resume / production Update flight without catch-up|19|80|20|0|1|0|1:flame:L1|Hit
+109|4.0587138749997393|113589|Resume / production Update flight without catch-up|20|80|20|0|1|0|1:flame:L1|Hit
+110|4.0921024999997826|113603|Resume / production Update flight without catch-up|21|80|20|0|1|0|1:flame:L1|Hit
+111|4.125761290999435|113618|Resume / production Update flight without catch-up|22|80|20|0|1|0|1:flame:L1|Hit
+112|4.1594324159996177|113632|Resume / production Update flight without catch-up|23|80|20|0|1|0|1:flame:L1|Hit
+113|4.1930575409996891|113646|Resume / production Update flight without catch-up|24|80|20|0|1|0|1:flame:L1|Hit
+114|4.2266005829997084|113660|Resume / production Update flight without catch-up|25|80|20|0|1|0|1:flame:L1|Hit
+115|4.260591915999612|113675|Resume / production Update flight without catch-up|26|80|20|0|1|0|1:flame:L1|Hit
+116|4.2940120829998705|113688|Resume / production Update flight without catch-up|27|80|20|0|1|0|1:flame:L1|Hit
+117|4.3282909580002524|113701|Resume / production Update flight without catch-up|28|80|20|0|1|0|1:flame:L1|Move
+118|4.3622842909999235|113711|Resume / production Update flight without catch-up|29|80|20|0|1|0|1:flame:L1|Move
+119|4.3960315829999672|113718|Resume / production Update flight without catch-up|30|80|20|0|2|0|1:flame:L1|Move;Move
+120|4.429878791000192|113727|Resume / production Update flight without catch-up|31|80|20|0|2|0|1:flame:L1|Hit;Move
+121|4.4636121249995995|113742|Resume / production Update flight without catch-up|32|80|20|0|2|0|1:flame:L1|Hit;Move
+122|4.49733387499964|113754|Resume / production Update flight without catch-up|33|80|20|0|2|0|1:flame:L1|Hit;Move
+123|4.5312761249997493|113766|Resume / production Update flight without catch-up|34|80|20|0|2|0|1:flame:L1|Hit;Move
+124|4.5646636250003212|113777|Resume / production Update flight without catch-up|35|80|20|0|2|0|1:flame:L1|Hit;Move
+125|4.5979977910001253|113788|Resume / production Update flight without catch-up|36|80|20|0|2|0|1:flame:L1|Hit;Move
+126|4.6317369159996815|113800|Resume / production Update flight without catch-up|37|80|20|0|2|0|1:flame:L1|Hit;Move
+127|4.665291540999533|113813|Resume / production Update flight without catch-up|38|80|20|0|2|0|1:flame:L1|Hit;Move
+128|4.6991095829998812|113827|Resume / production Update flight without catch-up|39|80|20|0|2|0|1:flame:L1|Hit;Move
+129|4.732484915999521|113839|Resume / production Update flight without catch-up|40|80|20|0|2|0|1:flame:L1|Hit;Move
+130|4.7662809579996974|113853|Resume / production Update flight without catch-up|41|80|20|0|2|0|1:flame:L1|Hit;Move
+131|4.7999432910000905|113867|Resume / production Update flight without catch-up|42|80|20|0|2|0|1:flame:L1|Hit;Move
+132|4.8336794159995407|113881|Resume / production Update flight without catch-up|43|80|20|0|2|0|1:flame:L1|Move;Move
+133|4.8671891249996406|113895|Resume / production Update flight without catch-up|44|80|20|0|2|0|1:flame:L1|Move;Move
+134|4.9008926659998906|113910|Resume / production Update flight without catch-up|45|80|20|0|2|0|1:flame:L1|Move;Move
+135|4.9346382909998283|113923|FLAME L1 / ability + real Update damage and death|46|90|20|2|0|0|1:flame:L1|Death;Death
+136|4.96831737499997|113937|FLAME L1 / ability + real Update damage and death|47|90|20|2|0|0|1:flame:L1|Death;Death
+137|5.0018954999995913|113950|FLAME L1 / ability + real Update damage and death|48|90|20|2|0|0|1:flame:L1|Death;Death
+138|5.0354918329994689|113963|FLAME L1 / ability + real Update damage and death|49|90|20|2|0|0|1:flame:L1|Death;Death
+139|5.0688618750000387|113972|FLAME L1 / ability + real Update damage and death|50|90|20|2|0|0|1:flame:L1|Death;Death
+140|5.1029360829998041|113981|FLAME L1 / ability + real Update damage and death|51|90|20|2|0|0|1:flame:L1|Death;Death
+141|5.13691204099996|113990|FLAME L1 / ability + real Update damage and death|52|90|20|2|0|0|1:flame:L1|Death;Death
+142|5.1706271659995764|113999|FLAME L1 / ability + real Update damage and death|53|90|20|2|0|0|1:flame:L1|Death;Death
+143|5.204250624999986|114010|FLAME L1 / ability + real Update damage and death|54|90|20|2|0|0|1:flame:L1|Death;Death
+144|5.237632415999542|114024|FLAME L1 / ability + real Update damage and death|55|90|20|2|0|0|1:flame:L1|Death;Death
+145|5.2715290830001322|114038|FLAME L1 / ability + real Update damage and death|56|90|20|2|0|0|1:flame:L1|Death;Death
+146|5.305434332999539|114051|FLAME L1 / ability + real Update damage and death|57|90|20|2|0|0|1:flame:L1|Death;Death
+147|5.3390608330000759|114062|FLAME L1 / ability + real Update damage and death|58|90|20|2|0|0|1:flame:L1|Death;Death
+148|5.3726739160001671|114073|FLAME L1 / ability + real Update damage and death|59|90|20|2|0|0|1:flame:L1|Death;Death
+149|5.4060174159994858|114087|FLAME L1 / ability + real Update damage and death|60|90|20|2|1|0|1:flame:L1|Death;Death;Move
+150|5.43991187499978|114102|FLAME L1 / ability + real Update damage and death|61|90|20|2|1|0|1:flame:L1|Death;Death;Hit
+151|5.4735177080001449|114114|FLAME L1 / ability + real Update damage and death|62|90|20|2|1|0|1:flame:L1|Death;Death;Hit
+152|5.5073925409997173|114127|FLAME L1 / ability + real Update damage and death|63|90|20|2|1|0|1:flame:L1|Death;Death;Hit
+153|5.5408610829999816|114141|FLAME L1 / ability + real Update damage and death|64|90|20|2|1|0|1:flame:L1|Hit
+154|5.5744295409995175|114155|FLAME L1 / ability + real Update damage and death|65|90|20|2|1|0|1:flame:L1|Hit
+155|5.608396165999693|114169|FLAME L1 / ability + real Update damage and death|66|90|20|2|1|0|1:flame:L1|Hit
+156|5.6421004160001758|114184|FLAME L1 / ability + real Update damage and death|67|90|20|2|1|0|1:flame:L1|Hit
+157|5.6759660830002758|114197|FLAME L1 / ability + real Update damage and death|68|90|20|2|1|0|1:flame:L1|Hit
+158|5.7095689999996466|114210|FLAME L1 / ability + real Update damage and death|69|90|20|2|1|0|1:flame:L1|Hit
+159|5.7435047500002838|114224|FLAME L1 / ability + real Update damage and death|71|90|20|2|1|0|1:flame:L1|Hit
+160|5.77702995799973|114237|FLAME L1 / ability + real Update damage and death|72|90|20|2|1|0|1:flame:L1|Hit
+161|5.8106732079995709|114251|FLAME L1 / ability + real Update damage and death|73|90|20|2|1|0|1:flame:L1|Hit
+162|5.844314666000173|114265|FLAME L1 / ability + real Update damage and death|74|90|20|2|1|0|1:flame:L1|Move
+163|5.8782683330000509|114276|FLAME L1 / ability + real Update damage and death|75|90|20|2|1|0|1:flame:L1|Move
+164|5.9120828329996584|114285|FLAME L1 / ability + real Update damage and death|76|90|20|2|1|0|1:flame:L1|Hit
+165|5.9457460409994383|114294|FLAME L1 / ability + real Update damage and death|77|90|20|2|1|0|1:flame:L1|Hit
+166|5.9794634159998168|114304|FLAME L1 / ability + real Update damage and death|78|90|20|2|1|0|1:flame:L1|Hit
+167|6.0128698749995237|114316|FLAME L1 / ability + real Update damage and death|79|90|20|2|1|0|1:flame:L1|Hit
+168|6.046479540999826|114329|FLAME L1 / ability + real Update damage and death|80|90|20|2|1|0|1:flame:L1|Hit
+169|6.0799578750002183|114343|FLAME L1 / ability + real Update damage and death|81|90|20|2|1|0|1:flame:L1|Hit
+170|6.1140012910000223|114357|FLAME L1 / ability + real Update damage and death|82|90|20|2|1|0|1:flame:L1|Hit
+171|6.1481686249999257|114370|FLAME L1 / ability + real Update damage and death|83|90|20|2|1|0|1:flame:L1|Hit
+172|6.1820432080003229|114383|FLAME L1 / ability + real Update damage and death|84|90|20|2|1|0|1:flame:L1|Hit
+173|6.2153789579997465|114397|FLAME L1 / ability + real Update damage and death|85|90|20|2|1|0|1:flame:L1|Hit
+174|6.2497842080001647|114411|FLAME L1 / ability + real Update damage and death|86|90|20|2|1|0|1:flame:L1|Hit
+175|6.2832422499996028|114424|FLAME L1 / ability + real Update damage and death|87|90|20|2|1|0|1:flame:L1|Hit
+176|6.3166500409997752|114438|FLAME L1 / ability + real Update damage and death|88|90|20|2|1|0|1:flame:L1|Move
+177|6.3505326659997081|114452|FLAME L1 / ability + real Update damage and death|89|90|20|2|1|0|1:flame:L1|Move
+178|6.3844452499997715|114465|FLAME L1 / ability + real Update damage and death|90|90|20|2|2|0|1:flame:L1|Move;Move
+179|6.4184063749999041|114479|FLAME L1 / ability + real Update damage and death|91|90|20|2|2|0|1:flame:L1|Hit;Move
+180|6.452469290999943|114492|FLAME L1 / ability + real Update damage and death|92|90|20|2|2|0|1:flame:L1|Hit;Move
+181|6.4862281659998189|114504|FLAME L1 / ability + real Update damage and death|93|90|20|2|2|0|1:flame:L1|Hit;Move
+182|6.5200644999995347|114512|FLAME L1 / ability + real Update damage and death|94|90|20|2|2|0|1:flame:L1|Hit;Move
+183|6.55363962499996|114520|FLAME L1 / ability + real Update damage and death|95|90|20|2|2|0|1:flame:L1|Hit;Move
+184|6.5870418329996028|114528|FLAME L1 / ability + real Update damage and death|96|90|20|2|2|0|1:flame:L1|Hit;Move
+185|6.6211833329998626|114538|FLAME L1 / ability + real Update damage and death|97|90|20|2|2|0|1:flame:L1|Hit;Move
+186|6.6548713749998569|114547|FLAME L1 / ability + real Update damage and death|98|90|20|2|2|0|1:flame:L1|Hit;Move
+187|6.6882509159995607|114559|FLAME L1 / ability + real Update damage and death|99|90|20|2|2|0|1:flame:L1|Hit;Move
+188|6.7219560000003185|114571|FLAME L1 / ability + real Update damage and death|100|90|20|2|2|0|1:flame:L1|Hit;Move
+189|6.7559882909999942|114583|FLAME L1 / ability + real Update damage and death|101|90|20|2|2|0|1:flame:L1|Hit;Move
+190|6.7895669580002505|114595|FLAME L1 / ability + real Update damage and death|102|90|20|2|2|0|1:flame:L1|Hit;Move
+191|6.8230144580002161|114607|FLAME L1 / ability + real Update damage and death|103|90|20|2|2|0|1:flame:L1|Move;Move
+192|6.8566943750001883|114619|FLAME L1 / ability + real Update damage and death|104|90|20|2|2|0|1:flame:L1|Move;Move
+193|6.8906392079998113|114633|FLAME L1 / ability + real Update damage and death|105|90|20|2|2|0|1:flame:L1|Move;Move
+194|6.9239889999998923|114644|FLAME L1 / ability + real Update damage and death|106|90|20|2|2|0|1:flame:L1|Hit;Move
+195|6.9575917499996649|114656|FLAME L1 / ability + real Update damage and death|107|90|20|2|2|0|1:flame:L1|Hit;Move
+196|6.9910925409994888|114668|FLAME L1 / ability + real Update damage and death|108|90|20|2|2|0|1:flame:L1|Hit;Move
+197|7.0249310829995011|114681|FLAME L1 / ability + real Update damage and death|109|90|20|2|2|0|1:flame:L1|Hit;Move
+198|7.0583872500001235|114693|FLAME L1 / ability + real Update damage and death|110|90|20|2|2|0|1:flame:L1|Hit;Move
+199|7.0918368330003432|114705|FLAME L1 / ability + real Update damage and death|111|90|20|2|2|0|1:flame:L1|Hit;Move
+200|7.1254313749996072|114717|FLAME L1 / ability + real Update damage and death|112|90|20|2|2|0|1:flame:L1|Hit;Move
+201|7.1594247909997648|114729|FLAME L1 / ability + real Update damage and death|113|90|20|2|2|0|1:flame:L1|Hit;Move
+202|7.1930806250002206|114740|FLAME L1 / ability + real Update damage and death|114|90|20|2|2|0|1:flame:L1|Hit;Move
+203|7.2266471249995448|114752|FLAME L1 / ability + real Update damage and death|115|90|20|2|2|0|1:flame:L1|Hit;Move
+204|7.2604539579997436|114763|FLAME L1 / ability + real Update damage and death|116|90|20|2|2|0|1:flame:L1|Hit;Move
+205|7.2938307080003142|114772|FLAME L1 / ability + real Update damage and death|117|90|20|2|2|0|1:flame:L1|Hit;Move
+206|7.3283152080002765|114780|FLAME L1 / ability + real Update damage and death|118|90|20|2|2|0|1:flame:L1|Move;Move
+207|7.3619055829994977|114787|FLAME L1 / ability + real Update damage and death|119|90|20|2|2|0|1:flame:L1|Move;Move
+208|7.395641500000238|114800|FLAME L1 / ability + real Update damage and death|120|90|20|2|3|0|1:flame:L1|Move;Move;Move
+209|7.4292698749995907|114811|FLAME L1 / ability + real Update damage and death|121|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+210|7.4629759580002428|114821|FLAME L1 / ability + real Update damage and death|122|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+211|7.4992801660000623|114831|FLAME L1 / ability + real Update damage and death|123|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+212|7.5327540409998619|114841|FLAME L1 / ability + real Update damage and death|124|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+213|7.5664004999998724|114853|FLAME L1 / ability + real Update damage and death|125|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+214|7.6003367909997905|114867|FLAME L1 / ability + real Update damage and death|126|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+215|7.63402487500025|114880|FLAME L1 / ability + real Update damage and death|127|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+216|7.6679588750002949|114894|FLAME L1 / ability + real Update damage and death|128|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+217|7.7012982910000574|114906|FLAME L1 / ability + real Update damage and death|129|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+218|7.7348846659997434|114918|FLAME L1 / ability + real Update damage and death|130|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+219|7.7684544160001678|114925|FLAME L1 / ability + real Update damage and death|131|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+220|7.8019973749997007|114938|FLAME L1 / ability + real Update damage and death|132|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+221|7.8357068750001417|114951|FLAME L1 / ability + real Update damage and death|133|90|20|2|3|0|1:flame:L1|Move;Move;Move
+222|7.8692502909998439|114965|FLAME L1 / ability + real Update damage and death|134|90|20|2|3|0|1:flame:L1|Move;Move;Move
+223|7.9026492080001844|114977|FLAME L1 / ability + real Update damage and death|135|90|20|2|3|0|1:flame:L1|Move;Move;Move
+224|7.9367639579995739|114987|FLAME L1 / ability + real Update damage and death|136|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+225|7.9709210410001106|114996|FLAME L1 / ability + real Update damage and death|137|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+226|8.0043299999997544|115006|FLAME L1 / ability + real Update damage and death|138|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+227|8.037671582999792|115019|FLAME L1 / ability + real Update damage and death|139|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+228|8.0714548329997342|115032|FLAME L1 / ability + real Update damage and death|140|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+229|8.1052623329997|115045|FLAME L1 / ability + real Update damage and death|141|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+230|8.1388627500000439|115055|FLAME L1 / ability + real Update damage and death|142|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+231|8.17231454099965|115064|FLAME L1 / ability + real Update damage and death|143|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+232|8.2057495409999319|115077|FLAME L1 / ability + real Update damage and death|144|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+233|8.2393901249997725|115090|FLAME L1 / ability + real Update damage and death|145|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+234|8.2727687079996031|115102|FLAME L1 / ability + real Update damage and death|146|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+235|8.306814999999915|115114|FLAME L1 / ability + real Update damage and death|147|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+236|8.34042487500028|115128|FLAME L1 / ability + real Update damage and death|148|90|20|2|3|0|1:flame:L1|Move;Move;Move
+237|8.3740527079999083|115142|FLAME L1 / ability + real Update damage and death|149|90|20|2|3|0|1:flame:L1|Move;Move;Move
+238|8.4076787909998529|115157|FLAME L1 / ability + real Update damage and death|150|90|20|2|3|0|1:flame:L1|Move;Move;Move
+239|8.44105770799979|115171|FLAME L1 / ability + real Update damage and death|151|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+240|8.4744211659999564|115183|FLAME L1 / ability + real Update damage and death|152|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+241|8.5080479580001338|115197|FLAME L1 / ability + real Update damage and death|153|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+242|8.541822250000223|115210|FLAME L1 / ability + real Update damage and death|154|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+243|8.5757640000001629|115224|FLAME L1 / ability + real Update damage and death|155|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+244|8.6094279999997525|115237|FLAME L1 / ability + real Update damage and death|156|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+245|8.6432930829996621|115251|FLAME L1 / ability + real Update damage and death|158|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+246|8.6768299579998711|115265|FLAME L1 / ability + real Update damage and death|159|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+247|8.710670833000222|115278|FLAME L1 / ability + real Update damage and death|160|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+248|8.74455725000007|115292|FLAME L1 / ability + real Update damage and death|161|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+249|8.778095707999455|115305|FLAME L1 / ability + real Update damage and death|162|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+250|8.8122913750003136|115315|FLAME L1 / ability + real Update damage and death|163|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+251|8.8464419160000034|115325|FLAME L1 / ability + real Update damage and death|164|90|20|2|3|0|1:flame:L1|Move;Move;Move
+252|8.8798977910000758|115335|FLAME L1 / ability + real Update damage and death|165|90|20|2|3|0|1:flame:L1|Move;Move;Move
+253|8.9136885830002939|115348|FLAME L1 / ability + real Update damage and death|166|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+254|8.9472433749997435|115361|FLAME L1 / ability + real Update damage and death|167|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+255|8.9808412499996848|115374|FLAME L1 / ability + real Update damage and death|168|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+256|9.01461958300024|115387|FLAME L1 / ability + real Update damage and death|169|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+257|9.0481669579994559|115400|FLAME L1 / ability + real Update damage and death|170|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+258|9.0815059159995144|115413|FLAME L1 / ability + real Update damage and death|171|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+259|9.11540466599945|115427|FLAME L1 / ability + real Update damage and death|172|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+260|9.1494146659997568|115441|FLAME L1 / ability + real Update damage and death|173|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+261|9.1830771249997269|115455|FLAME L1 / ability + real Update damage and death|174|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+262|9.2165932500001873|115469|FLAME L1 / ability + real Update damage and death|175|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+263|9.2505123330001879|115482|FLAME L1 / ability + real Update damage and death|176|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+264|9.2843576249997568|115496|FLAME L1 / ability + real Update damage and death|177|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+265|9.3177859999996144|115509|FLAME L1 / ability + real Update damage and death|178|90|20|2|3|0|1:flame:L1|Move;Move;Move
+266|9.3516992079994452|115522|FLAME L1 / ability + real Update damage and death|179|90|20|2|3|0|1:flame:L1|Move;Move;Move
+267|9.3852987909995136|115534|FLAME L1 / ability + real Update damage and death|180|90|20|2|3|0|1:flame:L1|Move;Move;Move
+268|9.4192672500003027|115544|FLAME L1 / ability + real Update damage and death|181|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+269|9.45349137500034|115553|FLAME L1 / ability + real Update damage and death|182|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+270|9.4872742910001762|115560|FLAME L1 / ability + real Update damage and death|183|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+271|9.52094895800019|115573|FLAME L1 / ability + real Update damage and death|184|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+272|9.5546464159997413|115585|FLAME L1 / ability + real Update damage and death|185|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+273|9.5886609580002187|115597|FLAME L1 / ability + real Update damage and death|186|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+274|9.6223036660003345|115609|FLAME L1 / ability + real Update damage and death|187|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+275|9.6561839159994634|115620|FLAME L1 / ability + real Update damage and death|188|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+276|9.6899157910002032|115632|FLAME L1 / ability + real Update damage and death|189|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+277|9.7238443750002261|115644|FLAME L1 / ability + real Update damage and death|190|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+278|9.7572871659995144|115657|FLAME L1 / ability + real Update damage and death|191|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+279|9.79117099999985|115671|FLAME L1 / ability + real Update damage and death|192|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+280|9.8251430000000255|115684|FLAME L1 / ability + real Update damage and death|193|90|20|2|3|0|1:flame:L1|Move;Move;Move
+281|9.8586922499998764|115698|FLAME L1 / ability + real Update damage and death|194|90|20|2|3|0|1:flame:L1|Move;Move;Move
+282|9.8920598750000863|115710|FLAME L1 / ability + real Update damage and death|195|90|20|2|3|0|1:flame:L1|Move;Move;Move
+283|9.9260027079999418|115724|FLAME L1 / ability + real Update damage and death|196|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+284|9.95992995799952|115739|FLAME L1 / ability + real Update damage and death|197|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+285|9.9933584999998857|115752|FLAME L1 / ability + real Update damage and death|198|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+286|10.027594500000305|115765|FLAME L1 / ability + real Update damage and death|199|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+287|10.061684082999818|115776|FLAME L1 / ability + real Update damage and death|200|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+288|10.095758790999753|115783|FLAME L1 / ability + real Update damage and death|201|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+289|10.12952312499965|115793|FLAME L1 / ability + real Update damage and death|202|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+290|10.163419874999818|115807|FLAME L1 / ability + real Update damage and death|203|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+291|10.197197415999653|115821|FLAME L1 / ability + real Update damage and death|204|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+292|10.231038291000004|115832|FLAME L1 / ability + real Update damage and death|205|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+293|10.265287749999516|115844|FLAME L1 / ability + real Update damage and death|206|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+294|10.298847791000298|115857|FLAME L1 / ability + real Update damage and death|207|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+295|10.332620041000155|115871|FLAME L1 / ability + real Update damage and death|208|90|20|2|3|0|1:flame:L1|Move;Move;Move
+296|10.366537916000198|115886|FLAME L1 / ability + real Update damage and death|209|90|20|2|3|0|1:flame:L1|Move;Move;Move
+297|10.400104041000304|115899|FLAME L1 / ability + real Update damage and death|210|90|20|2|3|0|1:flame:L1|Move;Move;Move
+298|10.43396916599977|115914|FLAME L1 / ability + real Update damage and death|211|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+299|10.467788332999589|115929|FLAME L1 / ability + real Update damage and death|212|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+300|10.501551958000164|115944|FLAME L1 / ability + real Update damage and death|213|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+301|10.535498207999808|115957|FLAME L1 / ability + real Update damage and death|214|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+302|10.569176625000182|115970|FLAME L1 / ability + real Update damage and death|215|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+303|10.603875666000022|115980|FLAME L1 / ability + real Update damage and death|216|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+304|10.637993583000025|115989|FLAME L1 / ability + real Update damage and death|217|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+305|10.67172062499958|116000|FLAME L1 / ability + real Update damage and death|218|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+306|10.705191750000267|116014|FLAME L1 / ability + real Update damage and death|219|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+307|10.739184291000129|116029|FLAME L1 / ability + real Update damage and death|220|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+308|10.773221874999763|116040|FLAME L1 / ability + real Update damage and death|221|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+309|10.80721154099956|116050|FLAME L1 / ability + real Update damage and death|222|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+310|10.840882249999595|116064|FLAME L1 / ability + real Update damage and death|223|90|20|2|3|0|1:flame:L1|Move;Move;Move
+311|10.874601124999572|116078|FLAME L1 / ability + real Update damage and death|224|90|20|2|3|0|1:flame:L1|Move;Move;Move
+312|10.908117957999821|116091|FLAME L1 / ability + real Update damage and death|225|90|20|2|3|0|1:flame:L1|Move;Move;Move
+313|10.941889749999973|116105|FLAME L1 / ability + real Update damage and death|226|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+314|10.975632040999699|116118|FLAME L1 / ability + real Update damage and death|227|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+315|11.009270374999687|116130|FLAME L1 / ability + real Update damage and death|228|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+316|11.043286790999446|116143|FLAME L1 / ability + real Update damage and death|230|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+317|11.077288833000239|116155|FLAME L1 / ability + real Update damage and death|231|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+318|11.111293291000038|116168|FLAME L1 / ability + real Update damage and death|232|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+319|11.144681791000039|116175|FLAME L1 / ability + real Update damage and death|233|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+320|11.178874207999797|116187|FLAME L1 / ability + real Update damage and death|234|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+321|11.212259916000221|116193|FLAME L1 / ability + real Update damage and death|235|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+322|11.245910290999745|116206|FLAME L1 / ability + real Update damage and death|236|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+323|11.27967208300015|116218|FLAME L1 / ability + real Update damage and death|237|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+324|11.313312915999632|116231|FLAME L1 / ability + real Update damage and death|238|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+325|11.346834207999564|116242|FLAME L1 / ability + real Update damage and death|239|90|20|2|3|0|1:flame:L1|Move;Move;Move
+326|11.38026733300012|116253|FLAME L1 / ability + real Update damage and death|240|90|20|2|3|0|1:flame:L1|Move;Move;Move
+327|11.4137545829999|116263|FLAME L1 / ability + real Update damage and death|241|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+328|11.44714358300007|116275|FLAME L1 / ability + real Update damage and death|242|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+329|11.481049750000238|116287|FLAME L1 / ability + real Update damage and death|243|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+330|11.51509729099962|116298|FLAME L1 / ability + real Update damage and death|244|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+331|11.549168040999575|116309|FLAME L1 / ability + real Update damage and death|245|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+332|11.583109207999769|116320|FLAME L1 / ability + real Update damage and death|246|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+333|11.616846040999917|116330|FLAME L1 / ability + real Update damage and death|247|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+334|11.650911124999766|116342|FLAME L1 / ability + real Update damage and death|248|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+335|11.684654707999471|116355|FLAME L1 / ability + real Update damage and death|249|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+336|11.718113124999945|116367|FLAME L1 / ability + real Update damage and death|250|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+337|11.751596541000254|116376|FLAME L1 / ability + real Update damage and death|251|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+338|11.785249915999884|116387|FLAME L1 / ability + real Update damage and death|252|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+339|11.818965458000093|116396|FLAME L1 / ability + real Update damage and death|253|90|20|2|3|0|1:flame:L1|Move;Move;Move
+340|11.852516165999987|116405|FLAME L1 / ability + real Update damage and death|254|90|20|2|3|0|1:flame:L1|Move;Move;Move
+341|11.886444499999925|116411|FLAME L1 / ability + real Update damage and death|255|90|20|2|3|0|1:flame:L1|Move;Move;Move
+342|11.92031866599973|116421|FLAME L1 / ability + real Update damage and death|256|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+343|11.954147624999678|116429|FLAME L1 / ability + real Update damage and death|257|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+344|11.988186790999862|116438|FLAME L1 / ability + real Update damage and death|258|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+345|12.021709665999879|116447|FLAME L1 / ability + real Update damage and death|259|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+346|12.056496790999518|116459|FLAME L1 / ability + real Update damage and death|260|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+347|12.089941457999885|116472|FLAME L1 / ability + real Update damage and death|261|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+348|12.12351070800014|116485|FLAME L1 / ability + real Update damage and death|262|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+349|12.157362082999498|116498|FLAME L1 / ability + real Update damage and death|263|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+350|12.191104749999795|116512|FLAME L1 / ability + real Update damage and death|264|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+351|12.224592290999681|116526|FLAME L1 / ability + real Update damage and death|265|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+352|12.25800637500015|116540|FLAME L1 / ability + real Update damage and death|266|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+353|12.291651540999737|116553|FLAME L1 / ability + real Update damage and death|267|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+354|12.325037665999844|116566|FLAME L1 / ability + real Update damage and death|268|90|20|2|3|0|1:flame:L1|Move;Move;Move
+355|12.358398749999651|116579|FLAME L1 / ability + real Update damage and death|269|90|20|2|3|0|1:flame:L1|Move;Move;Move
+356|12.391756082999564|116593|FLAME L1 / ability + real Update damage and death|270|90|20|2|3|0|1:flame:L1|Move;Move;Move
+357|12.425685749999502|116608|FLAME L1 / ability + real Update damage and death|271|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+358|12.459652458000164|116623|FLAME L1 / ability + real Update damage and death|272|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+359|12.493300375000217|116638|FLAME L1 / ability + real Update damage and death|273|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+360|12.526962875000208|116652|FLAME L1 / ability + real Update damage and death|274|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+361|12.560617541000283|116665|FLAME L1 / ability + real Update damage and death|275|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+362|12.594822125000064|116675|FLAME L1 / ability + real Update damage and death|276|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+363|12.628536999999596|116682|FLAME L1 / ability + real Update damage and death|277|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+364|12.662717416000305|116689|FLAME L1 / ability + real Update damage and death|278|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+365|12.696284290999756|116700|FLAME L1 / ability + real Update damage and death|279|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+366|12.729937832999894|116714|FLAME L1 / ability + real Update damage and death|280|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+367|12.763339582999834|116728|FLAME L1 / ability + real Update damage and death|281|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+368|12.796714500000235|116739|FLAME L1 / ability + real Update damage and death|282|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+369|12.831032791000325|116748|FLAME L1 / ability + real Update damage and death|283|90|20|2|3|0|1:flame:L1|Move;Move;Move
+370|12.864723458000299|116760|FLAME L1 / ability + real Update damage and death|284|90|20|2|3|0|1:flame:L1|Move;Move;Move
+371|12.898551166000289|116775|FLAME L1 / ability + real Update damage and death|285|90|20|2|3|0|1:flame:L1|Move;Move;Move
+372|12.93233916600002|116789|FLAME L1 / ability + real Update damage and death|286|90|20|2|3|0|1:flame:L1|Move;Move;Move
+373|12.966169082999841|116804|FLAME L1 / ability + real Update damage and death|287|90|20|2|3|0|1:flame:L1|Move;Move;Move
+374|12.999956624999868|116817|FLAME L1 / ability + real Update damage and death|288|90|20|2|3|0|1:flame:L1|Move;Move;Move
+375|13.033953166000174|116832|FLAME L1 / ability + real Update damage and death|289|90|20|2|3|0|1:flame:L1|Move;Move;Move
+376|13.067848124999728|116847|FLAME L1 / ability + real Update damage and death|290|90|20|2|3|0|1:flame:L1|Move;Move;Move
+377|13.101657207999779|116862|FLAME L1 / ability + real Update damage and death|291|90|20|2|3|0|1:flame:L1|Move;Move;Move
+378|13.135005790999458|116876|FLAME L1 / ability + real Update damage and death|292|90|20|2|3|0|1:flame:L1|Move;Move;Move
+379|13.16847879099987|116890|FLAME L1 / ability + real Update damage and death|293|90|20|2|3|0|1:flame:L1|Move;Move;Move
+380|13.202571499999976|116902|FLAME L1 / ability + real Update damage and death|294|90|20|2|3|0|1:flame:L1|Move;Move;Move
+381|13.236661582999659|116911|FLAME L1 / ability + real Update damage and death|295|90|20|2|3|0|1:flame:L1|Move;Move;Move
+382|13.270397749999574|116920|FLAME L1 / ability + real Update damage and death|296|90|20|2|3|0|1:flame:L1|Move;Move;Move
+383|13.304180250000172|116929|FLAME L1 / ability + real Update damage and death|297|90|20|2|3|0|1:flame:L1|Move;Move;Move
+384|13.338624125000024|116940|FLAME L1 / ability + real Update damage and death|298|90|20|2|3|0|1:flame:L1|Move;Move;Move
+385|13.372266458000013|116951|FLAME L1 / ability + real Update damage and death|299|90|20|2|3|0|1:flame:L1|Move;Move;Move
+386|13.406182875000013|116965|FLAME L1 / ability + real Update damage and death|300|90|20|2|3|0|1:flame:L1|Move;Move;Move
+387|13.439981958000317|116979|FLAME L1 / ability + real Update damage and death|301|90|20|2|3|0|1:flame:L1|Move;Move;Move
+388|13.473549249999451|116994|FLAME L1 / ability + real Update damage and death|302|90|20|2|3|0|1:flame:L1|Move;Move;Move
+389|13.507247499999721|117007|FLAME L1 / ability + real Update damage and death|303|90|20|2|3|0|1:flame:L1|Move;Move;Move
+390|13.541082832999564|117021|FLAME L1 / ability + real Update damage and death|304|90|20|2|3|0|1:flame:L1|Move;Move;Move
+391|13.574549750000187|117035|FLAME L1 / ability + real Update damage and death|305|90|20|2|3|0|1:flame:L1|Move;Move;Move
+392|13.607976207999855|117049|FLAME L1 / ability + real Update damage and death|306|90|20|2|3|0|1:flame:L1|Move;Move;Move
+393|13.641338833000191|117063|FLAME L1 / ability + real Update damage and death|307|90|20|2|3|0|1:flame:L1|Move;Move;Move
+394|13.674851290999868|117077|FLAME L1 / ability + real Update damage and death|308|90|20|2|3|0|1:flame:L1|Move;Move;Move
+395|13.708488540999497|117091|FLAME L1 / ability + real Update damage and death|309|90|20|2|3|0|1:flame:L1|Move;Move;Move
+396|13.741920624999693|117104|FLAME L1 / ability + real Update damage and death|310|90|20|2|3|0|1:flame:L1|Move;Move;Move
+397|13.775751375000254|117118|FLAME L1 / ability + real Update damage and death|311|90|20|2|3|0|1:flame:L1|Move;Move;Move
+398|13.812073750000309|117131|FLAME L1 / ability + real Update damage and death|312|90|20|2|3|0|1:flame:L1|Move;Move;Move
+399|13.849201832999825|117134|FLAME L1 / ability + real Update damage and death|314|90|20|2|3|0|1:flame:L1|Move;Move;Move
+400|13.886583540999709|117135|FLAME L1 / ability + real Update damage and death|315|90|20|2|3|0|1:flame:L1|Move;Move;Move
+401|13.920192999999927|117146|FLAME L1 / ability + real Update damage and death|316|90|20|2|3|0|1:flame:L1|Move;Move;Move
+402|13.955561916000079|117156|FLAME L1 / ability + real Update damage and death|317|90|20|2|3|0|1:flame:L1|Move;Move;Move
+403|13.989305500000228|117167|FLAME L1 / ability + real Update damage and death|318|90|20|2|3|0|1:flame:L1|Move;Move;Move
+404|14.022812749999503|117182|FLAME L1 / ability + real Update damage and death|319|90|20|2|3|0|1:flame:L1|Move;Move;Move
+405|14.056701665999753|117194|FLAME L1 / ability + real Update damage and death|320|90|20|2|3|0|1:flame:L1|Move;Move;Move
+406|14.090599291000217|117208|FLAME L1 / ability + real Update damage and death|321|90|20|2|3|0|1:flame:L1|Move;Move;Move
+407|14.124271707999469|117222|FLAME L1 / ability + real Update damage and death|322|90|20|2|3|0|1:flame:L1|Move;Move;Move
+408|14.157780083000034|117236|FLAME L1 / ability + real Update damage and death|323|90|20|2|3|0|1:flame:L1|Move;Move;Move
+409|14.191603415999452|117251|FLAME L1 / ability + real Update damage and death|324|90|20|2|3|0|1:flame:L1|Move;Move;Move
+410|14.22515545799979|117264|FLAME L1 / ability + real Update damage and death|325|90|20|2|3|0|1:flame:L1|Move;Move;Move
+411|14.259052415999577|117278|FLAME L1 / ability + real Update damage and death|326|90|20|2|3|0|1:flame:L1|Move;Move;Move
+412|14.292572499999551|117291|FLAME L1 / ability + real Update damage and death|327|90|20|2|3|0|1:flame:L1|Move;Move;Move
+413|14.326152790999913|117304|FLAME L1 / ability + real Update damage and death|328|90|20|2|3|0|1:flame:L1|Move;Move;Move
+414|14.359594540999751|117317|FLAME L1 / ability + real Update damage and death|329|90|20|2|3|0|1:flame:L1|Move;Move;Move
+415|14.39302991600016|117330|FLAME L1 / ability + real Update damage and death|330|90|20|2|3|0|1:flame:L1|Move;Move;Move
+416|14.426630500000101|117343|FLAME L1 / ability + real Update damage and death|331|90|20|2|3|0|1:flame:L1|Move;Move;Move
+417|14.460545249999996|117357|FLAME L1 / ability + real Update damage and death|332|90|20|2|3|0|1:flame:L1|Move;Move;Move
+418|14.494602415999907|117370|FLAME L1 / ability + real Update damage and death|333|90|20|2|3|0|1:flame:L1|Move;Move;Move
+419|14.527954375000263|117381|FLAME L1 / ability + real Update damage and death|334|90|20|2|3|0|1:flame:L1|Move;Move;Move
+420|14.561664750000091|117388|FLAME L1 / ability + real Update damage and death|335|90|20|2|3|0|1:flame:L1|Move;Move;Move
+421|14.595450208000329|117395|FLAME L1 / ability + real Update damage and death|336|90|20|2|3|0|1:flame:L1|Move;Move;Move
+422|14.628942874999666|117405|FLAME L1 / ability + real Update damage and death|337|90|20|2|3|0|1:flame:L1|Move;Move;Move
+423|14.662534082999628|117419|FLAME L1 / ability + real Update damage and death|338|90|20|2|3|0|1:flame:L1|Move;Move;Move
+424|14.69590637500005|117433|FLAME L1 / ability + real Update damage and death|339|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+425|14.72992504099966|117445|FLAME L1 / ability + real Update damage and death|340|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+426|14.763387707999755|117451|FLAME L1 / ability + real Update damage and death|341|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+427|14.79702533299951|117461|FLAME L1 / ability + real Update damage and death|342|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+428|14.830950208000104|117475|FLAME L1 / ability + real Update damage and death|343|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+429|14.864696499999809|117489|FLAME L1 / ability + real Update damage and death|344|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+430|14.898840832999667|117502|FLAME L1 / ability + real Update damage and death|345|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+431|14.932542040999579|117516|FLAME L1 / ability + real Update damage and death|346|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+432|14.966188499999589|117530|FLAME L1 / ability + real Update damage and death|347|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+433|14.999949332999677|117544|FLAME L1 / ability + real Update damage and death|348|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+434|15.033700250000038|117556|FLAME L1 / ability + real Update damage and death|349|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+435|15.067242915999486|117569|FLAME L1 / ability + real Update damage and death|350|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+436|15.100641541000186|117581|FLAME L1 / ability + real Update damage and death|351|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+437|15.134104083000238|117594|FLAME L1 / ability + real Update damage and death|352|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+438|15.168103207999593|117606|FLAME L1 / ability + real Update damage and death|353|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+439|15.201821124999697|117620|FLAME L1 / ability + real Update damage and death|354|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+440|15.235243041000103|117633|FLAME L1 / ability + real Update damage and death|355|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+441|15.268883875000029|117642|FLAME L1 / ability + real Update damage and death|356|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+442|15.303125374999581|117651|FLAME L1 / ability + real Update damage and death|357|90|19|2|2|0|1:flame:L1|Move;Move
+443|15.337097832999461|117659|FLAME L1 / ability + real Update damage and death|358|90|19|2|2|0|1:flame:L1|Move;Move
+444|15.370756250000341|117668|FLAME L1 / ability + real Update damage and death|359|90|19|2|2|0|1:flame:L1|Move;Move
+445|15.404984957999659|117676|FLAME L1 / ability + real Update damage and death|360|90|19|2|2|0|1:flame:L1|Move;Move
+446|15.438606916000026|117688|FLAME L1 / ability + real Update damage and death|361|90|19|2|2|0|1:flame:L1|Move;Move
+447|15.472432124999614|117703|FLAME L1 / ability + real Update damage and death|362|90|19|2|2|0|1:flame:L1|Move;Move
+448|15.506905207999807|117716|FLAME L1 / ability + real Update damage and death|363|90|19|2|2|0|1:flame:L1|Move;Move
+449|15.542417415999807|117728|FLAME L1 / ability + real Update damage and death|364|90|19|2|2|0|1:flame:L1|Move;Move
+450|15.575882957999966|117740|FLAME L1 / ability + real Update damage and death|365|90|19|2|2|0|1:flame:L1|Move;Move
+451|15.609980707999966|117752|FLAME L1 / ability + real Update damage and death|367|90|19|2|2|0|1:flame:L1|Move;Move
+452|15.644029082999623|117765|FLAME L1 / ability + real Update damage and death|368|90|19|2|2|0|1:flame:L1|Move;Move
+453|15.677878124999552|117780|FLAME L1 / ability + real Update damage and death|369|90|18|2|1|0|1:flame:L1|Move;Leak
+454|15.711889665999479|117794|FLAME L1 / ability + real Update damage and death|370|90|18|2|1|0|1:flame:L1|Move;Leak
+455|15.745251290999477|117806|FLAME L1 / ability + real Update damage and death|371|90|18|2|1|0|1:flame:L1|Move;Leak
+456|15.779676582999855|117816|FLAME L1 / ability + real Update damage and death|372|90|18|2|1|0|1:flame:L1|Move;Leak
+457|15.81353958299951|117825|FLAME L1 / ability + real Update damage and death|373|90|18|2|1|0|1:flame:L1|Move;Leak
+458|15.847350791000281|117838|FLAME L1 / ability + real Update damage and death|374|90|18|2|1|0|1:flame:L1|Move;Leak
+459|15.880794333000267|117852|FLAME L1 / ability + real Update damage and death|375|90|18|2|1|0|1:flame:L1|Move;Leak
+460|15.914146041000095|117865|FLAME L1 / ability + real Update damage and death|376|90|18|2|1|0|1:flame:L1|Move;Leak
+461|15.947510916000283|117878|FLAME L1 / ability + real Update damage and death|377|90|18|2|1|0|1:flame:L1|Move;Leak
+462|15.981453583000075|117890|FLAME L1 / ability + real Update damage and death|378|90|18|2|1|0|1:flame:L1|Move;Leak
+463|16.01537929099959|117903|FLAME L1 / ability + real Update damage and death|379|90|18|2|1|0|1:flame:L1|Move;Leak
+464|16.049302458000057|117916|FLAME L1 / ability + real Update damage and death|380|90|18|2|1|0|1:flame:L1|Move;Leak
+465|16.082843999999568|117930|FLAME L1 / ability + real Update damage and death|381|90|18|2|1|0|1:flame:L1|Move;Leak
+466|16.116197749999628|117943|FLAME L1 / ability + real Update damage and death|382|90|18|2|1|0|1:flame:L1|Move;Leak
+467|16.149876333000066|117957|FLAME L1 / ability + real Update damage and death|383|90|18|2|1|0|1:flame:L1|Move;Leak
+468|16.18346662499971|117972|FLAME L1 / ability + real Update damage and death|384|90|18|2|1|0|1:flame:L1|Move;Leak
+469|16.21729595800025|117986|FLAME L1 / ability + real Update damage and death|385|90|18|2|1|0|1:flame:L1|Move;Leak
+470|16.250790291000158|117999|FLAME L1 / ability + real Update damage and death|386|90|18|2|1|0|1:flame:L1|Move;Leak
+471|16.284630625000318|118013|FLAME L1 / ability + real Update damage and death|387|90|18|2|1|0|1:flame:L1|Move
+472|16.318302499999845|118028|FLAME L1 / ability + real Update damage and death|388|90|18|2|1|0|1:flame:L1|Move
+473|16.352182040999651|118041|FLAME L1 / ability + real Update damage and death|389|90|18|2|1|0|1:flame:L1|Move
+474|16.385872832999667|118053|FLAME L1 / ability + real Update damage and death|390|90|18|2|1|0|1:flame:L1|Move
+475|16.419639916000051|118066|FLAME L1 / ability + real Update damage and death|391|90|18|2|1|0|1:flame:L1|Move
+476|16.453250874999867|118078|FLAME L1 / ability + real Update damage and death|392|90|18|2|1|0|1:flame:L1|Move
+477|16.486608041000181|118089|FLAME L1 / ability + real Update damage and death|393|90|18|2|1|0|1:flame:L1|Move
+478|16.520389166000314|118099|FLAME L1 / ability + real Update damage and death|394|90|18|2|1|0|1:flame:L1|Move
+479|16.553859083000134|118109|FLAME L1 / ability + real Update damage and death|395|90|18|2|1|0|1:flame:L1|Move
+480|16.587403124999582|118120|FLAME L1 / ability + real Update damage and death|396|90|18|2|1|0|1:flame:L1|Move
+481|16.62293687500005|118131|FLAME L1 / ability + real Update damage and death|397|90|18|2|1|0|1:flame:L1|Move
+482|16.656303333000324|118143|FLAME L1 / ability + real Update damage and death|398|90|18|2|1|0|1:flame:L1|Move
+483|16.69027350000033|118148|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+484|16.724146749999818|118161|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+485|16.757539332999841|118174|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+486|16.791091874999438|118186|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+487|16.824992666000071|118200|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+488|16.858844915999725|118214|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+489|16.892708165999466|118227|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+490|16.926454499999636|118241|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+491|16.959964040999694|118254|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+492|16.993838458000027|118266|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+493|17.027867040999809|118273|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+494|17.061422124999808|118279|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+495|17.095258540999566|118285|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+496|17.129166333000285|118292|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+497|17.162883125000008|118301|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+498|17.196639415999925|118313|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+499|17.230427833000249|118327|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+500|17.264366374999554|118338|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|Leak
+501|17.297937125000317|118348|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|
+502|17.33181012499972|118360|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|
+503|17.365591374999894|118374|Earned FLAME L2 / Preparation|399|5|17|2|0|0|1:flame:L2|
+504|17.399347165999643|118385|FLAME L2 / production Update combat|399|5|17|2|1|0|1:flame:L2|Move
+505|17.432685832999596|118399|FLAME L2 / production Update combat|400|5|17|2|1|0|1:flame:L2|Hit
+506|17.466185540999504|118412|FLAME L2 / production Update combat|401|5|17|2|1|0|1:flame:L2|Hit
+507|17.499753125000097|118425|FLAME L2 / production Update combat|402|5|17|2|1|0|1:flame:L2|Hit
+508|17.533397166000213|118437|FLAME L2 / production Update combat|403|5|17|2|1|0|1:flame:L2|Hit
+509|17.56697449999956|118451|FLAME L2 / production Update combat|404|5|17|2|1|0|1:flame:L2|Hit
+510|17.601042000000234|118464|FLAME L2 / production Update combat|405|5|17|2|1|0|1:flame:L2|Hit
+511|17.634496957999545|118476|FLAME L2 / production Update combat|406|5|17|2|1|0|1:flame:L2|Hit
+512|17.668318957999873|118489|FLAME L2 / production Update combat|407|5|17|2|1|0|1:flame:L2|Hit
+513|17.70210570800009|118502|FLAME L2 / production Update combat|408|5|17|2|1|0|1:flame:L2|Hit
+514|17.735873540999819|118516|FLAME L2 / production Update combat|409|5|17|2|1|0|1:flame:L2|Hit
+515|17.76935470799981|118525|FLAME L2 / production Update combat|410|5|17|2|1|0|1:flame:L2|Hit
+516|17.803200958000161|118534|FLAME L2 / production Update combat|411|5|17|2|1|0|1:flame:L2|Hit
+517|17.837240083000324|118543|FLAME L2 / production Update combat|412|5|17|2|1|0|1:flame:L2|Move
+518|17.87082645800001|118554|FLAME L2 / production Update combat|413|5|17|2|1|0|1:flame:L2|Move
+519|17.904258624999784|118568|FLAME L2 / production Update combat|414|5|17|2|1|0|1:flame:L2|Move
+520|17.938185832999807|118583|FLAME L2 / production Update combat|415|5|17|2|1|0|1:flame:L2|Hit
+521|17.972136124999452|118597|FLAME L2 / production Update combat|416|5|17|2|1|0|1:flame:L2|Hit
+522|18.005564625000261|118608|FLAME L2 / production Update combat|417|5|17|2|1|0|1:flame:L2|Hit
+523|18.039311999999882|118620|FLAME L2 / production Update combat|418|5|17|2|1|0|1:flame:L2|Hit
+524|18.07277675000023|118635|FLAME L2 / production Update combat|419|5|17|2|1|0|1:flame:L2|Hit
+525|18.106328791000124|118648|FLAME L2 / production Update combat|420|5|17|2|1|0|1:flame:L2|Hit
+526|18.139939707999474|118660|FLAME L2 / active flight before menu interruption|421|5|17|2|1|0|1:flame:L2|Hit
+527|18.173321375000342|118674|FLAME L2 / active flight before menu interruption|422|5|17|2|1|0|1:flame:L2|Hit
+528|18.206693082999664|118688|FLAME L2 / active flight before menu interruption|423|5|17|2|1|0|1:flame:L2|Hit
+529|18.240197500000249|118701|FLAME L2 / active flight before menu interruption|424|5|17|2|1|0|1:flame:L2|Hit
+530|18.273918582999613|118715|FLAME L2 / active flight before menu interruption|425|5|17|2|1|0|1:flame:L2|Hit
+531|18.30728233300033|118728|FLAME L2 / active flight before menu interruption|426|5|17|2|1|0|1:flame:L2|Hit
+532|18.341119290999814|118743|FLAME L2 / active flight before menu interruption|427|5|17|2|1|0|1:flame:L2|Hit
+533|18.37457458300014|118756|FLAME L2 / active flight before menu interruption|428|5|17|2|1|0|1:flame:L2|Hit
+534|18.408263457999965|118770|FLAME L2 / active flight before menu interruption|429|5|17|2|2|0|1:flame:L2|Hit;Move
+535|18.442019125000115|118784|FLAME L2 / active flight before menu interruption|430|5|17|2|2|0|1:flame:L2|Hit;Move
+536|18.475558874999479|118797|FLAME L2 / active flight before menu interruption|431|5|17|2|2|0|1:flame:L2|Hit;Move
+537|18.508976707999864|118811|FLAME L2 / active flight before menu interruption|432|5|17|2|2|0|1:flame:L2|Hit;Move
+538|18.542483749999519|118825|FLAME L2 / active flight before menu interruption|433|5|17|2|2|0|1:flame:L2|Hit;Move
+539|18.576430041000094|118839|FLAME L2 / active flight before menu interruption|435|5|17|2|2|0|1:flame:L2|Hit;Move
+540|18.609843041000204|118853|FLAME L2 / active flight before menu interruption|436|5|17|2|2|0|1:flame:L2|Hit;Move
+541|18.643529207999563|118867|FLAME L2 / active flight before menu interruption|437|5|17|2|2|0|1:flame:L2|Hit;Move
+542|18.677007665999554|118882|FLAME L2 / active flight before menu interruption|438|5|17|2|2|0|1:flame:L2|Hit;Move
+543|18.710427332999643|118895|FLAME L2 / active flight before menu interruption|439|5|17|2|2|0|1:flame:L2|Hit;Move
+544|18.743781874999513|118909|FLAME L2 / active flight before menu interruption|440|5|17|2|2|0|1:flame:L2|Hit;Move
+545|18.777451582999674|118921|FLAME L2 / active flight before menu interruption|441|5|17|2|2|0|1:flame:L2|Hit;Move
+546|18.811883540999588|118929|FLAME L2 / active flight before menu interruption|442|5|17|2|2|0|1:flame:L2|Hit;Move
+547|19.035501999999724|118931|FLAME L2 / active flight before menu interruption||||||0||
+548|19.06946329099992|118946|MainMenu / file Continue / pool unloaded||||||0||
+549|19.103068165999503|118971|MainMenu / file Continue / pool unloaded||||||0||
+550|19.136644375000287|118997|MainMenu / file Continue / pool unloaded||||||0||
+551|19.170275040999513|119025|MainMenu / file Continue / pool unloaded||||||0||
+552|19.20393412500016|119051|MainMenu / file Continue / pool unloaded||||||0||
+553|19.237541999999848|119077|MainMenu / file Continue / pool unloaded||||||0||
+554|19.27087654099978|119103|MainMenu / file Continue / pool unloaded||||||0||
+555|19.3043131659997|119127|MainMenu / file Continue / pool unloaded||||||0||
+556|19.338033582999742|119150|MainMenu / file Continue / pool unloaded||||||0||
+557|19.371823874999791|119174|MainMenu / file Continue / pool unloaded||||||0||
+558|19.405306665999888|119200|MainMenu / file Continue / pool unloaded||||||0||
+559|19.438772749999771|119223|MainMenu / file Continue / pool unloaded||||||0||
+560|19.472303999999895|119250|MainMenu / file Continue / pool unloaded||||||0||
+561|19.506000041000334|119278|MainMenu / file Continue / pool unloaded||||||0||
+562|19.539537957999528|119303|MainMenu / file Continue / pool unloaded||||||0||
+563|19.573264915999971|119328|MainMenu / file Continue / pool unloaded||||||0||
+564|19.607371500000227|119354|MainMenu / file Continue / pool unloaded||||||0||
+565|19.641097290999824|119380|MainMenu / file Continue / pool unloaded||||||0||
+566|19.674751208000089|119407|MainMenu / file Continue / pool unloaded||||||0||
+567|19.708132290999856|119432|MainMenu / file Continue / pool unloaded||||||0||
+568|19.741676708000341|119459|MainMenu / file Continue / pool unloaded||||||0||
+569|19.96201983300034|119461|MainMenu / file Continue / pool unloaded|399|5|17|2|0|0|1:flame:L2|
+570|19.995814249999967|119467|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+571|20.029464624999491|119474|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+572|20.062798666000162|119485|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+573|20.096243166000022|119499|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+574|20.130026083000303|119514|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+575|20.163830583000163|119526|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+576|20.198092957999506|119536|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+577|20.231594457999563|119549|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+578|20.26532324999971|119564|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+579|20.298883540999668|119577|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+580|20.332729208000274|119589|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+581|20.366193290999945|119604|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+582|20.399568750000071|119619|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+583|20.433391999999913|119634|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+584|20.467305125000166|119649|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+585|20.500683499999468|119663|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+586|20.534424333000061|119680|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+587|20.567859624999983|119695|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+588|20.60131091600033|119710|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+589|20.63500833299986|119727|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+590|20.66856933300005|119742|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+591|20.701984415999505|119758|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+592|20.735698833000242|119774|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+593|20.769790415999523|119790|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+594|20.803664916000344|119805|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+595|20.837112332999823|119816|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+596|20.870498374999443|119825|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+597|20.904109457999766|119837|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+598|20.9375744580002|119854|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+599|20.970969875000264|119869|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+600|21.0046499580003|119881|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+601|21.03848970800027|119890|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+602|21.072368125000139|119900|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+603|21.106308415999592|119913|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+604|21.139774874999603|119925|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+605|21.173253541000122|119935|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+606|21.207093500000155|119945|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+607|21.24052279100033|119958|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+608|21.274041458000283|119971|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+609|21.307390957999814|119985|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+610|21.341190416000245|119999|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+611|21.374556875000053|120012|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+612|21.408050125000045|120026|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+613|21.441511750000245|120041|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+614|21.475354958000025|120055|Continue / Preparation2 FLAME L2 / clean pool + Grid|399|5|17|2|0|0|1:flame:L2|
+615|21.508868457999597|120066|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+616|21.542467708000004|120082|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+617|21.575848874999792|120097|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+618|21.609313332999591|120112|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+619|21.643197708000116|120127|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+620|21.676904707999711|120141|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+621|21.710475290999966|120155|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+622|21.744938791000095|120170|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+623|21.778436290999707|120183|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+624|21.812690832999579|120194|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+625|21.846898208000312|120205|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+626|21.880669915999533|120217|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+627|21.914014207999571|120230|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+628|21.947768082999573|120244|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+629|21.981533958|120259|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+630|22.015338082999733|120275|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+631|22.049450958000307|120291|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+632|22.083023749999484|120307|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+633|22.116362040999775|120321|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+634|22.15011662500001|120336|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+635|22.183576249999533|120351|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+636|22.21730395800023|120367|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+637|22.251161375000265|120383|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+638|22.285375374999603|120398|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||

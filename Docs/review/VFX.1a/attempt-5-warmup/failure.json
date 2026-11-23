@@ -1,0 +1,1 @@
+{"error":"Capture invoked before newly loaded Battle Start initialized. Probe now waits for initialized production controller; runtime unchanged."}

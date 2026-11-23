@@ -1,0 +1,156 @@
+{
+  "sourceFrames": 639,
+  "outputFrames": 639,
+  "firstPts": 0.0,
+  "lastPts": 22.281,
+  "sourceFirstElapsed": 0.003945374999602791,
+  "sourceLastElapsed": 22.285375374999603,
+  "speed": 1,
+  "splices": 0,
+  "resolution": [
+    1600,
+    900
+  ],
+  "editor": true,
+  "device": false,
+  "source": "actual Pipeline capture game_view composited render-target frames, variable real-time capture intervals",
+  "limitation": "Capture/encoding overhead is not a performance benchmark. Sparse captured frames are not native display presentation timing.",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-f",
+    "concat",
+    "-safe",
+    "0",
+    "-i",
+    "/Users/alexeykravtsov/Desktop/workspace/Veilward/TestResults/vfx1a/video.ffconcat",
+    "-fps_mode",
+    "vfr",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-video_track_timescale",
+    "1000000",
+    "-movflags",
+    "+faststart",
+    "/Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/VFX.1a/editor-flow.mp4"
+  ],
+  "outputSha256": "1c0778e67e0c143c20979682be4283c24df8676e820b40c1c3bb5ad033e5f466",
+  "picks": {
+    "video-menu.png": {
+      "manifestIndex": 16,
+      "sourceFrameIndex": 16,
+      "sourceFile": "00016.png",
+      "gameFrame": 112296,
+      "elapsed": 0.7101363330002641,
+      "stage": "MainMenu / fresh NewGame",
+      "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+    },
+    "video-preview.png": {
+      "manifestIndex": 42,
+      "sourceFrameIndex": 42,
+      "sourceFile": "00042.png",
+      "gameFrame": 112773,
+      "elapsed": 1.799211374999686,
+      "stage": "Build preview / public placement",
+      "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+    },
+    "video-pause.png": {
+      "manifestIndex": 72,
+      "sourceFrameIndex": 72,
+      "sourceFile": "00072.png",
+      "gameFrame": 113153,
+      "elapsed": 2.8099771659999533,
+      "stage": "Pause / frozen FLAME flight",
+      "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+    },
+    "video-resume.png": {
+      "manifestIndex": 112,
+      "sourceFrameIndex": 112,
+      "sourceFile": "00112.png",
+      "gameFrame": 113632,
+      "elapsed": 4.159432415999618,
+      "stage": "Resume / production Update flight without catch-up",
+      "sha256": "f228802cf54a4c079ee2b59163c541525b085b9ea6c77ce9acb2f29f2792b0b6"
+    },
+    "video-continue.png": {
+      "manifestIndex": 592,
+      "sourceFrameIndex": 592,
+      "sourceFile": "00592.png",
+      "gameFrame": 119774,
+      "elapsed": 20.735698833000242,
+      "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+      "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+    },
+    "video-sold.png": {
+      "manifestIndex": 627,
+      "sourceFrameIndex": 627,
+      "sourceFile": "00627.png",
+      "gameFrame": 120230,
+      "elapsed": 21.91401420799957,
+      "stage": "Sold / public flow complete / no resource substitution",
+      "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+    },
+    "L1-launch.png": {
+      "manifestIndex": 54,
+      "sourceFrameIndex": 54,
+      "sourceFile": "00054.png",
+      "gameFrame": 112908,
+      "elapsed": 2.204033666000214,
+      "stage": "Pause / frozen FLAME flight",
+      "sha256": "b3c3d05a8811f0e551b38f3699d809eed017530b98e39f212d43dc4de1a3b13b"
+    },
+    "L1-flight.png": {
+      "manifestIndex": 93,
+      "sourceFrameIndex": 93,
+      "sourceFile": "00093.png",
+      "gameFrame": 113406,
+      "elapsed": 3.518142875000194,
+      "stage": "Resume / production Update flight without catch-up",
+      "sha256": "858e6905da778568a88e03b3f1e373bee0bcaf97da6a5f525a175b2a71e54dda"
+    },
+    "L1-impact.png": {
+      "manifestIndex": 96,
+      "sourceFrameIndex": 96,
+      "sourceFile": "00096.png",
+      "gameFrame": 113428,
+      "elapsed": 3.6192037079999864,
+      "stage": "Resume / production Update flight without catch-up",
+      "sha256": "1abc3bde5cd3e6e1c50279dd1db9032b77130892a14953af6f7e545d8fdc4a37"
+    },
+    "L2-launch.png": {
+      "manifestIndex": 505,
+      "sourceFrameIndex": 505,
+      "sourceFile": "00505.png",
+      "gameFrame": 118399,
+      "elapsed": 17.432685832999596,
+      "stage": "FLAME L2 / production Update combat",
+      "sha256": "fc35380e60890fd580f82ddbae01345609c90330740de0f2979e51af96f389b9"
+    },
+    "L2-flight.png": {
+      "manifestIndex": 508,
+      "sourceFrameIndex": 508,
+      "sourceFile": "00508.png",
+      "gameFrame": 118437,
+      "elapsed": 17.533397166000213,
+      "stage": "FLAME L2 / production Update combat",
+      "sha256": "4524637aa5cd7f9661a47eece81a0df313a41836873e43f6e79fdd684151d924"
+    },
+    "L2-impact.png": {
+      "manifestIndex": 511,
+      "sourceFrameIndex": 511,
+      "sourceFile": "00511.png",
+      "gameFrame": 118476,
+      "elapsed": 17.634496957999545,
+      "stage": "FLAME L2 / production Update combat",
+      "sha256": "026b7843da1143b03c44bbb3cdae590d19d7e06658b8320667198db3bd231e66"
+    }
+  }
+}

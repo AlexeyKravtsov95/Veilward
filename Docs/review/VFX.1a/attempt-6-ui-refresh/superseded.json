@@ -1,0 +1,1 @@
+{"reason":"Functional full replay PASS. First dense composited frame preceded ElementChoice Update and contained stale overlay; require one regular render frame for UI refresh before screenshot."}
