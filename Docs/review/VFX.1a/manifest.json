@@ -1,8 +1,8 @@
 {
   "baseline": "45efa5676ac5c27ee70d4a13b1fbe2622d3f82f6",
   "testedSource": "98cb553868a86a23e65b72f46c2077be4a546faf",
-  "mediaSource": "814f20848343a4146737157fd683309b39a51273",
-  "evidenceSource": "814f20848343a4146737157fd683309b39a51273",
+  "mediaSource": "1e73e275785fa0ee9f07f094d6cb300ee179e3f7",
+  "evidenceSource": "1e73e275785fa0ee9f07f094d6cb300ee179e3f7",
   "changedExisting": [
     "Assets/_Game/Scenes/Battle.unity",
     "Assets/_Game/Scripts/Presentation/BattleSceneController.cs",
@@ -4311,9 +4311,11 @@
     "Docs/review/VFX.1a/reports/video-sold.json",
     "Docs/review/VFX.1a/reports/video-source-frames.json.gz",
     "Docs/review/VFX.1a/reports/video-start.json",
+    "Docs/review/VFX.1a/review.md",
     "Docs/review/VFX.1a/validation.md",
     "Docs/review/VFX.1a/verify_controls.py",
     "Docs/review/VFX.1a/verify_delivery.py",
+    "Docs/review/VFX.1a/verify_semantic_controls.py",
     "Docs/superpowers/plans/2026-11-04-p0-1-project-bootstrap.md",
     "Docs/superpowers/plans/2026-11-05-grid-tower-placement.md",
     "Docs/superpowers/plans/2026-11-05-p1-1-enemy-path.md",
@@ -5314,7 +5316,7 @@
     "Docs/ROADMAP.md": "0521b819ecd96216904693ef57b3b743675a9d42fc2400a2d2fa07cd3b23f9ee",
     "Docs/TECH_DESIGN.md": "bc3687c3d123e3b092eb7478c98fe682a76fd90f3d1d4dd4c8edd86eb8ae4733",
     "Docs/VFX1A_FLAME_PROJECTILE.md": "35ce92c9f1b0ed857a88be11d0e2c8e90d1c58d9e9ee1e2b62c854c47c95d3b4",
-    "Docs/review/VFX.1a/README.md": "5f8c0a9e3a8f1065c9b88f115eb5bfebf0abf1e3d7a277712dafddb433d61cea",
+    "Docs/review/VFX.1a/README.md": "44dc0b5f1bf42658072628b54d4a2fea748db65455b85358fb020174d17dfdad",
     "Docs/review/VFX.1a/attempt-1/video-completion.json": "0f40ab71423f229808cf111bf7181dc7208290d55818686eeaed4c7eda0630e4",
     "Docs/review/VFX.1a/attempt-1/video-console.txt": "e21413a0f279d4ea9b20a6480af9abc644ce1ace84eab560506bda3bf2870255",
     "Docs/review/VFX.1a/attempt-1/video-frames.txt": "0a2cc7606bb289ef7d9944c5b9ccb3cf113667af0d7b9a1a74ddb35b49c26351",
@@ -5467,10 +5469,12 @@
     "Docs/review/VFX.1a/reports/video-sold.json": "89efb491aa19d374bbf330340903d5b4b283b9542e13b2146c258add5eb3e951",
     "Docs/review/VFX.1a/reports/video-source-frames.json.gz": "3ee5749296e03c597576ee913b07d7dce4a42ba46af7584ed7c9b8da053e7cba",
     "Docs/review/VFX.1a/reports/video-start.json": "e3bb33740c85b04633e184b69e37bd837041d41536bbbf06fa22826d14fc7650",
-    "Docs/review/VFX.1a/validation.md": "97654e23bf5340d1f685b23e68b67efbcc73c0853e60f9990c017098c65a89b7",
+    "Docs/review/VFX.1a/review.md": "11976a9121e7fdec1209e346e25caeda03f23a939baad87c757b620e2aea444b",
+    "Docs/review/VFX.1a/validation.md": "647d8d2382380e305cb0f50636f0c23b8af8f01763a0e499c57e7b260a1f910b",
     "Docs/review/VFX.1a/verify_controls.py": "f9f0d4aa1caeaf6688a9a075813793f8da4e5d10f521eb2f7712676c7a38bb54",
     "Docs/review/VFX.1a/verify_delivery.py": "b3c3a09d6ac54faa1348479c409218cb5209736d4a92648d707d074589d7d606",
-    "README.md": "78f35a134010f35cfe1fa46c98cf66432432c329e28b07ac986a04d77e142674"
+    "Docs/review/VFX.1a/verify_semantic_controls.py": "177719de6448450be3f4304f6dd1d2fc78d89b259c72277ec4742850a1a7cf44",
+    "README.md": "59b0ed23ab84fc77d5b8cdc0f70165600072cc2bf31a1b829482e3130483531c"
   },
   "totals": {
     "edit-mode": 1252,
