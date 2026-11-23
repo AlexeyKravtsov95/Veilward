@@ -41,11 +41,11 @@ namespace Veilward.Tests.EditMode
                 Assert.That(visual.Model.GetComponentsInChildren<Animation>().All(a => !a.enabled && !a.playAutomatically), Is.True);
                 Assert.That(instance.transform.Find("Health Bar").localPosition.y, Is.EqualTo(2));
                 Assert.That(instance.transform.Find("Status slots").GetComponentsInChildren<UnityEngine.UI.Text>(true).Length, Is.EqualTo(2));
-                var parts = visual.Model.GetComponentsInChildren<MeshFilter>().Where(m => m.name != "Body occlusion cue").ToArray();
+                var parts = visual.Model.GetComponentsInChildren<MeshFilter>().Where(m => !m.name.StartsWith("Body occlusion cue")).ToArray();
                 Assert.That(parts.Length, Is.EqualTo(4));
                 foreach (var part in parts)
                 {
-                    var cue = part.transform.Find("Body occlusion cue"); Assert.That(cue, Is.Not.Null);
+                    var cue = part.transform.Find("Body occlusion cue " + part.name); Assert.That(cue, Is.Not.Null);
                     Assert.That(cue.GetComponent<MeshFilter>().sharedMesh, Is.SameAs(part.sharedMesh));
                     Assert.That(cue.localPosition, Is.EqualTo(Vector3.zero)); Assert.That(cue.localScale, Is.EqualTo(Vector3.one));
                 }
@@ -56,7 +56,7 @@ namespace Veilward.Tests.EditMode
                     Assert.That(parts.Select((p, i) => p.transform.localToWorldMatrix != from[i]).Any(v => v), Is.True, clip.name + " actual animated pose");
                     foreach (var part in parts)
                     {
-                        var cue = part.transform.Find("Body occlusion cue");
+                        var cue = part.transform.Find("Body occlusion cue " + part.name);
                         Assert.That(cue.localToWorldMatrix, Is.EqualTo(part.transform.localToWorldMatrix), clip.name + " animated cue follows part exactly");
                     }
                 }

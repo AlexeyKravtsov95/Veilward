@@ -27,7 +27,7 @@ namespace Veilward.Tests.EditMode
                 camera.transform.position = new Vector3(8, 11, 8); camera.transform.LookAt(Vector3.zero);
                 camera.orthographic = true; camera.orthographicSize = 8.5f; camera.aspect = 1600f / 900;
                 float ProjectY(Vector3 point) => camera.WorldToViewportPoint(point).y * 900;
-                var bodies = enemy.GetComponentInChildren<EnemyModelView>().Model.GetComponentsInChildren<MeshFilter>().Where(m => m.name != "Body occlusion cue").ToArray();
+                var bodies = enemy.GetComponentInChildren<EnemyModelView>().Model.GetComponentsInChildren<MeshFilter>().Where(m => !m.name.StartsWith("Body occlusion cue")).ToArray();
                 var health = enemy.GetComponent<EnemyHealthBarView>();
                 var bar = enemy.transform.Find("Health Bar");
                 var anchor = bar.localPosition;

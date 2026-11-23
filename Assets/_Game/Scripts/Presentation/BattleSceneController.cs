@@ -420,7 +420,8 @@ namespace Veilward.Presentation
                 var reactions = _simulation.ReactionEvents;
                 var damages = _simulation.DamageEvents;
                 // До очистки streams: lethal и leak видны даже при нескольких Steps/frame.
-                SynchronizeEnemyViews();
+                // Rendering-free orchestration fixtures вызывают consumer без Start; production Start валидирует required prefab.
+                if (enemyPrefab != null) SynchronizeEnemyViews();
                 for (var damageIndex = 0; damageIndex < damages.Count; damageIndex++)
                 {
                     var damage = damages[damageIndex];

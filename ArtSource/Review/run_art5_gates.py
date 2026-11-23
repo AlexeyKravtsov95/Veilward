@@ -32,12 +32,16 @@ def main():
             if results[name]!=0:raise RuntimeError(name+' failed; raw result preserved')
     finally:
         after=inputs()
+        # Только собственная post-suite scene: закрываем ДО disk restore, иначе native reload modal блокирует queue.
+        detach_code='if (UnityEditor.EditorApplication.isPlaying) throw new System.InvalidOperationException("Stop task test Play Mode first"); UnityEditor.SceneManagement.EditorSceneManager.NewScene(UnityEditor.SceneManagement.NewSceneSetup.EmptyScene, UnityEditor.SceneManagement.NewSceneMode.Single); return "Closed task suite scene before exact disk restoration";'
+        with (OUT/'pre-restore-empty-scene.json').open('w') as log:
+            subprocess.run([str(Path.home()/'.unity/bin/unity'),'command','script eval','--caller','plugin','--skill','unity-cli','--project-path',str(ROOT),'--format','json','--code',detach_code],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=90)
         changed=[{'path':p,'before':digest,'generated':after.get(p)} for p,digest in before.items() if after.get(p)!=digest]
         unexpected=[r['path'] for r in changed if r['path'] not in saved]
         # Не маскируем неизвестную mutation произвольным overwrite.
         for r in changed:
             if r['path'] in saved:(ROOT/r['path']).write_bytes(saved[r['path']])
-        subprocess.run([str(Path.home()/'.unity/bin/unity'),'command','script eval','--caller','plugin','--skill','unity-cli','--project-path',str(ROOT),'--format','json','--code','UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceSynchronousImport); return "Refreshed exact restored serialized inputs";'],cwd=ROOT,stdout=(OUT/'restored-refresh.json').open('w'),check=True)
+        subprocess.run([str(Path.home()/'.unity/bin/unity'),'command','script eval','--caller','plugin','--skill','unity-cli','--project-path',str(ROOT),'--format','json','--code','UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceSynchronousImport); UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity"); return "Refreshed exact restored serialized inputs and reopened saved Battle";'],cwd=ROOT,stdout=(OUT/'restored-refresh.json').open('w'),check=True)
         final=inputs()
         report=dict(testedSource=head,results=results,trackedInputs=len(before),changed=changed,unexpected=unexpected,
             newInputs=sorted(set(after)-set(before)),allOriginalInputsRestored=before==final,

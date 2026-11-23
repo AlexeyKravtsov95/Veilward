@@ -73,6 +73,8 @@ namespace Veilward.Editor
             var path = Folder + (boss ? "Enemy_RiftWarden" : "Enemy_Shade") + ".fbx";
             var model = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(path));
             model.transform.SetParent(orientation.transform, false);
+            // Plain hierarchy сохраняет стабильные localIDs при полном повторном Build; mesh/clips остаются FBX assets.
+            PrefabUtility.UnpackPrefabInstance(model, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
             foreach (var animation in model.GetComponentsInChildren<Animation>(true))
             { animation.playAutomatically = false; animation.enabled = false; }
             var view = orientation.AddComponent<EnemyModelView>(); var serialized = new SerializedObject(view);
@@ -91,8 +93,9 @@ namespace Veilward.Editor
             var material = AssetDatabase.LoadAssetAtPath<Material>(ArtReferenceBuilder.MaterialFolder + "MAT_Art21_ShadeOcclusion.mat");
             foreach (var mesh in view.Model.GetComponentsInChildren<MeshFilter>(true))
             {
-                if (mesh.name == "Body occlusion cue" || mesh.transform.Find("Body occlusion cue") != null) continue;
-                ShadeOcclusionView.Create(mesh.transform, material).name = "Body occlusion cue";
+                var cueName = "Body occlusion cue " + mesh.name;
+                if (mesh.name.StartsWith("Body occlusion cue", StringComparison.Ordinal) || mesh.transform.Find(cueName) != null) continue;
+                ShadeOcclusionView.Create(mesh.transform, material).name = cueName;
             }
         }
 

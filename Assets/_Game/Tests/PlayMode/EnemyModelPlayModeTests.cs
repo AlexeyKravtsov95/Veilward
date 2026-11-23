@@ -19,7 +19,7 @@ namespace Veilward.Tests.PlayMode
         BattleSceneController Battle => Object.FindFirstObjectByType<BattleSceneController>();
         static void Call(object o, string method) => o.GetType().GetMethod(method, Flags).Invoke(o, null);
         EnemyModelView[] Visuals => Battle.GetComponentsInChildren<EnemyModelView>();
-        static Matrix4x4[] Poses(EnemyModelView visual) => visual.Model.GetComponentsInChildren<MeshFilter>().Where(m => m.name != "Body occlusion cue").Select(m => m.transform.localToWorldMatrix).ToArray();
+        static Matrix4x4[] Poses(EnemyModelView visual) => visual.Model.GetComponentsInChildren<MeshFilter>().Where(m => !m.name.StartsWith("Body occlusion cue")).Select(m => m.transform.localToWorldMatrix).ToArray();
         static void Changed(Matrix4x4[] a, Matrix4x4[] b) => Assert.That(a.Where((v, i) => v != b[i]).Any(), Is.True);
         BattleSimulation Fixture(string source, int count = 1, float speed = 1)
         {
