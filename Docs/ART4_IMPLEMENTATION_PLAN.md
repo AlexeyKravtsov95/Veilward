@@ -36,7 +36,7 @@
 - [x] Commit tested source, выполнить static/fullEdit/fullPlay/compile/diff, сохранить raw failures/final totals и byte restoration audit.
 - [x] Узкий ART4 source/protected/artifact verifier + small controls, frozen manifests, actual input inventory.
 - [x] README/TECH_DESIGN/ROADMAP/evidence: VERIFIED и NOT VERIFIED.
-- [ ] Push PR (Closes45 только при полном acceptance; Refs33), независимое source/visual review, исправить P1/P2 и перепроверить затронутые gates. Без self-merge/release.
+- [x] Push PR (Closes45 только при полном acceptance; Refs33), независимое source/visual review, исправить P1/P2 и перепроверить затронутые gates. Без self-merge/release.
 
 ## Rulings / evidence ledger
 
