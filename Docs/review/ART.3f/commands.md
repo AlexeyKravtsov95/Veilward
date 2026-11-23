@@ -57,3 +57,5 @@ Full suites могут сериализовать известные builder out
 Первая full-suite попытка: Edit1220/1220, Play86/87. RegBattle157 сохранял obsolete STORM TypeTint expectation; заменён на authored STORM L1/noPropertyBlock/no graybox, сохраняя changed-cell/old-root assertions. Это единственная source delta после media head81a510a. Полные gates повторяются на новом test head; исходные результаты сохранены как attempt-1-*.
 
 После suites canonical snapshot прочитан без повторного export и совпал с reexport-after. Служебный preview переснят в новом PlayMode без DontDestroyOnLoad recorder; actual-render-inputs переснят на final source e9277df. GameView index18 восстановлен, session runInBackground/autoTick отключены, task Editor закрыт через `unity close "$PWD" --if-saved`; historical Editor не затронут.
+
+Первый cached diff check нашёл завершающую пустую строку в экспортированном video-inspector.txt. Удалён только пустой EOF, Inspector content не менялся; полный baseline→HEAD diff check повторён отдельно.

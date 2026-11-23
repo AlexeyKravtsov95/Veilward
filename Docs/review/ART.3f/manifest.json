@@ -11,7 +11,7 @@
   "inputMode": "exact four carry-in files with accepted PR85 Battle equivalence; read-only, no canonical overwrite",
   "artifacts": {
     "Docs/review/ART.3f/README.md": "43eb000e5d53db91e824af577f9f9db38ca020b28ca169626be9e98e2f818fa8",
-    "Docs/review/ART.3f/commands.md": "5f2d376df9c32c0df383fa27f341b062c8c9335ddf5bf576d8477f49e4d7f457",
+    "Docs/review/ART.3f/commands.md": "5ac264403c38b057b2fc9f638d4be70ebef2a06ee524ce0c95cfb7618748d91a",
     "Docs/review/ART.3f/editor-flow.mp4": "aad6519cd832e64548479a428ec235cc48cc1605ff951243737e163e67810505",
     "Docs/review/ART.3f/inputs/earned.commands.json": "b061146de3dcaed6692284b634fdc8daaae59ba38f1919203fe46dfdc3c8b8f6",
     "Docs/review/ART.3f/inputs/search-settings.json": "98e7583717ebd2b03e03af10820e2bec28f8b456e0d44c4cf14d68dd2f0decb5",
@@ -89,7 +89,7 @@
     "Docs/review/ART.3f/reports/video-console.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "Docs/review/ART.3f/reports/video-encode.txt": "9bc54ad44d03eec2050f7c925a715cd0dfbd80ffcaf9e2bd5954dbe85f845b4d",
     "Docs/review/ART.3f/reports/video-frames.txt": "762e87c66254360f27fb822508a9baa4ebf9bc5223bb801322ee89ed33c81bc4",
-    "Docs/review/ART.3f/reports/video-inspector.txt": "76e9ab1e0569d44d2252d1c6d8aee6628c53633c5e8faed0e2cb81b7e492af8e",
+    "Docs/review/ART.3f/reports/video-inspector.txt": "da7317d090ceaf0db89993966f4e67d8ec33d875da29cabca7efea7b61e58ff8",
     "Docs/review/ART.3f/reports/video-intrinsic.json": "fecf3565d3c4b83fd095f9a230c24bd7c5176364f752a817363f5ba12b002e4c",
     "Docs/review/ART.3f/reports/video-picked-frames.json": "fc287f240311e72ed9d1c157e16034f26ed7de596f1ae94a2dae4c34b7c320bf",
     "Docs/review/ART.3f/reports/video-proof.json": "9e3c0dd964ee42174cde4e273db16ec2725e8c0f9f86f3f98f804eb2a063e5dd",
