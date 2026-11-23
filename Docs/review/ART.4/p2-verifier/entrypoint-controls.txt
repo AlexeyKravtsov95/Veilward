@@ -1,0 +1,31 @@
+test_full_default_delivery_without_private_three (__main__.DeliveryEntrypointControls.test_full_default_delivery_without_private_three) ... ok
+test_full_explicit_preservation_rejects_changed_first_private_file (__main__.DeliveryEntrypointControls.test_full_explicit_preservation_rejects_changed_first_private_file) ... ok
+test_full_explicit_preservation_rejects_missing_private_three (__main__.DeliveryEntrypointControls.test_full_explicit_preservation_rejects_missing_private_three) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.659s
+
+OK
+{
+  "control": "full delivery with all three private paths absent/unreadable; mandatory checks unchanged",
+  "receipt": {
+    "status": "PASS",
+    "head": "be12f5b8a7eeb779c7d66c0ca74dd1400c8a6b98",
+    "testedSource": "b10e8b8919b76f0b7e398558a483b4bd49eb49e9",
+    "source": 848,
+    "protected": 3754,
+    "artifacts": 146,
+    "suites": {
+      "edit-mode": 1233,
+      "play-mode": 88
+    },
+    "exactCarryIn": 4,
+    "localPreservation": {
+      "status": "NOT_REQUESTED",
+      "expectedFiles": 7
+    },
+    "device": "Deferred QA53/54/55",
+    "newUnityRun": false,
+    "readOnly": true
+  }
+}

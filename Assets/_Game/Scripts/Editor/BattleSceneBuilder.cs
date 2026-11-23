@@ -69,13 +69,7 @@ namespace Veilward.Editor
 
             SetScenarioContentId(legacyConfig, "legacy-single-wave-v1");
 
-            var groundMaterial = CreateOrUpdateMaterial("GrayboxGround", new Color(0.12f, 0.16f, 0.2f));
-            var pathMaterial = CreateOrUpdateMaterial("GrayboxPath", new Color(0.25f, 0.55f, 0.5f));
-            var spawnMaterial = CreateOrUpdateMaterial("GrayboxSpawn", new Color(0.2f, 0.8f, 0.9f));
-            var heartMaterial = CreateOrUpdateMaterial("GrayboxHeart", new Color(0.95f, 0.35f, 0.3f));
             var enemyMaterial = CreateOrUpdateMaterial("GrayboxShade", new Color(0.35f, 0.25f, 0.65f));
-            var availableMaterial = CreateOrUpdateMaterial("GrayboxCellAvailable", new Color(0.18f, 0.3f, 0.34f));
-            var blockedMaterial = CreateOrUpdateMaterial("GrayboxCellBlocked", new Color(0.1f, 0.12f, 0.15f));
             var towerMaterial = CreateOrUpdateMaterial("GrayboxTower", new Color(0.95f, 0.7f, 0.2f));
             var selectionMaterial = CreateOrUpdateMaterial("GrayboxSelection", new Color(1f, 0.9f, 0.2f));
             var previewMaterial = CreateOrUpdateMaterial("GrayboxTowerPreview", new Color(0.3f, 0.9f, 0.95f));
@@ -104,15 +98,10 @@ namespace Veilward.Editor
                 Object.DestroyImmediate(root);
             }
 
-            var ground = CreatePrimitive(PrimitiveType.Cube, "Ground");
-            ground.transform.localScale = new Vector3(16f, 0.2f, 10f);
-            ground.transform.position = new Vector3(0f, -0.15f, 0f);
-            ground.GetComponent<Renderer>().sharedMaterial = groundMaterial;
-
-            CreateGridGeometry(config, availableMaterial, blockedMaterial);
-            CreatePathGeometry(config, pathMaterial, spawnMaterial, heartMaterial);
+            BattleEnvironmentBuilder.Create(config);
             var battleCamera = CreateCamera();
             CreateLight();
+            BattleEnvironmentBuilder.ApplyAtmosphere(battleCamera, Object.FindFirstObjectByType<Light>());
             var cellSize = config.CreateSimulation().Grid.Map.CellSize;
             var selection = CreateSelection(selectionMaterial, cellSize);
             var preview = CreatePreview(towerPrefab, previewMaterial, cellSize);

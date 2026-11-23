@@ -1,0 +1,473 @@
+[
+  {
+    "args": [
+      "command",
+      "editor.playmode",
+      "start",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward"
+    ],
+    "exit": 0,
+    "result": "Entered play mode",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "status",
+      "--until-ready",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward"
+    ],
+    "exit": 0,
+    "result": {
+      "success": true,
+      "command": "status",
+      "data": {
+        "count": 1,
+        "instances": [
+          {
+            "port": 7800,
+            "project": "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+            "projectPath": "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+            "version": "6000.3.28f1",
+            "editorVersion": "6000.3.28f1",
+            "pid": 510,
+            "state": "ready",
+            "role": "main",
+            "instanceName": "Main Editor"
+          }
+        ],
+        "items": [
+          {
+            "port": 7800,
+            "project": "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+            "projectPath": "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+            "version": "6000.3.28f1",
+            "editorVersion": "6000.3.28f1",
+            "pid": 510,
+            "state": "ready",
+            "role": "main",
+            "instanceName": "Main Editor"
+          }
+        ],
+        "total": 1,
+        "nextPage": null,
+        "partial": false
+      },
+      "errors": [],
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "job",
+      "wait",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--",
+      "--condition",
+      "{\"member\":\"UnityEngine.Time.frameCount\",\"op\":\"changed\"}",
+      "--timeout",
+      "10"
+    ],
+    "exit": 0,
+    "result": {
+      "state": "met",
+      "met": true,
+      "timedOut": false,
+      "member": "UnityEngine.Time.frameCount",
+      "op": "changed",
+      "value": 1806,
+      "initialValue": 1634,
+      "elapsedMs": 107,
+      "framesObserved": 2
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "script",
+      "run",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--file",
+      "ArtSource/Review/CaptureArt4Input.cs",
+      "--entry",
+      "CaptureArt4Input.Ready"
+    ],
+    "exit": 0,
+    "result": {
+      "diagnostics": [],
+      "compileMs": 544,
+      "executeMs": 1,
+      "assemblyName": "PipelineRunScript_CaptureArt4Input_bc25c6928a1f4682bb2ec210c911812c",
+      "success": true,
+      "result": "Fresh direct Battle / public FLAME choice / actual ART4 overview"
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "job",
+      "wait",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--",
+      "--condition",
+      "{\"member\":\"UnityEngine.Time.frameCount\",\"op\":\"changed\"}",
+      "--timeout",
+      "10"
+    ],
+    "exit": 0,
+    "result": {
+      "state": "met",
+      "met": true,
+      "timedOut": false,
+      "member": "UnityEngine.Time.frameCount",
+      "op": "changed",
+      "value": 5431,
+      "initialValue": 5255,
+      "elapsedMs": 102,
+      "framesObserved": 2
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "capture",
+      "game_view",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--width",
+      "1600",
+      "--height",
+      "900",
+      "--source",
+      "screen",
+      "--output-path",
+      "Docs/review/ART.4/playmode/after-overview.png"
+    ],
+    "exit": 0,
+    "result": {
+      "width": 1600,
+      "height": 900,
+      "encoding": "png",
+      "bytes": 260880,
+      "source": "screen",
+      "savedPath": "/Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/ART.4/playmode/after-overview.png",
+      "message": ""
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "script",
+      "run",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--file",
+      "ArtSource/Review/CaptureArt4Input.cs",
+      "--entry",
+      "CaptureArt4Input.Preview"
+    ],
+    "exit": 0,
+    "result": {
+      "diagnostics": [],
+      "compileMs": 29,
+      "executeMs": 2,
+      "assemblyName": "PipelineRunScript_CaptureArt4Input_e5892b6b59f042b4a4ed6050b0f7597c",
+      "success": true,
+      "result": "Public preview / gold150 / no purchase"
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "job",
+      "wait",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--",
+      "--condition",
+      "{\"member\":\"UnityEngine.Time.frameCount\",\"op\":\"changed\"}",
+      "--timeout",
+      "10"
+    ],
+    "exit": 0,
+    "result": {
+      "state": "met",
+      "met": true,
+      "timedOut": false,
+      "member": "UnityEngine.Time.frameCount",
+      "op": "changed",
+      "value": 10642,
+      "initialValue": 10478,
+      "elapsedMs": 103,
+      "framesObserved": 2
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "capture",
+      "game_view",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--width",
+      "1600",
+      "--height",
+      "900",
+      "--source",
+      "screen",
+      "--output-path",
+      "Docs/review/ART.4/playmode/input-build-preview.png"
+    ],
+    "exit": 0,
+    "result": {
+      "width": 1600,
+      "height": 900,
+      "encoding": "png",
+      "bytes": 321214,
+      "source": "screen",
+      "savedPath": "/Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/ART.4/playmode/input-build-preview.png",
+      "message": ""
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "script",
+      "run",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--file",
+      "ArtSource/Review/CaptureArt4Input.cs",
+      "--entry",
+      "CaptureArt4Input.Occupied"
+    ],
+    "exit": 0,
+    "result": {
+      "diagnostics": [],
+      "compileMs": 13,
+      "executeMs": 1,
+      "assemblyName": "PipelineRunScript_CaptureArt4Input_7e5d65f1a2814e6b92f12541c4713b08",
+      "success": true,
+      "result": "Public purchase / occupied selects TowerId1 / no duplicate charge"
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "job",
+      "wait",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--",
+      "--condition",
+      "{\"member\":\"UnityEngine.Time.frameCount\",\"op\":\"changed\"}",
+      "--timeout",
+      "10"
+    ],
+    "exit": 0,
+    "result": {
+      "state": "met",
+      "met": true,
+      "timedOut": false,
+      "member": "UnityEngine.Time.frameCount",
+      "op": "changed",
+      "value": 15833,
+      "initialValue": 15670,
+      "elapsedMs": 103,
+      "framesObserved": 2
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "capture",
+      "game_view",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--width",
+      "1600",
+      "--height",
+      "900",
+      "--source",
+      "screen",
+      "--output-path",
+      "Docs/review/ART.4/playmode/input-occupied-range.png"
+    ],
+    "exit": 0,
+    "result": {
+      "width": 1600,
+      "height": 900,
+      "encoding": "png",
+      "bytes": 305162,
+      "source": "screen",
+      "savedPath": "/Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/ART.4/playmode/input-occupied-range.png",
+      "message": ""
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "script",
+      "run",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--file",
+      "ArtSource/Review/CaptureArt4Input.cs",
+      "--entry",
+      "CaptureArt4Input.Blocked"
+    ],
+    "exit": 0,
+    "result": {
+      "diagnostics": [],
+      "compileMs": 13,
+      "executeMs": 4,
+      "assemblyName": "PipelineRunScript_CaptureArt4Input_e382cf6b66f54eabac943add2dad62eb",
+      "success": true,
+      "result": "Rejected blocked entrance cell; exact whole state unchanged"
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "job",
+      "wait",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--",
+      "--condition",
+      "{\"member\":\"UnityEngine.Time.frameCount\",\"op\":\"changed\"}",
+      "--timeout",
+      "10"
+    ],
+    "exit": 0,
+    "result": {
+      "state": "met",
+      "met": true,
+      "timedOut": false,
+      "member": "UnityEngine.Time.frameCount",
+      "op": "changed",
+      "value": 21119,
+      "initialValue": 20948,
+      "elapsedMs": 101,
+      "framesObserved": 2
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "capture",
+      "game_view",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--width",
+      "1600",
+      "--height",
+      "900",
+      "--source",
+      "screen",
+      "--output-path",
+      "Docs/review/ART.4/playmode/input-blocked-rejected.png"
+    ],
+    "exit": 0,
+    "result": {
+      "width": 1600,
+      "height": 900,
+      "encoding": "png",
+      "bytes": 274971,
+      "source": "screen",
+      "savedPath": "/Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/ART.4/playmode/input-blocked-rejected.png",
+      "message": ""
+    },
+    "stderr": ""
+  },
+  {
+    "args": [
+      "command",
+      "editor.playmode",
+      "stop",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward"
+    ],
+    "exit": 0,
+    "result": "Exited play mode",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,19 @@
+test_artifact_tamper (__main__.Controls.test_artifact_tamper) ... ok
+test_committed_foreign_inventory (__main__.Controls.test_committed_foreign_inventory) ... ok
+test_default_delivery_does_not_require_or_read_private_three (__main__.Controls.test_default_delivery_does_not_require_or_read_private_three) ... ok
+test_default_does_not_relax_rendering_four_tamper (__main__.Controls.test_default_does_not_relax_rendering_four_tamper) ... ok
+test_empty_or_skipped_filtered_failed_suites_rejected (__main__.Controls.test_empty_or_skipped_filtered_failed_suites_rejected) ... ok
+test_exact_carry_in_not_any_dirty_bytes (__main__.Controls.test_exact_carry_in_not_any_dirty_bytes) ... ok
+test_explicit_preservation_changed_private_rejected (__main__.Controls.test_explicit_preservation_changed_private_rejected) ... ok
+test_explicit_preservation_missing_private_rejected (__main__.Controls.test_explicit_preservation_missing_private_rejected) ... ok
+test_missing_rendering_four_still_rejected (__main__.Controls.test_missing_rendering_four_still_rejected) ... ok
+test_positive_full_suite (__main__.Controls.test_positive_full_suite) ... ok
+test_positive_inventory_and_source_artifact (__main__.Controls.test_positive_inventory_and_source_artifact) ... ok
+test_protected_git_blob_tamper (__main__.Controls.test_protected_git_blob_tamper) ... ok
+test_source_tamper (__main__.Controls.test_source_tamper) ... ok
+test_unexpected_source_and_evidence_still_rejected (__main__.Controls.test_unexpected_source_and_evidence_still_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.010s
+
+OK

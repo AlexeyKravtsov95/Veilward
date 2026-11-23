@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "command": "close",
+  "data": {
+    "project": "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+    "pid": 510,
+    "closed": true,
+    "method": "forced",
+    "reason": "closed"
+  },
+  "errors": [],
+  "warnings": []
+}

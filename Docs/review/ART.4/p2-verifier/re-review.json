@@ -1,0 +1,45 @@
+{
+  "origin": "Independent fresh-context reviewer final message after read-only checks",
+  "reviewedHead": "359b76216c9fb91f67c9b2a3edc9f2a3f8b28229",
+  "verdict": "PASS",
+  "openP1": 0,
+  "openP2": 0,
+  "finding45": "mandatory dependency on private3 removed",
+  "fixtureControls": {
+    "total": 14,
+    "passed": 14
+  },
+  "entrypointControls": {
+    "total": 3,
+    "passed": 3
+  },
+  "fullVerifier": {
+    "source": 848,
+    "protected": 3754,
+    "artifacts": 150,
+    "exactRendering": 4,
+    "localPreservation": "NOT_REQUESTED"
+  },
+  "extraFullMainTamperControls": {
+    "expectedFailures": 7,
+    "observedFailures": 7,
+    "inputs": [
+      "source",
+      "protected",
+      "artifact",
+      "rendering1",
+      "rendering2",
+      "rendering3",
+      "rendering4"
+    ]
+  },
+  "publicCounterpartsMatched": 4,
+  "actualRenderingInputs": 66,
+  "changedProductSourcePaths": [],
+  "statusUnchanged": true,
+  "privateBytesRead": false,
+  "newUnityRun": false,
+  "newReexport": false,
+  "newMedia": false,
+  "device": "Deferred QA53/54/55"
+}

@@ -1,0 +1,36 @@
+{
+  "origin": "Independent fresh-context reviewer final response after running read-only audit; not a new Unity run",
+  "pr": "https://github.com/AlexeyKravtsov95/Veilward/pull/88",
+  "reviewedHead": "6e02fd9738013cebf4be9daa69c453295071eade",
+  "testedSource": "b10e8b8919b76f0b7e398558a483b4bd49eb49e9",
+  "verdict": "PASS",
+  "openP1": 0,
+  "openP2": 0,
+  "verifier": {
+    "source": 848,
+    "protected": 3754,
+    "artifacts": 137,
+    "status": "PASS"
+  },
+  "smallControls": {
+    "total": 8,
+    "passed": 8
+  },
+  "suites": {
+    "static": 38,
+    "editMode": 1233,
+    "playMode": 88,
+    "failed": 0,
+    "skipped": 0,
+    "inconclusive": 0
+  },
+  "byteAudit": {
+    "restored": 714,
+    "unexpected": 0,
+    "new": 0
+  },
+  "statusUnchanged": true,
+  "writes": false,
+  "newUnityRun": false,
+  "device": "Deferred QA53/54/55"
+}

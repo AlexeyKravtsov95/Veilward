@@ -1,0 +1,15 @@
+{
+  "exactPreRunGitMatch": true,
+  "onlyOwnGeneratedBytesRestored": [
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxCellAvailable.mat",
+      "before": "164114f5b927f085fa04e777e262048424b1993a4d3a6e93294b889e61c84368",
+      "generated": "a45b071e100c1fd890463d11966a243c0fef108ef72277532dac7aee4fd5a45a"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxCellBlocked.mat",
+      "before": "85a56c4c856adc15798a2f50e2b4a9619ba39f7ec2c64d1cd94638d176565174",
+      "generated": "46ccfe74a9ff10a96433b3d947da43613feb3071f38828096c1eda8a99d46ef2"
+    }
+  ]
+}

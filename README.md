@@ -1,5 +1,7 @@
 # VEILWARD: Spirit Defense
 
+**ART.4 / #45 — production окружение первой Battle-карты, Review до owner merge.** Объёмный парящий остров, путь/build sockets, вход/Сердце и периферийный сад работают в MainMenu→NewGame/Continue при прежних gameplay coordinates/camera/save contracts. [Спецификация](Docs/ART4_PRODUCTION_MAP.md), [actual Editor PNG/непрерывное видео и проверки](Docs/review/ART.4/README.md). Parent ART3/#44 принят после merge87:6семейств/18моделей. Device Deferred to prerelease QA #53/#54/#55; враги46/VFX47/UI48/G2/release отдельно. Нижние записи прежних пакетов сохраняют исторические статусы.
+
 ART.3f/#86: STORM «Грозовой карп» L1–L3 и шесть семейств в прежнем FlameModelBinding. [Спецификация/regressions](Docs/ART3F_STORM_LEVELS.md), [новые Editor/source/Battle evidence](Docs/review/ART.3f/validation.md). Добавлено optional stormLevels; GUID/legacy fields/fallback и gameplay/config/schema4 сохранены. Device Deferred to prerelease QA #53/#54/#55; parent44 остаётся5/6 до приёмки/merge, finalVFX/G2/release отдельно.
 
 

@@ -1,0 +1,18 @@
+{
+  "success": false,
+  "command": "close",
+  "data": {
+    "project": "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+    "pid": 510,
+    "closed": false,
+    "method": "none",
+    "reason": "unsaved_unverified"
+  },
+  "errors": [
+    {
+      "code": "PROJECTS_CLOSE_UNSAVED_UNVERIFIED",
+      "message": "Couldn't check the editor for \"/Users/alexeykravtsov/Desktop/workspace/Veilward\" for unsaved changes, so it wasn't closed. Save your work in the editor, then try again."
+    }
+  ],
+  "warnings": []
+}

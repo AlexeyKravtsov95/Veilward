@@ -1,0 +1,15 @@
+00:00.459  blend            | Read blend: "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART4/Environment_SanctuaryIsland.blend"
+00:00.467  blend            | Read blend: "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART4/Environment_SanctuaryPath.blend"
+00:00.472  blend            | Read blend: "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART4/Environment_BuildSocket.blend"
+00:00.477  blend            | Read blend: "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART4/Environment_SpawnGate.blend"
+00:00.483  blend            | Read blend: "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART4/Environment_SealHeart.blend"
+00:00.489  blend            | Read blend: "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART4/Environment_RimPine.blend"
+PASS Environment_SanctuaryIsland 908 tri 1 slots 29 semantic groups
+PASS Environment_SanctuaryPath 124 tri 1 slots 5 semantic groups
+PASS Environment_BuildSocket 136 tri 1 slots 8 semantic groups
+PASS Environment_SpawnGate 558 tri 1 slots 14 semantic groups
+PASS Environment_SealHeart 188 tri 2 slots 9 semantic groups
+PASS Environment_RimPine 188 tri 1 slots 8 semantic groups
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:21)
+
+Blender quit

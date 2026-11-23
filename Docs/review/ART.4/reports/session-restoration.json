@@ -1,0 +1,31 @@
+{
+  "view": {
+    "output": null,
+    "diagnostics": [],
+    "success": true,
+    "result": {
+      "previous": 18,
+      "restoredIndex": 18,
+      "captureFramerate": 0,
+      "sceneDirty": false
+    }
+  },
+  "close": {
+    "success": true,
+    "command": "close",
+    "data": {
+      "project": "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "pid": 4501,
+      "closed": true,
+      "method": "graceful",
+      "reason": "closed",
+      "unsaved": []
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "backgroundOverride": "\"Run In Background is off (the project's own value; nothing is overriding it)\"",
+  "autoTick": "\"Auto-tick disabled\"",
+  "onlyTaskEditorClosed": true,
+  "userFilesPreserved": true
+}

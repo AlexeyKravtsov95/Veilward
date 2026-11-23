@@ -1,0 +1,135 @@
+[
+  {
+    "asset": "Environment_SanctuaryIsland",
+    "triangles": 908,
+    "vertices": 512,
+    "slots": 1,
+    "semanticGroups": [
+      "TerracedSuspendedRock",
+      "CliffBronzeSeal00",
+      "CliffBronzeSeal02",
+      "CliffBronzeSeal04",
+      "CliffBronzeSeal06",
+      "CliffBronzeSeal08",
+      "CliffBronzeSeal10",
+      "CliffBronzeSeal12",
+      "CliffBronzeSeal14",
+      "CliffBronzeSeal16",
+      "CliffBronzeSeal18",
+      "CliffBronzeSeal20",
+      "CliffBronzeSeal22",
+      "CliffBronzeSeal24",
+      "CliffBronzeSeal26",
+      "CliffBronzeSeal28",
+      "CliffBronzeSeal30",
+      "RootSpire00",
+      "RootSpire01",
+      "RootSpire02",
+      "ExposedCliffTooth00",
+      "ExposedCliffTooth01",
+      "ExposedCliffTooth02",
+      "ExposedCliffTooth03",
+      "MossLedge00",
+      "MossLedge01",
+      "MossLedge02",
+      "MossLedge03",
+      "MossLedge04"
+    ],
+    "source": "ArtSource/Blender/ART4/Environment_SanctuaryIsland.blend",
+    "fbx": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryIsland.fbx"
+  },
+  {
+    "asset": "Environment_SanctuaryPath",
+    "triangles": 124,
+    "vertices": 72,
+    "slots": 1,
+    "semanticGroups": [
+      "SandstoneSlab",
+      "WalkSurface",
+      "BronzeEdge",
+      "BronzeEdge.001",
+      "JointInlay"
+    ],
+    "source": "ArtSource/Blender/ART4/Environment_SanctuaryPath.blend",
+    "fbx": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx"
+  },
+  {
+    "asset": "Environment_BuildSocket",
+    "triangles": 136,
+    "vertices": 96,
+    "slots": 1,
+    "semanticGroups": [
+      "SocketStone",
+      "SocketBronzeRim",
+      "SocketCarvedLip",
+      "SocketJadeCenter",
+      "BuildCornerRune",
+      "BuildCornerRune.001",
+      "BuildCornerRune.002",
+      "BuildCornerRune.003"
+    ],
+    "source": "ArtSource/Blender/ART4/Environment_BuildSocket.blend",
+    "fbx": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx"
+  },
+  {
+    "asset": "Environment_SpawnGate",
+    "triangles": 558,
+    "vertices": 308,
+    "slots": 1,
+    "semanticGroups": [
+      "Threshold",
+      "EntryPlinth",
+      "EntryPillar",
+      "EntryBronzeCollar",
+      "EntryIvoryCap",
+      "EntryPlinth.001",
+      "EntryPillar.001",
+      "EntryBronzeCollar.001",
+      "EntryIvoryCap.001",
+      "EntryLintel",
+      "EntryBronzeCoping",
+      "UpturnedEave",
+      "UpturnedEave.001",
+      "IngressArrow"
+    ],
+    "source": "ArtSource/Blender/ART4/Environment_SpawnGate.blend",
+    "fbx": "Assets/_Game/Art/Models/ART4/Environment_SpawnGate.fbx"
+  },
+  {
+    "asset": "Environment_SealHeart",
+    "triangles": 188,
+    "vertices": 112,
+    "slots": 2,
+    "semanticGroups": [
+      "HeartPedestal",
+      "HeartBronzeSeat",
+      "HeartIvoryCushion",
+      "HeartLower",
+      "HeartCrown",
+      "HeartWard",
+      "HeartWard.001",
+      "HeartWard.002",
+      "HeartWard.003"
+    ],
+    "source": "ArtSource/Blender/ART4/Environment_SealHeart.blend",
+    "fbx": "Assets/_Game/Art/Models/ART4/Environment_SealHeart.fbx"
+  },
+  {
+    "asset": "Environment_RimPine",
+    "triangles": 188,
+    "vertices": 110,
+    "slots": 1,
+    "semanticGroups": [
+      "PineRoot",
+      "PineTrunk",
+      "PineCanopyLower00",
+      "PineCanopyCrown00",
+      "PineCanopyLower01",
+      "PineCanopyCrown01",
+      "PineCanopyLower02",
+      "PineCanopyCrown02"
+    ],
+    "source": "ArtSource/Blender/ART4/Environment_RimPine.blend",
+    "fbx": "Assets/_Game/Art/Models/ART4/Environment_RimPine.fbx"
+  }
+]

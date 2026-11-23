@@ -1,0 +1,24 @@
+{
+  "commandExit": 0,
+  "restoredGeneratedOnly": [
+    "Assets/_Game/Art/Materials/RangePreview.mat",
+    "Assets/_Game/Art/Materials/GrayboxTower.mat",
+    "Assets/_Game/Art/Materials/GrayboxHeart.mat",
+    "Assets/_Game/Art/Materials/AttackBeam.mat",
+    "Assets/_Game/Art/Materials/GrayboxSpawn.mat",
+    "Assets/_Game/Art/Materials/GrayboxCellAvailable.mat",
+    "Assets/_Game/Art/Materials/GrayboxPath.mat",
+    "Assets/_Game/Art/Materials/GrayboxGround.mat",
+    "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat",
+    "Assets/_Game/Art/Materials/HealthFill.mat",
+    "Assets/_Game/Art/Materials/ReactionEffect.mat",
+    "Assets/_Game/Art/Materials/GrayboxCellBlocked.mat",
+    "Assets/_Game/Art/Materials/GrayboxSelection.mat",
+    "Assets/_Game/Art/Materials/HealthBackground.mat",
+    "Assets/_Game/Art/Materials/GrayboxShade.mat",
+    "Assets/_Game/Prefabs/Shade.prefab",
+    "Assets/_Game/Prefabs/TestTower.prefab",
+    "Assets/_Game/Scenes/MainMenu.unity"
+  ],
+  "carryInPreserved": true
+}

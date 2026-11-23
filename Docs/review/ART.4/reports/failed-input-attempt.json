@@ -1,0 +1,22 @@
+[
+  {
+    "file": "after-overview.png",
+    "sha256": "75cf8510ebf16f021976872d912a0759ef0a2aed6814534fe1139eee694a8cc2",
+    "invalid": "prerequisite Ready returned EDITOR_NOT_RUNNING during domain reload"
+  },
+  {
+    "file": "input-build-preview.png",
+    "sha256": "31acae9f07eff9216898bc67e7d38980cbb8a887059e750201bb1a8a5dca8d8f",
+    "invalid": "prerequisite Ready returned EDITOR_NOT_RUNNING during domain reload"
+  },
+  {
+    "file": "input-occupied-range.png",
+    "sha256": "31acae9f07eff9216898bc67e7d38980cbb8a887059e750201bb1a8a5dca8d8f",
+    "invalid": "prerequisite Ready returned EDITOR_NOT_RUNNING during domain reload"
+  },
+  {
+    "file": "input-blocked-rejected.png",
+    "sha256": "be371778876e9e5685162983501b7774adcc64f1a640127de3632dbe4c2729b1",
+    "invalid": "prerequisite Ready returned EDITOR_NOT_RUNNING during domain reload"
+  }
+]
