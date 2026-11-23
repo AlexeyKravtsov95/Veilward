@@ -1,5 +1,7 @@
 # Независимое review ART4
 
+**P2 follow-up после review владельца в#45:** выводы ниже относятся к прежним source/visual/local delivery checks на6e02/6f23. Зависимость основного audit от трёх личных файлов тогда не была выявлена и ограничивала воспроизводимость. [Исправление и новые controls](p2-verifier/README.md), [актуальное независимое re-review](p2-verifier/review.md). Прежние raw receipts сохранены; новая verifier-only правка не меняет карту/Unity/media.
+
 Read-only senior Unity/iOS reviewer, отдельный fresh-context subagent. Не выполнял Unity runs, не менял файлы/Git, не создавал worktree/clone/project copy.
 
 ## Source / visual review

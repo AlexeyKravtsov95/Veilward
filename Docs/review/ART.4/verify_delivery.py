@@ -1,5 +1,5 @@
 """Read-only ART4 source/artifact/protected-baseline audit. Never runs Unity or rewrites carry-in."""
-import hashlib,json,subprocess,sys,gzip
+import argparse,hashlib,json,subprocess,sys,gzip
 from pathlib import Path
 sys.dont_write_bytecode=True
 ROOT=Path(__file__).resolve().parents[3]
@@ -26,6 +26,13 @@ def digest_files(root,expected,label):
  for path,digest in expected.items():require((root/path).is_file() and sha((root/path).read_bytes())==digest,label+' digest mismatch: '+path)
 def protected_files(root,expected):
  for p,d in expected.items():require((root/p).is_file() and blob((root/p).read_bytes())==d,'protected baseline mismatch: '+p)
+def local_preservation(root,known,*,enabled):
+ # Исторические личные файлы не являются delivery inputs; их bytes читает только явный local audit.
+ if not enabled:return dict(status='NOT_REQUESTED',expectedFiles=len(known))
+ digest_files(root,known,'local preservation')
+ return dict(status='PASS',expectedFiles=len(known))
+def dirty_inputs(rows,known):
+ for row in rows:require(row[3:] in known,'unexpected dirty/untracked delivery input: '+row)
 def inventory(expected,actual,label):require(set(expected)==set(actual),label+' inventory mismatch: '+str(sorted(set(expected)^set(actual))))
 def full_pass(report):
  s=report.get('Summary',report.get('summary',{}));s={k.lower():v for k,v in s.items()}
@@ -44,7 +51,7 @@ def tree(ref):
   out[path.decode()]=digest.decode()
  return out
 
-def main():
+def main(*,check_local_preservation=False):
  m=json.loads((PACKET/'manifest.json').read_text())
  require(m['baseline']==BASE and m['protectedExclusions']==EXCLUSIONS,'unexplained baseline exclusions')
  tracked=[p for p in git('ls-files','-z').decode().split('\0') if p]
@@ -70,9 +77,10 @@ def main():
  require(m['protectedCount']==len(protected),'protected inventory count')
  protected_files(ROOT,protected)
  require(m['carryIn']==CARRY,'carry-in policy changed');digest_files(ROOT,CARRY,'exact user carry-in')
- known=json.loads((PACKET/'reports/carry-in.json').read_text());digest_files(ROOT,known,'all initial foreign bytes')
+ known=json.loads((PACKET/'reports/carry-in.json').read_text())
+ preservation=local_preservation(ROOT,known,enabled=check_local_preservation)
  dirty=[row.decode() for row in git('status','--porcelain=v1','-z','--untracked-files=all').split(b'\0') if row]
- for row in dirty:require(row[3:] in known,'unexpected dirty/untracked delivery input: '+row)
+ dirty_inputs(dirty,known)
  digest_files(ROOT,m['artifacts'],'artifact')
  for start in ('flame','gale'):
   before=json.loads((PACKET/f'reports/before-{start}.json').read_text());after=json.loads((PACKET/f'reports/after-{start}.json').read_text())
@@ -123,8 +131,11 @@ def main():
  require(completion['testClock'] is True and completion['liveResourceMutation'] is False and completion['boss'] and completion['castBoss'],'boss evidence contract')
  require(any(r.get('bossDamage',0)>0 for r in completion['rows']),'positive boss ability HP loss missing')
  git('diff','--check',BASE,'HEAD');git('diff','--check')
- receipt=dict(status='PASS',head=git('rev-parse','HEAD').decode().strip(),testedSource=m['testedSource'],source=len(source),protected=len(protected),artifacts=len(m['artifacts']),suites=counts,exactCarryIn=len(CARRY),device='Deferred QA53/54/55',newUnityRun=False,readOnly=True)
+ receipt=dict(status='PASS',head=git('rev-parse','HEAD').decode().strip(),testedSource=m['testedSource'],source=len(source),protected=len(protected),artifacts=len(m['artifacts']),suites=counts,exactCarryIn=len(CARRY),localPreservation=preservation,device='Deferred QA53/54/55',newUnityRun=False,readOnly=True)
  print(json.dumps(receipt,indent=2));return receipt
 if __name__=='__main__':
- try:main()
+ parser=argparse.ArgumentParser(description=__doc__)
+ parser.add_argument('--check-local-preservation',action='store_true',help='Also require all seven historical local user files to exist with their exact original bytes; not needed for delivery verification.')
+ args=parser.parse_args()
+ try:main(check_local_preservation=args.check_local_preservation)
  except (ValueError,KeyError,OSError,subprocess.CalledProcessError) as error:print('FAIL: '+str(error),file=sys.stderr);sys.exit(1)

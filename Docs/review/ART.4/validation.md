@@ -1,5 +1,7 @@
 # ART.4 — evidence и ограничения
 
+**P2 воспроизводимости delivery / follow-up к6f23d9a:** предыдущие полные verifier PASS в личном checkout не доказывали работу без личных3. Default delivery теперь отделён от optional `--check-local-preservation`; exact4 rendering/source/protected/artifact/actual66 checks не ослаблены. [Контракт/новые проверки](p2-verifier/README.md), [повторное review](p2-verifier/review.md). Старые Unity1233/88, compile/roundtrip/media ниже — прежние evidence, не новые runs этой доработки.
+
 Baseline main/merge87 `80d453fcbf234e46f35f6c07c5018e68c371eb7c`. Media rendering inputs зафиксированы в `03af55397b08e6d18a9f5ed8a3879497906cdf42`; capture начинался с uncommitted implementation с теми же bytes. Финальный tested source `b10e8b8919b76f0b7e398558a483b4bd49eb49e9`: после media удалены ровно6unused Editor material writers, добавлены test-only byte/aspect guards и одна строка backup-списка Python wrapper. Сохранённые scene/assets/runtime consumers не менялись. Verifier проверяет exact media-input tree и точную6-line builder delta; это новый ART4 actual-input proof, не расширение старого ART3E lighting certificate.
 
 Существующий checkout/Library, один владелец Unity/записей, без worktree/клонов/копий проекта. Четыре exact user carry-in и три untracked файла сохранены: [initial SHA](reports/carry-in.json). Они не входят PR и не названы canonical bytes. Все Unity tests/media используют фактические inputs; read-only delivery verifier не называется новым Unity run.

@@ -1,0 +1,20 @@
+{
+  "previousHead": "6f23d9a0b26d862467f31280d1c3d4c532c6ae82",
+  "readOnly": true,
+  "projectCopies": 0,
+  "realFilesMovedOrChanged": false,
+  "expectedFailures": [
+    {
+      "missing": "Scripts/__pycache__/check_unity_project.cpython-312.pyc",
+      "expectedFailure": "all initial foreign bytes digest mismatch: Scripts/__pycache__/check_unity_project.cpython-312.pyc"
+    },
+    {
+      "missing": "Scripts/__pycache__/verify_unity_test_results.cpython-312.pyc",
+      "expectedFailure": "all initial foreign bytes digest mismatch: Scripts/__pycache__/verify_unity_test_results.cpython-312.pyc"
+    },
+    {
+      "missing": "Репозиторий — Alexey.txt",
+      "expectedFailure": "all initial foreign bytes digest mismatch: Репозиторий — Alexey.txt"
+    }
+  ]
+}

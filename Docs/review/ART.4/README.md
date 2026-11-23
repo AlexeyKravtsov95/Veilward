@@ -1,5 +1,7 @@
 # ART.4 — production карта первой миссии / #45
 
+**ART4-08 / P2 verifier revision:** mandatory delivery больше не требует личные TXT/pyc; exact4 rendering inputs и все строгие acceptance checks сохранены. [Режимы, воспроизводимые команды и новые проверки](p2-verifier/README.md), [повторное review](p2-verifier/review.md). Unity/media ниже — прежние runs, без нового Unity запуска для этой verifier-only правки.
+
 [Спецификация/regressions](../../ART4_PRODUCTION_MAP.md) · [Фактические проверки и ограничения](validation.md) · [Команды/неуспешные попытки](commands.md) · [Source/provenance](../../../ArtSource/Blender/ART4/README.md).
 
 | До: production graybox | После: production ART4 |

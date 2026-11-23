@@ -1,5 +1,7 @@
 # ART4 — команды и окружение
 
+**Актуальная P2 verifier-only доработка:** [новые команды/режимы](p2-verifier/README.md). Default audit не требует личные3; optional `--check-local-preservation` проверяет все7. Исторические команды и failures ниже сохранены; Unity1233/88 иmedia не запускались заново. Новые Static/controls/read-only audit receipts находятся в`p2-verifier/`.
+
 23.11.2026, существующий checkout `/Users/alexeykravtsov/Desktop/workspace/Veilward`, ветка `codex/art4-production-map`, baseline80d453f/merge87. Без worktree/клона/копии проекта; один владелец Unity. `git status` и process audit выполнены до switch, чужие7files SHA сохранены. Installed Unity6000.3.28f1/8f082d2fe476, CLI self-update check1.0.1=current, Blender5.3.0/02f0899d78e3. Packages/ProjectVersion unchanged. Все `unity command` ниже получают `--caller plugin --skill unity-cli --project-path "$PWD" --format json`; mutations/runs последовательно.
 
 ```sh

@@ -45,3 +45,11 @@
 - После task-owned restart mappingtestпоймал изменившийся Editor aspect; сравнениеfixed16:9+ResetAspect соответствуетcapturecontract. Focused13/13 и final b10e8b8 fullStatic38/Edit1233/Play88positive,714inputsrestored/unknown0.
 - Media rendering tree03af553 сохранён; только exact6-lineunusedwriterdelta/test-onlyguards/Pythonbackup отличаютtestedb10. ActualART4settings/inputs/measuredlighting собственные; historicalART3certificate не расширяется.
 - Final integrity/verifier/PR/review фиксируются вDocs/review/ART.4/manifest.json иreview.md. Никакихworktrees/clones/selfmerge/release.
+
+## Follow-up P2: воспроизводимый delivery verifier
+
+- [x] Воспроизвести старый full-entry отказ при отсутствии каждого personal3 без перемещения файлов.
+- [x] Default delivery отделить от explicit local preservation; exact4/source/protected/artifacts/actual66 иостальные acceptance checks оставить строгими.
+- [x] Добавить малые14fixturecontrols; source/gameplay/карта/lighting/Unity/media не меняются.
+- [ ] Полный read-only entrypoint control missing3, strict-preservation controls иновые receipts; текущиеStatic38/controls/verifier, manifest/commands/docs.
+- [ ] Push втотжеPR88 и независимое re-review P2; безновогоUnityrun/reexport/video/merge/release.
