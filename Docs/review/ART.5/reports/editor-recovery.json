@@ -1,0 +1,15 @@
+{
+  "pid": 36151,
+  "taskOnly": true,
+  "sigtermSent": true,
+  "boundedSeconds": 8,
+  "forcedSigkill": false,
+  "allSourceBytesPreserved": true,
+  "changed": [],
+  "modalTextObserved": false,
+  "observedStack": "EditorSceneManager.HandleOpenScenesChangeOnDisk -> NSAlert.runModal",
+  "nativeDialogUnavailableBefore6000_7": true,
+  "cuacgWindowNotFound": true,
+  "axError": -1712,
+  "bugReportSent": false
+}

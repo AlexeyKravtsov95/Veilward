@@ -1,0 +1,7 @@
+Assets/_Game/Scripts/Editor/EnemyModelBuilder.cs(20,17): error CS0234: The type or namespace name 'isPlaying' does not exist in the namespace 'Veilward.Application' (are you missing an assembly reference?)
+Assets/_Game/Tests/EditMode/BossGreedySearchTests.cs(30,117): warning CS0219: The variable 'mask' is assigned but its value is never used
+Assets/_Game/Tests/PlayMode/EnemyModelPlayModeTests.cs(29,77): error CS0117: 'TowerArchetypeDefinition' does not contain a definition for 'CreateCompatibility'
+Assets/_Game/Tests/PlayMode/EnemyModelPlayModeTests.cs(50,108): error CS1503: Argument 1: cannot convert from 'Veilward.Domain.GridCoordinate' to 'Veilward.Domain.PlaceTowerCommand'
+Assets/_Game/Tests/PlayMode/EnemyModelPlayModeTests.cs(53,46): error CS1061: 'EnemyState' does not contain a definition for 'ApplyStatus' and no accessible extension method 'ApplyStatus' accepting a first argument of type 'EnemyState' could be found (are you missing a using directive or an assembly reference?)
+Assets/_Game/Tests/PlayMode/EnemyModelPlayModeTests.cs(86,56): error CS1061: 'EnemyState' does not contain a definition for 'Advance' and no accessible extension method 'Advance' accepting a first argument of type 'EnemyState' could be found (are you missing a using directive or an assembly reference?)
+Assets/_Game/Tests/PlayMode/EnemyModelPlayModeTests.cs(107,61): error CS1503: Argument 1: cannot convert from 'Veilward.Domain.GridCoordinate' to 'Veilward.Domain.PlaceTowerCommand'

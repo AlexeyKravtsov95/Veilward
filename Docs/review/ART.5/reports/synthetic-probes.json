@@ -1,0 +1,226 @@
+{
+  "synthetic": true,
+  "assignedPositionsAndHealth": true,
+  "statusSnapshot": "actual separate TestWave publicTIDE+GALE Wet/Gust",
+  "camera": {
+    "position": "(8, 11, 8)",
+    "rotation": "(-0.143957868, 0.8560174, -0.347545058, -0.354574025)",
+    "orthographicSize": 8.5,
+    "aspect": 1.77777779
+  },
+  "width": 1600,
+  "height": 900,
+  "foreignRendererHiding": false,
+  "receipts": [
+    {
+      "file": "single-shade.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade single / authored meter dimensions"
+    },
+    {
+      "file": "shade-move.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade sampled move / active time .2"
+    },
+    {
+      "file": "shade-turn.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade sampled turn / active time .2"
+    },
+    {
+      "file": "shade-hit.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade sampled hit / active time .2"
+    },
+    {
+      "file": "shade-death.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade sampled death / active time .2"
+    },
+    {
+      "file": "shade-leak.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade sampled leak / active time .2"
+    },
+    {
+      "file": "single-boss.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss single / authored meter dimensions"
+    },
+    {
+      "file": "boss-move.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss sampled move / active time .2"
+    },
+    {
+      "file": "boss-turn.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss sampled turn / active time .2"
+    },
+    {
+      "file": "boss-hit.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss sampled hit / active time .2"
+    },
+    {
+      "file": "boss-death.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss sampled death / active time .2"
+    },
+    {
+      "file": "boss-leak.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss sampled leak / active time .2"
+    },
+    {
+      "file": "pair.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "Shade + Rift Warden silhouette comparison"
+    },
+    {
+      "file": "behind-FLAME-shade.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade behind FLAME L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-FLAME-boss.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss behind FLAME L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-TIDE-shade.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade behind TIDE L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-TIDE-boss.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss behind TIDE L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-GALE-shade.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade behind GALE L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-GALE-boss.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss behind GALE L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-STONE-shade.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade behind STONE L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-STONE-boss.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss behind STONE L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-STEAM-shade.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade behind STEAM L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-STEAM-boss.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss behind STEAM L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-STORM-shade.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade behind STORM L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-STORM-boss.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss behind STORM L3 / animated multipart stencil"
+    },
+    {
+      "file": "behind-Spawn-Entrance-shade.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade behind Spawn Entrance"
+    },
+    {
+      "file": "behind-Spawn-Entrance-boss.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss behind Spawn Entrance"
+    },
+    {
+      "file": "behind-Seal-Heart-shade.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "shade behind Seal Heart"
+    },
+    {
+      "file": "behind-Seal-Heart-boss.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "boss behind Seal Heart"
+    },
+    {
+      "file": "dense-six-families.png",
+      "synthetic": true,
+      "frame": 47719,
+      "tick": 0,
+      "label": "12enemies / two status slots / all6tower families"
+    }
+  ]
+}

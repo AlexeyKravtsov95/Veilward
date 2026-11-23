@@ -1,0 +1,1802 @@
+{
+  "models": [
+    {
+      "name": "Enemy_Shade",
+      "ids": [
+        "Animation:Enemy_Shade:db4125d97bfab4ce8bb6e7aca020cc58:2223639932434330405",
+        "AnimationClip:__preview__Scene:db4125d97bfab4ce8bb6e7aca020cc58:110800000",
+        "AnimationClip:Death:db4125d97bfab4ce8bb6e7aca020cc58:1963079803359675471",
+        "AnimationClip:Hit:db4125d97bfab4ce8bb6e7aca020cc58:723096430288179899",
+        "AnimationClip:Idle:db4125d97bfab4ce8bb6e7aca020cc58:-623603649343465320",
+        "AnimationClip:Leak:db4125d97bfab4ce8bb6e7aca020cc58:-626948583029366203",
+        "AnimationClip:Move:db4125d97bfab4ce8bb6e7aca020cc58:-1609281748187839663",
+        "GameObject:Enemy_Shade:db4125d97bfab4ce8bb6e7aca020cc58:919132149155446097",
+        "GameObject:Mantle:db4125d97bfab4ce8bb6e7aca020cc58:1876169709173441760",
+        "GameObject:MaskCrown:db4125d97bfab4ce8bb6e7aca020cc58:6779112820235551007",
+        "GameObject:PendantLeft:db4125d97bfab4ce8bb6e7aca020cc58:-8358792328056542250",
+        "GameObject:PendantRight:db4125d97bfab4ce8bb6e7aca020cc58:4930969199368091038",
+        "Mesh:Mantle:db4125d97bfab4ce8bb6e7aca020cc58:-6902153214555190266",
+        "Mesh:MaskCrown:db4125d97bfab4ce8bb6e7aca020cc58:1833737360245594908",
+        "Mesh:PendantLeft:db4125d97bfab4ce8bb6e7aca020cc58:1297796216068820701",
+        "Mesh:PendantRight:db4125d97bfab4ce8bb6e7aca020cc58:-2627396408782553523",
+        "MeshFilter:Mantle:db4125d97bfab4ce8bb6e7aca020cc58:7015421305401268481",
+        "MeshFilter:MaskCrown:db4125d97bfab4ce8bb6e7aca020cc58:-4422544110429527944",
+        "MeshFilter:PendantLeft:db4125d97bfab4ce8bb6e7aca020cc58:667283770585674126",
+        "MeshFilter:PendantRight:db4125d97bfab4ce8bb6e7aca020cc58:8324936230687858079",
+        "MeshRenderer:Mantle:db4125d97bfab4ce8bb6e7aca020cc58:-7247431046038577373",
+        "MeshRenderer:MaskCrown:db4125d97bfab4ce8bb6e7aca020cc58:-7940322016859719063",
+        "MeshRenderer:PendantLeft:db4125d97bfab4ce8bb6e7aca020cc58:7610168324019301404",
+        "MeshRenderer:PendantRight:db4125d97bfab4ce8bb6e7aca020cc58:4197521652517182594",
+        "Transform:Enemy_Shade:db4125d97bfab4ce8bb6e7aca020cc58:-8679921383154817045",
+        "Transform:Mantle:db4125d97bfab4ce8bb6e7aca020cc58:9071833586578866414",
+        "Transform:MaskCrown:db4125d97bfab4ce8bb6e7aca020cc58:-765381405164808912",
+        "Transform:PendantLeft:db4125d97bfab4ce8bb6e7aca020cc58:4942176258866187301",
+        "Transform:PendantRight:db4125d97bfab4ce8bb6e7aca020cc58:-742723170591301176"
+      ],
+      "meshes": [
+        {
+          "name": "Mantle",
+          "vertices": 466,
+          "triangles": 212,
+          "slots": 1,
+          "geometry": "9a16dd7e5a93d99482ea51c06063927c712119ace1c66d8f39356c51875ab37a",
+          "bounds": [
+            "(-0.4, -0.32, -0.63)",
+            "(0.4, 0.32, 0.49)"
+          ]
+        },
+        {
+          "name": "MaskCrown",
+          "vertices": 376,
+          "triangles": 172,
+          "slots": 2,
+          "geometry": "6cc7002870d069737d87cf9e21d9f1e73d38474a8f869e45e0f5cea69c728dfd",
+          "bounds": [
+            "(-0.246573955, -0.09, -0.279999971)",
+            "(0.246573955, 0.343999982, 0.19)"
+          ]
+        },
+        {
+          "name": "PendantLeft",
+          "vertices": 24,
+          "triangles": 8,
+          "slots": 1,
+          "geometry": "8455242f9053cf094ba8d20d0a603ff93293261ffcb5d10b6c98b54312c2c939",
+          "bounds": [
+            "(-0.11, -0.09, 0)",
+            "(0.13000001, 0.03999999, 0.68)"
+          ]
+        },
+        {
+          "name": "PendantRight",
+          "vertices": 24,
+          "triangles": 8,
+          "slots": 1,
+          "geometry": "ecd860166bf780d2c60a96fe852a0023848c12ab8606653ff217a51451d62ca0",
+          "bounds": [
+            "(-0.13000001, -0.09, 0)",
+            "(0.11, 0.0400000177, 0.68)"
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "name": "Death",
+          "length": 0.600000143,
+          "frameRate": 30.0,
+          "legacy": true,
+          "curves": 40,
+          "keyframes": 760,
+          "curveSha256": "1d627bf88cbd2e62748b76b0914291329cfe06f8c4a3f1c3ecea7f53aa61fe20",
+          "poses": [
+            {
+              "fraction": 0.0,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, -1.46957619E-17)",
+                  "rotation": "(0.7071068, -3.46380041E-18, 3.46380082E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.09, -1.46957619E-17)",
+                  "rotation": "(0.7071068, -3.46380041E-18, 3.46380082E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.76, -0.0899999961)",
+                  "rotation": "(0.7071068, -1.08243771E-17, 1.08243788E-17, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.76, -0.0899999961)",
+                  "rotation": "(0.7071068, -1.08243771E-17, 1.08243788E-17, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.25,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.5683334, 0)",
+                  "rotation": "(0.751811, 0.0512441, 0.0447041355, 0.6558627)",
+                  "scale": "(0.805555463, 0.805555463, 0.8055555)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.00833333, 0)",
+                  "rotation": "(0.751811, 0.0512441, 0.0447041355, 0.6558627)",
+                  "scale": "(0.805555463, 0.805555463, 0.8055555)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.6783334, -0.0899999961)",
+                  "rotation": "(0.7475446, 0.094987765, 0.08286501, 0.652141)",
+                  "scale": "(0.8055555, 0.805555463, 0.8055555)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.6783334, -0.0899999961)",
+                  "rotation": "(0.7475446, 0.094987765, 0.08286501, 0.652141)",
+                  "scale": "(0.8055555, 0.805555463, 0.8055555)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.5,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.463333219, 0)",
+                  "rotation": "(0.7983627, 0.12520127, 0.09125589, 0.5819055)",
+                  "scale": "(0.555555463, 0.555555463, 0.555555463)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 0.9033333, 0)",
+                  "rotation": "(0.7983627, 0.12520127, 0.09125589, 0.5819055)",
+                  "scale": "(0.555555463, 0.555555463, 0.555555463)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.573333263, -0.0899999961)",
+                  "rotation": "(0.774632633, 0.230223387, 0.1678037, 0.564609051)",
+                  "scale": "(0.5555554, 0.555555463, 0.555555463)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.573333263, -0.0899999961)",
+                  "rotation": "(0.774632633, 0.230223387, 0.1678037, 0.564609051)",
+                  "scale": "(0.5555554, 0.555555463, 0.555555463)"
+                }
+              ]
+            },
+            {
+              "fraction": 1.0,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.2533333, 0)",
+                  "rotation": "(0.8496966, 0.291569859, 0.1425898, 0.4155369)",
+                  "scale": "(0.0555554032, 0.0555554032, 0.0555554032)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 0.6933333, 0)",
+                  "rotation": "(0.8496966, 0.291569859, 0.1425898, 0.4155369)",
+                  "scale": "(0.0555554032, 0.0555554032, 0.0555554032)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.3633333, -0.0899999961)",
+                  "rotation": "(0.7343076, 0.5174839, 0.253071129, 0.359107)",
+                  "scale": "(0.0555554032, 0.0555554032, 0.0555554032)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.3633333, -0.0899999961)",
+                  "rotation": "(0.7343076, 0.5174839, 0.253071129, 0.359107)",
+                  "scale": "(0.0555554032, 0.0555554032, 0.0555554032)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hit",
+          "length": 0.4000001,
+          "frameRate": 30.0,
+          "legacy": true,
+          "curves": 40,
+          "keyframes": 520,
+          "curveSha256": "b433a953413facd121bf131bfac138b1bb40c41c9895fa791a53124a1f2fe17b",
+          "poses": [
+            {
+              "fraction": 0.0,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, 0)",
+                  "rotation": "(0.7071068, -2.16487952E-18, -2.16487911E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.09, 0)",
+                  "rotation": "(0.7071068, 3.24731939E-18, 3.247319E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.76, -0.0899999961)",
+                  "rotation": "(0.7827421, -2.68401745E-17, -2.13402126E-17, 0.6223462)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.76, -0.0899999961)",
+                  "rotation": "(0.719469368, 3.08382031E-17, 2.97689862E-17, 0.694524169)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.25,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, -0.0599998944)",
+                  "rotation": "(0.6651689, -0.0149304811, 0.0133051425, 0.7464251)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.09, -0.0599998944)",
+                  "rotation": "(0.6651689, -0.0149304811, 0.0133051425, 0.7464251)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.76, -0.1499999)",
+                  "rotation": "(0.664002955, -0.046630498, 0.0415542759, 0.7451168)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.76, -0.1499999)",
+                  "rotation": "(0.664002955, -0.046630498, 0.0415542759, 0.7451168)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.5,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, -0.115911089)",
+                  "rotation": "(0.6238978, -0.0301731732, 0.02411756, 0.7805507)",
+                  "scale": "(0.9999999, 0.9999999, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.09, -0.115911089)",
+                  "rotation": "(0.6238978, -0.0301731732, 0.02411756, 0.7805507)",
+                  "scale": "(0.9999999, 0.9999999, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.76, -0.2059111)",
+                  "rotation": "(0.6198183, -0.09408565, 0.0752031, 0.775446832)",
+                  "scale": "(0.9999999, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.76, -0.2059111)",
+                  "rotation": "(0.6198183, -0.09408565, 0.0752031, 0.775446832)",
+                  "scale": "(0.9999999, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 1.0,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, -0.0310582854)",
+                  "rotation": "(0.6857135, -0.007534982, 0.00709927641, 0.7277979)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.09, -0.0310582854)",
+                  "rotation": "(0.6857135, -0.007534982, 0.00709927641, 0.7277979)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.76, -0.121058293)",
+                  "rotation": "(0.6853914, -0.02354313, 0.02218177, 0.727456033)",
+                  "scale": "(1, 0.9999999, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.76, -0.121058293)",
+                  "rotation": "(0.6853914, -0.02354313, 0.02218177, 0.727456033)",
+                  "scale": "(1, 0.9999999, 1)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Idle",
+          "length": 1.0,
+          "frameRate": 30.0,
+          "legacy": true,
+          "curves": 40,
+          "keyframes": 1200,
+          "curveSha256": "ec46e9087e58f0ec6c06857aa42780003c1d0ae7e946e0b940d6ea993a631a07",
+          "poses": [
+            {
+              "fraction": 0.0,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.6357642, 0)",
+                  "rotation": "(0.7070976, -0.0035950637, -0.00359506346, 0.7070977)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.0757643, 0)",
+                  "rotation": "(0.7070976, 0.0035950637, 0.00359506346, 0.7070977)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.745764136, -0.0899999961)",
+                  "rotation": "(0.7345187, -0.02091856, -0.0193086937, 0.677991033)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.745764136, -0.0899999961)",
+                  "rotation": "(0.721688747, 0.0205531679, 0.0196971763, 0.6916321)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.25,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.6840476, 0)",
+                  "rotation": "(0.7070539, 0.00864508, 0.00864508, 0.707054)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.12404764, 0)",
+                  "rotation": "(0.7070539, -0.00864508, -0.00864508, 0.707054)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.7940476, -0.0899999961)",
+                  "rotation": "(0.699272156, 0.04795215, 0.04879584, 0.711574435)",
+                  "scale": "(0.9999999, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.7940476, -0.0899999961)",
+                  "rotation": "(0.678462744, -0.04652565, -0.0501578376, 0.7314424)",
+                  "scale": "(0.9999999, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.5,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.6572768, 0)",
+                  "rotation": "(0.7071044, 0.00183769537, 0.00183769537, 0.7071045)",
+                  "scale": "(0.9999999, 1, 0.9999999)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.09727693, 0)",
+                  "rotation": "(0.7071044, -0.00183769537, -0.00183769537, 0.7071045)",
+                  "scale": "(0.9999999, 1, 0.9999999)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.7672769, -0.0899999961)",
+                  "rotation": "(0.678899169, 0.009881272, 0.0106845265, 0.7340873)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.7672769, -0.0899999961)",
+                  "rotation": "(0.697240353, -0.0101482254, -0.0104313074, 0.716689646)",
+                  "scale": "(1, 0.9999999, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 1.0,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, 0)",
+                  "rotation": "(0.7071068, 0, 0, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.09, 0)",
+                  "rotation": "(0.7071068, 1.08244534E-18, 1.08244514E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.76, -0.0899999961)",
+                  "rotation": "(0.7323523, -1.25562187E-17, -1.16745128E-17, 0.6809259)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.76, -0.0899999961)",
+                  "rotation": "(0.711087048, 1.82874413E-17, 1.80821368E-17, 0.70310396)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Leak",
+          "length": 0.600000143,
+          "frameRate": 30.0,
+          "legacy": true,
+          "curves": 40,
+          "keyframes": 760,
+          "curveSha256": "ba2ae907869709af400a7f6ea6e0567588c9a49149e63d69f9314a73b2884c03",
+          "poses": [
+            {
+              "fraction": 0.0,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.229999974, 0)",
+                  "rotation": "(0.851731241, 0.31090498, 0.144624382, 0.3962017)",
+                  "scale": "(0.0200031251, 0.0200031251, 0.0200031251)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 0.669999957, 0)",
+                  "rotation": "(0.851731241, 0.31090498, 0.144624382, 0.3962017)",
+                  "scale": "(0.0200031251, 0.0200031251, 0.0200031251)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.34, -0.0899999961)",
+                  "rotation": "(0.7218117, 0.5487221, 0.2552503, 0.3357668)",
+                  "scale": "(0.0200031251, 0.0200031251, 0.0200031251)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.34, -0.0899999961)",
+                  "rotation": "(0.7218117, 0.5487221, 0.2552503, 0.3357668)",
+                  "scale": "(0.0200031251, 0.0200031251, 0.0200031251)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.25,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.7433334, 0)",
+                  "rotation": "(0.703767657, 0.06863833, -0.06863833, 0.703767538)",
+                  "scale": "(0.8055553, 0.8055553, 0.8055553)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.18333352, 0)",
+                  "rotation": "(0.703767657, -0.06863833, 0.06863833, 0.703767538)",
+                  "scale": "(0.8055553, 0.8055553, 0.8055553)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.8533334, -0.0899999961)",
+                  "rotation": "(0.703767657, 0.06863833, -0.06863833, 0.703767538)",
+                  "scale": "(0.8055553, 0.8055553, 0.8055553)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.8533334, -0.0899999961)",
+                  "rotation": "(0.703767657, -0.06863833, 0.06863833, 0.703767538)",
+                  "scale": "(0.8055553, 0.8055553, 0.8055553)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.5,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.8633334, 0)",
+                  "rotation": "(0.689719141, 0.155844852, -0.155844852, 0.689719)",
+                  "scale": "(0.5555553, 0.5555553, 0.5555553)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.30333352, 0)",
+                  "rotation": "(0.689719141, -0.155844852, 0.155844852, 0.689719)",
+                  "scale": "(0.5555553, 0.5555553, 0.5555553)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.973333359, -0.0899999961)",
+                  "rotation": "(0.689719141, 0.155844852, -0.155844852, 0.689719)",
+                  "scale": "(0.5555553, 0.5555553, 0.5555553)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.973333359, -0.0899999961)",
+                  "rotation": "(0.689719141, -0.155844852, 0.155844852, 0.689719)",
+                  "scale": "(0.5555553, 0.5555553, 0.5555553)"
+                }
+              ]
+            },
+            {
+              "fraction": 1.0,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 1.10333335, 0)",
+                  "rotation": "(0.629720747, 0.32163927, -0.32163927, 0.6297208)",
+                  "scale": "(0.05555529, 0.05555529, 0.05555529)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.54333341, 0)",
+                  "rotation": "(0.629720747, -0.32163927, 0.32163927, 0.6297208)",
+                  "scale": "(0.05555529, 0.05555529, 0.05555529)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 1.21333337, -0.0899999961)",
+                  "rotation": "(0.629720747, 0.32163927, -0.32163927, 0.6297208)",
+                  "scale": "(0.05555529, 0.05555529, 0.05555529)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 1.21333337, -0.0899999961)",
+                  "rotation": "(0.629720747, -0.32163927, 0.32163927, 0.6297208)",
+                  "scale": "(0.05555529, 0.05555529, 0.05555529)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Move",
+          "length": 1.00000024,
+          "frameRate": 30.0,
+          "legacy": true,
+          "curves": 40,
+          "keyframes": 1240,
+          "curveSha256": "151887e661b2287feabbfb32be8ab6b01e3ce3615ad8a9925f2008eeddefde96",
+          "poses": [
+            {
+              "fraction": 0.0,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, 0)",
+                  "rotation": "(0.7071068, -2.16488511E-18, -2.16488469E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.09, 0)",
+                  "rotation": "(0.7071068, 3.24733055E-18, 3.24733014E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.76, -0.0899999961)",
+                  "rotation": "(0.732352436, -2.5112411E-17, -2.33489909E-17, 0.6809257)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.76, -0.0899999961)",
+                  "rotation": "(0.711087048, 3.0479038E-17, 3.01368665E-17, 0.70310396)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.25,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.718095243, 0)",
+                  "rotation": "(0.7070539, 0.00864508, 0.008645081, 0.707054)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.15809536, 0)",
+                  "rotation": "(0.7070539, -0.00864508, -0.008645081, 0.707054)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.828095257, -0.0899999961)",
+                  "rotation": "(0.6859681, 0.0470395833, 0.0496757925, 0.7244083)",
+                  "scale": "(0.9999999, 0.99999994, 0.99999994)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.828095257, -0.0899999961)",
+                  "rotation": "(0.6179864, -0.042379532, -0.05370672, 0.7832065)",
+                  "scale": "(0.9999999, 0.99999994, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.5,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.664553761, 0)",
+                  "rotation": "(0.7071044, 0.00183769071, 0.00183769083, 0.7071045)",
+                  "scale": "(0.9999999, 1, 0.9999999)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.10455382, 0)",
+                  "rotation": "(0.7071044, -0.00183769071, -0.00183769083, 0.7071045)",
+                  "scale": "(0.9999999, 1, 0.9999999)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.7745538, -0.0899999961)",
+                  "rotation": "(0.6157378, 0.008961947, 0.0114665236, 0.7878167)",
+                  "scale": "(1, 1, 0.9999999)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.7745538, -0.0899999961)",
+                  "rotation": "(0.675997734, -0.00983902, -0.0107234037, 0.73676)",
+                  "scale": "(1, 1, 0.9999999)"
+                }
+              ]
+            },
+            {
+              "fraction": 1.0,
+              "parts": [
+                {
+                  "name": "Enemy_Shade(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, 0)",
+                  "rotation": "(0.7071068, -2.16488511E-18, -2.16488469E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.09, 0)",
+                  "rotation": "(0.7071068, 3.24733055E-18, 3.24733014E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.21, 0.76, -0.0899999961)",
+                  "rotation": "(0.732352436, -2.5112411E-17, -2.33489909E-17, 0.6809257)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.21, 0.76, -0.0899999961)",
+                  "rotation": "(0.711087048, 3.0479038E-17, 3.01368665E-17, 0.70310396)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "remaps": [
+        "Art1Glow:Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000",
+        "Art1Surface:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000"
+      ],
+      "rendererMaterials": [
+        "Body occlusion cue Mantle:Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000",
+        "Body occlusion cue MaskCrown:Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000;Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000",
+        "Body occlusion cue PendantLeft:Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000",
+        "Body occlusion cue PendantRight:Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000",
+        "Health Background:Material:HealthBackground:a24518122c10148069edfcf4d2833dbb:2100000",
+        "Health Fill:Material:HealthFill:bee317f71344d47c9942e38063656946:2100000",
+        "HP background occlusion cue:Material:MAT_OccludedHealthBackground:66b0ca8e9312a4554b674dc5793f1827:2100000",
+        "HP fill occlusion cue:Material:MAT_OccludedHealthFill:4fea399ca7c63428e899819b27a8cdc9:2100000",
+        "Mantle:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000",
+        "MaskCrown:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000;Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000",
+        "PendantLeft:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000",
+        "PendantRight:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000",
+        "Shade:Material:GrayboxShade:a9802e22a6e9f4e0188c5f346b9fb29e:2100000"
+      ],
+      "dependencies": [
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art21_ShadeOcclusion.mat",
+        "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthBackground.mat",
+        "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthFill.mat",
+        "Assets/_Game/Art/Materials/GrayboxShade.mat",
+        "Assets/_Game/Art/Materials/HealthBackground.mat",
+        "Assets/_Game/Art/Materials/HealthFill.mat",
+        "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx",
+        "Assets/_Game/Art/Shaders/ShadeOcclusion.shader",
+        "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png",
+        "Assets/_Game/Prefabs/Shade.prefab",
+        "Assets/_Game/Scripts/Presentation/EnemyHealthBarView.cs",
+        "Assets/_Game/Scripts/Presentation/EnemyModelView.cs",
+        "Assets/_Game/Scripts/Presentation/EnemyStatusView.cs",
+        "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader",
+        "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Text.cs",
+        "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/VertexModifiers/Outline.cs"
+      ]
+    },
+    {
+      "name": "Enemy_RiftWarden",
+      "ids": [
+        "Animation:Enemy_RiftWarden:a0c0aa16ec698409d9d1c77859853fc5:2223639932434330405",
+        "AnimationClip:__preview__Scene:a0c0aa16ec698409d9d1c77859853fc5:110800000",
+        "AnimationClip:Death:a0c0aa16ec698409d9d1c77859853fc5:1963079803359675471",
+        "AnimationClip:Hit:a0c0aa16ec698409d9d1c77859853fc5:723096430288179899",
+        "AnimationClip:Idle:a0c0aa16ec698409d9d1c77859853fc5:-623603649343465320",
+        "AnimationClip:Leak:a0c0aa16ec698409d9d1c77859853fc5:-626948583029366203",
+        "AnimationClip:Move:a0c0aa16ec698409d9d1c77859853fc5:-1609281748187839663",
+        "GameObject:Enemy_RiftWarden:a0c0aa16ec698409d9d1c77859853fc5:919132149155446097",
+        "GameObject:Mantle:a0c0aa16ec698409d9d1c77859853fc5:1876169709173441760",
+        "GameObject:MaskCrown:a0c0aa16ec698409d9d1c77859853fc5:6779112820235551007",
+        "GameObject:PendantLeft:a0c0aa16ec698409d9d1c77859853fc5:-8358792328056542250",
+        "GameObject:PendantRight:a0c0aa16ec698409d9d1c77859853fc5:4930969199368091038",
+        "Mesh:Mantle:a0c0aa16ec698409d9d1c77859853fc5:-6902153214555190266",
+        "Mesh:MaskCrown:a0c0aa16ec698409d9d1c77859853fc5:1833737360245594908",
+        "Mesh:PendantLeft:a0c0aa16ec698409d9d1c77859853fc5:1297796216068820701",
+        "Mesh:PendantRight:a0c0aa16ec698409d9d1c77859853fc5:-2627396408782553523",
+        "MeshFilter:Mantle:a0c0aa16ec698409d9d1c77859853fc5:7015421305401268481",
+        "MeshFilter:MaskCrown:a0c0aa16ec698409d9d1c77859853fc5:-4422544110429527944",
+        "MeshFilter:PendantLeft:a0c0aa16ec698409d9d1c77859853fc5:667283770585674126",
+        "MeshFilter:PendantRight:a0c0aa16ec698409d9d1c77859853fc5:8324936230687858079",
+        "MeshRenderer:Mantle:a0c0aa16ec698409d9d1c77859853fc5:-7247431046038577373",
+        "MeshRenderer:MaskCrown:a0c0aa16ec698409d9d1c77859853fc5:-7940322016859719063",
+        "MeshRenderer:PendantLeft:a0c0aa16ec698409d9d1c77859853fc5:7610168324019301404",
+        "MeshRenderer:PendantRight:a0c0aa16ec698409d9d1c77859853fc5:4197521652517182594",
+        "Transform:Enemy_RiftWarden:a0c0aa16ec698409d9d1c77859853fc5:-8679921383154817045",
+        "Transform:Mantle:a0c0aa16ec698409d9d1c77859853fc5:9071833586578866414",
+        "Transform:MaskCrown:a0c0aa16ec698409d9d1c77859853fc5:-765381405164808912",
+        "Transform:PendantLeft:a0c0aa16ec698409d9d1c77859853fc5:4942176258866187301",
+        "Transform:PendantRight:a0c0aa16ec698409d9d1c77859853fc5:-742723170591301176"
+      ],
+      "meshes": [
+        {
+          "name": "Mantle",
+          "vertices": 1834,
+          "triangles": 828,
+          "slots": 2,
+          "geometry": "0f703e45e07507f66bab6bde8bb5cfaaaa5f69313a6c1a885cdd6730b346c748",
+          "bounds": [
+            "(-0.84, -0.31, -0.930000067)",
+            "(0.84, 0.405000031, 0.47)"
+          ]
+        },
+        {
+          "name": "MaskCrown",
+          "vertices": 904,
+          "triangles": 412,
+          "slots": 2,
+          "geometry": "f77528d8541e8be4ce23345856e3c92bddbc5df0ac868e7956dc113822b8f94c",
+          "bounds": [
+            "(-0.366084516, -0.0500000119, -0.495)",
+            "(0.366084516, 0.343999982, 0.279999971)"
+          ]
+        },
+        {
+          "name": "PendantLeft",
+          "vertices": 72,
+          "triangles": 36,
+          "slots": 2,
+          "geometry": "d10899ff903d2dd1f5a1dd8bb93bb507677ea5b6f8c233bc710e01ea715c9d64",
+          "bounds": [
+            "(-0.095, -0.0400000066, -5.96046448E-08)",
+            "(0.095, 0.05399999, 0.674999952)"
+          ]
+        },
+        {
+          "name": "PendantRight",
+          "vertices": 72,
+          "triangles": 36,
+          "slots": 2,
+          "geometry": "d10899ff903d2dd1f5a1dd8bb93bb507677ea5b6f8c233bc710e01ea715c9d64",
+          "bounds": [
+            "(-0.095, -0.0400000066, -5.96046448E-08)",
+            "(0.095, 0.05399999, 0.674999952)"
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "name": "Death",
+          "length": 0.600000143,
+          "frameRate": 30.0,
+          "legacy": true,
+          "curves": 40,
+          "keyframes": 760,
+          "curveSha256": "a428722318de0070710751a3ce41cd46adcfb68f63f8a4f734a11eb8b580c888",
+          "poses": [
+            {
+              "fraction": 0.0,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, -1.46957619E-17)",
+                  "rotation": "(0.7071068, -3.46380041E-18, 3.46380082E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.39, -1.46957619E-17)",
+                  "rotation": "(0.7071068, -3.46380041E-18, 3.46380082E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.03, 0.22)",
+                  "rotation": "(0.7071068, -1.08243771E-17, 1.08243788E-17, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.03, 0.22)",
+                  "rotation": "(0.7071068, -1.08243771E-17, 1.08243788E-17, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.25,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.5683334, 0)",
+                  "rotation": "(0.751811, 0.0512441, 0.0447041355, 0.6558627)",
+                  "scale": "(0.805555463, 0.805555463, 0.8055555)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.30833328, 0)",
+                  "rotation": "(0.751811, 0.0512441, 0.0447041355, 0.6558627)",
+                  "scale": "(0.805555463, 0.805555463, 0.8055555)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 0.9483333, 0.22)",
+                  "rotation": "(0.7475446, 0.094987765, 0.08286501, 0.652141)",
+                  "scale": "(0.8055555, 0.805555463, 0.8055555)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 0.9483333, 0.22)",
+                  "rotation": "(0.7475446, 0.094987765, 0.08286501, 0.652141)",
+                  "scale": "(0.8055555, 0.805555463, 0.8055555)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.5,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.463333219, 0)",
+                  "rotation": "(0.7983627, 0.12520127, 0.09125589, 0.5819055)",
+                  "scale": "(0.555555463, 0.555555463, 0.555555463)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.20333326, 0)",
+                  "rotation": "(0.7983627, 0.12520127, 0.09125589, 0.5819055)",
+                  "scale": "(0.555555463, 0.555555463, 0.555555463)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 0.8433332, 0.22)",
+                  "rotation": "(0.774632633, 0.230223387, 0.1678037, 0.564609051)",
+                  "scale": "(0.5555554, 0.555555463, 0.555555463)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 0.8433332, 0.22)",
+                  "rotation": "(0.774632633, 0.230223387, 0.1678037, 0.564609051)",
+                  "scale": "(0.5555554, 0.555555463, 0.555555463)"
+                }
+              ]
+            },
+            {
+              "fraction": 1.0,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.2533333, 0)",
+                  "rotation": "(0.8496966, 0.291569859, 0.1425898, 0.4155369)",
+                  "scale": "(0.0555554032, 0.0555554032, 0.0555554032)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 0.99333334, 0)",
+                  "rotation": "(0.8496966, 0.291569859, 0.1425898, 0.4155369)",
+                  "scale": "(0.0555554032, 0.0555554032, 0.0555554032)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 0.6333333, 0.22)",
+                  "rotation": "(0.7343076, 0.5174839, 0.253071129, 0.359107)",
+                  "scale": "(0.0555554032, 0.0555554032, 0.0555554032)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 0.6333333, 0.22)",
+                  "rotation": "(0.7343076, 0.5174839, 0.253071129, 0.359107)",
+                  "scale": "(0.0555554032, 0.0555554032, 0.0555554032)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hit",
+          "length": 0.4000001,
+          "frameRate": 30.0,
+          "legacy": true,
+          "curves": 40,
+          "keyframes": 520,
+          "curveSha256": "99e1c768eb3ac3c4116b87abacecbb4491995452e42505a6d1c393190a9e7e54",
+          "poses": [
+            {
+              "fraction": 0.0,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, 0)",
+                  "rotation": "(0.7071068, -2.16487952E-18, -2.16487911E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.39, 0)",
+                  "rotation": "(0.7071068, 3.24731939E-18, 3.247319E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.03, 0.22)",
+                  "rotation": "(0.7827421, -2.68401745E-17, -2.13402126E-17, 0.6223462)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.03, 0.22)",
+                  "rotation": "(0.719469368, 3.08382031E-17, 2.97689862E-17, 0.694524169)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.25,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, -0.0599998944)",
+                  "rotation": "(0.6651689, -0.0149304811, 0.0133051425, 0.7464251)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.39, -0.0599998944)",
+                  "rotation": "(0.6651689, -0.0149304811, 0.0133051425, 0.7464251)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.03, 0.1600001)",
+                  "rotation": "(0.664002955, -0.046630498, 0.0415542759, 0.7451168)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.03, 0.1600001)",
+                  "rotation": "(0.664002955, -0.046630498, 0.0415542759, 0.7451168)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.5,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, -0.115911089)",
+                  "rotation": "(0.6238978, -0.0301731732, 0.02411756, 0.7805507)",
+                  "scale": "(0.9999999, 0.9999999, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.39, -0.115911089)",
+                  "rotation": "(0.6238978, -0.0301731732, 0.02411756, 0.7805507)",
+                  "scale": "(0.9999999, 0.9999999, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.03, 0.104088895)",
+                  "rotation": "(0.6198183, -0.09408565, 0.0752031, 0.775446832)",
+                  "scale": "(0.9999999, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.03, 0.104088895)",
+                  "rotation": "(0.6198183, -0.09408565, 0.0752031, 0.775446832)",
+                  "scale": "(0.9999999, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 1.0,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, -0.0310582854)",
+                  "rotation": "(0.6857135, -0.007534982, 0.00709927641, 0.7277979)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.39, -0.0310582854)",
+                  "rotation": "(0.6857135, -0.007534982, 0.00709927641, 0.7277979)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.03, 0.188941717)",
+                  "rotation": "(0.6853914, -0.02354313, 0.02218177, 0.727456033)",
+                  "scale": "(1, 0.9999999, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.03, 0.188941717)",
+                  "rotation": "(0.6853914, -0.02354313, 0.02218177, 0.727456033)",
+                  "scale": "(1, 0.9999999, 1)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Idle",
+          "length": 1.0,
+          "frameRate": 30.0,
+          "legacy": true,
+          "curves": 40,
+          "keyframes": 1200,
+          "curveSha256": "1d2a1a216b0aa821905d8b0f6b51153d89d6b36c53c4465acdd741a6cecfe5b2",
+          "poses": [
+            {
+              "fraction": 0.0,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.6357642, 0)",
+                  "rotation": "(0.7070976, -0.0035950637, -0.00359506346, 0.7070977)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.37576425, 0)",
+                  "rotation": "(0.7070976, 0.0035950637, 0.00359506346, 0.7070977)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.01576424, 0.22)",
+                  "rotation": "(0.7345187, -0.02091856, -0.0193086937, 0.677991033)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.01576424, 0.22)",
+                  "rotation": "(0.721688747, 0.0205531679, 0.0196971763, 0.6916321)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.25,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.6840476, 0)",
+                  "rotation": "(0.7070539, 0.00864508, 0.00864508, 0.707054)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.42404747, 0)",
+                  "rotation": "(0.7070539, -0.00864508, -0.00864508, 0.707054)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.06404757, 0.22)",
+                  "rotation": "(0.699272156, 0.04795215, 0.04879584, 0.711574435)",
+                  "scale": "(0.9999999, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.06404757, 0.22)",
+                  "rotation": "(0.678462744, -0.04652565, -0.0501578376, 0.7314424)",
+                  "scale": "(0.9999999, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.5,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.6572768, 0)",
+                  "rotation": "(0.7071044, 0.00183769537, 0.00183769537, 0.7071045)",
+                  "scale": "(0.9999999, 1, 0.9999999)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.39727688, 0)",
+                  "rotation": "(0.7071044, -0.00183769537, -0.00183769537, 0.7071045)",
+                  "scale": "(0.9999999, 1, 0.9999999)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.03727686, 0.22)",
+                  "rotation": "(0.678899169, 0.009881272, 0.0106845265, 0.7340873)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.03727686, 0.22)",
+                  "rotation": "(0.697240353, -0.0101482254, -0.0104313074, 0.716689646)",
+                  "scale": "(1, 0.9999999, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 1.0,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, 0)",
+                  "rotation": "(0.7071068, 0, 0, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.39, 0)",
+                  "rotation": "(0.7071068, 1.08244534E-18, 1.08244514E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.03, 0.22)",
+                  "rotation": "(0.7323523, -1.25562187E-17, -1.16745128E-17, 0.6809259)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.03, 0.22)",
+                  "rotation": "(0.711087048, 1.82874413E-17, 1.80821368E-17, 0.70310396)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Leak",
+          "length": 0.600000143,
+          "frameRate": 30.0,
+          "legacy": true,
+          "curves": 40,
+          "keyframes": 760,
+          "curveSha256": "61d65e56d00ecf6256454af24f715e68d06fa2d7bae6743984deba90f10b8119",
+          "poses": [
+            {
+              "fraction": 0.0,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.229999974, 0)",
+                  "rotation": "(0.851731241, 0.31090498, 0.144624382, 0.3962017)",
+                  "scale": "(0.0200031251, 0.0200031251, 0.0200031251)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 0.969999969, 0)",
+                  "rotation": "(0.851731241, 0.31090498, 0.144624382, 0.3962017)",
+                  "scale": "(0.0200031251, 0.0200031251, 0.0200031251)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 0.609999955, 0.22)",
+                  "rotation": "(0.7218117, 0.5487221, 0.2552503, 0.3357668)",
+                  "scale": "(0.0200031251, 0.0200031251, 0.0200031251)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 0.609999955, 0.22)",
+                  "rotation": "(0.7218117, 0.5487221, 0.2552503, 0.3357668)",
+                  "scale": "(0.0200031251, 0.0200031251, 0.0200031251)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.25,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.7433334, 0)",
+                  "rotation": "(0.703767657, 0.06863833, -0.06863833, 0.703767538)",
+                  "scale": "(0.8055553, 0.8055553, 0.8055553)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.48333347, 0)",
+                  "rotation": "(0.703767657, -0.06863833, 0.06863833, 0.703767538)",
+                  "scale": "(0.8055553, 0.8055553, 0.8055553)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.12333345, 0.22)",
+                  "rotation": "(0.703767657, 0.06863833, -0.06863833, 0.703767538)",
+                  "scale": "(0.8055553, 0.8055553, 0.8055553)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.12333345, 0.22)",
+                  "rotation": "(0.703767657, -0.06863833, 0.06863833, 0.703767538)",
+                  "scale": "(0.8055553, 0.8055553, 0.8055553)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.5,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.8633334, 0)",
+                  "rotation": "(0.689719141, 0.155844852, -0.155844852, 0.689719)",
+                  "scale": "(0.5555553, 0.5555553, 0.5555553)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.60333335, 0)",
+                  "rotation": "(0.689719141, -0.155844852, 0.155844852, 0.689719)",
+                  "scale": "(0.5555553, 0.5555553, 0.5555553)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.24333346, 0.22)",
+                  "rotation": "(0.689719141, 0.155844852, -0.155844852, 0.689719)",
+                  "scale": "(0.5555553, 0.5555553, 0.5555553)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.24333346, 0.22)",
+                  "rotation": "(0.689719141, -0.155844852, 0.155844852, 0.689719)",
+                  "scale": "(0.5555553, 0.5555553, 0.5555553)"
+                }
+              ]
+            },
+            {
+              "fraction": 1.0,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 1.10333335, 0)",
+                  "rotation": "(0.629720747, 0.32163927, -0.32163927, 0.6297208)",
+                  "scale": "(0.05555529, 0.05555529, 0.05555529)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.84333336, 0)",
+                  "rotation": "(0.629720747, -0.32163927, 0.32163927, 0.6297208)",
+                  "scale": "(0.05555529, 0.05555529, 0.05555529)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.48333323, 0.22)",
+                  "rotation": "(0.629720747, 0.32163927, -0.32163927, 0.6297208)",
+                  "scale": "(0.05555529, 0.05555529, 0.05555529)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.48333323, 0.22)",
+                  "rotation": "(0.629720747, -0.32163927, 0.32163927, 0.6297208)",
+                  "scale": "(0.05555529, 0.05555529, 0.05555529)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Move",
+          "length": 1.00000024,
+          "frameRate": 30.0,
+          "legacy": true,
+          "curves": 40,
+          "keyframes": 1240,
+          "curveSha256": "2d87715175adcd037b0b55f8c7925803a2d99d8d23cfc89f9de6c64a27326b6f",
+          "poses": [
+            {
+              "fraction": 0.0,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, 0)",
+                  "rotation": "(0.7071068, -2.16488511E-18, -2.16488469E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.39, 0)",
+                  "rotation": "(0.7071068, 3.24733055E-18, 3.24733014E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.03, 0.22)",
+                  "rotation": "(0.732352436, -2.5112411E-17, -2.33489909E-17, 0.6809257)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.03, 0.22)",
+                  "rotation": "(0.711087048, 3.0479038E-17, 3.01368665E-17, 0.70310396)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.25,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.718095243, 0)",
+                  "rotation": "(0.7070539, 0.00864508, 0.008645081, 0.707054)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.45809531, 0)",
+                  "rotation": "(0.7070539, -0.00864508, -0.008645081, 0.707054)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.0980953, 0.22)",
+                  "rotation": "(0.6859681, 0.0470395833, 0.0496757925, 0.7244083)",
+                  "scale": "(0.9999999, 0.99999994, 0.99999994)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.0980953, 0.22)",
+                  "rotation": "(0.6179864, -0.042379532, -0.05370672, 0.7832065)",
+                  "scale": "(0.9999999, 0.99999994, 1)"
+                }
+              ]
+            },
+            {
+              "fraction": 0.5,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.664553761, 0)",
+                  "rotation": "(0.7071044, 0.00183769071, 0.00183769083, 0.7071045)",
+                  "scale": "(0.9999999, 1, 0.9999999)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.40455377, 0)",
+                  "rotation": "(0.7071044, -0.00183769071, -0.00183769083, 0.7071045)",
+                  "scale": "(0.9999999, 1, 0.9999999)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.04455376, 0.22)",
+                  "rotation": "(0.6157378, 0.008961947, 0.0114665236, 0.7878167)",
+                  "scale": "(1, 1, 0.9999999)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.04455376, 0.22)",
+                  "rotation": "(0.675997734, -0.00983902, -0.0107234037, 0.73676)",
+                  "scale": "(1, 1, 0.9999999)"
+                }
+              ]
+            },
+            {
+              "fraction": 1.0,
+              "parts": [
+                {
+                  "name": "Enemy_RiftWarden(Clone)",
+                  "position": "(0, 0, 0)",
+                  "rotation": "(0, 0, 0, 1)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "Mantle",
+                  "position": "(0, 0.65, 0)",
+                  "rotation": "(0.7071068, -2.16488511E-18, -2.16488469E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "MaskCrown",
+                  "position": "(0, 1.39, 0)",
+                  "rotation": "(0.7071068, 3.24733055E-18, 3.24733014E-18, 0.7071067)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantLeft",
+                  "position": "(0.58, 1.03, 0.22)",
+                  "rotation": "(0.732352436, -2.5112411E-17, -2.33489909E-17, 0.6809257)",
+                  "scale": "(1, 1, 1)"
+                },
+                {
+                  "name": "PendantRight",
+                  "position": "(-0.58, 1.03, 0.22)",
+                  "rotation": "(0.711087048, 3.0479038E-17, 3.01368665E-17, 0.70310396)",
+                  "scale": "(1, 1, 1)"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "remaps": [
+        "Art1Glow:Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000",
+        "Art1Surface:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000"
+      ],
+      "rendererMaterials": [
+        "Body occlusion cue Mantle:Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000;Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000",
+        "Body occlusion cue MaskCrown:Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000;Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000",
+        "Body occlusion cue PendantLeft:Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000;Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000",
+        "Body occlusion cue PendantRight:Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000;Material:MAT_Art21_ShadeOcclusion:24116c40b63414bda80288d8b8785d06:2100000",
+        "Health Background:Material:HealthBackground:a24518122c10148069edfcf4d2833dbb:2100000",
+        "Health Fill:Material:HealthFill:bee317f71344d47c9942e38063656946:2100000",
+        "HP background occlusion cue:Material:MAT_OccludedHealthBackground:66b0ca8e9312a4554b674dc5793f1827:2100000",
+        "HP fill occlusion cue:Material:MAT_OccludedHealthFill:4fea399ca7c63428e899819b27a8cdc9:2100000",
+        "Mantle:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000;Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000",
+        "MaskCrown:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000;Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000",
+        "P_Enemy_RiftWarden:Material:GrayboxShade:a9802e22a6e9f4e0188c5f346b9fb29e:2100000",
+        "PendantLeft:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000;Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000",
+        "PendantRight:Material:MAT_Art1_Surface:e0d326fa30a2441e7975ea4a4467c9e8:2100000;Material:MAT_Art1_Glow:819662fc7051e4faea5186ec9347811c:2100000"
+      ],
+      "dependencies": [
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+        "Assets/_Game/Art/Materials/ART1/MAT_Art21_ShadeOcclusion.mat",
+        "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthBackground.mat",
+        "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthFill.mat",
+        "Assets/_Game/Art/Materials/GrayboxShade.mat",
+        "Assets/_Game/Art/Materials/HealthBackground.mat",
+        "Assets/_Game/Art/Materials/HealthFill.mat",
+        "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx",
+        "Assets/_Game/Art/Shaders/ShadeOcclusion.shader",
+        "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png",
+        "Assets/_Game/Prefabs/ART5/P_Enemy_RiftWarden.prefab",
+        "Assets/_Game/Scripts/Presentation/EnemyHealthBarView.cs",
+        "Assets/_Game/Scripts/Presentation/EnemyModelView.cs",
+        "Assets/_Game/Scripts/Presentation/EnemyStatusView.cs",
+        "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+        "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader",
+        "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Text.cs",
+        "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/VertexModifiers/Outline.cs"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx.meta",
+      "sha256": "f6e6e145a5dffd1f4acaf818fdd1fb0713fc32c637bc09fec9a24b854d2626ec"
+    },
+    {
+      "path": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx.meta",
+      "sha256": "96a015cdbd548a5310e807069a6ab4c1d983fd095f3eac2d3a6a110dd2e191b9"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART5/P_Enemy_RiftWarden.prefab",
+      "sha256": "00ff67cb16f204d604613807994f3bb6628cc3c6ce1af2b88dd623625b5f82ef"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/ART5/P_Enemy_RiftWarden.prefab.meta",
+      "sha256": "a693f4d4255b53623054d858e3f01614fd4481d158c0c05038bb9cc3f5aa50cd"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/Shade.prefab",
+      "sha256": "30195b5c796a44f8da2ed4b7e740de23e4ec09de181cc130e73ef520ba421964"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/Shade.prefab.meta",
+      "sha256": "94b74b5ee2091b866395982e2b53245583b3133e5e5273d7a6e31c139178c024"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/TestTower.prefab",
+      "sha256": "3ee648e277d73d4f90f556a3d4b8a4dbf38223f3fd5c59e81eb99ac5e884a619"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/TestTower.prefab.meta",
+      "sha256": "8a97867f7595e2af862878ad4e36de34d90a79be4516b1915c692ccbd8d04a45"
+    },
+    {
+      "path": "Assets/_Game/Scenes/Battle.unity",
+      "sha256": "9e986fad0d98dfd922d1892ab17fb23a2a4a46747980b3db0c9fd4f68449bf74"
+    },
+    {
+      "path": "Assets/_Game/Scenes/Battle.unity.meta",
+      "sha256": "33cafdc1265d4c1ed933d1d170a645c1d085925ce2396e500eaf8ef1dbadbaf8"
+    }
+  ]
+}

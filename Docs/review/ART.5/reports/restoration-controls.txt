@@ -1,0 +1,7 @@
+test_detach_timeout_still_restores_and_does_not_enqueue_refresh (__main__.Controls.test_detach_timeout_still_restores_and_does_not_enqueue_refresh) ... ok
+test_post_restore_refresh_failure_still_has_exact_byte_audit (__main__.Controls.test_post_restore_refresh_failure_still_has_exact_byte_audit) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

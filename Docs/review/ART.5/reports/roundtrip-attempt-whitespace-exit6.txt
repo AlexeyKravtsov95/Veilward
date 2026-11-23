@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART5/verify_reexport.py", line 27, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART5/verify_reexport.py", line 13, in main
+    snap('Before')
+  File "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART5/verify_reexport.py", line 8, in snap
+    r=subprocess.run(args,cwd=ROOT,capture_output=True,text=True,check=True)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/alexeykravtsov/.unity/bin/unity', 'command', 'script run', '--caller', 'plugin', '--skill', 'unity-cli', '--project-path', '/Users/alexeykravtsov/Desktop/workspace/Veilward', '--format', 'json', '--file', 'ArtSource/Review/ReadbackArt5.cs', '--entry', 'ReadbackArt5.Before']' returned non-zero exit status 6.

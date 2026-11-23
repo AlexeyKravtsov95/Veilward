@@ -1,0 +1,6 @@
+00:00.530  blend            | Read blend: "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART5/Enemy_Shade.blend"
+00:00.545  blend            | Read blend: "/Users/alexeykravtsov/Desktop/workspace/Veilward/ArtSource/Blender/ART5/Enemy_RiftWarden.blend"
+[('Enemy_Shade', [('Idle', 0.04606234282255173, 1.4091966152191162), ('Move', 0.014222132973372936, 1.4440048933029175)]), ('Enemy_RiftWarden', [('Idle', 0.13589000701904297, 1.9268648624420166), ('Move', 0.1010817214846611, 1.9616731405258179)])]
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:31:21)
+
+Blender quit

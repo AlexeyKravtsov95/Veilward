@@ -1,0 +1,85 @@
+{
+  "synthetic": true,
+  "actualPlayMode": true,
+  "liveResourceMutation": false,
+  "production600Armor5": [
+    600,
+    5
+  ],
+  "historical1000Armor5": [
+    1000,
+    5
+  ],
+  "authored": [
+    {
+      "id": 1,
+      "definition": "rift-warden",
+      "hp": 1000,
+      "Armor": 5,
+      "fallback": false,
+      "rootScale": "(1, 1, 1)",
+      "rootY": 0.6,
+      "modelOwners": 1,
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx"
+    },
+    {
+      "id": 2,
+      "definition": "rift-warden",
+      "hp": 600,
+      "Armor": 5,
+      "fallback": false,
+      "rootScale": "(1, 1, 1)",
+      "rootY": 0.6,
+      "modelOwners": 1,
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx"
+    },
+    {
+      "id": 3,
+      "definition": "unknown-art5",
+      "hp": 600,
+      "Armor": 5,
+      "fallback": false,
+      "rootScale": "(0.6, 0.6, 0.6)",
+      "rootY": 0.6,
+      "modelOwners": 1,
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx"
+    }
+  ],
+  "fallback": [
+    {
+      "id": 1,
+      "definition": "rift-warden",
+      "hp": 1000,
+      "Armor": 5,
+      "fallback": true,
+      "rootScale": "(0.840000033, 0.840000033, 0.840000033)",
+      "rootY": 0.6,
+      "modelOwners": 1,
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx"
+    },
+    {
+      "id": 2,
+      "definition": "rift-warden",
+      "hp": 600,
+      "Armor": 5,
+      "fallback": true,
+      "rootScale": "(0.840000033, 0.840000033, 0.840000033)",
+      "rootY": 0.6,
+      "modelOwners": 1,
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx"
+    },
+    {
+      "id": 3,
+      "definition": "unknown-art5",
+      "hp": 600,
+      "Armor": 5,
+      "fallback": true,
+      "rootScale": "(0.6, 0.6, 0.6)",
+      "rootY": 0.6,
+      "modelOwners": 1,
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx"
+    }
+  ],
+  "kills": 0,
+  "gold": 150
+}
