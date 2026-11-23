@@ -104,15 +104,10 @@ namespace Veilward.Editor
                 Object.DestroyImmediate(root);
             }
 
-            var ground = CreatePrimitive(PrimitiveType.Cube, "Ground");
-            ground.transform.localScale = new Vector3(16f, 0.2f, 10f);
-            ground.transform.position = new Vector3(0f, -0.15f, 0f);
-            ground.GetComponent<Renderer>().sharedMaterial = groundMaterial;
-
-            CreateGridGeometry(config, availableMaterial, blockedMaterial);
-            CreatePathGeometry(config, pathMaterial, spawnMaterial, heartMaterial);
+            BattleEnvironmentBuilder.Create(config);
             var battleCamera = CreateCamera();
             CreateLight();
+            BattleEnvironmentBuilder.ApplyAtmosphere(battleCamera, Object.FindFirstObjectByType<Light>());
             var cellSize = config.CreateSimulation().Grid.Map.CellSize;
             var selection = CreateSelection(selectionMaterial, cellSize);
             var preview = CreatePreview(towerPrefab, previewMaterial, cellSize);
