@@ -86,7 +86,8 @@ namespace Veilward.Editor
         // Уже проверенный stencil pass: проявляется только за production FLAME mask.
         public static void BindEnemyOcclusion(GameObject enemy)
         {
-            AddOcclusion(enemy.transform, "Body occlusion cue", ArtReferenceBuilder.MaterialFolder + "MAT_Art21_ShadeOcclusion.mat");
+            if (enemy.GetComponentInChildren<EnemyModelView>(true) != null) EnemyModelBuilder.BindBodyOcclusion(enemy);
+            else AddOcclusion(enemy.transform, "Body occlusion cue", ArtReferenceBuilder.MaterialFolder + "MAT_Art21_ShadeOcclusion.mat");
             AddOcclusion(enemy.transform.Find("Health Bar/Health Background"), "HP background occlusion cue", MaterialFolder + "MAT_OccludedHealthBackground.mat");
             AddOcclusion(enemy.transform.Find("Health Bar/Health Fill"), "HP fill occlusion cue", MaterialFolder + "MAT_OccludedHealthFill.mat");
         }

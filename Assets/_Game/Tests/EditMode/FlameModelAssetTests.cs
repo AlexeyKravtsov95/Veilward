@@ -115,7 +115,7 @@ namespace Veilward.Tests.EditMode
             {
                 FlameModelBuilder.BindEnemyOcclusion(root);
                 FlameModelBuilder.BindEnemyOcclusion(root);
-                Assert.That(root.GetComponentsInChildren<MeshFilter>().Length, Is.EqualTo(6), "three source meshes plus idempotent local cues");
+                Assert.That(root.GetComponentsInChildren<MeshFilter>().Length, Is.EqualTo(13), "disabled legacy capsule, two HP sources/cues and four animated parts/cues");
                 var health = root.GetComponent<EnemyHealthBarView>();
                 var cameraRoot = new GameObject("test camera");
                 try

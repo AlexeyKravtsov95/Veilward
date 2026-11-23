@@ -1,0 +1,7 @@
+{
+  "status": "NOT_RUN_INVALID_PARAMETER",
+  "exit": 2,
+  "requested": "console get --since0 --levelerror --limit2000",
+  "message": "console get has no parameter --limit; valid --tail used successfully in console-final.json",
+  "notPass": true
+}

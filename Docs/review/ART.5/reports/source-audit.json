@@ -1,0 +1,284 @@
+{
+  "status": "PASS",
+  "actualSavedSourceReadback": true,
+  "sources": [
+    {
+      "source": "ArtSource/Blender/ART5/Enemy_Shade.blend",
+      "sha256": "152de679a581736ca79bee2a7dc1aa7b34faae03e09bf0c2060c6888854d2c9d",
+      "units": "METRIC",
+      "meters": 1.0,
+      "frameRange": [
+        1,
+        113
+      ],
+      "fps": 30,
+      "triangles": 400,
+      "parts": [
+        {
+          "name": "Mantle",
+          "triangles": 212,
+          "vertices": 110,
+          "materialSlots": 1,
+          "materials": [
+            "Art1Surface"
+          ],
+          "pivot": [
+            0.0,
+            0.0,
+            0.6499999761581421
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "positiveSignedVolume": 0.3069811594212982,
+          "animationCurves": 9,
+          "keyframes": 1017,
+          "bones": 0,
+          "weights": 0
+        },
+        {
+          "name": "MaskCrown",
+          "triangles": 172,
+          "vertices": 98,
+          "materialSlots": 2,
+          "materials": [
+            "Art1Surface",
+            "Art1Glow"
+          ],
+          "pivot": [
+            0.0,
+            0.0,
+            1.090000033378601
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "rotation": [
+            0.0,
+            -3.0616169246677665e-18,
+            0.0
+          ],
+          "positiveSignedVolume": 0.015631930134730108,
+          "animationCurves": 9,
+          "keyframes": 1017,
+          "bones": 0,
+          "weights": 0
+        },
+        {
+          "name": "PendantLeft",
+          "triangles": 8,
+          "vertices": 6,
+          "materialSlots": 1,
+          "materials": [
+            "Art1Surface"
+          ],
+          "pivot": [
+            0.20999999344348907,
+            -0.09000000357627869,
+            0.7599999904632568
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "rotation": [
+            -0.07274379581212997,
+            3.429011054889572e-17,
+            0.0
+          ],
+          "positiveSignedVolume": 0.0038056669051399483,
+          "animationCurves": 9,
+          "keyframes": 1017,
+          "bones": 0,
+          "weights": 0
+        },
+        {
+          "name": "PendantRight",
+          "triangles": 8,
+          "vertices": 6,
+          "materialSlots": 1,
+          "materials": [
+            "Art1Surface"
+          ],
+          "pivot": [
+            -0.20999999344348907,
+            -0.09000000357627869,
+            0.7599999904632568
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "rotation": [
+            -0.011289600282907486,
+            -5.143516582334358e-17,
+            0.0
+          ],
+          "positiveSignedVolume": 0.003805666948601622,
+          "animationCurves": 9,
+          "keyframes": 1017,
+          "bones": 0,
+          "weights": 0
+        }
+      ],
+      "uniqueSharedMaterials": [
+        "Art1Glow",
+        "Art1Surface"
+      ],
+      "externalModels": false,
+      "skinBones": 0
+    },
+    {
+      "source": "ArtSource/Blender/ART5/Enemy_RiftWarden.blend",
+      "sha256": "4abef62416ba01a1e397a0656b1bf3cec0ce2b01a4248af674b849530054b941",
+      "units": "METRIC",
+      "meters": 1.0,
+      "frameRange": [
+        1,
+        113
+      ],
+      "fps": 30,
+      "triangles": 1312,
+      "parts": [
+        {
+          "name": "Mantle",
+          "triangles": 828,
+          "vertices": 432,
+          "materialSlots": 2,
+          "materials": [
+            "Art1Surface",
+            "Art1Glow"
+          ],
+          "pivot": [
+            0.0,
+            0.0,
+            0.6499999761581421
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "positiveSignedVolume": 0.6832338034624907,
+          "animationCurves": 9,
+          "keyframes": 1017,
+          "bones": 0,
+          "weights": 0
+        },
+        {
+          "name": "MaskCrown",
+          "triangles": 412,
+          "vertices": 222,
+          "materialSlots": 2,
+          "materials": [
+            "Art1Surface",
+            "Art1Glow"
+          ],
+          "pivot": [
+            0.0,
+            0.0,
+            1.3899999856948853
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "rotation": [
+            0.0,
+            -3.0616169246677665e-18,
+            0.0
+          ],
+          "positiveSignedVolume": 0.042683401901439204,
+          "animationCurves": 9,
+          "keyframes": 1017,
+          "bones": 0,
+          "weights": 0
+        },
+        {
+          "name": "PendantLeft",
+          "triangles": 36,
+          "vertices": 24,
+          "materialSlots": 2,
+          "materials": [
+            "Art1Surface",
+            "Art1Glow"
+          ],
+          "pivot": [
+            0.5799999833106995,
+            0.2199999988079071,
+            1.0299999713897705
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "rotation": [
+            -0.07274379581212997,
+            3.429011054889572e-17,
+            0.0
+          ],
+          "positiveSignedVolume": 0.004516699443048263,
+          "animationCurves": 9,
+          "keyframes": 1017,
+          "bones": 0,
+          "weights": 0
+        },
+        {
+          "name": "PendantRight",
+          "triangles": 36,
+          "vertices": 24,
+          "materialSlots": 2,
+          "materials": [
+            "Art1Surface",
+            "Art1Glow"
+          ],
+          "pivot": [
+            -0.5799999833106995,
+            0.2199999988079071,
+            1.0299999713897705
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "rotation": [
+            -0.011289600282907486,
+            -5.143516582334358e-17,
+            0.0
+          ],
+          "positiveSignedVolume": 0.004516699443048263,
+          "animationCurves": 9,
+          "keyframes": 1017,
+          "bones": 0,
+          "weights": 0
+        }
+      ],
+      "uniqueSharedMaterials": [
+        "Art1Glow",
+        "Art1Surface"
+      ],
+      "externalModels": false,
+      "skinBones": 0
+    }
+  ],
+  "sourceCount": 2
+}

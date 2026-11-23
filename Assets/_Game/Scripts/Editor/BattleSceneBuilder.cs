@@ -84,8 +84,9 @@ namespace Veilward.Editor
             enemy.GetComponent<Renderer>().sharedMaterial = enemyMaterial;
             AddHealthBar(enemy, healthBackgroundMaterial, healthFillMaterial);
             AddStatusSlots(enemy);
-            FlameModelBuilder.BindEnemyOcclusion(enemy);
+            EnemyModelBuilder.Bind(enemy);
             var enemyPrefab = PrefabUtility.SaveAsPrefabAsset(enemy, EnemyPrefabPath);
+            EnemyModelBuilder.NormalizeSerializedWhitespace(EnemyPrefabPath);
             Object.DestroyImmediate(enemy);
             var towerPrefab = CreateTowerPrefab(towerMaterial);
             AssetDatabase.SaveAssets();
@@ -1050,6 +1051,7 @@ namespace Veilward.Editor
             var serialized = new SerializedObject(battle);
             serialized.FindProperty("scenario").objectReferenceValue = config;
             serialized.FindProperty("enemyPrefab").objectReferenceValue = enemyPrefab;
+            serialized.FindProperty("bossPrefab").objectReferenceValue = AssetDatabase.LoadAssetAtPath<GameObject>(EnemyModelBuilder.BossPath).transform;
             serialized.FindProperty("towerPrefab").objectReferenceValue = towerPrefab;
             serialized.FindProperty("hudText").objectReferenceValue = hud.StatsText;
             serialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;

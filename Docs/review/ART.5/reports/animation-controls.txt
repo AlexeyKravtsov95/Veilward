@@ -1,0 +1,14 @@
+test_actual_clip_null_or_wrong_roster_reject (__main__.Controls.test_actual_clip_null_or_wrong_roster_reject) ... ok
+test_boolean_suite_counts_reject (__main__.Controls.test_boolean_suite_counts_reject) ... ok
+test_carry_in_disk_hash_cannot_allow_accidental_committed_user_materials (__main__.Controls.test_carry_in_disk_hash_cannot_allow_accidental_committed_user_materials) ... ok
+test_compile_transport_success_does_not_hide_failures (__main__.Controls.test_compile_transport_success_does_not_hide_failures) ... ok
+test_decoded_dimensions_pts_and_splices_are_strict (__main__.Controls.test_decoded_dimensions_pts_and_splices_are_strict) ... ok
+test_full_suite_exits_do_not_hide_failed_editor_refresh (__main__.Controls.test_full_suite_exits_do_not_hide_failed_editor_refresh) ... ok
+test_old_combat_first_frame_and_noncombat_death_do_not_prove_fresh_flow (__main__.Controls.test_old_combat_first_frame_and_noncombat_death_do_not_prove_fresh_flow) ... ok
+test_roundtrip_requires_roster_and_real_clips (__main__.Controls.test_roundtrip_requires_roster_and_real_clips) ... ok
+test_stage_picks_empty_missing_duplicate_stale_reject (__main__.Controls.test_stage_picks_empty_missing_duplicate_stale_reject) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.002s
+
+OK

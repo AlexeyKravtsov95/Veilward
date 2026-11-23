@@ -1,0 +1,12 @@
+[
+  {
+    "source": "Enemy_RiftWarden.blend",
+    "exit": 0,
+    "log": "reexport-Enemy_RiftWarden.txt"
+  },
+  {
+    "source": "Enemy_Shade.blend",
+    "exit": 0,
+    "log": "reexport-Enemy_Shade.txt"
+  }
+]

@@ -1,0 +1,86 @@
+Analysis of sampling Unity (pid 36151) every 1 millisecond
+Process:         Unity [36151]
+Path:            /Applications/Unity/*/Unity.app/Contents/MacOS/Unity
+Load Address:    0x100fcc000
+Identifier:      com.unity3d.UnityEditor5.x
+Version:         Unity version 6000.3.28f1 (6000.3.28f1)
+Code Type:       ARM64
+Platform:        macOS
+Parent Process:  codex [84193]
+Target Type:     live task (Roots Present)
+
+Date/Time:       2026-11-23 21:43:20.277 +0700
+Launch Time:     2026-11-23 21:17:19.204 +0700
+OS Version:      macOS 27.0.1 (26A434)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         3.0G
+Physical footprint (peak):  3.3G
+Idle exit:                  untracked
+----
+
+Call graph:
+    581 Thread_12606045   DispatchQueue_1: com.apple.main-thread  (serial)
+    + 581 start  (in dyld) + 6688  [0x19e6dbe80]
+    +   581 main  (in Unity) + 12  [0x1041bd734]
+    +     581 EditorMain(int, char const**)  (in Unity) + 744  [0x1041bd458]
+    +       581 NSApplicationMain  (in AppKit) + 880  [0x1a30f3c4c]
+    +         581 -[NSApplication run]  (in AppKit) + 396  [0x1a311b90c]
+    +           581 -[NSApplication(NSEventRouting) nextEventMatchingMask:untilDate:inMode:dequeue:]  (in AppKit) + 292  [0x1a39a026c]
+    +             581 -[NSApplication(NSEventRouting) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]  (in AppKit) + 780  [0x1a39a0748]
+    +               581 _DPSNextEvent  (in AppKit) + 580  [0x1a31284fc]
+    +                 581 _DPSBlockUntilNextEventMatchingListInMode  (in AppKit) + 292  [0x1a346b29c]
+    +                   581 _BlockUntilNextEventMatchingListInMode  (in HIToolbox) + 48  [0x1ac12a380]
+    +                     581 ReceiveNextEventCommon  (in HIToolbox) + 492  [0x1abfa791c]
+    +                       581 RunCurrentEventLoopInMode  (in HIToolbox) + 320  [0x1abfa4590]
+    +                         581 _CFRunLoopRunSpecificWithOptions  (in CoreFoundation) + 536  [0x19ec4b82c]
+    +                           581 __CFRunLoopRun  (in CoreFoundation) + 1852  [0x19eb715dc]
+    +                             581 __CFRunLoopDoTimers  (in CoreFoundation) + 280  [0x19eb8c0d8]
+    +                               581 __CFRunLoopDoTimer  (in CoreFoundation) + 1084  [0x19eb8c5c8]
+    +                                 581 __CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__  (in CoreFoundation) + 32  [0x19eb8c8cc]
+    +                                   581 __NSFireTimer  (in Foundation) + 104  [0x1a02b0420]
+    +                                     581 -[EditorApplication checkForFocusChange:]  (in Unity) + 64  [0x1041ad174]
+    +                                       581 -[NSApplication(NSEventRouting) nextEventMatchingMask:untilDate:inMode:dequeue:]  (in AppKit) + 292  [0x1a39a026c]
+    +                                         581 -[NSApplication(NSEventRouting) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]  (in AppKit) + 780  [0x1a39a0748]
+    +                                           581 _DPSNextEvent  (in AppKit) + 580  [0x1a31284fc]
+    +                                             581 _DPSBlockUntilNextEventMatchingListInMode  (in AppKit) + 292  [0x1a346b29c]
+    +                                               581 _BlockUntilNextEventMatchingListInMode  (in HIToolbox) + 48  [0x1ac12a380]
+    +                                                 581 ReceiveNextEventCommon  (in HIToolbox) + 276  [0x1abfa7844]
+    +                                                   581 RunCurrentEventLoopInMode  (in HIToolbox) + 320  [0x1abfa4590]
+    +                                                     581 _CFRunLoopRunSpecificWithOptions  (in CoreFoundation) + 536  [0x19ec4b82c]
+    +                                                       581 __CFRunLoopRun  (in CoreFoundation) + 1852  [0x19eb715dc]
+    +                                                         581 __CFRunLoopDoTimers  (in CoreFoundation) + 280  [0x19eb8c0d8]
+    +                                                           581 __CFRunLoopDoTimer  (in CoreFoundation) + 1084  [0x19eb8c5c8]
+    +                                                             581 __CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__  (in CoreFoundation) + 32  [0x19eb8c8cc]
+    +                                                               581 __NSFireTimer  (in Foundation) + 104  [0x1a02b0420]
+    +                                                                 581 -[EditorApplication onEditorUpdatesTickTimer]  (in Unity) + 404  [0x1041ad34c]
+    +                                                                   581 Application::TickTimer()  (in Unity) + 928  [0x102d563d4]
+    +                                                                     581 EditorSceneManager::OnApplicationTick()  (in Unity) + 28  [0x10326b2bc]
+    +                                                                       581 EditorSceneManager::HandleOpenScenesChangeOnDisk()  (in Unity) + 1116  [0x10326b7b4]
+    +                                                                         581 GetDialogResponse(InteractionContext*, core::basic_string<char, core::StringStorageDefault<char>> const&, core::basic_string<char, core::StringStorageDefault<char>> const&, core::basic_string<char, core::StringStorageDefault<char>> const&, core::basic_string<char, core::StringStorageDefault<char>> const&, DialogIconType)  (in Unity) + 516  [0x102c3b8b0]
+    +                                                                           581 EditorDialog::DisplayDecisionDialogNative(core::basic_string_ref<char>, DialogIconType, core::basic_string_ref<char>, core::basic_string_ref<char>, core::basic_string_ref<char>)  (in Unity) + 228  [0x1041af438]
+    +                                                                             581 ShowAlertDialog(NSString*, NSString*, NSAlertStyle, NSString*, NSString*, NSString*, NSString*)  (in Unity) + 380  [0x1041aeef0]
+    +                                                                               581 -[NSAlert runModal]  (in AppKit) + 196  [0x1a33bf2d4]
+    +                                                                                 581 _NSTryRunModal  (in AppKit) + 100  [0x1a3352280]
+    +                                                                                   581 __19-[NSAlert runModal]_block_invoke.172  (in AppKit) + 36  [0x1a34ae294]
+    +                                                                                     581 __19-[NSAlert runModal]_block_invoke  (in AppKit) + 192  [0x1a34ae034]
+    +                                                                                       581 -[NSApplication runModalForWindow:]  (in AppKit) + 276  [0x1a335215c]
+    +                                                                                         581 _NSTryRunModal  (in AppKit) + 100  [0x1a3352280]
+    +                                                                                           581 __35-[NSApplication runModalForWindow:]_block_invoke  (in AppKit) + 108  [0x1a33529d0]
+    +                                                                                             581 __35-[NSApplication runModalForWindow:]_block_invoke_2  (in AppKit) + 56  [0x1a3352a24]
+    +                                                                                               581 -[NSApplication _doModalLoop:peek:]  (in AppKit) + 216  [0x1a3353da8]
+    +                                                                                                 581 -[NSApplication(NSEventRouting) nextEventMatchingMask:untilDate:inMode:dequeue:]  (in AppKit) + 292  [0x1a39a026c]
+    +                                                                                                   581 -[NSApplication(NSEventRouting) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]  (in AppKit) + 780  [0x1a39a0748]
+    +                                                                                                     581 _DPSNextEvent  (in AppKit) + 580  [0x1a31284fc]
+    +                                                                                                       581 _DPSBlockUntilNextEventMatchingListInMode  (in AppKit) + 292  [0x1a346b29c]
+    +                                                                                                         581 _BlockUntilNextEventMatchingListInMode  (in HIToolbox) + 48  [0x1ac12a380]
+    +                                                                                                           581 ReceiveNextEventCommon  (in HIToolbox) + 492  [0x1abfa791c]
+    +                                                                                                             581 RunCurrentEventLoopInMode  (in HIToolbox) + 320  [0x1abfa4590]
+    +                                                                                                               581 _CFRunLoopRunSpecificWithOptions  (in CoreFoundation) + 536  [0x19ec4b82c]
+    +                                                                                                                 581 __CFRunLoopRun  (in CoreFoundation) + 1172  [0x19eb71334]
+    +                                                                                                                   581 __CFRunLoopServiceMachPort  (in CoreFoundation) + 160  [0x19eb72aec]
+    +                                                                                                                     581 mach_msg  (in libsystem_kernel.dylib) + 24  [0x19ea6cfac]
+    +                                                                                                                       581 mach_msg_overwrite  (in libsystem_kernel.dylib) + 480  [0x19ea75a28]
+    +                                                                                                                         581 mach_msg2_internal  (in libsystem_kernel.dylib) + 76  [0x19ea7f8e0]
+    +                                                                                                                           581 mach_msg2_trap  (in libsystem_kernel.dylib) + 8  [0x19ea6cc20]

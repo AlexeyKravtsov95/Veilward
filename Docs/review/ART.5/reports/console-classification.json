@@ -1,0 +1,587 @@
+{
+  "entries": 143,
+  "categories": {
+    "existing unused-mask compiler warning": 1,
+    "expected checkpoint negative-path IO asserted by unchanged tests": 141,
+    "expected ArtReferencePlayModeTests warmup/frozen-window guard, LogAssert.Expect": 1
+  },
+  "receipts": [
+    {
+      "seq": 1,
+      "category": "existing unused-mask compiler warning"
+    },
+    {
+      "seq": 9,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 10,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 11,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 12,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 23,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 24,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 25,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 26,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 27,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 28,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 29,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 30,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 31,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 32,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 33,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 34,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 40,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 41,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 42,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 43,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 44,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 45,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 46,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 47,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 48,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 49,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 50,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 51,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 63,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 64,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 65,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 66,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 67,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 68,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 69,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 70,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 71,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 72,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 73,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 74,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 75,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 76,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 77,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 78,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 79,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 80,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 81,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 82,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 83,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 84,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 85,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 86,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 87,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 88,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 89,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 90,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 91,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 92,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 93,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 94,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 95,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 96,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 97,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 98,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 99,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 100,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 101,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 102,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 103,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 104,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 105,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 106,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 107,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 108,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 109,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 110,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 111,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 112,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 113,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 114,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 115,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 116,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 117,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 118,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 119,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 120,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 121,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 122,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 123,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 124,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 125,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 126,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 127,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 128,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 129,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 130,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 131,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 132,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 133,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 134,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 135,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 136,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 137,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 138,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 139,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 140,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 141,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 142,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 143,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 144,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 145,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 146,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 147,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 148,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 149,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 150,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 151,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 158,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 159,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 160,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 161,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 162,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 163,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 164,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 165,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 166,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 167,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 168,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 169,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 170,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 171,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 172,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 184,
+      "category": "expected ArtReferencePlayModeTests warmup/frozen-window guard, LogAssert.Expect"
+    },
+    {
+      "seq": 185,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 186,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 187,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 188,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 189,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 190,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 191,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 192,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    },
+    {
+      "seq": 193,
+      "category": "expected checkpoint negative-path IO asserted by unchanged tests"
+    }
+  ],
+  "unknown": [],
+  "consoleCleared": false,
+  "raw": "console-final.json",
+  "session": "01bd1fba6bea4d498ee8a0e9f9b18ee1",
+  "knownRawFailures": "commands.md and gate-attempt-1/"
+}

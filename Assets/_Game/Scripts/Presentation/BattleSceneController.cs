@@ -18,6 +18,7 @@ namespace Veilward.Presentation
 
         [SerializeField] private BattleScenarioConfig scenario;
         [SerializeField] private Transform enemyPrefab;
+        [SerializeField] private Transform bossPrefab;
         [SerializeField] private Transform towerPrefab;
         [SerializeField] private UnityEngine.UI.Text hudText;
         [SerializeField] private Camera worldCamera;
@@ -42,6 +43,8 @@ namespace Veilward.Presentation
         public ReactionPresentationState Presentation { get; } = new ReactionPresentationState();
 
         private readonly List<Rect> _healthRects = new List<Rect>(64);
+        private const int MaxEnemyTails = 16;
+        private readonly List<EnemyModelView> _enemyTails = new List<EnemyModelView>(MaxEnemyTails);
         private readonly Dictionary<EnemyId, EnemyView> _enemyViews = new Dictionary<EnemyId, EnemyView>();
         private readonly Dictionary<TowerId, int> _towerViewLevels = new Dictionary<TowerId, int>();
         private readonly Dictionary<TowerId, Transform> _towerViews = new Dictionary<TowerId, Transform>();
@@ -358,6 +361,10 @@ namespace Veilward.Presentation
 
             var activeDelta = Mathf.Min(Time.deltaTime, 0.25f);
             Presentation.Advance(activeDelta);
+            foreach (var view in _enemyViews.Values) if (view.Model != null) view.Model.Advance(activeDelta);
+            for (var i = _enemyTails.Count - 1; i >= 0; i--)
+                if (_enemyTails[i] == null || _enemyTails[i].Advance(activeDelta))
+                { if (_enemyTails[i] != null) RemoveEnemyVisual(_enemyTails[i].gameObject); _enemyTails.RemoveAt(i); }
             for (var i = 0; i < _reactionPool.Length; i++)
                 if (_reactionPool[i] != null) _reactionPool[i].Advance(activeDelta);
             for (var i = 0; i < _abilityPool.Length; i++) if (_abilityPool[i] != null) _abilityPool[i].Advance(activeDelta);
@@ -412,6 +419,15 @@ namespace Veilward.Presentation
             {
                 var reactions = _simulation.ReactionEvents;
                 var damages = _simulation.DamageEvents;
+                // До очистки streams: lethal и leak видны даже при нескольких Steps/frame.
+                // Rendering-free orchestration fixtures вызывают consumer без Start; production Start валидирует required prefab.
+                if (enemyPrefab != null) SynchronizeEnemyViews();
+                for (var damageIndex = 0; damageIndex < damages.Count; damageIndex++)
+                {
+                    var damage = damages[damageIndex];
+                    if (damage.AppliedHpLoss > 0 && _enemyViews.TryGetValue(damage.TargetEnemyId, out var target) && target.Model != null)
+                        target.Model.Hit();
+                }
                 var abilities = _simulation.AbilityEvents;
                 var ai = 0; var ri = 0;
                 while (ai < abilities.Count || ri < reactions.Count)
@@ -518,8 +534,9 @@ namespace Veilward.Presentation
             for (var i = 0; i < _reactionPool.Length; i++) if (_reactionPool[i] != null) _reactionPool[i].Clear();
             foreach (var beam in GetComponentsInChildren<AttackBeamView>())
                 if (UnityEngine.Application.isPlaying) Destroy(beam.gameObject); else DestroyImmediate(beam.gameObject);
-            foreach (var view in _enemyViews.Values)
-                if (UnityEngine.Application.isPlaying) Destroy(view.Transform.gameObject); else DestroyImmediate(view.Transform.gameObject);
+            foreach (var tail in _enemyTails) if (tail != null) RemoveEnemyVisual(tail.gameObject);
+            _enemyTails.Clear();
+            foreach (var view in _enemyViews.Values) RemoveEnemyVisual(view.Transform.gameObject);
             _enemyViews.Clear();
             foreach (var view in _towerViews.Values)
             {
@@ -617,15 +634,21 @@ namespace Veilward.Presentation
                 var enemy = state.Enemies[index];
                 if (!_enemyViews.TryGetValue(enemy.Id, out var view))
                 {
-                    view = new EnemyView(Instantiate(enemyPrefab, transform));
+                    var prefab = SelectEnemyPrefab(enemy.Definition.Id);
+                    view = new EnemyView(Instantiate(prefab, transform));
                     if (enemy.Definition.Id.Value == BossHudController.BossId)
-                    { view.Transform.name = "Страж Разрыва " + enemy.Id.Value; view.Transform.localScale *= 1.4f; }
+                    { view.Transform.name = "Страж Разрыва " + enemy.Id.Value; if (prefab == enemyPrefab) view.Transform.localScale *= 1.4f; }
                     _enemyViews.Add(enemy.Id, view);
                 }
 
                 var position = _simulation.Path.GetPosition(enemy.DistanceAlongPath);
                 view.Transform.position = new Vector3(position.X, 0.6f, position.Y);
                 view.SeenTick = state.Tick;
+                if (view.Model != null)
+                {
+                    var ahead = _simulation.Path.GetPosition(Mathf.Min(_simulation.Path.TotalLength, enemy.DistanceAlongPath + .01f));
+                    view.Model.Synchronize(new Vector3(ahead.X - position.X, 0, ahead.Y - position.Y), state.Phase == BattlePhase.Combat);
+                }
                 if (view.Status != null)
                     view.Status.Refresh(enemy, state.Tick, _simulation.ReactionCatalog,
                         Presentation.GetMemory(enemy.Id), Presentation.ActiveTime, worldCamera);
@@ -650,18 +673,35 @@ namespace Veilward.Presentation
             for (var index = 0; index < _staleEnemyIds.Count; index++)
             {
                 var enemyId = _staleEnemyIds[index];
-                var staleView = _enemyViews[enemyId].Transform.gameObject;
-                if (UnityEngine.Application.isPlaying)
+                var stale = _enemyViews[enemyId];
+                if (stale.Model != null)
                 {
-                    Destroy(staleView);
+                    var dead = false;
+                    var tailPosition = _simulation.Path.GetPosition(_simulation.Path.TotalLength);
+                    var damageEvents = _simulation.DamageEvents;
+                    for (var i = 0; i < damageEvents.Count; i++)
+                        if (damageEvents[i].TargetEnemyId == enemyId && damageEvents[i].WasLethal)
+                        { dead = true; tailPosition = damageEvents[i].TargetPosition; }
+                    stale.Transform.position = new Vector3(tailPosition.X, .6f, tailPosition.Y);
+                    // Tail содержит только visual child; EnemyId/HP/status/selection сразу исчезают.
+                    if (_enemyTails.Count == MaxEnemyTails)
+                    { RemoveEnemyVisual(_enemyTails[0].gameObject); _enemyTails.RemoveAt(0); }
+                    stale.Model.BeginTail(dead, transform);
+                    _enemyTails.Add(stale.Model);
                 }
-                else
-                {
-                    DestroyImmediate(staleView);
-                }
+                RemoveEnemyVisual(stale.Transform.gameObject);
 
                 _enemyViews.Remove(enemyId);
             }
+        }
+
+        public Transform SelectEnemyPrefab(EnemyDefinitionId id) =>
+            id.Value == BossHudController.BossId && bossPrefab != null ? bossPrefab : enemyPrefab;
+
+        private static void RemoveEnemyVisual(GameObject visual)
+        {
+            visual.SetActive(false);
+            if (UnityEngine.Application.isPlaying) Destroy(visual); else DestroyImmediate(visual);
         }
 
         private static bool HasEnemy(IReadOnlyList<EnemyState> enemies, EnemyId id)
@@ -695,11 +735,13 @@ namespace Veilward.Presentation
                 Transform = transform;
                 HealthBar = transform.GetComponentInChildren<EnemyHealthBarView>(true);
                 Status = transform.GetComponent<EnemyStatusView>();
+                Model = transform.GetComponentInChildren<EnemyModelView>(true);
             }
 
             public Transform Transform { get; }
             public EnemyHealthBarView HealthBar { get; }
             public EnemyStatusView Status { get; }
+            public EnemyModelView Model { get; }
             public long SeenTick { get; set; }
         }
     }

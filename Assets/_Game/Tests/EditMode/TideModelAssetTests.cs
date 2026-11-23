@@ -27,7 +27,7 @@ namespace Veilward.Tests.EditMode
                 camera.transform.position = new Vector3(8, 11, 8); camera.transform.LookAt(Vector3.zero);
                 camera.orthographic = true; camera.orthographicSize = 8.5f; camera.aspect = 1600f / 900;
                 float ProjectY(Vector3 point) => camera.WorldToViewportPoint(point).y * 900;
-                var body = enemy.GetComponent<MeshFilter>();
+                var bodies = enemy.GetComponentInChildren<EnemyModelView>().Model.GetComponentsInChildren<MeshFilter>().Where(m => !m.name.StartsWith("Body occlusion cue")).ToArray();
                 var health = enemy.GetComponent<EnemyHealthBarView>();
                 var bar = enemy.transform.Find("Health Bar");
                 var anchor = bar.localPosition;
@@ -41,9 +41,9 @@ namespace Veilward.Tests.EditMode
                 {
                     enemy.transform.position = position; health.SetNormalizedHealth(.6f); health.Face(camera); health.Face(camera);
                     statuses.rotation = camera.transform.rotation;
-                    var head = body.sharedMesh.vertices.Max(vertex => ProjectY(body.transform.TransformPoint(vertex)));
+                    var head = bodies.Max(body => body.sharedMesh.vertices.Max(vertex => ProjectY(body.transform.TransformPoint(vertex))));
                     var quad = background.GetComponent<MeshFilter>().sharedMesh.vertices.Select(vertex => ProjectY(background.TransformPoint(vertex))).ToArray();
-                    // Проверяем всю реальную projected quad относительно actual capsule mesh, а не число localY.
+                    // Проверяем всю реальную projected quad относительно actual authored animated body, а не число localY.
                     Assert.That(quad.Min() - head, Is.GreaterThanOrEqualTo(3), "HP background must clear the complete projected head");
                     foreach (var glyph in glyphs)
                     {
@@ -58,7 +58,7 @@ namespace Veilward.Tests.EditMode
                     Assert.That(fill.localScale.x / background.localScale.x, Is.EqualTo(.6f).Within(.00001));
                     Assert.That(fill.localPosition.x, Is.EqualTo(-.18f).Within(.00001));
                     Assert.That(statuses.localPosition, Is.EqualTo(statusAnchor));
-                    Assert.That(enemy.GetComponentsInChildren<MeshFilter>(true).Length, Is.EqualTo(6), "three sources plus the existing three occlusion cues");
+                    Assert.That(enemy.GetComponentsInChildren<MeshFilter>(true).Length, Is.EqualTo(13), "disabled legacy capsule, four animated sources/cues and two HP sources/cues");
                 }
             }
             finally { Object.DestroyImmediate(enemy); Object.DestroyImmediate(cameraRoot); }

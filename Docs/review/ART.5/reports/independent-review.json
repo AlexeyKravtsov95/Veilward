@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "head": "d6fd13c2520e635bdc9576ff34d90624a92d776d",
+  "testedSource": "a01706edb4e15ddc326f6a9d6b1faccae4de6f3e",
+  "mediaSource": "a01706edb4e15ddc326f6a9d6b1faccae4de6f3e",
+  "source": 880,
+  "protected": 3951,
+  "artifacts": 236,
+  "suites": {
+    "edit-mode": 1237,
+    "play-mode": 93
+  },
+  "exactCarryIn": 4,
+  "localPreservation": {
+    "status": "PASS",
+    "expectedFiles": 7
+  },
+  "readOnly": true,
+  "newUnityRun": false,
+  "device": "Deferred QA53/54/55",
+  "reviewer": "root/GPT-6, independent of art5_implementation",
+  "reviewedArtifactHead": "d6fd13c2520e635bdc9576ff34d90624a92d776d",
+  "sourceAnimationVisual": "PASS",
+  "confirmedOpenP1P2": 0,
+  "controls": {
+    "delivery": 14,
+    "animation": 9,
+    "restoration": 2,
+    "entrypoint": 3
+  },
+  "freshRootStatic": {
+    "passed": 38,
+    "total": 38,
+    "exit": 0
+  },
+  "auditDidNotChangeCheckout": true,
+  "sourceDeltaFromTested": false,
+  "carryInFilesCommitted": false,
+  "decodedVideoSeconds": [
+    0,
+    7.8,
+    9.2,
+    15,
+    28
+  ],
+  "videoSha256": "ada1c6407fe97a93c114e15abcf1a0dede7c2004c1e630721059cb2eef9b9fb0",
+  "limitations": [
+    "Device Deferred to prerelease QA #53/#54/#55",
+    "Representative decoded video frames plus telemetry; no continuous ordinary-speed human playtest claim",
+    "Owner ART/G2/merge/release approval remains separate"
+  ]
+}

@@ -1,0 +1,3536 @@
+{
+  "enemies": [
+    {
+      "name": "Authored enemy orientation",
+      "Pose": "Move",
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx",
+      "clips": {
+        "idle": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:-623603649343465320",
+        "move": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:-1609281748187839663",
+        "hit": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:723096430288179899",
+        "death": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:1963079803359675471",
+        "leak": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:-626948583029366203"
+      },
+      "sharedMeshes": [
+        {
+          "name": "Mantle",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:-6902153214555190266"
+        },
+        {
+          "name": "Body occlusion cue Mantle",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:-6902153214555190266"
+        },
+        {
+          "name": "MaskCrown",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:1833737360245594908"
+        },
+        {
+          "name": "Body occlusion cue MaskCrown",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:1833737360245594908"
+        },
+        {
+          "name": "PendantLeft",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:1297796216068820701"
+        },
+        {
+          "name": "Body occlusion cue PendantLeft",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:1297796216068820701"
+        },
+        {
+          "name": "PendantRight",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:-2627396408782553523"
+        },
+        {
+          "name": "Body occlusion cue PendantRight",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx:a0c0aa16ec698409d9d1c77859853fc5:-2627396408782553523"
+        }
+      ],
+      "renderers": 8,
+      "materialSlots": 16,
+      "parts": [
+        {
+          "name": "Enemy_RiftWarden",
+          "position": "(0, 0, 0)",
+          "rotation": "(0, 0, 0, 1)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "Mantle",
+          "position": "(0, 0.7106218, 0)",
+          "rotation": "(0.7070653, 0.007654504, 0.007654505, 0.7070654)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "Body occlusion cue Mantle",
+          "position": "(0, 0, 0)",
+          "rotation": "(0, 0, 0, 1)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "MaskCrown",
+          "position": "(0, 1.45062172, 0)",
+          "rotation": "(0.7070653, -0.007654504, -0.007654505, 0.7070654)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "Body occlusion cue MaskCrown",
+          "position": "(0, 0, 0)",
+          "rotation": "(0, 0, 0, 1)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "PendantLeft",
+          "position": "(0.58, 1.09062171, 0.22)",
+          "rotation": "(0.714074433, 0.04334157, 0.0423321165, 0.6974433)",
+          "scale": "(0.9999999, 0.9999999, 1)"
+        },
+        {
+          "name": "Body occlusion cue PendantLeft",
+          "position": "(0, 0, 0)",
+          "rotation": "(0, 0, 0, 1)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "PendantRight",
+          "position": "(-0.58, 1.09062171, 0.22)",
+          "rotation": "(0.6330929, -0.03842631, -0.0468393043, 0.771701336)",
+          "scale": "(0.9999999, 1, 1)"
+        },
+        {
+          "name": "Body occlusion cue PendantRight",
+          "position": "(0, 0, 0)",
+          "rotation": "(0, 0, 0, 1)",
+          "scale": "(1, 1, 1)"
+        }
+      ]
+    },
+    {
+      "name": "Authored enemy orientation",
+      "Pose": "Move",
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx",
+      "clips": {
+        "idle": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:-623603649343465320",
+        "move": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:-1609281748187839663",
+        "hit": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:723096430288179899",
+        "death": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:1963079803359675471",
+        "leak": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:-626948583029366203"
+      },
+      "sharedMeshes": [
+        {
+          "name": "Mantle",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:-6902153214555190266"
+        },
+        {
+          "name": "Body occlusion cue Mantle",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:-6902153214555190266"
+        },
+        {
+          "name": "MaskCrown",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:1833737360245594908"
+        },
+        {
+          "name": "Body occlusion cue MaskCrown",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:1833737360245594908"
+        },
+        {
+          "name": "PendantLeft",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:1297796216068820701"
+        },
+        {
+          "name": "Body occlusion cue PendantLeft",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:1297796216068820701"
+        },
+        {
+          "name": "PendantRight",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:-2627396408782553523"
+        },
+        {
+          "name": "Body occlusion cue PendantRight",
+          "id": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx:db4125d97bfab4ce8bb6e7aca020cc58:-2627396408782553523"
+        }
+      ],
+      "renderers": 8,
+      "materialSlots": 10,
+      "parts": [
+        {
+          "name": "Enemy_Shade",
+          "position": "(0, 0, 0)",
+          "rotation": "(0, 0, 0, 1)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "Mantle",
+          "position": "(0, 0.7106218, 0)",
+          "rotation": "(0.7070653, 0.007654504, 0.007654505, 0.7070654)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "Body occlusion cue Mantle",
+          "position": "(0, 0, 0)",
+          "rotation": "(0, 0, 0, 1)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "MaskCrown",
+          "position": "(0, 1.15062177, 0)",
+          "rotation": "(0.7070653, -0.007654504, -0.007654505, 0.7070654)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "Body occlusion cue MaskCrown",
+          "position": "(0, 0, 0)",
+          "rotation": "(0, 0, 0, 1)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "PendantLeft",
+          "position": "(0.21, 0.8206218, -0.0899999961)",
+          "rotation": "(0.714074433, 0.04334157, 0.0423321165, 0.6974433)",
+          "scale": "(0.9999999, 0.9999999, 1)"
+        },
+        {
+          "name": "Body occlusion cue PendantLeft",
+          "position": "(0, 0, 0)",
+          "rotation": "(0, 0, 0, 1)",
+          "scale": "(1, 1, 1)"
+        },
+        {
+          "name": "PendantRight",
+          "position": "(-0.21, 0.8206218, -0.0899999961)",
+          "rotation": "(0.6330929, -0.03842631, -0.0468393043, 0.771701336)",
+          "scale": "(0.9999999, 1, 1)"
+        },
+        {
+          "name": "Body occlusion cue PendantRight",
+          "position": "(0, 0, 0)",
+          "rotation": "(0, 0, 0, 1)",
+          "scale": "(1, 1, 1)"
+        }
+      ]
+    }
+  ],
+  "environment": {
+    "renderers": 141,
+    "meshInstances": 141,
+    "uniqueMeshes": 8,
+    "geometryTriangleInstances": 20140,
+    "uniqueGeometryTriangles": 2312,
+    "materials": [
+      "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+      "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+      "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+    ],
+    "colliders": 0,
+    "runtimeScripts": 0,
+    "objects": [
+      {
+        "path": "P_Environment_SanctuaryIsland/Environment_SanctuaryIsland",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryIsland.fbx",
+        "boundsMin": [
+          -8.09908,
+          -5.0,
+          -6.02551651
+        ],
+        "boundsMax": [
+          6.994198,
+          0.0100002289,
+          5.12630653
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-6_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -6.455,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          -5.545,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-5_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -5.455,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          -4.545,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-4_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -4.455,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          -3.545,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-3_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -3.455,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          -2.545,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-2_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -2.455,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          -1.545,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-1_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -1.455,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          -0.544999957,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_0_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -0.455,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          0.455,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_1_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          0.544999957,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          1.455,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_2_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          1.545,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          2.455,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_3_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          2.545,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          3.455,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_4_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          3.545,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          4.455,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_5_-4/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          4.545,
+          -0.075,
+          -4.455
+        ],
+        "boundsMax": [
+          5.455,
+          0.018,
+          -3.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-6_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -6.455,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          -5.545,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-5_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -5.455,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          -4.545,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-4_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -4.455,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          -3.545,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-3_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -3.455,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          -2.545,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-2_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -2.455,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          -1.545,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-1_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -1.455,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          -0.544999957,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_0_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -0.455,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          0.455,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_1_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          0.544999957,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          1.455,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_2_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          1.545,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          2.455,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_3_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          2.545,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          3.455,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_4_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          3.545,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          4.455,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_5_-3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          4.545,
+          -0.075,
+          -3.455
+        ],
+        "boundsMax": [
+          5.455,
+          0.018,
+          -2.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-6_-2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -6.455,
+          -0.075,
+          -2.455
+        ],
+        "boundsMax": [
+          -5.545,
+          0.018,
+          -1.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_1_-2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          0.544999957,
+          -0.075,
+          -2.455
+        ],
+        "boundsMax": [
+          1.455,
+          0.018,
+          -1.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_2_-2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          1.545,
+          -0.075,
+          -2.455
+        ],
+        "boundsMax": [
+          2.455,
+          0.018,
+          -1.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_3_-2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          2.545,
+          -0.075,
+          -2.455
+        ],
+        "boundsMax": [
+          3.455,
+          0.018,
+          -1.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_4_-2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          3.545,
+          -0.075,
+          -2.455
+        ],
+        "boundsMax": [
+          4.455,
+          0.018,
+          -1.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_5_-2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          4.545,
+          -0.075,
+          -2.455
+        ],
+        "boundsMax": [
+          5.455,
+          0.018,
+          -1.545
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-6_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -6.455,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          -5.545,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-5_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -5.455,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          -4.545,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-4_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -4.455,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          -3.545,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-3_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -3.455,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          -2.545,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-2_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -2.455,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          -1.545,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-1_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -1.455,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          -0.544999957,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_1_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          0.544999957,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          1.455,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_2_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          1.545,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          2.455,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_3_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          2.545,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          3.455,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_4_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          3.545,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          4.455,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_5_-1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          4.545,
+          -0.075,
+          -1.455
+        ],
+        "boundsMax": [
+          5.455,
+          0.018,
+          -0.544999957
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-6_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -6.455,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          -5.545,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-5_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -5.455,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          -4.545,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-4_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -4.455,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          -3.545,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-3_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -3.455,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          -2.545,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-2_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -2.455,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          -1.545,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-1_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -1.455,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          -0.544999957,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_1_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          0.544999957,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          1.455,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_2_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          1.545,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          2.455,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_3_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          2.545,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          3.455,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_4_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          3.545,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          4.455,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_5_0/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          4.545,
+          -0.075,
+          -0.455
+        ],
+        "boundsMax": [
+          5.455,
+          0.018,
+          0.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-6_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -6.455,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          -5.545,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-5_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -5.455,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          -4.545,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-4_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -4.455,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          -3.545,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-3_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -3.455,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          -2.545,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-2_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -2.455,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          -1.545,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-1_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -1.455,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          -0.544999957,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_1_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          0.544999957,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          1.455,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_2_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          1.545,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          2.455,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_3_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          2.545,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          3.455,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_4_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          3.545,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          4.455,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_5_1/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          4.545,
+          -0.075,
+          0.544999957
+        ],
+        "boundsMax": [
+          5.455,
+          0.018,
+          1.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-6_2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -6.455,
+          -0.075,
+          1.545
+        ],
+        "boundsMax": [
+          -5.545,
+          0.018,
+          2.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-5_2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -5.455,
+          -0.075,
+          1.545
+        ],
+        "boundsMax": [
+          -4.545,
+          0.018,
+          2.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-4_2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -4.455,
+          -0.075,
+          1.545
+        ],
+        "boundsMax": [
+          -3.545,
+          0.018,
+          2.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-3_2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -3.455,
+          -0.075,
+          1.545
+        ],
+        "boundsMax": [
+          -2.545,
+          0.018,
+          2.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-2_2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -2.455,
+          -0.075,
+          1.545
+        ],
+        "boundsMax": [
+          -1.545,
+          0.018,
+          2.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-1_2/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -1.455,
+          -0.075,
+          1.545
+        ],
+        "boundsMax": [
+          -0.544999957,
+          0.018,
+          2.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-6_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -6.455,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          -5.545,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-5_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -5.455,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          -4.545,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-4_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -4.455,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          -3.545,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-3_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -3.455,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          -2.545,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-2_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -2.455,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          -1.545,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_-1_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -1.455,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          -0.544999957,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_0_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          -0.455,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          0.455,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_1_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          0.544999957,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          1.455,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_2_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          1.545,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          2.455,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_3_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          2.545,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          3.455,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_4_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          3.545,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          4.455,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Socket_5_3/Environment_BuildSocket",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx",
+        "boundsMin": [
+          4.545,
+          -0.075,
+          2.545
+        ],
+        "boundsMax": [
+          5.455,
+          0.018,
+          3.455
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_0/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          -5.51,
+          -0.09,
+          -2.45
+        ],
+        "boundsMax": [
+          -4.49,
+          0.03799999,
+          -1.55
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_1/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          -4.51,
+          -0.09,
+          -2.45
+        ],
+        "boundsMax": [
+          -3.48999977,
+          0.03799999,
+          -1.55
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_2/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          -3.51000023,
+          -0.09,
+          -2.45
+        ],
+        "boundsMax": [
+          -2.48999977,
+          0.03799999,
+          -1.55
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_3/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          -2.51,
+          -0.09,
+          -2.45
+        ],
+        "boundsMax": [
+          -1.48999977,
+          0.03799999,
+          -1.55
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_4/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          -1.51,
+          -0.09,
+          -2.45
+        ],
+        "boundsMax": [
+          -0.489999831,
+          0.03799999,
+          -1.55
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_5/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          -0.45,
+          -0.09,
+          -2.51
+        ],
+        "boundsMax": [
+          0.45,
+          0.03799999,
+          -1.49
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_6/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          -0.45,
+          -0.09,
+          -1.51
+        ],
+        "boundsMax": [
+          0.45,
+          0.03799999,
+          -0.49
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_7/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          -0.45,
+          -0.09,
+          -0.51
+        ],
+        "boundsMax": [
+          0.45,
+          0.03799999,
+          0.51
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_8/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          -0.45,
+          -0.09,
+          0.49
+        ],
+        "boundsMax": [
+          0.45,
+          0.03799999,
+          1.51
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_9/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          -0.5100001,
+          -0.09,
+          1.55
+        ],
+        "boundsMax": [
+          0.5100001,
+          0.03799999,
+          2.45
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_10/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          0.4899999,
+          -0.09,
+          1.55
+        ],
+        "boundsMax": [
+          1.51000011,
+          0.03799999,
+          2.45
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_11/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          1.48999989,
+          -0.09,
+          1.55
+        ],
+        "boundsMax": [
+          2.51000023,
+          0.03799999,
+          2.45
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_12/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          2.48999977,
+          -0.09,
+          1.55
+        ],
+        "boundsMax": [
+          3.51000023,
+          0.03799999,
+          2.45
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_13/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          3.48999977,
+          -0.09,
+          1.55
+        ],
+        "boundsMax": [
+          4.51,
+          0.03799999,
+          2.45
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Paver_14/Environment_SanctuaryPath",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx",
+        "boundsMin": [
+          4.49,
+          -0.09,
+          1.55
+        ],
+        "boundsMax": [
+          5.51,
+          0.03799999,
+          2.45
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Spawn Entrance/Environment_SpawnGate",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SpawnGate.fbx",
+        "boundsMin": [
+          -5.46,
+          -0.0599999428,
+          -2.49000025
+        ],
+        "boundsMax": [
+          -4.54,
+          1.2675,
+          -1.50999987
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Environment_SpawnGate/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SpawnGate.fbx",
+        "boundsMin": [
+          -5.46,
+          -0.0599999428,
+          -2.49000025
+        ],
+        "boundsMax": [
+          -4.54,
+          1.2675,
+          -1.50999987
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Seal Heart/Environment_SealHeart",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SealHeart.fbx",
+        "boundsMin": [
+          4.54,
+          0.0,
+          1.54
+        ],
+        "boundsMax": [
+          5.46,
+          0.590000033,
+          2.46
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Environment_SealHeart/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_SealHeart.fbx",
+        "boundsMin": [
+          4.54,
+          0.0,
+          1.54
+        ],
+        "boundsMax": [
+          5.46,
+          0.590000033,
+          2.46
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat",
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Environment_RimPine/Environment_RimPine",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_RimPine.fbx",
+        "boundsMin": [
+          -7.520974,
+          0.0,
+          -4.045339
+        ],
+        "boundsMax": [
+          -6.54877567,
+          1.285,
+          -3.32000017
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Environment_RimPine/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_RimPine.fbx",
+        "boundsMin": [
+          -7.520974,
+          0.0,
+          -4.045339
+        ],
+        "boundsMax": [
+          -6.54877567,
+          1.285,
+          -3.32000017
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Environment_RimPine/Environment_RimPine",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_RimPine.fbx",
+        "boundsMin": [
+          -5.670974,
+          0.0,
+          -5.46533871
+        ],
+        "boundsMax": [
+          -4.69877529,
+          1.285,
+          -4.74
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Environment_RimPine/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_RimPine.fbx",
+        "boundsMin": [
+          -5.670974,
+          0.0,
+          -5.46533871
+        ],
+        "boundsMax": [
+          -4.69877529,
+          1.285,
+          -4.74
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Environment_RimPine/Environment_RimPine",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_RimPine.fbx",
+        "boundsMin": [
+          -7.570974,
+          0.0,
+          -1.245339
+        ],
+        "boundsMax": [
+          -6.59877539,
+          1.285,
+          -0.52
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Environment_RimPine/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_RimPine.fbx",
+        "boundsMin": [
+          -7.570974,
+          0.0,
+          -1.245339
+        ],
+        "boundsMax": [
+          -6.59877539,
+          1.285,
+          -0.52
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Environment_RimPine/Environment_RimPine",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_RimPine.fbx",
+        "boundsMin": [
+          1.52902579,
+          0.0,
+          -5.495339
+        ],
+        "boundsMax": [
+          2.50122476,
+          1.285,
+          -4.77
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Environment_RimPine/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART4/Environment_RimPine.fbx",
+        "boundsMin": [
+          1.52902579,
+          0.0,
+          -5.495339
+        ],
+        "boundsMax": [
+          2.50122476,
+          1.285,
+          -4.77
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_MossRock/Prop_MossRock",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          -7.28057051,
+          -0.030249998,
+          -2.91307926
+        ],
+        "boundsMax": [
+          -6.81943,
+          0.232375011,
+          -2.4635
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_MossRock/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          -7.28057051,
+          -0.030249998,
+          -2.91307926
+        ],
+        "boundsMax": [
+          -6.81943,
+          0.232375011,
+          -2.4635
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_RitualShrub/Prop_RitualShrub",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          -7.177471,
+          0.01713176,
+          -2.86250019
+        ],
+        "boundsMax": [
+          -6.73177147,
+          0.419749975,
+          -2.505
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_RitualShrub/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          -7.177471,
+          0.01713176,
+          -2.86250019
+        ],
+        "boundsMax": [
+          -6.73177147,
+          0.419749975,
+          -2.505
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_MossRock/Prop_MossRock",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          -7.28057051,
+          -0.030249998,
+          0.386920929
+        ],
+        "boundsMax": [
+          -6.81943,
+          0.232375011,
+          0.836500049
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_MossRock/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          -7.28057051,
+          -0.030249998,
+          0.386920929
+        ],
+        "boundsMax": [
+          -6.81943,
+          0.232375011,
+          0.836500049
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_RitualShrub/Prop_RitualShrub",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          -7.177471,
+          0.01713176,
+          0.43750006
+        ],
+        "boundsMax": [
+          -6.73177147,
+          0.419749975,
+          0.795
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_RitualShrub/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          -7.177471,
+          0.01713176,
+          0.43750006
+        ],
+        "boundsMax": [
+          -6.73177147,
+          0.419749975,
+          0.795
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_MossRock/Prop_MossRock",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          5.81943,
+          -0.030249998,
+          -2.813079
+        ],
+        "boundsMax": [
+          6.28057051,
+          0.232375011,
+          -2.36349988
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_MossRock/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          5.81943,
+          -0.030249998,
+          -2.813079
+        ],
+        "boundsMax": [
+          6.28057051,
+          0.232375011,
+          -2.36349988
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_RitualShrub/Prop_RitualShrub",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          5.922529,
+          0.01713176,
+          -2.7625
+        ],
+        "boundsMax": [
+          6.368229,
+          0.419749975,
+          -2.405
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_RitualShrub/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          5.922529,
+          0.01713176,
+          -2.7625
+        ],
+        "boundsMax": [
+          6.368229,
+          0.419749975,
+          -2.405
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_MossRock/Prop_MossRock",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          5.81943,
+          -0.030249998,
+          0.2869209
+        ],
+        "boundsMax": [
+          6.28057051,
+          0.232375011,
+          0.7365
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_MossRock/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          5.81943,
+          -0.030249998,
+          0.2869209
+        ],
+        "boundsMax": [
+          6.28057051,
+          0.232375011,
+          0.7365
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_RitualShrub/Prop_RitualShrub",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          5.922529,
+          0.01713176,
+          0.337500036
+        ],
+        "boundsMax": [
+          6.368229,
+          0.419749975,
+          0.695
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_RitualShrub/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          5.922529,
+          0.01713176,
+          0.337500036
+        ],
+        "boundsMax": [
+          6.368229,
+          0.419749975,
+          0.695
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_MossRock/Prop_MossRock",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          -4.63057041,
+          -0.030249998,
+          -5.333079
+        ],
+        "boundsMax": [
+          -4.16943,
+          0.232375011,
+          -4.88349962
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_MossRock/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          -4.63057041,
+          -0.030249998,
+          -5.333079
+        ],
+        "boundsMax": [
+          -4.16943,
+          0.232375011,
+          -4.88349962
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_RitualShrub/Prop_RitualShrub",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          -4.527471,
+          0.01713176,
+          -5.2825
+        ],
+        "boundsMax": [
+          -4.08177137,
+          0.419749975,
+          -4.92499971
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_RitualShrub/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          -4.527471,
+          0.01713176,
+          -5.2825
+        ],
+        "boundsMax": [
+          -4.08177137,
+          0.419749975,
+          -4.92499971
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_MossRock/Prop_MossRock",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          0.669429541,
+          -0.030249998,
+          -5.333079
+        ],
+        "boundsMax": [
+          1.13057041,
+          0.232375011,
+          -4.88349962
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_MossRock/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          0.669429541,
+          -0.030249998,
+          -5.333079
+        ],
+        "boundsMax": [
+          1.13057041,
+          0.232375011,
+          -4.88349962
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_RitualShrub/Prop_RitualShrub",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          0.7725291,
+          0.01713176,
+          -5.2825
+        ],
+        "boundsMax": [
+          1.218229,
+          0.419749975,
+          -4.92499971
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_RitualShrub/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          0.7725291,
+          0.01713176,
+          -5.2825
+        ],
+        "boundsMax": [
+          1.218229,
+          0.419749975,
+          -4.92499971
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_MossRock/Prop_MossRock",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          -4.13057041,
+          -0.030249998,
+          3.906921
+        ],
+        "boundsMax": [
+          -3.66942954,
+          0.232375011,
+          4.3565
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_MossRock/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          -4.13057041,
+          -0.030249998,
+          3.906921
+        ],
+        "boundsMax": [
+          -3.66942954,
+          0.232375011,
+          4.3565
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_RitualShrub/Prop_RitualShrub",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          -4.027471,
+          0.01713176,
+          3.9575
+        ],
+        "boundsMax": [
+          -3.58177114,
+          0.419749975,
+          4.315
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_RitualShrub/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          -4.027471,
+          0.01713176,
+          3.9575
+        ],
+        "boundsMax": [
+          -3.58177114,
+          0.419749975,
+          4.315
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_MossRock/Prop_MossRock",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          2.16942954,
+          -0.030249998,
+          3.906921
+        ],
+        "boundsMax": [
+          2.63057065,
+          0.232375011,
+          4.3565
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_MossRock/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx",
+        "boundsMin": [
+          2.16942954,
+          -0.030249998,
+          3.906921
+        ],
+        "boundsMax": [
+          2.63057065,
+          0.232375011,
+          4.3565
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "P_Prop_RitualShrub/Prop_RitualShrub",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          2.27252936,
+          0.01713176,
+          3.9575
+        ],
+        "boundsMax": [
+          2.718229,
+          0.419749975,
+          4.315
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat"
+        ],
+        "active": true
+      },
+      {
+        "path": "Prop_RitualShrub/Occlusion presentation pass",
+        "mesh": "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx",
+        "boundsMin": [
+          2.27252936,
+          0.01713176,
+          3.9575
+        ],
+        "boundsMax": [
+          2.718229,
+          0.419749975,
+          4.315
+        ],
+        "materials": [
+          "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat"
+        ],
+        "active": true
+      }
+    ]
+  },
+  "lighting": {
+    "ambientMode": "Flat",
+    "ambient": [
+      0.64,
+      0.7,
+      0.74,
+      1.0
+    ],
+    "sunIntensity": 1.2,
+    "sunColor": [
+      1.0,
+      0.94,
+      0.83,
+      1.0
+    ],
+    "sunEuler": [
+      50.00001,
+      330.0,
+      -1.328236E-06
+    ],
+    "shadows": "None",
+    "fog": false,
+    "background": [
+      0.105,
+      0.18,
+      0.23,
+      1.0
+    ]
+  },
+  "frame": 476024,
+  "tick": 399,
+  "unity": "6000.3.28f1",
+  "platform": "OSXEditor",
+  "graphics": "Metal",
+  "quality": "Mobile",
+  "pipelinePath": "Assets/Settings/Mobile_RPAsset.asset",
+  "pipelineName": "Mobile_RPAsset",
+  "pipelineSerialized": {
+    "MonoBehaviour": {
+      "m_Enabled": true,
+      "m_EditorHideFlags": 0,
+      "m_Name": "Mobile_RPAsset",
+      "m_EditorClassIdentifier": "",
+      "k_AssetVersion": 13,
+      "k_AssetPreviousVersion": 13,
+      "m_RendererType": 1,
+      "m_RendererData": {
+        "instanceID": 0
+      },
+      "m_RendererDataList": [
+        {
+          "fileID": 11400000,
+          "guid": "65bc7dbf4170f435aa868c779acfb082",
+          "type": 2
+        }
+      ],
+      "m_DefaultRendererIndex": 0,
+      "m_RequireDepthTexture": false,
+      "m_RequireOpaqueTexture": false,
+      "m_OpaqueDownsampling": 0,
+      "m_SupportsTerrainHoles": true,
+      "m_SupportsHDR": true,
+      "m_HDRColorBufferPrecision": 0,
+      "m_MSAA": 1,
+      "m_RenderScale": 0.800000011920929,
+      "m_UpscalingFilter": 0,
+      "m_FsrOverrideSharpness": false,
+      "m_FsrSharpness": 0.92000001668930054,
+      "m_EnableLODCrossFade": true,
+      "m_LODCrossFadeDitheringType": 1,
+      "m_ShEvalMode": 0,
+      "m_LightProbeSystem": 0,
+      "m_ProbeVolumeMemoryBudget": 1024,
+      "m_ProbeVolumeBlendingMemoryBudget": 256,
+      "m_SupportProbeVolumeGPUStreaming": false,
+      "m_SupportProbeVolumeDiskStreaming": false,
+      "m_SupportProbeVolumeScenarios": false,
+      "m_SupportProbeVolumeScenarioBlending": false,
+      "m_ProbeVolumeSHBands": 1,
+      "m_MainLightRenderingMode": 1,
+      "m_MainLightShadowsSupported": true,
+      "m_MainLightShadowmapResolution": 1024,
+      "m_AdditionalLightsRenderingMode": 1,
+      "m_AdditionalLightsPerObjectLimit": 4,
+      "m_AdditionalLightShadowsSupported": false,
+      "m_AdditionalLightsShadowmapResolution": 2048,
+      "m_AdditionalLightsShadowResolutionTierLow": 256,
+      "m_AdditionalLightsShadowResolutionTierMedium": 512,
+      "m_AdditionalLightsShadowResolutionTierHigh": 1024,
+      "m_ReflectionProbeBlending": true,
+      "m_ReflectionProbeBoxProjection": true,
+      "m_ReflectionProbeAtlas": true,
+      "m_ShadowDistance": 50.0,
+      "m_ShadowCascadeCount": 1,
+      "m_Cascade2Split": 0.25,
+      "m_Cascade3Split": {
+        "x": 0.10000000149011612,
+        "y": 0.30000001192092896
+      },
+      "m_Cascade4Split": {
+        "x": 0.067000001668930054,
+        "y": 0.20000000298023224,
+        "z": 0.46700000762939453
+      },
+      "m_CascadeBorder": 0.20000000298023224,
+      "m_ShadowDepthBias": 1.0,
+      "m_ShadowNormalBias": 1.0,
+      "m_AnyShadowsSupported": true,
+      "m_SoftShadowsSupported": false,
+      "m_ConservativeEnclosingSphere": true,
+      "m_NumIterationsEnclosingSphere": 64,
+      "m_SoftShadowQuality": 2,
+      "m_AdditionalLightsCookieResolution": 1024,
+      "m_AdditionalLightsCookieFormat": 1,
+      "m_UseSRPBatcher": true,
+      "m_SupportsDynamicBatching": false,
+      "m_MixedLightingSupported": true,
+      "m_SupportsLightCookies": true,
+      "m_SupportsLightLayers": true,
+      "m_DebugLevel": 0,
+      "m_StoreActionsOptimization": 0,
+      "m_UseAdaptivePerformance": true,
+      "m_ColorGradingMode": 0,
+      "m_ColorGradingLutSize": 32,
+      "m_AllowPostProcessAlphaOutput": false,
+      "m_UseFastSRGBLinearConversion": true,
+      "m_SupportDataDrivenLensFlare": true,
+      "m_SupportScreenSpaceLensFlare": true,
+      "m_GPUResidentDrawerMode": 0,
+      "m_SmallMeshScreenPercentage": 0.0,
+      "m_GPUResidentDrawerEnableOcclusionCullingInCameras": false,
+      "m_ShadowType": 1,
+      "m_LocalShadowsSupported": false,
+      "m_LocalShadowsAtlasResolution": 256,
+      "m_MaxPixelLights": 0,
+      "m_ShadowAtlasResolution": 256,
+      "m_VolumeFrameworkUpdateMode": 0,
+      "m_VolumeProfile": {
+        "fileID": 11400000,
+        "guid": "10fc4df2da32a41aaa32d77bc913491c",
+        "type": 2
+      },
+      "apvScenesData": {
+        "obsoleteSceneBounds": {
+          "m_Keys": [],
+          "m_Values": []
+        },
+        "obsoleteHasProbeVolumes": {
+          "m_Keys": [],
+          "m_Values": []
+        }
+      },
+      "m_PrefilteringModeMainLightShadows": 3,
+      "m_PrefilteringModeAdditionalLight": 4,
+      "m_PrefilteringModeAdditionalLightShadows": 0,
+      "m_PrefilterXRKeywords": true,
+      "m_PrefilteringModeForwardPlus": 1,
+      "m_PrefilteringModeDeferredRendering": 0,
+      "m_PrefilteringModeScreenSpaceOcclusion": 0,
+      "m_PrefilterDebugKeywords": true,
+      "m_PrefilterWriteRenderingLayers": true,
+      "m_PrefilterHDROutput": true,
+      "m_PrefilterAlphaOutput": false,
+      "m_PrefilterSSAODepthNormals": true,
+      "m_PrefilterSSAOSourceDepthLow": true,
+      "m_PrefilterSSAOSourceDepthMedium": false,
+      "m_PrefilterSSAOSourceDepthHigh": true,
+      "m_PrefilterSSAOInterleaved": false,
+      "m_PrefilterSSAOBlueNoise": true,
+      "m_PrefilterSSAOSampleCountLow": true,
+      "m_PrefilterSSAOSampleCountMedium": false,
+      "m_PrefilterSSAOSampleCountHigh": true,
+      "m_PrefilterDBufferMRT1": true,
+      "m_PrefilterDBufferMRT2": true,
+      "m_PrefilterDBufferMRT3": true,
+      "m_PrefilterSoftShadowsQualityLow": true,
+      "m_PrefilterSoftShadowsQualityMedium": true,
+      "m_PrefilterSoftShadowsQualityHigh": true,
+      "m_PrefilterSoftShadows": false,
+      "m_PrefilterScreenCoord": true,
+      "m_PrefilterScreenSpaceIrradiance": false,
+      "m_PrefilterNativeRenderPass": true,
+      "m_PrefilterUseLegacyLightmaps": false,
+      "m_PrefilterBicubicLightmapSampling": false,
+      "m_PrefilterReflectionProbeRotation": false,
+      "m_PrefilterReflectionProbeBlending": false,
+      "m_PrefilterReflectionProbeBoxProjection": false,
+      "m_PrefilterReflectionProbeAtlas": false,
+      "m_ShaderVariantLogLevel": 0,
+      "m_ShadowCascades": 0,
+      "m_Textures": {
+        "blueNoise64LTex": {
+          "fileID": 2800000,
+          "guid": "e3d24661c1e055f45a7560c033dbb837",
+          "type": 3
+        },
+        "bayerMatrixTex": {
+          "fileID": 2800000,
+          "guid": "f9ee4ed84c1d10c49aabb9b210b0fc44",
+          "type": 3
+        }
+      }
+    }
+  },
+  "materials": [
+    {
+      "name": "MAT_Art1_Surface",
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "instanceId": 48830,
+      "baseColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "legacyColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "keywords": [],
+      "renderQueue": 2000,
+      "passes": 9
+    },
+    {
+      "name": "MAT_Art21_TowerMask",
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat",
+      "shader": "Veilward/TowerOcclusionMask",
+      "instanceId": 49294,
+      "baseColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "legacyColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "keywords": [],
+      "renderQueue": 2010,
+      "passes": 1
+    },
+    {
+      "name": "GrayboxShade",
+      "path": "Assets/_Game/Art/Materials/GrayboxShade.mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "instanceId": 48824,
+      "baseColor": [
+        0.349999964,
+        0.24999997,
+        0.65,
+        1.0
+      ],
+      "legacyColor": [
+        0.349999934,
+        0.24999994,
+        0.65,
+        1.0
+      ],
+      "keywords": [],
+      "renderQueue": 2000,
+      "passes": 9
+    },
+    {
+      "name": "MAT_Art21_ShadeOcclusion",
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art21_ShadeOcclusion.mat",
+      "shader": "Veilward/ShadeOcclusion",
+      "instanceId": 49362,
+      "baseColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "legacyColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "keywords": [],
+      "renderQueue": 3010,
+      "passes": 1
+    },
+    {
+      "name": "MAT_OccludedHealthBackground",
+      "path": "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthBackground.mat",
+      "shader": "Veilward/ShadeOcclusion",
+      "instanceId": 48996,
+      "baseColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "legacyColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "keywords": [],
+      "renderQueue": 3010,
+      "passes": 1
+    },
+    {
+      "name": "HealthBackground",
+      "path": "Assets/_Game/Art/Materials/HealthBackground.mat",
+      "shader": "Universal Render Pipeline/Unlit",
+      "instanceId": 49262,
+      "baseColor": [
+        0.119999953,
+        0.03,
+        0.04,
+        1.0
+      ],
+      "legacyColor": [
+        0.119999923,
+        0.03,
+        0.04,
+        1.0
+      ],
+      "keywords": [],
+      "renderQueue": 2000,
+      "passes": 7
+    },
+    {
+      "name": "MAT_Art1_Glow",
+      "path": "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat",
+      "shader": "Universal Render Pipeline/Unlit",
+      "instanceId": 49082,
+      "baseColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "legacyColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "keywords": [],
+      "renderQueue": 2000,
+      "passes": 7
+    },
+    {
+      "name": "MAT_OccludedHealthFill",
+      "path": "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthFill.mat",
+      "shader": "Veilward/ShadeOcclusion",
+      "instanceId": 49444,
+      "baseColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "legacyColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "keywords": [],
+      "renderQueue": 3010,
+      "passes": 1
+    },
+    {
+      "name": "HealthFill",
+      "path": "Assets/_Game/Art/Materials/HealthFill.mat",
+      "shader": "Universal Render Pipeline/Unlit",
+      "instanceId": 49086,
+      "baseColor": [
+        0.24999997,
+        0.9,
+        0.349999964,
+        1.0
+      ],
+      "legacyColor": [
+        0.24999994,
+        0.9,
+        0.349999934,
+        1.0
+      ],
+      "keywords": [],
+      "renderQueue": 2000,
+      "passes": 7
+    }
+  ],
+  "inputSha256": {
+    "Assets/_Game/Art/Materials/ART1.meta": "b224280ee7683989e28f8464da665d08ef9a278d9946fd4c32cf2ed6ee750912",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberCore.mat": "5c30864335e7c45b8657587d0615d9654e3c434b327d1ecfa93eaee3350b4ff1",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberCore.mat.meta": "7ab5f3ada9935e84453887b9173ab02d56cab2e94374d5e470864940650d9e62",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberStroke.mat": "dbf69cfa175fdc6f8314c9b9f7f960e5303459532253b3673e4b1c58d11e62c5",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberStroke.mat.meta": "2a17f6bd7dd6aef98e62c3e959c971c7d1b83bbe8ae8bd4b6dc481ecdd433706",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat": "b34d8d22c19e952ab8c1bb84541053b4315ba1b24465201557cff7dcfb58987f",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat.meta": "88b088170488ff0a9edc45df97a2e123be35bad2038ee1570c7efdf395caa957",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat": "5b55291d7e6aca5bda90574b56d6a8084ae61901d64d1c0ab70c65d5de594d34",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat.meta": "7b29638d58e98418428745ca15d878b3a9a8df832cf64a763eb253a4b0357e99",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art21_ShadeOcclusion.mat": "34b660123266796a8e8a327ae2a41b99a3cf787099e084f422d478a706dec82d",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art21_ShadeOcclusion.mat.meta": "805340e13c9bc793c6b8b655b9efe21562b4a9c41aa5b4c6286bea92b571d09f",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat": "0de469ef41854ba8aab1c53ca76c4fac066dd406565c899c180afa021f8a2443",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat.meta": "fe45f939baad4df23f8efba975bf30976966f44af9335e4a303aa94ded7d7b27",
+    "Assets/_Game/Art/Materials/ART3.meta": "91a3541cd734ae11c35a570fbc0466ee20aa73d7932d7afaed074a65da591755",
+    "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthBackground.mat": "5c6b6f31626dece1f82d33708007203f7d22c9a03624989b2c03d92801a9695a",
+    "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthBackground.mat.meta": "257f0cc67bde8f02b94c245fa40eb49b12022cdfa2dee5d4715606a4af81d53a",
+    "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthFill.mat": "cb661450814943b02a32731fb5c8368f306cdfb31e0917a9e31a56555f544387",
+    "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthFill.mat.meta": "b1592ec7b57b41770d7b61d93d931268fcbec237efd50e0627a38cab3f07f323",
+    "Assets/_Game/Art/Materials/AttackBeam.mat": "c1b84083940598bd2e502a3f8d8ccb9e4d6cae262da451b41b1df9377dcba516",
+    "Assets/_Game/Art/Materials/AttackBeam.mat.meta": "11b12a129bb1fbcd60369f540bc944da381e6595b9cf14c24febf09427e2e457",
+    "Assets/_Game/Art/Materials/GrayboxCellAvailable.mat": "164114f5b927f085fa04e777e262048424b1993a4d3a6e93294b889e61c84368",
+    "Assets/_Game/Art/Materials/GrayboxCellAvailable.mat.meta": "ee5e35b59b9c3b6e62e763b97bd0da2f8ff25ede3642d015f8e80f4d295007ad",
+    "Assets/_Game/Art/Materials/GrayboxCellBlocked.mat": "85a56c4c856adc15798a2f50e2b4a9619ba39f7ec2c64d1cd94638d176565174",
+    "Assets/_Game/Art/Materials/GrayboxCellBlocked.mat.meta": "6b244861c71b66006afdb9d7605572beec3ef75911afcdea07309966548d38d8",
+    "Assets/_Game/Art/Materials/GrayboxGround.mat": "8df22d96585a4527359cfae575e97c9b19fd3e20312f49c15490f86349274a24",
+    "Assets/_Game/Art/Materials/GrayboxGround.mat.meta": "729c02a93290b9e57ddd1adda46b9b91980f12abaac939890b378203c8a1f656",
+    "Assets/_Game/Art/Materials/GrayboxHeart.mat": "bda65cab8072fc09d3e2f086a0419b19fcc5091f22290fc6ce06ee0579dcf02f",
+    "Assets/_Game/Art/Materials/GrayboxHeart.mat.meta": "5f9d3488b79a8c2eef1d47016b7d96623dc3211aab17611498a8e6416630eb33",
+    "Assets/_Game/Art/Materials/GrayboxPath.mat": "bb023f1c463dc6467363d80bb350ca9628d3bad86d75b6e4c5d6acb8f1687175",
+    "Assets/_Game/Art/Materials/GrayboxPath.mat.meta": "e0099a3780f54550a01da3a6a300dabd39fe450904ee43e15523835e29527120",
+    "Assets/_Game/Art/Materials/GrayboxSelection.mat": "6107f7e1b6deb79ceb4489599637fdb16c5e01870013e0cc3a71d2c50b35ad65",
+    "Assets/_Game/Art/Materials/GrayboxSelection.mat.meta": "79571673c7fc87c3a0c24add489e543119ef619b4ab1f6fdd871c7e2803726c3",
+    "Assets/_Game/Art/Materials/GrayboxShade.mat": "26263cc48bc3fd9487336a3852445a4f076309d3f3ef7bd23362a7a042ec6596",
+    "Assets/_Game/Art/Materials/GrayboxShade.mat.meta": "41455633d52e12a82ed6684d8a965f3afa8122718e4547eb418910f2a7db0f19",
+    "Assets/_Game/Art/Materials/GrayboxSpawn.mat": "95e8596688eb9a0144e94d96a53013ea16fd8449eab49ebec862e1af9380cc13",
+    "Assets/_Game/Art/Materials/GrayboxSpawn.mat.meta": "9c95e00a079c67920a500830a2592121f45c34a2781bdd11f67fcbfb4b00619a",
+    "Assets/_Game/Art/Materials/GrayboxTower.mat": "71ced636160a68dca7cf26fd2338913b0d0620aeb891c4ea106d7cacba94f275",
+    "Assets/_Game/Art/Materials/GrayboxTower.mat.meta": "c4259145698f397445909538b3c6dc24c7705f300a18b2f6cef3b7261994064a",
+    "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat": "1b49d268ffb66f7e898a81d0a4a7b02e404d14dc7d884cae98cac05bdfa4ce70",
+    "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat.meta": "9f2e588de5d675c5ee1ca6172ca32e19a5388d4f83aeda5293ede7a6358ca931",
+    "Assets/_Game/Art/Materials/HealthBackground.mat": "5110677ea68472656d16750227b8951541f357b38cbe6748fae9491ded252cea",
+    "Assets/_Game/Art/Materials/HealthBackground.mat.meta": "1351da4833622aa9bbcbcd010918efd682cd2fa2557fdb997b1d5092aff596e5",
+    "Assets/_Game/Art/Materials/HealthFill.mat": "d8eab10147f883570bc8c6aaa56e0615abf8e098f7da41f9f2110ea4d95a3e3f",
+    "Assets/_Game/Art/Materials/HealthFill.mat.meta": "c99909aba544aabe09a2c192999afbd23cb3332255b3b2117579036ef1d18da5",
+    "Assets/_Game/Art/Materials/RangePreview.mat": "fe2754907be728f15f08d2d1f619745db38454f9ebe4b0d6e5c2621baac92b28",
+    "Assets/_Game/Art/Materials/RangePreview.mat.meta": "5768144b1d95cb2d82621d36e23da063e685f86ef61006cb9b2aeed8a8316b75",
+    "Assets/_Game/Art/Materials/ReactionEffect.mat": "c5726f7f7e26cef3ef94a623517383dda9285414805310b0dc81e106ff44cf52",
+    "Assets/_Game/Art/Materials/ReactionEffect.mat.meta": "c0762960e8a4f1f488da912b765a7a253b842105494c8f920d043df5535c2dbf",
+    "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx": "b8b82c2b2e05abaa5ab5e2caabb9b828772c9c0336c8f74a49b4d7fc4184a785",
+    "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx.meta": "f6e6e145a5dffd1f4acaf818fdd1fb0713fc32c637bc09fec9a24b854d2626ec",
+    "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx": "023f21a244d67dc7784e0a0bc2da89d3cbeda25f387ed204a6ea979a603fc6c0",
+    "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx.meta": "96a015cdbd548a5310e807069a6ab4c1d983fd095f3eac2d3a6a110dd2e191b9",
+    "Assets/_Game/Prefabs/ART5/P_Enemy_RiftWarden.prefab": "00ff67cb16f204d604613807994f3bb6628cc3c6ce1af2b88dd623625b5f82ef",
+    "Assets/_Game/Prefabs/Shade.prefab": "30195b5c796a44f8da2ed4b7e740de23e4ec09de181cc130e73ef520ba421964",
+    "Assets/Settings/DefaultVolumeProfile.asset": "3a6f825e8d07fe8b9f3b52e7d4e2dfa0e22c555b22335adb19f0ecc66dfa38dd",
+    "Assets/Settings/DefaultVolumeProfile.asset.meta": "efbcb026cee6b8e32fdf27018c06b0515296a6ccbb43969e792fea270310700a",
+    "Assets/Settings/Mobile_Renderer.asset": "aa93274c9521fa941170becec9e87c5fa36b8587eefd5eeb5c0eed0d1d4b1dbe",
+    "Assets/Settings/Mobile_Renderer.asset.meta": "a148ee2b4987b05b8ff7ae5f9bf84916184f77aefddc821dceb551f5a69f8179",
+    "Assets/Settings/Mobile_RPAsset.asset": "2d5182d2b8884ac88bc6ed033a0a722c23cfb15a7bc8b7daa38db37227bafd09",
+    "Assets/Settings/Mobile_RPAsset.asset.meta": "53ea46647712c615fd1a3f2e0dddfa8559eeedc649e9a1dbf93ff913de28544c",
+    "Assets/Settings/PC_Renderer.asset": "3d0b01d8ded3327263b6690be128a3de58d17c514943ae42fe743a3e084a9c79",
+    "Assets/Settings/PC_Renderer.asset.meta": "b5df8ddb2708c6ed4c133a5ff9ee95a75cc20e4ee3ed6181366a61aedbaf31ec",
+    "Assets/Settings/PC_RPAsset.asset": "08a9c221b335a0dbca1b6967b7de5c42b957c5f0d5e43da9edb36ca8fce5966b",
+    "Assets/Settings/PC_RPAsset.asset.meta": "bb469b9b6f318e9e9bed29c3b2e73e79371c04743c6f95dd6603941f1cd3e53e",
+    "Assets/Settings/SampleSceneProfile.asset": "a8677d4bac051d24caa11cd622e39f968155ee277bfce132274f1de225692fe9",
+    "Assets/Settings/SampleSceneProfile.asset.meta": "2e23abc214069f0adbf2b2207f1db54be7876629ec2a3681d0f4aa5b61622ef0",
+    "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset": "53db583ee71a9087b2cfc7dd03034b2185914ce2d94712096248de4ef64eb22d",
+    "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset.meta": "f61661d8bc8dbe531daf09f6211ef978c7ba145c9207c8e76524396ae0722d7c",
+    "Packages/manifest.json": "a78d2c59e34818add54d16dc5954518d2da7db5675de2581d98290da49ef6eef",
+    "Packages/packages-lock.json": "aa3863f6781ab09d3883c846faec36322a393dae4955ff3cc9b6b5faa5d9b67e",
+    "ProjectSettings/GraphicsSettings.asset": "6736f33dc62c35b0e7a88e275242080bc7a1d94c91154d18fceb332b661a6bce",
+    "ProjectSettings/QualitySettings.asset": "6814d6cc3eb850dd7d2a069a8b17ba9f7591deba8b1758a855978bd9c8627643"
+  },
+  "packages": [
+    {
+      "name": "com.unity.ai.navigation",
+      "version": "2.0.16",
+      "source": 1
+    },
+    {
+      "name": "com.unity.burst",
+      "version": "1.8.31",
+      "source": 1
+    },
+    {
+      "name": "com.unity.collab-proxy",
+      "version": "2.14.0",
+      "source": 1
+    },
+    {
+      "name": "com.unity.collections",
+      "version": "2.7.1",
+      "source": 1
+    },
+    {
+      "name": "com.unity.ext.nunit",
+      "version": "2.0.5",
+      "source": 2
+    },
+    {
+      "name": "com.unity.ide.rider",
+      "version": "3.1.0",
+      "source": 1
+    },
+    {
+      "name": "com.unity.ide.visualstudio",
+      "version": "2.0.26",
+      "source": 1
+    },
+    {
+      "name": "com.unity.inputsystem",
+      "version": "1.20.1",
+      "source": 1
+    },
+    {
+      "name": "com.unity.mathematics",
+      "version": "1.3.3",
+      "source": 1
+    },
+    {
+      "name": "com.unity.modules.accessibility",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.adaptiveperformance",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.ai",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.androidjni",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.animation",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.assetbundle",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.audio",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.cloth",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.director",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.hierarchycore",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.imageconversion",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.imgui",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.jsonserialize",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.particlesystem",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.physics",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.physics2d",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.screencapture",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.subsystems",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.terrain",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.terrainphysics",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.tilemap",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.ui",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.uielements",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.umbra",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.unityanalytics",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.unitywebrequest",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.unitywebrequestassetbundle",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.unitywebrequestaudio",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.unitywebrequesttexture",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.unitywebrequestwww",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.vectorgraphics",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.vehicles",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.video",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.vr",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.wind",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.modules.xr",
+      "version": "1.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.multiplayer.center",
+      "version": "1.0.1",
+      "source": 2
+    },
+    {
+      "name": "com.unity.nuget.mono-cecil",
+      "version": "1.11.6",
+      "source": 1
+    },
+    {
+      "name": "com.unity.nuget.newtonsoft-json",
+      "version": "3.2.2",
+      "source": 1
+    },
+    {
+      "name": "com.unity.pipeline",
+      "version": "0.10.0-exp.1",
+      "source": 1
+    },
+    {
+      "name": "com.unity.render-pipelines.core",
+      "version": "17.3.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.render-pipelines.universal",
+      "version": "17.3.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.render-pipelines.universal-config",
+      "version": "17.0.3",
+      "source": 2
+    },
+    {
+      "name": "com.unity.searcher",
+      "version": "4.9.5",
+      "source": 1
+    },
+    {
+      "name": "com.unity.shadergraph",
+      "version": "17.3.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.test-framework",
+      "version": "1.6.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.test-framework.performance",
+      "version": "3.5.0",
+      "source": 1
+    },
+    {
+      "name": "com.unity.timeline",
+      "version": "1.8.13",
+      "source": 1
+    },
+    {
+      "name": "com.unity.ugui",
+      "version": "2.0.0",
+      "source": 2
+    },
+    {
+      "name": "com.unity.visualscripting",
+      "version": "1.9.12",
+      "source": 1
+    }
+  ],
+  "actualPlayMode": true,
+  "newDeviceRun": false
+}

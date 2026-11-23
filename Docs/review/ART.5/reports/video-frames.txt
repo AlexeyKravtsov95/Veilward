@@ -1,0 +1,305 @@
+0|0.0049289579997093824|191103|fresh MainMenu / NewGame||||||0||
+1|0.19096399999989444|191104|MainMenu / fresh NewGame||||||0||
+2|0.29098274999978457|191176|MainMenu / fresh NewGame||||||0||
+3|0.39141266699971311|191319|MainMenu / fresh NewGame||||||0||
+4|0.49185316700004478|191471|MainMenu / fresh NewGame||||||0||
+5|0.59202870799981611|191618|MainMenu / fresh NewGame||||||0||
+6|0.6942772919996969|191770|MainMenu / fresh NewGame||||||0||
+7|0.79434208299971942|191909|MainMenu / fresh NewGame||||||0||
+8|0.89475408299995252|192040|MainMenu / fresh NewGame||||||0||
+9|0.995082624999668|192184|MainMenu / fresh NewGame||||||0||
+10|1.0951350829996045|192324|MainMenu / fresh NewGame||||||0||
+11|1.1954112079997685|192470|MainMenu / fresh NewGame||||||0||
+12|1.2956255829999463|192619|MainMenu / fresh NewGame||||||0||
+13|1.3957128329998341|192764|MainMenu / fresh NewGame||||||0||
+14|1.49580399999968|192904|MainMenu / fresh NewGame||||||0||
+15|1.5962710419998984|193052|MainMenu / fresh NewGame||||||0||
+16|1.719013707999693|193181|MainMenu / fresh NewGame||||||0||
+17|1.9481077499999628|193182|MainMenu / fresh NewGame|0|150|20|0|0|0||
+18|2.0483458329999849|193270|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+19|2.1486427499999081|193386|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+20|2.2487860829996862|193493|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+21|2.3492370829999345|193613|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+22|2.4493324169998232|193732|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+23|2.5497884999999769|193843|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+24|2.6501372919997266|193957|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+25|2.7502644169999257|194065|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+26|2.8521440419999635|194166|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+27|2.9527183749996766|194282|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+28|3.0532380419999754|194389|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+29|3.1537104579997504|194507|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+30|3.2543399999999565|194625|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+31|3.3548049169999103|194741|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+32|3.4551075419999506|194855|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+33|3.5555205829996339|194971|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+34|3.6557812500000182|195085|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+35|3.7558261669996682|195198|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+36|3.8561434579996785|195312|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+37|3.9564093750000211|195425|NewGame / production map / choose FLAME|0|150|20|0|0|0||
+38|4.0564281669999218|195519|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+39|4.156489457999669|195633|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+40|4.2570346669999708|195733|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+41|4.3572914169999422|195839|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+42|4.4573270419996334|195953|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+43|4.55753520799999|196064|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+44|4.6578278329998284|196173|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+45|4.7584892499999114|196275|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+46|4.8589873749997423|196366|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+47|4.959273624999696|196475|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+48|5.0612434999998186|196587|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+49|5.1616525829999773|196701|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+50|5.2621083330000147|196811|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+51|5.3626133329998993|196920|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+52|5.4627586669998891|197029|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+53|5.563337749999846|197133|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+54|5.6636354170000232|197248|Build preview / selected socket + range / no purchase|0|150|20|0|0|0||
+55|5.7638996249997945|197346|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+56|5.8640535829999862|197452|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+57|5.964262707999751|197557|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+58|6.0644329169999764|197662|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+59|6.1649736249996749|197768|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+60|6.2651622919997862|197876|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+61|6.3651979999999639|197991|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+62|6.4657827080000061|198099|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+63|6.5662585420000141|198208|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+64|6.6663472919999549|198314|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+65|6.7663547499996639|198420|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+66|6.8664063749997695|198531|Placed FLAME L1 / occupied socket selects tower|0|80|20|0|0|0|1:flame:L1|
+67|6.9664164579999124|198618|Combat1 / production Update / moving Shade + HP + attacks|2|80|20|0|1|0|1:flame:L1|Hit
+68|7.0678122919998714|198723|Combat1 / production Update / moving Shade + HP + attacks|5|80|20|0|1|0|1:flame:L1|Hit
+69|7.169425874999888|198831|Combat1 / production Update / moving Shade + HP + attacks|8|80|20|0|1|0|1:flame:L1|Hit
+70|7.2697574999997414|198937|Combat1 / production Update / moving Shade + HP + attacks|11|80|20|0|1|0|1:flame:L1|Hit
+71|7.3701396669998758|199048|Combat1 / production Update / moving Shade + HP + attacks|14|80|20|0|1|0|1:flame:L1|Move
+72|7.4704942499997742|199164|Combat1 / production Update / moving Shade + HP + attacks|17|80|20|0|1|0|1:flame:L1|Hit
+73|7.5707195830000273|199271|Combat1 / production Update / moving Shade + HP + attacks|20|80|20|0|1|0|1:flame:L1|Hit
+74|7.67087441700005|199382|Combat1 / production Update / moving Shade + HP + attacks|23|80|20|0|1|0|1:flame:L1|Hit
+75|7.7711611249997077|199495|Combat1 / production Update / moving Shade + HP + attacks|26|80|20|0|1|0|1:flame:L1|Hit
+76|7.8712292499999421|199605|Combat1 / production Update / moving Shade + HP + attacks|29|80|20|0|1|0|1:flame:L1|Move
+77|7.971570249999786|199706|Combat1 / production Update / moving Shade + HP + attacks|32|80|20|0|2|0|1:flame:L1|Hit;Move
+78|8.0716552919998321|199814|Combat1 / production Update / moving Shade + HP + attacks|35|80|20|0|2|0|1:flame:L1|Hit;Move
+79|8.171836957999858|199916|Combat1 / production Update / moving Shade + HP + attacks|38|80|20|0|2|0|1:flame:L1|Hit;Move
+80|8.2724289579996366|200021|Combat1 / production Update / moving Shade + HP + attacks|41|80|20|0|2|0|1:flame:L1|Hit;Move
+81|8.3724621249998563|200124|Combat1 / production Update / moving Shade + HP + attacks|44|80|20|0|2|0|1:flame:L1|Move;Move
+82|8.47315424999988|200222|Ability preview / live combat / public Confirm|47|80|20|0|2|0|1:flame:L1|Hit;Move
+83|8.5731674579997161|200318|Ability preview / live combat / public Confirm|50|80|20|0|2|0|1:flame:L1|Hit;Move
+84|8.6734078749996115|200421|Ability preview / live combat / public Confirm|53|80|20|0|2|0|1:flame:L1|Hit;Move
+85|8.7736176250000426|200521|Ability preview / live combat / public Confirm|56|80|20|0|2|0|1:flame:L1|Hit;Move
+86|8.8737625419998949|200621|Ability preview / live combat / public Confirm|59|80|20|0|2|0|1:flame:L1|Move;Move
+87|8.9739527919996362|200727|Ability preview / live combat / public Confirm|62|80|20|0|3|0|1:flame:L1|Hit;Move;Move
+88|9.0747817919996123|200832|Ability cast / production Combat1 continues|65|90|20|2|1|0|1:flame:L1|Move;Death;Death
+89|9.1748758749999979|200945|Ability cast / production Combat1 continues|68|90|20|2|1|0|1:flame:L1|Move;Death;Death
+90|9.27497541699995|201053|Ability cast / production Combat1 continues|71|90|20|2|1|0|1:flame:L1|Move;Death;Death
+91|9.3755457919996843|201154|Ability cast / production Combat1 continues|75|90|20|2|1|0|1:flame:L1|Move;Death;Death
+92|9.4761212079997676|201257|Ability cast / production Combat1 continues|78|90|20|2|1|0|1:flame:L1|Move;Death;Death
+93|9.5777620419999039|201357|Ability cast / production Combat1 continues|81|90|20|2|1|0|1:flame:L1|Move;Death;Death
+94|9.6781393329997627|201460|Ability cast / production Combat1 continues|84|90|20|2|1|0|1:flame:L1|Move
+95|9.7782651249999617|201566|Ability cast / production Combat1 continues|87|90|20|2|1|0|1:flame:L1|Move
+96|9.8788112499996714|201670|Ability cast / production Combat1 continues|90|90|20|2|2|0|1:flame:L1|Move;Move
+97|9.9792620419998457|201773|Ability cast / production Combat1 continues|93|90|20|2|2|0|1:flame:L1|Hit;Move
+98|10.079724541999894|201880|Ability cast / production Combat1 continues|96|90|20|2|2|0|1:flame:L1|Hit;Move
+99|10.180180874999678|201973|Ability cast / production Combat1 continues|99|90|20|2|2|0|1:flame:L1|Hit;Move
+100|10.28057091699975|202077|Ability cast / production Combat1 continues|102|90|20|2|2|0|1:flame:L1|Hit;Move
+101|10.38085483299983|202184|Ability cast / production Combat1 continues|105|90|20|2|2|0|1:flame:L1|Move;Move
+102|10.481094999999641|202296|Ability cast / production Combat1 continues|108|90|20|2|2|0|1:flame:L1|Hit;Move
+103|10.581225375000031|202401|Ability cast / production Combat1 continues|111|90|20|2|2|0|1:flame:L1|Hit;Move
+104|10.68128145799983|202509|Ability cast / production Combat1 continues|114|90|20|2|2|0|1:flame:L1|Hit;Move
+105|10.781299666999985|202620|Ability cast / production Combat1 continues|117|90|20|2|2|0|1:flame:L1|Hit;Move
+106|10.881494291999843|202727|Ability cast / production Combat1 continues|120|90|20|2|3|0|1:flame:L1|Move;Move;Move
+107|10.9815062079997|202835|Ability cast / production Combat1 continues|123|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+108|11.085120957999607|202915|Ability cast / production Combat1 continues|126|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+109|11.185257707999881|202999|Ability cast / production Combat1 continues|129|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+110|11.285986916999718|203105|Ability cast / production Combat1 continues|132|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+111|11.386375832999875|203214|Ability cast / production Combat1 continues|135|90|20|2|3|0|1:flame:L1|Move;Move;Move
+112|11.48684749999984|203322|Ability cast / production Combat1 continues|138|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+113|11.587176457999703|203434|Ability cast / production Combat1 continues|141|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+114|11.687282582999615|203546|Ability cast / production Combat1 continues|144|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+115|11.78778204199989|203653|Ability cast / production Combat1 continues|147|90|20|2|3|0|1:flame:L1|Hit;Move;Move
+116|11.887907999999697|203761|Ability cast / production Combat1 continues|150|90|20|2|3|0|1:flame:L1|Move;Move;Move
+117|11.988626583000041|203867|Ability cast / production Combat1 continues|153|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+118|12.08917133299974|203977|Ability cast / production Combat1 continues|156|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+119|12.189805624999735|204085|Ability cast / production Combat1 continues|159|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+120|12.290167916999962|204184|Ability cast / production Combat1 continues|162|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+121|12.391132707999986|204291|Ability cast / production Combat1 continues|165|90|20|2|3|0|1:flame:L1|Move;Move;Move
+122|12.491722666999976|204402|Ability cast / production Combat1 continues|168|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+123|12.591826832999686|204506|Ability cast / production Combat1 continues|171|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+124|12.691857374999927|204616|Ability cast / production Combat1 continues|174|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+125|12.79244774999961|204724|Ability cast / production Combat1 continues|177|90|20|2|3|0|1:flame:L1|Hit;Hit;Move
+126|12.892720832999657|204826|Ability cast / production Combat1 continues|180|90|20|2|3|0|1:flame:L1|Move;Move;Move
+127|12.994332792000023|204928|Ability cast / production Combat1 continues|183|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+128|13.094354874999681|205033|Ability cast / production Combat1 continues|186|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+129|13.194397624999965|205133|Ability cast / production Combat1 continues|189|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+130|13.294972291999784|205239|Ability cast / production Combat1 continues|192|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+131|13.395015666999825|205339|Ability cast / production Combat1 continues|195|90|20|2|3|0|1:flame:L1|Move;Move;Move
+132|13.4952065829998|205446|Ability cast / production Combat1 continues|198|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+133|13.595423999999639|205546|Ability cast / production Combat1 continues|201|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+134|13.695724832999986|205650|Ability cast / production Combat1 continues|204|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+135|13.796054957999786|205750|Ability cast / production Combat1 continues|207|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+136|13.896292249999988|205857|Ability cast / production Combat1 continues|210|90|20|2|3|0|1:flame:L1|Move;Move;Move
+137|13.996571416999814|205966|Ability cast / production Combat1 continues|213|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+138|14.096870749999653|206063|Ability cast / production Combat1 continues|216|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+139|14.197358874999736|206168|Ability cast / production Combat1 continues|219|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+140|14.297815333000017|206280|Ability cast / production Combat1 continues|222|90|20|2|3|0|1:flame:L1|Hit;Hit;Hit
+141|14.398182082999938|206386|Ability cast / production Combat1 continues|225|90|20|2|3|0|1:flame:L1|Move;Move;Move
+142|14.49865170799967|206489|Ability cast / production Combat1 continues|228|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+143|14.598660124999697|206593|Ability cast / production Combat1 continues|231|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+144|14.699001250000038|206706|Ability cast / production Combat1 continues|234|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+145|14.799592999999732|206816|Ability cast / production Combat1 continues|237|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+146|14.900128957999641|206926|Ability cast / production Combat1 continues|240|90|20|2|3|0|1:flame:L1|Move;Move;Move
+147|15.002837499999714|207033|Ability cast / production Combat1 continues|243|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+148|15.103246582999873|207143|Ability cast / production Combat1 continues|246|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+149|15.203289541999766|207254|Ability cast / production Combat1 continues|249|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+150|15.303868374999638|207369|Ability cast / production Combat1 continues|252|90|20|2|3|0|1:flame:L1|Move;Hit;Hit
+151|15.404524000000038|207474|Ability cast / production Combat1 continues|255|90|20|2|3|0|1:flame:L1|Move;Move;Move
+152|15.504781291999734|207579|Ability cast / production Combat1 continues|258|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+153|15.605129207999653|207686|Ability cast / production Combat1 continues|261|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+154|15.705616332999853|207799|Ability cast / production Combat1 continues|264|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+155|15.806011624999883|207908|Ability cast / production Combat1 continues|267|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+156|15.906447999999727|208005|Ability cast / production Combat1 continues|270|90|20|2|3|0|1:flame:L1|Move;Move;Move
+157|16.006772166999781|208109|Ability cast / production Combat1 continues|273|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+158|16.107106999999814|208215|Ability cast / production Combat1 continues|276|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+159|16.207613957999911|208322|Ability cast / production Combat1 continues|279|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+160|16.308004249999613|208432|Ability cast / production Combat1 continues|282|90|20|2|3|0|1:flame:L1|Move;Move;Hit
+161|16.408569875000012|208539|Ability cast / production Combat1 continues|285|90|20|2|3|0|1:flame:L1|Move;Move;Move
+162|16.510016041999734|208647|Ability cast / production Combat1 continues|289|90|20|2|3|0|1:flame:L1|Move;Move;Move
+163|16.61118554199993|208748|Ability cast / production Combat1 continues|292|90|20|2|3|0|1:flame:L1|Move;Move;Move
+164|16.711648957999842|208849|Ability cast / production Combat1 continues|295|90|20|2|3|0|1:flame:L1|Move;Move;Move
+165|16.812166832999992|208957|Ability cast / production Combat1 continues|298|90|20|2|3|0|1:flame:L1|Move;Move;Move
+166|16.913012916999833|209061|Ability cast / production Combat1 continues|301|90|20|2|3|0|1:flame:L1|Move;Move;Move
+167|17.013372916999742|209167|Ability cast / production Combat1 continues|304|90|20|2|3|0|1:flame:L1|Move;Move;Move
+168|17.113910832999863|209274|Ability cast / production Combat1 continues|307|90|20|2|3|0|1:flame:L1|Move;Move;Move
+169|17.214133041999958|209372|Ability cast / production Combat1 continues|310|90|20|2|3|0|1:flame:L1|Move;Move;Move
+170|17.314343499999723|209474|Ability cast / production Combat1 continues|313|90|20|2|3|0|1:flame:L1|Move;Move;Move
+171|17.414400791999924|209574|Ability cast / production Combat1 continues|316|90|20|2|3|0|1:flame:L1|Move;Move;Move
+172|17.514466791999894|209673|Ability cast / production Combat1 continues|319|90|20|2|3|0|1:flame:L1|Move;Move;Move
+173|17.614615250000043|209778|Ability cast / production Combat1 continues|322|90|20|2|3|0|1:flame:L1|Move;Move;Move
+174|17.715127832999769|209893|Ability cast / production Combat1 continues|325|90|20|2|3|0|1:flame:L1|Move;Move;Move
+175|17.815348416999768|210003|Ability cast / production Combat1 continues|328|90|20|2|3|0|1:flame:L1|Move;Move;Move
+176|17.915445582999837|210107|Ability cast / production Combat1 continues|331|90|20|2|3|0|1:flame:L1|Move;Move;Move
+177|18.015845166999952|210221|Ability cast / production Combat1 continues|334|90|20|2|3|0|1:flame:L1|Move;Move;Move
+178|18.116032624999661|210330|Ability cast / production Combat1 continues|337|90|20|2|3|0|1:flame:L1|Move;Move;Move
+179|18.216567292000036|210429|Ability cast / production Combat1 continues|340|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+180|18.316916874999606|210537|Ability cast / production Combat1 continues|343|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+181|18.419263999999657|210639|Ability cast / production Combat1 continues|346|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+182|18.519315207999625|210739|Ability cast / production Combat1 continues|349|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+183|18.619527332999951|210843|Ability cast / production Combat1 continues|352|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+184|18.719896416999745|210953|Ability cast / production Combat1 continues|355|90|19|2|2|0|1:flame:L1|Move;Move;Leak
+185|18.820472832999712|211060|Ability cast / production Combat1 continues|358|90|19|2|2|0|1:flame:L1|Move;Move
+186|18.920505207999668|211172|Ability cast / production Combat1 continues|361|90|19|2|2|0|1:flame:L1|Move;Move
+187|19.020532207999622|211283|Ability cast / production Combat1 continues|364|90|19|2|2|0|1:flame:L1|Move;Move
+188|19.120713124999838|211392|Ability cast / production Combat1 continues|367|90|19|2|2|0|1:flame:L1|Move;Move
+189|19.221054207999714|211499|Ability cast / production Combat1 continues|370|90|18|2|1|0|1:flame:L1|Move;Leak
+190|19.32159320799974|211612|Ability cast / production Combat1 continues|373|90|18|2|1|0|1:flame:L1|Move;Leak
+191|19.421818916999655|211724|Ability cast / production Combat1 continues|376|90|18|2|1|0|1:flame:L1|Move;Leak
+192|19.522400500000003|211833|Ability cast / production Combat1 continues|379|90|18|2|1|0|1:flame:L1|Move;Leak
+193|19.622729249999793|211940|Ability cast / production Combat1 continues|382|90|18|2|1|0|1:flame:L1|Move;Leak
+194|19.722855249999611|212048|Ability cast / production Combat1 continues|385|90|18|2|1|0|1:flame:L1|Move;Leak
+195|19.823160707999705|212153|Ability cast / production Combat1 continues|388|90|18|2|1|0|1:flame:L1|Move
+196|19.923660499999642|212257|Ability cast / production Combat1 continues|391|90|18|2|1|0|1:flame:L1|Move
+197|20.023764457999732|212367|Ability cast / production Combat1 continues|394|90|18|2|1|0|1:flame:L1|Move
+198|20.124338416999763|212472|Ability cast / production Combat1 continues|397|90|18|2|1|0|1:flame:L1|Move
+199|20.224539957999696|212570|Preparation2 / earned gold / Upgrade FLAME L2|399|110|17|2|0|0|1:flame:L1|Leak
+200|20.325105916999746|212623|Preparation2 / earned gold / Upgrade FLAME L2|399|110|17|2|0|0|1:flame:L1|Leak
+201|20.425423707999926|212724|Preparation2 / earned gold / Upgrade FLAME L2|399|110|17|2|0|0|1:flame:L1|Leak
+202|20.526007749999735|212838|Preparation2 / earned gold / Upgrade FLAME L2|399|110|17|2|0|0|1:flame:L1|Leak
+203|20.627980499999921|212936|Preparation2 / earned gold / Upgrade FLAME L2|399|110|17|2|0|0|1:flame:L1|Leak
+204|20.728507791999618|213045|Preparation2 / earned gold / Upgrade FLAME L2|399|110|17|2|0|0|1:flame:L1|Leak
+205|20.828801041999668|213148|Preparation2 / earned gold / Upgrade FLAME L2|399|110|17|2|0|0|1:flame:L1|
+206|20.929324166999777|213256|Preparation2 / earned gold / Upgrade FLAME L2|399|110|17|2|0|0|1:flame:L1|
+207|21.029478041999937|213365|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+208|21.130001541999718|213476|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+209|21.230379416999767|213584|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+210|21.330498916999659|213697|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+211|21.431057708000026|213809|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+212|21.531582791999881|213925|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+213|21.631850541999938|214027|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+214|21.732245499999863|214135|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+215|21.83245316700004|214243|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+216|21.932748917000026|214349|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+217|22.033176541999637|214455|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+218|22.133695083000021|214561|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+219|22.233787957999994|214669|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+220|22.334406499999659|214775|Preparation2 / earned gold / Upgrade FLAME L2|399|5|17|2|0|0|1:flame:L2|
+221|22.436008791999939|214873|Combat2 / production Update / interruption before Continue|400|5|17|2|1|0|1:flame:L2|Hit
+222|22.536239249999653|214979|Combat2 / production Update / interruption before Continue|403|5|17|2|1|0|1:flame:L2|Hit
+223|22.636825374999717|215076|Combat2 / production Update / interruption before Continue|406|5|17|2|1|0|1:flame:L2|Hit
+224|22.736846207999861|215181|Combat2 / production Update / interruption before Continue|409|5|17|2|1|0|1:flame:L2|Hit
+225|22.837171624999883|215296|Combat2 / production Update / interruption before Continue|412|5|17|2|1|0|1:flame:L2|Move
+226|22.937184375000015|215403|Combat2 / production Update / interruption before Continue|415|5|17|2|1|0|1:flame:L2|Hit
+227|23.037235207999856|215517|Combat2 / production Update / interruption before Continue|418|5|17|2|1|0|1:flame:L2|Hit
+228|23.137579291999828|215623|Combat2 / production Update / interruption before Continue|421|5|17|2|1|0|1:flame:L2|Hit
+229|23.237741417000052|215726|Combat2 / production Update / interruption before Continue|424|5|17|2|1|0|1:flame:L2|Hit
+230|23.337774624999838|215828|Combat2 / production Update / interruption before Continue|427|5|17|2|1|0|1:flame:L2|Hit
+231|23.437915916999827|215934|Combat2 / production Update / interruption before Continue|430|5|17|2|2|0|1:flame:L2|Hit;Move
+232|23.538160874999903|216035|Combat2 / production Update / interruption before Continue|433|5|17|2|2|0|1:flame:L2|Hit;Move
+233|23.63831191700001|216129|Combat2 / production Update / interruption before Continue|436|5|17|2|2|0|1:flame:L2|Hit;Move
+234|23.738476042000002|216238|Combat2 / production Update / interruption before Continue|439|5|17|2|2|0|1:flame:L2|Hit;Move
+235|23.838681207999798|216338|Combat2 / production Update / interruption before Continue|442|5|17|2|2|0|1:flame:L2|Move;Move
+236|23.939145124999868|216438|Combat2 / production Update / interruption before Continue|445|5|17|2|2|0|1:flame:L2|Hit;Move
+237|24.039675707999777|216539|Combat2 / production Update / interruption before Continue|448|5|17|2|2|0|1:flame:L2|Hit;Move
+238|24.140090082999905|216650|Combat2 / production Update / interruption before Continue|451|5|17|2|2|0|1:flame:L2|Hit;Move
+239|24.240491999999904|216749|Combat2 / production Update / interruption before Continue|454|5|17|2|2|0|1:flame:L2|Hit;Move
+240|24.340980374999617|216852|Combat2 / production Update / interruption before Continue|457|5|17|2|2|0|1:flame:L2|Hit;Move
+241|24.441478666999956|216959|Combat2 / production Update / interruption before Continue|460|5|17|2|3|0|1:flame:L2|Hit;Move;Move
+242|24.5418656249999|217064|Combat2 / production Update / interruption before Continue|463|5|17|2|3|0|1:flame:L2|Hit;Move;Move
+243|24.642200708000018|217165|Combat2 / production Update / interruption before Continue|467|5|17|2|3|0|1:flame:L2|Hit;Move;Move
+244|24.744458457999826|217269|Combat2 / production Update / interruption before Continue|469|5|17|2|3|0|1:flame:L2|Hit;Move;Move
+245|24.84481920799999|217368|Combat2 / production Update / interruption before Continue|473|5|17|2|3|0|1:flame:L2|Move;Move;Move
+246|24.944869499999641|217471|Combat2 / production Update / interruption before Continue|476|5|17|2|3|0|1:flame:L2|Hit;Move;Move
+247|25.044953332999739|217579|Combat2 / production Update / interruption before Continue|479|5|17|2|3|0|1:flame:L2|Hit;Move;Move
+248|25.145465999999942|217686|Combat2 / production Update / interruption before Continue|482|5|17|2|3|0|1:flame:L2|Hit;Hit;Move
+249|25.245470625000053|217791|Combat2 / production Update / interruption before Continue|485|5|17|2|3|0|1:flame:L2|Hit;Hit;Move
+250|25.345888957999705|217897|Combat2 / production Update / interruption before Continue|488|5|17|2|3|0|1:flame:L2|Move;Hit;Move
+251|25.5850943749997|217921|Combat2 / production Update / interruption before Continue||||||0||
+252|25.685774749999837|218048|MainMenu / file Continue / interrupted Combat rollback||||||0||
+253|25.78585908299965|218199|MainMenu / file Continue / interrupted Combat rollback||||||0||
+254|25.885984832999839|218348|MainMenu / file Continue / interrupted Combat rollback||||||0||
+255|25.98620899999969|218489|MainMenu / file Continue / interrupted Combat rollback||||||0||
+256|26.086671874999865|218629|MainMenu / file Continue / interrupted Combat rollback||||||0||
+257|26.186969916999715|218776|MainMenu / file Continue / interrupted Combat rollback||||||0||
+258|26.287255374999859|218912|MainMenu / file Continue / interrupted Combat rollback||||||0||
+259|26.387443916999928|219047|MainMenu / file Continue / interrupted Combat rollback||||||0||
+260|26.487824291999914|219194|MainMenu / file Continue / interrupted Combat rollback||||||0||
+261|26.58833549999963|219338|MainMenu / file Continue / interrupted Combat rollback||||||0||
+262|26.688746708000053|219483|MainMenu / file Continue / interrupted Combat rollback||||||0||
+263|26.788761457999954|219627|MainMenu / file Continue / interrupted Combat rollback||||||0||
+264|26.888923999999861|219770|MainMenu / file Continue / interrupted Combat rollback||||||0||
+265|27.108219457999894|219772|MainMenu / file Continue / interrupted Combat rollback|399|5|17|2|0|0|1:flame:L2|
+266|27.208582957999624|219867|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+267|27.311252332999629|219982|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+268|27.411273416999848|220099|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+269|27.511869707999722|220210|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+270|27.612186249999922|220321|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+271|27.712257541999861|220435|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+272|27.812668416999713|220548|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+273|27.913050457999816|220659|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+274|28.013260582999919|220771|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+275|28.113368916999661|220883|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+276|28.213511208|220998|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+277|28.313976666999679|221103|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+278|28.414104999999836|221204|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+279|28.514434291999805|221319|Continue / restored Preparation2 + FLAME L2 + Grid|399|5|17|2|0|0|1:flame:L2|
+280|28.614822000000004|221425|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+281|28.715257041999848|221536|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+282|28.815624625000055|221652|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+283|28.916753916999824|221765|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+284|29.017063667000002|221868|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+285|29.117352708|221976|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+286|29.217532749999918|222089|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+287|29.318718916999842|222200|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+288|29.419247583000015|222309|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+289|29.519529958000021|222421|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+290|29.619912582999859|222530|Sell confirmation / earned refund|399|5|17|2|0|0|1:flame:L2|
+291|29.720365499999843|222643|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+292|29.820894957999826|222758|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+293|29.921213749999879|222874|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+294|30.021278666999933|222998|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+295|30.121367416999874|223113|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+296|30.221389916999669|223223|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+297|30.321478082999874|223334|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+298|30.421543999999813|223443|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+299|30.521652832999735|223549|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+300|30.621716374999778|223661|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+301|30.721920082999986|223771|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+302|30.822064332999616|223882|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+303|30.922113541999806|223993|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||
+304|31.022476374999769|224108|Sold / public flow complete / no resource substitution|399|127|17|2|0|0||

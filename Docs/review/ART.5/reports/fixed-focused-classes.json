@@ -1,0 +1,147 @@
+[
+  {
+    "name": "BattleCheckpointControllerTests",
+    "summary": {
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0
+    },
+    "command": [
+      "/Users/alexeykravtsov/.unity/bin/unity",
+      "command",
+      "test run",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--format",
+      "json",
+      "--mode",
+      "editmode",
+      "--filter",
+      "BattleCheckpointControllerTests",
+      "--async-tests",
+      "true"
+    ]
+  },
+  {
+    "name": "BattleReactionEventTests",
+    "summary": {
+      "total": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0
+    },
+    "command": [
+      "/Users/alexeykravtsov/.unity/bin/unity",
+      "command",
+      "test run",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--format",
+      "json",
+      "--mode",
+      "editmode",
+      "--filter",
+      "BattleReactionEventTests",
+      "--async-tests",
+      "true"
+    ]
+  },
+  {
+    "name": "ElementProgressionControllerTests",
+    "summary": {
+      "total": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0
+    },
+    "command": [
+      "/Users/alexeykravtsov/.unity/bin/unity",
+      "command",
+      "test run",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--format",
+      "json",
+      "--mode",
+      "editmode",
+      "--filter",
+      "ElementProgressionControllerTests",
+      "--async-tests",
+      "true"
+    ]
+  },
+  {
+    "name": "NativeEightWaveFileTests",
+    "summary": {
+      "total": 9,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0
+    },
+    "command": [
+      "/Users/alexeykravtsov/.unity/bin/unity",
+      "command",
+      "test run",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--format",
+      "json",
+      "--mode",
+      "editmode",
+      "--filter",
+      "NativeEightWaveFileTests",
+      "--async-tests",
+      "true"
+    ]
+  },
+  {
+    "name": "EnemyModelAssetTests",
+    "summary": {
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0
+    },
+    "command": [
+      "/Users/alexeykravtsov/.unity/bin/unity",
+      "command",
+      "test run",
+      "--caller",
+      "plugin",
+      "--skill",
+      "unity-cli",
+      "--project-path",
+      "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+      "--format",
+      "json",
+      "--mode",
+      "editmode",
+      "--filter",
+      "EnemyModelAssetTests",
+      "--async-tests",
+      "true"
+    ]
+  }
+]
