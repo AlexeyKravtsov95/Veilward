@@ -25,14 +25,19 @@ public sealed class CaptureFlameCombat : MonoBehaviour
     {
         Require(EditorApplication.isPlaying,"Actual Play Mode required");
         Directory.CreateDirectory(Output+"playmode");
-        var b=UnityEngine.Object.FindFirstObjectByType<BattleSceneController>();var s=b.Simulation;
+        var readyDeadline=Time.realtimeSinceStartup+5;
+        while((UnityEngine.Object.FindFirstObjectByType<BattleSceneController>()==null || UnityEngine.Object.FindFirstObjectByType<BattleSceneController>().Simulation==null) && Time.realtimeSinceStartup<readyDeadline)yield return null;
+        var b=UnityEngine.Object.FindFirstObjectByType<BattleSceneController>();Require(b!=null&&b.Simulation!=null,"Battle Start initialized");var s=b.Simulation;
         Require(s.State.Towers.Count==0&&s.State.Gold==150&&s.State.Tick==0,"fresh direct Battle required");
         b.enabled=false;var script=AbilityBossTrace.Load("flame");var ability=b.GetComponent<AbilityController>();
         var control=new AbilityBossTrace.Run(AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWaveAbilityBossV2.asset").CreateSimulation(),script);control.Play();
-        var camera=Camera.main;var label=new GameObject("VFX1a explicit test-clock label");
-        label.transform.position=camera.ViewportToWorldPoint(new Vector3(.5f,.94f,10));label.transform.rotation=camera.transform.rotation;
-        var text=label.AddComponent<TextMesh>();text.fontSize=48;text.characterSize=.062f;text.anchor=TextAnchor.MiddleCenter;
-        text.text="EARNED PRODUCTION REPLAY | TEST CLOCK fixed30Hz / <=120 ticks per render | original Battle camera | no resource substitution";
+        var camera=Camera.main;var label=new GameObject("VFX1a explicit test-clock label",typeof(Canvas));
+        label.GetComponent<Canvas>().renderMode=RenderMode.ScreenSpaceOverlay;label.GetComponent<Canvas>().sortingOrder=1000;
+        var labelText=new GameObject("Probe label",typeof(UnityEngine.UI.Text));labelText.transform.SetParent(label.transform,false);
+        var text=labelText.GetComponent<UnityEngine.UI.Text>();text.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");text.fontSize=15;text.alignment=TextAnchor.MiddleCenter;text.raycastTarget=false;
+        text.rectTransform.anchorMin=new Vector2(0,0);text.rectTransform.anchorMax=new Vector2(1,0);text.rectTransform.pivot=new Vector2(.5f,0);text.rectTransform.sizeDelta=new Vector2(0,40);
+        text.text="EARNED PRODUCTION REPLAY | TEST CLOCK fixed30Hz / <=120ticks per render | no resource substitution";
+        Veilward.Infrastructure.WaveCheckpointEnvelope earned8=null;
         var rows=new List<object>();bool dense=false,boss=false,castBoss=false,bossDeath=false;var maxEnemies=0;
         var shaderAsync=ShaderUtil.allowAsyncCompilation;ShaderUtil.allowAsyncCompilation=false;var captureRate=Time.captureFramerate;Time.captureFramerate=30;bool success=false;
         Require(b.ChooseElement(new ChooseElementCommand("start-resonance",script.start)).Success,"start choice");
@@ -47,6 +52,7 @@ public sealed class CaptureFlameCombat : MonoBehaviour
                         command.op=="upgrade"?b.UpgradeTower(new TowerId(command.id)).Success:b.SellTower(new TowerId(command.id)).Success,"public economy command");
                     rows.Add(new{wave,tick=s.State.Tick,command=JsonUtility.ToJson(command),gold=s.State.Gold});
                 }
+                if(wave==8)earned8=AbilityBossTrace.Envelope(s);
                 Require(b.StartWave()==WaveTransitionResult.Started,"StartWave");var guard=0;
                 while(s.State.Phase==BattlePhase.Combat&&guard++<20000)
                 {
@@ -54,13 +60,13 @@ public sealed class CaptureFlameCombat : MonoBehaviour
                     {
                         Require(ability.BeginPreview()&&ability.SelectTarget(center),"public ability preview");
                         var target=s.State.Enemies.FirstOrDefault(e=>e.Definition.Id.Value=="rift-warden");
-                        if(target!=null&&!castBoss){Call(b,"LateUpdate");Pixels(camera,"earned-boss-ability-preview.png");}
+                        if(target!=null&&!castBoss){Call(b,"LateUpdate");yield return null;yield return new WaitForEndOfFrame();Composite("earned-boss-ability-preview.png");}
                         var bossHealth=target!=null?target.Health:0;
                         Require(ability.ConfirmPreview(),"public ability Confirm");Call(b,"LateUpdate");
                         Require(ability.LastCast.HasValue&&ability.LastCast.Value.Succeeded,"guarded intent dispatched at this exact simulation tick");
                         var bossDamage=target!=null?bossHealth-target.Health:0;
                         rows.Add(new{wave,tick=s.State.Tick,ability=true,bossDamage,gold=s.State.Gold,hp=s.State.BaseHealth,sequence=s.AbilityState.NextCastSequence});
-                        if(target!=null&&!castBoss){Call(b,"LateUpdate");Pixels(camera,"earned-boss-ability-impact.png");castBoss=true;}
+                        if(target!=null&&!castBoss){Call(b,"LateUpdate");yield return null;yield return new WaitForEndOfFrame();Composite("earned-boss-ability-impact.png");castBoss=true;}
                     }
                     var bossBefore=s.State.Enemies.FirstOrDefault(e=>e.Definition.Id.Value=="rift-warden");
                     if(s.State.Phase==BattlePhase.Combat)s.Step();
@@ -70,16 +76,16 @@ public sealed class CaptureFlameCombat : MonoBehaviour
                     if(lethalBoss.Length>0&&!bossDeath)
                     {
                         var tail=b.GetComponentsInChildren<EnemyModelView>().Single(v=>v.IsTail&&v.Model.name.StartsWith("Enemy_RiftWarden"));
-                        tail.Advance(.2f);Pixels(camera,"earned-boss-death.png");
+                        tail.Advance(.2f);yield return null;yield return new WaitForEndOfFrame();Composite("earned-boss-death.png");
                         File.WriteAllText(Output+"reports/earned-boss-death.json",Newtonsoft.Json.JsonConvert.SerializeObject(new{testClock=true,bossId=bossBefore.Id.Value,eventOrigin=lethalBoss[0].Origin.ToString(),tick=s.State.Tick,capturedPosition=new[]{lethalBoss[0].TargetPosition.X,lethalBoss[0].TargetPosition.Y},tailClock=tail.TailClock,domainRemoved=!s.State.Enemies.Any(e=>e.Id==bossBefore.Id),kills=s.State.Kills,gold=s.State.Gold},Newtonsoft.Json.Formatting.Indented)+"\n");bossDeath=true;
                     }
                     maxEnemies=Math.Max(maxEnemies,s.State.Enemies.Count);
-                    if(s.State.Enemies.Count>=5&&!dense){Pixels(camera,"earned-dense-combat.png");dense=true;}
+                    if(s.State.Enemies.Count>=5&&!dense){yield return null;yield return new WaitForEndOfFrame();Composite("earned-dense-combat.png");dense=true;}
                     if(s.State.Enemies.Any(e=>e.Definition.Id.Value=="rift-warden")&&!boss)
                     {
                         var enemy=s.State.Enemies.First(e=>e.Definition.Id.Value=="rift-warden");
                         Require(b.GetComponent<EnemyInspectorController>().Select(enemy.Id),"boss Inspect");
-                        Call(b,"LateUpdate");Pixels(camera,"earned-boss-inspect.png");yield return new WaitForEndOfFrame();Composite("earned-boss-inspect-composite.png");
+                        Call(b,"LateUpdate");yield return null;yield return new WaitForEndOfFrame();Composite("earned-boss-inspect.png");yield return null;yield return new WaitForEndOfFrame();Composite("earned-boss-inspect-composite.png");
                         File.WriteAllText(Output+"reports/boss-inspector.txt",b.GetComponent<EnemyInspectorController>().Details+"\n");
                         CaptureInputs(b);
                         b.GetComponent<EnemyInspectorController>().Close();boss=true;
@@ -94,9 +100,34 @@ public sealed class CaptureFlameCombat : MonoBehaviour
             }
             Require(s.State.Phase==BattlePhase.Victory&&AbilityBossTrace.Wire(s)==AbilityBossTrace.Wire(control.sim),"exact production final state");
             Require(boss&&castBoss&&bossDeath,"boss inspect/ability/death evidence");
-            Pixels(camera,"earned-victory8.png");
+            yield return null;yield return new WaitForEndOfFrame();Composite("earned-victory8.png");
             File.WriteAllText(Output+"reports/earned-combat.json",Newtonsoft.Json.JsonConvert.SerializeObject(new{testClock=true,productionUpdate=false,liveResourceMutation=false,maxEnemies,dense,boss,castBoss,bossDeath,exactFinalWire=AbilityBossTrace.Wire(s),rows},Newtonsoft.Json.Formatting.Indented)+"\n");
-            success=true;
+            Require(earned8!=null,"earned Preparation8 checkpoint");
+            File.WriteAllText(Output+"reports/earned-l3-origin.json",JsonUtility.ToJson(earned8,true)+"\n");
+            b.GetComponent<BattleCheckpointController>().RestoreCheckpoint(earned8);
+            var keeper=s.State.Towers.First(t=>t.Definition.Id.Value=="flame").Id;
+            foreach(var id in s.State.Towers.Where(t=>t.Id!=keeper).Select(t=>t.Id).ToArray())Require(b.SellTower(id).Success,"earned consolidation Sell");
+            Require(b.UpgradeTower(keeper).Success&&b.UpgradeTower(keeper).Success,"earned L3 from refunds, no grants");
+            File.WriteAllText(Output+"reports/earned-l3-safe.json",JsonUtility.ToJson(AbilityBossTrace.Envelope(s),true)+"\n");
+            text.text="EARNED PREPARATION8 / public Sell + Upgrade L3 | TEST CLOCK / visual probe | no resource grants";
+            Call(b,"LateUpdate");Require(b.StartWave()==WaveTransitionResult.Started,"L3 Combat8");
+            bool l3=false;
+            for(var tick=0;tick<1000&&s.State.Phase==BattlePhase.Combat;tick++)
+            {
+                s.Step();var attack=s.AttackEvents.FirstOrDefault();var shot=s.AttackEvents.Count>0;
+                Call(b,"ProcessAttackEvents");Call(b,"LateUpdate");
+                if(shot)
+                {
+                    var slot=Enumerable.Range(0,8).First(i=>b.FlameProjectiles.GetView(i).Remaining>0);
+                    var view=b.FlameProjectiles.GetView(slot);var before=AbilityBossTrace.Snapshot(s);
+                    yield return null;yield return new WaitForEndOfFrame();Composite("L3-launch.png");b.FlameProjectiles.Advance(.1f);yield return null;yield return new WaitForEndOfFrame();Composite("L3-flight.png");
+                    b.FlameProjectiles.Advance(.11f);yield return null;yield return new WaitForEndOfFrame();Composite("L3-impact.png");
+                    Require(view.ImpactVisible&&view.HeadPosition==view.Target&&AbilityBossTrace.Snapshot(s)==before,"L3 cosmetic arrival never mutates Domain");
+                    File.WriteAllText(Output+"reports/earned-l3-proof.json",Newtonsoft.Json.JsonConvert.SerializeObject(new{success=true,level=b.FlameProjectiles.GetLevel(slot),attackTick=attack.Tick,tower=keeper.Value,enemy=attack.TargetEnemyId.Value,source=view.Source.ToString("R"),target=view.Target.ToString("R"),gold=s.State.Gold,liveResourceMutation=false,testClock=true,domainUnchangedAtArrival=true},Newtonsoft.Json.Formatting.Indented)+"\n");
+                    l3=true;break;
+                }
+            }
+            Require(l3,"actual L3 flight captured");success=true;
         }
         finally
         {
@@ -128,12 +159,5 @@ public sealed class CaptureFlameCombat : MonoBehaviour
         var type=AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.Capture.CaptureCommands")).First(t=>t!=null);
         var flags=BindingFlags.Static|BindingFlags.NonPublic;type.GetMethod("PrepareGameView",flags).Invoke(null,null);
         File.WriteAllBytes(Output+"playmode/"+file,(byte[])type.GetMethod("EncodeScreenToPng",flags).Invoke(null,new object[]{1600,900}));
-    }
-    private static void Pixels(Camera camera,string file)
-    {
-        Directory.CreateDirectory(Output+"playmode");var old=camera.targetTexture;var active=RenderTexture.active;
-        var rt=RenderTexture.GetTemporary(1600,900,24);Texture2D texture=null;
-        try{camera.targetTexture=rt;camera.Render();RenderTexture.active=rt;texture=new Texture2D(1600,900,TextureFormat.RGB24,false);texture.ReadPixels(new Rect(0,0,1600,900),0,0);texture.Apply();File.WriteAllBytes(Output+"playmode/"+file,texture.EncodeToPNG());}
-        finally{camera.targetTexture=old;RenderTexture.active=active;if(texture!=null)UnityEngine.Object.DestroyImmediate(texture);RenderTexture.ReleaseTemporary(rt);}
     }
 }

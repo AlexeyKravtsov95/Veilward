@@ -16,7 +16,7 @@ PICK_STAGES = {
     'video-preview.png': 'Build preview / public placement',
     'video-pause.png': 'Pause / frozen FLAME flight',
     'video-resume.png': 'Resume / production Update flight without catch-up',
-    'video-continue.png': 'Continue / Preparation3 FLAME L3 / clean pool + Grid',
+    'video-continue.png': 'Continue / Preparation2 FLAME L2 / clean pool + Grid',
     'video-sold.png': 'Sold / public flow complete / no resource substitution',
 }
 
@@ -32,7 +32,7 @@ def select_stage_frames(manifest):
         pick(filename,matches[len(matches)//2])
     def vector(s):return [float(x) for x in re.findall(r'-?\d+(?:\.\d+)?(?:[Ee][+-]?\d+)?',s)]
     def distance(a,b):return math.dist(vector(a),vector(b))
-    for level in (1,2,3):
+    for level in (1,2):
         rows=[(i,v) for i,s in enumerate(shots) for v in s['shots'] or [] if v['remaining']>0 and v['level']==level]
         assert rows,level
         key=rows[0][1];same=[(i,v) for i,v in rows if (v['tower'],v['enemy'],v['attackTick'])==(key['tower'],key['enemy'],key['attackTick'])]

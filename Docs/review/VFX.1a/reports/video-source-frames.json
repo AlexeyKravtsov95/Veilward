@@ -1,0 +1,4475 @@
+[
+  {
+    "file": "00000.png",
+    "elapsed": 0.003945374999602791,
+    "frame": 111930,
+    "stage": "fresh MainMenu / NewGame",
+    "sha256": "a77f4d59b749a451a8e29cf7f322f36961efb2fbd6538579adcf5846793a3804"
+  },
+  {
+    "file": "00001.png",
+    "elapsed": 0.18270120800025325,
+    "frame": 111931,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00002.png",
+    "elapsed": 0.24115441599951737,
+    "frame": 111932,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00003.png",
+    "elapsed": 0.27449499999966065,
+    "frame": 111948,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00004.png",
+    "elapsed": 0.30813354099973367,
+    "frame": 111973,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00005.png",
+    "elapsed": 0.34149341600004846,
+    "frame": 112000,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00006.png",
+    "elapsed": 0.37486929100032285,
+    "frame": 112025,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00007.png",
+    "elapsed": 0.40850454100018396,
+    "frame": 112053,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00008.png",
+    "elapsed": 0.4418528329997571,
+    "frame": 112081,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00009.png",
+    "elapsed": 0.47575716600022133,
+    "frame": 112107,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00010.png",
+    "elapsed": 0.5092647080000461,
+    "frame": 112133,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00011.png",
+    "elapsed": 0.5426119579997248,
+    "frame": 112160,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00012.png",
+    "elapsed": 0.5762147499999628,
+    "frame": 112186,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00013.png",
+    "elapsed": 0.6096883749996778,
+    "frame": 112213,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00014.png",
+    "elapsed": 0.6431870409996918,
+    "frame": 112240,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00015.png",
+    "elapsed": 0.6766918329994951,
+    "frame": 112270,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00016.png",
+    "elapsed": 0.7101363330002641,
+    "frame": 112296,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00017.png",
+    "elapsed": 0.7436748330001137,
+    "frame": 112324,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00018.png",
+    "elapsed": 0.7772319579999021,
+    "frame": 112352,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00019.png",
+    "elapsed": 0.81089562499983,
+    "frame": 112379,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00020.png",
+    "elapsed": 0.8444657499994719,
+    "frame": 112405,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00021.png",
+    "elapsed": 0.8779727080000157,
+    "frame": 112432,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00022.png",
+    "elapsed": 0.9119148749996384,
+    "frame": 112460,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00023.png",
+    "elapsed": 0.9454621659997429,
+    "frame": 112485,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00024.png",
+    "elapsed": 0.9792922910000925,
+    "frame": 112512,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00025.png",
+    "elapsed": 1.0127659999998286,
+    "frame": 112538,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00026.png",
+    "elapsed": 1.0464734999995926,
+    "frame": 112565,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00027.png",
+    "elapsed": 1.0801750829996308,
+    "frame": 112592,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00028.png",
+    "elapsed": 1.1136314160003167,
+    "frame": 112617,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00029.png",
+    "elapsed": 1.1473842909999803,
+    "frame": 112644,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00030.png",
+    "elapsed": 1.2082292909999524,
+    "frame": 112671,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "f3a427ff07cb1c8536c1ea9389ac668f8fdf62356d8b9ea4d65bb4d6688d61ac"
+  },
+  {
+    "file": "00031.png",
+    "elapsed": 1.4275796249994528,
+    "frame": 112672,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "24f2bc55de84e00b9709e641fe90027ff3b2e1132342f51a3d0bcb4efd975bcb"
+  },
+  {
+    "file": "00032.png",
+    "elapsed": 1.462152082999637,
+    "frame": 112673,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00033.png",
+    "elapsed": 1.4960177909997583,
+    "frame": 112679,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00034.png",
+    "elapsed": 1.5298379999994722,
+    "frame": 112686,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00035.png",
+    "elapsed": 1.5632622499997524,
+    "frame": 112694,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00036.png",
+    "elapsed": 1.5968322500002614,
+    "frame": 112707,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00037.png",
+    "elapsed": 1.6306594999996378,
+    "frame": 112719,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00038.png",
+    "elapsed": 1.6646056660001705,
+    "frame": 112728,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00039.png",
+    "elapsed": 1.698119124999721,
+    "frame": 112738,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00040.png",
+    "elapsed": 1.7319225000001097,
+    "frame": 112748,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00041.png",
+    "elapsed": 1.7654543749995355,
+    "frame": 112760,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00042.png",
+    "elapsed": 1.799211374999686,
+    "frame": 112773,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00043.png",
+    "elapsed": 1.8325723749994722,
+    "frame": 112785,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00044.png",
+    "elapsed": 1.8663590409996687,
+    "frame": 112800,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00045.png",
+    "elapsed": 1.9000506659995153,
+    "frame": 112812,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00046.png",
+    "elapsed": 1.9339437079997879,
+    "frame": 112826,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00047.png",
+    "elapsed": 1.9677790830000959,
+    "frame": 112840,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00048.png",
+    "elapsed": 2.00167670799965,
+    "frame": 112854,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00049.png",
+    "elapsed": 2.0354218749998836,
+    "frame": 112868,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00050.png",
+    "elapsed": 2.0690349999995306,
+    "frame": 112880,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00051.png",
+    "elapsed": 2.1026230830002532,
+    "frame": 112888,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00052.png",
+    "elapsed": 2.135959874999571,
+    "frame": 112895,
+    "stage": "Build preview / public placement",
+    "sha256": "3515880bc680c17bb195302cb4fd236156cc3c9633ffd05d4843a64e3707beb6"
+  },
+  {
+    "file": "00053.png",
+    "elapsed": 2.169668124999589,
+    "frame": 112899,
+    "stage": "FLAME L1 / production Update combat",
+    "sha256": "bd1911d4f3d72e0fb6a87592d9be7f0a55f0203f81deee3857307e9772ee3324"
+  },
+  {
+    "file": "00054.png",
+    "elapsed": 2.204033666000214,
+    "frame": 112908,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "b3c3d05a8811f0e551b38f3699d809eed017530b98e39f212d43dc4de1a3b13b"
+  },
+  {
+    "file": "00055.png",
+    "elapsed": 2.237870457999634,
+    "frame": 112919,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "1b613227039b09569b4a81007099cea1ca262031eb061c02d178131c4effbc07"
+  },
+  {
+    "file": "00056.png",
+    "elapsed": 2.271216582999841,
+    "frame": 112933,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00057.png",
+    "elapsed": 2.304726958000174,
+    "frame": 112947,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00058.png",
+    "elapsed": 2.3385261659996104,
+    "frame": 112961,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00059.png",
+    "elapsed": 2.372693624999556,
+    "frame": 112972,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00060.png",
+    "elapsed": 2.4061418749997756,
+    "frame": 112985,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00061.png",
+    "elapsed": 2.4398101249998945,
+    "frame": 112999,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00062.png",
+    "elapsed": 2.473644707999483,
+    "frame": 113015,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00063.png",
+    "elapsed": 2.507438708000336,
+    "frame": 113029,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00064.png",
+    "elapsed": 2.5409954999995534,
+    "frame": 113041,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00065.png",
+    "elapsed": 2.5744188329999815,
+    "frame": 113056,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00066.png",
+    "elapsed": 2.608336082999813,
+    "frame": 113072,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00067.png",
+    "elapsed": 2.641999499999656,
+    "frame": 113086,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00068.png",
+    "elapsed": 2.6757631250002305,
+    "frame": 113102,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00069.png",
+    "elapsed": 2.709393832999922,
+    "frame": 113115,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00070.png",
+    "elapsed": 2.7430045000000973,
+    "frame": 113128,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00071.png",
+    "elapsed": 2.7763709159999053,
+    "frame": 113140,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00072.png",
+    "elapsed": 2.8099771659999533,
+    "frame": 113153,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00073.png",
+    "elapsed": 2.843591957999706,
+    "frame": 113167,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00074.png",
+    "elapsed": 2.8770804999994652,
+    "frame": 113178,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00075.png",
+    "elapsed": 2.910808540999824,
+    "frame": 113190,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00076.png",
+    "elapsed": 2.9445145409999895,
+    "frame": 113204,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00077.png",
+    "elapsed": 2.9785493330000463,
+    "frame": 113216,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00078.png",
+    "elapsed": 3.011997208000139,
+    "frame": 113229,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00079.png",
+    "elapsed": 3.0458177499995145,
+    "frame": 113242,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00080.png",
+    "elapsed": 3.079476040999907,
+    "frame": 113253,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00081.png",
+    "elapsed": 3.1128847909994874,
+    "frame": 113263,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00082.png",
+    "elapsed": 3.146494083000107,
+    "frame": 113272,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00083.png",
+    "elapsed": 3.180273791000218,
+    "frame": 113285,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00084.png",
+    "elapsed": 3.214058749999822,
+    "frame": 113300,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00085.png",
+    "elapsed": 3.247575332999986,
+    "frame": 113314,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00086.png",
+    "elapsed": 3.2823765000002822,
+    "frame": 113325,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00087.png",
+    "elapsed": 3.3158800000001065,
+    "frame": 113337,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00088.png",
+    "elapsed": 3.3492727499997272,
+    "frame": 113350,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00089.png",
+    "elapsed": 3.383045915999901,
+    "frame": 113364,
+    "stage": "Pause / frozen FLAME flight",
+    "sha256": "da72e13289cb9132fd2aeb82d84da704d171f328afef2f35b9b413c51cd24ecd"
+  },
+  {
+    "file": "00090.png",
+    "elapsed": 3.4166384159998415,
+    "frame": 113375,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "2eec669cc5f969a69530db4ae4b6c31c9a44b8c604ff23e7ef8407ba847218cd"
+  },
+  {
+    "file": "00091.png",
+    "elapsed": 3.4505848329999935,
+    "frame": 113385,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "c8b45f283a0488fb347e7112444f8a6ab77abfbc65508723fb6c3fd124c8033b"
+  },
+  {
+    "file": "00092.png",
+    "elapsed": 3.4846167910000077,
+    "frame": 113396,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "9c4195698e7b19f7b403dc53cb7405a8768e777a3de4ba84899290e1a2dc5c9d"
+  },
+  {
+    "file": "00093.png",
+    "elapsed": 3.518142875000194,
+    "frame": 113406,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "858e6905da778568a88e03b3f1e373bee0bcaf97da6a5f525a175b2a71e54dda"
+  },
+  {
+    "file": "00094.png",
+    "elapsed": 3.5515971249997165,
+    "frame": 113414,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "dc269c471d7dbdb2601f724930010bece298fd0aa0ac45db1b25c5decad96df8"
+  },
+  {
+    "file": "00095.png",
+    "elapsed": 3.5852517080002144,
+    "frame": 113422,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "c236012622ba4a8f4d74ea7d8402680fdd2c6623ba29fffe2197a2b1ce06004f"
+  },
+  {
+    "file": "00096.png",
+    "elapsed": 3.6192037079999864,
+    "frame": 113428,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "1abc3bde5cd3e6e1c50279dd1db9032b77130892a14953af6f7e545d8fdc4a37"
+  },
+  {
+    "file": "00097.png",
+    "elapsed": 3.6528086660000554,
+    "frame": 113436,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "ac5ab691c9766967232cb4aa3243294389c11de86aac3d370a9382b4080b8517"
+  },
+  {
+    "file": "00098.png",
+    "elapsed": 3.6863277909997123,
+    "frame": 113442,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "616bbd39c7a2c1dd36623bc486911ee3c44bd9a598794b06b80293870a5a27f6"
+  },
+  {
+    "file": "00099.png",
+    "elapsed": 3.719853499999772,
+    "frame": 113454,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "6091b557d416ef5115ad1097b1f4446334383972a865641e5d3cfa0ea4fc835d"
+  },
+  {
+    "file": "00100.png",
+    "elapsed": 3.7536593750000975,
+    "frame": 113467,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "804c337bb06ab2b3acc78eb1d8309fa045b18b9c03324c3aea87f67266ac7e88"
+  },
+  {
+    "file": "00101.png",
+    "elapsed": 3.787198666000222,
+    "frame": 113480,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "df87f22ec7233e8e9fff82a93619c5959fd8ca855e8fdcfe713084f6302a453f"
+  },
+  {
+    "file": "00102.png",
+    "elapsed": 3.820764041000075,
+    "frame": 113493,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "0de3aea1257d813e1f966e7a09fcd0a7916c156a8de1e71686e9c4db3c92f4e9"
+  },
+  {
+    "file": "00103.png",
+    "elapsed": 3.8574451659997067,
+    "frame": 113506,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "82e6eb3328f4befd2138bb20685f1456fb7357750b7d9c9eccbe246d82a8abff"
+  },
+  {
+    "file": "00104.png",
+    "elapsed": 3.8909757080000418,
+    "frame": 113518,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "4ce5af17db10a2b4edaf356528f240026400b6fd928f6c065af3f360c309400f"
+  },
+  {
+    "file": "00105.png",
+    "elapsed": 3.9244156249997104,
+    "frame": 113532,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "2bc03c9458042cee7bdd69ffdf77aa66588b56c738e766f0d4ea2956fdeee6e9"
+  },
+  {
+    "file": "00106.png",
+    "elapsed": 3.9579171659997883,
+    "frame": 113546,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "1eef22d02daff93c8b62bce57e9e2d02b26ea0f2ce1317b909dbd6f48e0bcd2b"
+  },
+  {
+    "file": "00107.png",
+    "elapsed": 3.9912730409996584,
+    "frame": 113560,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "8d98f4e36e17ea40cf0e10fd23acb655a3fe7266fcd78bea285df049a139952f"
+  },
+  {
+    "file": "00108.png",
+    "elapsed": 4.0251153749995865,
+    "frame": 113575,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "e0acf9e594662d2ad6beb88ec61d439d4963a573dab7cd6c579c461281d2f92d"
+  },
+  {
+    "file": "00109.png",
+    "elapsed": 4.058713874999739,
+    "frame": 113589,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "fbe471759167addd6d49d81f579351f1e8f373c737e30a9158cb9220504cc7be"
+  },
+  {
+    "file": "00110.png",
+    "elapsed": 4.092102499999783,
+    "frame": 113603,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "36072ced678d72e712fe5a97349943d81a7ef8c6b6ba3098d96f72f148b6fa3a"
+  },
+  {
+    "file": "00111.png",
+    "elapsed": 4.125761290999435,
+    "frame": 113618,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "903e33b658f5f6b52fd78451b4ef7b91cbf34a0389e3e1f40e7298db63089611"
+  },
+  {
+    "file": "00112.png",
+    "elapsed": 4.159432415999618,
+    "frame": 113632,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "f228802cf54a4c079ee2b59163c541525b085b9ea6c77ce9acb2f29f2792b0b6"
+  },
+  {
+    "file": "00113.png",
+    "elapsed": 4.193057540999689,
+    "frame": 113646,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "17c35c4844ae2ef2b0c2007c6f51eb74bab03bb39a1ed72fa5206285f0a0b98c"
+  },
+  {
+    "file": "00114.png",
+    "elapsed": 4.226600582999708,
+    "frame": 113660,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "aa9333227d7c826932120db283708bbbe297a472de1ef01a25e2eb79ec422b7a"
+  },
+  {
+    "file": "00115.png",
+    "elapsed": 4.260591915999612,
+    "frame": 113675,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "dcc50a02f8a37469333fc61a9f9bbe58b23f1c23ce7c678a1967e62ebfb74f37"
+  },
+  {
+    "file": "00116.png",
+    "elapsed": 4.2940120829998705,
+    "frame": 113688,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "8ee9d0ce625d0411276ab800b7353e15f66d9f378fc651d854370e93859e86bb"
+  },
+  {
+    "file": "00117.png",
+    "elapsed": 4.328290958000252,
+    "frame": 113701,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "ec25e96f3b36505cca2226fc7bde95f39e4cb17d32cc298cac8e721ce5e47391"
+  },
+  {
+    "file": "00118.png",
+    "elapsed": 4.3622842909999235,
+    "frame": 113711,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "d969787be6afde45a33f6d8c06a14e682a6e09265cbb30daf85eb586be5c49d9"
+  },
+  {
+    "file": "00119.png",
+    "elapsed": 4.396031582999967,
+    "frame": 113718,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "a4ed0c15dea9841a2687198e2d8c63bd0ad01ed8ab5ab6402b45792c7dd44add"
+  },
+  {
+    "file": "00120.png",
+    "elapsed": 4.429878791000192,
+    "frame": 113727,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "9ec9c2bd6c5c52331f9c0ebaef5d325663fbc9a20feac184d556e574f540cc8f"
+  },
+  {
+    "file": "00121.png",
+    "elapsed": 4.4636121249995995,
+    "frame": 113742,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "5602a2c338644e6be33fff1d7991443bbc13bf3fd36da23333eaaca9f618a8e6"
+  },
+  {
+    "file": "00122.png",
+    "elapsed": 4.49733387499964,
+    "frame": 113754,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "c1b058a6f470dcf50a250f4f69aba409d109e11a4604eedf04f44c3601c52d41"
+  },
+  {
+    "file": "00123.png",
+    "elapsed": 4.531276124999749,
+    "frame": 113766,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "409b2a23b85192149f4f935c00407ab35d6cec5e59cc46645072dc83ceacf37f"
+  },
+  {
+    "file": "00124.png",
+    "elapsed": 4.564663625000321,
+    "frame": 113777,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "d7a9f063bb78fcf40a0ac3699da14afdf396ba40d8bbaf46a9249d34c657babd"
+  },
+  {
+    "file": "00125.png",
+    "elapsed": 4.597997791000125,
+    "frame": 113788,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "90895aa7dec6f23f2fef8c728a43c6d144b82e8b79d383659f8aa92b6d01825a"
+  },
+  {
+    "file": "00126.png",
+    "elapsed": 4.6317369159996815,
+    "frame": 113800,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "ab91366147f677c9d1ab6a415fa2080a645d3c879dea3f228039f7ca47f9ec44"
+  },
+  {
+    "file": "00127.png",
+    "elapsed": 4.665291540999533,
+    "frame": 113813,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "8f65f16b122d8af7f3d983fecb602997439701f7ab324b5ddc5bfa41d8080a91"
+  },
+  {
+    "file": "00128.png",
+    "elapsed": 4.699109582999881,
+    "frame": 113827,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "fabc6abf0f21d1fea5d16792af48459f949f18e73495c4bff46c04b6940b218a"
+  },
+  {
+    "file": "00129.png",
+    "elapsed": 4.732484915999521,
+    "frame": 113839,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "ab4eabe5a1c61d5283853524091cc6e0298b36e076e5db0df129d769240a9d7f"
+  },
+  {
+    "file": "00130.png",
+    "elapsed": 4.766280957999697,
+    "frame": 113853,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "2a4b067fc63dd7c79b5518b7ee5c071b0e1adac087d3a7257caa64b90b604af1"
+  },
+  {
+    "file": "00131.png",
+    "elapsed": 4.7999432910000905,
+    "frame": 113867,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "af6286de6ae905442574ed4c3c6d44b87670348488d467f77a18106c017d0930"
+  },
+  {
+    "file": "00132.png",
+    "elapsed": 4.833679415999541,
+    "frame": 113881,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "3424faaede412d68bbb5a3f1f9bd74b2c2a9b9475cb38f9611c76f87a4f2e5ed"
+  },
+  {
+    "file": "00133.png",
+    "elapsed": 4.867189124999641,
+    "frame": 113895,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "a9ea3f6f3888451a79c0d72ceab64b73452c177c7bb1fe79680861551ec54241"
+  },
+  {
+    "file": "00134.png",
+    "elapsed": 4.900892665999891,
+    "frame": 113910,
+    "stage": "Resume / production Update flight without catch-up",
+    "sha256": "35670f3e037091cfd5aaf0238b7f4ae39d8398dde44031360fae1555acc94b51"
+  },
+  {
+    "file": "00135.png",
+    "elapsed": 4.934638290999828,
+    "frame": 113923,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d3e4c0b64bc6f80cc45195d8c6013ad7a6f1c564cb396a840f07a3d1bd529199"
+  },
+  {
+    "file": "00136.png",
+    "elapsed": 4.96831737499997,
+    "frame": 113937,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "b5ffcc51464842630b66d752f49fbad7a61f4efd5559879ed576acb0a8deb457"
+  },
+  {
+    "file": "00137.png",
+    "elapsed": 5.001895499999591,
+    "frame": 113950,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f197f7ee1d5d024a82d3bbe92355ae33a6bebbef03d89d33e200df4ab8c5ce18"
+  },
+  {
+    "file": "00138.png",
+    "elapsed": 5.035491832999469,
+    "frame": 113963,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "122e1bd839213fbdf4211b1a810554afe58458b455d612efa89c5f4a556ca548"
+  },
+  {
+    "file": "00139.png",
+    "elapsed": 5.068861875000039,
+    "frame": 113972,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1cfee2f6732c2b5c00f122e339d4b1022efdf68e634c38239eaafe2abb45b248"
+  },
+  {
+    "file": "00140.png",
+    "elapsed": 5.102936082999804,
+    "frame": 113981,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f762ed9f406f9cbbea77b964697d5b77c4f117be27126c3d39e1ac73343850e5"
+  },
+  {
+    "file": "00141.png",
+    "elapsed": 5.13691204099996,
+    "frame": 113990,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "aca1b5dfaeef5eced38fbeb71ff4032e7294cd8978c6badeb2b3f0dca1f89098"
+  },
+  {
+    "file": "00142.png",
+    "elapsed": 5.170627165999576,
+    "frame": 113999,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "db18b47c49b903c1e62afe61ef5d62837d4ef680e13e7fe959853e7673de2bce"
+  },
+  {
+    "file": "00143.png",
+    "elapsed": 5.204250624999986,
+    "frame": 114010,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6dca089597600e52a54bcdebda2de3c19201ccea7639b1896de2c81402c0109b"
+  },
+  {
+    "file": "00144.png",
+    "elapsed": 5.237632415999542,
+    "frame": 114024,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6cbcf97510100e1e2ed9923db5ddf53f9ad3ed0e402fbb106bf9ce289b49260b"
+  },
+  {
+    "file": "00145.png",
+    "elapsed": 5.271529083000132,
+    "frame": 114038,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3ff5c9fed49ed817613c25ddd67bde3263167fa1d2094b435d25d17b05f908d6"
+  },
+  {
+    "file": "00146.png",
+    "elapsed": 5.305434332999539,
+    "frame": 114051,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "766c75714fbd2f0f69e58d2f7fe063091b2c3ae4407a7210aa76d7c796cb833a"
+  },
+  {
+    "file": "00147.png",
+    "elapsed": 5.339060833000076,
+    "frame": 114062,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9155af7482476471519e9264a30148605c705575eecda07559c2ab82859fdbf9"
+  },
+  {
+    "file": "00148.png",
+    "elapsed": 5.372673916000167,
+    "frame": 114073,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c7c35c2bbb7be7f5e0b907b332e280ee7e0a5d436f9c1c39b566d95bdfb28ce0"
+  },
+  {
+    "file": "00149.png",
+    "elapsed": 5.406017415999486,
+    "frame": 114087,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a4beaa54b15708e73f4a0fd8d528f203ebd9cc0a7eeb1859dfd5d80c4119f576"
+  },
+  {
+    "file": "00150.png",
+    "elapsed": 5.43991187499978,
+    "frame": 114102,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "7ce8e8862e84bc79b2bcde94f426d6657f2af24f0aa4fb1fc6c1572b2df6cf99"
+  },
+  {
+    "file": "00151.png",
+    "elapsed": 5.473517708000145,
+    "frame": 114114,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6b55bab3ac0112f4e09f396e5d2c4112a6f19377c5f2988306a088865a0bbcdd"
+  },
+  {
+    "file": "00152.png",
+    "elapsed": 5.507392540999717,
+    "frame": 114127,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e4ea90148858ddc8384bfc72423659083d5bbd3ee164d1aa074fb85209f8a799"
+  },
+  {
+    "file": "00153.png",
+    "elapsed": 5.540861082999982,
+    "frame": 114141,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d2e0cf4b326ed0574fb34f1a6bab83bedd1090c2fb5d7ed74a596252c454ef15"
+  },
+  {
+    "file": "00154.png",
+    "elapsed": 5.5744295409995175,
+    "frame": 114155,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6afb98277d0ae38c4bfdfe907658361cfc0ec34eebd26a5c7f910c1591ef2f75"
+  },
+  {
+    "file": "00155.png",
+    "elapsed": 5.608396165999693,
+    "frame": 114169,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "106ccf59e5347cd64df69b79f93295ce289826ffc826cb23ba5b8addeb964546"
+  },
+  {
+    "file": "00156.png",
+    "elapsed": 5.642100416000176,
+    "frame": 114184,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a7050dadf81e734b6e211134e6dad726b18ac8878582e5d17e50440e5ff2d181"
+  },
+  {
+    "file": "00157.png",
+    "elapsed": 5.675966083000276,
+    "frame": 114197,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2fb3615daa7aea43f89d60522236bc11aa155acc464fa0e3e007fcf1858773ce"
+  },
+  {
+    "file": "00158.png",
+    "elapsed": 5.709568999999647,
+    "frame": 114210,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0beaea1c9a2dbde919ce8fc77df4123848323d1aab1d557ed4814237e1d5fd3c"
+  },
+  {
+    "file": "00159.png",
+    "elapsed": 5.743504750000284,
+    "frame": 114224,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "accad18b0e50ec0f9ee26c9fda6bcb658883bdbaa77d2b5e0b45844fe0ea0d70"
+  },
+  {
+    "file": "00160.png",
+    "elapsed": 5.77702995799973,
+    "frame": 114237,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9278c4959813a07ec6e0cf5f55677c76c478681ba9f951cbe80281cecdc1e14d"
+  },
+  {
+    "file": "00161.png",
+    "elapsed": 5.810673207999571,
+    "frame": 114251,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1caae897165c211edd3d7a9b114696866fcc8ae0f6ebe23a2031be9eb470c6ab"
+  },
+  {
+    "file": "00162.png",
+    "elapsed": 5.844314666000173,
+    "frame": 114265,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0064d4b394742e9d3ed336c67a0177287d99f7811d73741a280d0e9c5e61e1a8"
+  },
+  {
+    "file": "00163.png",
+    "elapsed": 5.878268333000051,
+    "frame": 114276,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d06bb08e718ed742cef7d13db5044da60dcc91369bf52ca796f07502b418b8cd"
+  },
+  {
+    "file": "00164.png",
+    "elapsed": 5.912082832999658,
+    "frame": 114285,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "cc7ac9b1a977ada5323315ddf035064f0ce1ba4219d4c2ce7f6a8b8755f1368a"
+  },
+  {
+    "file": "00165.png",
+    "elapsed": 5.945746040999438,
+    "frame": 114294,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1812ac3a6ca458282c83579f0866eb43b9d09f3e5c0e7b848836af8fa3be1e43"
+  },
+  {
+    "file": "00166.png",
+    "elapsed": 5.979463415999817,
+    "frame": 114304,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e216f980eb21574ec3b2c6a17d273092abdcf3e9c57916c24826946448233f91"
+  },
+  {
+    "file": "00167.png",
+    "elapsed": 6.012869874999524,
+    "frame": 114316,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "12ee57f979f363a836b3c0beaaf728858248ca97edcc4f9e769961974737edc8"
+  },
+  {
+    "file": "00168.png",
+    "elapsed": 6.046479540999826,
+    "frame": 114329,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "83631239165772268aa3216aad1c4fa55fd6713220d5934acadb0e6f06963040"
+  },
+  {
+    "file": "00169.png",
+    "elapsed": 6.079957875000218,
+    "frame": 114343,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "070367577c91314e7a052c5cf474f84e0dcb20d75ba0d787aa0b280648db62e3"
+  },
+  {
+    "file": "00170.png",
+    "elapsed": 6.114001291000022,
+    "frame": 114357,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "4698f7fe6e2fbb2c6898683ca1f8e045de43d11c2d87a1f494b1c7f7d286f397"
+  },
+  {
+    "file": "00171.png",
+    "elapsed": 6.148168624999926,
+    "frame": 114370,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "5ecee2490a64a8990b556f671891efe95164b811d67ffc4687d6c3576a19253e"
+  },
+  {
+    "file": "00172.png",
+    "elapsed": 6.182043208000323,
+    "frame": 114383,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e3ea6a5fc4c3abed41ecd6f8d415e0dff5dbb92567145f9723db4e2ceb458e93"
+  },
+  {
+    "file": "00173.png",
+    "elapsed": 6.2153789579997465,
+    "frame": 114397,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0e733b7496b2374efd2d9ff866c41666fbb99cbe03ab152a5bdfa34dcd38fdc5"
+  },
+  {
+    "file": "00174.png",
+    "elapsed": 6.249784208000165,
+    "frame": 114411,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "b1e2078447d55f74541dd72d679e9748077e83600f06f749cc020c293b5af2ba"
+  },
+  {
+    "file": "00175.png",
+    "elapsed": 6.283242249999603,
+    "frame": 114424,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3728f22b4a67edec77ca8da6a8fa14d4f1dd6781fc54e4c019d283337f02ab6b"
+  },
+  {
+    "file": "00176.png",
+    "elapsed": 6.316650040999775,
+    "frame": 114438,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f285a76fcfb99275a7389e6cabc45f15baba469b1f1bcf2221e60e14e45755ce"
+  },
+  {
+    "file": "00177.png",
+    "elapsed": 6.350532665999708,
+    "frame": 114452,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1f1c1c84a50996399644a6eab92e926253997859b859b0ad5a7d44c0cf8f75e9"
+  },
+  {
+    "file": "00178.png",
+    "elapsed": 6.3844452499997715,
+    "frame": 114465,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f43bb39285250f65069b848b10df5e61c8fc91611ad91a24174216c82faa3816"
+  },
+  {
+    "file": "00179.png",
+    "elapsed": 6.418406374999904,
+    "frame": 114479,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "5cf9b00faf97908d23cc911ab3db23a44037a463845547364721d854b3bf57d0"
+  },
+  {
+    "file": "00180.png",
+    "elapsed": 6.452469290999943,
+    "frame": 114492,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0a6397f0637237f5c730937ba7a18bfc9340610044f5717b08d2ee1bc3305cb9"
+  },
+  {
+    "file": "00181.png",
+    "elapsed": 6.486228165999819,
+    "frame": 114504,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "5ff6b0203af98c10a511ff16d35ad60a978183d718a4701dda8d6c601c5a98d8"
+  },
+  {
+    "file": "00182.png",
+    "elapsed": 6.520064499999535,
+    "frame": 114512,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "15e8d8fcf40b8e43ec18ebb47b18db398d8b37f507ab1577ac918dc6377b3a8a"
+  },
+  {
+    "file": "00183.png",
+    "elapsed": 6.55363962499996,
+    "frame": 114520,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "4394afb77cacdb9f77c548224fbcc36c843b882574992903f6c77f669e70ec78"
+  },
+  {
+    "file": "00184.png",
+    "elapsed": 6.587041832999603,
+    "frame": 114528,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "7495e9542a0038e63f1fbf662c8e27cbe41eb8fbe522310844be323ba199427f"
+  },
+  {
+    "file": "00185.png",
+    "elapsed": 6.621183332999863,
+    "frame": 114538,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "bf25dec3eaadd0517cc6638c946b1f15b7a717658af6f40037975a4015aab50e"
+  },
+  {
+    "file": "00186.png",
+    "elapsed": 6.654871374999857,
+    "frame": 114547,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9055bfce97a9d0085982c9c8147c5ea19b4315aaca953dff0f80092bbd4a8086"
+  },
+  {
+    "file": "00187.png",
+    "elapsed": 6.688250915999561,
+    "frame": 114559,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "7fed5a5dc7ee46a755d74fb95cd2f16aef2027133b4f4b69809d3f06313954c9"
+  },
+  {
+    "file": "00188.png",
+    "elapsed": 6.7219560000003185,
+    "frame": 114571,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "be44498ac6bd2c62d0982530d9e981e86570ce3b30c8745d81c3b929a9a9a35d"
+  },
+  {
+    "file": "00189.png",
+    "elapsed": 6.755988290999994,
+    "frame": 114583,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e0542e4572f68575bfe6b64f5abcbb87e8f2855b7f77eefad2cba876c394be9d"
+  },
+  {
+    "file": "00190.png",
+    "elapsed": 6.7895669580002505,
+    "frame": 114595,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0f22242115548375cced3ff32636c996f1b883fea9aa78f66009d2ce45f94579"
+  },
+  {
+    "file": "00191.png",
+    "elapsed": 6.823014458000216,
+    "frame": 114607,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d30b606adcca7bd4aebac7a72e6a32e151928b1e898961d21475316bffeece47"
+  },
+  {
+    "file": "00192.png",
+    "elapsed": 6.856694375000188,
+    "frame": 114619,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "7e2f9480fdea3fbd895c005611fee82ae2ee1991e361814b1886991a7e30147f"
+  },
+  {
+    "file": "00193.png",
+    "elapsed": 6.890639207999811,
+    "frame": 114633,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ec1ec1b716e7bc1ae8f2d1e431b4ffb18cf5add857ac795b6220f5f95e1fa137"
+  },
+  {
+    "file": "00194.png",
+    "elapsed": 6.923988999999892,
+    "frame": 114644,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "fad1e2fc9397cae1a4956e234b5afaa6ba5b6dea7a9de399e2e5fbf95ac6f328"
+  },
+  {
+    "file": "00195.png",
+    "elapsed": 6.957591749999665,
+    "frame": 114656,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d1df4bf27de9453b9d3db2737d43447c991744f2f13a4be890330eabad9ecf0c"
+  },
+  {
+    "file": "00196.png",
+    "elapsed": 6.991092540999489,
+    "frame": 114668,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "b217e5552e58d235f7e02c74e67d600370748097403cbfd38388a32857531d0b"
+  },
+  {
+    "file": "00197.png",
+    "elapsed": 7.024931082999501,
+    "frame": 114681,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1b02ac1318ed46f36c7b756caf507417be308ea5821d54565787c26547c1053a"
+  },
+  {
+    "file": "00198.png",
+    "elapsed": 7.0583872500001235,
+    "frame": 114693,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0e35a86826285189a08cf98bb96a52c6f289ad96e87eca8a47b4c77bc83f29fa"
+  },
+  {
+    "file": "00199.png",
+    "elapsed": 7.091836833000343,
+    "frame": 114705,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "49f52df74e8145563fd80db1e7041ac9ffeca72026fca3e949b03efbcb03cddc"
+  },
+  {
+    "file": "00200.png",
+    "elapsed": 7.125431374999607,
+    "frame": 114717,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "4a14b62624e1c43445cab75275b3ddb9aee0059be2edf2a15aa3eb167f6500f0"
+  },
+  {
+    "file": "00201.png",
+    "elapsed": 7.159424790999765,
+    "frame": 114729,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3e0963e49b16097f8e24f601c42d6fe5cc6fd111ba97f243fb16a9d1e7be58fb"
+  },
+  {
+    "file": "00202.png",
+    "elapsed": 7.193080625000221,
+    "frame": 114740,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "164cb3ee608a8a861a590b94418e1bdc10ff6f730928c9bf925651c5f3439886"
+  },
+  {
+    "file": "00203.png",
+    "elapsed": 7.226647124999545,
+    "frame": 114752,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "918bdbb8d51c9d8fbdf69c4a162741d186ffa4f44e6b6feaf6f9d2bad5355d02"
+  },
+  {
+    "file": "00204.png",
+    "elapsed": 7.260453957999744,
+    "frame": 114763,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e294fa9f7e1f48290200cddf6180cb0eb694095ebc877d287aad7b2a540ff4ff"
+  },
+  {
+    "file": "00205.png",
+    "elapsed": 7.293830708000314,
+    "frame": 114772,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d8eb9406b19fac2fb4a2f1eb8f16674d261b06da8948c25f02b9bf2dab041df8"
+  },
+  {
+    "file": "00206.png",
+    "elapsed": 7.3283152080002765,
+    "frame": 114780,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6ae860f9d54f48df8e50f162abc3ef671a1c2de15ee08c9f2b0ff267052038b1"
+  },
+  {
+    "file": "00207.png",
+    "elapsed": 7.361905582999498,
+    "frame": 114787,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9d09b2ea591aeee432657a704514f24801983bfa1b8f3312f7eac13e21142e60"
+  },
+  {
+    "file": "00208.png",
+    "elapsed": 7.395641500000238,
+    "frame": 114800,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ec313c27917e9b087ebd1f686ff13fe794271a8479cbdbc260a769140b5964fb"
+  },
+  {
+    "file": "00209.png",
+    "elapsed": 7.429269874999591,
+    "frame": 114811,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "279c70f883a91027e56f3cc7bd96c0fc348797157b75b3aecce17ed153bb5ba4"
+  },
+  {
+    "file": "00210.png",
+    "elapsed": 7.462975958000243,
+    "frame": 114821,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "dea0cbc683e3fd85de92fbb9318f9ee0e8994c740d7f67d5910864c61e21dcd6"
+  },
+  {
+    "file": "00211.png",
+    "elapsed": 7.499280166000062,
+    "frame": 114831,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f0bd2fc1e0b5c1567b8676f742d181cb8191097e878d61bf20e0f44075517028"
+  },
+  {
+    "file": "00212.png",
+    "elapsed": 7.532754040999862,
+    "frame": 114841,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "803bae39e41d1b7e8762716a6c42407df4f432876ecdca6bb6fad3a70ad3406a"
+  },
+  {
+    "file": "00213.png",
+    "elapsed": 7.566400499999872,
+    "frame": 114853,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "bfef620120d70a8e5b89fd8c4d78e6f0d3fb931774921d554b3ddf02bf94e596"
+  },
+  {
+    "file": "00214.png",
+    "elapsed": 7.6003367909997905,
+    "frame": 114867,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "7cdfa898f7d553b3f0101d5f5ca2b30d4a82d8168491fed45633f7843c7b32d7"
+  },
+  {
+    "file": "00215.png",
+    "elapsed": 7.63402487500025,
+    "frame": 114880,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0393aaf94361dcb4fd88d445f782e9280f5959a3504032bc2bde98e1c0345b18"
+  },
+  {
+    "file": "00216.png",
+    "elapsed": 7.667958875000295,
+    "frame": 114894,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "92b8c892fc6032490901179f52a8dceebe7b722809212efbe5f699e30a0dfcc3"
+  },
+  {
+    "file": "00217.png",
+    "elapsed": 7.701298291000057,
+    "frame": 114906,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1f238a9d7f2e795f254bf8c5a51da193c4a0d17c311bab70c659ff6bdcd77d4d"
+  },
+  {
+    "file": "00218.png",
+    "elapsed": 7.7348846659997434,
+    "frame": 114918,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6e9ee0c0d14e2ea87917b301632da11a3ffb1077d3a734b8d98764290f5f8b1f"
+  },
+  {
+    "file": "00219.png",
+    "elapsed": 7.768454416000168,
+    "frame": 114925,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "fede8baedad806173b30225bcc248adbc1247fd1ea5a44064670ea866e10eb20"
+  },
+  {
+    "file": "00220.png",
+    "elapsed": 7.801997374999701,
+    "frame": 114938,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "8a12efac9da097a9514105d18baeed968d9f8e95fcf336b4aad72df12c2d4e2d"
+  },
+  {
+    "file": "00221.png",
+    "elapsed": 7.835706875000142,
+    "frame": 114951,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "27465e8b1423d553793963ba2d61b710a9dafdeaaf8f5507a7ad8e9bd51848d4"
+  },
+  {
+    "file": "00222.png",
+    "elapsed": 7.869250290999844,
+    "frame": 114965,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "38c905e1ef2f8b9ccb1a88c9bcca8500728cbea11af8493570bea07ddd2ed05c"
+  },
+  {
+    "file": "00223.png",
+    "elapsed": 7.9026492080001844,
+    "frame": 114977,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c7124e73145a353db2d25568d19717446ffcb3bb42199eceb41af8f261c35b42"
+  },
+  {
+    "file": "00224.png",
+    "elapsed": 7.936763957999574,
+    "frame": 114987,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "347d1486b867113653c75de81b2ea0ec18c0719666442ef11298d784d6f70d13"
+  },
+  {
+    "file": "00225.png",
+    "elapsed": 7.970921041000111,
+    "frame": 114996,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c3c194c7ed7b98f6ba40404c039ab819a494dd0a5fdbd48402e2ddae8de05e96"
+  },
+  {
+    "file": "00226.png",
+    "elapsed": 8.004329999999754,
+    "frame": 115006,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "dce2fb4bd9bf3d79d982cddffbe29d246f737568a07416b18b0a745b094efb0f"
+  },
+  {
+    "file": "00227.png",
+    "elapsed": 8.037671582999792,
+    "frame": 115019,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "20538346c1bb75119f9580121293237da3cd52cf16ab125b52ba3ab4ad88b3a6"
+  },
+  {
+    "file": "00228.png",
+    "elapsed": 8.071454832999734,
+    "frame": 115032,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "50518f478b85cc3f6ecb78e4fe20d80617157c641a859b781842f55c4c1e234e"
+  },
+  {
+    "file": "00229.png",
+    "elapsed": 8.1052623329997,
+    "frame": 115045,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ede4b5aa289dadc9394e24cd87820c28133e42e9f2067a8165c0b35fe12cf514"
+  },
+  {
+    "file": "00230.png",
+    "elapsed": 8.138862750000044,
+    "frame": 115055,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "5461e88530efd04dea650b8300bdc66ffcb6554ace57e2efab7f6cdff8b49f92"
+  },
+  {
+    "file": "00231.png",
+    "elapsed": 8.17231454099965,
+    "frame": 115064,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c905c6fa8cd86dc4a79f4004aae7c6c233b7363625cd70493a60ff5ade68597f"
+  },
+  {
+    "file": "00232.png",
+    "elapsed": 8.205749540999932,
+    "frame": 115077,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "7b032808d311ee2d88762cde36f2b1d23844c52d0306b410d5ac8d21bd28e5e1"
+  },
+  {
+    "file": "00233.png",
+    "elapsed": 8.239390124999773,
+    "frame": 115090,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "95f00e668f9ea52a59cf6e2053817ec83d13f96f260caa1ac47489734992f15c"
+  },
+  {
+    "file": "00234.png",
+    "elapsed": 8.272768707999603,
+    "frame": 115102,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "cf5a21640833edaa37b52ae49b176ff4fe959b89ed81f995de952911cc244aca"
+  },
+  {
+    "file": "00235.png",
+    "elapsed": 8.306814999999915,
+    "frame": 115114,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "67ca5fe91f06899651de42a30158e8df59c656df2f0ca29aa927f494eaf9c99b"
+  },
+  {
+    "file": "00236.png",
+    "elapsed": 8.34042487500028,
+    "frame": 115128,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "64bd10d2c36bc40baeb23078d6df9c2343349a135a7f6814cc28b1f7a6a3092b"
+  },
+  {
+    "file": "00237.png",
+    "elapsed": 8.374052707999908,
+    "frame": 115142,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "fddf993932a5bc984388190034d8495ca06efe8eeb8ee918027e5cac650fdfc0"
+  },
+  {
+    "file": "00238.png",
+    "elapsed": 8.407678790999853,
+    "frame": 115157,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ea3a03c7a8298267a5b136fa7607e8d1b65fd5fb86a58652e6325d852e4b2240"
+  },
+  {
+    "file": "00239.png",
+    "elapsed": 8.44105770799979,
+    "frame": 115171,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2eea1127df51de806bb1c6ccdae934a8bc2e4af85cda482a290ef3e544c9dacd"
+  },
+  {
+    "file": "00240.png",
+    "elapsed": 8.474421165999956,
+    "frame": 115183,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "056242c63d20657eb61bd1d8f92560ed7db16cfa0ce3ec3f33bc15e59a6433e9"
+  },
+  {
+    "file": "00241.png",
+    "elapsed": 8.508047958000134,
+    "frame": 115197,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "772410fbc3c34de9dbcabf03821aaad46dfe5fb333d131dad159b3fd5094001e"
+  },
+  {
+    "file": "00242.png",
+    "elapsed": 8.541822250000223,
+    "frame": 115210,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "356d4c588178dc266a09bddd2be21f0d559aaa8236a1dfa2c41996fe2c648326"
+  },
+  {
+    "file": "00243.png",
+    "elapsed": 8.575764000000163,
+    "frame": 115224,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "df6e6e4bd6657aa8dfa4c94e1ed146f92197a0f7993e18a48ce9cda6b536cd34"
+  },
+  {
+    "file": "00244.png",
+    "elapsed": 8.609427999999753,
+    "frame": 115237,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "359fba685fb4c1e7891eac52a52438c5293d573ded58f06a679917dec48d257b"
+  },
+  {
+    "file": "00245.png",
+    "elapsed": 8.643293082999662,
+    "frame": 115251,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "282d98e13a270d67b55ab87fb2bacca019b127f39770ff5c0688fa79762f3e88"
+  },
+  {
+    "file": "00246.png",
+    "elapsed": 8.676829957999871,
+    "frame": 115265,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f701da9f7987b35d447184ebf33602bdbb5abc7e904f2bef86e8673a23a276de"
+  },
+  {
+    "file": "00247.png",
+    "elapsed": 8.710670833000222,
+    "frame": 115278,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0a8c68ae8c3af1ca92e77f440bcb2add2c92fc15849aa57cd15e0ac918064c58"
+  },
+  {
+    "file": "00248.png",
+    "elapsed": 8.74455725000007,
+    "frame": 115292,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "09747c9fb484b9d1dd50fd61b7d00d584d89f5ef424a1a996deae7345e72639a"
+  },
+  {
+    "file": "00249.png",
+    "elapsed": 8.778095707999455,
+    "frame": 115305,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "97b7ec13ce3520496b10aed5446cd4ceb5e0ff59c5418659ee6bb713d19f7ca6"
+  },
+  {
+    "file": "00250.png",
+    "elapsed": 8.812291375000314,
+    "frame": 115315,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "7dfc1886666d38fb844841b817302b865d791005022b11aab884f96a13efe53f"
+  },
+  {
+    "file": "00251.png",
+    "elapsed": 8.846441916000003,
+    "frame": 115325,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d1a619716a08341d03bce0c16fcc0fc469fd4cedf9e4547ee9b2faba56378be6"
+  },
+  {
+    "file": "00252.png",
+    "elapsed": 8.879897791000076,
+    "frame": 115335,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1b03277981c16687711b67063c1d6ac9e06f2b6e3db6cc42d7ae812cfd64b134"
+  },
+  {
+    "file": "00253.png",
+    "elapsed": 8.913688583000294,
+    "frame": 115348,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "81bd5e75c8e3f615ce8a73de0738e078ad2772487e26fad989ab99cd8b2e19a5"
+  },
+  {
+    "file": "00254.png",
+    "elapsed": 8.947243374999744,
+    "frame": 115361,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c63115c3e5a5e874f71fc5e8180eafe57e2f87583040fee453ae0bac718577bf"
+  },
+  {
+    "file": "00255.png",
+    "elapsed": 8.980841249999685,
+    "frame": 115374,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ec11a7d9db034dfd54f4b0d308706901a585b83b260ec2f9d85f366e13a87eb1"
+  },
+  {
+    "file": "00256.png",
+    "elapsed": 9.01461958300024,
+    "frame": 115387,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ac9d701d0684836280c4c8e96df0bdd4328d9bf933c5925228c96e43c4deea4e"
+  },
+  {
+    "file": "00257.png",
+    "elapsed": 9.048166957999456,
+    "frame": 115400,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "de6313276464c3f6f9299cc7a30dd47af26dba1757539762b1a6dc0137ff8257"
+  },
+  {
+    "file": "00258.png",
+    "elapsed": 9.081505915999514,
+    "frame": 115413,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "cdd44afef620f8fb9bd463f8b63e50e86a23680f7d9deb542849680151d5bd77"
+  },
+  {
+    "file": "00259.png",
+    "elapsed": 9.11540466599945,
+    "frame": 115427,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "71865adf2fdb8be62d8a0a3ead83bf80011465848971f53e0d1516c80426babe"
+  },
+  {
+    "file": "00260.png",
+    "elapsed": 9.149414665999757,
+    "frame": 115441,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "88b60b1197b835b6d2d01ecccac96debd13c93cb8f0fcfab4853bf5b0a7b2938"
+  },
+  {
+    "file": "00261.png",
+    "elapsed": 9.183077124999727,
+    "frame": 115455,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "93e5ab549ebea38689ec3f45334185fdd8f55e002b5cea7f35bef9c989aa0579"
+  },
+  {
+    "file": "00262.png",
+    "elapsed": 9.216593250000187,
+    "frame": 115469,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0eebcdb4539b5141074e1276b9725157cd59145d0db4e2d1099e91156a2fbcfd"
+  },
+  {
+    "file": "00263.png",
+    "elapsed": 9.250512333000188,
+    "frame": 115482,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2515f55167f0e88965443d50a2f7d4dc6155284c3b08f1f2c5697341aee7a4a5"
+  },
+  {
+    "file": "00264.png",
+    "elapsed": 9.284357624999757,
+    "frame": 115496,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1e68d36fe22f70e712de3a14f7a206b568ecbfb1ab28da3510e5a14244fa478a"
+  },
+  {
+    "file": "00265.png",
+    "elapsed": 9.317785999999614,
+    "frame": 115509,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "7da2785eeeaeedb2995bfee11311caf6fc36371ba02642f0f4e673d36327a22a"
+  },
+  {
+    "file": "00266.png",
+    "elapsed": 9.351699207999445,
+    "frame": 115522,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "5a7d0d4f6d9e3c7d94e5bc8c292e6839b7541aacfdcd63058d89c32701f10d64"
+  },
+  {
+    "file": "00267.png",
+    "elapsed": 9.385298790999514,
+    "frame": 115534,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "de7da207914c17f4221ea2a8b0b47924650cbd1cee14b7ce8939b8b03ee80fe8"
+  },
+  {
+    "file": "00268.png",
+    "elapsed": 9.419267250000303,
+    "frame": 115544,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f6395f9836ebab3a0d635955c7134643be49e36aff54da54e85ab73d22d78e80"
+  },
+  {
+    "file": "00269.png",
+    "elapsed": 9.45349137500034,
+    "frame": 115553,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9be846e77100ccf3497a4854e9f9edb458b19529adc4f39ca3d1cefb061925c6"
+  },
+  {
+    "file": "00270.png",
+    "elapsed": 9.487274291000176,
+    "frame": 115560,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "48c1a1d06b99f3ace88493e2dc3bbd069666ca9a89a6059e179340347fb17baa"
+  },
+  {
+    "file": "00271.png",
+    "elapsed": 9.52094895800019,
+    "frame": 115573,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "42e2a45f594d5ab2a027d91e115203c705d89a92b225aa6081e49df8821458ca"
+  },
+  {
+    "file": "00272.png",
+    "elapsed": 9.554646415999741,
+    "frame": 115585,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "cc648fe08ed12eb5b183675dc7b6ef1bd6c4a605a3c44ca133ffbbb6ac4ff806"
+  },
+  {
+    "file": "00273.png",
+    "elapsed": 9.588660958000219,
+    "frame": 115597,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6f84d3f0e9101a05a363f28962c9d949664e7c30d6fdab5cd29fafb654e2a880"
+  },
+  {
+    "file": "00274.png",
+    "elapsed": 9.622303666000334,
+    "frame": 115609,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "90c6145f75e06186bb9cf32241152e035974c8cdc7c73f48f9b9411235f03762"
+  },
+  {
+    "file": "00275.png",
+    "elapsed": 9.656183915999463,
+    "frame": 115620,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1af76048fd6039922391a4ddf4b8c425a0f136b224ad1778127892714e4026b0"
+  },
+  {
+    "file": "00276.png",
+    "elapsed": 9.689915791000203,
+    "frame": 115632,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2b44dd8775b170aef23f4607d8176dfb8679bb29473b8570e5e333fe76c7c238"
+  },
+  {
+    "file": "00277.png",
+    "elapsed": 9.723844375000226,
+    "frame": 115644,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a29a4c4c64cb557c43797d3290f7866dcf4c7cca0e506f8c56038ea7fdb102cc"
+  },
+  {
+    "file": "00278.png",
+    "elapsed": 9.757287165999514,
+    "frame": 115657,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "bb379d605c2da08f1df6b5df9887fc5f27870dfc03ccd2e86eedb8cdcfbcc0c5"
+  },
+  {
+    "file": "00279.png",
+    "elapsed": 9.79117099999985,
+    "frame": 115671,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6e1c33f2c63b38228c30fea6fc2a9d4c14d3a142dc8dccce3aca45765048a94e"
+  },
+  {
+    "file": "00280.png",
+    "elapsed": 9.825143000000025,
+    "frame": 115684,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "b92a0abfea1785dfcbf8daab9c05ecad6fb30f54213fd9027d9dac8fac9790fc"
+  },
+  {
+    "file": "00281.png",
+    "elapsed": 9.858692249999876,
+    "frame": 115698,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ff974f2c1754ce9ccc89f92af5ba50cac9cca17501b84cf0c30f341d368d15eb"
+  },
+  {
+    "file": "00282.png",
+    "elapsed": 9.892059875000086,
+    "frame": 115710,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "b8fdf7e248ce4c3950250ac3e694956245d2328092b092f0314d4b2615e4ea24"
+  },
+  {
+    "file": "00283.png",
+    "elapsed": 9.926002707999942,
+    "frame": 115724,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "b17fd7bcfee04b1d519c283028a44c7b3eb8beb6026665e5848a55280a471532"
+  },
+  {
+    "file": "00284.png",
+    "elapsed": 9.95992995799952,
+    "frame": 115739,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f2d9c334bfa4dc2b1154a8dc34b94a5c0cea12fc78d6ecf7667f243924d93873"
+  },
+  {
+    "file": "00285.png",
+    "elapsed": 9.993358499999886,
+    "frame": 115752,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f85a59206cbb7261852a1255c674aae879a43782068420c10aaaa6d8bbb106ee"
+  },
+  {
+    "file": "00286.png",
+    "elapsed": 10.027594500000305,
+    "frame": 115765,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f71198f70074949c125063a058c21af5ab6422f2ad446e0774f752b93507aadb"
+  },
+  {
+    "file": "00287.png",
+    "elapsed": 10.061684082999818,
+    "frame": 115776,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "4384a80e3857c65e2d7a45918ff6abf5d2957290caf6ae809377fda4527828d9"
+  },
+  {
+    "file": "00288.png",
+    "elapsed": 10.095758790999753,
+    "frame": 115783,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1848162e1f1327baafc74aa6052820ff433a74536cbdafe768736e0733eda903"
+  },
+  {
+    "file": "00289.png",
+    "elapsed": 10.12952312499965,
+    "frame": 115793,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "33e2c54e4094ec6cf349705c189efa45216f9dfadb35e6372a1eef79fc533bfa"
+  },
+  {
+    "file": "00290.png",
+    "elapsed": 10.163419874999818,
+    "frame": 115807,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0846573133549a51b97db5d6b0aa02e32c642d169243451ec2ff12ca5106f49d"
+  },
+  {
+    "file": "00291.png",
+    "elapsed": 10.197197415999653,
+    "frame": 115821,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "553bdee7b36404a8eca8309e222dcd1b6d5c77496d3df594ea1f516c7d17dbca"
+  },
+  {
+    "file": "00292.png",
+    "elapsed": 10.231038291000004,
+    "frame": 115832,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1b62aaf19e193c5b92df267da1df0c27a621d0708396e7a4e8d2879bdb240e7e"
+  },
+  {
+    "file": "00293.png",
+    "elapsed": 10.265287749999516,
+    "frame": 115844,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "77099db79c49bdf56f0d8bd8b3f433f5819c9df05da17b9d3d7c3cf0f77160b1"
+  },
+  {
+    "file": "00294.png",
+    "elapsed": 10.298847791000298,
+    "frame": 115857,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "4fb43705565ee759cdc4bc6c47c824eb0507f0e0f6f802eb5fd389f0ce7491bc"
+  },
+  {
+    "file": "00295.png",
+    "elapsed": 10.332620041000155,
+    "frame": 115871,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "4593d6186e17872743a57de0ce2b4e02576f3128ad3a3eeb2168feaffd531957"
+  },
+  {
+    "file": "00296.png",
+    "elapsed": 10.366537916000198,
+    "frame": 115886,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "045aa46b3fb10045e040b9b4d369bb3f85d54209c84c2416ca6f4b4b8a8e5521"
+  },
+  {
+    "file": "00297.png",
+    "elapsed": 10.400104041000304,
+    "frame": 115899,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e9f96f86118f55105d3f3b9af74217e727c7198990ed578416a1b59e7ba922a9"
+  },
+  {
+    "file": "00298.png",
+    "elapsed": 10.43396916599977,
+    "frame": 115914,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "26c1c55406be3e45274f2c86285e272744974fa7a5155acbff166db33de34c36"
+  },
+  {
+    "file": "00299.png",
+    "elapsed": 10.46778833299959,
+    "frame": 115929,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6575b949d082bbfdac842bddcb0b14c060da3899e63d0eb0c4edb6aa3283e5d6"
+  },
+  {
+    "file": "00300.png",
+    "elapsed": 10.501551958000164,
+    "frame": 115944,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9cd2dcaccc86b6bd466cbb2229fcaa0d624c74391016f5a5b213fdfe7a01f6fc"
+  },
+  {
+    "file": "00301.png",
+    "elapsed": 10.535498207999808,
+    "frame": 115957,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9b447e477914c89bb70db9be855662455d33c4aaf26bf48b8b4ed7efd5a41d8f"
+  },
+  {
+    "file": "00302.png",
+    "elapsed": 10.569176625000182,
+    "frame": 115970,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3603bbb82fdf2d4e747506057d1995fbdbd352eccf736ed8960e22fc16028439"
+  },
+  {
+    "file": "00303.png",
+    "elapsed": 10.603875666000022,
+    "frame": 115980,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2063689b1ec0d9567557a6d6c0fad18ca6ef11682f865afccad58a4441495761"
+  },
+  {
+    "file": "00304.png",
+    "elapsed": 10.637993583000025,
+    "frame": 115989,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "60171cd6b96498a4f41c3e2bab3e6024c9a328bc9cfb040dfe36bb8259c00309"
+  },
+  {
+    "file": "00305.png",
+    "elapsed": 10.67172062499958,
+    "frame": 116000,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f7983e3bc226bc0868f49b78ae883b9e1b95a0af0e782b3b655bd82edd0f6026"
+  },
+  {
+    "file": "00306.png",
+    "elapsed": 10.705191750000267,
+    "frame": 116014,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a5e3b1e287b80672f3cdc33307f5b9406ef8804bf0992bae9dddc988a824e6b4"
+  },
+  {
+    "file": "00307.png",
+    "elapsed": 10.739184291000129,
+    "frame": 116029,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "8e5cd7189296771dade14073ab5cb412ad6134e9af4b4aa53f63f7253a444c3b"
+  },
+  {
+    "file": "00308.png",
+    "elapsed": 10.773221874999763,
+    "frame": 116040,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "db4d59ebf2c2f35275f2d6be227eff259fe0f56fed6e9ee8fa68d4d1942559d6"
+  },
+  {
+    "file": "00309.png",
+    "elapsed": 10.80721154099956,
+    "frame": 116050,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "453087879eee73f5d0a28825e807d099d432863e0c5946a5a1bc87e211473c10"
+  },
+  {
+    "file": "00310.png",
+    "elapsed": 10.840882249999595,
+    "frame": 116064,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "5d968eea4e494a27ab86f683d470690dee9ca9e458b330934b45030ac036feb8"
+  },
+  {
+    "file": "00311.png",
+    "elapsed": 10.874601124999572,
+    "frame": 116078,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1103090b0894a542101f2970adb7d57674ea504603df4f552fb2836b5b911b70"
+  },
+  {
+    "file": "00312.png",
+    "elapsed": 10.90811795799982,
+    "frame": 116091,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d6228bf516204d4ff638593691823b1baf9d2d3f758278d7342d7353309d050d"
+  },
+  {
+    "file": "00313.png",
+    "elapsed": 10.941889749999973,
+    "frame": 116105,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9829c7226538ea5a606d6cac0084e4ab9fa984001319599094e8e8750553aa4e"
+  },
+  {
+    "file": "00314.png",
+    "elapsed": 10.975632040999699,
+    "frame": 116118,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c51620f6fa6f47983236e2190200fea81adbb8ac8fe608d540eab5b81805c596"
+  },
+  {
+    "file": "00315.png",
+    "elapsed": 11.009270374999687,
+    "frame": 116130,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1db099d007e213de3734e8682f0384ab005fae6d1fea7b688ad743118499d2f9"
+  },
+  {
+    "file": "00316.png",
+    "elapsed": 11.043286790999446,
+    "frame": 116143,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "b770656f45af4f71d4c126a7d6b5bd7f3ba56ee0a9afac383acca5f98e3d4635"
+  },
+  {
+    "file": "00317.png",
+    "elapsed": 11.077288833000239,
+    "frame": 116155,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9a7306b455598a642f32239e1fb58a527d0482d7974273cb55efa1d8dfafcd95"
+  },
+  {
+    "file": "00318.png",
+    "elapsed": 11.111293291000038,
+    "frame": 116168,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "92849456bb0b36c29736c6a65ee3a121843117746545bfdf1a454f16b1201e6f"
+  },
+  {
+    "file": "00319.png",
+    "elapsed": 11.144681791000039,
+    "frame": 116175,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "7d2777007a424a107541ef01ad1ca87ae5f5f212ea312ccafa5144008c531fe3"
+  },
+  {
+    "file": "00320.png",
+    "elapsed": 11.178874207999797,
+    "frame": 116187,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1de61b84244a70c507cdd5ba65d1474b93f1c5a77bcd7556649b8ca20be9dc2b"
+  },
+  {
+    "file": "00321.png",
+    "elapsed": 11.212259916000221,
+    "frame": 116193,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "48781d1afa33063d00c2f06fec5cb6369435ad8ae6caa3f9f2cf7b70a0940721"
+  },
+  {
+    "file": "00322.png",
+    "elapsed": 11.245910290999745,
+    "frame": 116206,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "4fb4070646bd6a4cc108a800d9f556c6edfb92b7b7cd14efe617a12042ad1132"
+  },
+  {
+    "file": "00323.png",
+    "elapsed": 11.27967208300015,
+    "frame": 116218,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0a378569e024e04133f32011e8e0e5a001579826a3df11153bc4099697dcaada"
+  },
+  {
+    "file": "00324.png",
+    "elapsed": 11.313312915999632,
+    "frame": 116231,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1a8292b956455582ec5f571a6ccf90402b26cfcd314e4ade5f24d5790495f7c5"
+  },
+  {
+    "file": "00325.png",
+    "elapsed": 11.346834207999564,
+    "frame": 116242,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6d1cc8db6c7a4fa82f6b7c48e87be8bba94383b86b30f4517e1a1646de372139"
+  },
+  {
+    "file": "00326.png",
+    "elapsed": 11.38026733300012,
+    "frame": 116253,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "939e80396839ab201601e42b0c8d7fd03bd4fc5aa821ebdb29eb6beaf7a84108"
+  },
+  {
+    "file": "00327.png",
+    "elapsed": 11.4137545829999,
+    "frame": 116263,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6b106b9b741e049e3950800bbddd167651d8d7bc6881504e4eca1e82be8e2b10"
+  },
+  {
+    "file": "00328.png",
+    "elapsed": 11.44714358300007,
+    "frame": 116275,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "99e6f6aed3a97a3b8061209de16d7906e992c7a49aa6399b8542c30ed5f57bad"
+  },
+  {
+    "file": "00329.png",
+    "elapsed": 11.481049750000238,
+    "frame": 116287,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ec75652dd54a3bcc61512ddd4fa47f2b3d18780c12a1fd426d038d2f4e2752d0"
+  },
+  {
+    "file": "00330.png",
+    "elapsed": 11.51509729099962,
+    "frame": 116298,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c070e54b2f9ad8772b252f47b85b6c3c51326d8482285d2ac494570992b5ad4a"
+  },
+  {
+    "file": "00331.png",
+    "elapsed": 11.549168040999575,
+    "frame": 116309,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3303a23fdfdf74647af3244fa125a9cc4b57100e33323ca2554d73ead83e41cc"
+  },
+  {
+    "file": "00332.png",
+    "elapsed": 11.583109207999769,
+    "frame": 116320,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2ed249569be7a75ea2728afcc19262817e5d65fdd49b515c8e41bee6913f6f97"
+  },
+  {
+    "file": "00333.png",
+    "elapsed": 11.616846040999917,
+    "frame": 116330,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9b8537cff1f74c315583b2d5f301ae7398164907c49150bf19b53e8f075fb545"
+  },
+  {
+    "file": "00334.png",
+    "elapsed": 11.650911124999766,
+    "frame": 116342,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1c7cfbf2d7ab4b812f97ad3974431119420c7b57de228164e2e2779076ac6512"
+  },
+  {
+    "file": "00335.png",
+    "elapsed": 11.68465470799947,
+    "frame": 116355,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e414101414a3d353eeb9fca2823fd708a5aebded33c73c10b241476f3da7d080"
+  },
+  {
+    "file": "00336.png",
+    "elapsed": 11.718113124999945,
+    "frame": 116367,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3a2685af3df2fa72fac5c20c154ca04cebddb7774911297e64168ac1f3b47339"
+  },
+  {
+    "file": "00337.png",
+    "elapsed": 11.751596541000254,
+    "frame": 116376,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "87cf97679ba53265fca68481d8cf7c6e7137e7ca5dba76be65ef615644214347"
+  },
+  {
+    "file": "00338.png",
+    "elapsed": 11.785249915999884,
+    "frame": 116387,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c7bfc05ef029e13f26ec6caac03fcfaa89668336f26fa1b1585f61e80f0b96f0"
+  },
+  {
+    "file": "00339.png",
+    "elapsed": 11.818965458000093,
+    "frame": 116396,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "8fb02277556d291e89682dbefc8437b1cfe00724a582b462c42608535e3701e9"
+  },
+  {
+    "file": "00340.png",
+    "elapsed": 11.852516165999987,
+    "frame": 116405,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "01d4879d7fc43f7a98a0da0bf1ddeabf1c47e2568defdeaa337d1fd5cf08486c"
+  },
+  {
+    "file": "00341.png",
+    "elapsed": 11.886444499999925,
+    "frame": 116411,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3cbb67b6258fb7d925a870cf32abcc1e4e7ae378fef3435e9766eb131a68a4fb"
+  },
+  {
+    "file": "00342.png",
+    "elapsed": 11.92031866599973,
+    "frame": 116421,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "683dceb7c691ab29eff371bb40d6b9cfecab7c1af63b7ec4bf0400601f037587"
+  },
+  {
+    "file": "00343.png",
+    "elapsed": 11.954147624999678,
+    "frame": 116429,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ba6fec6f09e77f6613b526043c9f8c14729514652b8308688b14b08cf4095199"
+  },
+  {
+    "file": "00344.png",
+    "elapsed": 11.988186790999862,
+    "frame": 116438,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "80d9f6b29e34f5cba912b265e4ddf5ccda26209c3419ad81435ed51e92af5b76"
+  },
+  {
+    "file": "00345.png",
+    "elapsed": 12.021709665999879,
+    "frame": 116447,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a24180552e6000c3f0d46131c5c0e411a3f1e7c4b1fe3e0e6b3f7396d76dd8eb"
+  },
+  {
+    "file": "00346.png",
+    "elapsed": 12.056496790999518,
+    "frame": 116459,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2339424e03fc9328d149e46edcbad4b70dfc497bd6c2b85631adbaea9a71344d"
+  },
+  {
+    "file": "00347.png",
+    "elapsed": 12.089941457999885,
+    "frame": 116472,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "13918f1ef13ffc5588e3ca29c9a7024fe9326e30c69682672150a95976b6e034"
+  },
+  {
+    "file": "00348.png",
+    "elapsed": 12.12351070800014,
+    "frame": 116485,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "88006ba0a331009538649234d321f7e631a452c6de1192c9ff69b43ec6330491"
+  },
+  {
+    "file": "00349.png",
+    "elapsed": 12.157362082999498,
+    "frame": 116498,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "acbc4b27a4e04fffc5810776953e82fc41994f5a0f2dc247e3b4f20fafe7301f"
+  },
+  {
+    "file": "00350.png",
+    "elapsed": 12.191104749999795,
+    "frame": 116512,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3a67b28eff0bdfae10e8ec362ff0354853cf47d78420c37cf11cde7c1920dcd4"
+  },
+  {
+    "file": "00351.png",
+    "elapsed": 12.22459229099968,
+    "frame": 116526,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "17998656842aaf651e978fd8f24f4118b3cfb96f3a9869f1016004e3dd7cc73c"
+  },
+  {
+    "file": "00352.png",
+    "elapsed": 12.25800637500015,
+    "frame": 116540,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6a9307d294199b252d844f90a15e552f6e4da15004635633672e947813cc0344"
+  },
+  {
+    "file": "00353.png",
+    "elapsed": 12.291651540999737,
+    "frame": 116553,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a7e3528ce41ed2fe8ee6b6d31fad1eff3705275632bc8002ada27c6bcafc2543"
+  },
+  {
+    "file": "00354.png",
+    "elapsed": 12.325037665999844,
+    "frame": 116566,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "67231162258793347e0ded6ed8dfeca4971ad0f0f43c06675a5a3b4a19055218"
+  },
+  {
+    "file": "00355.png",
+    "elapsed": 12.358398749999651,
+    "frame": 116579,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "48a77398964b3fd81c83a923c7486336b70bf1bf915be32ea8999808d379243a"
+  },
+  {
+    "file": "00356.png",
+    "elapsed": 12.391756082999564,
+    "frame": 116593,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "449d4b3f924a3f2c0d9ed924cb0dca6741ba6ae9557be3456474dc2218b8e004"
+  },
+  {
+    "file": "00357.png",
+    "elapsed": 12.425685749999502,
+    "frame": 116608,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "771d3176583c805f8590e543b45f082468a5dd31b08b17bd1956b0f787d73d21"
+  },
+  {
+    "file": "00358.png",
+    "elapsed": 12.459652458000164,
+    "frame": 116623,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6085c6cc87fffd08b8d1201ffbb0cf490eddd1562047e5804b96e86e5a13905b"
+  },
+  {
+    "file": "00359.png",
+    "elapsed": 12.493300375000217,
+    "frame": 116638,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1ff318b5149bc293fdca71e0d8351696fb9a4f63f0d570307c4851e5431d9194"
+  },
+  {
+    "file": "00360.png",
+    "elapsed": 12.526962875000208,
+    "frame": 116652,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "46c8d260ddc4cdbcc9ea8b76c943c5c2ae8abe77d24179e91d2b51e221e0db59"
+  },
+  {
+    "file": "00361.png",
+    "elapsed": 12.560617541000283,
+    "frame": 116665,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "397906cb39fa09075951da85abfbc97e58b1f3e1cc2a495120acab214a141a9b"
+  },
+  {
+    "file": "00362.png",
+    "elapsed": 12.594822125000064,
+    "frame": 116675,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "01665fcb34b23740bc21bf47015bf0904385f986e3757f23b7b8196590a4ece0"
+  },
+  {
+    "file": "00363.png",
+    "elapsed": 12.628536999999596,
+    "frame": 116682,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e52315cd8d05467a14ba8729fcdd9a435711e5825b9e8030d21ed9d4c436abd5"
+  },
+  {
+    "file": "00364.png",
+    "elapsed": 12.662717416000305,
+    "frame": 116689,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "49334661be4dce88e162c9db48bba0624dd93bd58009ba084b0681ae585a1ce5"
+  },
+  {
+    "file": "00365.png",
+    "elapsed": 12.696284290999756,
+    "frame": 116700,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6db26921bb0242a3c6179197b28a618cc3c6bbe8d6bb71106532aa92d703caf9"
+  },
+  {
+    "file": "00366.png",
+    "elapsed": 12.729937832999894,
+    "frame": 116714,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e35c20695bb00226c665eae89e365e8894db4bb6c7ec171722660b34921e919b"
+  },
+  {
+    "file": "00367.png",
+    "elapsed": 12.763339582999834,
+    "frame": 116728,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9c52432670e98dda73a5aed0c6494380ae3bc6f12a2690280f033174c7c4b0b9"
+  },
+  {
+    "file": "00368.png",
+    "elapsed": 12.796714500000235,
+    "frame": 116739,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3c9b66febbcfb975614050a97e8bf7cfc88902b31a0624ff26051412fa8f7083"
+  },
+  {
+    "file": "00369.png",
+    "elapsed": 12.831032791000325,
+    "frame": 116748,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2c4591050c8570a421f258d9a89892306397cde440e5251b456f343a53f8d257"
+  },
+  {
+    "file": "00370.png",
+    "elapsed": 12.864723458000299,
+    "frame": 116760,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d0b4743acd59cb5da689a42b4a008d8d6d7078db59b294ae262fcd70c5200d6b"
+  },
+  {
+    "file": "00371.png",
+    "elapsed": 12.898551166000289,
+    "frame": 116775,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c39452c517e26dde50267dc5dab39706a9fa86e9dcd5ad16e2b0ae78ae5bcc1f"
+  },
+  {
+    "file": "00372.png",
+    "elapsed": 12.93233916600002,
+    "frame": 116789,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e7858e8ccf43c15b6e7d76ec8b8e37fce33983db5a1b17a3a6a72a102b7dc92a"
+  },
+  {
+    "file": "00373.png",
+    "elapsed": 12.96616908299984,
+    "frame": 116804,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "01b3012deb8ef4abdaa5fccca85472bcca0668ca20a5f03e919dfa94faccdc72"
+  },
+  {
+    "file": "00374.png",
+    "elapsed": 12.999956624999868,
+    "frame": 116817,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "866ab62ac624be18a101748c0a4b0bbf25c4277e65b1b9a890db167d8cdd137a"
+  },
+  {
+    "file": "00375.png",
+    "elapsed": 13.033953166000174,
+    "frame": 116832,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "eebdbec56c725d9ade28fe80de3629c70ade9e911c37614e7fe2dfccd957942d"
+  },
+  {
+    "file": "00376.png",
+    "elapsed": 13.067848124999728,
+    "frame": 116847,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "68546bfae9965c928710b3255f97185b37b3be9f97d0974f5f388ce334f7e27a"
+  },
+  {
+    "file": "00377.png",
+    "elapsed": 13.101657207999779,
+    "frame": 116862,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ac86f80b1991dbe57f4af7abbc1f8defe7768314449c4325326a26922d38fa67"
+  },
+  {
+    "file": "00378.png",
+    "elapsed": 13.135005790999458,
+    "frame": 116876,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3351df7f4e149d5b4edf4bb879206704b35f81e28d5bc9f4d3568d4b7385a674"
+  },
+  {
+    "file": "00379.png",
+    "elapsed": 13.16847879099987,
+    "frame": 116890,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d2f888d0fedb006de364b53d53deb422c5d86a5a99dd89258c273c0c41784c23"
+  },
+  {
+    "file": "00380.png",
+    "elapsed": 13.202571499999976,
+    "frame": 116902,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9589f7deea7a493d9bbbd4afcd467c0c3a411bdf4a72c559549a8ecaca93c6c5"
+  },
+  {
+    "file": "00381.png",
+    "elapsed": 13.236661582999659,
+    "frame": 116911,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "258f2e2a2c1e5b845f3ff5441cf338869a4069b5c67d2d928f85bf05a020092b"
+  },
+  {
+    "file": "00382.png",
+    "elapsed": 13.270397749999574,
+    "frame": 116920,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d128b12cb8e2e368dead254729a3211d2cbbe44442b11c289f5a4b023d168c7d"
+  },
+  {
+    "file": "00383.png",
+    "elapsed": 13.304180250000172,
+    "frame": 116929,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "26b41c0ff7dfeea272ff9f0a05f80dc28102f2dfe76e57ecae0a5d686f4f5ffc"
+  },
+  {
+    "file": "00384.png",
+    "elapsed": 13.338624125000024,
+    "frame": 116940,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "56eba23b581e64d8012a0b7374d1552ea71c16e2cf3935f6b54d51e6c11c48ea"
+  },
+  {
+    "file": "00385.png",
+    "elapsed": 13.372266458000013,
+    "frame": 116951,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "14eb1e6bc5682d4015aefb78e885ee14c972e0a00648a1ddf669e069021dfc50"
+  },
+  {
+    "file": "00386.png",
+    "elapsed": 13.406182875000013,
+    "frame": 116965,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1cc1d1e3e2b7c866f7faba37032b5a9df123470df41db5280d0ad0f4bf8e2b80"
+  },
+  {
+    "file": "00387.png",
+    "elapsed": 13.439981958000317,
+    "frame": 116979,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d048a63360c157977be6874a479396a7cf3d365e520a28e54a746759796f1ab0"
+  },
+  {
+    "file": "00388.png",
+    "elapsed": 13.47354924999945,
+    "frame": 116994,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a863059593c381ad2576c87b267444dbfaafef5cddc84a6632757051cb6aa386"
+  },
+  {
+    "file": "00389.png",
+    "elapsed": 13.507247499999721,
+    "frame": 117007,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "4b23dae3c988122857872c9bba586499b3dc0a003e16f42b82faa489a0e4036d"
+  },
+  {
+    "file": "00390.png",
+    "elapsed": 13.541082832999564,
+    "frame": 117021,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "5329bcc7f4ff1b0f01421a123c44158d7d035f73550740188b3f8ed5a903bf6c"
+  },
+  {
+    "file": "00391.png",
+    "elapsed": 13.574549750000187,
+    "frame": 117035,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "b0277949968ce0ef72c9a31f16a3d0b8ea1cc08e3e9968af36b489bf0bc15d0d"
+  },
+  {
+    "file": "00392.png",
+    "elapsed": 13.607976207999855,
+    "frame": 117049,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "00ea62a9812eb64528cffe8bcef26ef1f8c254075d79c636b075b224713106ee"
+  },
+  {
+    "file": "00393.png",
+    "elapsed": 13.64133883300019,
+    "frame": 117063,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f838d571b6b958a9ce59d944ffa8513e57cc73e365e8d6c287a1f6781262597e"
+  },
+  {
+    "file": "00394.png",
+    "elapsed": 13.674851290999868,
+    "frame": 117077,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6c938d6f671cf261ffd375ccb83dd728ebcdc9eac4777ded7ad9ce7871f7e685"
+  },
+  {
+    "file": "00395.png",
+    "elapsed": 13.708488540999497,
+    "frame": 117091,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "bcc68816c3592104fcbf601810b5c50ca7506f6198e8cc8f797335914f7151cc"
+  },
+  {
+    "file": "00396.png",
+    "elapsed": 13.741920624999693,
+    "frame": 117104,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "751374c848f4d4be3d622c2ac0eb31c7a21867dc7aa75fa995cb5c9cff484153"
+  },
+  {
+    "file": "00397.png",
+    "elapsed": 13.775751375000254,
+    "frame": 117118,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "42e97cac498363d1f7861f5773641356af1735afbd161f49413bacd815607908"
+  },
+  {
+    "file": "00398.png",
+    "elapsed": 13.812073750000309,
+    "frame": 117131,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0c9d11e73c564933ccd319daef4229591e624044418e23927ac047b352c2eb90"
+  },
+  {
+    "file": "00399.png",
+    "elapsed": 13.849201832999825,
+    "frame": 117134,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a583de44d62ee9ab00937cf1d03f2abc4ec30cdeb2351cd80ae0234e6312dac5"
+  },
+  {
+    "file": "00400.png",
+    "elapsed": 13.886583540999709,
+    "frame": 117135,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2a772758040c1a8f6b1c2dd0127c3f478e1300115726ccfca49c4b644c4b6c93"
+  },
+  {
+    "file": "00401.png",
+    "elapsed": 13.920192999999927,
+    "frame": 117146,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d561621fee8fc3f1dbaef92cd3a1f698b5005da67cc3b943815ffb3547260312"
+  },
+  {
+    "file": "00402.png",
+    "elapsed": 13.955561916000079,
+    "frame": 117156,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "054329741de41208d5414ae68406aeb4e98bcec3fafe15d1ab0e77b5654eed22"
+  },
+  {
+    "file": "00403.png",
+    "elapsed": 13.989305500000228,
+    "frame": 117167,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f63b7f376dc13b11e4744ffd2103f02b8bddca85ab8d14bf89f061fe93ec972f"
+  },
+  {
+    "file": "00404.png",
+    "elapsed": 14.022812749999503,
+    "frame": 117182,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "28b5c5c4bde782eb1e7b818e2ee757b5d07f73d5a0433e3babde43204ce55e90"
+  },
+  {
+    "file": "00405.png",
+    "elapsed": 14.056701665999753,
+    "frame": 117194,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "db08913a92d11f8b1bffd954c30094b371762b322ef4f2a9563bf57427ff0549"
+  },
+  {
+    "file": "00406.png",
+    "elapsed": 14.090599291000217,
+    "frame": 117208,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "92910e35b0752bdf567f6fa3886e031996d635f805f9ab70f96689ddf04344d6"
+  },
+  {
+    "file": "00407.png",
+    "elapsed": 14.124271707999469,
+    "frame": 117222,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9c3a8c2f921fc2b5cd38cf9a8d35933b02589f2176eb48c4f982b4254c74a685"
+  },
+  {
+    "file": "00408.png",
+    "elapsed": 14.157780083000034,
+    "frame": 117236,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e9779074fd5bfe6f40accee5ccf57846a8761b1288ee0a8c8eabd2beeac42e66"
+  },
+  {
+    "file": "00409.png",
+    "elapsed": 14.191603415999452,
+    "frame": 117251,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2debba44a15179e707a96a3bab83120f164fe3fd8423e5fa32394ac294bee714"
+  },
+  {
+    "file": "00410.png",
+    "elapsed": 14.22515545799979,
+    "frame": 117264,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1ec3594ff5686f4ece5b0141e37c4bb2371d7b7d70d9b9a1b2375b153f973cad"
+  },
+  {
+    "file": "00411.png",
+    "elapsed": 14.259052415999577,
+    "frame": 117278,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6d6489a0dc93de0146a52f80d070920623849bc15765c0220e0ee900f2e2ed6c"
+  },
+  {
+    "file": "00412.png",
+    "elapsed": 14.292572499999551,
+    "frame": 117291,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0626cb8b8bafd48a69b50e4fe862d5b8f13dac45cf21726295958be66354bb33"
+  },
+  {
+    "file": "00413.png",
+    "elapsed": 14.326152790999913,
+    "frame": 117304,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "1a2a7037377d9c1dcfff7b5406fe478438d00292725b344a5f75ef63d500009d"
+  },
+  {
+    "file": "00414.png",
+    "elapsed": 14.359594540999751,
+    "frame": 117317,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e7a6519903fd9d8ac562a1ccdc5eff81564a56de0d76e25bcbfffec1eda1a43f"
+  },
+  {
+    "file": "00415.png",
+    "elapsed": 14.39302991600016,
+    "frame": 117330,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0193fc8a5564eba0f663ba2121a433214864a308561c15b36e0a284c9b1a9e96"
+  },
+  {
+    "file": "00416.png",
+    "elapsed": 14.426630500000101,
+    "frame": 117343,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c3c56c0466e71173c9fa6a9fac5c0c9e88e08ec4770b2dc784e6077218c612d6"
+  },
+  {
+    "file": "00417.png",
+    "elapsed": 14.460545249999996,
+    "frame": 117357,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "add63df7a11a26821cf4b2ba37e6762d10c921bbd28720141cc102152b041cff"
+  },
+  {
+    "file": "00418.png",
+    "elapsed": 14.494602415999907,
+    "frame": 117370,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "4d766373c49ed9dd4cf6b46ff59c80acfb05e38553177ad8e1bf5586b89e2249"
+  },
+  {
+    "file": "00419.png",
+    "elapsed": 14.527954375000263,
+    "frame": 117381,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3908432c24ded4affc3688dc5589fa1b03b9487d0eabe94a2def6e41ffb665f8"
+  },
+  {
+    "file": "00420.png",
+    "elapsed": 14.56166475000009,
+    "frame": 117388,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f47c3b75f3d7225a0fff71bd57d24430b9b0e266b5c0940c83616346da63d660"
+  },
+  {
+    "file": "00421.png",
+    "elapsed": 14.59545020800033,
+    "frame": 117395,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "fc31161526d2733fc38af7e1affbd0f45c938504a4cd129b443ad4852cc10e3b"
+  },
+  {
+    "file": "00422.png",
+    "elapsed": 14.628942874999666,
+    "frame": 117405,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "caf80b32aace515723d2a15b2917729adda3fe84213fa3905d609976cdc140e9"
+  },
+  {
+    "file": "00423.png",
+    "elapsed": 14.662534082999628,
+    "frame": 117419,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "af037316b78d7cedbdeece05da70b2088accf6534750a7067ec33db84a07792f"
+  },
+  {
+    "file": "00424.png",
+    "elapsed": 14.69590637500005,
+    "frame": 117433,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a89900f287582485b4a9b596e3429b3d8e1bb2ada7ef8ca86b1f84bf9e6ee494"
+  },
+  {
+    "file": "00425.png",
+    "elapsed": 14.72992504099966,
+    "frame": 117445,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "273d3020658bf11ad23d845f101c81f4ef74e33380d386a982bf5f7f8f87be2c"
+  },
+  {
+    "file": "00426.png",
+    "elapsed": 14.763387707999755,
+    "frame": 117451,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "daf16109fbb8fed74f7af034bd192ef8032c6b1b32d01b07d081e069777fe1c6"
+  },
+  {
+    "file": "00427.png",
+    "elapsed": 14.79702533299951,
+    "frame": 117461,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2da191cd76f05c58239e4ca43c9ca35ad11569fcc58e363d42b8ccbb79372b7e"
+  },
+  {
+    "file": "00428.png",
+    "elapsed": 14.830950208000104,
+    "frame": 117475,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "21c6b48e23ba80943ac580ae089f856a3bbd10b1ab6683e0972cfca8674a5509"
+  },
+  {
+    "file": "00429.png",
+    "elapsed": 14.864696499999809,
+    "frame": 117489,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "bd1fa9708e05ab905948399a7d02a402edce88925e09f92a0f709856a796752f"
+  },
+  {
+    "file": "00430.png",
+    "elapsed": 14.898840832999667,
+    "frame": 117502,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c79aea5c2d1f124effeb0274f3444c90d53f0632ae5fd54b398689476abe8800"
+  },
+  {
+    "file": "00431.png",
+    "elapsed": 14.932542040999579,
+    "frame": 117516,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "71459bade7e192e3fc1dcf56f53906a4fbf44758ba5ac43b2911c946a7471e31"
+  },
+  {
+    "file": "00432.png",
+    "elapsed": 14.96618849999959,
+    "frame": 117530,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a0799dfce8bc927d43bc337c496c63e472988a41f99636654229d375a846c8b6"
+  },
+  {
+    "file": "00433.png",
+    "elapsed": 14.999949332999677,
+    "frame": 117544,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "39c5f5f2da8d44d4a970aeb688ed639396a63390d458ac7c1a7326ac41ada368"
+  },
+  {
+    "file": "00434.png",
+    "elapsed": 15.033700250000038,
+    "frame": 117556,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f81af216d81d7435b946ce02e6dc72f9640bad1bc4fc405413c0261374fde4f7"
+  },
+  {
+    "file": "00435.png",
+    "elapsed": 15.067242915999486,
+    "frame": 117569,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "367f74ae5b038e26e5c6c7f7ef65a518e962b0176a54c18a1c54430b0f339ed1"
+  },
+  {
+    "file": "00436.png",
+    "elapsed": 15.100641541000186,
+    "frame": 117581,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0692fa8008e60c6630bfb197b312c7bcc9d7780e544dba4d4b89dcb60f3a0715"
+  },
+  {
+    "file": "00437.png",
+    "elapsed": 15.134104083000238,
+    "frame": 117594,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0bfa6ab8dd47254f9f9637309b62a6977e2545d9192e21cbb2496317a16feea0"
+  },
+  {
+    "file": "00438.png",
+    "elapsed": 15.168103207999593,
+    "frame": 117606,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "d8f742f955135937d86896399c2dc5a0d7314f37fdbf48d634f4a011e7279964"
+  },
+  {
+    "file": "00439.png",
+    "elapsed": 15.201821124999697,
+    "frame": 117620,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a222d5e153d4f639d376e2d4a97bb705db1eea8e6f31c1142123d597a258df06"
+  },
+  {
+    "file": "00440.png",
+    "elapsed": 15.235243041000103,
+    "frame": 117633,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a63b840f6e716a378cbb828ebac41993dcab0a59c35d5f4bebf3683678cca2d8"
+  },
+  {
+    "file": "00441.png",
+    "elapsed": 15.268883875000029,
+    "frame": 117642,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "5ff43490744abad3dc58cb6b7bfe6c9a4c7a75204d9e269ac64bff8f0d14cb90"
+  },
+  {
+    "file": "00442.png",
+    "elapsed": 15.303125374999581,
+    "frame": 117651,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "b43ad5177b893c589205831c19e7239b1f08abd23da5cdb44f536f75e769b990"
+  },
+  {
+    "file": "00443.png",
+    "elapsed": 15.337097832999461,
+    "frame": 117659,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3568c75bd20c15ece06134852939229883c6265fa85fc770b68f228fad635b5f"
+  },
+  {
+    "file": "00444.png",
+    "elapsed": 15.37075625000034,
+    "frame": 117668,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "15f2d27c46b44ec2f5e0c27b9bdecb37a7e9877f2953bd62306f896e3ff76021"
+  },
+  {
+    "file": "00445.png",
+    "elapsed": 15.404984957999659,
+    "frame": 117676,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "9c2e8096963540e35e91f6dd78b67a5b6ba6211efebd4e3093e27591e2e6fe9e"
+  },
+  {
+    "file": "00446.png",
+    "elapsed": 15.438606916000026,
+    "frame": 117688,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "aa10697f4b22cbddb8007cfe3f0d6969f596369bbb817de18f6d6b8ee15811c1"
+  },
+  {
+    "file": "00447.png",
+    "elapsed": 15.472432124999614,
+    "frame": 117703,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "0f4290d1b77ac5e5122d74b40994b194e4a058d2a1b9e0bf2edb4686f58252ab"
+  },
+  {
+    "file": "00448.png",
+    "elapsed": 15.506905207999807,
+    "frame": 117716,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "8498d944895be396b2ff19bf7bf8d82987042549612ad1d30cdf9325603b0684"
+  },
+  {
+    "file": "00449.png",
+    "elapsed": 15.542417415999807,
+    "frame": 117728,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "84f4cf9f665e6bd3e118dc9fc5a95ec0fc2809ee41d440471d07977668ffb73c"
+  },
+  {
+    "file": "00450.png",
+    "elapsed": 15.575882957999966,
+    "frame": 117740,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "89c11d604a0bbbf987143744a0c67056cc40233122dc48343ab32edf68ac4082"
+  },
+  {
+    "file": "00451.png",
+    "elapsed": 15.609980707999966,
+    "frame": 117752,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "14c20306830575f0fad1a50d985d0d0f52efce5b5a1469785a3496ac4d4d6928"
+  },
+  {
+    "file": "00452.png",
+    "elapsed": 15.644029082999623,
+    "frame": 117765,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "cb80b6784082c56a4ef8ee42e6d6fc81fd74c22ee4e35ccceadb53854ed41cec"
+  },
+  {
+    "file": "00453.png",
+    "elapsed": 15.677878124999552,
+    "frame": 117780,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "ef7b1680856aae2539026ba9999eedcfda6853d6f06f985bf4e03839f70cd59f"
+  },
+  {
+    "file": "00454.png",
+    "elapsed": 15.711889665999479,
+    "frame": 117794,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "f2d64e22c16d7f8182ba85ffd0206ef0d2c9ddb03a514152c29f644faa21879d"
+  },
+  {
+    "file": "00455.png",
+    "elapsed": 15.745251290999477,
+    "frame": 117806,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "74bbb6c73c5780ae5c4eeb958053267ef816dbd4b622e05efb1bd12f52110b94"
+  },
+  {
+    "file": "00456.png",
+    "elapsed": 15.779676582999855,
+    "frame": 117816,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "b63520b62d29155a239adb1033817d4d39e10bf169a9a9a2255d3241d6b1fa0f"
+  },
+  {
+    "file": "00457.png",
+    "elapsed": 15.81353958299951,
+    "frame": 117825,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "75a1aed7a7e9668a0a57de2f3fc400121b8dcad90a0d963d046a83890d5b3f2b"
+  },
+  {
+    "file": "00458.png",
+    "elapsed": 15.84735079100028,
+    "frame": 117838,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "db5a3a8e5950601d78f7406fad9e71f2c97dee42c7422a88bfb3f8aeb103ed4d"
+  },
+  {
+    "file": "00459.png",
+    "elapsed": 15.880794333000267,
+    "frame": 117852,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6e9d3315514de80c23efd936de4969477ad2c3018ad3469398b4ee88657e93ee"
+  },
+  {
+    "file": "00460.png",
+    "elapsed": 15.914146041000095,
+    "frame": 117865,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a768f1f407850988604b941e43473cfdf64842fbc0f93bfb5e23b1ccc4fe1822"
+  },
+  {
+    "file": "00461.png",
+    "elapsed": 15.947510916000283,
+    "frame": 117878,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "927450d5e7b4cb0a86fda01c823b8ced042cc0e56b5b246c9d6b8ac1f921f81e"
+  },
+  {
+    "file": "00462.png",
+    "elapsed": 15.981453583000075,
+    "frame": 117890,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e116b6cc7c2d5d0c61e930966f03ccd9660d43873a7f9d4e6bbab5ca7b60014d"
+  },
+  {
+    "file": "00463.png",
+    "elapsed": 16.01537929099959,
+    "frame": 117903,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "c830e754a0e93579ad385f1351d255ef3efa7ecf1697a2182334b4cafc66d9a3"
+  },
+  {
+    "file": "00464.png",
+    "elapsed": 16.049302458000057,
+    "frame": 117916,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "dbaa8e0201a8df7fc54cf96f9c39b5c78bedbc12fe87ca3d3467c7c5cc89c418"
+  },
+  {
+    "file": "00465.png",
+    "elapsed": 16.082843999999568,
+    "frame": 117930,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "2c4b965be146a4333243459998e78fb37d85745466bb38061c7affb963deb549"
+  },
+  {
+    "file": "00466.png",
+    "elapsed": 16.11619774999963,
+    "frame": 117943,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "8608b62fc1dc351c7b41be9d4ff6324cc51a553bc9630c23a3df4cf3f030a6db"
+  },
+  {
+    "file": "00467.png",
+    "elapsed": 16.149876333000066,
+    "frame": 117957,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "7060386f7edbf353ea74a9374e7a3322e9f77a3327e51eb443bab88a911bfdb0"
+  },
+  {
+    "file": "00468.png",
+    "elapsed": 16.18346662499971,
+    "frame": 117972,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "cf8148f7543f52bb6bcb7bfde39811c5aa2f94b47d7ea12279f84bc85432e402"
+  },
+  {
+    "file": "00469.png",
+    "elapsed": 16.21729595800025,
+    "frame": 117986,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "e03287f209884d78b0cf41e56fd06771f8ff61abc1e65c5e54b2e89364c92edd"
+  },
+  {
+    "file": "00470.png",
+    "elapsed": 16.250790291000158,
+    "frame": 117999,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "11721aa01c6ae93b6ae9d1b76c71915e78c3086ac15c8de6956ca61ac2e19be8"
+  },
+  {
+    "file": "00471.png",
+    "elapsed": 16.284630625000318,
+    "frame": 118013,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a5079edf6d1211ba85f80b1bf2618571ceea0cb841842a64247368b9e648b2f1"
+  },
+  {
+    "file": "00472.png",
+    "elapsed": 16.318302499999845,
+    "frame": 118028,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "8b17c9df618e5d9795e91d4060a6245b79fdf980ad8336399385dc7efccdcfd6"
+  },
+  {
+    "file": "00473.png",
+    "elapsed": 16.35218204099965,
+    "frame": 118041,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "a5ffd9184c8c83d88082319926fd158455e212f4c5c1952e2bae8cae67cf059b"
+  },
+  {
+    "file": "00474.png",
+    "elapsed": 16.385872832999667,
+    "frame": 118053,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "3f175f1e280e18ea37b70c06987a1db3693557a5527ba2b82daa3d3fc69cb261"
+  },
+  {
+    "file": "00475.png",
+    "elapsed": 16.41963991600005,
+    "frame": 118066,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6537844b5e8f3f52b57b9cf3996567974f45a074a04cdae1fe1d471f02052b2b"
+  },
+  {
+    "file": "00476.png",
+    "elapsed": 16.453250874999867,
+    "frame": 118078,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "fc9bb105708d3065ce7cfea4d4299251d681f6b315d83584b89be6ce1f548bac"
+  },
+  {
+    "file": "00477.png",
+    "elapsed": 16.48660804100018,
+    "frame": 118089,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "af95e2ff6b9865186842b3e3f0e1344d2c76f08b889fea57c1c23b33016eed0c"
+  },
+  {
+    "file": "00478.png",
+    "elapsed": 16.520389166000314,
+    "frame": 118099,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "bc1779e3db4a812f956f5d4a11faefb2ad1addbe69bee8069c5a95546e7dc28b"
+  },
+  {
+    "file": "00479.png",
+    "elapsed": 16.553859083000134,
+    "frame": 118109,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "fc6ee1522564ac14eef9ca7c0fa75b096f0575ffeb873ac137cef7daf4b420ad"
+  },
+  {
+    "file": "00480.png",
+    "elapsed": 16.587403124999582,
+    "frame": 118120,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "8c44657da87a08f913c908cb9a36ecd3c3e3739887b5c5b3cc3ab8993f1b83f2"
+  },
+  {
+    "file": "00481.png",
+    "elapsed": 16.62293687500005,
+    "frame": 118131,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "6c124f97fabd12e78952b748c339a37bb4dab7c9c80950768991391dc9985796"
+  },
+  {
+    "file": "00482.png",
+    "elapsed": 16.656303333000324,
+    "frame": 118143,
+    "stage": "FLAME L1 / ability + real Update damage and death",
+    "sha256": "62edb38c7fe54608e6c9980e30695a93eaf3b9e72ca1e464226c627d2a16ac52"
+  },
+  {
+    "file": "00483.png",
+    "elapsed": 16.69027350000033,
+    "frame": 118148,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "1103e161cf31bc28a9a2dd0f28bd1617b6ca00a0ff1b9f8a3536b77bd38666ba"
+  },
+  {
+    "file": "00484.png",
+    "elapsed": 16.724146749999818,
+    "frame": 118161,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "bde933ae0639b6be9a9926dc86bf6551af8315504aa426218712f3313d84b5f9"
+  },
+  {
+    "file": "00485.png",
+    "elapsed": 16.75753933299984,
+    "frame": 118174,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "9a7a6e38ddd3d185a8c6e9f10a0bb4a07a43e1746275f51162b43999aaa3ee7c"
+  },
+  {
+    "file": "00486.png",
+    "elapsed": 16.791091874999438,
+    "frame": 118186,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "c134d34114446b6f4a801be549086e0a30b215ee19949c3b84f68c002854c99c"
+  },
+  {
+    "file": "00487.png",
+    "elapsed": 16.82499266600007,
+    "frame": 118200,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "a530be907d503ff2ab6b3066f9e1cdcb850c515f364ac47022882572ba8d4ab7"
+  },
+  {
+    "file": "00488.png",
+    "elapsed": 16.858844915999725,
+    "frame": 118214,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "5e88dc82d5c057f8d54e82cac0f98727b94c30155326d30d7850b7fa86987fc6"
+  },
+  {
+    "file": "00489.png",
+    "elapsed": 16.892708165999466,
+    "frame": 118227,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "e31cd244f5a8bafa76e6589e92a2aa23630862b610a7dcd08d054ce307120c20"
+  },
+  {
+    "file": "00490.png",
+    "elapsed": 16.926454499999636,
+    "frame": 118241,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "43eb5b49cb6fb9e2511077851f9b0b29519dde0bfc890ba6671d988a940ffeea"
+  },
+  {
+    "file": "00491.png",
+    "elapsed": 16.959964040999694,
+    "frame": 118254,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "e2cdcb4fec44253a89772323c91d09ef5db9e5eddbfe6221dca5c0ef36907d61"
+  },
+  {
+    "file": "00492.png",
+    "elapsed": 16.993838458000027,
+    "frame": 118266,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "5fa1a768b8529ae4f506a70efac96a41b6f150fb426e72fee9e2f3b6d44d4196"
+  },
+  {
+    "file": "00493.png",
+    "elapsed": 17.02786704099981,
+    "frame": 118273,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "b571da282719a31198179cd6022254129068bebfa712bf38f41046b4884972db"
+  },
+  {
+    "file": "00494.png",
+    "elapsed": 17.061422124999808,
+    "frame": 118279,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "1c7027b7e55c422af9c651a17c17d0a917cf909b29755e901dbc68a807e7298f"
+  },
+  {
+    "file": "00495.png",
+    "elapsed": 17.095258540999566,
+    "frame": 118285,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "7a261dfa88ae40b254fe9ee7ed611757b2689d2e45760b8e89e66225c710b285"
+  },
+  {
+    "file": "00496.png",
+    "elapsed": 17.129166333000285,
+    "frame": 118292,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "473f315a91aba64e09ed67e068f9036bd757ac1634dfea4b47d86b206910b75e"
+  },
+  {
+    "file": "00497.png",
+    "elapsed": 17.162883125000008,
+    "frame": 118301,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "97c9bdb6a20c05952fdc13270437519899bd88d376ae9abaf197b701adb8eefb"
+  },
+  {
+    "file": "00498.png",
+    "elapsed": 17.196639415999925,
+    "frame": 118313,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "8793747d41e6d54ef4cd871d5fd7f40b557dbb94dad9331a472b57ab95cca773"
+  },
+  {
+    "file": "00499.png",
+    "elapsed": 17.23042783300025,
+    "frame": 118327,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "e82a141790c7cb3185a30bd786d90fc2263bd1009f06e70905e3939af9cd1d80"
+  },
+  {
+    "file": "00500.png",
+    "elapsed": 17.264366374999554,
+    "frame": 118338,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "15cd20819917e340c2db1c4c32a7aac7f01e318a23d3e00d880f25fb5e8633aa"
+  },
+  {
+    "file": "00501.png",
+    "elapsed": 17.297937125000317,
+    "frame": 118348,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "93a17a0434fd273bef2e6a924aef9b4b9b9250d95c2490ea4565defd04887b84"
+  },
+  {
+    "file": "00502.png",
+    "elapsed": 17.33181012499972,
+    "frame": 118360,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "93a17a0434fd273bef2e6a924aef9b4b9b9250d95c2490ea4565defd04887b84"
+  },
+  {
+    "file": "00503.png",
+    "elapsed": 17.365591374999894,
+    "frame": 118374,
+    "stage": "Earned FLAME L2 / Preparation",
+    "sha256": "93a17a0434fd273bef2e6a924aef9b4b9b9250d95c2490ea4565defd04887b84"
+  },
+  {
+    "file": "00504.png",
+    "elapsed": 17.399347165999643,
+    "frame": 118385,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "8911c3219fd612d072a4b31cf745e81f6fb0108543a888a96371adffab98cd63"
+  },
+  {
+    "file": "00505.png",
+    "elapsed": 17.432685832999596,
+    "frame": 118399,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "fc35380e60890fd580f82ddbae01345609c90330740de0f2979e51af96f389b9"
+  },
+  {
+    "file": "00506.png",
+    "elapsed": 17.466185540999504,
+    "frame": 118412,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "bc9bbf247db738c15f5182b32bced8abb2153b35abf449547bba89ceb07283cf"
+  },
+  {
+    "file": "00507.png",
+    "elapsed": 17.499753125000097,
+    "frame": 118425,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "25aa957f174a70c503305fad08330aff5e251a0f60f2fdef5c6824c72991c691"
+  },
+  {
+    "file": "00508.png",
+    "elapsed": 17.533397166000213,
+    "frame": 118437,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "4524637aa5cd7f9661a47eece81a0df313a41836873e43f6e79fdd684151d924"
+  },
+  {
+    "file": "00509.png",
+    "elapsed": 17.56697449999956,
+    "frame": 118451,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "4e17c7d3b2429e5a6aff801cf4afa1bdcca3060cc3ca8bd42aeec9e85ba8f87a"
+  },
+  {
+    "file": "00510.png",
+    "elapsed": 17.601042000000234,
+    "frame": 118464,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "d5f12cddf696ba5a5d81db190af00ac5b5b2da4001267c4eea38b54d95a970e7"
+  },
+  {
+    "file": "00511.png",
+    "elapsed": 17.634496957999545,
+    "frame": 118476,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "026b7843da1143b03c44bbb3cdae590d19d7e06658b8320667198db3bd231e66"
+  },
+  {
+    "file": "00512.png",
+    "elapsed": 17.668318957999873,
+    "frame": 118489,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "85cfa335c5b3ed14f2ab6a578221d9162b7d9eca0556d541873a3be1136f274b"
+  },
+  {
+    "file": "00513.png",
+    "elapsed": 17.70210570800009,
+    "frame": 118502,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "72989ba9ef88c51ebc6a9a63b35482158706cc94062661115f72766a15e4bc22"
+  },
+  {
+    "file": "00514.png",
+    "elapsed": 17.73587354099982,
+    "frame": 118516,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "b93cd830da26938f291cca12dc8be72a46acf58fa70321ed46c23c4a5cd92905"
+  },
+  {
+    "file": "00515.png",
+    "elapsed": 17.76935470799981,
+    "frame": 118525,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "d71b6353911ffde21a5e226c51e8946050097822c4100cfca0717f40f79316e8"
+  },
+  {
+    "file": "00516.png",
+    "elapsed": 17.80320095800016,
+    "frame": 118534,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "bfa71870adc1ff16d1712deab13a66b3a80a30517cd0fc50bb3f5c7e92f7ae68"
+  },
+  {
+    "file": "00517.png",
+    "elapsed": 17.837240083000324,
+    "frame": 118543,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "69f53db5c91f1b43259aa6e340742fe37a36fc0896adf5d682d06b5ac764da92"
+  },
+  {
+    "file": "00518.png",
+    "elapsed": 17.87082645800001,
+    "frame": 118554,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "1e19605df7127c13d3b2fed8e838cabc3965bdfa5472b331b286fa4a7538b453"
+  },
+  {
+    "file": "00519.png",
+    "elapsed": 17.904258624999784,
+    "frame": 118568,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "a424fc3c994c2067ea3e68148263c109a38c8cdbf2d3711b80511660955e370a"
+  },
+  {
+    "file": "00520.png",
+    "elapsed": 17.938185832999807,
+    "frame": 118583,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "2f8c67943f2c2e51eee9988ea90b99e1d99aeb3778ac6ad7fb5ff427aa31d2af"
+  },
+  {
+    "file": "00521.png",
+    "elapsed": 17.97213612499945,
+    "frame": 118597,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "70f8353e7fefddccc7056f28dc6068184f38091df8744d28b1dedabe5aeb2fa9"
+  },
+  {
+    "file": "00522.png",
+    "elapsed": 18.00556462500026,
+    "frame": 118608,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "85abb3be19342826b8e1e76ca9cd1d0bdb5534f0b37841b407226d3ebf80e07d"
+  },
+  {
+    "file": "00523.png",
+    "elapsed": 18.03931199999988,
+    "frame": 118620,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "f8e2807c0076de2b6bdb52458f1a1950b301f7796fe011491b447fa2b7d3ad21"
+  },
+  {
+    "file": "00524.png",
+    "elapsed": 18.07277675000023,
+    "frame": 118635,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "c3426d0465d5f5da1951b1ca3558ace7fa2ab56b6c41cfe8b55a5df75e4985af"
+  },
+  {
+    "file": "00525.png",
+    "elapsed": 18.106328791000124,
+    "frame": 118648,
+    "stage": "FLAME L2 / production Update combat",
+    "sha256": "83f6bb4953bae84518dc0b71e752386e97a94403f0a2885b51be16fb7264bf7f"
+  },
+  {
+    "file": "00526.png",
+    "elapsed": 18.139939707999474,
+    "frame": 118660,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "713bf7d50e0572b4b670485f8065058dfbbbdee68132fecceb5c094f4a67e1b3"
+  },
+  {
+    "file": "00527.png",
+    "elapsed": 18.17332137500034,
+    "frame": 118674,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "a1d7f6c09d76bf306c52d3899ab7ba96a53da503a32b2c3a15c915a2836bd73e"
+  },
+  {
+    "file": "00528.png",
+    "elapsed": 18.206693082999664,
+    "frame": 118688,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "ec1c7b76db747f488af76033cce193ee47ed049e08e3a6e2fe3b2fe7e014dec3"
+  },
+  {
+    "file": "00529.png",
+    "elapsed": 18.24019750000025,
+    "frame": 118701,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "8631743f28283b951f794c82d459ef71626a04243626a5ef6b1f596940a51fd5"
+  },
+  {
+    "file": "00530.png",
+    "elapsed": 18.273918582999613,
+    "frame": 118715,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "8c37652d5f35064647c4ebaed8728532365897b7aca7e76f4672c8bcefcd12ad"
+  },
+  {
+    "file": "00531.png",
+    "elapsed": 18.30728233300033,
+    "frame": 118728,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "c705416b7ba7f8495c2fc34f5811fe7d52649922fde4e36fc86b81e3361f04f1"
+  },
+  {
+    "file": "00532.png",
+    "elapsed": 18.341119290999814,
+    "frame": 118743,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "923e81eac0963a4d640d28009686c0de9f444b5bd3be5f9303b137050f402aef"
+  },
+  {
+    "file": "00533.png",
+    "elapsed": 18.37457458300014,
+    "frame": 118756,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "f1350b8a80f5472ada61294245f884deb4b8c531ae6a55fdd1f5f96a78586232"
+  },
+  {
+    "file": "00534.png",
+    "elapsed": 18.408263457999965,
+    "frame": 118770,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "27dc765621f5625583c5fea9c87de70507f60a284638f5ae8070ded6d13fa2d8"
+  },
+  {
+    "file": "00535.png",
+    "elapsed": 18.442019125000115,
+    "frame": 118784,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "816cf8ce1d036eb225f890e959c911658fcb465b59b94174e7a6e294d2dadd5b"
+  },
+  {
+    "file": "00536.png",
+    "elapsed": 18.47555887499948,
+    "frame": 118797,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "7db1d46567de3d734b4e34ee0bb984de0d2b145bf82d9e93fad279cbc1fa9f0a"
+  },
+  {
+    "file": "00537.png",
+    "elapsed": 18.508976707999864,
+    "frame": 118811,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "3dde6517d6dc33a471cabd8889a3f00553342112246ba2665926bd9d8172a02e"
+  },
+  {
+    "file": "00538.png",
+    "elapsed": 18.54248374999952,
+    "frame": 118825,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "91d2dfe3a8cde62342c9ad84c77b57b403aa8760a8dbd9149251b7bf5d6d0dfc"
+  },
+  {
+    "file": "00539.png",
+    "elapsed": 18.576430041000094,
+    "frame": 118839,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "f83c93a47e205cfced305c0032a9655ea10e160c13f80f2e681fcca96e099343"
+  },
+  {
+    "file": "00540.png",
+    "elapsed": 18.609843041000204,
+    "frame": 118853,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "e0eed861d56cd0dcd68eee479bc92bee401bc9c677e351982a121e596e2dc694"
+  },
+  {
+    "file": "00541.png",
+    "elapsed": 18.643529207999563,
+    "frame": 118867,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "0cd580e1db8d5707dd853e175833d26a152c460ed6b2d1912797317d0217d2f2"
+  },
+  {
+    "file": "00542.png",
+    "elapsed": 18.677007665999554,
+    "frame": 118882,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "b7daa00855605b1a059e395494193172c8932c4e06fa67eed1c04277dd9eabda"
+  },
+  {
+    "file": "00543.png",
+    "elapsed": 18.710427332999643,
+    "frame": 118895,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "acb17a7e8c38c3dc5d16df71502cba01e075238d9bd41ba5ed682906da5bc392"
+  },
+  {
+    "file": "00544.png",
+    "elapsed": 18.743781874999513,
+    "frame": 118909,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "8f77fa9f1ed84aec20f714f891a7f26ac2ef4a9465cbcf902fd360bb97b3b8dc"
+  },
+  {
+    "file": "00545.png",
+    "elapsed": 18.777451582999674,
+    "frame": 118921,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "193a5145dea0242e6a3e77b9b432b7aa9a85aba3661761649e6153c0b9bad108"
+  },
+  {
+    "file": "00546.png",
+    "elapsed": 18.811883540999588,
+    "frame": 118929,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "f82aa81b2d89537e7dddfbe99d612642a8ff56a96590638e4628dbb91626e56a"
+  },
+  {
+    "file": "00547.png",
+    "elapsed": 19.035501999999724,
+    "frame": 118931,
+    "stage": "FLAME L2 / active flight before menu interruption",
+    "sha256": "d92678834f65c70c1dccf5ac2d7b9e521513f8f8209f354507d60f705a6261b0"
+  },
+  {
+    "file": "00548.png",
+    "elapsed": 19.06946329099992,
+    "frame": 118946,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00549.png",
+    "elapsed": 19.103068165999503,
+    "frame": 118971,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00550.png",
+    "elapsed": 19.136644375000287,
+    "frame": 118997,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00551.png",
+    "elapsed": 19.170275040999513,
+    "frame": 119025,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00552.png",
+    "elapsed": 19.20393412500016,
+    "frame": 119051,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00553.png",
+    "elapsed": 19.23754199999985,
+    "frame": 119077,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00554.png",
+    "elapsed": 19.27087654099978,
+    "frame": 119103,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00555.png",
+    "elapsed": 19.3043131659997,
+    "frame": 119127,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00556.png",
+    "elapsed": 19.338033582999742,
+    "frame": 119150,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00557.png",
+    "elapsed": 19.37182387499979,
+    "frame": 119174,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00558.png",
+    "elapsed": 19.405306665999888,
+    "frame": 119200,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00559.png",
+    "elapsed": 19.43877274999977,
+    "frame": 119223,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00560.png",
+    "elapsed": 19.472303999999895,
+    "frame": 119250,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00561.png",
+    "elapsed": 19.506000041000334,
+    "frame": 119278,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00562.png",
+    "elapsed": 19.539537957999528,
+    "frame": 119303,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00563.png",
+    "elapsed": 19.57326491599997,
+    "frame": 119328,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00564.png",
+    "elapsed": 19.607371500000227,
+    "frame": 119354,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00565.png",
+    "elapsed": 19.641097290999824,
+    "frame": 119380,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00566.png",
+    "elapsed": 19.67475120800009,
+    "frame": 119407,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00567.png",
+    "elapsed": 19.708132290999856,
+    "frame": 119432,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00568.png",
+    "elapsed": 19.74167670800034,
+    "frame": 119459,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "c30de5690c0cb32f91eb60fd85fada0883fba6f4d7deccff19601cfab6603278"
+  },
+  {
+    "file": "00569.png",
+    "elapsed": 19.96201983300034,
+    "frame": 119461,
+    "stage": "MainMenu / file Continue / pool unloaded",
+    "sha256": "3cb18d71928dca6144aab5aa039ad1550bbe81e633ffe27eece959e509731487"
+  },
+  {
+    "file": "00570.png",
+    "elapsed": 19.995814249999967,
+    "frame": 119467,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00571.png",
+    "elapsed": 20.02946462499949,
+    "frame": 119474,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00572.png",
+    "elapsed": 20.062798666000162,
+    "frame": 119485,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00573.png",
+    "elapsed": 20.096243166000022,
+    "frame": 119499,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00574.png",
+    "elapsed": 20.130026083000303,
+    "frame": 119514,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00575.png",
+    "elapsed": 20.163830583000163,
+    "frame": 119526,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00576.png",
+    "elapsed": 20.198092957999506,
+    "frame": 119536,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00577.png",
+    "elapsed": 20.231594457999563,
+    "frame": 119549,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00578.png",
+    "elapsed": 20.26532324999971,
+    "frame": 119564,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00579.png",
+    "elapsed": 20.298883540999668,
+    "frame": 119577,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00580.png",
+    "elapsed": 20.332729208000274,
+    "frame": 119589,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00581.png",
+    "elapsed": 20.366193290999945,
+    "frame": 119604,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00582.png",
+    "elapsed": 20.39956875000007,
+    "frame": 119619,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00583.png",
+    "elapsed": 20.433391999999913,
+    "frame": 119634,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00584.png",
+    "elapsed": 20.467305125000166,
+    "frame": 119649,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00585.png",
+    "elapsed": 20.500683499999468,
+    "frame": 119663,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00586.png",
+    "elapsed": 20.53442433300006,
+    "frame": 119680,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00587.png",
+    "elapsed": 20.567859624999983,
+    "frame": 119695,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00588.png",
+    "elapsed": 20.60131091600033,
+    "frame": 119710,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00589.png",
+    "elapsed": 20.63500833299986,
+    "frame": 119727,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00590.png",
+    "elapsed": 20.66856933300005,
+    "frame": 119742,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00591.png",
+    "elapsed": 20.701984415999505,
+    "frame": 119758,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00592.png",
+    "elapsed": 20.735698833000242,
+    "frame": 119774,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00593.png",
+    "elapsed": 20.769790415999523,
+    "frame": 119790,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00594.png",
+    "elapsed": 20.803664916000344,
+    "frame": 119805,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00595.png",
+    "elapsed": 20.837112332999823,
+    "frame": 119816,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00596.png",
+    "elapsed": 20.870498374999443,
+    "frame": 119825,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00597.png",
+    "elapsed": 20.904109457999766,
+    "frame": 119837,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00598.png",
+    "elapsed": 20.9375744580002,
+    "frame": 119854,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00599.png",
+    "elapsed": 20.970969875000264,
+    "frame": 119869,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "7f9c4a5b9280729dd9acf24bcb16e8932a75fbfb93ef929efede2e6e527b7f79"
+  },
+  {
+    "file": "00600.png",
+    "elapsed": 21.0046499580003,
+    "frame": 119881,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "8006e30966a680b3df2e22dca679b738b5a14998a14cbe1e60b5d20b9b223f46"
+  },
+  {
+    "file": "00601.png",
+    "elapsed": 21.03848970800027,
+    "frame": 119890,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "bf31d10a5f2fa6b1bef4ef830b99ca0c59866b1fd57c611dbe5e6be5090179ed"
+  },
+  {
+    "file": "00602.png",
+    "elapsed": 21.07236812500014,
+    "frame": 119900,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00603.png",
+    "elapsed": 21.106308415999592,
+    "frame": 119913,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00604.png",
+    "elapsed": 21.139774874999603,
+    "frame": 119925,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00605.png",
+    "elapsed": 21.173253541000122,
+    "frame": 119935,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00606.png",
+    "elapsed": 21.207093500000155,
+    "frame": 119945,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00607.png",
+    "elapsed": 21.24052279100033,
+    "frame": 119958,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00608.png",
+    "elapsed": 21.274041458000283,
+    "frame": 119971,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00609.png",
+    "elapsed": 21.307390957999814,
+    "frame": 119985,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00610.png",
+    "elapsed": 21.341190416000245,
+    "frame": 119999,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00611.png",
+    "elapsed": 21.374556875000053,
+    "frame": 120012,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00612.png",
+    "elapsed": 21.408050125000045,
+    "frame": 120026,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00613.png",
+    "elapsed": 21.441511750000245,
+    "frame": 120041,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00614.png",
+    "elapsed": 21.475354958000025,
+    "frame": 120055,
+    "stage": "Continue / Preparation2 FLAME L2 / clean pool + Grid",
+    "sha256": "0a77733988f024e357420aa7d8920c4c3c546e9279dfa8a4d509f5c6710f6b5c"
+  },
+  {
+    "file": "00615.png",
+    "elapsed": 21.508868457999597,
+    "frame": 120066,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "22b9cb9d073711e5ffee45cbf20629ff49ebc9dc2f14bdd1c9cbb6703d5cb08d"
+  },
+  {
+    "file": "00616.png",
+    "elapsed": 21.542467708000004,
+    "frame": 120082,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "7eca91c707724c3625ea8f611ec358444d66dd19114616e4075445496f9ce102"
+  },
+  {
+    "file": "00617.png",
+    "elapsed": 21.575848874999792,
+    "frame": 120097,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00618.png",
+    "elapsed": 21.60931333299959,
+    "frame": 120112,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00619.png",
+    "elapsed": 21.643197708000116,
+    "frame": 120127,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00620.png",
+    "elapsed": 21.67690470799971,
+    "frame": 120141,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00621.png",
+    "elapsed": 21.710475290999966,
+    "frame": 120155,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00622.png",
+    "elapsed": 21.744938791000095,
+    "frame": 120170,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00623.png",
+    "elapsed": 21.778436290999707,
+    "frame": 120183,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00624.png",
+    "elapsed": 21.81269083299958,
+    "frame": 120194,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00625.png",
+    "elapsed": 21.84689820800031,
+    "frame": 120205,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00626.png",
+    "elapsed": 21.880669915999533,
+    "frame": 120217,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00627.png",
+    "elapsed": 21.91401420799957,
+    "frame": 120230,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00628.png",
+    "elapsed": 21.947768082999573,
+    "frame": 120244,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00629.png",
+    "elapsed": 21.981533958,
+    "frame": 120259,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00630.png",
+    "elapsed": 22.015338082999733,
+    "frame": 120275,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00631.png",
+    "elapsed": 22.049450958000307,
+    "frame": 120291,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00632.png",
+    "elapsed": 22.083023749999484,
+    "frame": 120307,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00633.png",
+    "elapsed": 22.116362040999775,
+    "frame": 120321,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00634.png",
+    "elapsed": 22.15011662500001,
+    "frame": 120336,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00635.png",
+    "elapsed": 22.183576249999533,
+    "frame": 120351,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00636.png",
+    "elapsed": 22.21730395800023,
+    "frame": 120367,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00637.png",
+    "elapsed": 22.251161375000265,
+    "frame": 120383,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  },
+  {
+    "file": "00638.png",
+    "elapsed": 22.285375374999603,
+    "frame": 120398,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "1852a17c7cfc66caa00e101361dcf59e1a2cc599aa41b180563338a8c3905c97"
+  }
+]

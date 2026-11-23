@@ -1,0 +1,14 @@
+{
+  "testClock": true,
+  "bossId": 68,
+  "eventOrigin": "Direct",
+  "tick": 3805,
+  "capturedPosition": [
+    3.88665581,
+    2.0
+  ],
+  "tailClock": 0.233333334,
+  "domainRemoved": true,
+  "kills": 64,
+  "gold": 136
+}

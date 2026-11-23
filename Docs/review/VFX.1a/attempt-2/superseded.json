@@ -1,0 +1,1 @@
+{"reason":"Completed L1/L2 flow, but stale finished task recorder label overlapped the new label. Superseded by a fresh recording after explicit task-only label cleanup."}

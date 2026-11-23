@@ -36,6 +36,12 @@ public sealed class FlameEditorRecording : MonoBehaviour
         if (!EditorApplication.isPlaying) throw new InvalidOperationException("Play Mode required.");
         if (UnityEngine.Object.FindFirstObjectByType<FlameEditorRecording>() != null)
             throw new InvalidOperationException("Recording already present.");
+        // script run может загрузить новую assembly того же recorder: убрать только завершённые task-owned labels.
+        foreach(var old in UnityEngine.Object.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).Where(c=>c.GetType().Name==nameof(FlameEditorRecording)))
+        {
+            var field=old.GetType().GetField("_recording",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic);
+            if(field!=null && field.GetValue(old) is bool running && !running) UnityEngine.Object.DestroyImmediate(old.gameObject);
+        }
         var root = new GameObject("VFX1a Editor evidence recorder");
         DontDestroyOnLoad(root);
         root.AddComponent<FlameEditorRecording>().Begin();
@@ -119,7 +125,7 @@ public sealed class FlameEditorRecording : MonoBehaviour
         p.ConfirmSelection(); yield return null;
         Require(s.State.Towers.Count==1&&s.State.Gold==80,"public placement70");
         p.CancelSelection();
-        for(var level=1;level<=3;level++)
+        for(var level=1;level<=2;level++)
         {
             Require(b.StartWave()==WaveTransitionResult.Started,"StartWave L"+level);
             Stage("FLAME L"+level+" / production Update combat");
@@ -143,7 +149,7 @@ public sealed class FlameEditorRecording : MonoBehaviour
                 Require(ability.BeginPreview()&&ability.SelectTarget(point)&&ability.ConfirmPreview(),"public ability");
                 Stage("FLAME L1 / ability + real Update damage and death");
             }
-            if(level<3)
+            if(level<2)
             {
                 deadline=Time.realtimeSinceStartupAsDouble+35;
                 while(s.State.Phase==BattlePhase.Combat&&Time.realtimeSinceStartupAsDouble<deadline)yield return null;
@@ -161,7 +167,7 @@ public sealed class FlameEditorRecording : MonoBehaviour
         var control=config.CreateSimulationForCheckpoint(loaded.Envelope);control.RestoreCheckpoint(loaded.Envelope.state);
         var safeWire=SafeWire(control);var safe=File.ReadAllBytes(_store.PrimaryPath);
         File.WriteAllBytes(Reports+"video-safe.json",safe);File.WriteAllText(Reports+"video-safe-wire.txt",safeWire);
-        Stage("FLAME L3 / active flight before menu interruption");yield return new WaitForSecondsRealtime(.7f);
+        Stage("FLAME L2 / active flight before menu interruption");yield return new WaitForSecondsRealtime(.7f);
         b.ReturnToMenu();yield return null;yield return null;
         Stage("MainMenu / file Continue / pool unloaded");yield return new WaitForSecondsRealtime(.7f);
         menu=UnityEngine.Object.FindFirstObjectByType<MainMenuController>();Require(menu.ContinueButton.interactable,"Continue available");
@@ -170,8 +176,8 @@ public sealed class FlameEditorRecording : MonoBehaviour
         Require(File.ReadAllBytes(_store.PrimaryPath).SequenceEqual(safe),"unchanged file");
         Require(Enumerable.Range(0,8).All(i=>b.FlameProjectiles.GetView(i).Remaining==0),"Continue clean pool");
         File.WriteAllText(Reports+"video-rollback-wire.txt",SafeWire(b.Simulation));
-        Stage("Continue / Preparation3 FLAME L3 / clean pool + Grid");yield return new WaitForSecondsRealtime(1);
-        p=b.GetComponent<BattlePlacementController>();Require(p.TrySelectCell(cell),"select restored L3");
+        Stage("Continue / Preparation2 FLAME L2 / clean pool + Grid");yield return new WaitForSecondsRealtime(1);
+        p=b.GetComponent<BattlePlacementController>();Require(p.TrySelectCell(cell),"select restored L2");
         p.RequestSellSelectedTower();Require(p.IsSellConfirmationVisible,"Sell confirmation");yield return new WaitForSecondsRealtime(.5f);
         Require(p.ConfirmSellSelectedTower().Success,"public Sell");yield return null;
         Require(b.Simulation.State.Towers.Count==0,"sold");

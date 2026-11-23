@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "level": 3,
+  "attackTick": 3132,
+  "tower": 1,
+  "enemy": 57,
+  "source": "(2, 1.18999994, 1)",
+  "target": "(0, 0.6, -1.449997)",
+  "gold": 67,
+  "liveResourceMutation": false,
+  "testClock": true,
+  "domainUnchangedAtArrival": true
+}

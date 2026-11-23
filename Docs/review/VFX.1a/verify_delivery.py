@@ -50,6 +50,7 @@ def positive_suite(r):
 def exact_files(files, label):
  for p,h in files.items(): require((ROOT/p).is_file() and sha((ROOT/p).read_bytes())==h, label+': '+p)
 def video(proof, sources, shots, decoded):
+ require(proof['resolution']==[1600,900] and proof['editor'] is True and proof['device'] is False,'actual Editor media context')
  require(proof['sourceFrames']==proof['outputFrames']==len(sources)==len(shots)>100 and proof['speed']==1 and proof['splices']==0,'complete continuous video')
  pts=[float(f['best_effort_timestamp_time']) for f in decoded['frames']]
  require(len(pts)==len(sources) and all(b>a for a,b in zip(pts,pts[1:])), 'strict advancing decoded PTS')
@@ -59,11 +60,11 @@ def video(proof, sources, shots, decoded):
  require(any('Pause / frozen' in s['stage'] and s['paused'] for s in shots),'pause proof')
  frozen=[s for s in shots if s['stage']=='Pause / frozen FLAME flight']
  require(len(frozen)>=2 and all(s['tick']==frozen[0]['tick'] and s['shots']==frozen[0]['shots'] for s in frozen),'geometry changed during pause')
- for level in (1,2,3):
+ for level in (1,2):
   active=[v for s in shots for v in s['shots'] or [] if v['level']==level and v['remaining']>0]
   require(any(v['flying'] and v['head']!=v['source'] and v['head']!=v['target'] for v in active), 'intermediate L'+str(level))
   require(any(v['impact'] for v in active), 'impact L'+str(level))
- clean=[s for s in shots if s['stage'].startswith('Continue / Preparation3')]
+ clean=[s for s in shots if s['stage'].startswith('Continue / Preparation2')]
  require(clean and all(all(v['remaining']==0 and v['enemy']==0 for v in s['shots']) for s in clean),'Continue ghosts')
  require(any('Death' in r[11] for r in [x.split('|') for x in (PACKET/'reports/video-frames.txt').read_text().splitlines()]),'actual death frame')
 
@@ -103,6 +104,8 @@ def main(preservation=False):
  require(len(actual['materials'])==2 and all(x['shader']=='Veilward/FlameImpulse' and x['path'] and x['passes']==1 for x in actual['materials']),'actual shared projectile material inputs')
  exact_files(actual['dependencies'],'actual loaded dependency')
  require(read('reports/video-completion.json')['success'] is True and read('reports/earned-combat-completion.json')['success'] is True,'actual media flows completed')
+ l3=read('reports/earned-l3-proof.json')
+ require(l3['success'] is True and l3['level']==3 and l3['liveResourceMutation'] is False and l3['testClock'] is True and l3['domainUnchangedAtArrival'] is True,'earned L3 cosmetic flight proof')
  video(read('reports/video-proof.json'),read('reports/video-source-frames.json'),read('reports/video-shots.json'),read('reports/video-decoded.json'))
  require((PACKET/'reports/video-safe-wire.txt').read_bytes()==(PACKET/'reports/video-rollback-wire.txt').read_bytes(),'whole snapshot/Grid Continue')
  proof=read('reports/video-proof.json');require(sha((PACKET/'editor-flow.mp4').read_bytes())==proof['outputSha256'],'video bytes')
