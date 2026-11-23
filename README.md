@@ -1,6 +1,6 @@
 # VEILWARD: Spirit Defense
 
-VFX.1a / #90: production FLAME переходит на движущийся огненный снаряд с ограниченным pool; Domain damage/timing остаются прежними. [Спецификация и regression scenarios](Docs/VFX1A_FLAME_PROJECTILE.md). Editor scope VERIFIED: Static38/Edit1252/Play96, [production Update видео и evidence](Docs/review/VFX.1a/README.md); независимое review ожидается; Device Deferred QA53/54/55, без self-merge.
+VFX.1a / #90: production FLAME переходит на движущийся огненный снаряд с ограниченным pool; Domain damage/timing остаются прежними. [Спецификация и regression scenarios](Docs/VFX1A_FLAME_PROJECTILE.md). Editor scope VERIFIED: Static38/Edit1252/Play96, [production Update видео и evidence](Docs/review/VFX.1a/README.md); [независимое review](Docs/review/VFX.1a/review.md) без блокирующих замечаний; Device Deferred QA53/54/55, без self-merge.
 
 
 ART.5 / #46 в работе: original Shade и Страж Разрыва, пять animation clips каждого, production ID binding и bounded visual lifetime. [Контракт](Docs/ART5_ENEMIES.md), [новые evidence](Docs/review/ART.5/README.md). Gameplay600/5/content/save прежние; Device Deferred53/54/55, review/owner merge отдельно.

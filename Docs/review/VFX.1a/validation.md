@@ -24,4 +24,4 @@ Final new-error cursor после corrected probes не содержит нов�
 
 Device Deferred to prerelease QA #53/#54/#55: физический iPhone, player Metal/IL2CPP, реальный touch/background/safe area, thermal/memory/frame pacing. Нет export/signing/native benchmark/TestFlight. Human ART/G2/release и остальные три пакета #47 отдельно. Parent47 остаётся0/4 до owner merge. Никакого self-merge/release.
 
-Independent code/visual review и финальный committed read-only delivery audit публикуются отдельно.
+[Независимое code/visual review](review.md) reviewed head1504f4b9: без блокирующих замечаний; verifier и12controls повторены reviewer,8новых semantic tamper cases отклонены in-memory. Финальный committed delivery audit повторяется после добавления только review/docs/control script; runtime/tests/media прежние.

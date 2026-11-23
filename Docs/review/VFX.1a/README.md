@@ -6,6 +6,6 @@ VERIFIED: движущийся fireball, pool8, pause/Continue/reset, исход
 
 [Кадры и условия](gallery.md): L1/L2 — exact PNG из этого видео; L3 и dense/boss — отдельный earned public-command test-clock replay, явно подписан. Полный winning replay достигает Victory8, затем исходный earned Preparation8 восстанавливается целиком; обычные Sell и Upgrade дают L3 без изменения Gold/HP/DTO. Immediate HP/Burn/Hit/Death — исходный tick, arrival только косметический.
 
-Проверка committed delivery: `python3 Docs/review/VFX.1a/verify_delivery.py`; controls: `python3 Docs/review/VFX.1a/verify_controls.py`. Личные TXT/pyc не prerequisite. Отдельный explicit audit: `--check-local-preservation`.
+Проверка committed delivery: `python3 Docs/review/VFX.1a/verify_delivery.py`; controls: `python3 Docs/review/VFX.1a/verify_controls.py`, `python3 Docs/review/VFX.1a/verify_semantic_controls.py`. Личные TXT/pyc не prerequisite. Отдельный explicit audit: `--check-local-preservation`.
 
-NOT VERIFIED: физический iPhone, IL2CPP/Metal player/performance/thermal, human ART/G2/release. Независимое review фиксируется отдельно; owner merge не выполняется.
+NOT VERIFIED: физический iPhone, IL2CPP/Metal player/performance/thermal, human ART/G2/release. [Независимое code/visual review](review.md) — без блокирующих замечаний; owner merge не выполняется.
