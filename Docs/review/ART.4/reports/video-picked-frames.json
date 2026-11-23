@@ -1,0 +1,65 @@
+{
+  "video-menu.png": {
+    "manifestIndex": 9,
+    "sourceFrameIndex": 9,
+    "sourceFile": "00009.png",
+    "gameFrame": 2769,
+    "elapsed": 0.988264541000035,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  "video-preview.png": {
+    "manifestIndex": 46,
+    "sourceFrameIndex": 46,
+    "sourceFile": "00046.png",
+    "gameFrame": 7316,
+    "elapsed": 4.822361416000035,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  "video-combat.png": {
+    "manifestIndex": 74,
+    "sourceFrameIndex": 74,
+    "sourceFile": "00074.png",
+    "gameFrame": 10656,
+    "elapsed": 7.633706250000046,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "133bdebad69002923e6e4ee6f27b3c8e539e0955f53de2f9ca3ed55c6d7b110a"
+  },
+  "video-ability.png": {
+    "manifestIndex": 85,
+    "sourceFrameIndex": 85,
+    "sourceFile": "00085.png",
+    "gameFrame": 11953,
+    "elapsed": 8.73619429100006,
+    "stage": "Ability preview / live combat / public Confirm",
+    "sha256": "3ad3f9a9c6f562efcbaef07e2e12f23dd776a42d0469bb74ab98c1f923bd00d6"
+  },
+  "video-upgrade.png": {
+    "manifestIndex": 210,
+    "sourceFrameIndex": 210,
+    "sourceFile": "00210.png",
+    "gameFrame": 26629,
+    "elapsed": 21.277041541000017,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  "video-continue.png": {
+    "manifestIndex": 273,
+    "sourceFrameIndex": 273,
+    "sourceFile": "00273.png",
+    "gameFrame": 34177,
+    "elapsed": 27.85770345800006,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  "video-sold.png": {
+    "manifestIndex": 298,
+    "sourceFrameIndex": 298,
+    "sourceFile": "00298.png",
+    "gameFrame": 37184,
+    "elapsed": 30.365197500000022,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  }
+}

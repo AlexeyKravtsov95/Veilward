@@ -1,0 +1,2137 @@
+[
+  {
+    "file": "00000.png",
+    "elapsed": 0.005345041000055062,
+    "frame": 1633,
+    "stage": "fresh MainMenu / NewGame",
+    "sha256": "31acae9f07eff9216898bc67e7d38980cbb8a887059e750201bb1a8a5dca8d8f"
+  },
+  {
+    "file": "00001.png",
+    "elapsed": 0.1858301660000734,
+    "frame": 1634,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00002.png",
+    "elapsed": 0.2860529580000275,
+    "frame": 1694,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00003.png",
+    "elapsed": 0.3860555830000294,
+    "frame": 1852,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00004.png",
+    "elapsed": 0.48646333300007427,
+    "frame": 2008,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00005.png",
+    "elapsed": 0.586786458000006,
+    "frame": 2164,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00006.png",
+    "elapsed": 0.687258416000077,
+    "frame": 2321,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00007.png",
+    "elapsed": 0.7876043750000008,
+    "frame": 2465,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00008.png",
+    "elapsed": 0.8880038750000949,
+    "frame": 2618,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00009.png",
+    "elapsed": 0.988264541000035,
+    "frame": 2769,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00010.png",
+    "elapsed": 1.0883564580000211,
+    "frame": 2917,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00011.png",
+    "elapsed": 1.1883770410000807,
+    "frame": 3067,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00012.png",
+    "elapsed": 1.2884899580000138,
+    "frame": 3224,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00013.png",
+    "elapsed": 1.388660916000049,
+    "frame": 3382,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00014.png",
+    "elapsed": 1.4891252500000292,
+    "frame": 3536,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00015.png",
+    "elapsed": 1.589344374999996,
+    "frame": 3690,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "7bb848dfd926003be0cf096c954ad45c5f4e1f0deec290c5beeebfe5d6fb9715"
+  },
+  {
+    "file": "00016.png",
+    "elapsed": 1.7021518330000163,
+    "frame": 3825,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "f3a427ff07cb1c8536c1ea9389ac668f8fdf62356d8b9ea4d65bb4d6688d61ac"
+  },
+  {
+    "file": "00017.png",
+    "elapsed": 1.9139833330000329,
+    "frame": 3826,
+    "stage": "MainMenu / fresh NewGame",
+    "sha256": "45e0fe8eb0ad99106beb7baaa5f916fff1db05659dc422ee8789c27098ccd565"
+  },
+  {
+    "file": "00018.png",
+    "elapsed": 2.0141863750000084,
+    "frame": 3936,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00019.png",
+    "elapsed": 2.114404708000052,
+    "frame": 4061,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00020.png",
+    "elapsed": 2.2146384160000707,
+    "frame": 4189,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00021.png",
+    "elapsed": 2.314752583000086,
+    "frame": 4318,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00022.png",
+    "elapsed": 2.414965708000068,
+    "frame": 4435,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00023.png",
+    "elapsed": 2.5154734580000877,
+    "frame": 4557,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00024.png",
+    "elapsed": 2.6157654580000553,
+    "frame": 4677,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00025.png",
+    "elapsed": 2.71601612500001,
+    "frame": 4800,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00026.png",
+    "elapsed": 2.8162201250000862,
+    "frame": 4928,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00027.png",
+    "elapsed": 2.9166325410000127,
+    "frame": 5054,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00028.png",
+    "elapsed": 3.016750458000047,
+    "frame": 5175,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00029.png",
+    "elapsed": 3.1171810000000733,
+    "frame": 5298,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "91c00e822e5ccd0ec346cab6aaa51cdc1a7552661222d108dbc78636939f4872"
+  },
+  {
+    "file": "00030.png",
+    "elapsed": 3.2176092500000095,
+    "frame": 5420,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "27e1833cbe1c9389e155e94c5b04c63fde0a631a1c9f484ff7b333c991624a1b"
+  },
+  {
+    "file": "00031.png",
+    "elapsed": 3.318209791000072,
+    "frame": 5545,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "27e1833cbe1c9389e155e94c5b04c63fde0a631a1c9f484ff7b333c991624a1b"
+  },
+  {
+    "file": "00032.png",
+    "elapsed": 3.4187200830000393,
+    "frame": 5667,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "27e1833cbe1c9389e155e94c5b04c63fde0a631a1c9f484ff7b333c991624a1b"
+  },
+  {
+    "file": "00033.png",
+    "elapsed": 3.5187539580000475,
+    "frame": 5792,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "27e1833cbe1c9389e155e94c5b04c63fde0a631a1c9f484ff7b333c991624a1b"
+  },
+  {
+    "file": "00034.png",
+    "elapsed": 3.6193037500000855,
+    "frame": 5905,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "27e1833cbe1c9389e155e94c5b04c63fde0a631a1c9f484ff7b333c991624a1b"
+  },
+  {
+    "file": "00035.png",
+    "elapsed": 3.7193862500000705,
+    "frame": 6022,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "27e1833cbe1c9389e155e94c5b04c63fde0a631a1c9f484ff7b333c991624a1b"
+  },
+  {
+    "file": "00036.png",
+    "elapsed": 3.8194010000000844,
+    "frame": 6140,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "27e1833cbe1c9389e155e94c5b04c63fde0a631a1c9f484ff7b333c991624a1b"
+  },
+  {
+    "file": "00037.png",
+    "elapsed": 3.919668333000004,
+    "frame": 6260,
+    "stage": "NewGame / production map / choose FLAME",
+    "sha256": "27e1833cbe1c9389e155e94c5b04c63fde0a631a1c9f484ff7b333c991624a1b"
+  },
+  {
+    "file": "00038.png",
+    "elapsed": 4.020018583000024,
+    "frame": 6362,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00039.png",
+    "elapsed": 4.120342083000082,
+    "frame": 6482,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00040.png",
+    "elapsed": 4.221042957999998,
+    "frame": 6601,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00041.png",
+    "elapsed": 4.321612541000036,
+    "frame": 6720,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00042.png",
+    "elapsed": 4.421752583000057,
+    "frame": 6843,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00043.png",
+    "elapsed": 4.522056541000097,
+    "frame": 6963,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00044.png",
+    "elapsed": 4.62215608300005,
+    "frame": 7079,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00045.png",
+    "elapsed": 4.722274541000047,
+    "frame": 7198,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00046.png",
+    "elapsed": 4.822361416000035,
+    "frame": 7316,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00047.png",
+    "elapsed": 4.922932250000031,
+    "frame": 7433,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00048.png",
+    "elapsed": 5.02315129100009,
+    "frame": 7553,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00049.png",
+    "elapsed": 5.123368833000086,
+    "frame": 7671,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00050.png",
+    "elapsed": 5.224244666000004,
+    "frame": 7786,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00051.png",
+    "elapsed": 5.324666541000056,
+    "frame": 7907,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00052.png",
+    "elapsed": 5.4249516250000624,
+    "frame": 8028,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00053.png",
+    "elapsed": 5.526195125000072,
+    "frame": 8150,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00054.png",
+    "elapsed": 5.626531333000003,
+    "frame": 8270,
+    "stage": "Build preview / selected socket + range / no purchase",
+    "sha256": "480845878ee467fb00a6ed1fe8f5e6acaa2740fdb86ec985dc65b91c66b1ada9"
+  },
+  {
+    "file": "00055.png",
+    "elapsed": 5.72655179100002,
+    "frame": 8378,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "3b169c337575c51cdccd14350d3a92b9604a003ceea13f8e89d3c2f700fb1023"
+  },
+  {
+    "file": "00056.png",
+    "elapsed": 5.827407166000057,
+    "frame": 8502,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00057.png",
+    "elapsed": 5.927649458000019,
+    "frame": 8622,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00058.png",
+    "elapsed": 6.027998125000067,
+    "frame": 8745,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00059.png",
+    "elapsed": 6.129047375000027,
+    "frame": 8867,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00060.png",
+    "elapsed": 6.229464208000081,
+    "frame": 8990,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00061.png",
+    "elapsed": 6.329740708000031,
+    "frame": 9113,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00062.png",
+    "elapsed": 6.430098625000028,
+    "frame": 9232,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00063.png",
+    "elapsed": 6.530397791000041,
+    "frame": 9346,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00064.png",
+    "elapsed": 6.630904958000087,
+    "frame": 9462,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00065.png",
+    "elapsed": 6.7316400409999915,
+    "frame": 9580,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00066.png",
+    "elapsed": 6.831687791000036,
+    "frame": 9700,
+    "stage": "Placed FLAME L1 / occupied socket selects tower",
+    "sha256": "867a4fc10b72da76846c88435ff52db5c708326a43a8898d34fec57ecbb14886"
+  },
+  {
+    "file": "00067.png",
+    "elapsed": 6.931852208000009,
+    "frame": 9803,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "820c1ccb6f803bd31c37ed142bfd6ae52d59afd689eb24bec026486c250cc325"
+  },
+  {
+    "file": "00068.png",
+    "elapsed": 7.031959540999992,
+    "frame": 9927,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "ae01e0229bade4c215c1c7aa98f6efce1f52db583a171bd37e69bdfee0c9b6a2"
+  },
+  {
+    "file": "00069.png",
+    "elapsed": 7.132052083000076,
+    "frame": 10049,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "7e0a0dd0eb3d518d71fadd51b03ebb8b658d2046dcd0396b652f7a9c12e5adfe"
+  },
+  {
+    "file": "00070.png",
+    "elapsed": 7.232523708000031,
+    "frame": 10169,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "545c7b2ed209461285e119ba3e5140f7db3507ae67af87874ca154676d830500"
+  },
+  {
+    "file": "00071.png",
+    "elapsed": 7.33290445800003,
+    "frame": 10290,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "66bdb42c244694e22fc5f8b9539660c012c64cd76f7c11c89d256d4dbecba99c"
+  },
+  {
+    "file": "00072.png",
+    "elapsed": 7.432909583000082,
+    "frame": 10410,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "155afa263af4ca57c05fe6b3b12d2d5a20fb1421c994618fcc6da7caa16a3d07"
+  },
+  {
+    "file": "00073.png",
+    "elapsed": 7.533217000000036,
+    "frame": 10537,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "255c9709bb0526a000343931b57544182d0dce5fabf5838fd86d134141dcc86f"
+  },
+  {
+    "file": "00074.png",
+    "elapsed": 7.633706250000046,
+    "frame": 10656,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "133bdebad69002923e6e4ee6f27b3c8e539e0955f53de2f9ca3ed55c6d7b110a"
+  },
+  {
+    "file": "00075.png",
+    "elapsed": 7.734073250000051,
+    "frame": 10776,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "ee7795ae4751abcdf18e8db02c07cd5ef5b3623ff4ac2e6d8c88b25e1a1b890a"
+  },
+  {
+    "file": "00076.png",
+    "elapsed": 7.834216333000086,
+    "frame": 10887,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "d33d6a4a9db9961a3f98b7502cca65584a7800a7d4190c1ac80fa0eb1dad2568"
+  },
+  {
+    "file": "00077.png",
+    "elapsed": 7.934235457999989,
+    "frame": 10999,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "b6a2b4c63fa8412474bc813443ab324f58fe32e3364c0fd829635c08a2fbe8ff"
+  },
+  {
+    "file": "00078.png",
+    "elapsed": 8.03452116599999,
+    "frame": 11118,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "e5539ea2894d1328fc6002b4247c9769f6b0b35f831cace232d39ee6098ef782"
+  },
+  {
+    "file": "00079.png",
+    "elapsed": 8.134698041000092,
+    "frame": 11235,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "4cf61fbe6420fe2d88e96de3896a34090959b45786fb286ee3a0abdc7ac15495"
+  },
+  {
+    "file": "00080.png",
+    "elapsed": 8.234848875000012,
+    "frame": 11357,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "5050f0ca8ad3166cb073eaa23a69ea9bf0ca83435cb1e19cc1a704a4d7bd8805"
+  },
+  {
+    "file": "00081.png",
+    "elapsed": 8.33492529099999,
+    "frame": 11483,
+    "stage": "Combat1 / production Update / moving Shade + HP + attacks",
+    "sha256": "45859132fa23e2d81bb760bfce94287a26a5be0c617eed36fb0568458c57f8f7"
+  },
+  {
+    "file": "00082.png",
+    "elapsed": 8.435071166000057,
+    "frame": 11599,
+    "stage": "Ability preview / live combat / public Confirm",
+    "sha256": "f6787e89908d079ab327eef07d620451602a366c2690ff54f2cb2a1e56d242d2"
+  },
+  {
+    "file": "00083.png",
+    "elapsed": 8.535315208000043,
+    "frame": 11723,
+    "stage": "Ability preview / live combat / public Confirm",
+    "sha256": "911be222b7e63f3344cdb89e6c1a8cd9f4a655f79f2d063d4b6bb02292b3a141"
+  },
+  {
+    "file": "00084.png",
+    "elapsed": 8.635819000000083,
+    "frame": 11833,
+    "stage": "Ability preview / live combat / public Confirm",
+    "sha256": "a1c2b454d17bef28ccb942c12b6e0a47fce5d027521071561837892e60932395"
+  },
+  {
+    "file": "00085.png",
+    "elapsed": 8.73619429100006,
+    "frame": 11953,
+    "stage": "Ability preview / live combat / public Confirm",
+    "sha256": "3ad3f9a9c6f562efcbaef07e2e12f23dd776a42d0469bb74ab98c1f923bd00d6"
+  },
+  {
+    "file": "00086.png",
+    "elapsed": 8.836694291000072,
+    "frame": 12067,
+    "stage": "Ability preview / live combat / public Confirm",
+    "sha256": "21fae1616bd44e15c35a2aa6b9679dfb94f5e3f1cb0e61930a0d5e907ca288f0"
+  },
+  {
+    "file": "00087.png",
+    "elapsed": 8.936902000000032,
+    "frame": 12182,
+    "stage": "Ability preview / live combat / public Confirm",
+    "sha256": "fcfd884822381698e81ac89aaac5bb1696347bfefaab64a126d27ea88bacbe6a"
+  },
+  {
+    "file": "00088.png",
+    "elapsed": 9.03720291600007,
+    "frame": 12290,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "a5f487f62cb494139f830912776758ce02d796a55642fbb99f0f941b86bdef56"
+  },
+  {
+    "file": "00089.png",
+    "elapsed": 9.137275041000066,
+    "frame": 12407,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "ba162c18a51d8c0e9ff672475d3e7b29cb8567e7f0f3ee7ef82f6eb4a8f20537"
+  },
+  {
+    "file": "00090.png",
+    "elapsed": 9.237629416000004,
+    "frame": 12529,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "7eff993007a0c8cbe92780b986b0d97f371ee06b28a35c53dec1b36f8b395844"
+  },
+  {
+    "file": "00091.png",
+    "elapsed": 9.337893791000056,
+    "frame": 12649,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "8e5d4a69a01f19b7c9315b47e6903ee4b6655bd348508f562b8f5422a67e3c88"
+  },
+  {
+    "file": "00092.png",
+    "elapsed": 9.4383213750001,
+    "frame": 12762,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "18165b5ac1602aa6a9fb4603c9ea9428132768258680880eb05de0687d34d09d"
+  },
+  {
+    "file": "00093.png",
+    "elapsed": 9.538640500000042,
+    "frame": 12877,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "6b5b36e140ce08c0bc154cc8ab2fde851e989e21b519757c68926f56edc0083e"
+  },
+  {
+    "file": "00094.png",
+    "elapsed": 9.63871533300005,
+    "frame": 12998,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "b485cc66a294881bec543fafb69fbc1c78a2e4c34095bca0a6d41f92e92e93c2"
+  },
+  {
+    "file": "00095.png",
+    "elapsed": 9.738846833000025,
+    "frame": 13061,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "7d1cecf8b45e06a22e2560c1a722ea07d9c7a69ed0e02ffb3e9570417b3f2aef"
+  },
+  {
+    "file": "00096.png",
+    "elapsed": 9.839027458000032,
+    "frame": 13186,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "8d7738c75c9eaba507032a60ad01d43983f00b47ed9f1b4225d816b30c3e88c2"
+  },
+  {
+    "file": "00097.png",
+    "elapsed": 9.939692125000079,
+    "frame": 13306,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "559e210550e03e50c5ede5944a278b672f7cb2b63f51b20d372a5d47750f3bd6"
+  },
+  {
+    "file": "00098.png",
+    "elapsed": 10.04032066600007,
+    "frame": 13425,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "73a94ed3aea3c4cd9ae8ace95828f4590477cc4d7fddcadfc4fb05011ffced1f"
+  },
+  {
+    "file": "00099.png",
+    "elapsed": 10.140388416000064,
+    "frame": 13535,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "5d5b8dc6761e75a90e4dc38dfa4e1692240d5b93ea4e175582e7ed8e48921e26"
+  },
+  {
+    "file": "00100.png",
+    "elapsed": 10.240874125000005,
+    "frame": 13656,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "c7d9d952dafcb9ab4ec791e7c341b983c2ce35eb32d3790925018e9deee935f6"
+  },
+  {
+    "file": "00101.png",
+    "elapsed": 10.340888083000095,
+    "frame": 13780,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "467cedd05b34d01c4436c677cb7b04ff88af79ba8db47029993dfcfa15ba65be"
+  },
+  {
+    "file": "00102.png",
+    "elapsed": 10.44191412500004,
+    "frame": 13901,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "17d16f43785d2c7ed3b6d968f319fdf33225fd8f82ab4fe3125b724537d1b9c1"
+  },
+  {
+    "file": "00103.png",
+    "elapsed": 10.542095875000086,
+    "frame": 14018,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "e4d6032e46efc1dfce64706dcfea6494dbde2e3c2592f188890982946624d483"
+  },
+  {
+    "file": "00104.png",
+    "elapsed": 10.643021707999992,
+    "frame": 14138,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "deb5d0923f33765bcf6b7164bc3c08a8ce3392180a0ab8096807e26ad658268b"
+  },
+  {
+    "file": "00105.png",
+    "elapsed": 10.743258125000011,
+    "frame": 14262,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "bee855e0e6748433f74a6299297eea35aed798e6ad45f20442951a57e08d885c"
+  },
+  {
+    "file": "00106.png",
+    "elapsed": 10.843804000000091,
+    "frame": 14383,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "5296aabecb4ed8a04ee3f862810af081f40221ea238855e3147b5efd264ce753"
+  },
+  {
+    "file": "00107.png",
+    "elapsed": 10.944424500000082,
+    "frame": 14499,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "898777370796b9d2bcfb25f2babb09361a6722eacbcc32533134f00768dfd56e"
+  },
+  {
+    "file": "00108.png",
+    "elapsed": 11.044557041000076,
+    "frame": 14619,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "749f1123788c40e8e3687ac141934b59ed3a7e6a6eb36a3a94096a5401b37a3c"
+  },
+  {
+    "file": "00109.png",
+    "elapsed": 11.144976165999992,
+    "frame": 14735,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "1833fc02c47fc84afaf6c8a0143476c217e2cdcbdacc50d9d64c6e1347b00a51"
+  },
+  {
+    "file": "00110.png",
+    "elapsed": 11.245367958000088,
+    "frame": 14855,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "9340f09ab809708f443c573277c98392f632c9cd297f1e15decb8cdf8fedbd7c"
+  },
+  {
+    "file": "00111.png",
+    "elapsed": 11.345624000000043,
+    "frame": 14972,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "4f0f645ff1ff7bfa1792403fb12fbbc0abcaadbb205955b6c2af6c63ceabc054"
+  },
+  {
+    "file": "00112.png",
+    "elapsed": 11.445819000000029,
+    "frame": 15087,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "20715e8fd456116c8a99ce837efd78134c30b2ae09ae9b08c377532316b6e4ba"
+  },
+  {
+    "file": "00113.png",
+    "elapsed": 11.545971708000025,
+    "frame": 15205,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "78d6f04388753c355d4d720221db423a1a369a8d3b41b9848f148e19367ca08c"
+  },
+  {
+    "file": "00114.png",
+    "elapsed": 11.646337500000072,
+    "frame": 15323,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "8e5e1b84e4f902394db1653ac920ab45412aa43325fe501058c9b1c0a5255097"
+  },
+  {
+    "file": "00115.png",
+    "elapsed": 11.746424083000079,
+    "frame": 15441,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "62e5323ee0e4f3ad65862f061fb3d4c23cb5bd2823e540ef6ea9f1af0bbca583"
+  },
+  {
+    "file": "00116.png",
+    "elapsed": 11.846446416000049,
+    "frame": 15559,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "7c1feba362149328254034f6edb5aa1977f516aa72df3656629ee4699ec312e1"
+  },
+  {
+    "file": "00117.png",
+    "elapsed": 11.946802250000019,
+    "frame": 15674,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "f810fe30c401b2febcea7ac50492e582883ca419ef75044239d347ed924b8189"
+  },
+  {
+    "file": "00118.png",
+    "elapsed": 12.047529541000017,
+    "frame": 15794,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "a14436c2a0148cfb078407308efe79e21105fbe68197adc7b6669f2058c3e2a4"
+  },
+  {
+    "file": "00119.png",
+    "elapsed": 12.148007708000023,
+    "frame": 15913,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "c79a69077d969d23a9250732b6c31cc77b5a0c637fb9a2204423ef939469329b"
+  },
+  {
+    "file": "00120.png",
+    "elapsed": 12.248321375000046,
+    "frame": 16032,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "09f729fa3f4eed477bc170d041fb249d89cd22a52fffcf054e322272c3bc522c"
+  },
+  {
+    "file": "00121.png",
+    "elapsed": 12.348583500000018,
+    "frame": 16140,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "e9332e9bcdf43de07dd01e1da64d02f0a2695c3d8489e074ca19289537bee9fc"
+  },
+  {
+    "file": "00122.png",
+    "elapsed": 12.448859291000076,
+    "frame": 16260,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "8c20f4c9d766619ab44e343ae5c0bcd36ce992eb99d84dcaefaebf9c5afb469f"
+  },
+  {
+    "file": "00123.png",
+    "elapsed": 12.548980166000092,
+    "frame": 16378,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "4771fa367053a4f3404c72d4733dc147c9b299bd11e6e421947b95b5248e7f80"
+  },
+  {
+    "file": "00124.png",
+    "elapsed": 12.649320791000036,
+    "frame": 16495,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "1d1b346a06bebb6d4baf7ccc08df9768bd0eacaedac09ba735026b212e7a2b16"
+  },
+  {
+    "file": "00125.png",
+    "elapsed": 12.749408125000059,
+    "frame": 16613,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "5df5e13e72566fb20632a7d9bb723dd40b1984dae319388a3aea91b413eb7f0b"
+  },
+  {
+    "file": "00126.png",
+    "elapsed": 12.849762083000087,
+    "frame": 16733,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "b4be70424ac46a979d4b3255fde0b2af959ee4618c8f96ce493f1a7911f8efbc"
+  },
+  {
+    "file": "00127.png",
+    "elapsed": 12.950323000000026,
+    "frame": 16849,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "2b8fdf54cedbe1ad3796db69a1377c0f818420091cbc74bdad5ef6e61fdf68c0"
+  },
+  {
+    "file": "00128.png",
+    "elapsed": 13.050865165999994,
+    "frame": 16965,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "7ee6d6b82cd00c54b813c57826bf5db19421c107faf63a88d9975fbc0ece0011"
+  },
+  {
+    "file": "00129.png",
+    "elapsed": 13.151402000000076,
+    "frame": 17076,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "062fc1df6eee0ba58057d561f1792a7d450c53bde1774fd0e3ec6fc2c2818d85"
+  },
+  {
+    "file": "00130.png",
+    "elapsed": 13.25168962500004,
+    "frame": 17192,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "877272bb766923c938d8de28800b12f6e1217a91f11331a5852adf0c0e1e5a0f"
+  },
+  {
+    "file": "00131.png",
+    "elapsed": 13.351966333000064,
+    "frame": 17310,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "dd434c0a3ae5281fc4b0704ae20b50b315d99451828c5864a5d8215961989586"
+  },
+  {
+    "file": "00132.png",
+    "elapsed": 13.45250400000009,
+    "frame": 17427,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "e609ae8348aabbefa835e74f477445e7c24b741434c7ad49cb001f543475a261"
+  },
+  {
+    "file": "00133.png",
+    "elapsed": 13.55272216600008,
+    "frame": 17539,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "e2c4675d1770f0f5c125116c6c62a37f30cffabbe730fbe235c3a1e5961a283b"
+  },
+  {
+    "file": "00134.png",
+    "elapsed": 13.653504999999996,
+    "frame": 17656,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "17a5e52ba752314e1b2608d5334f29de492ca236fc0cd9ed086a49ec92b5f069"
+  },
+  {
+    "file": "00135.png",
+    "elapsed": 13.754011708000007,
+    "frame": 17777,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "8846d2d0f8fb79e40312963ee0da2c0422b756855c895a3395bd12865ce13852"
+  },
+  {
+    "file": "00136.png",
+    "elapsed": 13.854482500000017,
+    "frame": 17888,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "d8a71c6944183b33d6e8fcd61f1c626690f2522988b441dacf5e173a2c0927b3"
+  },
+  {
+    "file": "00137.png",
+    "elapsed": 13.954524125000034,
+    "frame": 18011,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "4cd755e99e0ddb5795ce1f850ecd27f0521d5daefe03367db3bd13805f21704c"
+  },
+  {
+    "file": "00138.png",
+    "elapsed": 14.054902083000002,
+    "frame": 18125,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "d6f6a9a94cfc7bd2fbfed3bd96e5134cb1db1ce7285c17952c7be9aa86213528"
+  },
+  {
+    "file": "00139.png",
+    "elapsed": 14.155111416000068,
+    "frame": 18242,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "bb077a8fef2c4312cdb1e0cf16a8ab9cecb10e1f2e58d5cd36e041b6c29fb515"
+  },
+  {
+    "file": "00140.png",
+    "elapsed": 14.255388874999994,
+    "frame": 18359,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "681b186719e998a5a126c2f4afe0b339a2f69cc3d17987d7145f643e25aeaa3b"
+  },
+  {
+    "file": "00141.png",
+    "elapsed": 14.355849083000066,
+    "frame": 18474,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "11196984d1050430d3468d27debc1993397f6855294c1256b32574c261091df6"
+  },
+  {
+    "file": "00142.png",
+    "elapsed": 14.455916916000092,
+    "frame": 18593,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "da0e56a5ad8492379eae7899fef23a3991bcfab9a1031d2c6d08ef5681dd08c5"
+  },
+  {
+    "file": "00143.png",
+    "elapsed": 14.556536958000038,
+    "frame": 18705,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "8ecd4fe102520061cd34d99f4f58d80cf7d5bfc4edabce766a78614331354f44"
+  },
+  {
+    "file": "00144.png",
+    "elapsed": 14.657002291000026,
+    "frame": 18821,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "b89bde3ccfb2ba33021f9eafd4a8e9f192397d932fbbfdf97fd6a1be1cdaaac7"
+  },
+  {
+    "file": "00145.png",
+    "elapsed": 14.7570817080001,
+    "frame": 18939,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "928a3619528e72a899988d4fff3f43b16a70ba08b71ac77f489fb1bb8585695a"
+  },
+  {
+    "file": "00146.png",
+    "elapsed": 14.857320415999993,
+    "frame": 19056,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "82e5fe6bdf898171ec3db86c539f7176046db3f439f3d1ea681a1007b76cf611"
+  },
+  {
+    "file": "00147.png",
+    "elapsed": 14.957701500000098,
+    "frame": 19174,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "e506c9637bb33614ba79da56bc12acc35ddfdee019cab8a326c5237227bd7d72"
+  },
+  {
+    "file": "00148.png",
+    "elapsed": 15.057887291000043,
+    "frame": 19294,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "8b86b76ce681279edb57dad9fd391b25d9fe5944515b3386e351776c74a8fb02"
+  },
+  {
+    "file": "00149.png",
+    "elapsed": 15.158011500000043,
+    "frame": 19406,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "803f0f6c71f7e5cc32685edf5f38af1e1c853533ee74acdb398f9a904efd38a7"
+  },
+  {
+    "file": "00150.png",
+    "elapsed": 15.258523666000087,
+    "frame": 19524,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "b89c6685fbe668d4a93b8aac80859aaed84ce8d7fe4a0a612beff7490d99df93"
+  },
+  {
+    "file": "00151.png",
+    "elapsed": 15.358606250000093,
+    "frame": 19635,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "2ebf9b788c613a08b9006848ae065cc3de42b01f9bdc4aadea67cfb492213045"
+  },
+  {
+    "file": "00152.png",
+    "elapsed": 15.459076541000059,
+    "frame": 19753,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "9b8840b4d279676c59018003f22e9f20052c92b447b8f196ce0069d073edc925"
+  },
+  {
+    "file": "00153.png",
+    "elapsed": 15.559755916000086,
+    "frame": 19871,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "e0f593c4f53087874bff63d62d65127bd41f0824c6db092ed5d2f148751eabd0"
+  },
+  {
+    "file": "00154.png",
+    "elapsed": 15.660265374999994,
+    "frame": 19987,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "3f617d8dfded7a3e1296855f3eda7be0f25cc71a93f0aa44d1f0f7b25bd0dfb9"
+  },
+  {
+    "file": "00155.png",
+    "elapsed": 15.76081858300006,
+    "frame": 20105,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "a0ada9192f1ba6350d5d1cb51b9b7c168a1f6967e2d2c8b1dd9bb0ae64128a2a"
+  },
+  {
+    "file": "00156.png",
+    "elapsed": 15.861259833000076,
+    "frame": 20217,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "a35f78712fa07b307980e5168b9c733c4bbbed9fcf4c8cc36e44d715f7a3bdd4"
+  },
+  {
+    "file": "00157.png",
+    "elapsed": 15.961474457999998,
+    "frame": 20330,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "8f94c077a0a35db9c2ee500cb07d8292af3020a6b266051aebf4a756828d6ecb"
+  },
+  {
+    "file": "00158.png",
+    "elapsed": 16.061924541000053,
+    "frame": 20451,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "6fc88e4084578bd050137c56f398e160f44b06bcd0cb29eb0d4ecb4b6be20f95"
+  },
+  {
+    "file": "00159.png",
+    "elapsed": 16.16247162500008,
+    "frame": 20569,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "c8d76edacb0c37e8041dd9d60507ce127f026a60cf5c4ca9a886774f113456c4"
+  },
+  {
+    "file": "00160.png",
+    "elapsed": 16.262502750000067,
+    "frame": 20691,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "3df287588f1226943e8a8a44c9ac789e552f8e9316fdccf48b3bb3d022ff6235"
+  },
+  {
+    "file": "00161.png",
+    "elapsed": 16.36255604100006,
+    "frame": 20810,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "4eed144f8060dc61b0149d8fac81ab2355b7455829a465b15b888768bbb1a893"
+  },
+  {
+    "file": "00162.png",
+    "elapsed": 16.46299491600007,
+    "frame": 20925,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "37a6cdb0a14b1fd267159a78c2426bdecaef8c98cfe50b0bf4c9db78294b5fd5"
+  },
+  {
+    "file": "00163.png",
+    "elapsed": 16.563595000000078,
+    "frame": 21045,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "81ad933f3d44c9e6acb984a5774b8b7c8d915b37d8b776888ddec189c8e478c3"
+  },
+  {
+    "file": "00164.png",
+    "elapsed": 16.664199625000037,
+    "frame": 21169,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "a897d3979ccbb0d84f715210ec7f1e5dd8eac3735dec0f3c156ffbaeb740b4af"
+  },
+  {
+    "file": "00165.png",
+    "elapsed": 16.764214833000096,
+    "frame": 21292,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "f3afda2c9bee8cc382905a035fee6a23542f509dade6b77a00039254a3a57843"
+  },
+  {
+    "file": "00166.png",
+    "elapsed": 16.864332375000004,
+    "frame": 21411,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "b0a0954f6ff9730012d60273abae11d4dbb476ffcbbd83b4474d9bb6a4f443cc"
+  },
+  {
+    "file": "00167.png",
+    "elapsed": 16.964387916000078,
+    "frame": 21531,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "5b4685cb3b7ea74deb33de6cdf36259f99dafb5287a430424cae51419f0ca085"
+  },
+  {
+    "file": "00168.png",
+    "elapsed": 17.064423207999994,
+    "frame": 21655,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "38c5eb37218438151efacccba0a340b688f3c85bd75819d2a205aa2fd8c2e096"
+  },
+  {
+    "file": "00169.png",
+    "elapsed": 17.165005124999993,
+    "frame": 21778,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "d8160fc3e52ad883e20a2309e30613ff13de85660f0cad8bad870f5258313388"
+  },
+  {
+    "file": "00170.png",
+    "elapsed": 17.26512208300005,
+    "frame": 21898,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "a70cdb2fcbcab0980afdcbf5c747f597ae3e499963769abdd8df02a66ea9daa3"
+  },
+  {
+    "file": "00171.png",
+    "elapsed": 17.365417166000043,
+    "frame": 22018,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "f4af9aa9477410d6e0fd13bdb7d7bac81f5d1c83061192613f7cfa1f9afdcc6f"
+  },
+  {
+    "file": "00172.png",
+    "elapsed": 17.46544670800006,
+    "frame": 22138,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "c4315529f9ae26fbc12758faa0ee234dc9aba1832cedcac80d80f07595654fd5"
+  },
+  {
+    "file": "00173.png",
+    "elapsed": 17.56547425000008,
+    "frame": 22247,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "371044279aafdb81f9ed473114205996f64523b8476e986c8bd661a147096c74"
+  },
+  {
+    "file": "00174.png",
+    "elapsed": 17.665838916000098,
+    "frame": 22319,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "81ad9156e901a73d39add5cce13f5f5f7381166a69155fac9723415afee9eebe"
+  },
+  {
+    "file": "00175.png",
+    "elapsed": 17.766599666000047,
+    "frame": 22439,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "5a6def43ed512a72cb30e3ece8d3575caf95c8a2a3d72c7f85361325c6afe6b4"
+  },
+  {
+    "file": "00176.png",
+    "elapsed": 17.866803875000073,
+    "frame": 22564,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "74e5cbf9587c6aa0d01a496c03fb08e8238459410b70a34638435e0becaa5db9"
+  },
+  {
+    "file": "00177.png",
+    "elapsed": 17.966849249999996,
+    "frame": 22684,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "64acd7374c459786d2b92fe03d8e51fb0d722fc6088bb1ae14fe5b2216cd9f84"
+  },
+  {
+    "file": "00178.png",
+    "elapsed": 18.067147500000033,
+    "frame": 22802,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "383a7851acb7454f1a2bb9289b303e95aed122518b800df9c62e2691bb0ec895"
+  },
+  {
+    "file": "00179.png",
+    "elapsed": 18.167453916,
+    "frame": 22920,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "a13a1d8cc3a363c1d3da80479a32e01ebe99aef6397093b680a2918018064dcd"
+  },
+  {
+    "file": "00180.png",
+    "elapsed": 18.26802550000002,
+    "frame": 23037,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "0db7341e70a8866e2a241cd8a9d6dc874310a9ea93251a629aef2858d3f8667b"
+  },
+  {
+    "file": "00181.png",
+    "elapsed": 18.368120500000032,
+    "frame": 23155,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "a8ce53cc91d3b2657386633f19b2630fc8fcae8d51bf55f08035fcdf928cece5"
+  },
+  {
+    "file": "00182.png",
+    "elapsed": 18.468364500000007,
+    "frame": 23279,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "241ef985ebe8fa41f083fb4c0e023b2d9305592882a4f10f0435f2b05359a73a"
+  },
+  {
+    "file": "00183.png",
+    "elapsed": 18.568506375000084,
+    "frame": 23395,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "35054f84bb426d2f91ccdac4664268aa965565a4dd600ae3fdf046f52149c227"
+  },
+  {
+    "file": "00184.png",
+    "elapsed": 18.66887366600008,
+    "frame": 23519,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "95a79e67328c5993e35f89bd65041c0d974a4dc1ba24b015ebd9f296e36fa000"
+  },
+  {
+    "file": "00185.png",
+    "elapsed": 18.76912045800009,
+    "frame": 23641,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "1ec70b42cbb417cb485de0f42ff49ccf70ed5bd02616f1b0fc630a8f4926b453"
+  },
+  {
+    "file": "00186.png",
+    "elapsed": 18.86936933300001,
+    "frame": 23765,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "de64ae4ef54b95dfb01967258cc2269ed59711c29e443bd076c8898d20ec5fd7"
+  },
+  {
+    "file": "00187.png",
+    "elapsed": 18.969831541000076,
+    "frame": 23891,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "b8ce9248439ae33ee88939ec77f9488cca2d527e70c0124fa625cba0df5588c9"
+  },
+  {
+    "file": "00188.png",
+    "elapsed": 19.069910375000063,
+    "frame": 24013,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "68d92c69e362ffdd98b7ffd4f091f62ae6cf51ac1e221f1ba46a655aeccf681e"
+  },
+  {
+    "file": "00189.png",
+    "elapsed": 19.17014558300002,
+    "frame": 24131,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "cd9d1e6314496bbc10e4adca73adc2207d537e859bedf3b6e9678a2499b2c8bd"
+  },
+  {
+    "file": "00190.png",
+    "elapsed": 19.270365208000044,
+    "frame": 24252,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "24704c86c34a3512c892b7b2bf23dd6ed04b8145bd6bcf7743a78668c60a953f"
+  },
+  {
+    "file": "00191.png",
+    "elapsed": 19.370429416000093,
+    "frame": 24373,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "f0ce07d24395a33cda98cb8fc423c0e8a8c67fbeceb87c153e73da4eab723eea"
+  },
+  {
+    "file": "00192.png",
+    "elapsed": 19.470712750000075,
+    "frame": 24494,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "e291f58987d58422b1c277e9804668f7a27dab8dc860f07dfb747465e3a00a4a"
+  },
+  {
+    "file": "00193.png",
+    "elapsed": 19.570930916000066,
+    "frame": 24617,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "152ed20e061d1f65d3f43e50347f9590847c0265d23bbd6022b780ab0d26ce62"
+  },
+  {
+    "file": "00194.png",
+    "elapsed": 19.671413458000075,
+    "frame": 24734,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "e8f9f11c73bc0d5d17f8c154f5c5aba21be42be0e3645c0737846ce251d1a664"
+  },
+  {
+    "file": "00195.png",
+    "elapsed": 19.771625291000078,
+    "frame": 24854,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "b1de4816d285954d0e961f9ceb227a0243a8b89e0aa21e696c4634ce5e21d7c8"
+  },
+  {
+    "file": "00196.png",
+    "elapsed": 19.871685666000076,
+    "frame": 24973,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "6a993e60845e2fba9038772169cf4546a138fb8938c27b96e85a68a4113d9904"
+  },
+  {
+    "file": "00197.png",
+    "elapsed": 19.972184749999997,
+    "frame": 25093,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "c3a661290c6f795a1b8e6a6356ae09e78006ac317c37d41babc0a57679e8b948"
+  },
+  {
+    "file": "00198.png",
+    "elapsed": 20.072581333000016,
+    "frame": 25222,
+    "stage": "Ability cast / production Combat1 continues",
+    "sha256": "5c1c19eda045f3e22b1feda1d6b52fdff4eb3573787f32a8a920b54f7c235d8d"
+  },
+  {
+    "file": "00199.png",
+    "elapsed": 20.17289929100002,
+    "frame": 25338,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "6095b7a7f92519280abeb25d3c80d9ba97a9bad78157deedab83d1226776ccc1"
+  },
+  {
+    "file": "00200.png",
+    "elapsed": 20.27298091600005,
+    "frame": 25453,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "fd1d62262b7fcd39a34645d6c29a1a50061d9104b34249f95f16359f10e3784e"
+  },
+  {
+    "file": "00201.png",
+    "elapsed": 20.373394208000036,
+    "frame": 25574,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "b47dbff780fab3d374b6637df8315cb31d7c14e8aa42d91472b2a265c5fc0544"
+  },
+  {
+    "file": "00202.png",
+    "elapsed": 20.47376787500002,
+    "frame": 25694,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "191d3c708d7f0eb6b5595f99047a925dd6b99a28559896f2c50cce3f530ffc1b"
+  },
+  {
+    "file": "00203.png",
+    "elapsed": 20.57425795800009,
+    "frame": 25815,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "191d3c708d7f0eb6b5595f99047a925dd6b99a28559896f2c50cce3f530ffc1b"
+  },
+  {
+    "file": "00204.png",
+    "elapsed": 20.674847290999992,
+    "frame": 25932,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "191d3c708d7f0eb6b5595f99047a925dd6b99a28559896f2c50cce3f530ffc1b"
+  },
+  {
+    "file": "00205.png",
+    "elapsed": 20.775291166000102,
+    "frame": 26055,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "191d3c708d7f0eb6b5595f99047a925dd6b99a28559896f2c50cce3f530ffc1b"
+  },
+  {
+    "file": "00206.png",
+    "elapsed": 20.875724708000007,
+    "frame": 26174,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "191d3c708d7f0eb6b5595f99047a925dd6b99a28559896f2c50cce3f530ffc1b"
+  },
+  {
+    "file": "00207.png",
+    "elapsed": 20.97584091600004,
+    "frame": 26286,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "7f70af80b14002c6d56340c46dc520c2392e617cd69ca9c00d8ad363f4a2c8e4"
+  },
+  {
+    "file": "00208.png",
+    "elapsed": 21.075844250000046,
+    "frame": 26401,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00209.png",
+    "elapsed": 21.17637804100002,
+    "frame": 26514,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00210.png",
+    "elapsed": 21.277041541000017,
+    "frame": 26629,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00211.png",
+    "elapsed": 21.377118625000094,
+    "frame": 26749,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00212.png",
+    "elapsed": 21.477595208000025,
+    "frame": 26869,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00213.png",
+    "elapsed": 21.577703874999997,
+    "frame": 26995,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00214.png",
+    "elapsed": 21.67810216600003,
+    "frame": 27115,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00215.png",
+    "elapsed": 21.778536291000023,
+    "frame": 27236,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00216.png",
+    "elapsed": 21.879066875000035,
+    "frame": 27360,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00217.png",
+    "elapsed": 21.979255791000014,
+    "frame": 27483,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00218.png",
+    "elapsed": 22.079472666000015,
+    "frame": 27603,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00219.png",
+    "elapsed": 22.17976916600003,
+    "frame": 27722,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00220.png",
+    "elapsed": 22.28030620800007,
+    "frame": 27824,
+    "stage": "Preparation2 / earned gold / Upgrade FLAME L2",
+    "sha256": "d63255369db02e1b869bb294b810c2e13ab1889f8f94d41097b716768365ea39"
+  },
+  {
+    "file": "00221.png",
+    "elapsed": 22.381214458000045,
+    "frame": 27915,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "c42753f978f8ba53ae0e4fa860847013114f715c118485e716e4469cc1b37273"
+  },
+  {
+    "file": "00222.png",
+    "elapsed": 22.481684250000058,
+    "frame": 28023,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "5d9a482706140bcc17959341ab1e9e6f24a799109753f2032fe1526b8f093af8"
+  },
+  {
+    "file": "00223.png",
+    "elapsed": 22.581880458,
+    "frame": 28141,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "4e937f2bc2dab1675ee290eb2bfe1a64473f52700fd56242bec18d6de3466f69"
+  },
+  {
+    "file": "00224.png",
+    "elapsed": 22.68226366600004,
+    "frame": 28261,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "b15a3b8a132077ba9129bbf2d642b9c11f2de0413a3da871ebabc4ef374b3c37"
+  },
+  {
+    "file": "00225.png",
+    "elapsed": 22.782654250000064,
+    "frame": 28374,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "8c7413f4fcd8c919a8e1bba58ddf838ea46e31aa852cb0c6cbd63f0582d00697"
+  },
+  {
+    "file": "00226.png",
+    "elapsed": 22.882979833000036,
+    "frame": 28490,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "73ca8041db8a4515a6924e8509a81f4de0bbc1a51a52b0ddd7744f1d23460e54"
+  },
+  {
+    "file": "00227.png",
+    "elapsed": 22.983098458000086,
+    "frame": 28609,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "e6069e23c258ca81e6fef4449d96abeb1c3d573b6d0ad2af155fad316c869ef2"
+  },
+  {
+    "file": "00228.png",
+    "elapsed": 23.083640375000073,
+    "frame": 28719,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "4f250fff64fc3fa268e738baae47c7482611bff2ffe0b0c373e6342fca9c22da"
+  },
+  {
+    "file": "00229.png",
+    "elapsed": 23.183917541000028,
+    "frame": 28835,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "f5e4b1f0beefa647d3c28c8442319c2645182655b6259e3e98404e3c2380a83e"
+  },
+  {
+    "file": "00230.png",
+    "elapsed": 23.2840758750001,
+    "frame": 28948,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "36e1a4bf84425bd42b90733a29219f6c32ac78318d0859c04bc4a3a2625d6953"
+  },
+  {
+    "file": "00231.png",
+    "elapsed": 23.384759166000094,
+    "frame": 29053,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "5d5f4f225fa5559edd833ab3169487a41d3706ee2bd15908ef0343b3d16586cd"
+  },
+  {
+    "file": "00232.png",
+    "elapsed": 23.484889208000027,
+    "frame": 29158,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "c7d92bfba2e05126a6fa310651aebb1a62785836e25d9f69b52370be10a697a6"
+  },
+  {
+    "file": "00233.png",
+    "elapsed": 23.585081916000036,
+    "frame": 29278,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "955ae4a363d320638db3aefa00f0b8bdc70bff0f3b3c7c5deb5fb1f486927992"
+  },
+  {
+    "file": "00234.png",
+    "elapsed": 23.685519833000058,
+    "frame": 29393,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "bd7dfaa32d337f2e044949d401d61b232a64e3a87db51801d9c646141af445aa"
+  },
+  {
+    "file": "00235.png",
+    "elapsed": 23.785923958000012,
+    "frame": 29511,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "bbf883cf879c90c2e515ddc2fc2a80956196b8809fd3f28565e4de1b75e78951"
+  },
+  {
+    "file": "00236.png",
+    "elapsed": 23.886298166000074,
+    "frame": 29624,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "97e59f74afba427af527fa321186c252725343e6421999b66e3872e950f09e2c"
+  },
+  {
+    "file": "00237.png",
+    "elapsed": 23.986679166000044,
+    "frame": 29737,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "eeab583b5edff3592e40c7525d5207836e97bf55e06825b6128656399653bad0"
+  },
+  {
+    "file": "00238.png",
+    "elapsed": 24.087160708000056,
+    "frame": 29858,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "b2773daab057316737baae000bd077bc2fb64388051a95623e444d14810f3d58"
+  },
+  {
+    "file": "00239.png",
+    "elapsed": 24.18718458300009,
+    "frame": 29972,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "120690b396346e80d8fe629eeeaecdeb5b7a97733ebfd427aa5ff3cbf7458bee"
+  },
+  {
+    "file": "00240.png",
+    "elapsed": 24.287774250000098,
+    "frame": 30089,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "6f7b19b95b42a405cb142feb3b086ed87a05ad2b15d755836f07c69bacf73786"
+  },
+  {
+    "file": "00241.png",
+    "elapsed": 24.38827070800005,
+    "frame": 30211,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "109a5dcb81a7f630f6cc3c710c7e1c786cfcc69cb4f592e67dfbd161008e91c7"
+  },
+  {
+    "file": "00242.png",
+    "elapsed": 24.48880520800003,
+    "frame": 30329,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "c6fb094a24d0366a28c411f0cd682448fb71747ecdf01477610579b52bef8100"
+  },
+  {
+    "file": "00243.png",
+    "elapsed": 24.589443625000058,
+    "frame": 30445,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "8d019c721ef9378f8abbe5ef77d5e083c127e0fbe8a25936023d01f9687752bb"
+  },
+  {
+    "file": "00244.png",
+    "elapsed": 24.689645625000026,
+    "frame": 30566,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "2d175c4bf82cfac181a085b3f661a188e0e54674a93e17a236387fe7acca9bbb"
+  },
+  {
+    "file": "00245.png",
+    "elapsed": 24.789724166000042,
+    "frame": 30686,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "c749d1cf0b54580305e0b76b73d7aed278d81edcaea045dedef2c517af935e95"
+  },
+  {
+    "file": "00246.png",
+    "elapsed": 24.890063499999997,
+    "frame": 30801,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "9773f11e4e72c5d12eb860aa899881e1ccf172db26fb73c995abb23f030fba35"
+  },
+  {
+    "file": "00247.png",
+    "elapsed": 24.990248166000015,
+    "frame": 30926,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "bb91d7a7c2f4e1f4eb07b85ea464ffe123d1bb25e709a561cbe585366c707eb1"
+  },
+  {
+    "file": "00248.png",
+    "elapsed": 25.0907497500001,
+    "frame": 31044,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "98347a6a6e01c3e45aa1ed2769654eebef3517998a3778b6bea01863e28996ed"
+  },
+  {
+    "file": "00249.png",
+    "elapsed": 25.19121825000002,
+    "frame": 31160,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "3cef413abec25b8869e21cd991f8994205d3766358666b2eb2bc1a6f377de1b4"
+  },
+  {
+    "file": "00250.png",
+    "elapsed": 25.295583082999997,
+    "frame": 31251,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "4b655de997ced577aa75c9c5c035b41910d81c813c98e5fe04c2231d2a4c37fa"
+  },
+  {
+    "file": "00251.png",
+    "elapsed": 25.537933791,
+    "frame": 31280,
+    "stage": "Combat2 / production Update / interruption before Continue",
+    "sha256": "dea65e484c177109e9d5dc21447ac76441390b3b573c689d2a1012a259278e78"
+  },
+  {
+    "file": "00252.png",
+    "elapsed": 25.638041625000028,
+    "frame": 31418,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00253.png",
+    "elapsed": 25.73807745800002,
+    "frame": 31571,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00254.png",
+    "elapsed": 25.838107083000068,
+    "frame": 31731,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00255.png",
+    "elapsed": 25.938488750000033,
+    "frame": 31884,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00256.png",
+    "elapsed": 26.038636833000055,
+    "frame": 32037,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00257.png",
+    "elapsed": 26.13877350000007,
+    "frame": 32182,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00258.png",
+    "elapsed": 26.239770625000006,
+    "frame": 32335,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00259.png",
+    "elapsed": 26.33996354100009,
+    "frame": 32483,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00260.png",
+    "elapsed": 26.440335625000102,
+    "frame": 32633,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00261.png",
+    "elapsed": 26.5404702080001,
+    "frame": 32782,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00262.png",
+    "elapsed": 26.640636208000046,
+    "frame": 32926,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00263.png",
+    "elapsed": 26.7407300000001,
+    "frame": 33074,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00264.png",
+    "elapsed": 26.840745083,
+    "frame": 33223,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "02d9b7e8551e883a52c480596c15ddce4b0d063814ac34dd650e02e2107df466"
+  },
+  {
+    "file": "00265.png",
+    "elapsed": 27.055087708000087,
+    "frame": 33225,
+    "stage": "MainMenu / file Continue / interrupted Combat rollback",
+    "sha256": "8a600c19b4c9793217e4c38ba17a54c0831a5a2a69937cd6dd33c0874b6b22cd"
+  },
+  {
+    "file": "00266.png",
+    "elapsed": 27.155573041000025,
+    "frame": 33328,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00267.png",
+    "elapsed": 27.25606862500001,
+    "frame": 33444,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00268.png",
+    "elapsed": 27.356089999999995,
+    "frame": 33562,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00269.png",
+    "elapsed": 27.456665041000065,
+    "frame": 33683,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00270.png",
+    "elapsed": 27.556809625000028,
+    "frame": 33805,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00271.png",
+    "elapsed": 27.657134125000084,
+    "frame": 33930,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00272.png",
+    "elapsed": 27.75729591600009,
+    "frame": 34051,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00273.png",
+    "elapsed": 27.85770345800006,
+    "frame": 34177,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00274.png",
+    "elapsed": 27.95791491600005,
+    "frame": 34303,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00275.png",
+    "elapsed": 28.058331708000082,
+    "frame": 34426,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00276.png",
+    "elapsed": 28.15873891600006,
+    "frame": 34547,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00277.png",
+    "elapsed": 28.258934875000023,
+    "frame": 34674,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00278.png",
+    "elapsed": 28.359576875000016,
+    "frame": 34788,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00279.png",
+    "elapsed": 28.459696541000085,
+    "frame": 34916,
+    "stage": "Continue / restored Preparation2 + FLAME L2 + Grid",
+    "sha256": "cefd493f801d48b4f18a96d5f8ecbf95b5fe3f8b606135c55fcb474097553be2"
+  },
+  {
+    "file": "00280.png",
+    "elapsed": 28.560064291000003,
+    "frame": 35036,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00281.png",
+    "elapsed": 28.660598625000034,
+    "frame": 35155,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00282.png",
+    "elapsed": 28.76099208300002,
+    "frame": 35271,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00283.png",
+    "elapsed": 28.861210833000086,
+    "frame": 35388,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00284.png",
+    "elapsed": 28.96145879100004,
+    "frame": 35505,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00285.png",
+    "elapsed": 29.061933791,
+    "frame": 35615,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00286.png",
+    "elapsed": 29.16208808300007,
+    "frame": 35731,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00287.png",
+    "elapsed": 29.262206958000093,
+    "frame": 35850,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00288.png",
+    "elapsed": 29.36252683300006,
+    "frame": 35965,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00289.png",
+    "elapsed": 29.462948250000068,
+    "frame": 36087,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00290.png",
+    "elapsed": 29.563019833,
+    "frame": 36212,
+    "stage": "Sell confirmation / earned refund",
+    "sha256": "41b2bb596512b2566e170b12d356fe0b4b9f7dabb82abda923cfd146e2cf2cd2"
+  },
+  {
+    "file": "00291.png",
+    "elapsed": 29.66327237500002,
+    "frame": 36328,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00292.png",
+    "elapsed": 29.76355379100005,
+    "frame": 36451,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00293.png",
+    "elapsed": 29.863559875000078,
+    "frame": 36572,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00294.png",
+    "elapsed": 29.963594833000002,
+    "frame": 36696,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00295.png",
+    "elapsed": 30.063793291000025,
+    "frame": 36817,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00296.png",
+    "elapsed": 30.164074875000097,
+    "frame": 36940,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00297.png",
+    "elapsed": 30.264497000000006,
+    "frame": 37066,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00298.png",
+    "elapsed": 30.365197500000022,
+    "frame": 37184,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00299.png",
+    "elapsed": 30.465777916000093,
+    "frame": 37305,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00300.png",
+    "elapsed": 30.565849666000076,
+    "frame": 37427,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00301.png",
+    "elapsed": 30.666357790999996,
+    "frame": 37545,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00302.png",
+    "elapsed": 30.767021541000076,
+    "frame": 37659,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00303.png",
+    "elapsed": 30.867289875000097,
+    "frame": 37774,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  },
+  {
+    "file": "00304.png",
+    "elapsed": 30.967350208000084,
+    "frame": 37897,
+    "stage": "Sold / public flow complete / no resource substitution",
+    "sha256": "f4199ba34aad60c8e16a5c9ed6f368e4f13357990671d1c2445231d316708124"
+  }
+]

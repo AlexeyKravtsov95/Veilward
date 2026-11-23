@@ -1,0 +1,487 @@
+{
+  "entries": 116,
+  "categories": {
+    "existing unused-mask compiler warning": 2,
+    "expected checkpoint negative-path IO, asserted by existing tests": 113,
+    "expected ArtReferencePlayModeTests.WarmupActivityCannotApproveFrozenSampleWindow guard, LogAssert.Expect line159": 1
+  },
+  "unknown": [],
+  "receipts": [
+    {
+      "seq": 1,
+      "category": "existing unused-mask compiler warning"
+    },
+    {
+      "seq": 12,
+      "category": "existing unused-mask compiler warning"
+    },
+    {
+      "seq": 21,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 22,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 23,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 24,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 25,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 26,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 27,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 28,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 29,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 30,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 31,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 32,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 33,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 34,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 35,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 36,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 37,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 38,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 39,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 40,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 41,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 42,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 43,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 44,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 45,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 46,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 47,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 48,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 49,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 50,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 51,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 52,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 53,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 54,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 55,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 56,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 57,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 58,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 59,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 60,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 61,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 62,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 63,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 64,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 65,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 66,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 67,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 68,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 69,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 70,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 71,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 72,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 73,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 74,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 75,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 76,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 77,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 78,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 79,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 80,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 81,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 82,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 83,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 84,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 85,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 86,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 87,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 88,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 89,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 90,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 91,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 92,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 93,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 94,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 95,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 96,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 97,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 98,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 99,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 100,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 101,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 102,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 103,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 104,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 105,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 106,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 107,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 108,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 109,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 116,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 117,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 118,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 119,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 120,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 121,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 122,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 123,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 124,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 125,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 126,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 127,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 128,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 129,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 130,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 142,
+      "category": "expected ArtReferencePlayModeTests.WarmupActivityCannotApproveFrozenSampleWindow guard, LogAssert.Expect line159"
+    },
+    {
+      "seq": 143,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 144,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 145,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 146,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 147,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 148,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 149,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 150,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    },
+    {
+      "seq": 151,
+      "category": "expected checkpoint negative-path IO, asserted by existing tests"
+    }
+  ],
+  "consoleCleared": false,
+  "groundTruth": {
+    "sampledUtc": "2026-11-23T07:56:05.86573Z",
+    "ageMs": 15,
+    "compilationFailed": false,
+    "compiling": false,
+    "consoleErrors": 25,
+    "consoleWarnings": 0,
+    "consoleLogs": 16,
+    "seeded": true
+  },
+  "limitation": "Retained counts are not a zero Console claim; initial task Editor restarted after stuck synchronous request. Compile and own media audits separate."
+}

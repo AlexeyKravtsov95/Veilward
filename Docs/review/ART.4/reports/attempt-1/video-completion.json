@@ -1,0 +1,10 @@
+{
+    "success": false,
+    "editor": true,
+    "realTime": true,
+    "liveResourceMutation": false,
+    "error": "InvalidOperationException: earned Upgrade",
+    "deviceDeferred": "QA53/54/55",
+    "frames": 207,
+    "elapsed": 20.95704929200008
+}

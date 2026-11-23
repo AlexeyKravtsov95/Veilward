@@ -1,5 +1,7 @@
 # VEILWARD — Development Roadmap v0.1
 
+**23.11.2026 — ART.4/#45: Review до owner merge.** Production первая Battle-карта оформлена отдельным static environment kit при прежних gameplay geometry/camera/save contracts. [Spec/REG](ART4_PRODUCTION_MAP.md), [Editor/source/Battle evidence и ограничения](review/ART.4/validation.md). Зависимости ART3/#44 и STORM/#86 Done после merge87 (`80d453f`,6семейств/18моделей). Device Deferred to prerelease QA #53/#54/#55. #46 enemies/#47 VFX/#48 UI/G2 и M0/release остаются отдельно; self-merge/release не выполняются. Нижние записи сохраняют исторические итоги прежних пакетов.
+
 22.11.2026 / #84: STEAM L1–L3 «Туманная лисица» реализуется на базе принятого PR83/STONE; [ART3e](ART3E_STEAM_LEVELS.md). Общий binding пяти семейств, законный hybrid/earned498 flow и Editor/source proof; итоговые gates/review/owner merge фиксируются в новом evidence. Parent44/STORM остаются открыты. Device Deferred53/54/55; текущий checkout, без новых worktrees/clones.
 
 21.11.2026 / #80: после owner merge PR79 следующая третья линейка — GALE L1–L3, общий binding трёх семейств и Editor/source proof. [ART3c](ART3C_GALE_LEVELS.md). Parent #44 остаётся открытым: STONE/STEAM/STORM отдельно. Device Deferred до prerelease #53/#54/#55; завершение implementation определяется review/owner merge.

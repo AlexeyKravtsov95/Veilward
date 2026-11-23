@@ -1,0 +1,44 @@
+[
+  {
+    "prop": "entrance",
+    "enemyPosition": [
+      -5.435943,
+      0.56,
+      -2.335341
+    ],
+    "propPosition": [
+      -5.0,
+      0.0,
+      -2.0
+    ],
+    "synthetic": true
+  },
+  {
+    "prop": "heart",
+    "enemyPosition": [
+      4.75403261,
+      0.56,
+      1.508065
+    ],
+    "propPosition": [
+      5.0,
+      0.0,
+      2.0
+    ],
+    "synthetic": true
+  },
+  {
+    "prop": "rim-pine",
+    "enemyPosition": [
+      -7.48422146,
+      0.56,
+      -4.03756762
+    ],
+    "propPosition": [
+      -7.05,
+      0.0,
+      -3.7
+    ],
+    "synthetic": true
+  }
+]
