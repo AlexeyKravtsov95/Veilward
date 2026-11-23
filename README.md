@@ -1,5 +1,8 @@
 # VEILWARD: Spirit Defense
 
+ART.3f/#86: STORM «Грозовой карп» L1–L3 и шесть семейств в прежнем FlameModelBinding. [Спецификация/regressions](Docs/ART3F_STORM_LEVELS.md), [новые Editor/source/Battle evidence](Docs/review/ART.3f/validation.md). Добавлено optional stormLevels; GUID/legacy fields/fallback и gameplay/config/schema4 сохранены. Device Deferred to prerelease QA #53/#54/#55; parent44 остаётся5/6 до приёмки/merge, finalVFX/G2/release отдельно.
+
+
 ART.3d/#82: STONE «Осколочная печать» L1–L3 и единый FLAME/TIDE/GALE/STONE binding. [Спецификация/regressions](Docs/ART3D_STONE_LEVELS.md), [актуальный Editor/source proof и read-only verifier](Docs/review/ART.3d/README.md). Добавляется optional stoneLevels, прежние serialized fields/GUID и один fallback owner сохраняются. Domain/configs/schema4 неизменны. Device Deferred to prerelease QA #53/#54/#55; Parent44 и STEAM/STORM отдельно.
 
 ART.3c/#80: GALE «Ветряной талисман» L1–L3 и единый FLAME/TIDE/GALE binding. [Спецификация/regressions](Docs/ART3C_GALE_LEVELS.md), [текущий Editor/source proof и read-only verifier](Docs/review/ART.3c/README.md). Device Deferred to prerelease QA #53/#54/#55; родитель #44 и остальные три семейства отдельно.
