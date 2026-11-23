@@ -1,0 +1,24 @@
+{
+    "tick": 3375,
+    "reactionSequence": 1,
+    "directSequence": 0,
+    "tower": 3,
+    "primary": 58,
+    "attackTarget": 58,
+    "hits": [
+        {
+            "enemy": 59,
+            "index": 1,
+            "loss": 18,
+            "after": 64,
+            "sequence": 2
+        },
+        {
+            "enemy": 60,
+            "index": 2,
+            "loss": 18,
+            "after": 82,
+            "sequence": 3
+        }
+    ]
+}

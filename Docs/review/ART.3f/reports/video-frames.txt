@@ -1,0 +1,254 @@
+0|0.0067979579999928319|2003|earned L1 checkpoint replay / menu Continue|0|150|20|0|0|0|
+1|0.19537124999999378|2004|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+2|0.35877400000003945|2008|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+3|0.48866845800000647|2011|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+4|0.62099579100004121|2014|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+5|0.75548462500000824|2017|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+6|0.89129637500002445|2020|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+7|1.0252680410000039|2023|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+8|1.1540627910000012|2026|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+9|1.2829332910000062|2029|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+10|1.4080387079999923|2032|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+11|1.53856887500001|2035|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+12|1.6722137500000258|2038|menu Continue / unchanged earned STORM L1 checkpoint||||||0|
+13|1.907735166000009|2040|menu Continue / unchanged earned STORM L1 checkpoint|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+14|2.0388008749999926|2043|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+15|2.1735616249999907|2046|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+16|2.3136388330000273|2049|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+17|2.4510161250000237|2052|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+18|2.5888419160000353|2055|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+19|2.7268267499999865|2058|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+20|2.8674039580000112|2061|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+21|3.007129166000027|2064|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+22|3.14637854099999|2067|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+23|3.286104875000035|2070|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+24|3.4264026660000013|2073|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+25|3.566341416|2076|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+26|3.7056844159999969|2079|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+27|3.8436904160000154|2082|STORM L1 / Inspect + real Upgrade price|1233|10|16|14|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+28|3.98982995800003|2085|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1233|10|16|14|1|0|1:gale:L1;2:gale:L1;3:storm:L1
+29|4.1297416660000295|2088|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1250|10|16|14|1|0|1:gale:L1;2:gale:L1;3:storm:L1
+30|4.2693010410000056|2091|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1267|10|16|14|2|0|1:gale:L1;2:gale:L1;3:storm:L1
+31|4.4082011660000262|2094|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1283|10|16|14|2|0|1:gale:L1;2:gale:L1;3:storm:L1
+32|4.5516987910000353|2097|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1301|10|16|14|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+33|4.6909289580000291|2100|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1317|10|16|14|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+34|4.8329258750000008|2103|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1334|15|16|15|3|1|1:gale:L1;2:gale:L1;3:storm:L1
+35|4.9735033750000071|2106|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1351|15|16|15|3|3|1:gale:L1;2:gale:L1;3:storm:L1
+36|5.1136510410000255|2109|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1368|15|16|15|4|3|1:gale:L1;2:gale:L1;3:storm:L1
+37|5.2482878750000168|2112|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1384|20|16|16|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+38|5.3869020000000205|2115|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1401|20|16|16|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+39|5.5264193330000353|2118|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1417|20|16|16|5|3|1:gale:L1;2:gale:L1;3:storm:L1
+40|5.6658772910000152|2121|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1434|25|16|17|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+41|5.8036171660000377|2124|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1451|25|16|17|5|2|1:gale:L1;2:gale:L1;3:storm:L1
+42|5.937945582999987|2127|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1467|25|16|17|5|3|1:gale:L1;2:gale:L1;3:storm:L1
+43|6.07684070800002|2130|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1484|30|16|18|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+44|6.2169647910000094|2133|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1500|30|16|18|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+45|6.3569621249999955|2136|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1517|30|16|18|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+46|6.4972012499999892|2139|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1534|35|16|19|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+47|6.6366324580000082|2142|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1551|35|16|19|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+48|6.7750092500000392|2145|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1567|35|16|19|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+49|6.91369070799999|2148|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1584|35|16|19|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+50|7.0524784159999854|2151|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1601|40|16|20|2|1|1:gale:L1;2:gale:L1;3:storm:L1
+51|7.1936056659999963|2154|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1618|40|16|20|2|2|1:gale:L1;2:gale:L1;3:storm:L1
+52|7.3310299160000341|2157|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1634|40|16|20|2|2|1:gale:L1;2:gale:L1;3:storm:L1
+53|7.4640764160000117|2160|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1650|45|16|21|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+54|7.6010074580000264|2163|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1667|45|16|21|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+55|7.7397038330000214|2166|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1683|45|16|21|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+56|7.8782477500000141|2169|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1700|45|16|21|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+57|8.0173259580000149|2172|earned wave 4 / test clock x4 / fixed30Hz / public commands / advancing combat|1716|45|16|21|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+58|8.1675818329999856|2175|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1722|65|15|21|1|0|1:gale:L1;2:gale:L1;3:storm:L1
+59|8.3033918330000347|2178|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1739|65|15|21|1|0|1:gale:L1;2:gale:L1;3:storm:L1
+60|8.4424246660000222|2181|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1755|75|15|23|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+61|8.571629707999989|2184|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1771|75|15|23|0|0|1:gale:L1;2:gale:L1;3:storm:L1
+62|8.70814254100003|2187|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1787|75|15|23|1|0|1:gale:L1;2:gale:L1;3:storm:L1
+63|8.8459945829999924|2190|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1804|75|15|23|1|0|1:gale:L1;2:gale:L1;3:storm:L1
+64|8.9848333749999938|2193|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1821|75|15|23|2|0|1:gale:L1;2:gale:L1;3:storm:L1
+65|9.12342058300004|2196|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1837|75|15|23|2|2|1:gale:L1;2:gale:L1;3:storm:L1
+66|9.263013457999989|2199|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1854|75|15|23|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+67|9.4019488750000164|2202|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1871|75|15|23|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+68|9.5421305410000059|2205|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1887|80|15|24|3|1|1:gale:L1;2:gale:L1;3:storm:L1
+69|9.6830461250000326|2208|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1904|80|15|24|4|3|1:gale:L1;2:gale:L1;3:storm:L1
+70|9.8233711249999942|2211|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1921|80|15|24|4|3|1:gale:L1;2:gale:L1;3:storm:L1
+71|9.964998874999992|2214|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1938|85|15|25|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+72|10.104548749999992|2217|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1955|85|15|25|4|3|1:gale:L1;2:gale:L1;3:storm:L1
+73|10.243822708000039|2220|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1972|85|15|25|5|3|1:gale:L1;2:gale:L1;3:storm:L1
+74|10.38461137500002|2223|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|1989|90|15|26|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+75|10.523803208000004|2226|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2005|90|15|26|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+76|10.664346500000022|2229|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2022|90|15|26|4|3|1:gale:L1;2:gale:L1;3:storm:L1
+77|10.804921041|2232|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2039|95|15|27|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+78|10.944345499999997|2235|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2056|95|15|27|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+79|11.083671458000026|2238|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2072|95|15|27|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+80|11.222534458000041|2241|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2089|100|15|28|2|2|1:gale:L1;2:gale:L1;3:storm:L1
+81|11.36035745800001|2244|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2106|100|15|28|2|2|1:gale:L1;2:gale:L1;3:storm:L1
+82|11.500077916000009|2247|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2122|100|15|28|2|2|1:gale:L1;2:gale:L1;3:storm:L1
+83|11.639807125000004|2250|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2139|105|15|29|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+84|11.778155500000025|2253|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2156|105|15|29|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+85|11.91786408300004|2256|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2173|105|15|29|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+86|12.058036291000008|2259|earned wave 5 / test clock x4 / fixed30Hz / public commands / advancing combat|2189|105|15|29|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+87|12.206633082999986|2262|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2197|130|15|30|1|0|1:gale:L1;2:gale:L1;3:storm:L1
+88|12.342891166000015|2265|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2214|130|15|30|1|0|1:gale:L1;2:gale:L1;3:storm:L1
+89|12.480850791000023|2268|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2230|130|15|30|2|0|1:gale:L1;2:gale:L1;3:storm:L1
+90|12.621914333000007|2271|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2247|130|15|30|2|0|1:gale:L1;2:gale:L1;3:storm:L1
+91|12.762310541000033|2274|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2264|130|15|30|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+92|12.902142416000004|2277|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2281|130|15|30|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+93|13.041656499999988|2280|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2298|135|15|31|3|1|1:gale:L1;2:gale:L1;3:storm:L1
+94|13.179904249999993|2283|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2314|135|15|31|3|3|1:gale:L1;2:gale:L1;3:storm:L1
+95|13.319135082999992|2286|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2331|135|15|31|4|3|1:gale:L1;2:gale:L1;3:storm:L1
+96|13.460139625000011|2289|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2348|140|15|32|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+97|13.600845166|2292|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2365|150|15|34|2|0|1:gale:L1;2:gale:L1;3:storm:L1
+98|13.739794249999989|2295|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2381|150|15|34|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+99|13.878696041000012|2298|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2398|150|15|34|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+100|14.018849791000036|2301|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2415|150|15|34|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+101|14.159771000000035|2304|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2432|155|15|35|3|3|1:gale:L1;2:gale:L1;3:storm:L1
+102|14.298700999999994|2307|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2448|155|15|35|4|3|1:gale:L1;2:gale:L1;3:storm:L1
+103|14.437858916000039|2310|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2465|155|15|35|4|3|1:gale:L1;2:gale:L1;3:storm:L1
+104|14.577301500000033|2313|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2482|160|15|36|4|2|1:gale:L1;2:gale:L1;3:storm:L1
+105|14.719359541000017|2316|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2499|160|15|36|4|3|1:gale:L1;2:gale:L1;3:storm:L1
+106|14.859957750000035|2319|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2516|160|15|36|4|3|1:gale:L1;2:gale:L1;3:storm:L1
+107|15.001935041000024|2322|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2533|165|15|37|3|2|1:gale:L1;2:gale:L1;3:storm:L1
+108|15.142535957999996|2325|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2550|165|15|37|3|3|1:gale:L1;2:gale:L1;3:storm:L1
+109|15.283186999999998|2328|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2567|165|15|37|3|3|1:gale:L1;2:gale:L1;3:storm:L1
+110|15.423068375000014|2331|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2583|170|15|38|2|2|1:gale:L1;2:gale:L1;3:storm:L1
+111|15.562700750000033|2334|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2600|170|15|38|2|2|1:gale:L1;2:gale:L1;3:storm:L1
+112|15.703252082999995|2337|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2617|170|15|38|2|2|1:gale:L1;2:gale:L1;3:storm:L1
+113|15.843670791000022|2340|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2634|175|15|39|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+114|15.984297625000011|2343|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2651|175|15|39|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+115|16.122789250000039|2346|earned wave 6 / test clock x4 / fixed30Hz / public commands / advancing combat|2667|175|15|39|1|1|1:gale:L1;2:gale:L1;3:storm:L1
+116|16.276738000000023|2349|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+117|16.413193207999996|2352|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+118|16.551728583|2355|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+119|16.691753957999993|2358|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+120|16.830746750000003|2361|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+121|16.970830625000019|2364|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+122|17.106893041000035|2367|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+123|17.244334000000038|2370|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+124|17.382963791000009|2373|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+125|17.520500707999986|2376|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+126|17.659256749999997|2379|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+127|17.798293166000008|2382|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+128|17.937066500000014|2385|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+129|18.075751749999995|2388|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+130|18.21380616600004|2391|STORM L2 / same TowerId + cell / earned budget|2682|35|15|40|0|0|1:gale:L1;2:gale:L1;3:storm:L2
+131|18.357099666000011|2394|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2682|35|15|40|1|0|1:gale:L1;2:gale:L1;3:storm:L2
+132|18.496651375|2397|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2699|35|15|40|1|0|1:gale:L1;2:gale:L1;3:storm:L2
+133|18.635700665999991|2400|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2715|35|15|40|2|0|1:gale:L1;2:gale:L1;3:storm:L2
+134|18.774279958000022|2403|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2732|35|15|40|2|0|1:gale:L1;2:gale:L1;3:storm:L2
+135|18.915077499999995|2406|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2749|35|15|40|3|2|1:gale:L1;2:gale:L1;3:storm:L2
+136|19.055298291000042|2409|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2766|35|15|40|3|2|1:gale:L1;2:gale:L1;3:storm:L2
+137|19.195566916000018|2412|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2782|40|15|41|3|1|1:gale:L1;2:gale:L1;3:storm:L2
+138|19.335277500000018|2415|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2799|40|15|41|3|1|1:gale:L1;2:gale:L1;3:storm:L2
+139|19.476473750000025|2418|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2816|40|15|41|4|3|1:gale:L1;2:gale:L1;3:storm:L2
+140|19.618514290999997|2421|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2833|45|15|42|4|2|1:gale:L1;2:gale:L1;3:storm:L2
+141|19.758279875000028|2424|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2850|45|15|42|4|2|1:gale:L1;2:gale:L1;3:storm:L2
+142|19.89892445800001|2427|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2867|50|15|43|4|1|1:gale:L1;2:gale:L1;3:storm:L2
+143|20.038360708000027|2430|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2883|50|15|43|4|3|1:gale:L1;2:gale:L1;3:storm:L2
+144|20.177636957999994|2433|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2900|50|15|43|5|3|1:gale:L1;2:gale:L1;3:storm:L2
+145|20.317792250000025|2436|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2917|55|15|44|4|2|1:gale:L1;2:gale:L1;3:storm:L2
+146|20.457944999999995|2439|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2934|55|15|44|5|2|1:gale:L1;2:gale:L1;3:storm:L2
+147|20.597846083000036|2442|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2951|60|15|45|4|3|1:gale:L1;2:gale:L1;3:storm:L2
+148|20.738309458000003|2445|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2967|60|15|45|5|3|1:gale:L1;2:gale:L1;3:storm:L2
+149|20.877696291000007|2448|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|2984|60|15|45|6|3|1:gale:L1;2:gale:L1;3:storm:L2
+150|21.017899957999987|2451|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3001|65|15|46|5|2|1:gale:L1;2:gale:L1;3:storm:L2
+151|21.158778332999987|2454|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3018|65|15|46|5|2|1:gale:L1;2:gale:L1;3:storm:L2
+152|21.298669749999988|2457|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3035|70|15|47|4|2|1:gale:L1;2:gale:L1;3:storm:L2
+153|21.437622500000032|2460|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3051|70|15|47|4|2|1:gale:L1;2:gale:L1;3:storm:L2
+154|21.57624662500001|2463|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3068|75|15|48|3|1|1:gale:L1;2:gale:L1;3:storm:L2
+155|21.717262833000007|2466|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3085|75|15|48|3|1|1:gale:L1;2:gale:L1;3:storm:L2
+156|21.858510582999997|2469|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3102|75|15|48|3|3|1:gale:L1;2:gale:L1;3:storm:L2
+157|21.998331416000042|2472|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3119|80|15|49|2|2|1:gale:L1;2:gale:L1;3:storm:L2
+158|22.137834499999997|2475|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3135|80|15|49|2|2|1:gale:L1;2:gale:L1;3:storm:L2
+159|22.276925957999993|2478|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3152|80|15|49|2|2|1:gale:L1;2:gale:L1;3:storm:L2
+160|22.416866375000041|2481|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3169|85|15|50|1|1|1:gale:L1;2:gale:L1;3:storm:L2
+161|22.557225249999988|2484|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3186|85|15|50|1|1|1:gale:L1;2:gale:L1;3:storm:L2
+162|22.697247790999995|2487|earned wave 7 / test clock x4 / fixed30Hz / public commands / advancing combat|3203|85|15|50|1|1|1:gale:L1;2:gale:L1;3:storm:L2
+163|22.847530666000011|2490|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+164|22.989332583000021|2493|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+165|23.129121458000043|2496|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+166|23.268570833000012|2499|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+167|23.408804416000009|2502|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+168|23.548258125000018|2505|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+169|23.690429916000028|2508|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+170|23.830000374999997|2511|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+171|23.969472499999995|2514|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+172|24.110998125000037|2517|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+173|24.250430666|2520|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+174|24.389540624999995|2523|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+175|24.529937791000009|2526|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+176|24.669299791000014|2529|STORM L3 / same TowerId + cell / MAX + range|3207|2|15|51|0|0|3:storm:L3
+177|24.816628250000008|2532|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3207|2|15|51|1|0|3:storm:L3
+178|24.95437612500001|2535|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3207|2|15|51|1|0|3:storm:L3
+179|25.093590708000022|2538|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3207|2|15|51|1|0|3:storm:L3
+180|25.231824375000031|2541|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3207|2|15|51|1|0|3:storm:L3
+181|25.369152291000034|2544|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3207|2|15|51|1|0|3:storm:L3
+182|25.508193833000007|2547|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3207|2|15|51|1|0|3:storm:L3
+183|25.646407250000038|2550|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3207|2|15|51|1|0|3:storm:L3
+184|25.784324125000012|2553|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3209|2|15|51|1|0|3:storm:L3
+185|25.923594541|2556|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3213|2|15|51|1|0|3:storm:L3
+186|26.058419833000016|2559|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3217|2|15|51|1|0|3:storm:L3
+187|26.189849625000022|2562|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3221|2|15|51|1|0|3:storm:L3
+188|26.325481333000027|2565|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3225|2|15|51|1|0|3:storm:L3
+189|26.463771791|2568|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3229|2|15|51|1|0|3:storm:L3
+190|26.603098958000032|2571|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3233|2|15|51|1|0|3:storm:L3
+191|26.744296125000005|2574|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3238|2|15|51|2|0|3:storm:L3
+192|26.883856458000025|2577|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3242|2|15|51|2|0|3:storm:L3
+193|27.023293458000012|2580|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3246|2|15|51|2|0|3:storm:L3
+194|27.163468000000023|2583|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3250|2|15|51|2|0|3:storm:L3
+195|27.301988958000038|2586|advancing REAL-TIME Combat / HP + intrinsic Storm / generic beam #47|3254|2|15|51|2|0|3:storm:L3
+196|27.447150708000038|2589|advancing combat / actual intrinsic Storm enemy Inspect + HP|3259|2|15|51|2|2|3:storm:L3
+197|27.588417166|2592|advancing combat / actual intrinsic Storm enemy Inspect + HP|3263|2|15|51|2|2|3:storm:L3
+198|27.728463125000019|2595|advancing combat / actual intrinsic Storm enemy Inspect + HP|3267|2|15|51|3|2|3:storm:L3
+199|27.869817833000013|2598|advancing combat / actual intrinsic Storm enemy Inspect + HP|3271|2|15|51|3|2|3:storm:L3
+200|28.081740083|2599|advancing combat / actual intrinsic Storm enemy Inspect + HP||||||0|
+201|28.208505957999989|2602|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+202|28.338584666000031|2605|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+203|28.471389832999989|2608|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+204|28.60486908300004|2611|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+205|28.733899166000015|2614|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+206|28.866897625000036|2617|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+207|29.003133125000033|2620|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+208|29.139736707999987|2623|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+209|29.274374375000036|2626|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+210|29.408967375000032|2629|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+211|29.543805582999994|2632|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+212|29.685366665999993|2635|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+213|29.895816083|2636|interrupted Combat / file-menu Continue rolls back to Preparation|3207|2|15|51|0|0|3:storm:L3
+214|30.027074583|2639|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+215|30.163092290999998|2642|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+216|30.300635166000006|2645|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+217|30.441770833000021|2648|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+218|30.581937958000026|2651|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+219|30.721759166000027|2654|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+220|30.862781916000017|2657|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+221|31.000422500000013|2660|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+222|31.135498165999991|2663|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+223|31.268430916|2666|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+224|31.405105332999995|2669|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+225|31.543485874999988|2672|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+226|31.683674416000031|2675|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+227|31.822355249999987|2678|restored Preparation / STORM L3 / unchanged Gold-HP-kills|3207|2|15|51|0|0|3:storm:L3
+228|31.961044500000014|2681|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+229|32.102932415999987|2684|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+230|32.243585625000037|2687|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+231|32.38214425000001|2690|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+232|32.521829416|2693|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+233|32.662663916000042|2696|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+234|32.8042155|2699|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+235|32.94498675|2702|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+236|33.087069875|2705|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+237|33.22447037500001|2708|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+238|33.363500375|2711|Sell confirmation / actual configured refund|3207|2|15|51|0|0|3:storm:L3
+239|33.503025125000022|2714|Sell confirmation / actual configured refund|3207|348|15|51|0|0|
+240|33.743951165999988|2717|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+241|33.871527625|2720|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+242|34.001554875000011|2723|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+243|34.136623750000012|2726|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+244|34.275376999999992|2729|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+245|34.409956708000038|2732|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+246|34.546422583000037|2735|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+247|34.686016041000016|2738|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+248|34.821005500000012|2741|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+249|34.95077891599999|2744|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+250|35.085539916000016|2747|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+251|35.222316791000026|2750|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+252|35.359361541|2753|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|
+253|35.4982665|2756|sold / no model roots / public-command Editor proof complete|3207|348|15|51|0|0|

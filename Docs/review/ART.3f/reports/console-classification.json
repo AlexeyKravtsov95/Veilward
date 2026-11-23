@@ -1,0 +1,13 @@
+{
+  "entries": 236,
+  "counts": {
+    "existingUnusedMaskWarnings": 4,
+    "resolvedAttemptCompileErrors": 2,
+    "editorMemorylessDepthWarnings": 2,
+    "expectedCheckpointErrors": 226,
+    "expectedFrozenMeasurementGuard": 2
+  },
+  "unexpectedEntries": [],
+  "consoleCleared": false,
+  "scope": "Entire task Editor history: two full suites + resolved early compile errors; final compile errors0, recording Console0"
+}

@@ -1,0 +1,15 @@
+{
+  "certificate": "Docs/review/ART.3e/canonical-inputs/equivalence.json",
+  "certificateSha256": "2eb7c644caf12c748652683764ef99fa2628d18773dd3927a6c0478efac86e3d",
+  "exactCarryInFiles": 4,
+  "dependencies": 142,
+  "unchangedSettings": 19,
+  "narrowConsumerDeltas": [
+    "Assets/_Game/Scripts/Editor/BattleSceneBuilder.cs",
+    "Assets/_Game/Scripts/Presentation/FlameModelBinding.cs"
+  ],
+  "shaderProofRerun": false,
+  "newUnityRun": false,
+  "equivalentForBattleRendering": true,
+  "scope": "Stabilized Battle rendering values / existing macOS Editor, not editor dirty/queue state, baking or console/VFXGraph platforms"
+}
