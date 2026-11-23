@@ -24,6 +24,10 @@ namespace Veilward.Presentation
         [SerializeField] private Camera worldCamera;
         [SerializeField] private Material attackBeamMaterial;
         [SerializeField] private Material reactionEffectMaterial;
+        [SerializeField] private Material flameProjectileMaterial;
+        [SerializeField] private Material flameProjectileCoreMaterial;
+        private FlameProjectilePool _flameProjectiles;
+        public FlameProjectilePool FlameProjectiles => _flameProjectiles;
         [SerializeField] private BattlePauseController pauseController;
         [SerializeField] private BattlePlacementController placementController;
         [SerializeField] private BattleCheckpointController checkpointController;
@@ -120,6 +124,11 @@ namespace Veilward.Presentation
                 !WaveCheckpointCompatibility.TryNormalize(session.Checkpoint, scenario.ScenarioContentId, out checkpoint, out var error))
                 throw new InvalidOperationException("Battle session checkpoint is incompatible.");
             _simulation = checkpoint == null ? scenario.CreateSessionSimulation(session?.ScenarioContentId ?? scenario.ScenarioContentId) : scenario.CreateSimulationForCheckpoint(checkpoint);
+            if (_flameProjectiles == null)
+                _flameProjectiles = new FlameProjectilePool(transform,
+                    flameProjectileMaterial != null ? flameProjectileMaterial : attackBeamMaterial,
+                    flameProjectileCoreMaterial != null ? flameProjectileCoreMaterial : attackBeamMaterial);
+            else _flameProjectiles.Clear();
             if (reactionSummaryText != null)
             {
                 _reactionSummaryOrigin = reactionSummaryText.rectTransform.anchoredPosition;
@@ -361,6 +370,7 @@ namespace Veilward.Presentation
 
             var activeDelta = Mathf.Min(Time.deltaTime, 0.25f);
             Presentation.Advance(activeDelta);
+            _flameProjectiles?.Advance(activeDelta);
             foreach (var view in _enemyViews.Values) if (view.Model != null) view.Model.Advance(activeDelta);
             for (var i = _enemyTails.Count - 1; i >= 0; i--)
                 if (_enemyTails[i] == null || _enemyTails[i].Advance(activeDelta))
@@ -456,6 +466,25 @@ namespace Veilward.Presentation
                 for (var index = 0; index < attacks.Count; index++)
                 {
                     var attack = attacks[index];
+                    var towers = _simulation.State.Towers;
+                    TowerState attacker = null;
+                    for (var t = 0; t < towers.Count; t++)
+                        if (towers[t].Id == attack.AttackerTowerId) { attacker = towers[t]; break; }
+                    if (attacker != null && attacker.Definition.Id.Value == "flame")
+                    {
+                        var source = GetCellCenter(attacker.Coordinate) + Vector3.up * .85f;
+                        if (_towerViews.TryGetValue(attacker.Id, out var towerView) && towerView != null &&
+                            towerView.TryGetComponent<FlameModelBinding>(out var binding) && binding.Level == attacker.Level)
+                        {
+                            var anchor = binding.ShotSource;
+                            // Не принимаем повреждённый/чужой anchor далеко от authoritative cell.
+                            var limit = 2 * _simulation.Grid.Map.CellSize;
+                            if (anchor != null && (anchor.position - GetCellCenter(attacker.Coordinate)).sqrMagnitude <= limit * limit)
+                                source = anchor.position;
+                        }
+                        _flameProjectiles?.Play(attack, attacker.Level, source);
+                        continue;
+                    }
                     if (!TryGetTowerPosition(attack.AttackerTowerId, out var start))
                     {
                         continue;
@@ -526,6 +555,7 @@ namespace Veilward.Presentation
 
         public void ResetPresentation()
         {
+            _flameProjectiles?.Clear();
             if (bossHud != null) bossHud.ResetView();
             if (abilityController != null) abilityController.ResetTransient();
             _nextAbilityEffect = 0;

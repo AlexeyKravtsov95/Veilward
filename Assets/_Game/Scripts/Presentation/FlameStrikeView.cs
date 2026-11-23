@@ -122,6 +122,7 @@ namespace Veilward.Presentation
         public void Clear()
         {
             Remaining = 0; _age = Lifetime; TargetEnemyId = default; WasLethal = false;
+            _start = _end = _direction = _side = Vector3.zero;
             HeadPosition = TailEnd = Vector3.zero;
             foreach (var line in _parts) line.enabled = false;
         }

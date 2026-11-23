@@ -1056,6 +1056,8 @@ namespace Veilward.Editor
             serialized.FindProperty("hudText").objectReferenceValue = hud.StatsText;
             serialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
             serialized.FindProperty("attackBeamMaterial").objectReferenceValue = beamMaterial;
+            serialized.FindProperty("flameProjectileMaterial").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberStroke.mat");
+            serialized.FindProperty("flameProjectileCoreMaterial").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberCore.mat");
             serialized.FindProperty("reactionEffectMaterial").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Material>(MaterialsFolder + "/ReactionEffect.mat");
             serialized.FindProperty("pauseController").objectReferenceValue = pause;
             serialized.FindProperty("placementController").objectReferenceValue = placement;

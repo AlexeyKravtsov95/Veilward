@@ -1,5 +1,8 @@
 # VEILWARD — Technical Design / Architecture v0.1
 
+VFX.1a / #90: FLAME consumption захватывает authoritative type/level/source и AttackEvent до finally clear; 8 prewarmed FlameStrikeView, oldest overflow без очереди, activeDelta/pause/reset от BattleSceneController. Полёт .2s — косметический, HP/Burn/Hit/Death/reward исходного tick без visual-delay ring. Прочие атаки прежние. [Контракт](VFX1A_FLAME_PROJECTILE.md).
+
+
 ART.5 / #46: EnemyModelView анимирует только authored child от pause-aware presentation clock; rootY.6/HP/status остаются прежними. Optional bossPrefab выбирается по EnemyDefinitionId, legacy enemyPrefab fallback сохранён. Per-Step snapshot/damage consumer до clear обеспечивает direct/Burn/reaction/ability hit/death; visual-only tails≤16/.6s, restore очищает owners. Четыре mesh-part cues следуют animation transforms. [Спецификация/regressions](ART5_ENEMIES.md).
 
 

@@ -260,6 +260,9 @@ namespace Veilward.Editor
 
             ValidateMaterial(references["attackBeamMaterial"] as Material, "attackBeamMaterial", errors);
             ValidateMaterial(references["reactionEffectMaterial"] as Material, "reactionEffectMaterial", errors);
+            var flameData = new SerializedObject(controller);
+            ValidateMaterial(flameData.FindProperty("flameProjectileMaterial").objectReferenceValue as Material, "flameProjectileMaterial", errors);
+            ValidateMaterial(flameData.FindProperty("flameProjectileCoreMaterial").objectReferenceValue as Material, "flameProjectileCoreMaterial", errors);
         }
 
         private static Dictionary<string, UnityEngine.Object> RequireReferences(
