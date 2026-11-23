@@ -89,7 +89,7 @@ namespace Veilward.Tests.EditMode
             finally { Object.DestroyImmediate(root); }
         }
 
-        [TestCase("storm")] [TestCase("test-tower")]
+        [TestCase("test-tower")]
         public void Art3A04_OtherTypesKeepGrayboxAndTint(string id)
         {
             var root = Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/TestTower.prefab"));

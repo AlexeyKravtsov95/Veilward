@@ -1,0 +1,102 @@
+{
+  "sourceFrames": 254,
+  "outputFrames": 254,
+  "firstPts": 0.0,
+  "lastPts": 35.491,
+  "sourceFirstElapsed": 0.006797957999992832,
+  "sourceLastElapsed": 35.4982665,
+  "speed": 1,
+  "splices": 0,
+  "resolution": [
+    1600,
+    900
+  ],
+  "editor": true,
+  "device": false,
+  "source": "actual Pipeline capture game_view composited render-target frames, variable real-time capture intervals",
+  "limitation": "Capture/encoding overhead is not a performance benchmark. Sparse captured frames are not native display presentation timing.",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-f",
+    "concat",
+    "-safe",
+    "0",
+    "-i",
+    "/Users/alexeykravtsov/Desktop/workspace/Veilward/TestResults/ART3F/video.ffconcat",
+    "-fps_mode",
+    "vfr",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-video_track_timescale",
+    "1000000",
+    "-movflags",
+    "+faststart",
+    "/Users/alexeykravtsov/Desktop/workspace/Veilward/Docs/review/ART.3f/editor-flow.mp4"
+  ],
+  "outputSha256": "aad6519cd832e64548479a428ec235cc48cc1605ff951243737e163e67810505",
+  "picks": {
+    "video-L1.png": {
+      "manifestIndex": 21,
+      "sourceFrameIndex": 21,
+      "sourceFile": "00021.png",
+      "gameFrame": 2064,
+      "elapsed": 3.007129166000027,
+      "stage": "STORM L1 / Inspect + real Upgrade price",
+      "sha256": "9d930d7a28e7608160c22963e6eefa6063c4890be0465cf129bd99256c86e79a"
+    },
+    "video-L2.png": {
+      "manifestIndex": 123,
+      "sourceFrameIndex": 123,
+      "sourceFile": "00123.png",
+      "gameFrame": 2370,
+      "elapsed": 17.244334000000038,
+      "stage": "STORM L2 / same TowerId + cell / earned budget",
+      "sha256": "e3e7b29424b1394a3d993b6b3ecf9b495ceaa9fbaf2fa7a8a9553fe04a2f44ab"
+    },
+    "video-L3.png": {
+      "manifestIndex": 170,
+      "sourceFrameIndex": 170,
+      "sourceFile": "00170.png",
+      "gameFrame": 2511,
+      "elapsed": 23.830000374999997,
+      "stage": "STORM L3 / same TowerId + cell / MAX + range",
+      "sha256": "d3c869de06c6287b47127594376b6bc3be850d96476da5e0d44bef9e9cf0f43e"
+    },
+    "video-Intrinsic-Storm-inspect.png": {
+      "manifestIndex": 198,
+      "sourceFrameIndex": 198,
+      "sourceFile": "00198.png",
+      "gameFrame": 2595,
+      "elapsed": 27.72846312500002,
+      "stage": "advancing combat / actual intrinsic Storm enemy Inspect + HP",
+      "sha256": "d588e50194f47b7598d097bb809de89e324d94bc0383b40df65ae7c3f8e083d8"
+    },
+    "video-rollback.png": {
+      "manifestIndex": 221,
+      "sourceFrameIndex": 221,
+      "sourceFile": "00221.png",
+      "gameFrame": 2660,
+      "elapsed": 31.000422500000013,
+      "stage": "restored Preparation / STORM L3 / unchanged Gold-HP-kills",
+      "sha256": "d2222076befbc1c95d3f1c27ec9f29fa1ba371364d64b0b1c6bc81eb58318918"
+    },
+    "video-sold.png": {
+      "manifestIndex": 247,
+      "sourceFrameIndex": 247,
+      "sourceFile": "00247.png",
+      "gameFrame": 2738,
+      "elapsed": 34.686016041000016,
+      "stage": "sold / no model roots / public-command Editor proof complete",
+      "sha256": "eaeb39ed38806952f9bb1b2d4db39b32db9797b11aa3c24feb6aa322308f9a77"
+    }
+  }
+}

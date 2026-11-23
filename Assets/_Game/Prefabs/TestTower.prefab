@@ -249,3 +249,7 @@ MonoBehaviour:
   - {fileID: 4773498725514607476, guid: ac50100bd196d43368a1e139ff062ccf, type: 3}
   - {fileID: 5064539101572239737, guid: 7293f8b8b2ef04ed5b0f4b4eeca42f59, type: 3}
   - {fileID: 913889801145496187, guid: 5757ebf6e7c664818a582ca944e15eb2, type: 3}
+  stormLevels:
+  - {fileID: 1312516862028360571, guid: 8264da45a92154ceb8f1f9d92cd73a3d, type: 3}
+  - {fileID: 950312568719026316, guid: 0df61a43180f84083867fa9672403caf, type: 3}
+  - {fileID: 1625783116486103254, guid: 0c0decf327ad14c21ac1ff64fe91e676, type: 3}

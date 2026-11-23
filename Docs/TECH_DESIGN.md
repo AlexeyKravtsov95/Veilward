@@ -1,5 +1,8 @@
 # VEILWARD — Technical Design / Architecture v0.1
 
+ART.3f/#86: STORM «Грозовой карп» L1–L3 и шесть семейств в прежнем FlameModelBinding. [Спецификация/regressions](ART3F_STORM_LEVELS.md), [новые Editor/source/Battle evidence](review/ART.3f/validation.md). Добавлено optional stormLevels; GUID/legacy fields/fallback и gameplay/config/schema4 сохранены. Device Deferred to prerelease QA #53/#54/#55; parent44 остаётся5/6 до приёмки/merge, finalVFX/G2/release отдельно.
+
+
 ART.3d/#82: STONE «Осколочная печать» L1–L3 и единый FLAME/TIDE/GALE/STONE binding. [Спецификация/regressions](ART3D_STONE_LEVELS.md), [актуальный Editor/source proof и read-only verifier](review/ART.3d/README.md). Добавляется optional stoneLevels, прежние serialized fields/GUID и один fallback owner сохраняются. Domain/configs/schema4 неизменны. Device Deferred to prerelease QA #53/#54/#55; Parent44 и STEAM/STORM отдельно.
 
 ART.3b/#78: production `FlameModelBinding` сохраняет GUID/class и прежние serialized FLAME `levels`/`fallbackRenderers`, добавляет `tideLevels`. Это один владелец model/fallback, keyed по definitionId+level; другие типы/неизвестные уровни возвращаются к graybox. Старый model child отключается до deferred Destroy, palette renderers не tint-ятся. Отдельный TIDE builder не пересоздаёт FLAME assets. ShotSource остаётся presentation anchor без изменения Domain coordinates/generic beam. [Контракт и регрессии](ART3B_TIDE_LEVELS.md). Device Deferred to prerelease QA #53/#54/#55 по решению владельца20.11.2026; Editor proof не является iPhone PASS.

@@ -239,8 +239,11 @@ namespace Veilward.Tests.PlayMode
             yield return null;
             var restored = GameObject.Find("Tower 1").transform;
             Assert.That(restored.position, Is.EqualTo(battle.GetCellCenter(new GridCoordinate(-3, 0))));
-            var block = new MaterialPropertyBlock(); restored.GetComponentInChildren<Renderer>().GetPropertyBlock(block);
-            Assert.That(Vector4.Distance(block.GetColor("_BaseColor"), EnemyStatusView.StormColor), Is.LessThan(.0001f));
+            var binding = restored.GetComponent<FlameModelBinding>();
+            Assert.That(binding.Model.name, Is.EqualTo("STORM L1"));
+            Assert.That(binding.Model.GetComponentsInChildren<Renderer>().All(r => !r.HasPropertyBlock()), Is.True);
+            Assert.That(restored.Find("Foundation").GetComponent<Renderer>().enabled, Is.False);
+            Assert.That(restored.Find("Spirit").GetComponent<Renderer>().enabled, Is.False);
             Assert.That(original == null, Is.True, "Old view must not survive Restore.");
         }
 

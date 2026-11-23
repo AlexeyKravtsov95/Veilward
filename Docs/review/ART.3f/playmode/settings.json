@@ -1,0 +1,27 @@
+{
+    "cameraPosition": {
+        "x": 8.0,
+        "y": 11.0,
+        "z": 8.0
+    },
+    "cameraEuler": {
+        "x": 44.19453430175781,
+        "y": 225.0,
+        "z": 0.0000011907961834367598
+    },
+    "ortho": 8.5,
+    "sunIntensity": 1.2000000476837159,
+    "width": 1600,
+    "height": 900,
+    "frame": 340,
+    "tick": 0,
+    "pipeline": "Mobile_RPAsset",
+    "quality": "Mobile",
+    "ambient": {
+        "r": 0.21199999749660493,
+        "g": 0.22699999809265138,
+        "b": 0.2590000033378601,
+        "a": 1.0
+    },
+    "synthetic": true
+}

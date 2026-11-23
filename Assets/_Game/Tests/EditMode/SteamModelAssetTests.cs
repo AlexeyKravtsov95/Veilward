@@ -211,7 +211,7 @@ namespace Veilward.Tests.EditMode
         }
 
         [TestCase("unknown", 1)] [TestCase("test-tower", 1)]
-        [TestCase("storm", 1)]
+        [TestCase("unknown-storm", 1)]
         [TestCase("gale", 0)] [TestCase("gale", 4)] [TestCase("steam", 0)] [TestCase("tide", 0)] [TestCase("tide", 4)] [TestCase("steam", 4)] [TestCase("flame", 0)] [TestCase("flame", 4)]
         public void Art3E03_UnsupportedPairClearsModelAndReenablesOnlyFallback(string type, int level)
         {

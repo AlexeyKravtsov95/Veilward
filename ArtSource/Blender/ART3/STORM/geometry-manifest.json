@@ -1,0 +1,175 @@
+[
+  {
+    "level": 1,
+    "source": "ArtSource/Blender/ART3/STORM/Tower_StormCarpL1.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/STORM/Tower_StormCarpL1.fbx",
+    "vertices": 514,
+    "triangles": 952,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        1.149999976158142
+      ]
+    ],
+    "middleProjectedWidth": 0.7499999977010088,
+    "semanticGroups": [
+      "BronzeLips",
+      "BronzePlinth",
+      "BronzeScale0",
+      "BronzeScale1",
+      "CarpEye",
+      "CarpHead",
+      "CurvedCarpBody",
+      "DorsalFin",
+      "EyeGlint",
+      "FoundationStone",
+      "FrontBarbel",
+      "JadeWaterSupport",
+      "NearPectoralFin",
+      "RearBarbel",
+      "RoundedSnout",
+      "StormSeal",
+      "TailLowerLobe",
+      "TailRay",
+      "TailUpperLobe"
+    ],
+    "headCenter": [
+      -0.12727922218896093,
+      0.18384776991747676,
+      1.0000000028383165
+    ],
+    "glowFaces": 160,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  },
+  {
+    "level": 2,
+    "source": "ArtSource/Blender/ART3/STORM/Tower_StormCarpL2.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/STORM/Tower_StormCarpL2.fbx",
+    "vertices": 632,
+    "triangles": 1168,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        1.5399999618530273
+      ]
+    ],
+    "middleProjectedWidth": 0.8400000092262474,
+    "semanticGroups": [
+      "BronzeLips",
+      "BronzePlinth",
+      "BronzeScale0",
+      "BronzeScale1",
+      "BronzeScale2",
+      "CarpEye",
+      "CarpHead",
+      "CurvedCarpBody",
+      "DorsalFin",
+      "EyeGlint",
+      "FinLightningLeft",
+      "FinLightningRight",
+      "FoundationStone",
+      "FrontBarbel",
+      "JadeWaterSupport",
+      "NearPectoralFin",
+      "OpenLeftFin",
+      "OpenRightFin",
+      "RearBarbel",
+      "RoundedSnout",
+      "StormSeal",
+      "TailLowerLobe",
+      "TailRay",
+      "TailUpperLobe"
+    ],
+    "headCenter": [
+      0.098994947171637,
+      -0.04242640724849133,
+      1.3899999856948853
+    ],
+    "glowFaces": 196,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  },
+  {
+    "level": 3,
+    "source": "ArtSource/Blender/ART3/STORM/Tower_StormCarpL3.blend",
+    "fbx": "Assets/_Game/Art/Models/ART3/STORM/Tower_StormCarpL3.fbx",
+    "vertices": 762,
+    "triangles": 1412,
+    "materialSlots": 2,
+    "bounds": [
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        -0.44999998807907104,
+        0.44999998807907104
+      ],
+      [
+        0.0,
+        1.9643064737319946
+      ]
+    ],
+    "middleProjectedWidth": 0.8400000092262474,
+    "semanticGroups": [
+      "BronzeLips",
+      "BronzePlinth",
+      "BronzeScale0",
+      "BronzeScale1",
+      "BronzeScale2",
+      "BronzeScale3",
+      "CarpEye",
+      "CarpHead",
+      "CrownFin",
+      "CurvedCarpBody",
+      "DorsalFin",
+      "EyeGlint",
+      "FinLightningLeft",
+      "FinLightningRight",
+      "FoundationStone",
+      "FrontBarbel",
+      "JadeWaterSupport",
+      "NearPectoralFin",
+      "OpenLeftFin",
+      "OpenRightFin",
+      "OpenStormArcLeft",
+      "OpenStormArcRight",
+      "RearBarbel",
+      "RoundedSnout",
+      "StormSeal",
+      "TailLowerLobe",
+      "TailRay",
+      "TailUpperLobe"
+    ],
+    "headCenter": [
+      -0.049497473231028946,
+      0.10606601878645874,
+      1.6799999475479126
+    ],
+    "glowFaces": 256,
+    "appliedTransforms": true,
+    "zeroAreaTriangles": 0,
+    "packedPalette": true
+  }
+]
