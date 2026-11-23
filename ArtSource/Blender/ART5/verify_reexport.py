@@ -5,8 +5,10 @@ ROOT=Path(__file__).resolve().parents[3];HERE=Path(__file__).resolve().parent;OU
 UNITY=str(Path.home()/'.unity/bin/unity')
 def snap(stage):
  args=[UNITY,'command','script run','--caller','plugin','--skill','unity-cli','--project-path',str(ROOT),'--format','json','--file','ArtSource/Review/ReadbackArt5.cs','--entry','ReadbackArt5.'+stage]
- r=subprocess.run(args,cwd=ROOT,capture_output=True,text=True,check=True)
+ r=subprocess.run(args,cwd=ROOT,capture_output=True,text=True)
+ (OUT/('readback-'+stage.lower()+'-stderr.txt')).write_text(r.stderr)
  (OUT/('readback-'+stage.lower()+'-command.json')).write_text(r.stdout)
+ assert r.returncode==0,r.stdout+'\n'+r.stderr
  assert json.loads(r.stdout)['success'] is True
 
 def main():
