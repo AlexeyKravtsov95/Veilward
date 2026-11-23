@@ -32,16 +32,22 @@ namespace Veilward.Tests.EditMode
             Assert.That(map.CellSize, Is.EqualTo(baseline.CellSize));
             Assert.That(simulation.Path.TotalLength, Is.EqualTo(baseline.distance));
             Assert.That(baseline.cells.Length, Is.EqualTo(map.Width * map.Height));
-            foreach (var expected in baseline.cells)
+            // Proof сравнивается при исходном16:9, независимо от текущего размера окна Editor.
+            camera.aspect = baseline.camera.aspect;
+            try
             {
-                var cell = new GridCoordinate(expected.x, expected.y); var center = map.GetCellCenter(cell);
-                Assert.That(simulation.Grid.GetState(cell).ToString(), Is.EqualTo(expected.state));
-                Assert.That(new[] { center.X, center.Y }, Is.EqualTo(expected.center));
-                var screen = camera.WorldToViewportPoint(new Vector3(center.X, 0, center.Y));
-                Assert.That(screen.x, Is.EqualTo(expected.screen[0] / 1600).Within(.000001));
-                Assert.That(screen.y, Is.EqualTo(expected.screen[1] / 900).Within(.000001));
-                Assert.That(screen.z, Is.EqualTo(expected.screen[2]).Within(.00001));
+                foreach (var expected in baseline.cells)
+                {
+                    var cell = new GridCoordinate(expected.x, expected.y); var center = map.GetCellCenter(cell);
+                    Assert.That(simulation.Grid.GetState(cell).ToString(), Is.EqualTo(expected.state));
+                    Assert.That(new[] { center.X, center.Y }, Is.EqualTo(expected.center));
+                    var screen = camera.WorldToViewportPoint(new Vector3(center.X, 0, center.Y));
+                    Assert.That(screen.x, Is.EqualTo(expected.screen[0] / 1600).Within(.000001));
+                    Assert.That(screen.y, Is.EqualTo(expected.screen[1] / 900).Within(.000001));
+                    Assert.That(screen.z, Is.EqualTo(expected.screen[2]).Within(.00001));
+                }
             }
+            finally { camera.ResetAspect(); }
             Assert.That(camera.transform.position, Is.EqualTo(new Vector3(baseline.camera.position[0], baseline.camera.position[1], baseline.camera.position[2])));
             var q = camera.transform.rotation; var expectedRotation = baseline.camera.rotation;
             Assert.That(Quaternion.Angle(q, new Quaternion(expectedRotation[0], expectedRotation[1], expectedRotation[2], expectedRotation[3])), Is.LessThan(.001));
@@ -156,6 +162,29 @@ namespace Veilward.Tests.EditMode
             {
                 foreach (var pair in saved) if (!pair.Value.SequenceEqual(File.ReadAllBytes(pair.Key))) File.WriteAllBytes(pair.Key, pair.Value);
                 AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+            }
+        }
+
+        [Test]
+        public void Art402_ProductionBuilderPreservesUnusedLegacyEnvironmentMaterialBytes()
+        {
+            var legacy = new[] { "GrayboxGround", "GrayboxPath", "GrayboxSpawn", "GrayboxHeart", "GrayboxCellAvailable", "GrayboxCellBlocked" }
+                .Select(name => "Assets/_Game/Art/Materials/" + name + ".mat").ToArray();
+            var paths = Directory.GetFiles("Assets/_Game/Art/Materials", "*.mat")
+                .Concat(Directory.GetFiles("Assets/_Game/Configs", "*.asset"))
+                .Concat(new[] { "Assets/_Game/Scenes/Battle.unity", "Assets/_Game/Scenes/MainMenu.unity",
+                    "Assets/_Game/Prefabs/TestTower.prefab", "Assets/_Game/Prefabs/Shade.prefab" }).Distinct();
+            var saved = paths.ToDictionary(path => path, File.ReadAllBytes);
+            try
+            {
+                Veilward.Editor.BattleSceneBuilder.Build();
+                foreach (var path in legacy) CollectionAssert.AreEqual(saved[path], File.ReadAllBytes(path), "Production must not normalize unused fixture material " + path);
+            }
+            finally
+            {
+                foreach (var pair in saved) if (!pair.Value.SequenceEqual(File.ReadAllBytes(pair.Key))) File.WriteAllBytes(pair.Key, pair.Value);
+                AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+                EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity");
             }
         }
 

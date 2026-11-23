@@ -69,13 +69,7 @@ namespace Veilward.Editor
 
             SetScenarioContentId(legacyConfig, "legacy-single-wave-v1");
 
-            var groundMaterial = CreateOrUpdateMaterial("GrayboxGround", new Color(0.12f, 0.16f, 0.2f));
-            var pathMaterial = CreateOrUpdateMaterial("GrayboxPath", new Color(0.25f, 0.55f, 0.5f));
-            var spawnMaterial = CreateOrUpdateMaterial("GrayboxSpawn", new Color(0.2f, 0.8f, 0.9f));
-            var heartMaterial = CreateOrUpdateMaterial("GrayboxHeart", new Color(0.95f, 0.35f, 0.3f));
             var enemyMaterial = CreateOrUpdateMaterial("GrayboxShade", new Color(0.35f, 0.25f, 0.65f));
-            var availableMaterial = CreateOrUpdateMaterial("GrayboxCellAvailable", new Color(0.18f, 0.3f, 0.34f));
-            var blockedMaterial = CreateOrUpdateMaterial("GrayboxCellBlocked", new Color(0.1f, 0.12f, 0.15f));
             var towerMaterial = CreateOrUpdateMaterial("GrayboxTower", new Color(0.95f, 0.7f, 0.2f));
             var selectionMaterial = CreateOrUpdateMaterial("GrayboxSelection", new Color(1f, 0.9f, 0.2f));
             var previewMaterial = CreateOrUpdateMaterial("GrayboxTowerPreview", new Color(0.3f, 0.9f, 0.95f));
