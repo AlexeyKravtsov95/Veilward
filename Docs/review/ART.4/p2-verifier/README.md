@@ -57,6 +57,20 @@ PY
 
 ## Проверки этой ревизии
 
+На committed **be12f5b** выполнены новые проверки:
+
+| Проверка | Новый результат | Receipt |
+|---|---|---|
+| Static |38/38 PASS|[raw](static.txt)|
+| Малые fixtures |14/14 PASS, без skipped|[raw](controls.txt)|
+| Полный entrypoint controls |3/3 PASS: default безprivate3, explicit missing/changed FAIL|[raw и full-audit receipt](entrypoint-controls.txt)|
+| Обязательный read-only delivery |PASS848source/3754protected/146artifacts, exact rendering4|[receipt](delivery.json)|
+| Explicit local preservation |PASS7/7 в исходном local checkout|[receipt](local-preservation.json)|
+| Старый entrypoint missing3 |3/3 ожидаемых отказа воспроизведены read-only|[receipt](reproduced-old-dependency.json)|
+| Product source / исходные файлы |product delta0, original7 SHA unchanged|[scope](source-scope.json)|
+
+Default receipt явно показывает NOT_REQUESTED для local preservation; optional-mode PASS7/7 не prerequisite independent delivery. После добавления этих receipts artifact count меняется, определяется manifest и последним read-only run. Self-hashing stdout заключительных запусков остаётся ignoredTestResults.
+
 Только новые Static/controls/read-only verifier/preservation/re-review receipts размещаются здесь. Старые UnityEdit1233/Play88, compile, mesh reexport иmedia остаются прежними runs наtestedb10e8b8/media03af; новый Unity run, reexport, video или device-тест для verifier-only правки не выполняются.
 
 Независимое re-review — [review](review.md). До него P2 не считается закрытым. Self-merge/release не выполняются.

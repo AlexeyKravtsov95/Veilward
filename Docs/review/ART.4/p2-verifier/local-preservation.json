@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "head": "be12f5b8a7eeb779c7d66c0ca74dd1400c8a6b98",
+  "testedSource": "b10e8b8919b76f0b7e398558a483b4bd49eb49e9",
+  "source": 848,
+  "protected": 3754,
+  "artifacts": 146,
+  "suites": {
+    "edit-mode": 1233,
+    "play-mode": 88
+  },
+  "exactCarryIn": 4,
+  "localPreservation": {
+    "status": "PASS",
+    "expectedFiles": 7
+  },
+  "device": "Deferred QA53/54/55",
+  "newUnityRun": false,
+  "readOnly": true
+}
