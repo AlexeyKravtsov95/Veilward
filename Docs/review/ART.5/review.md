@@ -2,7 +2,7 @@
 
 Reviewer: root/GPT-6, независимый read-only senior reviewer; implementation/Unity/UI runs выполнял только art5_implementation. Source head `a01706e`.
 
-**SOURCE / ANIMATION / VISUAL: PASS, подтверждённых открытых P1/P2 нет.** Final committed delivery audit pending до freeze/commit; этот документ не является owner ART approval, physical iPhone/G2/merge/release approval.
+**SOURCE / ANIMATION / VISUAL: PASS, подтверждённых открытых P1/P2 нет.** Независимый committed delivery audit на `d6fd13c` — PASS; этот документ не является owner ART approval, physical iPhone/G2/merge/release approval.
 
 Root независимо прочитал diff против cb9101c: Domain/config/schema/packages/historical assets защищены, serialized Shade root/HP/status/GUID и legacy fallback сохранены. Проверены cached refs/lifetime/selection nonmutation, uniformroot .6/rootY.6, authored boss root1, missing bossref.84, unknown600HP→Shade.6; ID authoritative даже при historical1000/5. Strict unchanged twoBuild теперь15/15; full gates independently read1237/1237 и93/93, все casesPassed, byte audit3exit0/730restored/no unexpected/new/recovery, detached+refresh true.
 
@@ -12,4 +12,4 @@ Root независимо сравнил JSON и decompressed full traces: FLAME
 
 Первый video attempt отклонён из-за old earned frame0, сохранён отдельно. Final MP4 SHA `ada1c6407fe97a93c114e15abcf1a0dede7c2004c1e630721059cb2eef9b9fb0`: root независимо декодировал representative frames ffmpeg в память на0/7.8/9.2/15/28s. Первый MainMenu, Combat Move+Burn/HP, actual ability kills/shrunk Death безHP, поздние Move/turn, restoredPreparation2/L2. CSV firstempty,6productionCombat Death rows/133Move rows подтверждены. Ordinary-speed continuous human watch не заявлялся: review использовал decoded representative frames, telemetry и source/animation readback.
 
-Физический iPhone Deferred to prerelease QA #53/#54/#55. Owner merge/ART/G2/release отдельно. После финального committed audit root принимает владение для read-only delivery проверки/PR; self-merge не выполняется.
+Физический iPhone Deferred to prerelease QA #53/#54/#55. Owner merge/ART/G2/release отдельно. Root принял владение и выполнил read-only audit без Unity runs: default delivery и explicit local preservation PASS, 880 source / 3951 protected / 236 artifacts; controls 14+9+2+3 PASS, свежие static 38/38 и diff check PASS. Git status до/после одинаков, carry-in 7/7 сохранены; четыре rendering carry-in не включены в Git diff. [Независимый receipt](reports/independent-review.json). Дальнейшее дополнение только этого заключения/PR description/manifest не меняет tested source `a01706e`; финальный read-only verifier повторяется после commit. Self-merge не выполняется.
