@@ -11,7 +11,7 @@
   "inputMode": "exact four carry-in files with accepted PR85 Battle equivalence; read-only, no canonical overwrite",
   "artifacts": {
     "Docs/review/ART.3f/README.md": "43eb000e5d53db91e824af577f9f9db38ca020b28ca169626be9e98e2f818fa8",
-    "Docs/review/ART.3f/commands.md": "5ac264403c38b057b2fc9f638d4be70ebef2a06ee524ce0c95cfb7618748d91a",
+    "Docs/review/ART.3f/commands.md": "c21ddca1ce2749e962421025c953874a7c3dd124f224a2716a65ae57d2c7e3f2",
     "Docs/review/ART.3f/editor-flow.mp4": "aad6519cd832e64548479a428ec235cc48cc1605ff951243737e163e67810505",
     "Docs/review/ART.3f/inputs/earned.commands.json": "b061146de3dcaed6692284b634fdc8daaae59ba38f1919203fe46dfdc3c8b8f6",
     "Docs/review/ART.3f/inputs/search-settings.json": "98e7583717ebd2b03e03af10820e2bec28f8b456e0d44c4cf14d68dd2f0decb5",
@@ -61,6 +61,7 @@
     "Docs/review/ART.3f/reports/console-warnings-errors.json": "6b0637250e98976e6aa6d01dddb6f3e36ca29845eaacebf68c2d8d327b7d3212",
     "Docs/review/ART.3f/reports/console.txt": "283f66fa2cdf11d5fc72e0deb29d8d73500f11017e91736041ce7aa4cae2238f",
     "Docs/review/ART.3f/reports/delivery-controls.txt": "f921cfcca5fdbcc5f30479f7f63a8e6ab07f4a2afb15564c61d57846188990f0",
+    "Docs/review/ART.3f/reports/delivery.json": "1008e966ed349ba74d9066a8a8a095e49c7275a12f2caca1ad98b01ed45bf611",
     "Docs/review/ART.3f/reports/edit-mode-command.txt": "b46a7004a4db0bffde1f1dad725696a0e377dd7d9c4301146fe3f7d4730a30de",
     "Docs/review/ART.3f/reports/edit-mode.json": "c1b59acf28ec3c5984fa94e12f993983558cec47427c1340fab8e5f92af42f6e",
     "Docs/review/ART.3f/reports/gates-byte-audit.json": "3b19978bc1b87fd49235d4619da852ca9ea8baadf3ca16ef10791a5cb9a195a1",
@@ -97,8 +98,8 @@
     "Docs/review/ART.3f/reports/video-safe-wire.txt": "8ae36c7f77be7541c08d57940c8b635c6cb86552e60b20527e0834e24e9f3e57",
     "Docs/review/ART.3f/reports/video-sold.json": "f995db4ae74bb5fe86e7a8cce3906a8c737332a2e60991d4866ccfad33fda2bd",
     "Docs/review/ART.3f/reports/video-source-frames.json": "805033da11f16278ec84f71ee39b4e5a4815709dd8ce87eec083ed71edf8c58d",
-    "Docs/review/ART.3f/review.md": "e3ba6c5adad57842c481d22f8376f5febab330f438de80b0f087370633dfa174",
-    "Docs/review/ART.3f/validation.md": "8e189af0b4d832a749d56e67f91ef7a71025e05b5683d706334dd73101b303ca",
+    "Docs/review/ART.3f/review.md": "95c88527e101f263962904070e7fbae123b521023a14d1941b6644f7d5c79b1e",
+    "Docs/review/ART.3f/validation.md": "fefd4cbbf210958fb229c37c120853846bb0e555e55f36dae9fd33183d66db09",
     "Docs/review/ART.3f/verify_controls.py": "7c58c22ff25c10d6c4102de7483998fbe083edfdce72f452647ecf20dc984d33",
     "Docs/review/ART.3f/verify_delivery.py": "35680255a463e57d21c3e66338965870b1dbb1af40af1493d402284caa07f61a",
     "Docs/review/ART.3f/verify_render_inputs.py": "9127ff52180903146a60d7ab39404bba7f34624a3eeaee4225aa1c7dbcbc9779"

@@ -59,3 +59,5 @@ Full suites могут сериализовать известные builder out
 После suites canonical snapshot прочитан без повторного export и совпал с reexport-after. Служебный preview переснят в новом PlayMode без DontDestroyOnLoad recorder; actual-render-inputs переснят на final source e9277df. GameView index18 восстановлен, session runInBackground/autoTick отключены, task Editor закрыт через `unity close "$PWD" --if-saved`; historical Editor не затронут.
 
 Первый cached diff check нашёл завершающую пустую строку в экспортированном video-inspector.txt. Удалён только пустой EOF, Inspector content не менялся; полный baseline→HEAD diff check повторён отдельно.
+
+Первый full delivery verifier отказал из-за собственного ArtSource/Blender/ART3/STORM/__pycache__/verify_reexport.cpython-312.pyc, созданного import canonical readback. Удалены только этот известный task-generated6616-byte файл и пустая task папка; прежний Scripts/__pycache__ и заметки сохранены. Следующий полный read-only run и независимый повтор на47a0f76 PASS3671/3616/92, user bytes не переписывались.

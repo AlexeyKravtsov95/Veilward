@@ -32,7 +32,7 @@ Baseline main `d7895fe0927f6d5890a2439fcdae4168dd224e1a` (merged85). Media/model
 
 Первая попытка сохранена как история: Edit1220/1220 и Play86/87 (obsolete RegBattle157 TypeTint expectation). Она не является полным PASS. Final source delta e9277df меняет только это ожидание на authored STORM L1/noPropertyBlock/noGraybox с сохранёнными position/old-root assertions. [Команды и неуспешные попытки](commands.md), attempt-1-* reports и attempts.tar.gz.
 
-Delivery/evidence head определяется committed manifest и актуальным read-only run; stdout финального запуска хранится в ignored TestResults для исключения self-hashing loop. Полный verifier и независимое итоговое review выполняются после evidence commit.
+Delivery/evidence head определяется committed manifest и актуальным read-only run; stdout финального запуска хранится в ignored TestResults для исключения self-hashing loop. Полный verifier независимо PASS на evidence head47a0f76:3671source/3616protected/92artifacts. [Receipt](reports/delivery.json), [итоговое независимое review](review.md):P1/P2нет. После добавления receipt/заключения актуальный manifest проверяется ещё раз; это evidence-only delta, без новых Unity runs.
 
 ## NOT VERIFIED / ограничения
 
