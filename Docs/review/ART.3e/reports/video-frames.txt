@@ -1,0 +1,610 @@
+0|0.006102666000060708|45|earned L1 checkpoint replay / menu Continue|0|150|20|0|0|0|
+1|0.16838999999981752|46|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+2|0.3273146659998929|50|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+3|0.458179624999957|53|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+4|0.593101458000092|56|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+5|0.72794479100002718|59|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+6|0.863140666000163|62|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+7|0.99770908299979055|65|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+8|1.1340545409998413|68|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+9|1.2724799580000763|71|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+10|1.4023230409998177|74|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+11|1.5373207500001627|77|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+12|1.696825041000011|80|menu Continue / unchanged earned STEAM L1 checkpoint||||||0|
+13|1.8988828749997992|81|menu Continue / unchanged earned STEAM L1 checkpoint|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+14|2.0301036249998106|84|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+15|2.1659514580001087|87|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+16|2.298725457999808|90|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+17|2.4379281659998924|93|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+18|2.5784663330000512|96|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+19|2.7185309159999633|99|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+20|2.8572772080001414|102|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+21|2.9983786249999866|105|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+22|3.1392442910000682|108|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+23|3.2680984580001677|111|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+24|3.3984693329998663|114|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+25|3.5287431249998917|117|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+26|3.6576242500000262|120|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+27|3.7868389999998726|123|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+28|3.9147643749997769|126|STEAM L1 / Inspect + real Upgrade price|1183|20|14|12|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+29|4.0523028329998851|129|earned wave 4 / test clock30Hz / public commands / advancing combat|1186|20|14|12|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+30|4.18326791599975|132|earned wave 4 / test clock30Hz / public commands / advancing combat|1190|20|14|12|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+31|4.3119372910000493|135|earned wave 4 / test clock30Hz / public commands / advancing combat|1194|20|14|12|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+32|4.4395327500001258|138|earned wave 4 / test clock30Hz / public commands / advancing combat|1197|20|14|12|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+33|4.5758102909999252|141|earned wave 4 / test clock30Hz / public commands / advancing combat|1202|20|14|12|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+34|4.715246040999773|144|earned wave 4 / test clock30Hz / public commands / advancing combat|1206|20|14|12|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+35|4.8564441250000527|147|earned wave 4 / test clock30Hz / public commands / advancing combat|1210|20|14|12|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+36|4.9975583330001427|150|earned wave 4 / test clock30Hz / public commands / advancing combat|1214|20|14|12|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+37|5.1365742080001837|153|earned wave 4 / test clock30Hz / public commands / advancing combat|1218|20|14|12|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+38|5.2769828330001474|156|earned wave 4 / test clock30Hz / public commands / advancing combat|1223|20|14|12|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+39|5.4055644579998443|159|earned wave 4 / test clock30Hz / public commands / advancing combat|1226|20|14|12|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+40|5.5357187079998766|162|earned wave 4 / test clock30Hz / public commands / advancing combat|1230|20|14|12|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+41|5.6618818329998248|165|earned wave 4 / test clock30Hz / public commands / advancing combat|1234|20|14|12|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+42|5.7956844999998793|168|earned wave 4 / test clock30Hz / public commands / advancing combat|1238|20|14|12|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+43|5.9348945410001761|171|earned wave 4 / test clock30Hz / public commands / advancing combat|1242|20|14|12|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+44|6.0752863329998945|174|earned wave 4 / test clock30Hz / public commands / advancing combat|1247|20|14|12|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+45|6.214761875000022|177|earned wave 4 / test clock30Hz / public commands / advancing combat|1251|20|14|12|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+46|6.35450016599998|180|earned wave 4 / test clock30Hz / public commands / advancing combat|1255|20|14|12|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+47|6.5004991659998268|183|earned wave 4 / test clock30Hz / public commands / advancing combat|1259|20|14|12|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+48|6.6419708329999594|186|earned wave 4 / test clock30Hz / public commands / advancing combat|1264|35|14|15|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+49|6.7692204999998467|189|earned wave 4 / test clock30Hz / public commands / advancing combat|1267|35|14|15|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+50|6.9034365409997918|192|earned wave 4 / test clock30Hz / public commands / advancing combat|1271|35|14|15|0|0|1:flame:L1;2:flame:L1;3:steam:L1
+51|7.0433270829998946|195|earned wave 4 / test clock30Hz / public commands / advancing combat|1276|35|14|15|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+52|7.1824316249999356|198|earned wave 4 / test clock30Hz / public commands / advancing combat|1280|35|14|15|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+53|7.32330624999986|201|earned wave 4 / test clock30Hz / public commands / advancing combat|1284|35|14|15|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+54|7.4613907080001809|204|earned wave 4 / test clock30Hz / public commands / advancing combat|1288|35|14|15|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+55|7.6011447500000031|207|earned wave 4 / test clock30Hz / public commands / advancing combat|1292|35|14|15|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+56|7.739397290999932|210|earned wave 4 / test clock30Hz / public commands / advancing combat|1296|35|14|15|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+57|7.8780894999999873|213|earned wave 4 / test clock30Hz / public commands / advancing combat|1301|35|14|15|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+58|8.01723420799999|216|earned wave 4 / test clock30Hz / public commands / advancing combat|1305|35|14|15|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+59|8.15828912500001|219|earned wave 4 / test clock30Hz / public commands / advancing combat|1309|35|14|15|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+60|8.2981457079999927|222|earned wave 4 / test clock30Hz / public commands / advancing combat|1313|35|14|15|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+61|8.4381358750001709|225|earned wave 4 / test clock30Hz / public commands / advancing combat|1317|35|14|15|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+62|8.57222766599989|228|earned wave 4 / test clock30Hz / public commands / advancing combat|1321|35|14|15|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+63|8.7094533330000559|231|earned wave 4 / test clock30Hz / public commands / advancing combat|1326|35|14|15|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+64|8.8440798749998066|234|earned wave 4 / test clock30Hz / public commands / advancing combat|1330|35|14|15|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+65|8.9736365829999158|237|earned wave 4 / test clock30Hz / public commands / advancing combat|1333|35|14|15|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+66|9.1088926249999531|240|earned wave 4 / test clock30Hz / public commands / advancing combat|1338|35|14|15|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+67|9.2365731250001772|243|earned wave 4 / test clock30Hz / public commands / advancing combat|1341|35|14|15|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+68|9.3704204579998986|246|earned wave 4 / test clock30Hz / public commands / advancing combat|1345|35|14|15|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+69|9.5090618750000431|249|earned wave 4 / test clock30Hz / public commands / advancing combat|1350|35|14|15|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+70|9.64834295799983|252|earned wave 4 / test clock30Hz / public commands / advancing combat|1354|35|14|15|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+71|9.7900909999998476|255|earned wave 4 / test clock30Hz / public commands / advancing combat|1358|35|14|15|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+72|9.93241529099987|258|earned wave 4 / test clock30Hz / public commands / advancing combat|1362|35|14|15|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+73|10.073599875000127|261|earned wave 4 / test clock30Hz / public commands / advancing combat|1366|40|14|16|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+74|10.213976582999749|264|earned wave 4 / test clock30Hz / public commands / advancing combat|1371|40|14|16|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+75|10.354808166000112|267|earned wave 4 / test clock30Hz / public commands / advancing combat|1375|40|14|16|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+76|10.494940582999789|270|earned wave 4 / test clock30Hz / public commands / advancing combat|1379|40|14|16|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+77|10.635456624999733|273|earned wave 4 / test clock30Hz / public commands / advancing combat|1383|40|14|16|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+78|10.765446583000085|276|earned wave 4 / test clock30Hz / public commands / advancing combat|1387|40|14|16|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+79|10.909203790999982|279|earned wave 4 / test clock30Hz / public commands / advancing combat|1392|40|14|16|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+80|11.05112999999983|282|earned wave 4 / test clock30Hz / public commands / advancing combat|1396|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+81|11.191816499999732|285|earned wave 4 / test clock30Hz / public commands / advancing combat|1400|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+82|11.327236832999915|288|earned wave 4 / test clock30Hz / public commands / advancing combat|1404|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+83|11.463344290999885|291|earned wave 4 / test clock30Hz / public commands / advancing combat|1408|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+84|11.602982124999926|294|earned wave 4 / test clock30Hz / public commands / advancing combat|1412|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+85|11.743822124999951|297|earned wave 4 / test clock30Hz / public commands / advancing combat|1417|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+86|11.884496624999883|300|earned wave 4 / test clock30Hz / public commands / advancing combat|1421|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+87|12.018251416000112|303|earned wave 4 / test clock30Hz / public commands / advancing combat|1425|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+88|12.154711707999923|306|earned wave 4 / test clock30Hz / public commands / advancing combat|1429|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+89|12.296272874999886|309|earned wave 4 / test clock30Hz / public commands / advancing combat|1433|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+90|12.436445875000118|312|earned wave 4 / test clock30Hz / public commands / advancing combat|1437|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+91|12.57741762500018|315|earned wave 4 / test clock30Hz / public commands / advancing combat|1442|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+92|12.718377041000167|318|earned wave 4 / test clock30Hz / public commands / advancing combat|1446|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+93|12.859384750000117|321|earned wave 4 / test clock30Hz / public commands / advancing combat|1450|40|14|16|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+94|12.993493957999817|324|earned wave 4 / test clock30Hz / public commands / advancing combat|1454|45|14|17|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+95|13.131956249999803|327|earned wave 4 / test clock30Hz / public commands / advancing combat|1458|45|14|17|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+96|13.273341915999936|330|earned wave 4 / test clock30Hz / public commands / advancing combat|1462|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+97|13.41361199999983|333|earned wave 4 / test clock30Hz / public commands / advancing combat|1467|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+98|13.554071375000149|336|earned wave 4 / test clock30Hz / public commands / advancing combat|1471|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+99|13.696581790999971|339|earned wave 4 / test clock30Hz / public commands / advancing combat|1475|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+100|13.836516040999868|342|earned wave 4 / test clock30Hz / public commands / advancing combat|1479|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+101|13.978914625000016|345|earned wave 4 / test clock30Hz / public commands / advancing combat|1484|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+102|14.121017416000086|348|earned wave 4 / test clock30Hz / public commands / advancing combat|1488|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+103|14.262388249999731|351|earned wave 4 / test clock30Hz / public commands / advancing combat|1492|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+104|14.404340375000174|354|earned wave 4 / test clock30Hz / public commands / advancing combat|1496|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+105|14.54579241600004|357|earned wave 4 / test clock30Hz / public commands / advancing combat|1501|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+106|14.686730375000025|360|earned wave 4 / test clock30Hz / public commands / advancing combat|1505|45|14|17|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+107|14.828329458000098|363|earned wave 4 / test clock30Hz / public commands / advancing combat|1509|50|14|18|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+108|14.970471540999824|366|earned wave 4 / test clock30Hz / public commands / advancing combat|1513|50|14|18|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+109|15.111384958000144|369|earned wave 4 / test clock30Hz / public commands / advancing combat|1518|50|14|18|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+110|15.252702249999857|372|earned wave 4 / test clock30Hz / public commands / advancing combat|1522|50|14|18|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+111|15.391850416000125|375|earned wave 4 / test clock30Hz / public commands / advancing combat|1526|50|14|18|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+112|15.531810250000035|378|earned wave 4 / test clock30Hz / public commands / advancing combat|1530|50|14|18|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+113|15.673129415999938|381|earned wave 4 / test clock30Hz / public commands / advancing combat|1534|50|14|18|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+114|15.814242708000165|384|earned wave 4 / test clock30Hz / public commands / advancing combat|1539|50|14|18|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+115|15.955240415999924|387|earned wave 4 / test clock30Hz / public commands / advancing combat|1543|50|14|18|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+116|16.095760415999848|390|earned wave 4 / test clock30Hz / public commands / advancing combat|1547|50|14|18|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+117|16.236596332999852|393|earned wave 4 / test clock30Hz / public commands / advancing combat|1551|50|14|18|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+118|16.377370332999817|396|earned wave 4 / test clock30Hz / public commands / advancing combat|1556|50|14|18|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+119|16.518644708000011|399|earned wave 4 / test clock30Hz / public commands / advancing combat|1560|50|14|18|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+120|16.662808790999861|402|earned wave 4 / test clock30Hz / public commands / advancing combat|1564|50|14|18|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+121|16.804064500000095|405|earned wave 4 / test clock30Hz / public commands / advancing combat|1568|50|14|18|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+122|16.944236666000052|408|earned wave 4 / test clock30Hz / public commands / advancing combat|1573|50|14|18|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+123|17.08479616600016|411|earned wave 4 / test clock30Hz / public commands / advancing combat|1577|55|14|19|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+124|17.225398166000105|414|earned wave 4 / test clock30Hz / public commands / advancing combat|1581|55|14|19|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+125|17.365449500000068|417|earned wave 4 / test clock30Hz / public commands / advancing combat|1585|55|14|19|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+126|17.506354208000175|420|earned wave 4 / test clock30Hz / public commands / advancing combat|1589|55|14|19|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+127|17.648228832999848|423|earned wave 4 / test clock30Hz / public commands / advancing combat|1594|55|14|19|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+128|17.788643374999992|426|earned wave 4 / test clock30Hz / public commands / advancing combat|1598|55|14|19|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+129|17.929783333000159|429|earned wave 4 / test clock30Hz / public commands / advancing combat|1602|55|14|19|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+130|18.069738041000164|432|earned wave 4 / test clock30Hz / public commands / advancing combat|1606|55|14|19|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+131|18.208899374999874|435|earned wave 4 / test clock30Hz / public commands / advancing combat|1611|55|14|19|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+132|18.35172641600002|438|earned wave 4 / test clock30Hz / public commands / advancing combat|1615|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+133|18.493423541000084|441|earned wave 4 / test clock30Hz / public commands / advancing combat|1619|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+134|18.635099374999754|444|earned wave 4 / test clock30Hz / public commands / advancing combat|1623|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+135|18.774172583000109|447|earned wave 4 / test clock30Hz / public commands / advancing combat|1627|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+136|18.915967791000185|450|earned wave 4 / test clock30Hz / public commands / advancing combat|1632|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+137|19.055359124999995|453|earned wave 4 / test clock30Hz / public commands / advancing combat|1636|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+138|19.196490082999844|456|earned wave 4 / test clock30Hz / public commands / advancing combat|1640|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+139|19.33612683299998|459|earned wave 4 / test clock30Hz / public commands / advancing combat|1644|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+140|19.476245625000047|462|earned wave 4 / test clock30Hz / public commands / advancing combat|1649|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+141|19.61542766599996|465|earned wave 4 / test clock30Hz / public commands / advancing combat|1653|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+142|19.757851958000174|468|earned wave 4 / test clock30Hz / public commands / advancing combat|1657|55|14|19|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+143|19.905537041000116|471|earned wave 5 / test clock30Hz / public commands / advancing combat|1661|80|14|20|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+144|20.046346582999831|474|earned wave 5 / test clock30Hz / public commands / advancing combat|1665|80|14|20|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+145|20.188343499999974|477|earned wave 5 / test clock30Hz / public commands / advancing combat|1669|80|14|20|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+146|20.3305687080001|480|earned wave 5 / test clock30Hz / public commands / advancing combat|1674|80|14|20|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+147|20.472454290999849|483|earned wave 5 / test clock30Hz / public commands / advancing combat|1678|80|14|20|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+148|20.613132291000056|486|earned wave 5 / test clock30Hz / public commands / advancing combat|1682|80|14|20|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+149|20.753294540999832|489|earned wave 5 / test clock30Hz / public commands / advancing combat|1686|80|14|20|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+150|20.893866957999762|492|earned wave 5 / test clock30Hz / public commands / advancing combat|1690|80|14|20|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+151|21.033706332999827|495|earned wave 5 / test clock30Hz / public commands / advancing combat|1695|80|14|20|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+152|21.175224332999733|498|earned wave 5 / test clock30Hz / public commands / advancing combat|1699|80|14|20|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+153|21.313442540999858|501|earned wave 5 / test clock30Hz / public commands / advancing combat|1703|80|14|20|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+154|21.453395874999842|504|earned wave 5 / test clock30Hz / public commands / advancing combat|1707|80|14|20|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+155|21.594261958000061|507|earned wave 5 / test clock30Hz / public commands / advancing combat|1711|80|14|20|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+156|21.734454500000083|510|earned wave 5 / test clock30Hz / public commands / advancing combat|1716|80|14|20|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+157|21.876884040999812|513|earned wave 5 / test clock30Hz / public commands / advancing combat|1720|80|14|20|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+158|22.018153915999847|516|earned wave 5 / test clock30Hz / public commands / advancing combat|1724|80|14|20|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+159|22.158907375000126|519|earned wave 5 / test clock30Hz / public commands / advancing combat|1728|80|14|20|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+160|22.299509166000007|522|earned wave 5 / test clock30Hz / public commands / advancing combat|1733|80|14|20|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+161|22.441244749999896|525|earned wave 5 / test clock30Hz / public commands / advancing combat|1737|80|14|20|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+162|22.585378040999785|528|earned wave 5 / test clock30Hz / public commands / advancing combat|1741|80|14|20|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+163|22.724788874999831|531|earned wave 5 / test clock30Hz / public commands / advancing combat|1745|80|14|20|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+164|22.865403791000062|534|earned wave 5 / test clock30Hz / public commands / advancing combat|1750|85|14|21|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+165|23.00620195800002|537|earned wave 5 / test clock30Hz / public commands / advancing combat|1754|85|14|21|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+166|23.145480499999849|540|earned wave 5 / test clock30Hz / public commands / advancing combat|1758|85|14|21|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+167|23.286261124999783|543|earned wave 5 / test clock30Hz / public commands / advancing combat|1762|85|14|21|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+168|23.424437665999903|546|earned wave 5 / test clock30Hz / public commands / advancing combat|1766|85|14|21|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+169|23.566169665999951|549|earned wave 5 / test clock30Hz / public commands / advancing combat|1771|85|14|21|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+170|23.706936582999788|552|earned wave 5 / test clock30Hz / public commands / advancing combat|1775|85|14|21|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+171|23.84691170799988|555|earned wave 5 / test clock30Hz / public commands / advancing combat|1779|85|14|21|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+172|23.988027708000118|558|earned wave 5 / test clock30Hz / public commands / advancing combat|1783|85|14|21|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+173|24.129040750000058|561|earned wave 5 / test clock30Hz / public commands / advancing combat|1787|85|14|21|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+174|24.269931875000111|564|earned wave 5 / test clock30Hz / public commands / advancing combat|1792|85|14|21|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+175|24.408934125000087|567|earned wave 5 / test clock30Hz / public commands / advancing combat|1796|85|14|21|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+176|24.549491750000016|570|earned wave 5 / test clock30Hz / public commands / advancing combat|1800|85|14|21|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+177|24.691256291000172|573|earned wave 5 / test clock30Hz / public commands / advancing combat|1804|85|14|21|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+178|24.8317287079999|576|earned wave 5 / test clock30Hz / public commands / advancing combat|1809|85|14|21|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+179|24.973508832999869|579|earned wave 5 / test clock30Hz / public commands / advancing combat|1813|85|14|21|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+180|25.115319375000126|582|earned wave 5 / test clock30Hz / public commands / advancing combat|1817|85|14|21|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+181|25.255300415999955|585|earned wave 5 / test clock30Hz / public commands / advancing combat|1821|85|14|21|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+182|25.397292041000128|588|earned wave 5 / test clock30Hz / public commands / advancing combat|1826|85|14|21|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+183|25.538566332999835|591|earned wave 5 / test clock30Hz / public commands / advancing combat|1830|85|14|21|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+184|25.680583458|594|earned wave 5 / test clock30Hz / public commands / advancing combat|1834|85|14|21|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+185|25.822835124999983|597|earned wave 5 / test clock30Hz / public commands / advancing combat|1838|85|14|21|6|1|1:flame:L1;2:flame:L1;3:steam:L1
+186|25.964393290999851|600|earned wave 5 / test clock30Hz / public commands / advancing combat|1843|90|14|22|5|0|1:flame:L1;2:flame:L1;3:steam:L1
+187|26.107669333000104|603|earned wave 5 / test clock30Hz / public commands / advancing combat|1847|90|14|22|5|0|1:flame:L1;2:flame:L1;3:steam:L1
+188|26.249800832999881|606|earned wave 5 / test clock30Hz / public commands / advancing combat|1851|90|14|22|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+189|26.390977540999756|609|earned wave 5 / test clock30Hz / public commands / advancing combat|1855|90|14|22|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+190|26.530799125000158|612|earned wave 5 / test clock30Hz / public commands / advancing combat|1860|105|14|25|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+191|26.671298833000037|615|earned wave 5 / test clock30Hz / public commands / advancing combat|1864|105|14|25|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+192|26.814054583000143|618|earned wave 5 / test clock30Hz / public commands / advancing combat|1868|105|14|25|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+193|26.955085957999927|621|earned wave 5 / test clock30Hz / public commands / advancing combat|1872|105|14|25|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+194|27.091685416000018|624|earned wave 5 / test clock30Hz / public commands / advancing combat|1876|105|14|25|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+195|27.232864291000169|627|earned wave 5 / test clock30Hz / public commands / advancing combat|1881|105|14|25|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+196|27.373394540999925|630|earned wave 5 / test clock30Hz / public commands / advancing combat|1885|105|14|25|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+197|27.515031458000067|633|earned wave 5 / test clock30Hz / public commands / advancing combat|1889|105|14|25|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+198|27.657312290999926|636|earned wave 5 / test clock30Hz / public commands / advancing combat|1893|105|14|25|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+199|27.798199249999925|639|earned wave 5 / test clock30Hz / public commands / advancing combat|1898|105|14|25|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+200|27.94019520799975|642|earned wave 5 / test clock30Hz / public commands / advancing combat|1902|105|14|25|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+201|28.080964165999831|645|earned wave 5 / test clock30Hz / public commands / advancing combat|1906|105|14|25|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+202|28.223474833000182|648|earned wave 5 / test clock30Hz / public commands / advancing combat|1910|105|14|25|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+203|28.362144582999917|651|earned wave 5 / test clock30Hz / public commands / advancing combat|1914|105|14|25|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+204|28.503389541000161|654|earned wave 5 / test clock30Hz / public commands / advancing combat|1919|105|14|25|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+205|28.645862750000106|657|earned wave 5 / test clock30Hz / public commands / advancing combat|1923|105|14|25|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+206|28.787628083000072|660|earned wave 5 / test clock30Hz / public commands / advancing combat|1927|105|14|25|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+207|28.930739666000136|663|earned wave 5 / test clock30Hz / public commands / advancing combat|1932|110|14|26|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+208|29.070522125000025|666|earned wave 5 / test clock30Hz / public commands / advancing combat|1936|110|14|26|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+209|29.212054957999953|669|earned wave 5 / test clock30Hz / public commands / advancing combat|1940|110|14|26|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+210|29.353375499999856|672|earned wave 5 / test clock30Hz / public commands / advancing combat|1944|110|14|26|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+211|29.495383082999979|675|earned wave 5 / test clock30Hz / public commands / advancing combat|1948|110|14|26|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+212|29.629641458000151|678|earned wave 5 / test clock30Hz / public commands / advancing combat|1953|110|14|26|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+213|29.767694665999898|681|earned wave 5 / test clock30Hz / public commands / advancing combat|1957|110|14|26|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+214|29.906678791000104|684|earned wave 5 / test clock30Hz / public commands / advancing combat|1961|110|14|26|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+215|30.047833208000156|687|earned wave 5 / test clock30Hz / public commands / advancing combat|1965|110|14|26|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+216|30.188167082999826|690|earned wave 5 / test clock30Hz / public commands / advancing combat|1969|110|14|26|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+217|30.330357499999991|693|earned wave 5 / test clock30Hz / public commands / advancing combat|1974|110|14|26|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+218|30.471088833000067|696|earned wave 5 / test clock30Hz / public commands / advancing combat|1978|110|14|26|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+219|30.612259707999783|699|earned wave 5 / test clock30Hz / public commands / advancing combat|1982|110|14|26|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+220|30.753704207999817|702|earned wave 5 / test clock30Hz / public commands / advancing combat|1986|110|14|26|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+221|30.894904750000023|705|earned wave 5 / test clock30Hz / public commands / advancing combat|1990|110|14|26|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+222|31.036520499999824|708|earned wave 5 / test clock30Hz / public commands / advancing combat|1995|110|14|26|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+223|31.178202166000119|711|earned wave 5 / test clock30Hz / public commands / advancing combat|1999|110|14|26|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+224|31.318707416000052|714|earned wave 5 / test clock30Hz / public commands / advancing combat|2003|115|14|27|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+225|31.460924583000178|717|earned wave 5 / test clock30Hz / public commands / advancing combat|2007|115|14|27|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+226|31.601080832999742|720|earned wave 5 / test clock30Hz / public commands / advancing combat|2012|115|14|27|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+227|31.739747957999953|723|earned wave 5 / test clock30Hz / public commands / advancing combat|2016|115|14|27|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+228|31.880629040999793|726|earned wave 5 / test clock30Hz / public commands / advancing combat|2020|115|14|27|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+229|32.020226041000114|729|earned wave 5 / test clock30Hz / public commands / advancing combat|2024|115|14|27|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+230|32.159843458000068|732|earned wave 5 / test clock30Hz / public commands / advancing combat|2028|115|14|27|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+231|32.298554707999756|735|earned wave 5 / test clock30Hz / public commands / advancing combat|2033|115|14|27|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+232|32.436412915999881|738|earned wave 5 / test clock30Hz / public commands / advancing combat|2037|115|14|27|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+233|32.578198290999808|741|earned wave 5 / test clock30Hz / public commands / advancing combat|2041|115|14|27|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+234|32.718252041000142|744|earned wave 5 / test clock30Hz / public commands / advancing combat|2045|115|14|27|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+235|32.860025082999982|747|earned wave 5 / test clock30Hz / public commands / advancing combat|2049|115|14|27|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+236|33.002610874999846|750|earned wave 5 / test clock30Hz / public commands / advancing combat|2054|115|14|27|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+237|33.144339124999988|753|earned wave 5 / test clock30Hz / public commands / advancing combat|2058|115|14|27|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+238|33.283501875000184|756|earned wave 5 / test clock30Hz / public commands / advancing combat|2062|115|14|27|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+239|33.424510290999933|759|earned wave 5 / test clock30Hz / public commands / advancing combat|2066|115|14|27|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+240|33.564194041000064|762|earned wave 5 / test clock30Hz / public commands / advancing combat|2071|115|14|27|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+241|33.704186666000169|765|earned wave 5 / test clock30Hz / public commands / advancing combat|2075|120|14|28|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+242|33.845569749999868|768|earned wave 5 / test clock30Hz / public commands / advancing combat|2079|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+243|33.985534625000128|771|earned wave 5 / test clock30Hz / public commands / advancing combat|2083|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+244|34.127107625000008|774|earned wave 5 / test clock30Hz / public commands / advancing combat|2087|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+245|34.26645950000011|777|earned wave 5 / test clock30Hz / public commands / advancing combat|2092|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+246|34.407204624999849|780|earned wave 5 / test clock30Hz / public commands / advancing combat|2096|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+247|34.546104458000173|783|earned wave 5 / test clock30Hz / public commands / advancing combat|2100|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+248|34.686161083000115|786|earned wave 5 / test clock30Hz / public commands / advancing combat|2104|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+249|34.829089082999872|789|earned wave 5 / test clock30Hz / public commands / advancing combat|2108|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+250|34.969293540999843|792|earned wave 5 / test clock30Hz / public commands / advancing combat|2113|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+251|35.10905562500011|795|earned wave 5 / test clock30Hz / public commands / advancing combat|2117|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+252|35.249359915999776|798|earned wave 5 / test clock30Hz / public commands / advancing combat|2121|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+253|35.391722290999951|801|earned wave 5 / test clock30Hz / public commands / advancing combat|2125|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+254|35.530763040999773|804|earned wave 5 / test clock30Hz / public commands / advancing combat|2130|120|14|28|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+255|35.679373874999783|807|earned wave 6 / test clock30Hz / public commands / advancing combat|2133|145|14|29|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+256|35.81567962500003|810|earned wave 6 / test clock30Hz / public commands / advancing combat|2137|145|14|29|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+257|35.956728874999953|813|earned wave 6 / test clock30Hz / public commands / advancing combat|2141|145|14|29|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+258|36.098132499999792|816|earned wave 6 / test clock30Hz / public commands / advancing combat|2145|145|14|29|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+259|36.239983541000129|819|earned wave 6 / test clock30Hz / public commands / advancing combat|2150|145|14|29|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+260|36.379017833000034|822|earned wave 6 / test clock30Hz / public commands / advancing combat|2154|145|14|29|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+261|36.519025499999771|825|earned wave 6 / test clock30Hz / public commands / advancing combat|2158|145|14|29|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+262|36.659850540999741|828|earned wave 6 / test clock30Hz / public commands / advancing combat|2162|145|14|29|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+263|36.802508582999963|831|earned wave 6 / test clock30Hz / public commands / advancing combat|2166|145|14|29|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+264|36.94693958300013|834|earned wave 6 / test clock30Hz / public commands / advancing combat|2171|145|14|29|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+265|37.089396750000105|837|earned wave 6 / test clock30Hz / public commands / advancing combat|2175|145|14|29|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+266|37.232114375000037|840|earned wave 6 / test clock30Hz / public commands / advancing combat|2179|145|14|29|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+267|37.373179958000037|843|earned wave 6 / test clock30Hz / public commands / advancing combat|2184|145|14|29|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+268|37.512771041000178|846|earned wave 6 / test clock30Hz / public commands / advancing combat|2188|145|14|29|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+269|37.655764624999847|849|earned wave 6 / test clock30Hz / public commands / advancing combat|2192|145|14|29|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+270|37.799219790999814|852|earned wave 6 / test clock30Hz / public commands / advancing combat|2196|145|14|29|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+271|37.9412444579998|855|earned wave 6 / test clock30Hz / public commands / advancing combat|2201|145|14|29|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+272|38.083652124999844|858|earned wave 6 / test clock30Hz / public commands / advancing combat|2205|145|14|29|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+273|38.224490166000123|861|earned wave 6 / test clock30Hz / public commands / advancing combat|2209|145|14|29|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+274|38.364980124999875|864|earned wave 6 / test clock30Hz / public commands / advancing combat|2213|145|14|29|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+275|38.506457541000145|867|earned wave 6 / test clock30Hz / public commands / advancing combat|2218|145|14|29|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+276|38.646526874999836|870|earned wave 6 / test clock30Hz / public commands / advancing combat|2222|145|14|29|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+277|38.78724208299991|873|earned wave 6 / test clock30Hz / public commands / advancing combat|2226|150|14|30|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+278|38.929241207999894|876|earned wave 6 / test clock30Hz / public commands / advancing combat|2230|150|14|30|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+279|39.071989999999914|879|earned wave 6 / test clock30Hz / public commands / advancing combat|2235|150|14|30|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+280|39.212158207999892|882|earned wave 6 / test clock30Hz / public commands / advancing combat|2239|150|14|30|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+281|39.351612583000133|885|earned wave 6 / test clock30Hz / public commands / advancing combat|2243|150|14|30|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+282|39.492772083000091|888|earned wave 6 / test clock30Hz / public commands / advancing combat|2247|150|14|30|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+283|39.632443625000178|891|earned wave 6 / test clock30Hz / public commands / advancing combat|2251|150|14|30|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+284|39.773025790999782|894|earned wave 6 / test clock30Hz / public commands / advancing combat|2256|150|14|30|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+285|39.913735707999876|897|earned wave 6 / test clock30Hz / public commands / advancing combat|2260|150|14|30|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+286|40.054358583000067|900|earned wave 6 / test clock30Hz / public commands / advancing combat|2264|150|14|30|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+287|40.195489374999852|903|earned wave 6 / test clock30Hz / public commands / advancing combat|2268|150|14|30|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+288|40.337135082999794|906|earned wave 6 / test clock30Hz / public commands / advancing combat|2273|150|14|30|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+289|40.479161665999982|909|earned wave 6 / test clock30Hz / public commands / advancing combat|2277|150|14|30|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+290|40.618664665999859|912|earned wave 6 / test clock30Hz / public commands / advancing combat|2281|150|14|30|4|1|1:flame:L1;2:flame:L1;3:steam:L1
+291|40.760631832999934|915|earned wave 6 / test clock30Hz / public commands / advancing combat|2285|150|14|30|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+292|40.901103624999905|918|earned wave 6 / test clock30Hz / public commands / advancing combat|2289|150|14|30|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+293|41.042662082999868|921|earned wave 6 / test clock30Hz / public commands / advancing combat|2294|150|14|30|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+294|41.183318124999914|924|earned wave 6 / test clock30Hz / public commands / advancing combat|2298|150|14|30|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+295|41.322630707999906|927|earned wave 6 / test clock30Hz / public commands / advancing combat|2302|150|14|30|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+296|41.463110832999973|930|earned wave 6 / test clock30Hz / public commands / advancing combat|2306|150|14|30|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+297|41.604886540999814|933|earned wave 6 / test clock30Hz / public commands / advancing combat|2311|150|14|30|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+298|41.748076500000025|936|earned wave 6 / test clock30Hz / public commands / advancing combat|2315|155|14|31|5|0|1:flame:L1;2:flame:L1;3:steam:L1
+299|41.890651499999876|939|earned wave 6 / test clock30Hz / public commands / advancing combat|2319|155|14|31|5|0|1:flame:L1;2:flame:L1;3:steam:L1
+300|42.033977540999786|942|earned wave 6 / test clock30Hz / public commands / advancing combat|2323|155|14|31|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+301|42.173635332999766|945|earned wave 6 / test clock30Hz / public commands / advancing combat|2328|155|14|31|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+302|42.313788790999752|948|earned wave 6 / test clock30Hz / public commands / advancing combat|2332|155|14|31|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+303|42.453456040999754|951|earned wave 6 / test clock30Hz / public commands / advancing combat|2336|155|14|31|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+304|42.594342124999912|954|earned wave 6 / test clock30Hz / public commands / advancing combat|2340|155|14|31|5|1|1:flame:L1;2:flame:L1;3:steam:L1
+305|42.735950916000093|957|earned wave 6 / test clock30Hz / public commands / advancing combat|2344|155|14|31|6|1|1:flame:L1;2:flame:L1;3:steam:L1
+306|42.877403999999842|960|earned wave 6 / test clock30Hz / public commands / advancing combat|2349|155|14|31|6|1|1:flame:L1;2:flame:L1;3:steam:L1
+307|43.016181707999749|963|earned wave 6 / test clock30Hz / public commands / advancing combat|2353|155|14|31|6|1|1:flame:L1;2:flame:L1;3:steam:L1
+308|43.158128832999864|966|earned wave 6 / test clock30Hz / public commands / advancing combat|2357|155|14|31|6|1|1:flame:L1;2:flame:L1;3:steam:L1
+309|43.297485499999766|969|earned wave 6 / test clock30Hz / public commands / advancing combat|2361|155|14|31|6|1|1:flame:L1;2:flame:L1;3:steam:L1
+310|43.436714583000139|972|earned wave 6 / test clock30Hz / public commands / advancing combat|2365|155|14|31|6|1|1:flame:L1;2:flame:L1;3:steam:L1
+311|43.578294915999777|975|earned wave 6 / test clock30Hz / public commands / advancing combat|2370|160|14|32|5|0|1:flame:L1;2:flame:L1;3:steam:L1
+312|43.722202040999946|978|earned wave 6 / test clock30Hz / public commands / advancing combat|2374|160|14|32|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+313|43.968344458000047|981|earned wave 6 / test clock30Hz / public commands / advancing combat|2381|160|14|32|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+314|44.114516499999809|984|earned wave 6 / test clock30Hz / public commands / advancing combat|2386|160|14|32|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+315|44.2566905409999|987|earned wave 6 / test clock30Hz / public commands / advancing combat|2390|160|14|32|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+316|44.399209124999743|990|earned wave 6 / test clock30Hz / public commands / advancing combat|2394|160|14|32|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+317|44.5426648749999|993|earned wave 6 / test clock30Hz / public commands / advancing combat|2399|160|14|32|6|1|1:flame:L1;2:flame:L1;3:steam:L1
+318|44.684499250000044|996|earned wave 6 / test clock30Hz / public commands / advancing combat|2403|160|14|32|7|1|1:flame:L1;2:flame:L1;3:steam:L1
+319|44.8262850000001|999|earned wave 6 / test clock30Hz / public commands / advancing combat|2407|160|14|32|7|1|1:flame:L1;2:flame:L1;3:steam:L1
+320|44.968350790999921|1002|earned wave 6 / test clock30Hz / public commands / advancing combat|2411|160|14|32|7|1|1:flame:L1;2:flame:L1;3:steam:L1
+321|45.104223165999883|1005|earned wave 6 / test clock30Hz / public commands / advancing combat|2416|160|14|32|7|1|1:flame:L1;2:flame:L1;3:steam:L1
+322|45.244423582999843|1008|earned wave 6 / test clock30Hz / public commands / advancing combat|2420|160|14|32|7|1|1:flame:L1;2:flame:L1;3:steam:L1
+323|45.38457708299984|1011|earned wave 6 / test clock30Hz / public commands / advancing combat|2424|160|14|32|7|1|1:flame:L1;2:flame:L1;3:steam:L1
+324|45.524853082999925|1014|earned wave 6 / test clock30Hz / public commands / advancing combat|2428|160|14|32|7|1|1:flame:L1;2:flame:L1;3:steam:L1
+325|45.667053165999732|1017|earned wave 6 / test clock30Hz / public commands / advancing combat|2432|160|14|32|7|1|1:flame:L1;2:flame:L1;3:steam:L1
+326|45.806965165999827|1020|earned wave 6 / test clock30Hz / public commands / advancing combat|2437|165|14|33|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+327|45.948354749999908|1023|earned wave 6 / test clock30Hz / public commands / advancing combat|2441|165|14|33|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+328|46.089762250000149|1026|earned wave 6 / test clock30Hz / public commands / advancing combat|2445|165|14|33|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+329|46.230331124999793|1029|earned wave 6 / test clock30Hz / public commands / advancing combat|2449|165|14|33|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+330|46.370728500000041|1032|earned wave 6 / test clock30Hz / public commands / advancing combat|2454|165|14|33|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+331|46.511595208000017|1035|earned wave 6 / test clock30Hz / public commands / advancing combat|2458|165|14|33|6|0|1:flame:L1;2:flame:L1;3:steam:L1
+332|46.656191083000067|1038|earned wave 6 / test clock30Hz / public commands / advancing combat|2462|180|14|36|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+333|46.7955649999999|1041|earned wave 6 / test clock30Hz / public commands / advancing combat|2466|180|14|36|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+334|46.937638124999921|1044|earned wave 6 / test clock30Hz / public commands / advancing combat|2471|180|14|36|3|0|1:flame:L1;2:flame:L1;3:steam:L1
+335|47.079344415999913|1047|earned wave 6 / test clock30Hz / public commands / advancing combat|2475|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+336|47.220494582999891|1050|earned wave 6 / test clock30Hz / public commands / advancing combat|2479|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+337|47.362692749999951|1053|earned wave 6 / test clock30Hz / public commands / advancing combat|2483|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+338|47.505106624999826|1056|earned wave 6 / test clock30Hz / public commands / advancing combat|2488|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+339|47.6463194160001|1059|earned wave 6 / test clock30Hz / public commands / advancing combat|2492|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+340|47.787492625000141|1062|earned wave 6 / test clock30Hz / public commands / advancing combat|2496|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+341|47.927015833000041|1065|earned wave 6 / test clock30Hz / public commands / advancing combat|2500|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+342|48.066445208000005|1068|earned wave 6 / test clock30Hz / public commands / advancing combat|2504|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+343|48.206076208000013|1071|earned wave 6 / test clock30Hz / public commands / advancing combat|2509|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+344|48.34724766599993|1074|earned wave 6 / test clock30Hz / public commands / advancing combat|2513|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+345|48.488436582999839|1077|earned wave 6 / test clock30Hz / public commands / advancing combat|2517|180|14|36|3|1|1:flame:L1;2:flame:L1;3:steam:L1
+346|48.62603316600007|1080|earned wave 6 / test clock30Hz / public commands / advancing combat|2521|185|14|37|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+347|48.76619779099974|1083|earned wave 6 / test clock30Hz / public commands / advancing combat|2525|185|14|37|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+348|48.906496624999818|1086|earned wave 6 / test clock30Hz / public commands / advancing combat|2530|185|14|37|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+349|49.047332250000181|1089|earned wave 6 / test clock30Hz / public commands / advancing combat|2534|185|14|37|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+350|49.187009540999952|1092|earned wave 6 / test clock30Hz / public commands / advancing combat|2538|185|14|37|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+351|49.327469625000049|1095|earned wave 6 / test clock30Hz / public commands / advancing combat|2542|185|14|37|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+352|49.467576333000125|1098|earned wave 6 / test clock30Hz / public commands / advancing combat|2546|185|14|37|2|0|1:flame:L1;2:flame:L1;3:steam:L1
+353|49.61056570799974|1101|earned wave 6 / test clock30Hz / public commands / advancing combat|2551|185|14|37|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+354|49.750432082999851|1104|earned wave 6 / test clock30Hz / public commands / advancing combat|2555|185|14|37|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+355|49.891038707999996|1107|earned wave 6 / test clock30Hz / public commands / advancing combat|2559|185|14|37|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+356|50.031983207999929|1110|earned wave 6 / test clock30Hz / public commands / advancing combat|2563|185|14|37|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+357|50.16420320799989|1113|earned wave 6 / test clock30Hz / public commands / advancing combat|2567|185|14|37|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+358|50.303962957999829|1116|earned wave 6 / test clock30Hz / public commands / advancing combat|2572|185|14|37|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+359|50.44456933299989|1119|earned wave 6 / test clock30Hz / public commands / advancing combat|2576|185|14|37|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+360|50.586358624999775|1122|earned wave 6 / test clock30Hz / public commands / advancing combat|2580|185|14|37|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+361|50.728407499999776|1125|earned wave 6 / test clock30Hz / public commands / advancing combat|2584|185|14|37|2|1|1:flame:L1;2:flame:L1;3:steam:L1
+362|50.871721250000064|1128|earned wave 6 / test clock30Hz / public commands / advancing combat|2589|190|14|38|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+363|51.011927458000173|1131|earned wave 6 / test clock30Hz / public commands / advancing combat|2593|190|14|38|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+364|51.153864708000128|1134|earned wave 6 / test clock30Hz / public commands / advancing combat|2597|190|14|38|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+365|51.292777041000136|1137|earned wave 6 / test clock30Hz / public commands / advancing combat|2601|190|14|38|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+366|51.43321508300005|1140|earned wave 6 / test clock30Hz / public commands / advancing combat|2605|190|14|38|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+367|51.574208166000062|1143|earned wave 6 / test clock30Hz / public commands / advancing combat|2610|190|14|38|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+368|51.714390374999766|1146|earned wave 6 / test clock30Hz / public commands / advancing combat|2614|190|14|38|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+369|51.854451916000016|1149|earned wave 6 / test clock30Hz / public commands / advancing combat|2618|190|14|38|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+370|51.995355041000039|1152|earned wave 6 / test clock30Hz / public commands / advancing combat|2622|190|14|38|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+371|52.134283500000038|1155|earned wave 6 / test clock30Hz / public commands / advancing combat|2626|190|14|38|1|0|1:flame:L1;2:flame:L1;3:steam:L1
+372|52.276214500000151|1158|earned wave 6 / test clock30Hz / public commands / advancing combat|2631|190|14|38|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+373|52.41693637499975|1161|earned wave 6 / test clock30Hz / public commands / advancing combat|2635|190|14|38|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+374|52.558766999999989|1164|earned wave 6 / test clock30Hz / public commands / advancing combat|2639|190|14|38|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+375|52.69775483300009|1167|earned wave 6 / test clock30Hz / public commands / advancing combat|2643|190|14|38|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+376|52.838656999999785|1170|earned wave 6 / test clock30Hz / public commands / advancing combat|2648|190|14|38|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+377|52.980477499999779|1173|earned wave 6 / test clock30Hz / public commands / advancing combat|2652|190|14|38|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+378|53.120813375000125|1176|earned wave 6 / test clock30Hz / public commands / advancing combat|2656|190|14|38|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+379|53.261476165999738|1179|earned wave 6 / test clock30Hz / public commands / advancing combat|2660|190|14|38|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+380|53.400482957999884|1182|earned wave 6 / test clock30Hz / public commands / advancing combat|2664|190|14|38|1|1|1:flame:L1;2:flame:L1;3:steam:L1
+381|53.556538457999977|1185|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+382|53.694330666000042|1188|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+383|53.836259790999975|1191|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+384|53.978432207999958|1194|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+385|54.119091665999804|1197|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+386|54.260985874999733|1200|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+387|54.403015500000038|1203|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+388|54.545186040999852|1206|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+389|54.68631675000006|1209|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+390|54.82840083300016|1212|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+391|54.96928512500017|1215|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+392|55.1113042500001|1218|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+393|55.253644915999757|1221|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+394|55.397353332999955|1224|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+395|55.536952458000087|1227|STEAM L2 / same TowerId + cell / earned budget|2668|50|14|39|0|0|1:flame:L1;2:flame:L1;3:steam:L2
+396|55.680482791000031|1230|earned wave 7 / test clock30Hz / public commands / advancing combat|2671|50|14|39|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+397|55.820499832999758|1233|earned wave 7 / test clock30Hz / public commands / advancing combat|2675|50|14|39|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+398|55.9619465830001|1236|earned wave 7 / test clock30Hz / public commands / advancing combat|2679|50|14|39|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+399|56.102310374999888|1239|earned wave 7 / test clock30Hz / public commands / advancing combat|2683|50|14|39|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+400|56.242399040999771|1242|earned wave 7 / test clock30Hz / public commands / advancing combat|2688|50|14|39|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+401|56.3828992079998|1245|earned wave 7 / test clock30Hz / public commands / advancing combat|2692|50|14|39|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+402|56.524666207999871|1248|earned wave 7 / test clock30Hz / public commands / advancing combat|2696|50|14|39|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+403|56.665424249999887|1251|earned wave 7 / test clock30Hz / public commands / advancing combat|2700|50|14|39|2|0|1:flame:L1;2:flame:L1;3:steam:L2
+404|56.795681582999805|1254|earned wave 7 / test clock30Hz / public commands / advancing combat|2704|50|14|39|2|0|1:flame:L1;2:flame:L1;3:steam:L2
+405|56.930490707999979|1257|earned wave 7 / test clock30Hz / public commands / advancing combat|2708|50|14|39|2|0|1:flame:L1;2:flame:L1;3:steam:L2
+406|57.068159915999786|1260|earned wave 7 / test clock30Hz / public commands / advancing combat|2712|50|14|39|2|0|1:flame:L1;2:flame:L1;3:steam:L2
+407|57.208518040999934|1263|earned wave 7 / test clock30Hz / public commands / advancing combat|2716|50|14|39|2|0|1:flame:L1;2:flame:L1;3:steam:L2
+408|57.348341040999912|1266|earned wave 7 / test clock30Hz / public commands / advancing combat|2721|50|14|39|2|0|1:flame:L1;2:flame:L1;3:steam:L2
+409|57.490455499999825|1269|earned wave 7 / test clock30Hz / public commands / advancing combat|2725|50|14|39|2|0|1:flame:L1;2:flame:L1;3:steam:L2
+410|57.631978375000017|1272|earned wave 7 / test clock30Hz / public commands / advancing combat|2729|50|14|39|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+411|57.772911083000054|1275|earned wave 7 / test clock30Hz / public commands / advancing combat|2733|50|14|39|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+412|57.913758207999763|1278|earned wave 7 / test clock30Hz / public commands / advancing combat|2738|50|14|39|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+413|58.055830916000104|1281|earned wave 7 / test clock30Hz / public commands / advancing combat|2742|55|14|40|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+414|58.19795695799985|1284|earned wave 7 / test clock30Hz / public commands / advancing combat|2746|55|14|40|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+415|58.340266499999871|1287|earned wave 7 / test clock30Hz / public commands / advancing combat|2750|55|14|40|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+416|58.481694749999861|1290|earned wave 7 / test clock30Hz / public commands / advancing combat|2755|55|14|40|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+417|58.623371874999975|1293|earned wave 7 / test clock30Hz / public commands / advancing combat|2759|55|14|40|3|1|1:flame:L1;2:flame:L1;3:steam:L2
+418|58.766667375|1296|earned wave 7 / test clock30Hz / public commands / advancing combat|2763|55|14|40|3|1|1:flame:L1;2:flame:L1;3:steam:L2
+419|58.909102915999938|1299|earned wave 7 / test clock30Hz / public commands / advancing combat|2767|55|14|40|3|1|1:flame:L1;2:flame:L1;3:steam:L2
+420|59.050869415999841|1302|earned wave 7 / test clock30Hz / public commands / advancing combat|2772|55|14|40|3|1|1:flame:L1;2:flame:L1;3:steam:L2
+421|59.186763916000018|1305|earned wave 7 / test clock30Hz / public commands / advancing combat|2776|55|14|40|3|1|1:flame:L1;2:flame:L1;3:steam:L2
+422|59.326971125|1308|earned wave 7 / test clock30Hz / public commands / advancing combat|2780|55|14|40|3|1|1:flame:L1;2:flame:L1;3:steam:L2
+423|59.466083875000095|1311|earned wave 7 / test clock30Hz / public commands / advancing combat|2784|55|14|40|3|1|1:flame:L1;2:flame:L1;3:steam:L2
+424|59.607103415999973|1314|earned wave 7 / test clock30Hz / public commands / advancing combat|2788|55|14|40|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+425|59.748403250000138|1317|earned wave 7 / test clock30Hz / public commands / advancing combat|2793|55|14|40|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+426|59.88916054099991|1320|earned wave 7 / test clock30Hz / public commands / advancing combat|2797|55|14|40|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+427|60.030428333000145|1323|earned wave 7 / test clock30Hz / public commands / advancing combat|2801|55|14|40|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+428|60.1728263330001|1326|earned wave 7 / test clock30Hz / public commands / advancing combat|2805|60|14|41|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+429|60.313206165999873|1329|earned wave 7 / test clock30Hz / public commands / advancing combat|2810|60|14|41|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+430|60.45375550000017|1332|earned wave 7 / test clock30Hz / public commands / advancing combat|2814|60|14|41|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+431|60.594587000000047|1335|earned wave 7 / test clock30Hz / public commands / advancing combat|2818|60|14|41|4|0|1:flame:L1;2:flame:L1;3:steam:L2
+432|60.735431166000126|1338|earned wave 7 / test clock30Hz / public commands / advancing combat|2822|60|14|41|4|0|1:flame:L1;2:flame:L1;3:steam:L2
+433|60.8779662500001|1341|earned wave 7 / test clock30Hz / public commands / advancing combat|2827|60|14|41|4|0|1:flame:L1;2:flame:L1;3:steam:L2
+434|61.018373583000084|1344|earned wave 7 / test clock30Hz / public commands / advancing combat|2831|60|14|41|4|0|1:flame:L1;2:flame:L1;3:steam:L2
+435|61.158956165999825|1347|earned wave 7 / test clock30Hz / public commands / advancing combat|2835|60|14|41|4|0|1:flame:L1;2:flame:L1;3:steam:L2
+436|61.298624041000039|1350|earned wave 7 / test clock30Hz / public commands / advancing combat|2839|60|14|41|4|2|1:flame:L1;2:flame:L1;3:steam:L2
+437|61.440405958000156|1353|earned wave 7 / test clock30Hz / public commands / advancing combat|2843|60|14|41|4|2|1:flame:L1;2:flame:L1;3:steam:L2
+438|61.583003624999947|1356|earned wave 7 / test clock30Hz / public commands / advancing combat|2848|60|14|41|5|2|1:flame:L1;2:flame:L1;3:steam:L2
+439|61.723106874999758|1359|earned wave 7 / test clock30Hz / public commands / advancing combat|2852|60|14|41|5|2|1:flame:L1;2:flame:L1;3:steam:L2
+440|61.864463290999993|1362|earned wave 7 / test clock30Hz / public commands / advancing combat|2856|60|14|41|5|2|1:flame:L1;2:flame:L1;3:steam:L2
+441|62.00603587500018|1365|earned wave 7 / test clock30Hz / public commands / advancing combat|2860|60|14|41|5|2|1:flame:L1;2:flame:L1;3:steam:L2
+442|62.146474958|1368|earned wave 7 / test clock30Hz / public commands / advancing combat|2865|60|14|41|5|2|1:flame:L1;2:flame:L1;3:steam:L2
+443|62.288612124999872|1371|earned wave 7 / test clock30Hz / public commands / advancing combat|2869|60|14|41|5|2|1:flame:L1;2:flame:L1;3:steam:L2
+444|62.429713458000151|1374|earned wave 7 / test clock30Hz / public commands / advancing combat|2873|65|14|42|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+445|62.571788332999859|1377|earned wave 7 / test clock30Hz / public commands / advancing combat|2877|65|14|42|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+446|62.71375316600006|1380|earned wave 7 / test clock30Hz / public commands / advancing combat|2882|65|14|42|5|1|1:flame:L1;2:flame:L1;3:steam:L2
+447|62.854879416000131|1383|earned wave 7 / test clock30Hz / public commands / advancing combat|2886|65|14|42|5|1|1:flame:L1;2:flame:L1;3:steam:L2
+448|62.993720999999823|1386|earned wave 7 / test clock30Hz / public commands / advancing combat|2890|65|14|42|5|1|1:flame:L1;2:flame:L1;3:steam:L2
+449|63.135295375000169|1389|earned wave 7 / test clock30Hz / public commands / advancing combat|2894|65|14|42|5|1|1:flame:L1;2:flame:L1;3:steam:L2
+450|63.27629533299978|1392|earned wave 7 / test clock30Hz / public commands / advancing combat|2899|65|14|42|5|1|1:flame:L1;2:flame:L1;3:steam:L2
+451|63.416265500000009|1395|earned wave 7 / test clock30Hz / public commands / advancing combat|2903|65|14|42|5|1|1:flame:L1;2:flame:L1;3:steam:L2
+452|63.558510666000075|1398|earned wave 7 / test clock30Hz / public commands / advancing combat|2907|70|14|43|4|0|1:flame:L1;2:flame:L1;3:steam:L2
+453|63.701430499999788|1401|earned wave 7 / test clock30Hz / public commands / advancing combat|2911|70|14|43|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+454|63.834342499999821|1404|earned wave 7 / test clock30Hz / public commands / advancing combat|2915|70|14|43|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+455|63.963416041000073|1407|earned wave 7 / test clock30Hz / public commands / advancing combat|2919|70|14|43|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+456|64.097698375000164|1410|earned wave 7 / test clock30Hz / public commands / advancing combat|2923|70|14|43|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+457|64.235574750000069|1413|earned wave 7 / test clock30Hz / public commands / advancing combat|2927|70|14|43|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+458|64.376730666000185|1416|earned wave 7 / test clock30Hz / public commands / advancing combat|2932|70|14|43|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+459|64.51669824999999|1419|earned wave 7 / test clock30Hz / public commands / advancing combat|2936|70|14|43|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+460|64.659371916000055|1422|earned wave 7 / test clock30Hz / public commands / advancing combat|2940|70|14|43|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+461|64.801220958000158|1425|earned wave 7 / test clock30Hz / public commands / advancing combat|2944|70|14|43|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+462|64.942554958000073|1428|earned wave 7 / test clock30Hz / public commands / advancing combat|2949|70|14|43|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+463|65.085891415999868|1431|earned wave 7 / test clock30Hz / public commands / advancing combat|2953|70|14|43|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+464|65.227311999999984|1434|earned wave 7 / test clock30Hz / public commands / advancing combat|2957|70|14|43|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+465|65.369050499999958|1437|earned wave 7 / test clock30Hz / public commands / advancing combat|2961|70|14|43|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+466|65.511862290999943|1440|earned wave 7 / test clock30Hz / public commands / advancing combat|2966|75|14|44|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+467|65.654815416000019|1443|earned wave 7 / test clock30Hz / public commands / advancing combat|2970|75|14|44|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+468|65.796720583000024|1446|earned wave 7 / test clock30Hz / public commands / advancing combat|2974|75|14|44|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+469|65.939352957999745|1449|earned wave 7 / test clock30Hz / public commands / advancing combat|2978|75|14|44|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+470|66.081369790999815|1452|earned wave 7 / test clock30Hz / public commands / advancing combat|2983|75|14|44|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+471|66.222639915999935|1455|earned wave 7 / test clock30Hz / public commands / advancing combat|2987|75|14|44|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+472|66.36384199999975|1458|earned wave 7 / test clock30Hz / public commands / advancing combat|2991|75|14|44|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+473|66.5069974160001|1461|earned wave 7 / test clock30Hz / public commands / advancing combat|2995|75|14|44|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+474|66.648096625000107|1464|earned wave 7 / test clock30Hz / public commands / advancing combat|3000|75|14|44|6|1|1:flame:L1;2:flame:L1;3:steam:L2
+475|66.789098040999761|1467|earned wave 7 / test clock30Hz / public commands / advancing combat|3004|80|14|45|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+476|66.929470416000186|1470|earned wave 7 / test clock30Hz / public commands / advancing combat|3008|80|14|45|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+477|67.069420332999925|1473|earned wave 7 / test clock30Hz / public commands / advancing combat|3012|80|14|45|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+478|67.211223916000108|1476|earned wave 7 / test clock30Hz / public commands / advancing combat|3017|80|14|45|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+479|67.352882958000009|1479|earned wave 7 / test clock30Hz / public commands / advancing combat|3021|80|14|45|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+480|67.494507500000054|1482|earned wave 7 / test clock30Hz / public commands / advancing combat|3025|80|14|45|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+481|67.637001291000161|1485|earned wave 7 / test clock30Hz / public commands / advancing combat|3029|80|14|45|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+482|67.778631499999847|1488|earned wave 7 / test clock30Hz / public commands / advancing combat|3034|80|14|45|5|0|1:flame:L1;2:flame:L1;3:steam:L2
+483|67.921690540999862|1491|earned wave 7 / test clock30Hz / public commands / advancing combat|3038|80|14|45|5|2|1:flame:L1;2:flame:L1;3:steam:L2
+484|68.0635319160001|1494|earned wave 7 / test clock30Hz / public commands / advancing combat|3042|80|14|45|5|2|1:flame:L1;2:flame:L1;3:steam:L2
+485|68.204201957999885|1497|earned wave 7 / test clock30Hz / public commands / advancing combat|3046|85|14|46|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+486|68.346188208000058|1500|earned wave 7 / test clock30Hz / public commands / advancing combat|3051|85|14|46|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+487|68.488535541000147|1503|earned wave 7 / test clock30Hz / public commands / advancing combat|3055|85|14|46|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+488|68.631891790999816|1506|earned wave 7 / test clock30Hz / public commands / advancing combat|3059|85|14|46|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+489|68.772717583000031|1509|earned wave 7 / test clock30Hz / public commands / advancing combat|3063|85|14|46|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+490|68.901691874999869|1512|earned wave 7 / test clock30Hz / public commands / advancing combat|3067|85|14|46|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+491|69.032221874999777|1515|earned wave 7 / test clock30Hz / public commands / advancing combat|3071|85|14|46|4|1|1:flame:L1;2:flame:L1;3:steam:L2
+492|69.167300582999815|1518|earned wave 7 / test clock30Hz / public commands / advancing combat|3075|90|14|47|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+493|69.3138013329999|1521|earned wave 7 / test clock30Hz / public commands / advancing combat|3080|90|14|47|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+494|69.456664708000062|1524|earned wave 7 / test clock30Hz / public commands / advancing combat|3084|90|14|47|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+495|69.58595695799977|1527|earned wave 7 / test clock30Hz / public commands / advancing combat|3088|90|14|47|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+496|69.717404957999861|1530|earned wave 7 / test clock30Hz / public commands / advancing combat|3092|90|14|47|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+497|69.861656250000124|1533|earned wave 7 / test clock30Hz / public commands / advancing combat|3096|90|14|47|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+498|70.005064707999736|1536|earned wave 7 / test clock30Hz / public commands / advancing combat|3100|90|14|47|3|0|1:flame:L1;2:flame:L1;3:steam:L2
+499|70.1458331660001|1539|earned wave 7 / test clock30Hz / public commands / advancing combat|3105|95|14|48|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+500|70.28718733300002|1542|earned wave 7 / test clock30Hz / public commands / advancing combat|3109|95|14|48|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+501|70.429141291000178|1545|earned wave 7 / test clock30Hz / public commands / advancing combat|3113|95|14|48|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+502|70.5702568329998|1548|earned wave 7 / test clock30Hz / public commands / advancing combat|3117|95|14|48|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+503|70.709682082999734|1551|earned wave 7 / test clock30Hz / public commands / advancing combat|3122|95|14|48|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+504|70.849110915999972|1554|earned wave 7 / test clock30Hz / public commands / advancing combat|3126|95|14|48|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+505|70.99052379099976|1557|earned wave 7 / test clock30Hz / public commands / advancing combat|3130|95|14|48|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+506|71.131177665999985|1560|earned wave 7 / test clock30Hz / public commands / advancing combat|3134|95|14|48|2|1|1:flame:L1;2:flame:L1;3:steam:L2
+507|71.27160025000012|1563|earned wave 7 / test clock30Hz / public commands / advancing combat|3138|100|14|49|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+508|71.4137948749999|1566|earned wave 7 / test clock30Hz / public commands / advancing combat|3143|100|14|49|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+509|71.552967125000123|1569|earned wave 7 / test clock30Hz / public commands / advancing combat|3147|100|14|49|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+510|71.6911893749998|1572|earned wave 7 / test clock30Hz / public commands / advancing combat|3151|100|14|49|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+511|71.830457375000151|1575|earned wave 7 / test clock30Hz / public commands / advancing combat|3155|100|14|49|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+512|71.970038166|1578|earned wave 7 / test clock30Hz / public commands / advancing combat|3159|100|14|49|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+513|72.111123415999828|1581|earned wave 7 / test clock30Hz / public commands / advancing combat|3164|100|14|49|1|0|1:flame:L1;2:flame:L1;3:steam:L2
+514|72.26885349999975|1584|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+515|72.405629875000159|1587|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+516|72.545933708000121|1590|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+517|72.688920208000127|1593|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+518|72.829116290999991|1596|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+519|72.970693082999787|1599|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+520|73.112856916000055|1602|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+521|73.25429341600011|1605|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+522|73.396134749999874|1608|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+523|73.538071541000136|1611|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+524|73.680206416000146|1614|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+525|73.8234944159999|1617|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+526|73.963589625000168|1620|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+527|74.106005540999831|1623|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+528|74.247827249999773|1626|STEAM L3 / same TowerId + cell / MAX + range|3168|3|14|50|0|0|3:steam:L3
+529|74.402957415999936|1629|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3168|3|14|50|1|0|3:steam:L3
+530|74.5453984159999|1632|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3168|3|14|50|1|0|3:steam:L3
+531|74.682297332999951|1635|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3168|3|14|50|1|0|3:steam:L3
+532|74.822130333000132|1638|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3168|3|14|50|1|0|3:steam:L3
+533|74.962563707999834|1641|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3168|3|14|50|1|0|3:steam:L3
+534|75.1032606660001|1644|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3168|3|14|50|1|0|3:steam:L3
+535|75.245065499999782|1647|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3168|3|14|50|1|0|3:steam:L3
+536|75.385879750000186|1650|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3172|3|14|50|1|0|3:steam:L3
+537|75.519655999999941|1653|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3176|3|14|50|1|0|3:steam:L3
+538|75.645130290999987|1656|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3179|3|14|50|1|0|3:steam:L3
+539|75.777795625000181|1659|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3183|3|14|50|1|0|3:steam:L3
+540|75.915171999999984|1662|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3188|3|14|50|1|0|3:steam:L3
+541|76.0555603329999|1665|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3192|3|14|50|1|0|3:steam:L3
+542|76.19562520799991|1668|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3196|3|14|50|1|0|3:steam:L3
+543|76.33538954100004|1671|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3200|3|14|50|2|0|3:steam:L3
+544|76.476396083000054|1674|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3204|3|14|50|2|0|3:steam:L3
+545|76.61730099999977|1677|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3209|3|14|50|2|0|3:steam:L3
+546|76.757201124999938|1680|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3213|3|14|50|2|0|3:steam:L3
+547|76.898469875000046|1683|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3217|3|14|50|2|0|3:steam:L3
+548|77.039744707999944|1686|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3221|3|14|50|2|0|3:steam:L3
+549|77.171108707999792|1689|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3225|3|14|50|2|0|3:steam:L3
+550|77.310692458000176|1692|advancing REAL-TIME Combat / HP + intrinsic Steam / generic beam #47|3229|3|14|50|3|0|3:steam:L3
+551|77.462722875000054|1695|advancing combat / actual intrinsic Steam enemy Inspect + HP|3234|3|14|50|3|2|3:steam:L3
+552|77.600471833000029|1698|advancing combat / actual intrinsic Steam enemy Inspect + HP|3238|3|14|50|3|2|3:steam:L3
+553|77.741356624999753|1701|advancing combat / actual intrinsic Steam enemy Inspect + HP|3242|3|14|50|3|2|3:steam:L3
+554|77.884327750000011|1704|advancing combat / actual intrinsic Steam enemy Inspect + HP|3247|3|14|50|3|2|3:steam:L3
+555|78.029077457999847|1707|advancing combat / actual intrinsic Steam enemy Inspect + HP|3251|3|14|50|3|2|3:steam:L3
+556|78.2431432909998|1708|advancing combat / actual intrinsic Steam enemy Inspect + HP||||||0|
+557|78.368325625000125|1711|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+558|78.498728749999827|1714|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+559|78.627379540999755|1717|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+560|78.753247582999848|1720|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+561|78.886655625|1723|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+562|79.022185207999883|1726|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+563|79.159726541000055|1729|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+564|79.297098125000048|1732|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+565|79.4351857910001|1735|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+566|79.571564875000149|1738|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+567|79.70776904100012|1741|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+568|79.854588374999821|1744|interrupted Combat / file-menu Continue rolls back to Preparation||||||0|
+569|80.058310999999776|1745|interrupted Combat / file-menu Continue rolls back to Preparation|3168|3|14|50|0|0|3:steam:L3
+570|80.188916915999926|1748|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+571|80.325007040999935|1751|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+572|80.465437833000124|1754|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+573|80.604450541|1757|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+574|80.744862582999758|1760|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+575|80.885072291000142|1763|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+576|81.026850207999814|1766|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+577|81.167506875000072|1769|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+578|81.303513708000082|1772|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+579|81.436361250000118|1775|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+580|81.573437458000171|1778|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+581|81.713132916000177|1781|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+582|81.8547591659999|1784|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+583|81.9975112080001|1787|restored Preparation / STEAM L3 / unchanged Gold-HP-kills|3168|3|14|50|0|0|3:steam:L3
+584|82.140960958000051|1790|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+585|82.282003625000016|1793|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+586|82.423484375000044|1796|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+587|82.56384854099997|1799|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+588|82.707206832999873|1802|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+589|82.8483289159999|1805|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+590|82.990898540999751|1808|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+591|83.132852290999836|1811|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+592|83.277187874999981|1814|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+593|83.4190175409999|1817|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+594|83.560632207999788|1820|Sell confirmation / actual configured refund|3168|3|14|50|0|0|3:steam:L3
+595|83.706192832999932|1823|Sell confirmation / actual configured refund|3168|349|14|50|0|0|
+596|83.8455765409999|1826|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+597|83.986786583000139|1829|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+598|84.12719187499988|1832|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+599|84.266498291000062|1835|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+600|84.407997374999923|1838|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+601|84.547970499999792|1841|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+602|84.689995582999927|1844|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+603|84.831049833000179|1847|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+604|84.964495124999758|1850|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+605|85.092113749999953|1853|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+606|85.228247832999841|1856|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+607|85.367813666000075|1859|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+608|85.506461166000008|1862|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|
+609|85.645074707999811|1865|sold / no model roots / public-command Editor proof complete|3168|349|14|50|0|0|

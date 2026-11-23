@@ -1,0 +1,92 @@
+{
+  "trackedInputs": 660,
+  "changed": [
+    {
+      "path": "Assets/_Game/Art/Materials/AttackBeam.mat",
+      "before": "c1b84083940598bd2e502a3f8d8ccb9e4d6cae262da451b41b1df9377dcba516",
+      "generated": "b483fc95afccba997713dc0cfd3f961366569cbb3647e6350e1a585f524e88be"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxGround.mat",
+      "before": "8df22d96585a4527359cfae575e97c9b19fd3e20312f49c15490f86349274a24",
+      "generated": "4f928d2f6c878bfcafd8dfc0393134952481ba82dcf59c4af1c4e546480f942f"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxHeart.mat",
+      "before": "bda65cab8072fc09d3e2f086a0419b19fcc5091f22290fc6ce06ee0579dcf02f",
+      "generated": "a8c76ae59c80ea71d2fb8c3318ea95a2ac212a8f8660068bc5308567701f6a3f"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxPath.mat",
+      "before": "bb023f1c463dc6467363d80bb350ca9628d3bad86d75b6e4c5d6acb8f1687175",
+      "generated": "d980a7bbdfbec4f5187900b72a84d0ea3e536d6cc955ee0957370760305b5c71"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxSelection.mat",
+      "before": "6107f7e1b6deb79ceb4489599637fdb16c5e01870013e0cc3a71d2c50b35ad65",
+      "generated": "81d88cfae866346c0a0d5b7f0ec5524e596223405969cbdd6540bb4e9197d65a"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxShade.mat",
+      "before": "26263cc48bc3fd9487336a3852445a4f076309d3f3ef7bd23362a7a042ec6596",
+      "generated": "e1f200c94f0594e77b80a963cb35bc24acedd1c2189666314afb63aa989be1b2"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxSpawn.mat",
+      "before": "95e8596688eb9a0144e94d96a53013ea16fd8449eab49ebec862e1af9380cc13",
+      "generated": "9907df34afad8ca6e668b14cf0b2b9a83d3e1b046243a6c175953811f7abd64f"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxTower.mat",
+      "before": "71ced636160a68dca7cf26fd2338913b0d0620aeb891c4ea106d7cacba94f275",
+      "generated": "ec4d49ece0c341c70b936457f82c4c96e1759622e1b06a5e0c5b3eaf5f5df60b"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat",
+      "before": "1b49d268ffb66f7e898a81d0a4a7b02e404d14dc7d884cae98cac05bdfa4ce70",
+      "generated": "f59dacd2fd8035a34496b90e96740492e44af2953d33cd9bed62d2e12d3e1d11"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/HealthBackground.mat",
+      "before": "5110677ea68472656d16750227b8951541f357b38cbe6748fae9491ded252cea",
+      "generated": "63b4be038cc0dec06d22a8c6e61608d74d074e4d86490e84c468cc5a8f26eafc"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/HealthFill.mat",
+      "before": "d8eab10147f883570bc8c6aaa56e0615abf8e098f7da41f9f2110ea4d95a3e3f",
+      "generated": "4e6d40fe731dfcc7092f109c76a905abc43f542905fe43d0f4e240bc2125fefe"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/RangePreview.mat",
+      "before": "fe2754907be728f15f08d2d1f619745db38454f9ebe4b0d6e5c2621baac92b28",
+      "generated": "b4f39fd218f324a697ee697bba664e74238cc26b7335dbd4364699f702aff60e"
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/ReactionEffect.mat",
+      "before": "c5726f7f7e26cef3ef94a623517383dda9285414805310b0dc81e106ff44cf52",
+      "generated": "38fd34da1f255e8589a991cb150d20e9cf9a943bfeb49941a962dc8ec6950e50"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/Shade.prefab",
+      "before": "7bac68b25bf10bf3b01db91111f913b3d90c98ca34c599468dcaab7432a761c9",
+      "generated": "8a176f47d22c7d6ab3d86bae1245b0c1a1dad9201e41ce24fab066a91cd1d910"
+    },
+    {
+      "path": "Assets/_Game/Prefabs/TestTower.prefab",
+      "before": "337ad9410d58a24c1c869552e47be2ff35e7bbd48a00872d85e7aa05ae069dfd",
+      "generated": "e56a0bf7395171e20f1931d53ea75770b6b5e250affe4521cc553db43971f56a"
+    },
+    {
+      "path": "Assets/_Game/Scenes/Battle.unity",
+      "before": "3648126f0d598cc253a184900727ae36b06bd9cbe5efc7674dbcdc7cbbcdf690",
+      "generated": "80316562980078a00419f509e5338790e6ffc3065910d904e6136ecc38fedca8"
+    },
+    {
+      "path": "Assets/_Game/Scenes/MainMenu.unity",
+      "before": "1dfab903ee8757a1322257f0a79c9c8abcc5fba1851b4b36640a6516ac2ef757",
+      "generated": "ac08613ba82fc66e2df79a25be87cb706dce4d8c672c67cde771e32f4ed1ed25"
+    }
+  ],
+  "allPreRunBytesRestored": true,
+  "originalCarryInChangesPreserved": true
+}

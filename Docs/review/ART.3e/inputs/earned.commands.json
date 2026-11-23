@@ -1,0 +1,99 @@
+{
+    "start": "flame",
+    "after3": "tide",
+    "after6": "gale",
+    "commands": [
+        {
+            "wave": 1,
+            "x": -3,
+            "y": -1,
+            "id": 0,
+            "op": "place",
+            "type": "flame"
+        },
+        {
+            "wave": 1,
+            "x": 2,
+            "y": 1,
+            "id": 0,
+            "op": "place",
+            "type": "flame"
+        },
+        {
+            "wave": 4,
+            "x": 1,
+            "y": 0,
+            "id": 0,
+            "op": "place",
+            "type": "steam"
+        },
+        {
+            "wave": 7,
+            "x": 0,
+            "y": 0,
+            "id": 3,
+            "op": "upgrade",
+            "type": "steam"
+        },
+        {
+            "wave": 8,
+            "x": 0,
+            "y": 0,
+            "id": 1,
+            "op": "sell",
+            "type": "flame"
+        },
+        {
+            "wave": 8,
+            "x": 0,
+            "y": 0,
+            "id": 2,
+            "op": "sell",
+            "type": "flame"
+        },
+        {
+            "wave": 8,
+            "x": 0,
+            "y": 0,
+            "id": 3,
+            "op": "upgrade",
+            "type": "steam"
+        }
+    ],
+    "threshold": 200,
+    "bossDelay": 0,
+    "earlyWave8": false,
+    "holdWave7": false,
+    "casts": [
+        {
+            "wave": 1,
+            "relativeTick": 60,
+            "x": -3.4750008583068849,
+            "y": -2.0
+        },
+        {
+            "wave": 2,
+            "relativeTick": 275,
+            "x": 0.1500086784362793,
+            "y": 0.6500029563903809
+        },
+        {
+            "wave": 4,
+            "relativeTick": 77,
+            "x": -2.6250011920928957,
+            "y": -2.0
+        },
+        {
+            "wave": 5,
+            "relativeTick": 202,
+            "x": -0.4250010848045349,
+            "y": -0.9249954223632813
+        },
+        {
+            "wave": 6,
+            "relativeTick": 327,
+            "x": 0.7000107765197754,
+            "y": 1.200005054473877
+        }
+    ]
+}

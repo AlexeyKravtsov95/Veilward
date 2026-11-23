@@ -1,0 +1,9 @@
+# ART3E P2 — эквивалентность rendering inputs
+
+Scope: только verification gap из review #84 к PR85/head88b8d7e. Product source9654133, модели/binding/gameplay/баланс не меняются. Исторические dirty-input Unity proofs сохраняются; старые1195/85 не объявляются новым run.
+
+Acceptance: exact Git/carry-in bytes всех четырёх файлов привязаны к прежним SHA; полный unified diff и сравнение всех остальных bytes; каждое различающееся поле объяснено кодом установленного URP17.3.0 (defaults, migration, shader dataflow). Shader/material/pipeline/renderer-feature/texture refs, keywords, render state, Quality/Graphics settings не исключаются широким ignore. Проверка отклоняет необъяснённое отличие. Новый actual-input receipt связывает старые captures/suites с доказательством эквивалентности для Battle rendering; новый Unity/device run не заявляется.
+
+Regression: positive four-file comparison; negative active BaseColor/keyword/shader/texture/render-queue/render-feature/quality/добавленное неизвестное поле/default/version drift должны отклоняться. Package source/dependency hashes и canonical source blobs проверяются read-only. Финальный полный delivery verifier сохраняет clean tracked/source/artifact/protected-baseline требования и дополнительно проверяет этот proof. Независимое re-review обязательно.
+
+Риски: legacy Color может читаться одним из shader passes/Presentation, новый pipeline field может менять renderer, отсутствующее поле может иметь иной default; пропущенный include или неизвестное поле делает static proof недостаточным. Если эквивалентность не доказана, P2 остаётся BLOCKED до canonical Unity acceptance. User bytes4/4 не заменяются при анализе; для финального clean verifier действует ранее данное явное разрешение с внешним backup/finally restoration. Без новых worktree/клона/полной копии проекта/iPhone.

@@ -1,0 +1,2 @@
+Unity CLI is unavailable but this project has a live Editor descriptor.
+Install/use Unity CLI to drive that Editor; a second Editor will not be started.

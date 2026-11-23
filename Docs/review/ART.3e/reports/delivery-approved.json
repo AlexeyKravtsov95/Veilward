@@ -1,0 +1,67 @@
+{
+  "authorization": "User explicitly approved temporary save/Git versions/exact restoration",
+  "head": "5a616f31e120580de0a089764cd572c6c9587f71",
+  "testedSource": "9654133029902fb2541ee833d6ef80710755a5bb",
+  "utc": "2026-11-22T09:04:15.326110+00:00",
+  "command": [
+    "python3",
+    "Docs/review/ART.3e/verify_delivery.py"
+  ],
+  "backup": "/Users/alexeykravtsov/.codex/backups/veilward-art3e-carry-in-s843u3s1",
+  "files": [
+    {
+      "path": "Assets/Settings/Mobile_RPAsset.asset",
+      "originalSha256": "2d5182d2b8884ac88bc6ed033a0a722c23cfb15a7bc8b7daa38db37227bafd09",
+      "gitSha256": "077b30c366ee79c2b0906284297c3433c470b59a7bca563801901512d6cabf64",
+      "bytes": 4650
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxSelection.mat",
+      "originalSha256": "6107f7e1b6deb79ceb4489599637fdb16c5e01870013e0cc3a71d2c50b35ad65",
+      "gitSha256": "ccaef8a0a76ed900829aac9ea559afe00c858411838002b73a227e3d9c386f64",
+      "bytes": 3825
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxTower.mat",
+      "originalSha256": "71ced636160a68dca7cf26fd2338913b0d0620aeb891c4ea106d7cacba94f275",
+      "gitSha256": "a8a2f3b33accbad57da378055c7d93da4b440eb0cb38daf7b93b6943409c17a1",
+      "bytes": 3826
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat",
+      "originalSha256": "1b49d268ffb66f7e898a81d0a4a7b02e404d14dc7d884cae98cac05bdfa4ce70",
+      "gitSha256": "072b877ec1184ee60be1c533cfc6aaddf1ff3b382117f0c942fc641fcb3c873b",
+      "bytes": 3834
+    }
+  ],
+  "cleanTrackedBefore": true,
+  "exitCode": 0,
+  "stdout": "PASS ART3E: 3511 tested source files, 3008 protected baseline files, 96 tracked artifacts, full suites {'edit-mode': 1195, 'play-mode': 85}, roundtrip3, Editor video/Steam/rollback/Sell. Device Deferred.\n",
+  "stderr": "",
+  "cleanTrackedAfter": true,
+  "originalBytesRestored": true,
+  "restoredTrackedChangeSetMatches": true,
+  "fullSuitesRerunDuringApprovedWindow": false,
+  "unityRestartedDuringApprovedWindow": false,
+  "scope": "Authorized temporary Git bytes for the read-only delivery verifier; no Unity/test/media rerun",
+  "evidenceUpdateRecheck": {
+    "head": "db213879c21581bb47766a497e02435c6b6c089b",
+    "utc": "2026-11-22T09:05:59.135460+00:00",
+    "exitCode": 0,
+    "stdout": "PASS ART3E: 3511 tested source files, 3008 protected baseline files, 97 tracked artifacts, full suites {'edit-mode': 1195, 'play-mode': 85}, roundtrip3, Editor video/Steam/rollback/Sell. Device Deferred.\n",
+    "stderr": "",
+    "cleanTrackedBefore": true,
+    "originalBytesRestored": true,
+    "restoredTrackedChangeSetMatches": true,
+    "restoredUtc": "2026-11-22T09:06:58.031427+00:00"
+  },
+  "independentReview": {
+    "reviewer": "/root/early_review",
+    "head": "db213879c21581bb47766a497e02435c6b6c089b",
+    "exitCode": 0,
+    "stdout": "PASS ART3E: 3511 tested source files, 3008 protected baseline files, 97 tracked artifacts, full suites {'edit-mode': 1195, 'play-mode': 85}, roundtrip3, Editor video/Steam/rollback/Sell. Device Deferred.\n",
+    "newP1P2": 0,
+    "decision": "Ready for Review / Closes84 / Refs44; owner acceptance and merge required",
+    "originalBytesRestoredAfterReview": true
+  }
+}

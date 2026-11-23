@@ -10,6 +10,10 @@ Unity-проект мобильной tower defense игры для iOS. **Те�
 
 P2.4a–d merged в PR #65–68; D-01…D-07 приняты владельцем. **P2.4e/#39 — R3 Review:** по разрешённому balance pass выбран boss1000HP/armor5; оба natural starts Victory8, прежние saves/rules сохранены. Editor acceptance и полные suites зелёные; merge/release не выполнялись. [Evidence P2.4e](Docs/review/P2.4e/validation.md), [план #36–40](Docs/P2.4A_IMPLEMENTATION_PLAN.md). M0/device/G2/ART и полная #40 integration matrix — отдельные gates.
 
+## Рабочий checkout
+
+По решению владельца #84 от 22.11.2026 задачи/review/проверки используют отдельную Git-ветку в текущем существующем checkout и его Library. Новые worktree/клоны/полные копии проекта не создаются; чужие изменения и исторические evidence сохраняются без reset/clean/автоматического stash. Unity runs и изменения последовательны, одним владельцем. Актуальный контракт STEAM — [ART3E](Docs/ART3E_STEAM_LEVELS.md); source/evidence gates и малые negative controls — по [ART_PIPELINE](Docs/ART_PIPELINE.md).
+
 ## Окружение
 
 - Unity: **6000.3.28f1 (8f082d2fe476)** — Unity 6.3 LTS.

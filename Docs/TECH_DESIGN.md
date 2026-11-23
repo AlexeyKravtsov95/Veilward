@@ -338,3 +338,7 @@ EightWaveAbilityBoss использует shared TestWave и отдельный 
 ### P2.4f — boss content v2
 
 Новый wrapper EightWaveAbilityBossV2 с 600HP/armor5 хранит явные ссылки historicalBossScenario (v1/1000/5) и historicalScenario (native); shared catalogs, spawns, ability и economy прежние. Schema4 неизменна. Normalize не переименовывает ID: requested v2 поддерживает v1/native/all-open Continue через matching factory; обратное v2→v1 запрещено. Каждый слот и previous primary валидируется своей factory. Live controller Restore требует exact content ID до mutation; смена версии выполняется только созданием matching Session/Scene instance. Production asset validator закрепляет v2 ID в MainMenu/Battle. [Decision/evidence](review/P2.4f/revision-3/decision.md).
+
+### ART.3e — пятое семейство в прежнем model binding
+
+`FlameModelBinding` сохраняет class/meta GUID, `levels/fallbackRenderers/tideLevels/galeLevels/stoneLevels` и добавляет optional `steamLevels`. Выбор пяти семейств идёт по authoritative definitionId+level, старый child синхронно inactive до deferred Destroy; fallback STORM/legacy/unknown/missing-level остаётся у одного owner. `SteamModelBuilder` wire-ит прежнюю цепочку builders без повторного авторинга четырёх принятых семейств. ShotSource — только future presentation anchor; Domain/Infrastructure/config/schema4/content/цены и intrinsic contracts неизменны. STEAM не получает Burn/Wet: пустой basic payload и intrinsic Steam/AoE из catalog. [Контракт, tests и evidence](ART3E_STEAM_LEVELS.md). Device Deferred53/54/55; приёмка/merge отдельно.

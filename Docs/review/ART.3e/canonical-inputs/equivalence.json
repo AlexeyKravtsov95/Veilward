@@ -1,0 +1,353 @@
+{
+  "testedSource": "9654133029902fb2541ee833d6ef80710755a5bb",
+  "files": [
+    {
+      "path": "Assets/Settings/Mobile_RPAsset.asset",
+      "canonicalSha256": "077b30c366ee79c2b0906284297c3433c470b59a7bca563801901512d6cabf64",
+      "carryInSha256": "2d5182d2b8884ac88bc6ed033a0a722c23cfb15a7bc8b7daa38db37227bafd09",
+      "changes": [
+        {
+          "field": "k_AssetVersion",
+          "canonical": "12",
+          "carry": "13",
+          "rule": "URP12to13 migration bookkeeping"
+        },
+        {
+          "field": "k_AssetPreviousVersion",
+          "canonical": "12",
+          "carry": "13",
+          "rule": "URP12to13 migration bookkeeping"
+        },
+        {
+          "field": "m_ReflectionProbeAtlas",
+          "canonical": "absent; C# initializer=1",
+          "carry": "1",
+          "rule": "explicit current serialized default"
+        },
+        {
+          "field": "m_AllowPostProcessAlphaOutput",
+          "canonical": "absent; C# initializer=0",
+          "carry": "0",
+          "rule": "explicit current serialized default"
+        },
+        {
+          "field": "m_PrefilterAlphaOutput",
+          "canonical": "absent; C# initializer=0",
+          "carry": "0",
+          "rule": "explicit current serialized default"
+        },
+        {
+          "field": "m_PrefilterScreenSpaceIrradiance",
+          "canonical": "absent; C# initializer=0",
+          "carry": "0",
+          "rule": "explicit current serialized default"
+        },
+        {
+          "field": "m_PrefilterBicubicLightmapSampling",
+          "canonical": "absent; C# initializer=0",
+          "carry": "0",
+          "rule": "explicit current serialized default"
+        },
+        {
+          "field": "m_PrefilterReflectionProbeRotation",
+          "canonical": "absent; C# initializer=0",
+          "carry": "0",
+          "rule": "explicit current serialized default"
+        },
+        {
+          "field": "m_PrefilterReflectionProbeBlending",
+          "canonical": "absent; C# initializer=0",
+          "carry": "0",
+          "rule": "explicit current serialized default"
+        },
+        {
+          "field": "m_PrefilterReflectionProbeBoxProjection",
+          "canonical": "absent; C# initializer=0",
+          "carry": "0",
+          "rule": "explicit current serialized default"
+        },
+        {
+          "field": "m_PrefilterReflectionProbeAtlas",
+          "canonical": "absent; C# initializer=0",
+          "carry": "0",
+          "rule": "explicit current serialized default"
+        },
+        {
+          "field": "m_UseLegacyLightmaps",
+          "canonical": "0",
+          "carry": "absent",
+          "rule": "not a current class field or FormerlySerializedAs target"
+        }
+      ],
+      "allOtherBytesIdentical": true
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxSelection.mat",
+      "canonicalSha256": "ccaef8a0a76ed900829aac9ea559afe00c858411838002b73a227e3d9c386f64",
+      "carryInSha256": "6107f7e1b6deb79ceb4489599637fdb16c5e01870013e0cc3a71d2c50b35ad65",
+      "changes": [
+        {
+          "field": "m_SavedProperties.m_Colors._Color",
+          "canonical": "{r: 1, g: 1, b: 1, a: 1}",
+          "carry": "{r: 1, g: 0.9, b: 0.19999996, a: 1}",
+          "activeBaseColor": "{r: 1, g: 0.9, b: 0.2, a: 1}",
+          "rule": "obsolete lightmapper alias; not consumed by Lit GPU passes or Battle Presentation"
+        }
+      ],
+      "allOtherBytesIdentical": true
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxTower.mat",
+      "canonicalSha256": "a8a2f3b33accbad57da378055c7d93da4b440eb0cb38daf7b93b6943409c17a1",
+      "carryInSha256": "71ced636160a68dca7cf26fd2338913b0d0620aeb891c4ea106d7cacba94f275",
+      "changes": [
+        {
+          "field": "m_SavedProperties.m_Colors._Color",
+          "canonical": "{r: 1, g: 1, b: 1, a: 1}",
+          "carry": "{r: 0.95, g: 0.7, b: 0.19999996, a: 1}",
+          "activeBaseColor": "{r: 0.95, g: 0.7, b: 0.2, a: 1}",
+          "rule": "obsolete lightmapper alias; not consumed by Lit GPU passes or Battle Presentation"
+        }
+      ],
+      "allOtherBytesIdentical": true
+    },
+    {
+      "path": "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat",
+      "canonicalSha256": "072b877ec1184ee60be1c533cfc6aaddf1ff3b382117f0c942fc641fcb3c873b",
+      "carryInSha256": "1b49d268ffb66f7e898a81d0a4a7b02e404d14dc7d884cae98cac05bdfa4ce70",
+      "changes": [
+        {
+          "field": "m_SavedProperties.m_Colors._Color",
+          "canonical": "{r: 1, g: 1, b: 1, a: 1}",
+          "carry": "{r: 0.29999998, g: 0.9, b: 0.95, a: 1}",
+          "activeBaseColor": "{r: 0.3, g: 0.9, b: 0.95, a: 1}",
+          "rule": "obsolete lightmapper alias; not consumed by Lit GPU passes or Battle Presentation"
+        }
+      ],
+      "allOtherBytesIdentical": true
+    }
+  ],
+  "exactDiffSha256": "dacbbabc6a26e19c373647cba1778257f6b8ead50e9e10ebccc2ecd3ee0d9db8",
+  "dependencySha256": {
+    "Assets/_Game/Scripts/Editor/BattleSceneBuilder.cs": "6c8fc9d7b905c43e3f2ce84501e9e7ffa854c9270892b1c69f9d561cc906c853",
+    "Assets/_Game/Scripts/Presentation/AbilityController.cs": "a1c5d7ee411cb19acdb18f37e8487b00d752dea0fd4ffe043fd15995db87783e",
+    "Assets/_Game/Scripts/Presentation/AbilityEffectView.cs": "774d02c5b3b38616bbbe7bacfd2dcec3d84991360ff7a263222e9a0a8c9264d3",
+    "Assets/_Game/Scripts/Presentation/AbilityPreviewView.cs": "7677ce913b0a341b4736d11783f49b60715193c4f1179cdc857e14aa5c92df2e",
+    "Assets/_Game/Scripts/Presentation/ArtDeviceProbe.cs": "901cf973fc6c8caa0ac303d7cad889bbf72a8ebe6cda2f66a0aab07ba838f47c",
+    "Assets/_Game/Scripts/Presentation/ArtReferenceShowcase.cs": "4938a43de9d462c1faf3faf7b2182a81abbfb95c18956d6bde510e6d9e75a1ce",
+    "Assets/_Game/Scripts/Presentation/AttackBeamView.cs": "3eaa2c3bc99825fbec4efcd88d26740bae7bc4ad235f5e68a82c78ae65c5354d",
+    "Assets/_Game/Scripts/Presentation/BattleCheckpointController.cs": "7a6c386fd6e1a67829f5e30c349115fecaa2544505d15645ad0a67a7352d6a91",
+    "Assets/_Game/Scripts/Presentation/BattleHudSafeArea.cs": "1049a0444dc388ffd9cde73b9e8de0cf1c1bfe71cd7ad16c9e8d111f013c762f",
+    "Assets/_Game/Scripts/Presentation/BattlePauseController.cs": "fe0a14a12fed0796a7718d1f59e8d69e97dc929a40f4c9cc9e5ed745355a2884",
+    "Assets/_Game/Scripts/Presentation/BattlePlacementController.cs": "d8d7c7607376db95b55bf2a97ad7ef19abedca1b6b85dccd8d51f24235719a8d",
+    "Assets/_Game/Scripts/Presentation/BattleScenarioConfig.cs": "c0bf4e2856129e5eee3db5495affa815c3ce948aa6596a2b4d3a09b8c3774847",
+    "Assets/_Game/Scripts/Presentation/BattleSceneController.cs": "2246c35eb3809aa56df552ecaad2cb9659784354fc9c9d82c5397598921e4567",
+    "Assets/_Game/Scripts/Presentation/BootstrapLoader.cs": "b89c28cf3e1ba99b344bcf3e1f8220e38a5aad7d340a3944d6bfd532158779de",
+    "Assets/_Game/Scripts/Presentation/BossHudController.cs": "1b8e85ff198a68f068d5b736562f9b077fe7ddf75667b64d242dd2adce46ebea",
+    "Assets/_Game/Scripts/Presentation/ElementChoiceController.cs": "faeaf8b828364882a98b0abae233f58d3f096a3f583b25cf19c4ccf878245e10",
+    "Assets/_Game/Scripts/Presentation/EnemyHealthBarView.cs": "5b918f2a8bbaaffe8958baa40300e25f6b084998d0ed75deb5f0aabe6902a75b",
+    "Assets/_Game/Scripts/Presentation/EnemyInspectorController.cs": "3bb10e41afb8cf85694c52ac94316fcfe3fa63eb2ba70dae4d60eaccef1eb991",
+    "Assets/_Game/Scripts/Presentation/EnemyStatusView.cs": "31b346eda40dca2d9c123728b071a9bb0638025f20233391ed34048c3b923534",
+    "Assets/_Game/Scripts/Presentation/FlameModelBinding.cs": "b299bd9e64ffe22b595408e20af93875cd85e2af027a2a6895952303a9a72162",
+    "Assets/_Game/Scripts/Presentation/FlameStrikeView.cs": "d15b4bb327a406d2e33536829e19d31d14affb9f67c47aaefb7b9b048545bc21",
+    "Assets/_Game/Scripts/Presentation/MainMenuController.cs": "0110e3e17165b2adeb46d07c9be9daf789154a1d7ff16d62e30937cc03ff6334",
+    "Assets/_Game/Scripts/Presentation/ReactionEffectView.cs": "b692f8e83492265c0af1e85e567f0c828020a8ddefe8e9591e77d9e8d7e4c5b6",
+    "Assets/_Game/Scripts/Presentation/ReactionPresentationState.cs": "44f07c88e42a433d49a19d440c97aa3795cd6e2bbb5acca62fa3bd96a330af08",
+    "Assets/_Game/Scripts/Presentation/ShadeOcclusionView.cs": "493459a7e515bd89a7addcab287e08aa113ecb7504fd492a738b766c9f4c50a2",
+    "Assets/_Game/Scripts/Presentation/TowerDisplay.cs": "a2dffd1fb26df5c6625d2ad9307f9a078bfbb5ca1e151345f10add7c68d7ccd7",
+    "Packages/com.unity.render-pipelines.core/Runtime/Lighting/ProbeVolume/DecodeSH.hlsl": "f3076129b5c7589c7dfd2f6e970cb031ea6094d1fe5353ae6f5adc07373a3815",
+    "Packages/com.unity.render-pipelines.core/Runtime/Lighting/ProbeVolume/ProbeVolume.hlsl": "c180e2324b8345c892d629175ec8729187120fe85eef10e927daedbb1eb1ea47",
+    "Packages/com.unity.render-pipelines.core/Runtime/Lighting/ProbeVolume/ShaderVariablesProbeVolumes.cs.hlsl": "c8354aba69d89ef3be341fd146e2eb3e0948bde74d1f0575b8dce9ef2968d2b6",
+    "Packages/com.unity.render-pipelines.core/Runtime/ShaderLibrary/Sampling/Hammersley.cs.hlsl": "04f63398fba53a8e6e3377d15ce57440a4f30966bced9025cbe201d84cdb7d85",
+    "Packages/com.unity.render-pipelines.core/Runtime/Utilities/ResourceReloader.cs": "69d71115b89db07dbad7a5aa12b04341c0a5c357bcc4709942c68060ba185d36",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/ACES.hlsl": "7e7978f40993e90c34c29ba3cbda505a64ed5d2e7920907b247e5ff335522c94",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/API/D3D11.hlsl": "dc9362fc3f1f495735681247bbca47d304d08b2a7252772d71037bad9a8b70dc",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/API/FoveatedRendering_Metal.hlsl": "ce559157c19b6e8a61a0b9fe3e60ab541848fa256cbd7eb00699995a99e2c259",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/API/GLCore.hlsl": "1a596106e426fcda48e3352ea76b5c414b1ec88240983e72749f0966bb33049a",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/API/GLES3.hlsl": "534dbcc9ae0b2adfcc5dfdfe4e55e9bde2f1d2a0fef500df3887c6271b79d4f0",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/API/Metal.hlsl": "ad2ea4c9a5081350f8e4c70f70c25186c47497b70f34a76257a50e9f97a9f218",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/API/Switch.hlsl": "a5c3676af63d5a5ac08977b392a2b1b09928938f396d5c7fa9ff1fc48667a8d9",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/API/Switch2.hlsl": "d9a25983634c677901d972d7f3b69d1c20bf430a8856c74cefe45e7b4ae7224f",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/API/Validate.hlsl": "3134db504d40f1a1fbf300af43fbf8c7ba62937dab96e873c998b20546be9b0d",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/API/Vulkan.hlsl": "e4e9558be11646a03dae3d91d41a407ee546bd65cdec1ab35dc67da3299f337c",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/API/WebGPU.hlsl": "c175504ba82912a22031213b5b81fcb2896f0db13f4697ebd44ee8e0b72db541",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/AmbientProbe.hlsl": "c34711410eddad9de1f189ced4e711d02c0245cfb8dd3bb93d06944ad8d5aa54",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/BSDF.hlsl": "c19e8362b94a9e9ecdb2b422706b825b2f9599220d29c97f29d7801b1e53eb83",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl": "21ec6ebfa1ae02cce8b4966e669ddd0d437dd4c89422712e6b48d1ee3cf18c3e",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl": "5c4ac02f6a563b4f256957b2d30b8a1143ee253f8bfe8827657cd33af33be86f",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonDeprecated.hlsl": "44745d7cebaa271e6aef262d55db3debcbe26117a1929a21459cac5f62dd2cdd",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonLighting.hlsl": "b1fe5de0a6644c553fafde92b9e853884d09f9533fa69deba09bdd2f0ec0147b",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonMaterial.hlsl": "1025efb7d34f4f73864944624490684ca11e5d35dfa5435895d7bd6d2d640b74",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Debug.hlsl": "b98556d3ee6d2be7dafaca88ebe7e5764c4de4c146d08568568a862090527046",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/DebugMipmapStreaming.hlsl": "47dc63086ba665147ef4633d21f6a900367b97576aab203f1ea0a483a83ac455",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/DebugMipmapStreamingMacros.hlsl": "e5062897f2e34f61da4260804bd2fda337bb0e0a22c9ba020089521886c7bab1",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/EntityLighting.hlsl": "ea013951841e68cc2c2a7306a4d8e265bd89786cd54e9535fa660cb00fd4c92a",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl": "6b8e0ad9d70cf4af4b43ccb0a068172db524397b48596cd0bebac8b9ba4110c5",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRendering.hlsl": "188d904bfd6357f0e6bf5ecefb6839030a552ce8b72c427ad11e9b6720f31ed1",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/FoveatedRenderingKeywords.hlsl": "a62e7ef2c463b3e3c9f03565ecc67da01163400cb16683f4fed387340a0a3486",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/GlobalSamplers.hlsl": "f8db3219070a49de17e423bbfa2839becbecbd614c02f4888b39396f8e5d90db",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/ImageBasedLighting.hlsl": "64fd0c04fc23c934a11b9d522ae782cb479ed75af19a318d1fbfdaed63ccdebe",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Macros.hlsl": "c473116332b4946d8ded6d2c9697e3d353475c940b22735e9c23d73b3fe903a7",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/MetaPass.hlsl": "f36f7105fcae2519561d50853f8e188e04255ced43535b8977d5fd1b0e2b2bc7",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl": "df21b00c1457ce5c8c1ae6069fb4e6e4b4e15b3334ece98a28b7d2e8f302082e",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/ParallaxMapping.hlsl": "b9887bea0370a49ff421289c48ae440bd39df9f7f29e4763ea59bc7fcf522969",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Random.hlsl": "4d788edda5d92cb119ae7fe19e47965338979997e64d8df701ae6df1175d0be7",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Sampling/Fibonacci.hlsl": "5b18eef865667d3d7f8c34038fd16d0bcec84a75ef125faa962a59fb0527c912",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Sampling/Hammersley.hlsl": "b35da620e9651b562c90283cba9ada846404efb33f3b099de679e347ee3e0eb9",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Sampling/Sampling.hlsl": "a85511210bf2297a8cf140549c6c9ddeacef6ddcb2d82ad398adfd7a00a7fab0",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Shadow/ShadowSamplingTent.hlsl": "77e2d61fdcfa891d5164653d6e0b3fd0666987189aa9d67a826209c457144a9b",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/SpaceTransforms.hlsl": "bd0c174c2300eec9baf99bddc5b003e34082766950d86e8d3746df7e8693acfa",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/SphericalHarmonics.hlsl": "ad654583b2dffc159ebad16383d560f6e710d1b2fe87aa18e1a47596cb0261da",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/UnityDOTSInstancing.hlsl": "7e09ccf4267412c30ee60271f1149c045a783938e7681e8b33a1d13e46b96b65",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/UnityInstancing.hlsl": "b0627d99f754c6e5b07a45dbce3cf9857854d24473da25d0696bfaf4feb11d5a",
+    "Packages/com.unity.render-pipelines.core/ShaderLibrary/Version.hlsl": "7712221f6a5d67235080a7e5a11b83b2a51c641f1b6cee4b73a702af33adde59",
+    "Packages/com.unity.render-pipelines.core/package.json": "7642cb02e3137c217423e9a7381bd58059a204046d05167aaa576bb6256a2737",
+    "Packages/com.unity.render-pipelines.universal-config/Runtime/ShaderConfig.cs.hlsl": "473bf6bd5955eab1fe31d534719e4635904c6a829b50a99e374edf7d77eee376",
+    "Packages/com.unity.render-pipelines.universal-config/package.json": "ba5082b6c32161b374389816ab771ed1339b22b61f889e50f2a65937180f816b",
+    "Packages/com.unity.render-pipelines.universal/Editor/AssetPostProcessors/MaterialPostprocessor.cs": "1ac3adf7b2140269809a12ae3ad9fee0cd7c7e76eacc1968ed86e34f3768e718",
+    "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs": "96ed27e15286cda1fdada6923e804887b6447a905b38360e0f5561f79cd0344c",
+    "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs.meta": "e7ec88783b56ae3a5adbe60d3ab71fd3b6fe269932af20218d4cc00eb3879868",
+    "Packages/com.unity.render-pipelines.universal/Editor/DefaultScene/UniversalProjectSettings.cs": "0fcf3dcf4ccddee6a50b17c37b887efe2d26a94baa3be6a4678f13c0d444c1d1",
+    "Packages/com.unity.render-pipelines.universal/Editor/DefaultScene/UniversalProjectSettings.cs.meta": "a4d8ef7caa65ccfe62d30e17b79766b2bdbe560516d29d6bb0b3d9c806187141",
+    "Packages/com.unity.render-pipelines.universal/Editor/ShaderGUI/BaseShaderGUI.cs": "45e6f0300b167577c6766193d0737301ab12150080024c048b38c8627e145204",
+    "Packages/com.unity.render-pipelines.universal/Editor/ShaderUtils.cs": "0b80613491926a98b7112e4d4c0010155119f26881560fb495cd34b87433f60d",
+    "Packages/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.DefaultResources.cs": "b5f2f1e59681c9333a601773e226f8e8f0c13e990ffcb3e17409a5ec27384bfc",
+    "Packages/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs": "c13180a2364c351087e356e952eb57205af1d082a94d42e2ccece5ef0dad691a",
+    "Packages/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAssetPrefiltering.cs": "46d291e6df4214e128984f180092fefb613326cf4a10d0ee2c11ba7ce16538b9",
+    "Packages/com.unity.render-pipelines.universal/Runtime/Deprecated.cs": "4ac134a5abbc433f923fa5412623c82ec4b1444c64d8df28cc33d64c7ad1c073",
+    "Packages/com.unity.render-pipelines.universal/Runtime/ShaderUtils.cs": "a39f7a9bdc965d93b9cb94575032596756dcd5f738ecd46b9f930eb6695dddf0",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/AmbientOcclusion.hlsl": "ca4eb8189f5db08f839e768a1fa1e4c3a198addf6d06e60a9d5ebbc8dd08ed36",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/BRDF.hlsl": "1e8427056b0ab3046adf753d72fc3afee3d54c335e38a4d1069e6eedb0f78075",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Clustering.hlsl": "54b397d3f2c073cfaeacd48747bce1dea066282d3f3a0199cc3870c473fab063",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl": "9614b01872c7afbb732ec1b6958fcdaaa04fc9650107fa6b1121c9f647d40b40",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl": "8b0fa67deb613f74f9baaec694a154ccf51bf5c1aac3df69a7431922797d6a83",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl": "424a623118393c12bf4191ed1873c1d88fc66c9afa74e7488782271a25cc9e0f",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Debug/DebugViewEnums.cs.hlsl": "c1e81175359ca8ce2aaf6672db0f4fe17f6f99660dae5a2a527ea7cbfbb19179",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Debug/Debugging3D.hlsl": "4c3a2e61256b76efdd2752787caea7b0b203ad1a77b88ad0120dcc48ef599564",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Debug/DebuggingCommon.hlsl": "98b99e2cb1490186c1041eab8ca20ca88160746937c3c58b03fb52d202726030",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DecalInput.hlsl": "7d05a2431d8b2c2aa633c617ac149fdbe6f74d3e773e34944dcfb93146d39036",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Deprecated.hlsl": "5b6c0b3a2e9ad8f6285f30aed67952de8e4431524f14c326c574dbc7502a2d21",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Fog.hlsl": "28247dc565ce3d56d588667ddf8281f25301552e82c9f4ccaa483dc23434302a",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ForwardPlusKeyword.deprecated.hlsl": "0224bd4f92a6189112a5cfd07d9762555788e58a38b250eec1a3f2217c10030e",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/GBufferCommon.hlsl": "9f262c9c328962655babb37f3eb8c1640ffce304836b7d62689a3d12a56711be",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/GBufferOutput.hlsl": "3190a7802b20f850fa1cd6b47645f1e4634f635420cad048de313612a44b0868",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/GBufferOutputFormat.hlsl": "e851140fec92ca29ceb38700672c82c5c6affe4ae8c9657589a8c747fc01f2e2",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/GlobalIllumination.hlsl": "b954b5c6ffa8186a1139b2986175849e9ef5396c2d08ef1520e3d5f6c1f918fc",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl": "c1cae8cf7f1508e39aa37c584c46056f8bb2c5817ff963d5eaca6576568a045a",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/LODCrossFade.hlsl": "95fea0c28560e3f0355cdc35c98558296fa870c154c916a3939945779ebd874e",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/LightCookie/LightCookie.hlsl": "2660a79e9653764b9567923994fbc83d52b3ee16a574471e7c729293870bf772",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/LightCookie/LightCookieInput.hlsl": "e548590c9f8bc05d04853a56830688fb4327ea4166673d76cfb3f2dee20cc962",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/LightCookie/LightCookieTypes.hlsl": "e72f8359e539e3a69dcd3b772fe27587830e883a5e9c73b1a183c95d5f3562fb",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl": "62d0e2dbed9da3723d302bc65e366ab32c12aef995550e975eb1237af50e7600",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/MetaInput.hlsl": "b136d7a0686fc53e872759a911cbcd318fa3bc97ee70a1f17e6e34dba9d95eae",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/MotionVectorsCommon.hlsl": "43fcf3ed14dcd5e7d04b25b99f4d4f1887512e5791731d185bf4f12c0562f541",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ObjectMotionVectors.hlsl": "00d037785db77210d389d9f5ccd434d2e902808434f32b0e458160829671bef5",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ProbeVolumeVariants.hlsl": "1b4ba8c9eb65243b7559fec239993c1ffae362796d0310a150845355b42863e7",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/RealtimeLights.hlsl": "59d1d75a99532078be787c6f4d76d5aa5a29b5bc33d97c190b5b6797b39bffcb",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/RenderingLayers.hlsl": "a7ba8c8f4504a3b2aee358787ad3612b5394095de5c44398ae05d29bb6fa24a9",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderTypes.cs.hlsl": "f48eb2e6338da6e9aef933f1b42533b459308f728cde48dac8fa5cfa21f53bad",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderVariablesFunctions.deprecated.hlsl": "87423aab757b97e99f1b8905d7980c527aac8134efe2f9ca66cbecbddf5e0c24",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderVariablesFunctions.hlsl": "4506cc4e48fb36ef32e45633b90e6171a3b929ac38f861ca0dcb9433fa560643",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.deprecated.hlsl": "3294bf6448a0724a251634502ebe135e1e2b8b4e2e31e423cc2c3cd5979d82b8",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl": "caa3e10c26476cd44cbaf7eadca308a2417bd42cc18a8a4c1466466e2af9173d",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceData.hlsl": "789c20cdfaa4f9578770e999d75adec5dbd337d93d5718056013636ed19af039",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceInput.hlsl": "245362e43921bbd9bb8a346f88636c8d93e1f3e0e2322082247543edd38c12ef",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl": "0f53d569452a8cdf43fccf5b33bf4f258fcdf5daa0b69b7c8371df2021335dd9",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityTypes.hlsl": "c63be00e04bf36eb4455df64f722f0423979005ff0c3b78f2599ca92ca0a9140",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UniversalDOTSInstancing.hlsl": "5209dabe14e13ea9f0e8596dbd85802ba46a881fe7c049fb1609df1c82c539fe",
+    "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UniversalMetaPass.hlsl": "a95a0a8e5edfe1c27235f421711bc3025cb0ab7bacd9676b88851bb403b68cc1",
+    "Packages/com.unity.render-pipelines.universal/Shaders/DepthOnlyPass.hlsl": "e85742944bcb2d9fdc03a742e70232021dde254338dca18020ea0c71b1a04826",
+    "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader": "6f4648b6b5271132cfed1d7d7c771ba0a73ef7972470d6694047804d259c0997",
+    "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader.meta": "f0db005307ffe5480c40a402ca5bfb0b3726259031a86e255e49626228ceb008",
+    "Packages/com.unity.render-pipelines.universal/Shaders/LitDepthNormalsPass.hlsl": "2f223b0ece8300d2d971c1fd12c6ae37139c440671bbaec55dc33cb74f31866d",
+    "Packages/com.unity.render-pipelines.universal/Shaders/LitForwardPass.hlsl": "3582bdeea7bc30ac0ffb45159800f1d00df496527cf1f1717f3143d04f9f9633",
+    "Packages/com.unity.render-pipelines.universal/Shaders/LitGBufferPass.hlsl": "59b256f175350135ac7eda818f1e8afd69fbe436ceddef944392ab1e04109803",
+    "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl": "4790ecd2f2c8093113b702fdc106486a63308754802c58995f2f0a8121b5b516",
+    "Packages/com.unity.render-pipelines.universal/Shaders/LitMetaPass.hlsl": "b597eede0567936de9eb2b72fe5225ce581c70b92b05c349cc2222e3210d1c9b",
+    "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl": "7db96c7b79c5c5ba306708efd96a74ab7799d13f0426f2c8f2fc34aeabc350e6",
+    "Packages/com.unity.render-pipelines.universal/Shaders/Utils/Universal2D.hlsl": "cb5b01dcb6beede19e4f8cfd8b4a0738402ef6ad2af487dcfa0abaf2e4d81011",
+    "Packages/com.unity.render-pipelines.universal/Textures/BayerMatrix.png": "ab857985cb2fbbda35a23b55d0da84e26684cf8979ae777341e9dd9b952d940c",
+    "Packages/com.unity.render-pipelines.universal/Textures/BayerMatrix.png.meta": "6f72db8797ac40573c8b72a8d00b144ff678e5e126045d483300002ebf7b1df9",
+    "Packages/com.unity.render-pipelines.universal/Textures/BlueNoise64/L/LDR_LLL1_0.png": "140c55bd97c21b9b22008d7054b492333fec67fbfc1a1b266e5b0209b647eed4",
+    "Packages/com.unity.render-pipelines.universal/Textures/BlueNoise64/L/LDR_LLL1_0.png.meta": "979f79be8dce3792e58e15f20f925615ee7191b535d27fac1be2221c430efd16",
+    "Packages/com.unity.render-pipelines.universal/package.json": "c041a653251d76cb54c81eb2527091224f7f2127fd1e029237708d28a812f17e"
+  },
+  "unchangedSettingsSha256": {
+    "Assets/Settings/DefaultVolumeProfile.asset": "3a6f825e8d07fe8b9f3b52e7d4e2dfa0e22c555b22335adb19f0ecc66dfa38dd",
+    "Assets/Settings/DefaultVolumeProfile.asset.meta": "efbcb026cee6b8e32fdf27018c06b0515296a6ccbb43969e792fea270310700a",
+    "Assets/Settings/Mobile_RPAsset.asset": "077b30c366ee79c2b0906284297c3433c470b59a7bca563801901512d6cabf64",
+    "Assets/Settings/Mobile_RPAsset.asset.meta": "53ea46647712c615fd1a3f2e0dddfa8559eeedc649e9a1dbf93ff913de28544c",
+    "Assets/Settings/Mobile_Renderer.asset": "aa93274c9521fa941170becec9e87c5fa36b8587eefd5eeb5c0eed0d1d4b1dbe",
+    "Assets/Settings/Mobile_Renderer.asset.meta": "a148ee2b4987b05b8ff7ae5f9bf84916184f77aefddc821dceb551f5a69f8179",
+    "Assets/Settings/PC_RPAsset.asset": "08a9c221b335a0dbca1b6967b7de5c42b957c5f0d5e43da9edb36ca8fce5966b",
+    "Assets/Settings/PC_RPAsset.asset.meta": "bb469b9b6f318e9e9bed29c3b2e73e79371c04743c6f95dd6603941f1cd3e53e",
+    "Assets/Settings/PC_Renderer.asset": "3d0b01d8ded3327263b6690be128a3de58d17c514943ae42fe743a3e084a9c79",
+    "Assets/Settings/PC_Renderer.asset.meta": "b5df8ddb2708c6ed4c133a5ff9ee95a75cc20e4ee3ed6181366a61aedbaf31ec",
+    "Assets/Settings/SampleSceneProfile.asset": "a8677d4bac051d24caa11cd622e39f968155ee277bfce132274f1de225692fe9",
+    "Assets/Settings/SampleSceneProfile.asset.meta": "2e23abc214069f0adbf2b2207f1db54be7876629ec2a3681d0f4aa5b61622ef0",
+    "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset": "53db583ee71a9087b2cfc7dd03034b2185914ce2d94712096248de4ef64eb22d",
+    "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset.meta": "f61661d8bc8dbe531daf09f6211ef978c7ba145c9207c8e76524396ae0722d7c",
+    "Packages/manifest.json": "a78d2c59e34818add54d16dc5954518d2da7db5675de2581d98290da49ef6eef",
+    "Packages/packages-lock.json": "aa3863f6781ab09d3883c846faec36322a393dae4955ff3cc9b6b5faa5d9b67e",
+    "ProjectSettings/GraphicsSettings.asset": "6736f33dc62c35b0e7a88e275242080bc7a1d94c91154d18fceb332b661a6bce",
+    "ProjectSettings/QualitySettings.asset": "6814d6cc3eb850dd7d2a069a8b17ba9f7591deba8b1758a855978bd9c8627643",
+    "ProjectSettings/URPProjectSettings.asset": "c317fe22b9488785c0611f0642429922e5d324430d929bffb41648130f30c218"
+  },
+  "shaderIncludeFiles": 95,
+  "optionalUninstalledIncludes": [
+    "Packages/com.unity.render-pipelines.gamecore/ShaderLibrary/API/GameCore.hlsl",
+    "Packages/com.unity.render-pipelines.ps4/ShaderLibrary/API/PSSL.hlsl",
+    "Packages/com.unity.render-pipelines.ps5/ShaderLibrary/API/FoveatedRendering_PSSL.hlsl",
+    "Packages/com.unity.render-pipelines.ps5/ShaderLibrary/API/PSSL.hlsl",
+    "Packages/com.unity.render-pipelines.xboxone/ShaderLibrary/API/XBoxOne.hlsl",
+    "Packages/com.unity.visualeffectgraph/Shaders/VFXMatricesOverride.hlsl"
+  ],
+  "equivalentForBattleRendering": true,
+  "scope": "Stabilized Battle rendering values / existing macOS Editor, not editor dirty/queue state, baking or console/VFXGraph platforms",
+  "reloadAnalysis": {
+    "onlyGroup": "m_Textures / TextureResources",
+    "nonnullResolvedResources": [
+      {
+        "field": "blueNoise64LTex",
+        "fileID": "2800000",
+        "guid": "e3d24661c1e055f45a7560c033dbb837",
+        "resolved": "Packages/com.unity.render-pipelines.universal/Textures/BlueNoise64/L/LDR_LLL1_0.png"
+      },
+      {
+        "field": "bayerMatrixTex",
+        "fileID": "2800000",
+        "guid": "f9ee4ed84c1d10c49aabb9b210b0fc44",
+        "resolved": "Packages/com.unity.render-pipelines.universal/Textures/BayerMatrix.png"
+      }
+    ],
+    "changed": false,
+    "upgradeSetDirty": "serialization dirty flag; not a value mutation",
+    "nativeDeserializationProbeNotRun": true
+  },
+  "materialImport": {
+    "GrayboxSelection.mat": {
+      "embeddedAssetVersion": 10,
+      "projectVersion": 10,
+      "upgraderCount": 10,
+      "upgradeLoopEntered": false,
+      "inverseColorToBaseColorUpdaterReachable": false
+    },
+    "GrayboxTower.mat": {
+      "embeddedAssetVersion": 10,
+      "projectVersion": 10,
+      "upgraderCount": 10,
+      "upgradeLoopEntered": false,
+      "inverseColorToBaseColorUpdaterReachable": false
+    },
+    "GrayboxTowerPreview.mat": {
+      "embeddedAssetVersion": 10,
+      "projectVersion": 10,
+      "upgraderCount": 10,
+      "upgradeLoopEntered": false,
+      "inverseColorToBaseColorUpdaterReachable": false
+    }
+  },
+  "unityRerun": false,
+  "fullSuitesRerun": false,
+  "deviceTest": false
+}

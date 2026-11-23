@@ -1,0 +1,34 @@
+{
+  "testedSource": "9654133029902fb2541ee833d6ef80710755a5bb",
+  "reviewedHead": "88b8d7e997bd139e48f81f9f94a6f789acd9ecf6",
+  "historicalRuns": {
+    "reports/edit-mode.json": "9fdd1d23029d86a379763ae477c085281e3819bae8dac1268418e41ae2e181c2",
+    "reports/play-mode.json": "c99d58331c111b7b68cc7400d49ac996e4d4ca333166b30514dc1e139a8c5cf0",
+    "reports/natural-result.json": "41c427ca5d354f52520753c6767a311806cdb2b1aee30822377bdad289d25686",
+    "reports/video-completion.json": "363b7696851afce774e15dc512639b6972b0b5f6e2e71c326ed2eda2ac710b16",
+    "reports/video-proof.json": "a2531f62fa20af3fed58ac83363ac64bd53673a4b65f705bf16b4de91427b8e2",
+    "editor-flow.mp4": "6595d90abe9a787a5283a9cd70accacf44e58629c7ffbb2bf191c418b13968cf",
+    "playmode/settings.json": "223f43252dd996cd1377f9d51584fa98fc891b10bb28bcf65b2092c6436afe99"
+  },
+  "historicallyLoadedRenderingInputs": {
+    "Assets/Settings/Mobile_RPAsset.asset": "2d5182d2b8884ac88bc6ed033a0a722c23cfb15a7bc8b7daa38db37227bafd09",
+    "Assets/_Game/Art/Materials/GrayboxSelection.mat": "6107f7e1b6deb79ceb4489599637fdb16c5e01870013e0cc3a71d2c50b35ad65",
+    "Assets/_Game/Art/Materials/GrayboxTower.mat": "71ced636160a68dca7cf26fd2338913b0d0620aeb891c4ea106d7cacba94f275",
+    "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat": "1b49d268ffb66f7e898a81d0a4a7b02e404d14dc7d884cae98cac05bdfa4ce70"
+  },
+  "canonicalCounterparts": {
+    "Assets/Settings/Mobile_RPAsset.asset": "077b30c366ee79c2b0906284297c3433c470b59a7bca563801901512d6cabf64",
+    "Assets/_Game/Art/Materials/GrayboxSelection.mat": "ccaef8a0a76ed900829aac9ea559afe00c858411838002b73a227e3d9c386f64",
+    "Assets/_Game/Art/Materials/GrayboxTower.mat": "a8a2f3b33accbad57da378055c7d93da4b440eb0cb38daf7b93b6943409c17a1",
+    "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat": "072b877ec1184ee60be1c533cfc6aaddf1ff3b382117f0c942fc641fcb3c873b"
+  },
+  "equivalenceCertificateSha256": "2eb7c644caf12c748652683764ef99fa2628d18773dd3927a6c0478efac86e3d",
+  "equivalenceScope": "Stabilized Battle rendering values / existing macOS Editor, not editor dirty/queue state, baking or console/VFXGraph platforms",
+  "equivalentForBattleRendering": true,
+  "newUnityRun": false,
+  "newCompileRun": false,
+  "newCaptures": false,
+  "newDeviceRun": false,
+  "analysisChangedProjectFiles": false,
+  "proofCommand": "PYTHONDONTWRITEBYTECODE=1 python3 Docs/review/ART.3e/canonical-inputs/verify_inputs.py"
+}

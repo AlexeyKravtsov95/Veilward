@@ -1,0 +1,355 @@
+[
+  {
+    "index": 0,
+    "setting": {
+      "fx": -2,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 2,
+      "sy": 1,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 494,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 1,
+    "setting": {
+      "fx": -2,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 1,
+      "sy": 0,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 494,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 2,
+    "setting": {
+      "fx": -2,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 1,
+      "sy": 1,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 494,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 3,
+    "setting": {
+      "fx": -2,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 2,
+      "sy": 0,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 489,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 4,
+    "setting": {
+      "fx": -2,
+      "fy": 0,
+      "bx": 2,
+      "by": 1,
+      "sx": 2,
+      "sy": 1,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 494,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 5,
+    "setting": {
+      "fx": -2,
+      "fy": 0,
+      "bx": 2,
+      "by": 1,
+      "sx": 1,
+      "sy": 0,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 494,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 6,
+    "setting": {
+      "fx": -2,
+      "fy": 0,
+      "bx": 2,
+      "by": 1,
+      "sx": 1,
+      "sy": 1,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 494,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 7,
+    "setting": {
+      "fx": -2,
+      "fy": 0,
+      "bx": 2,
+      "by": 1,
+      "sx": 2,
+      "sy": 0,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 489,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 8,
+    "setting": {
+      "fx": -1,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 2,
+      "sy": 1,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 494,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 9,
+    "setting": {
+      "fx": -1,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 1,
+      "sy": 0,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 494,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 10,
+    "setting": {
+      "fx": -1,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 1,
+      "sy": 1,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 494,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 11,
+    "setting": {
+      "fx": -1,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 2,
+      "sy": 0,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 489,
+    "winner": null,
+    "outcomes": 2670,
+    "diagnostics": []
+  },
+  {
+    "index": 12,
+    "setting": {
+      "fx": -3,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 2,
+      "sy": 1,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 479,
+    "winner": null,
+    "outcomes": 2640,
+    "diagnostics": []
+  },
+  {
+    "index": 13,
+    "setting": {
+      "fx": -3,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 1,
+      "sy": 0,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 474,
+    "winner": null,
+    "outcomes": 2640,
+    "diagnostics": []
+  },
+  {
+    "index": 14,
+    "setting": {
+      "fx": -3,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 1,
+      "sy": 1,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 474,
+    "winner": null,
+    "outcomes": 2640,
+    "diagnostics": []
+  },
+  {
+    "index": 15,
+    "setting": {
+      "fx": -3,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 2,
+      "sy": 0,
+      "two": 0
+    },
+    "exit": 0,
+    "best": 474,
+    "winner": null,
+    "outcomes": 2640,
+    "diagnostics": []
+  },
+  {
+    "index": 16,
+    "setting": {
+      "fx": -3,
+      "fy": -1,
+      "bx": 2,
+      "by": 1,
+      "sx": 1,
+      "sy": 0,
+      "two": 1
+    },
+    "exit": 0,
+    "best": 498,
+    "winner": {
+      "worth": 498,
+      "history": ",200:0,1:0,0:0,1:0,1:2,1:2,0:0",
+      "checkpoint": {
+        "phase": 0,
+        "waveIndex": 7,
+        "tick": 3168,
+        "baseHealth": 14,
+        "gold": 125,
+        "kills": 50,
+        "nextEnemyId": 57,
+        "nextTowerId": 4,
+        "towers": [
+          {
+            "towerId": 1,
+            "towerTypeId": "flame",
+            "x": -3,
+            "y": -1,
+            "level": 1,
+            "investedGold": 70,
+            "nextAttackTick": 3089
+          },
+          {
+            "towerId": 2,
+            "towerTypeId": "flame",
+            "x": 2,
+            "y": 1,
+            "level": 1,
+            "investedGold": 70,
+            "nextAttackTick": 3173
+          },
+          {
+            "towerId": 3,
+            "towerTypeId": "steam",
+            "x": 1,
+            "y": 0,
+            "level": 2,
+            "investedGold": 275,
+            "nextAttackTick": 3201
+          }
+        ],
+        "elementProgression": {
+          "rulesId": "wave-unlocks-v1",
+          "startResonanceId": "flame",
+          "unlockedElementIds": [
+            "flame",
+            "tide",
+            "gale"
+          ],
+          "choicesEarned": 2,
+          "choicesSpent": 2,
+          "spentChoices": [
+            {
+              "choiceId": "after-wave-3",
+              "elementId": "tide"
+            },
+            {
+              "choiceId": "after-wave-6",
+              "elementId": "gale"
+            }
+          ],
+          "pendingChoiceId": "none"
+        }
+      }
+    },
+    "outcomes": 2640,
+    "diagnostics": []
+  }
+]
