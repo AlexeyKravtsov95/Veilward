@@ -33,7 +33,9 @@ def require(ok, why):
 def sha(data): return hashlib.sha256(data).hexdigest()
 def blob(data): return hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
 def git(*args): return subprocess.check_output(['git', *args], cwd=ROOT)
-def read(path): return json.loads((PACKET/path).read_text())
+def read(path):
+ p=PACKET/path
+ return json.loads(p.read_text() if p.is_file() else gzip.decompress(p.with_suffix(p.suffix+'.gz').read_bytes()))
 def tree(ref):
  out={}
  for row in filter(None, git('ls-tree','-r','-z',ref).split(b'\0')):
@@ -48,7 +50,16 @@ def positive_suite(r):
  rows=r.get('results',r.get('Results',[]));require(len(rows)==s['total'] and all(x['Status']=='Passed' for x in rows),'per-case full PASS')
  return s['total']
 def exact_files(files, label):
- for p,h in files.items(): require((ROOT/p).is_file() and sha((ROOT/p).read_bytes())==h, label+': '+p)
+ for p,h in files.items():
+  path=ROOT/p
+  # Unity exposes virtual Packages paths; read the exact locked version in this checkout's Library.
+  if not path.is_file() and p.startswith('Packages/com.'):
+   package,relative=p[len('Packages/'):].split('/',1)
+   locked=json.loads((ROOT/'Packages/packages-lock.json').read_text())['dependencies'][package]['version']
+   candidates=[q/relative for q in (ROOT/'Library/PackageCache').glob(package+'@*') if (q/'package.json').is_file() and json.loads((q/'package.json').read_text())['version']==locked]
+   require(len(candidates)==1,'unambiguous locked package cache: '+p)
+   path=candidates[0]
+  require(path.is_file() and sha(path.read_bytes())==h, label+': '+p)
 def video(proof, sources, shots, decoded):
  require(proof['resolution']==[1600,900] and proof['editor'] is True and proof['device'] is False,'actual Editor media context')
  require(proof['sourceFrames']==proof['outputFrames']==len(sources)==len(shots)>100 and proof['speed']==1 and proof['splices']==0,'complete continuous video')

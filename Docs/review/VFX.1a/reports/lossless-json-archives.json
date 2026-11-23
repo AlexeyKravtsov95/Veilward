@@ -1,0 +1,38 @@
+[
+  {
+    "original": "attempt-1/video-shots.json",
+    "compressed": "attempt-1/video-shots.json.gz",
+    "bytes": 2249606,
+    "sha256": "24ea3ff7df848a8a10d08b29d842a93fd7928138510b4f146f48072db3618479"
+  },
+  {
+    "original": "attempt-2/video-shots.json",
+    "compressed": "attempt-2/video-shots.json.gz",
+    "bytes": 1480052,
+    "sha256": "2f8fc768610dbd7039df71b8be223d947ff2958bd4a6fe983aa9e5baf489de62"
+  },
+  {
+    "original": "reports/edit-mode.json",
+    "compressed": "reports/edit-mode.json.gz",
+    "bytes": 253439,
+    "sha256": "c6d13dac6034dd09b604a343ab2b1c82b0bbeefa2483141c6a93c3c162a5573a"
+  },
+  {
+    "original": "reports/video-decoded.json",
+    "compressed": "reports/video-decoded.json.gz",
+    "bytes": 461933,
+    "sha256": "a85dfce5f1f01bdf529fc9d6c1c06ce9a7bce86efd1676a1821507b00dd80b6f"
+  },
+  {
+    "original": "reports/video-shots.json",
+    "compressed": "reports/video-shots.json.gz",
+    "bytes": 1480693,
+    "sha256": "056219472bc31680e026034cde5ea1fe331695a52d711dc245b4b49d7ec0f406"
+  },
+  {
+    "original": "reports/video-source-frames.json",
+    "compressed": "reports/video-source-frames.json.gz",
+    "bytes": 148552,
+    "sha256": "62562b9c1c919267959335acf422d2b806aa2198e22a6ec7a8a634261b49a4e1"
+  }
+]
