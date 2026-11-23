@@ -1,0 +1,82 @@
+[
+  {
+    "asset": "Enemy_Shade",
+    "triangles": 400,
+    "meshes": 4,
+    "renderers": 4,
+    "skinBones": 0,
+    "weights": 0,
+    "materialSlots": 5,
+    "uniqueMaterials": [
+      "Art1Glow",
+      "Art1Surface"
+    ],
+    "clips": {
+      "Idle": {
+        "first": 1,
+        "last": 31,
+        "duration": 1.0
+      },
+      "Move": {
+        "first": 32,
+        "last": 62,
+        "duration": 1.0
+      },
+      "Hit": {
+        "first": 63,
+        "last": 75,
+        "duration": 0.4
+      },
+      "Death": {
+        "first": 76,
+        "last": 94,
+        "duration": 0.6
+      },
+      "Leak": {
+        "first": 95,
+        "last": 113,
+        "duration": 0.6
+      }
+    }
+  },
+  {
+    "asset": "Enemy_RiftWarden",
+    "triangles": 1312,
+    "meshes": 4,
+    "renderers": 4,
+    "skinBones": 0,
+    "weights": 0,
+    "materialSlots": 8,
+    "uniqueMaterials": [
+      "Art1Glow",
+      "Art1Surface"
+    ],
+    "clips": {
+      "Idle": {
+        "first": 1,
+        "last": 31,
+        "duration": 1.0
+      },
+      "Move": {
+        "first": 32,
+        "last": 62,
+        "duration": 1.0
+      },
+      "Hit": {
+        "first": 63,
+        "last": 75,
+        "duration": 0.4
+      },
+      "Death": {
+        "first": 76,
+        "last": 94,
+        "duration": 0.6
+      },
+      "Leak": {
+        "first": 95,
+        "last": 113,
+        "duration": 0.6
+      }
+    }
+  }
+]

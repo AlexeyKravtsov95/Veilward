@@ -1,5 +1,8 @@
 # VEILWARD — Technical Design / Architecture v0.1
 
+ART.5 / #46: EnemyModelView анимирует только authored child от pause-aware presentation clock; rootY.6/HP/status остаются прежними. Optional bossPrefab выбирается по EnemyDefinitionId, legacy enemyPrefab fallback сохранён. Per-Step snapshot/damage consumer до clear обеспечивает direct/Burn/reaction/ability hit/death; visual-only tails≤16/.6s, restore очищает owners. Четыре mesh-part cues следуют animation transforms. [Спецификация/regressions](ART5_ENEMIES.md).
+
+
 **ART.4 / #45:** `BattleEnvironmentBuilder` импортирует отдельный original Blender→FBX kit с shared ART1 materials и создаёт статическое окружение первой production Battle. Sockets и путь читаются из `EightWaveAbilityBossV2.CreateSimulation()`; full scene builder создаёт ART4, legacy `CreateGridGeometry/CreatePathGeometry` сохранены для fixtures. Ни Domain/config/schema/content/save, ни accepted18tower assets/binding, ни camera projection/pose/ground/input plane не меняются. Environment не имеет colliders/runtime scripts; stencil mask bit64 прежнего shader используется на gate/heart/периферийных props. [Точный контракт/regressions](ART4_PRODUCTION_MAP.md), [actual inputs/budgets/lighting deltas/evidence](review/ART.4/validation.md). Device Deferred QA53/54/55. ART3/#44 Done после merge87; старые статусы ниже исторические.
 
 ART.3f/#86: STORM «Грозовой карп» L1–L3 и шесть семейств в прежнем FlameModelBinding. [Спецификация/regressions](ART3F_STORM_LEVELS.md), [новые Editor/source/Battle evidence](review/ART.3f/validation.md). Добавлено optional stormLevels; GUID/legacy fields/fallback и gameplay/config/schema4 сохранены. Device Deferred to prerelease QA #53/#54/#55; parent44 остаётся5/6 до приёмки/merge, finalVFX/G2/release отдельно.
