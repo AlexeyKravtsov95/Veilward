@@ -49,11 +49,12 @@ namespace Veilward.Tests.EditMode
                     var stats = TowerDisplay.Stats(level, sim.ReactionCatalog);
                     Assert.That(stats, Does.Contain(pair).And.Contain("нелетального direct").And.Contain("60 ticks"));
                     if (id == "tide") Assert.That(stats, Does.Contain("Пламя + Прилив → Пар"));
-                    text.text = id + " — Level: 3\n" + stats + "\nUpgrade: MAX\nSell refund: 999 gold";
+                    text.text = id.ToUpperInvariant() + " — Level: 3\n" + TowerDisplay.CoreStats(level) + "\n" + TowerDisplay.Effect(level) + "\nUpgrade: MAX · Sell refund: 999 gold";
                     Assert.That(text.preferredHeight, Is.LessThanOrEqualTo(panel.rectTransform.rect.height));
-                    text.fontSize = preview.fontSize; text.text = id + " — role\nPrice: 999 gold\n" + stats;
+                    text.fontSize = preview.fontSize; text.rectTransform.sizeDelta = preview.rectTransform.rect.size;
+                    text.text = "Price: 999 gold\n" + TowerDisplay.CoreStats(level) + "\n" + TowerDisplay.Effect(level);
                     Assert.That(text.preferredHeight, Is.LessThanOrEqualTo(preview.rectTransform.rect.height));
-                    text.fontSize = panel.fontSize;
+                    text.fontSize = panel.fontSize; text.rectTransform.sizeDelta = panel.rectTransform.rect.size;
                 }
             }
             finally { UnityEngine.Object.DestroyImmediate(measurement); UnityEditor.SceneManagement.EditorSceneManager.ClosePreviewScene(scene); }
@@ -73,9 +74,9 @@ namespace Veilward.Tests.EditMode
             Consume(state, Event(ReactionKind.Storm, 3));
             Consume(state, Event(ReactionKind.Steam, 5));
             Consume(state, Event(ReactionKind.Storm, 7));
-            AssertSlots(enemy, state, 60, "Пламя + Прилив → Пар", "Gust");
+            AssertSlots(enemy, state, 60, "Flame + Tide: Steam", "Gust");
             Call(state, "Advance", .499);
-            AssertSlots(enemy, state, 60, "Пламя + Прилив → Пар", "Gust");
+            AssertSlots(enemy, state, 60, "Flame + Tide: Steam", "Gust");
             Call(state, "Advance", .001);
             AssertSlots(enemy, state, 60, "Burn", "Wet");
         }
@@ -87,7 +88,7 @@ namespace Veilward.Tests.EditMode
             var state = NewState();
             Consume(state, Event(ReactionKind.Storm, 3, ReactionTriggerKind.Intrinsic));
             var slots = Describe(enemy, state, 0);
-            Assert.That(Read<string>(slots, "First"), Does.Contain("STORM: встроенная"));
+            Assert.That(Read<string>(slots, "First"), Does.Contain("Storm chain"));
             Assert.That(Read<string>(slots, "Second"), Is.Empty);
             Consume(state, Event(ReactionKind.Steam, 5));
             var memory = Call(state, "GetMemory", enemy.Id);

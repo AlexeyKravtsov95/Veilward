@@ -49,8 +49,6 @@ namespace Veilward.Presentation
         private const int ReactionPoolCapacity = 24;
         private readonly ReactionEffectView[] _reactionPool = new ReactionEffectView[ReactionPoolCapacity];
         private int _nextReactionEffect;
-        private Vector2 _reactionSummaryOrigin;
-        private Canvas _summaryCanvas;
         public ReactionPresentationState Presentation { get; } = new ReactionPresentationState();
 
         private readonly List<Rect> _healthRects = new List<Rect>(64);
@@ -144,11 +142,7 @@ namespace Veilward.Presentation
                 _hybridProjectiles = new HybridProjectilePool(transform,
                     reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial);
             else _hybridProjectiles.Clear();
-            if (reactionSummaryText != null)
-            {
-                _reactionSummaryOrigin = reactionSummaryText.rectTransform.anchoredPosition;
-                _summaryCanvas = reactionSummaryText.GetComponentInParent<Canvas>();
-            }
+
             for (var i = 0; i < _reactionPool.Length; i++)
             {
                 if (_reactionPool[i] != null) { _reactionPool[i].Clear(); continue; }
@@ -215,7 +209,13 @@ namespace Veilward.Presentation
             UpdateHud();
         }
 
-        public void ReturnToMenu() => UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        private bool _leaving;
+        public void ReturnToMenu()
+        {
+            if (_leaving) return;
+            _leaving = true;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        }
 
         public PlaceTowerResult PlaceTower(GridCoordinate coordinate)
         {
@@ -439,20 +439,7 @@ namespace Veilward.Presentation
             if (checkpointController != null) checkpointController.ObserveCommandCompletion();
             SynchronizeViews();
             UpdateHud();
-            if (reactionSummaryText != null && _summaryCanvas != null && _summaryCanvas.scaleFactor > 0)
-            {
-                var area = Screen.safeArea;
-                reactionSummaryText.rectTransform.anchoredPosition = _reactionSummaryOrigin + new Vector2(
-                    area.center.x - Screen.width * .5f, -Mathf.Max(0, Screen.height - area.yMax)) / _summaryCanvas.scaleFactor;
-                if (bossHud != null) bossHud.Refresh();
-                if (bossHud != null && bossHud.IsVisible)
-                {
-                    var bossRect = bossHud.PanelRect;
-                    reactionSummaryText.rectTransform.anchoredPosition = bossRect.anchoredPosition + Vector2.down * (bossRect.rect.height + 8);
-                    reactionSummaryText.rectTransform.sizeDelta = new Vector2(bossRect.rect.width, reactionSummaryText.rectTransform.sizeDelta.y);
-                }
-                else reactionSummaryText.rectTransform.sizeDelta = new Vector2(680, reactionSummaryText.rectTransform.sizeDelta.y);
-            }
+
         }
 
         private void ProcessAttackEvents()
@@ -821,6 +808,7 @@ namespace Veilward.Presentation
 
         private void UpdateHud()
         {
+            if (!hudText.isActiveAndEnabled) return;
             var state = _simulation.State;
             var result = state.Phase == BattlePhase.Victory || state.Phase == BattlePhase.Defeat
                 ? $"\nResult: {state.Phase}"

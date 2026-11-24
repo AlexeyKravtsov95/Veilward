@@ -47,7 +47,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(_s.AbilityState.NextCastSequence, Is.EqualTo(2));
             Assert.That(_s.AbilityState.CooldownRemainingTicks, Is.EqualTo(600));
             Assert.That(_s.DamageEvents, Is.Empty); Assert.That(_s.AbilityEvents, Is.Empty);
-            Assert.That(Get("Status"), Is.EqualTo("Печать: 2 hits, 240 HP"));
+            Assert.That(Get("Status"), Is.EqualTo("Rift Seal hit 2 · 240 HP lost"));
         }
         [TestCase(false)] [TestCase(true)]
         public void RegBattle204_CancelOrEmptyNeverCastsAndConsumesLease(bool empty)

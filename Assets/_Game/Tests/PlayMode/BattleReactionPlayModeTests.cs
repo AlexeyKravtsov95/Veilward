@@ -43,11 +43,11 @@ namespace Veilward.Tests.PlayMode
             {
                 placement.TrySelectCell(new GridCoordinate(-4, 0));
                 placement.SelectTowerType(new TowerDefinitionId(id)); yield return null;
-                Assert.That(placement.BuildStatsText.text, Does.Contain("встроенная"));
+                Assert.That(placement.BuildStatsText.text, Does.Contain("Innate"));
                 Assert.That(placement.BuildStatsText.preferredHeight, Is.LessThanOrEqualTo(placement.BuildStatsText.rectTransform.rect.height));
                 placement.ConfirmSelection(); yield return null;
                 placement.TrySelectCell(new GridCoordinate(-4, 0)); yield return null;
-                Assert.That(placement.TowerStatsText.text, Does.Contain("встроенная").And.Contain("Sell refund:"));
+                Assert.That(placement.TowerStatsText.text, Does.Contain("Innate").And.Contain("Sell refund:"));
                 Assert.That(placement.TowerStatsText.preferredHeight, Is.LessThanOrEqualTo(placement.TowerStatsText.rectTransform.rect.height));
                 Assert.That(Button("Sell Button").GetComponent<RectTransform>().rect.height, Is.GreaterThanOrEqualTo(56));
                 placement.RequestSellSelectedTower(); placement.ConfirmSellSelectedTower();
@@ -68,7 +68,7 @@ namespace Veilward.Tests.PlayMode
             Call(inspector, "Refresh");
             var text = (string)inspector.GetType().GetProperty("Details").GetValue(inspector);
             foreach (StatusKind k in Enum.GetValues(typeof(StatusKind))) Assert.That(text, Does.Contain(k.ToString()));
-            Assert.That(text, Does.Contain("power 7").And.Contain("90 ticks").And.Contain("Steam CD: 0").And.Contain("Storm CD: 0"));
+            Assert.That(text, Does.Contain("Burn 7 (3s)").And.Contain("Steam ready").And.Contain("Storm ready"));
             Assert.That(enemy.Health, Is.EqualTo(enemy.Definition.MaxHealth));
             foreach (ReactionKind kind in Enum.GetValues(typeof(ReactionKind)))
                 typeof(EnemyState).GetMethod("ReserveReaction", Flags).Invoke(enemy, new object[] { kind, 0L });
@@ -85,8 +85,8 @@ namespace Veilward.Tests.PlayMode
             battle.Presentation.Consume(storm, new[] { steamHit, stormHit });
             Call(inspector, "Select", enemy.Id);
             text = (string)inspector.GetType().GetProperty("Details").GetValue(inspector);
-            Assert.That(text, Does.Contain("Steam CD: 60").And.Contain("Storm CD: 60").And.Contain("Пламя + Прилив → Пар").And.Contain("STORM: встроенная"));
-            Assert.That(text, Does.Contain("AppliedHpLoss 4 HP").And.Contain("AppliedHpLoss 6 HP").And.Not.Contain("999"));
+            Assert.That(text, Does.Contain("Steam 2s").And.Contain("Storm 2s").And.Contain("Steam · Flame + Tide").And.Contain("Storm · Innate attack"));
+            Assert.That(text, Does.Contain("4 HP lost").And.Contain("6 HP lost").And.Not.Contain("999"));
             Assert.That(enemy.Health, Is.EqualTo(enemy.Definition.MaxHealth), "Read-only inspector cannot apply captured damage.");
             typeof(EnemyState).GetMethod("ApplyDamage", Flags).Invoke(enemy, new object[] { enemy.Health });
             Call(inspector, "Refresh");

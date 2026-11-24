@@ -63,7 +63,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(_placement.BuildStatsText.text, Does.Contain($"Price: {price} gold"));
             Assert.That(_placement.BuildStatsText.text, Does.Contain($"Damage: {definition.Damage}"));
             Assert.That(_placement.BuildStatsText.text, Does.Contain("Range:"));
-            Assert.That(_placement.BuildStatsText.text, Does.Contain("FireRate:"));
+            Assert.That(_placement.BuildStatsText.text, Does.Contain("Rate:"));
             Assert.That(_placement.BuildStatsText.text, Does.Contain(status).And.Contain(effect));
             var preview = Object.FindObjectsByType<LineRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None)
                 .Single(r => r.name == "Range Preview");
@@ -234,19 +234,23 @@ namespace Veilward.Tests.EditMode
             var serialized = new SerializedObject(_placement);
             var panels = new[] { "confirmationPanel", "towerPanel" }.Select(name =>
                 ((GameObject)serialized.FindProperty(name).objectReferenceValue).GetComponent<RectTransform>()).ToArray();
-            var initial = panels.Select(panel => panel.anchoredPosition).ToArray();
-            var method = typeof(BattlePlacementController).GetMethod("ApplySafeArea", BindingFlags.NonPublic | BindingFlags.Instance);
-            Assert.That(method, Is.Not.Null, "New panels must account for landscape right/bottom unsafe insets.");
-            method.Invoke(_placement, new object[] { new Rect(0f, 24f, 1468f, 876f), new Vector2(1600f, 900f), 0.8f });
-            for (var index = 0; index < panels.Length; index++)
+            var root = (RectTransform)panels[0].parent;
+            Assert.That(panels[1].parent, Is.SameAs(root));
+            var safe = root.GetComponentInParent<BattleHudSafeArea>();
+            var method = typeof(BattleHudSafeArea).GetMethod("ApplySafeArea", BindingFlags.NonPublic | BindingFlags.Instance);
+            method.Invoke(safe, new object[] { new Rect(0f, 24f, 1468f, 876f), new Vector2(1600f, 900f), 0.8f });
+            Assert.That(root.anchorMin, Is.EqualTo(new Vector2(0, 24f / 900)));
+            Assert.That(root.anchorMax, Is.EqualTo(new Vector2(1468f / 1600, 1)));
+            foreach (var panel in panels)
             {
-                Assert.That(panels[index].anchoredPosition, Is.EqualTo(initial[index] + new Vector2(-165f, 30f)));
-                Assert.That(panels[index].anchorMin, Is.EqualTo(new Vector2(1f, 0f)));
-                Assert.That(panels[index].anchorMax, Is.EqualTo(new Vector2(1f, 0f)));
+                Assert.That(panel.anchorMin, Is.EqualTo(new Vector2(1, 0)));
+                Assert.That(panel.anchorMax, Is.EqualTo(new Vector2(1, 0)));
+                Assert.That(panel.anchoredPosition.x, Is.LessThan(0));
+                Assert.That(panel.anchoredPosition.y, Is.GreaterThan(0));
             }
-            method.Invoke(_placement, new object[] { new Rect(0f, 0f, 1600f, 900f), new Vector2(1600f, 900f), 0.8f });
-            for (var index = 0; index < panels.Length; index++)
-                Assert.That(panels[index].anchoredPosition, Is.EqualTo(initial[index]), "Insets must not accumulate or survive full-screen safe area.");
+            method.Invoke(safe, new object[] { new Rect(0f, 0f, 1600f, 900f), new Vector2(1600f, 900f), 0.8f });
+            Assert.That(root.anchorMin, Is.EqualTo(Vector2.zero));
+            Assert.That(root.anchorMax, Is.EqualTo(Vector2.one));
         }
 
         private static Color ColorOf(GameObject view)

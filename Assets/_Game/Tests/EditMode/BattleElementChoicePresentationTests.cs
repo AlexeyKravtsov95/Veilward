@@ -180,7 +180,7 @@ namespace Veilward.Tests.EditMode
             _placement.TrySelectCell(_cell); _placement.SelectTowerType(new TowerDefinitionId("flame")); _placement.ConfirmSelection();
             _placement.TrySelectCell(new GridCoordinate(-3, 0)); _placement.SelectTowerType(new TowerDefinitionId("flame")); _placement.ConfirmSelection();
             _placement.TrySelectCell(new GridCoordinate(-2, 0)); _placement.SelectTowerType(new TowerDefinitionId("flame"));
-            Assert.That(_placement.BuildStatsText.text, Does.Contain("Недостаточно Gold").And.Not.Contain("Missing:"));
+            Assert.That(_placement.BuildStatsText.text, Does.Contain("Not enough gold").And.Not.Contain("Missing:"));
             Assert.That(Button("Confirm Button").interactable, Is.False);
             Button("Confirm Button").onClick.Invoke();
             Assert.That(_battle.Simulation.State.Gold, Is.EqualTo(10));
@@ -208,10 +208,14 @@ namespace Veilward.Tests.EditMode
             Assert.That(safe, Is.Not.Null);
             var pause = Button("Pause Button").GetComponent<RectTransform>();
             var menu = Button("Main Menu Button").GetComponent<RectTransform>();
-            var right = pause.anchoredPosition; var left = menu.anchoredPosition;
-            Call(safe, "ApplySafeArea", new Rect(60, 30, 1800, 1000), new Vector2(1920,1080), 1f);
-            Assert.That(pause.anchoredPosition, Is.EqualTo(right + new Vector2(-60, -50)));
-            Assert.That(menu.anchoredPosition, Is.EqualTo(left + new Vector2(60, 30)));
+            Call(safe, "ApplySafeArea", new Rect(60, 30, 1800, 1000), new Vector2(1920, 1080), 1f);
+            var pauseSafe = (RectTransform)pause.parent;
+            var menuSafe = (RectTransform)menu.parent.parent;
+            foreach (var root in new[] { pauseSafe, menuSafe })
+            {
+                Assert.That(root.anchorMin, Is.EqualTo(new Vector2(60f / 1920, 30f / 1080)));
+                Assert.That(root.anchorMax, Is.EqualTo(new Vector2(1860f / 1920, 1030f / 1080)));
+            }
         }
 
         [TestCase(1)] [TestCase(3)]

@@ -68,7 +68,7 @@ namespace Veilward.Editor
                 {
                     var references = RequireReferences(
                         menus[0],
-                        new[] { "scenario", "newGameButton", "continueButton", "statusText" },
+                        new[] { "scenario", "newGameButton", "continueButton", "statusText", "retryButton" },
                         errors);
                     RequireAssetPath(references["scenario"], ConfigPath, "Main Menu scenario", errors);
                     RequireProductionContent(references["scenario"], errors);
@@ -85,10 +85,11 @@ namespace Veilward.Editor
                 if (canvases.Count == 1)
                 {
                     var scaler = canvases[0].GetComponent<UnityEngine.UI.CanvasScaler>();
-                    if (scaler == null || scaler.referenceResolution != new Vector2(1920f, 1080f))
-                    {
-                        errors.Add("Main Menu CanvasScaler must use a 1920x1080 reference resolution.");
-                    }
+                    if (scaler == null || scaler.referenceResolution != new Vector2(740, 400) ||
+                        scaler.screenMatchMode != UnityEngine.UI.CanvasScaler.ScreenMatchMode.Expand)
+                        errors.Add("Main Menu requires the adaptive 740x400 reference.");
+                    if (canvases[0].GetComponent<BattleHudSafeArea>() == null)
+                        errors.Add("Main Menu requires a safe area.");
                 }
             }
             finally
@@ -142,7 +143,7 @@ namespace Veilward.Editor
                         "catalogRoot", "catalogButtonTemplate", "buildStatsText", "sellConfirmationText", "enemyInspector",
                         "battle", "worldCamera", "selectionHighlight", "towerPreview",
                         "confirmationPanel", "confirmButton", "cancelButton", "startWaveButton", "nextWaveButton", "rangePreview",
-                        "towerPanel", "towerStatsText", "upgradeButton", "sellButton", "sellConfirmationPanel", "confirmSellButton", "cancelSellButton"
+                        "towerPanel", "towerStatsText", "upgradeButton", "sellButton", "closeTowerButton", "sellConfirmationPanel", "confirmSellButton", "cancelSellButton"
                     },
                     errors);
             }
@@ -162,9 +163,9 @@ namespace Veilward.Editor
                 var refs = RequireReferences(inspectors[0], new[] { "battle", "placement", "worldCamera", "panel", "detailsText", "closeButton" }, errors);
                 if (refs["panel"] is GameObject panel && (panel.GetComponent<UnityEngine.UI.Image>() == null || !panel.GetComponent<UnityEngine.UI.Image>().raycastTarget))
                     errors.Add("Enemy inspector panel must block raycasts.");
-                if (refs["closeButton"] is UnityEngine.UI.Button close && close.GetComponent<RectTransform>().rect.height < 56)
-                    errors.Add("Enemy inspector closeButton must preserve 56px target.");
-                if (refs["detailsText"] is UnityEngine.UI.Text details && (details.fontSize < 22 || details.rectTransform.rect.height < 300))
+                if (refs["closeButton"] is UnityEngine.UI.Button close && close.GetComponent<RectTransform>().rect.height < 60)
+                    errors.Add("Enemy inspector closeButton must preserve its 60-unit target.");
+                if (refs["detailsText"] is UnityEngine.UI.Text details && (details.fontSize < 14 || details.rectTransform.rect.height < 135))
                     errors.Add("Enemy inspector detailsText layout is too small.");
             }
 
@@ -172,10 +173,24 @@ namespace Veilward.Editor
             if (safeAreas.Count != 1) errors.Add("Battle requires exactly one BattleHudSafeArea.");
             else
             {
-                var controls = new SerializedObject(safeAreas[0]).FindProperty("edgeControls");
-                if (controls.arraySize != 11) errors.Add("HUD requires eleven safe-area edge controls.");
+                var controls = new SerializedObject(safeAreas[0]).FindProperty("safeRoots");
+                if (controls.arraySize != 6) errors.Add("HUD requires six safe-area roots.");
                 for (var i = 0; i < controls.arraySize; i++)
                     if (controls.GetArrayElementAtIndex(i).objectReferenceValue == null) errors.Add("Missing HUD safe-area reference.");
+            }
+            var playerHuds = FindComponents<BattlePlayerHud>(roots);
+            if (playerHuds.Count != 1) errors.Add("Battle requires exactly one BattlePlayerHud.");
+            else
+            {
+                var refs = RequireReferences(playerHuds[0], new[] { "battle", "placement", "pause", "ability", "choice",
+                    "inspector", "checkpoints", "heart", "gold", "wave", "phase", "result", "resultTitle", "resultDetails",
+                    "resultSave", "resultMenu", "choiceMenu", "startWave", "nextWave", "saveWarning", "saveStatus", "retrySave",
+                    "pauseSave", "diagnostics" }, errors);
+                if (refs["diagnostics"] is GameObject diagnostics && diagnostics.activeSelf)
+                    errors.Add("Battle diagnostics must start hidden.");
+                if (refs["result"] is GameObject result &&
+                    (result.GetComponent<UnityEngine.UI.Image>() == null || !result.GetComponent<UnityEngine.UI.Image>().raycastTarget))
+                    errors.Add("Battle result must block raycasts.");
             }
             var choices = FindComponents<ElementChoiceController>(roots);
             if (choices.Count != 1) errors.Add("Battle requires exactly one ElementChoiceController.");
@@ -191,12 +206,12 @@ namespace Veilward.Editor
             }
             var bosses = FindComponents<BossHudController>(roots);
             if (bosses.Count != 1) errors.Add("Battle requires exactly one BossHudController.");
-            else RequireReferences(bosses[0], new[] { "battle", "panel", "noticeText", "healthText", "healthFill" }, errors);
+            else RequireReferences(bosses[0], new[] { "battle", "placement", "panel", "noticeText", "healthText", "healthFill" }, errors);
             var abilities = FindComponents<AbilityController>(roots);
             if (abilities.Count != 1) errors.Add("Battle requires exactly one AbilityController.");
             else
             {
-                var refs = RequireReferences(abilities[0], new[] { "battle", "placement", "beginButton", "confirmButton", "cancelButton", "panel", "statusText", "preview" }, errors);
+                var refs = RequireReferences(abilities[0], new[] { "battle", "placement", "beginButton", "confirmButton", "cancelButton", "panel", "statusText", "feedbackText", "preview" }, errors);
                 if (refs["panel"] is GameObject abilityPanel && (abilityPanel.GetComponent<UnityEngine.UI.Image>() == null || !abilityPanel.GetComponent<UnityEngine.UI.Image>().raycastTarget))
                     errors.Add("Ability panel must block raycasts.");
                 if (refs["preview"] is AbilityPreviewView preview && (preview.GetComponent<LineRenderer>() == null || preview.GetComponent<LineRenderer>().sharedMaterial == null))

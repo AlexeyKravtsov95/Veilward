@@ -16,6 +16,9 @@ namespace Veilward.Presentation
         [SerializeField] private UnityEngine.UI.Button continueButton;
         [SerializeField] private UnityEngine.UI.Text statusText;
 
+        [SerializeField] private UnityEngine.UI.Button retryButton;
+
+        private bool _leaving;
         private WaveCheckpointStore _store;
         private WaveCheckpointEnvelope _availableCheckpoint;
 
@@ -29,6 +32,7 @@ namespace Veilward.Presentation
             ValidateReferences();
             newGameButton.onClick.AddListener(StartNewGame);
             continueButton.onClick.AddListener(Continue);
+            if (retryButton != null) retryButton.onClick.AddListener(RefreshCheckpointStatus);
             RefreshCheckpointStatus();
         }
 
@@ -43,6 +47,7 @@ namespace Veilward.Presentation
             {
                 continueButton.onClick.RemoveListener(Continue);
             }
+            if (retryButton != null) retryButton.onClick.RemoveListener(RefreshCheckpointStatus);
         }
 
         public void ConfigureStore(WaveCheckpointStore store)
@@ -59,6 +64,7 @@ namespace Veilward.Presentation
             ValidateReferences();
             EnsureStore();
             _availableCheckpoint = null;
+            ShowRetry(false);
             var loaded = _store.TryLoad(
                 scenario.ScenarioContentId,
                 scenario.CreateSimulationForCheckpoint,
@@ -70,33 +76,35 @@ namespace Veilward.Presentation
                 {
                     _availableCheckpoint = result.Envelope;
                     continueButton.interactable = true;
+                    var wave = result.Envelope.state.waveIndex + 1;
                     statusText.text = result.Status == WaveCheckpointLoadStatus.LoadedBackup
-                        ? "Checkpoint ready — backup restored."
-                        : "Checkpoint ready.";
+                        ? $"Wave {wave} is available from a backup."
+                        : $"Saved at wave {wave}.";
                     if (result.Envelope.state.elementProgression.rulesId == "legacy-all-open-v1")
-                        statusText.text += "\nПродолжение по прежним правилам: все стихии открыты.";
+                        statusText.text += "\nEarlier rules: all elements unlocked.";
                     return;
                 }
 
                 continueButton.interactable = false;
-                statusText.text = "Match finished — start a New Game.";
+                statusText.text = "The last battle finished. Start a new game.";
                 return;
             }
 
             continueButton.interactable = false;
+            ShowRetry(result.Status != WaveCheckpointLoadStatus.Missing);
             switch (result.Status)
             {
                 case WaveCheckpointLoadStatus.Missing:
-                    statusText.text = "No checkpoint — start a New Game.";
+                    statusText.text = "No saved battle.";
                     break;
                 case WaveCheckpointLoadStatus.Incompatible:
-                    statusText.text = "Checkpoint is incompatible — start a New Game.";
+                    statusText.text = "This save is from an incompatible version.";
                     break;
                 case WaveCheckpointLoadStatus.Corrupt:
-                    statusText.text = "Checkpoint is damaged — start a New Game.";
+                    statusText.text = "The save is damaged.";
                     break;
                 default:
-                    statusText.text = "Checkpoint unavailable — check storage.";
+                    statusText.text = "The save could not be read. Check storage.";
                     break;
             }
         }
@@ -107,14 +115,14 @@ namespace Veilward.Presentation
             EnsureStore();
             if (!_store.Delete(out var error))
             {
-                statusText.text = "Unable to reset checkpoint.";
+                statusText.text = "Unable to reset the save. Try New Game again.";
                 Debug.LogError(error);
                 return false;
             }
 
             _availableCheckpoint = null;
             continueButton.interactable = false;
-            statusText.text = "New Game ready.";
+            ShowRetry(false);
             BattleSessionContext.SetNewGame(_store, scenario.ScenarioContentId);
             return true;
         }
@@ -133,18 +141,25 @@ namespace Veilward.Presentation
 
         public void StartNewGame()
         {
-            if (PrepareNewGameSession())
+            if (!_leaving && PrepareNewGameSession())
             {
+                _leaving = true;
                 SceneManager.LoadScene(BattleSceneName, LoadSceneMode.Single);
             }
         }
 
         public void Continue()
         {
-            if (PrepareContinueSession())
+            if (!_leaving && PrepareContinueSession())
             {
+                _leaving = true;
                 SceneManager.LoadScene(BattleSceneName, LoadSceneMode.Single);
             }
+        }
+
+        private void ShowRetry(bool visible)
+        {
+            if (retryButton != null) retryButton.gameObject.SetActive(visible);
         }
 
         private void EnsureStore()

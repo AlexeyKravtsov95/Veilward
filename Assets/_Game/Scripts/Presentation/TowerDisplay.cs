@@ -1,3 +1,5 @@
+using System;
+using System.Globalization;
 using Veilward.Domain;
 using UnityEngine;
 
@@ -8,6 +10,57 @@ namespace Veilward.Presentation
     {
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         public static string Name(TowerDefinitionId id) => id.Value == "test-tower" ? "Test Tower" : id.Value.ToUpperInvariant();
+
+        public static string ArchetypeName(TowerDefinitionId id) => id.Value switch
+        {
+            "flame" => "Ember Lantern",
+            "tide" => "Tide Bell",
+            "gale" => "Wind Talisman",
+            "stone" => "Shard Seal",
+            "steam" => "Mist Fox",
+            "storm" => "Thunder Carp",
+            _ => Name(id)
+        };
+
+        public static string CoreStats(TowerDefinition definition) =>
+            FormattableString.Invariant($"Damage: {definition.Damage} · Range: {definition.Range:0.##} · Rate: {definition.FireRate:0.##}/s");
+
+        public static string Effect(TowerDefinition definition)
+        {
+            var intrinsic = definition.IntrinsicReaction;
+            if (intrinsic != null)
+                return intrinsic.Kind == ReactionKind.Steam ? "Innate Steam burst" : "Innate Storm chain";
+            var status = definition.StatusEffect;
+            if (status == null) return "Status: None";
+            return status.Kind switch
+            {
+                StatusKind.Burn => $"Burn: {status.Power} damage / {Seconds(status.DamageIntervalTicks)} s",
+                StatusKind.Wet => $"Wet: {status.Power}% slow",
+                StatusKind.Gust => $"Gust: +{status.Power}% direct damage",
+                _ => $"Crack: -{status.Power} armor"
+            };
+        }
+
+        public static VeilwardGlyph Glyph(TowerDefinitionId id) => id.Value switch
+        {
+            "flame" => VeilwardGlyph.Flame,
+            "tide" => VeilwardGlyph.Tide,
+            "gale" => VeilwardGlyph.Gale,
+            "stone" => VeilwardGlyph.Stone,
+            "steam" => VeilwardGlyph.Steam,
+            "storm" => VeilwardGlyph.Storm,
+            _ => VeilwardGlyph.Seal
+        };
+
+        public static Color ElementTint(TowerDefinitionId id) => id.Value switch
+        {
+            "flame" => new Color32(244, 151, 131, 255),
+            "tide" => new Color32(132, 195, 234, 255),
+            "gale" => new Color32(139, 214, 186, 255),
+            "steam" => new Color32(193, 218, 213, 255),
+            "storm" => new Color32(189, 177, 240, 255),
+            _ => new Color32(231, 194, 121, 255)
+        };
 
         public static string Role(TowerDefinition definition)
         {
@@ -70,7 +123,7 @@ namespace Veilward.Presentation
             return "\n" + pairs + "\nПосле нелетального direct по паре; CD врага: " + cooldown;
         }
 
-        private static string Seconds(int ticks) => ((float)ticks / SimulationTiming.TicksPerSecond).ToString("0.##");
+        private static string Seconds(int ticks) => ((float)ticks / SimulationTiming.TicksPerSecond).ToString("0.##", CultureInfo.InvariantCulture);
 
         public static void ApplyVisual(Transform view, TowerDefinition definition, int level)
         {

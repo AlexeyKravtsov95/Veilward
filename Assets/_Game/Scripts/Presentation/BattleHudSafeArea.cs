@@ -2,44 +2,37 @@ using UnityEngine;
 
 namespace Veilward.Presentation
 {
+    [DefaultExecutionOrder(-100)]
     public sealed class BattleHudSafeArea : MonoBehaviour
     {
-        [SerializeField] private RectTransform[] edgeControls;
+        [SerializeField] private RectTransform[] safeRoots;
         public Rect AppliedArea { get; private set; }
         public Vector2 AppliedScreenSize { get; private set; }
-        private Vector2[] _origins;
-        private Canvas _canvas;
-        private Rect _lastArea;
-        private Vector2 _lastSize;
-        private float _lastScale;
-        private void Start() => Initialize();
-        private void Initialize()
+
+        private void OnEnable() => Refresh();
+
+        private void Update() => Refresh();
+
+        private void Refresh()
         {
-            if (_origins != null) return;
-            _canvas = GetComponentInParent<Canvas>();
-            _origins = new Vector2[edgeControls.Length];
-            for (var i = 0; i < edgeControls.Length; i++) _origins[i] = edgeControls[i].anchoredPosition;
-        }
-        private void Update()
-        {
-            Initialize();
             var size = new Vector2(Screen.width, Screen.height);
-            var scale = _canvas != null ? _canvas.scaleFactor : 1;
-            if (Screen.safeArea == _lastArea && size == _lastSize && scale == _lastScale) return;
-            ApplySafeArea(Screen.safeArea, size, scale);
-            _lastArea = Screen.safeArea; _lastSize = size; _lastScale = scale;
+            var area = Screen.safeArea;
+            if (area == AppliedArea && size == AppliedScreenSize) return;
+            ApplySafeArea(area, size, 1);
         }
+
         private void ApplySafeArea(Rect area, Vector2 size, float scale)
         {
-            Initialize();
-            if (size.x <= 0 || size.y <= 0 || area.width <= 0 || area.height <= 0 || scale <= 0) return;
-            AppliedArea = area; AppliedScreenSize = size;
-            for (var i = 0; i < edgeControls.Length; i++)
+            if (size.x <= 0 || size.y <= 0 || area.width <= 0 || area.height <= 0 || scale <= 0 || safeRoots == null) return;
+            AppliedArea = area;
+            AppliedScreenSize = size;
+            var min = new Vector2(area.xMin / size.x, area.yMin / size.y);
+            var max = new Vector2(area.xMax / size.x, area.yMax / size.y);
+            foreach (var root in safeRoots)
             {
-                var rect = edgeControls[i]; var anchor = rect.anchorMin;
-                var x = anchor.x <= 0 ? area.xMin : anchor.x >= 1 ? -(size.x - area.xMax) : area.center.x - size.x * .5f;
-                var y = anchor.y <= 0 ? area.yMin : anchor.y >= 1 ? -(size.y - area.yMax) : area.center.y - size.y * .5f;
-                rect.anchoredPosition = _origins[i] + new Vector2(x, y) / scale;
+                root.anchorMin = min;
+                root.anchorMax = max;
+                root.offsetMin = root.offsetMax = Vector2.zero;
             }
         }
     }

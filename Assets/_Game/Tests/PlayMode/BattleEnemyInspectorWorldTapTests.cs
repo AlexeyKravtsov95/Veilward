@@ -61,7 +61,7 @@ namespace Veilward.Tests.PlayMode
             var before = Snapshot();
             yield return TapEnemy(second);
             Assert.That(_inspector.SelectedEnemyId, Is.EqualTo(second.Id));
-            Assert.That(_inspector.Details, Does.Contain("Враг #" + second.Id.Value));
+            Assert.That(_inspector.Details, Does.Contain($"SHADE   HP {second.Health}/{second.Definition.MaxHealth}"));
             Assert.That(_placement.HasSelection, Is.False);
             Assert.That(_placement.SelectedTowerId, Is.Null);
             Assert.That(Snapshot(), Is.EqualTo(before));
