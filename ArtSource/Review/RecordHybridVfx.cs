@@ -240,7 +240,7 @@ public sealed class HybridEditorRecording : MonoBehaviour
         {
             actualPlayMode = true, unity = Application.unityVersion, graphics = SystemInfo.graphicsDeviceType.ToString(),
             quality = QualitySettings.names[QualitySettings.GetQualityLevel()], pipeline = path,
-            camera = new { position = Vector(camera.transform.position), rotation = camera.transform.rotation.eulerAngles,
+            camera = new { position = Vector(camera.transform.position), rotation = Vector(camera.transform.rotation.eulerAngles),
                 camera.orthographicSize, camera.aspect },
             hybridViews = HybridProjectilePool.Capacity, hybridRenderers = hybrid.Length, hybridSlots = hybrid.Sum(l => l.sharedMaterials.Length),
             reactionViews = battle.GetComponentsInChildren<ReactionEffectView>(true).Length,
