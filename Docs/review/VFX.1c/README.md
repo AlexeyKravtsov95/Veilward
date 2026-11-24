@@ -12,7 +12,7 @@
 ## Доказательства
 
 - [Непрерывное production Update Editor видео](editor-flow.mp4) и [PNG по фазам и событиям](gallery.md).
-- [Команды, точные результаты и ограничения](validation.md).
+- [Команды, точные результаты и ограничения](validation.md) · [Независимое code/visual review](review.md).
 - `python3 Docs/review/VFX.1c/verify_delivery.py` выполняет read-only проверку. Нужны Python 3.10+, Pillow, FFmpeg/FFprobe и соответствующие pinned файлы Unity PackageCache. Проверка `--check-local-preservation` дополнительно использует локальный начальный аудит.
 - `python3 Docs/review/VFX.1c/verify_controls.py` запускает малые положительные и отрицательные проверки целостности без Unity и копии проекта.
 
