@@ -389,6 +389,20 @@ def supplemental(reports, actual_events):
         require(all(select_event(d) == select_event(data[0]) and d["level"] == 3 and d["kind"] == kind for d in data) and
                 [d["IsFlying"] for d in data] == [True, True, False] and
                 series[0]["frame"] < series[1]["frame"] < series[2]["frame"], "same-event earned L3 sequence")
+        route = "ART.3e" if kind == "Steam" else "ART.3f"
+        gold = 3 if kind == "Steam" else 2
+        commands = f"Docs/review/{route}/inputs/earned.commands.json"
+        state = (PACKET / f"reports/{kind.lower()}-l3-earned-state.txt").read_text()
+        report = read(f"reports/{kind.lower()}-l3-earned-replay.json")
+        raw = gzip.decompress((PACKET / f"reports/{kind.lower()}-l3-earned-replay.trace.gz").read_bytes())
+        require(all(d["commands"] == commands and d["gold"] == gold for d in data) and
+                state.startswith("S|Preparation|7|") and state.split("|")[5] == str(gold) and
+                re.search(r"\|T:\d+," + kind.lower() + r",3,-?\d+,-?\d+,495,", state) is not None,
+                "earned level-three preparation and ledger " + kind)
+        require(report["traceSha256"] == sha(raw) and report["rawBytes"] == len(raw) and
+                raw.startswith(b"C|NewGame\n") and state.encode() in raw and
+                all(re.search(rb"C\|upgrade " + kind.lower().encode() + rb" [^\n]+price=" + price + rb" refund=0", raw)
+                    for price in (b"165", b"220")), "full public-command level-three route " + kind)
     dense = by_name["synthetic-dense-six-boss"]["data"]
     require(set(dense["seen"]) == {"flame", "tide", "gale", "stone", "steam", "storm"} and
             dense["count"] >= 6 and dense["boss"] > 0 and dense["distance"] >= 2.1, "dense six-family/boss scenario")
