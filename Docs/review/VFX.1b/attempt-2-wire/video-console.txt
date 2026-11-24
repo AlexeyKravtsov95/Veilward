@@ -1,0 +1,2 @@
+Exception|ArgumentException: Checkpoint is incompatible with this scenario.
+Parameter name: normalized

@@ -1,0 +1,146 @@
+{
+  "video-menu.png": {
+    "manifestIndex": 10,
+    "sourceFrameIndex": 10,
+    "sourceFile": "00010.png",
+    "gameFrame": 144700,
+    "elapsed": 0.5356362919992534,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  "video-pause.png": {
+    "manifestIndex": 58,
+    "sourceFrameIndex": 58,
+    "sourceFile": "00058.png",
+    "gameFrame": 144996,
+    "elapsed": 2.920349374995567,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  "video-continue.png": {
+    "manifestIndex": 430,
+    "sourceFrameIndex": 430,
+    "sourceFile": "00430.png",
+    "gameFrame": 146680,
+    "elapsed": 20.073228749999544,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  "video-sold.png": {
+    "manifestIndex": 451,
+    "sourceFrameIndex": 451,
+    "sourceFile": "00451.png",
+    "gameFrame": 146762,
+    "elapsed": 21.013055542003713,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  "tide-launch.png": {
+    "manifestIndex": 304,
+    "sourceFrameIndex": 304,
+    "sourceFile": "00304.png",
+    "gameFrame": 146116,
+    "elapsed": 13.838287999999011,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2dcea695e68b1eb41fba63a299b0f98dab352900ce59c53751e768f4a73c3ff3"
+  },
+  "tide-flight.png": {
+    "manifestIndex": 307,
+    "sourceFrameIndex": 307,
+    "sourceFile": "00307.png",
+    "gameFrame": 146126,
+    "elapsed": 13.950173999997787,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5d68422c9cf81279b9b3abce97942c1a0986f6c030f15b189918d62ba6aa2383"
+  },
+  "tide-impact.png": {
+    "manifestIndex": 310,
+    "sourceFrameIndex": 310,
+    "sourceFile": "00310.png",
+    "gameFrame": 146147,
+    "elapsed": 14.052049624995561,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "cc03fc7e2095e575ad2a9d567bbdb4d4e6c0b03a2aa6fb4166a4dde43bcaee7d"
+  },
+  "gale-launch.png": {
+    "manifestIndex": 46,
+    "sourceFrameIndex": 46,
+    "sourceFile": "00046.png",
+    "gameFrame": 144925,
+    "elapsed": 2.4004434169910382,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "c23a2253bf3e7e39e3d0ac234eed074f310ab31ca60c18e9af01b52608a47fdd"
+  },
+  "gale-flight.png": {
+    "manifestIndex": 48,
+    "sourceFrameIndex": 48,
+    "sourceFile": "00048.png",
+    "gameFrame": 144934,
+    "elapsed": 2.4679337089910405,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "c8e153663129d02bfb4daf34c906e8802a0d1db2b897e5f3113ba8466254f38a"
+  },
+  "gale-impact.png": {
+    "manifestIndex": 70,
+    "sourceFrameIndex": 70,
+    "sourceFile": "00070.png",
+    "gameFrame": 145073,
+    "elapsed": 3.3863775840000017,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "170b15fe649f56aac44106557a994338765b6af579796686d263dc0f16b86f9d"
+  },
+  "stone-launch.png": {
+    "manifestIndex": 92,
+    "sourceFrameIndex": 92,
+    "sourceFile": "00092.png",
+    "gameFrame": 145189,
+    "elapsed": 4.438039041997399,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8c063fe6e242a8b4cb6d8b2a0ab0b0ea55adc84d79297dce95b707dfa14ff56b"
+  },
+  "stone-flight.png": {
+    "manifestIndex": 95,
+    "sourceFrameIndex": 95,
+    "sourceFile": "00095.png",
+    "gameFrame": 145199,
+    "elapsed": 4.570236792002106,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d53143bd8508a2b847d202ddc107f8c681054caad6533186b94b623f4ce2ddb1"
+  },
+  "stone-impact.png": {
+    "manifestIndex": 99,
+    "sourceFrameIndex": 99,
+    "sourceFile": "00099.png",
+    "gameFrame": 145220,
+    "elapsed": 4.714727667000261,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "dd9d726c1999873cada72bf120d8030099ac5b2b42e12aafb72d822ce712b32b"
+  },
+  "video-status-wet.png": {
+    "manifestIndex": 237,
+    "sourceFrameIndex": 237,
+    "sourceFile": "00237.png",
+    "gameFrame": 145865,
+    "elapsed": 10.608338958991226,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "71e754776b54d2175c854ab98562546b36c2b564f4cce15a3cbf1eff01460fd3"
+  },
+  "video-status-gust.png": {
+    "manifestIndex": 223,
+    "sourceFrameIndex": 223,
+    "sourceFile": "00223.png",
+    "gameFrame": 145801,
+    "elapsed": 9.95397045899881,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bce7bab9475325f30efd9c287acef61fc6629f4dae645ad1dfe5b7ddbc37caf9"
+  },
+  "video-status-crack.png": {
+    "manifestIndex": 215,
+    "sourceFrameIndex": 215,
+    "sourceFile": "00215.png",
+    "gameFrame": 145765,
+    "elapsed": 9.61168629200256,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9f3f1adeca142bdd56ada12c0ba765eba0c712d512a742380e7e229431e6c126"
+  }
+}

@@ -64,6 +64,9 @@ namespace Veilward.Tests.PlayMode
             Assert.That(Ability.HasInputOwnership,Is.False);Assert.That(Ability.HasTarget,Is.False);Assert.That(Ability.LastCast,Is.Null);Assert.That(Ability.Status,Is.Empty);
             Assert.That(Placement.HasSelection,Is.False);Assert.That(Placement.IsSellConfirmationVisible,Is.False);Assert.That(Choice.PreviewOptionId,Is.Null);Assert.That(Battle.GetComponent<EnemyInspectorController>().SelectedEnemyId,Is.Null);Assert.That(Battle.Presentation.LastSummary,Is.Empty);
             Assert.That(Object.FindObjectsByType<AttackBeamView>(FindObjectsSortMode.None),Is.Empty);
+            Assert.That(Enumerable.Range(0, BasicProjectilePool.Capacity).All(i => Battle.BasicProjectiles.GetView(i).Remaining == 0 &&
+                Battle.BasicProjectiles.GetEvent(i).TargetEnemyId.Value == 0), Is.True, "Continue/Retry rollback clears all new basic shots");
+            Assert.That(Battle.GetComponentsInChildren<EnemyStatusView>().All(v => v.VisibleSlotCount == 0), Is.True, "No stale live status owners after rollback");
             Assert.That(Enumerable.Range(0, FlameProjectilePool.Capacity).All(i => Battle.FlameProjectiles.GetView(i).Remaining == 0 &&
                 Battle.FlameProjectiles.GetEvent(i).TargetEnemyId.Value == 0), Is.True, "Continue/Combat rollback clears FLAME flight, impact and event attribution");
             Assert.That(Object.FindObjectsByType<ReactionEffectView>(FindObjectsInactive.Include,FindObjectsSortMode.None).All(e=>e.RemainingSeconds==0),Is.True);

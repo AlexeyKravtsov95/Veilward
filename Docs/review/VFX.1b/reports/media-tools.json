@@ -1,0 +1,6 @@
+{
+  "path": "/opt/homebrew/bin/ffmpeg",
+  "sha256": "768609fb3f463ff9272bebac61478515f19e43c5343b0c60dde2e6230c40013e",
+  "version": "ffmpeg version 9.0.2 Copyright (c) 2000-2026 the FFmpeg developers",
+  "purpose": "readonly PNG crop decode to stdout; encoder used this existing tool; no packages installed"
+}

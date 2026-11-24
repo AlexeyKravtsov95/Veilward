@@ -1,0 +1,59 @@
+{
+  "success": false,
+  "command": "recompile",
+  "data": {
+    "status": "completed",
+    "compiling": false,
+    "failed": true,
+    "compilationFailed": true,
+    "errors": [
+      {
+        "type": "compile-error",
+        "raw": "Assets/_Game/Tests/EditMode/BasicProjectileTests.cs(25,21): error CS1503: Argument 3: cannot convert from 'Veilward.Domain.WaveDefinition[]' to 'Veilward.Domain.WaveDefinition'",
+        "file": "Assets/_Game/Tests/EditMode/BasicProjectileTests.cs",
+        "line": 25,
+        "column": 21,
+        "code": "CS1503",
+        "message": "Argument 3: cannot convert from 'Veilward.Domain.WaveDefinition[]' to 'Veilward.Domain.WaveDefinition'"
+      },
+      {
+        "type": "compile-error",
+        "raw": "Assets/_Game/Tests/EditMode/BasicProjectileTests.cs(25,129): error CS1503: Argument 4: cannot convert from 'Veilward.Domain.TowerCatalog' to 'Veilward.Domain.TowerDefinition'",
+        "file": "Assets/_Game/Tests/EditMode/BasicProjectileTests.cs",
+        "line": 25,
+        "column": 129,
+        "code": "CS1503",
+        "message": "Argument 4: cannot convert from 'Veilward.Domain.TowerCatalog' to 'Veilward.Domain.TowerDefinition'"
+      },
+      {
+        "type": "compile-error",
+        "raw": "Assets/_Game/Scripts/Editor/BattleSceneBuilder.cs(477,55): error CS0246: The type or namespace name 'Text' could not be found (are you missing a using directive or an assembly reference?)",
+        "file": "Assets/_Game/Scripts/Editor/BattleSceneBuilder.cs",
+        "line": 477,
+        "column": 55,
+        "code": "CS0246",
+        "message": "The type or namespace name 'Text' could not be found (are you missing a using directive or an assembly reference?)"
+      }
+    ],
+    "warnings": [],
+    "summary": {
+      "errors": 3,
+      "warnings": 0
+    }
+  },
+  "errors": [
+    {
+      "code": "CS1503",
+      "message": "Argument 3: cannot convert from 'Veilward.Domain.WaveDefinition[]' to 'Veilward.Domain.WaveDefinition'"
+    },
+    {
+      "code": "CS1503",
+      "message": "Argument 4: cannot convert from 'Veilward.Domain.TowerCatalog' to 'Veilward.Domain.TowerDefinition'"
+    },
+    {
+      "code": "CS0246",
+      "message": "The type or namespace name 'Text' could not be found (are you missing a using directive or an assembly reference?)"
+    }
+  ],
+  "warnings": []
+}

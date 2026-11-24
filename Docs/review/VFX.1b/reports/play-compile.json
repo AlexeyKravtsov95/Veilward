@@ -1,0 +1,123 @@
+{
+  "success": false,
+  "command": "recompile",
+  "data": {
+    "status": "completed",
+    "compiling": false,
+    "failed": true,
+    "compilationFailed": true,
+    "errors": [
+      {
+        "type": "compile-error",
+        "raw": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs(34,25): error CS1503: Argument 1: cannot convert from 'void' to 'bool'",
+        "file": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs",
+        "line": 34,
+        "column": 25,
+        "code": "CS1503",
+        "message": "Argument 1: cannot convert from 'void' to 'bool'"
+      },
+      {
+        "type": "compile-error",
+        "raw": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs(34,103): error CS1503: Argument 2: cannot convert from 'NUnit.Framework.Constraints.TrueConstraint' to 'string'",
+        "file": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs",
+        "line": 34,
+        "column": 103,
+        "code": "CS1503",
+        "message": "Argument 2: cannot convert from 'NUnit.Framework.Constraints.TrueConstraint' to 'string'"
+      },
+      {
+        "type": "compile-error",
+        "raw": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs(48,59): error CS1501: No overload for method 'GetMesh' takes 1 arguments",
+        "file": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs",
+        "line": 48,
+        "column": 59,
+        "code": "CS1501",
+        "message": "No overload for method 'GetMesh' takes 1 arguments"
+      },
+      {
+        "type": "compile-error",
+        "raw": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs(94,25): error CS1503: Argument 1: cannot convert from 'void' to 'bool'",
+        "file": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs",
+        "line": 94,
+        "column": 25,
+        "code": "CS1503",
+        "message": "Argument 1: cannot convert from 'void' to 'bool'"
+      },
+      {
+        "type": "compile-error",
+        "raw": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs(94,102): error CS1503: Argument 2: cannot convert from 'NUnit.Framework.Constraints.TrueConstraint' to 'string'",
+        "file": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs",
+        "line": 94,
+        "column": 102,
+        "code": "CS1503",
+        "message": "Argument 2: cannot convert from 'NUnit.Framework.Constraints.TrueConstraint' to 'string'"
+      },
+      {
+        "type": "compile-error",
+        "raw": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs(112,25): error CS1503: Argument 1: cannot convert from 'void' to 'bool'",
+        "file": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs",
+        "line": 112,
+        "column": 25,
+        "code": "CS1503",
+        "message": "Argument 1: cannot convert from 'void' to 'bool'"
+      },
+      {
+        "type": "compile-error",
+        "raw": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs(112,102): error CS1503: Argument 2: cannot convert from 'NUnit.Framework.Constraints.TrueConstraint' to 'string'",
+        "file": "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs",
+        "line": 112,
+        "column": 102,
+        "code": "CS1503",
+        "message": "Argument 2: cannot convert from 'NUnit.Framework.Constraints.TrueConstraint' to 'string'"
+      }
+    ],
+    "warnings": [
+      {
+        "type": "compile-warning",
+        "raw": "Assets/_Game/Tests/EditMode/BossGreedySearchTests.cs(30,117): warning CS0219: The variable 'mask' is assigned but its value is never used",
+        "file": "Assets/_Game/Tests/EditMode/BossGreedySearchTests.cs",
+        "line": 30,
+        "column": 117,
+        "code": "CS0219",
+        "message": "The variable 'mask' is assigned but its value is never used"
+      }
+    ],
+    "summary": {
+      "errors": 7,
+      "warnings": 1
+    }
+  },
+  "errors": [
+    {
+      "code": "CS1503",
+      "message": "Argument 1: cannot convert from 'void' to 'bool'"
+    },
+    {
+      "code": "CS1503",
+      "message": "Argument 2: cannot convert from 'NUnit.Framework.Constraints.TrueConstraint' to 'string'"
+    },
+    {
+      "code": "CS1501",
+      "message": "No overload for method 'GetMesh' takes 1 arguments"
+    },
+    {
+      "code": "CS1503",
+      "message": "Argument 1: cannot convert from 'void' to 'bool'"
+    },
+    {
+      "code": "CS1503",
+      "message": "Argument 2: cannot convert from 'NUnit.Framework.Constraints.TrueConstraint' to 'string'"
+    },
+    {
+      "code": "CS1503",
+      "message": "Argument 1: cannot convert from 'void' to 'bool'"
+    },
+    {
+      "code": "CS1503",
+      "message": "Argument 2: cannot convert from 'NUnit.Framework.Constraints.TrueConstraint' to 'string'"
+    }
+  ],
+  "warnings": [
+    "Assets/_Game/Tests/EditMode/BossGreedySearchTests.cs(30,117): The variable 'mask' is assigned but its value is never used"
+  ]
+}

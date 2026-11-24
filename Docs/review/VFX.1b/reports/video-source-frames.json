@@ -1,0 +1,3208 @@
+[
+  {
+    "file": "00000.png",
+    "elapsed": 0.0042132090020459145,
+    "frame": 144621,
+    "stage": "fresh MainMenu / NewGame",
+    "sha256": "0d637b7994f26a5f89ea423e40997a26dc4e869b5cd350f9e421720b042ec0f7"
+  },
+  {
+    "file": "00001.png",
+    "elapsed": 0.18663620899314992,
+    "frame": 144622,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00002.png",
+    "elapsed": 0.24685695899825078,
+    "frame": 144623,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00003.png",
+    "elapsed": 0.2805063339910703,
+    "frame": 144635,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00004.png",
+    "elapsed": 0.31471216698992066,
+    "frame": 144651,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00005.png",
+    "elapsed": 0.3485347090027062,
+    "frame": 144654,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00006.png",
+    "elapsed": 0.3887559169961605,
+    "frame": 144656,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00007.png",
+    "elapsed": 0.4226048339914996,
+    "frame": 144670,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00008.png",
+    "elapsed": 0.468337625003187,
+    "frame": 144671,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00009.png",
+    "elapsed": 0.5019892919954145,
+    "frame": 144685,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00010.png",
+    "elapsed": 0.5356362919992534,
+    "frame": 144700,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00011.png",
+    "elapsed": 0.5693969169951743,
+    "frame": 144715,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00012.png",
+    "elapsed": 0.6028925839927979,
+    "frame": 144730,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00013.png",
+    "elapsed": 0.6364697919925675,
+    "frame": 144746,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00014.png",
+    "elapsed": 0.6706200420012465,
+    "frame": 144764,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00015.png",
+    "elapsed": 0.7072163339908002,
+    "frame": 144781,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00016.png",
+    "elapsed": 0.7408685839909595,
+    "frame": 144798,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00017.png",
+    "elapsed": 0.8601767090003705,
+    "frame": 144799,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00018.png",
+    "elapsed": 0.9167415419942699,
+    "frame": 144801,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "fb72a531544b012e3d9c1d9c5cc61957ee44245517752645dcbe778a1ccd93d6"
+  },
+  {
+    "file": "00019.png",
+    "elapsed": 1.1362905419955496,
+    "frame": 144802,
+    "stage": "MainMenu / earned file Continue8",
+    "sha256": "9f59584d307a66091c3643e10aedfb80cf5d3561caff5ac2008da75675493e10"
+  },
+  {
+    "file": "00020.png",
+    "elapsed": 1.1696536669915076,
+    "frame": 144805,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00021.png",
+    "elapsed": 1.2033855839981697,
+    "frame": 144814,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00022.png",
+    "elapsed": 1.2375148339924635,
+    "frame": 144820,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00023.png",
+    "elapsed": 1.2714316249912372,
+    "frame": 144828,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00024.png",
+    "elapsed": 1.3403130840015365,
+    "frame": 144829,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00025.png",
+    "elapsed": 1.3745460420032032,
+    "frame": 144836,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00026.png",
+    "elapsed": 1.4268962499918416,
+    "frame": 144837,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00027.png",
+    "elapsed": 1.4606333339906996,
+    "frame": 144844,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00028.png",
+    "elapsed": 1.5367763340036618,
+    "frame": 144845,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00029.png",
+    "elapsed": 1.5704710419959156,
+    "frame": 144850,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00030.png",
+    "elapsed": 1.6040741670003626,
+    "frame": 144857,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00031.png",
+    "elapsed": 1.6377497499925084,
+    "frame": 144866,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00032.png",
+    "elapsed": 1.672154749991023,
+    "frame": 144875,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00033.png",
+    "elapsed": 1.7432545839983504,
+    "frame": 144876,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00034.png",
+    "elapsed": 1.7769324999972014,
+    "frame": 144884,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00035.png",
+    "elapsed": 1.8109609999955865,
+    "frame": 144889,
+    "stage": "Earned GALE STONE TIDE / Preparation8 / clean owners",
+    "sha256": "f046dd11ce17e5ef49054fb38a1edd23e119eab2a7010203f3119fdd8bea73b5"
+  },
+  {
+    "file": "00036.png",
+    "elapsed": 1.8952394999942044,
+    "frame": 144890,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "1d0dd440f841b06170cd9ceebf6e17160febabd3e6bb12fd64cfe7c3e0f06ca8"
+  },
+  {
+    "file": "00037.png",
+    "elapsed": 1.9286113749985816,
+    "frame": 144893,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "56dd9291f1c19012b8dfc4c0eee1d0d96db4d5f8c5cd3f0feefd2523364bf00e"
+  },
+  {
+    "file": "00038.png",
+    "elapsed": 1.9620116250007413,
+    "frame": 144901,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "938b3df2069466b9ca90b3da1fc638b23892c487581592b8ce3f448c22002442"
+  },
+  {
+    "file": "00039.png",
+    "elapsed": 2.037908291997155,
+    "frame": 144902,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "eba1bf4a2d4555d4c49377003364f94806952aa92700206aa5091e64ac8a6732"
+  },
+  {
+    "file": "00040.png",
+    "elapsed": 2.0719238750025397,
+    "frame": 144906,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "ba4e8cabf1552447f3a5e2fb8720cf21621b823ab4868521c99478fb0d55d0c2"
+  },
+  {
+    "file": "00041.png",
+    "elapsed": 2.144655583993881,
+    "frame": 144907,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "473acc2de35c5c07965469bf81c864be9e230b872f724672dd190ebcc375caaa"
+  },
+  {
+    "file": "00042.png",
+    "elapsed": 2.179325709003024,
+    "frame": 144912,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "1fb2664cd290db152eea841cc12138717771e2c42f02864cb08b8c77a011e800"
+  },
+  {
+    "file": "00043.png",
+    "elapsed": 2.2134696669963887,
+    "frame": 144917,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "fde83dc76f9de2d1a8357a8e1362510240ac0251d260737c0fa3c5ec837e2c9e"
+  },
+  {
+    "file": "00044.png",
+    "elapsed": 2.2581720419984777,
+    "frame": 144918,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "c05bfec22b336e2e9b9e9c368c306a74bb04ea58b9e11010e2d7bb0300f4c995"
+  },
+  {
+    "file": "00045.png",
+    "elapsed": 2.2916402089904295,
+    "frame": 144924,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "212e79bb81e9d6dee96a66a7373b8cd73223f6e301e06277a40a7f1989e86e9f"
+  },
+  {
+    "file": "00046.png",
+    "elapsed": 2.4004434169910382,
+    "frame": 144925,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "c23a2253bf3e7e39e3d0ac234eed074f310ab31ca60c18e9af01b52608a47fdd"
+  },
+  {
+    "file": "00047.png",
+    "elapsed": 2.434301624991349,
+    "frame": 144928,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "7d62b376e3758f07a822f7f392552819f14147ce8283da92e4e3956cc0714a0c"
+  },
+  {
+    "file": "00048.png",
+    "elapsed": 2.4679337089910405,
+    "frame": 144934,
+    "stage": "GALE STONE TIDE / production Update / live status snapshots",
+    "sha256": "c8e153663129d02bfb4daf34c906e8802a0d1db2b897e5f3113ba8466254f38a"
+  },
+  {
+    "file": "00049.png",
+    "elapsed": 2.5017503339913674,
+    "frame": 144940,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "905952ded796ffc3f872a88ecbeb6d97012079a3c898123e5fa51442206ce8dd"
+  },
+  {
+    "file": "00050.png",
+    "elapsed": 2.53576729199267,
+    "frame": 144945,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "1113929259d1e1ce30ed065bc3461a5b62226574d085d7d641d2ea00bde25838"
+  },
+  {
+    "file": "00051.png",
+    "elapsed": 2.5699191669991706,
+    "frame": 144953,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00052.png",
+    "elapsed": 2.6036479589965893,
+    "frame": 144961,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00053.png",
+    "elapsed": 2.637343708993285,
+    "frame": 144970,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00054.png",
+    "elapsed": 2.6711595419910736,
+    "frame": 144978,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00055.png",
+    "elapsed": 2.7081249589973595,
+    "frame": 144988,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00056.png",
+    "elapsed": 2.851594916995964,
+    "frame": 144989,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00057.png",
+    "elapsed": 2.886538999999175,
+    "frame": 144990,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00058.png",
+    "elapsed": 2.920349374995567,
+    "frame": 144996,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00059.png",
+    "elapsed": 2.9549834999925224,
+    "frame": 145005,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00060.png",
+    "elapsed": 2.991654708996066,
+    "frame": 145008,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00061.png",
+    "elapsed": 3.0250809589924756,
+    "frame": 145015,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00062.png",
+    "elapsed": 3.058876541996142,
+    "frame": 145024,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00063.png",
+    "elapsed": 3.1445080839912407,
+    "frame": 145025,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00064.png",
+    "elapsed": 3.178675999995903,
+    "frame": 145031,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00065.png",
+    "elapsed": 3.212806374998763,
+    "frame": 145040,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00066.png",
+    "elapsed": 3.2498905840038788,
+    "frame": 145041,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00067.png",
+    "elapsed": 3.284835375001421,
+    "frame": 145050,
+    "stage": "Pause / frozen basic shot and status geometry",
+    "sha256": "756086c17e7831649840857c0e5f708ce44f42446ba5800183cac8744d36c132"
+  },
+  {
+    "file": "00068.png",
+    "elapsed": 3.318900333993952,
+    "frame": 145059,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "574790a475f77ba5245587f89105716b3ac9915d6cc20f212d4364fc92407de5"
+  },
+  {
+    "file": "00069.png",
+    "elapsed": 3.352755708998302,
+    "frame": 145067,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2d8ceb5fa8022ed3d484af57e2625c202f517b2dbd1ec971a9eb2c7f60c58bb0"
+  },
+  {
+    "file": "00070.png",
+    "elapsed": 3.3863775840000017,
+    "frame": 145073,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "170b15fe649f56aac44106557a994338765b6af579796686d263dc0f16b86f9d"
+  },
+  {
+    "file": "00071.png",
+    "elapsed": 3.4197159169998486,
+    "frame": 145082,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "213e9af315f37e286ef8614d455298275c670e1405d2c14f845ef07b5401e397"
+  },
+  {
+    "file": "00072.png",
+    "elapsed": 3.453806124991388,
+    "frame": 145090,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "332f1b3d20b04f81b68f937c433ee0728af78cf63ddba7497cc4c34311fef0d0"
+  },
+  {
+    "file": "00073.png",
+    "elapsed": 3.4874905000033323,
+    "frame": 145097,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "757ff12119be03233375c4373626f71cd3211031e74412d2685253d65e76870b"
+  },
+  {
+    "file": "00074.png",
+    "elapsed": 3.5215803750033956,
+    "frame": 145105,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "008638623565502b096f7c4b2fad149bf8ee71aeaed692d1b40b34ecfb71dc27"
+  },
+  {
+    "file": "00075.png",
+    "elapsed": 3.598293000002741,
+    "frame": 145106,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bbe4bdad82449671eff3d7184d2bdae3d0cf960ed9058f70bf157a44dc181d80"
+  },
+  {
+    "file": "00076.png",
+    "elapsed": 3.6325733749981737,
+    "frame": 145111,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "e430fab3f043e36403d89d4dc8a431299c53bb93d0fc72f0a67d945ac3d395b3"
+  },
+  {
+    "file": "00077.png",
+    "elapsed": 3.6667396249977173,
+    "frame": 145118,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "a448b54980a0bfb987afab430ec270d69776ca103ff1e8c2f8fd1ffb7d1d8600"
+  },
+  {
+    "file": "00078.png",
+    "elapsed": 3.7009465839946643,
+    "frame": 145126,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "6d9f0df3288d228f061a5375fddacb9cc63c75ec5821cbf60a0f5238113757d9"
+  },
+  {
+    "file": "00079.png",
+    "elapsed": 3.7347715420037275,
+    "frame": 145133,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f8bd6ab3b129ceea820439264e7fcf0115bc4b03195cc67c8b66ce81d087e1fd"
+  },
+  {
+    "file": "00080.png",
+    "elapsed": 3.768688124997425,
+    "frame": 145141,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "759ad81a275379f19715e4f089881b31046dcae6fac9047074c298e38e71993c"
+  },
+  {
+    "file": "00081.png",
+    "elapsed": 3.8027274170017336,
+    "frame": 145149,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "95d9eefd1d1da09645517918b6b89d0b06c9f673263a1ae5fd31a54201cbd717"
+  },
+  {
+    "file": "00082.png",
+    "elapsed": 3.836535875001573,
+    "frame": 145155,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d545811ba61ffda31d0d046483ad7ff8832076d20664c26750b274bf895bcc63"
+  },
+  {
+    "file": "00083.png",
+    "elapsed": 3.8706959999981336,
+    "frame": 145163,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bdcc926ca6a5c7408c4299e539cb72d4041adb979d259ceee1899082ad449417"
+  },
+  {
+    "file": "00084.png",
+    "elapsed": 3.907923999999184,
+    "frame": 145172,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "1b17296ad30b3e3fc743c798e15da82bb7485c5399bd484e654dfcdef69d57fe"
+  },
+  {
+    "file": "00085.png",
+    "elapsed": 4.069388333999086,
+    "frame": 145173,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "7527386e60c28986e7c1215b50bb21431d65d5a4e1ff9b50c400a1a4f585edb3"
+  },
+  {
+    "file": "00086.png",
+    "elapsed": 4.106823374997475,
+    "frame": 145174,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d9e98c7e41f430b01f962404e9d43bd1c23f4b03f6ecf7b94790b9882237912f"
+  },
+  {
+    "file": "00087.png",
+    "elapsed": 4.14073566699517,
+    "frame": 145179,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c0c6a714b29306a09366f919a15480bf2665d4d2c35766c3134c3ab05aeb599e"
+  },
+  {
+    "file": "00088.png",
+    "elapsed": 4.238522458996158,
+    "frame": 145180,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "3404a5c56a57267a82f12037d77f9d1dd89dad128988f22dc00094bcec5a70c3"
+  },
+  {
+    "file": "00089.png",
+    "elapsed": 4.272826083994005,
+    "frame": 145182,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8eb4f5df82f79cf444d40fd927f2e7c8eaba78e804dd76c41fcd1ffe7652134b"
+  },
+  {
+    "file": "00090.png",
+    "elapsed": 4.338249291991815,
+    "frame": 145183,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "10aede18f62a22ac714b0997e5eb49888884e8637a4302f929fcb6c227d47ef9"
+  },
+  {
+    "file": "00091.png",
+    "elapsed": 4.372365834002267,
+    "frame": 145188,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9511be24894cae05682a6490bf5f51e557de18c12ed0d0d2d6c73d5c24a0adaf"
+  },
+  {
+    "file": "00092.png",
+    "elapsed": 4.438039041997399,
+    "frame": 145189,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8c063fe6e242a8b4cb6d8b2a0ab0b0ea55adc84d79297dce95b707dfa14ff56b"
+  },
+  {
+    "file": "00093.png",
+    "elapsed": 4.471603625002899,
+    "frame": 145193,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "4116b51e8b894f45b1fec58d933518e05ac32805882573e26a5a78a91e0bc881"
+  },
+  {
+    "file": "00094.png",
+    "elapsed": 4.5360755839938065,
+    "frame": 145194,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8fa63f03879d5bb84fa7c2478454020ddc5b9b47e0d8fe85ee36781f28390cb5"
+  },
+  {
+    "file": "00095.png",
+    "elapsed": 4.570236792002106,
+    "frame": 145199,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d53143bd8508a2b847d202ddc107f8c681054caad6533186b94b623f4ce2ddb1"
+  },
+  {
+    "file": "00096.png",
+    "elapsed": 4.603922541995416,
+    "frame": 145205,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "79603d4793b0595059410559ea500b92c1774af6898afa11cf5199d931952961"
+  },
+  {
+    "file": "00097.png",
+    "elapsed": 4.638510541990399,
+    "frame": 145212,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "948c9fb1f800ed43593dca7510f3456d8f09e9a1e79795c6436030d11d34a956"
+  },
+  {
+    "file": "00098.png",
+    "elapsed": 4.676005375004024,
+    "frame": 145219,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "580df3f5be6a955f8d1bddcdc449438734e410ab1398d0da2e636a3303ae044c"
+  },
+  {
+    "file": "00099.png",
+    "elapsed": 4.714727667000261,
+    "frame": 145220,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "dd9d726c1999873cada72bf120d8030099ac5b2b42e12aafb72d822ce712b32b"
+  },
+  {
+    "file": "00100.png",
+    "elapsed": 4.749690249998821,
+    "frame": 145227,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9c407e4912aba7890b426c87cd33dad62edea48baf1cf6492492652141b8b7fa"
+  },
+  {
+    "file": "00101.png",
+    "elapsed": 4.788090333997388,
+    "frame": 145228,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "32fcdbb126cdc0081804fce5c90f6e110ce0f58f9f2d69c2c194ffbdf2756c25"
+  },
+  {
+    "file": "00102.png",
+    "elapsed": 4.82593779200397,
+    "frame": 145235,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "75083f94eefec0d1d57ba6d7ba860f658a0b1535b8543e773a8cb7257951b8ec"
+  },
+  {
+    "file": "00103.png",
+    "elapsed": 4.868565083990688,
+    "frame": 145236,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "888889863165b77f4f1454d061e0d2f61633b5ffd63fe6c16755d638fabcedd1"
+  },
+  {
+    "file": "00104.png",
+    "elapsed": 4.903030208995915,
+    "frame": 145244,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "71b9d983d40de97822a4cdb2cea0edd6d774d95cbf15605fc9d4b7c22e28f2e3"
+  },
+  {
+    "file": "00105.png",
+    "elapsed": 4.936719459001324,
+    "frame": 145251,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "62b2e0af787cd69a509176167d43d442abef6f3d41823a4c18e5f32136254ffe"
+  },
+  {
+    "file": "00106.png",
+    "elapsed": 4.970107375003863,
+    "frame": 145258,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bf96e79eede1513022bf0f0800dc60a3ecfafb06e83bd1ec9812ba239c584008"
+  },
+  {
+    "file": "00107.png",
+    "elapsed": 5.004204875003779,
+    "frame": 145265,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f8ff4a0a8fb8e1d34518125690c9f14f78d15172e64ddf47cca316921888a306"
+  },
+  {
+    "file": "00108.png",
+    "elapsed": 5.038077541990788,
+    "frame": 145268,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "0cc1b20a0ec0224d464b76e5e0cdb711bf2961867618422ef35a6280c6fa7aae"
+  },
+  {
+    "file": "00109.png",
+    "elapsed": 5.071972791993176,
+    "frame": 145274,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "081830e479ecb301afa36275d055d7d54f41632545cd84919c3d67ee5a613516"
+  },
+  {
+    "file": "00110.png",
+    "elapsed": 5.144866499991622,
+    "frame": 145275,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "0e8aea3ed7b30ea4521e9815701798c7fe90908a7391e6ac30d5236be06a29c2"
+  },
+  {
+    "file": "00111.png",
+    "elapsed": 5.178271708995453,
+    "frame": 145279,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2c2df82f90c140eb3484df0fb16c74fc34b9a242e1cc79eec9687a750306a077"
+  },
+  {
+    "file": "00112.png",
+    "elapsed": 5.21234408399323,
+    "frame": 145286,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2a02df42add21683e2c1564d5336de8daf90c59d33456a276619fde02b0976f8"
+  },
+  {
+    "file": "00113.png",
+    "elapsed": 5.257956000001286,
+    "frame": 145287,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ffdd85c9a1eef303398475ac468367c571b60270a92a5af08a8b9d0dd2185c80"
+  },
+  {
+    "file": "00114.png",
+    "elapsed": 5.2934067500027595,
+    "frame": 145291,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "18a697fea9783113005f63363994591132bd9cfb9469c0700d6b72ce91a3b3d0"
+  },
+  {
+    "file": "00115.png",
+    "elapsed": 5.3270573339978,
+    "frame": 145298,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "4ee49d6efd487320a9c0773128eb0567c58beaa7a4025b9ce067a85057cf7a85"
+  },
+  {
+    "file": "00116.png",
+    "elapsed": 5.360930875001941,
+    "frame": 145305,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9b3f8b5154f5fe4789ffb12c5b2a05c7ed9e2276d32ad0555023532fa3450e93"
+  },
+  {
+    "file": "00117.png",
+    "elapsed": 5.452930833998835,
+    "frame": 145306,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "90b51975daba2f7fab0e928b6f9da9015caf47066bc00e2d084b1d4e3733d374"
+  },
+  {
+    "file": "00118.png",
+    "elapsed": 5.486369833990466,
+    "frame": 145309,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "cad611ef0f31f145d89060059c21a20f33b1e20de6d38419c136ce508e6073c7"
+  },
+  {
+    "file": "00119.png",
+    "elapsed": 5.520057583999005,
+    "frame": 145316,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "258b4ba9458552d13f6d8109b6113f87f25d9b628a53651030513e16c201206c"
+  },
+  {
+    "file": "00120.png",
+    "elapsed": 5.554165833993466,
+    "frame": 145323,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2e05dbea6751783a65b420fafc57f8c4b9a4f491b3973172ca6d9d0dc5326cdd"
+  },
+  {
+    "file": "00121.png",
+    "elapsed": 5.588034792002873,
+    "frame": 145330,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5c87adc033f66b22db155a70e5341be3bcd73db73b6dbfa19b859018b2681367"
+  },
+  {
+    "file": "00122.png",
+    "elapsed": 5.622396209000726,
+    "frame": 145336,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "441ef8c26a05841ee00ab0ebba6b06811f1c3df853df52bca44727166966ac18"
+  },
+  {
+    "file": "00123.png",
+    "elapsed": 5.688189499996952,
+    "frame": 145337,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "1dcf2140303c1a890a2be76308a87bb2e84da5ce4ad3ccac55af1ffabcfc90ae"
+  },
+  {
+    "file": "00124.png",
+    "elapsed": 5.722367333990405,
+    "frame": 145343,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8f330825bb67ac6a653fdd49f43aaba33391d7b75b444316baa67a667be71e76"
+  },
+  {
+    "file": "00125.png",
+    "elapsed": 5.75683520900202,
+    "frame": 145352,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c5df3692fdc3adfbb9916564b38a13a4bbaa1d7a725b6a5efe04a1fe4bd3c899"
+  },
+  {
+    "file": "00126.png",
+    "elapsed": 5.877554958991823,
+    "frame": 145353,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "95b3bace2fbd0056123fbd4b652d590c7f6804bac76a96df4db60b8c5b0214b7"
+  },
+  {
+    "file": "00127.png",
+    "elapsed": 5.911089208995691,
+    "frame": 145354,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "066a775bd728fc440c378131dbc2d01353564eded2b2a79cc2f55fe09539f190"
+  },
+  {
+    "file": "00128.png",
+    "elapsed": 6.081301041995175,
+    "frame": 145355,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "68091f971187caf0737d12da5afd758edafbb2c63144ec4f886346a6f6c61780"
+  },
+  {
+    "file": "00129.png",
+    "elapsed": 6.120992458992987,
+    "frame": 145356,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5892cd60b472371fe2cc7341bef8718f0b35f7653a63797fdabce9a3883898e1"
+  },
+  {
+    "file": "00130.png",
+    "elapsed": 6.16929112499929,
+    "frame": 145357,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f1db987108aa293f430dcdab9a0b144c152645c6185cdfe486a2b238164d5586"
+  },
+  {
+    "file": "00131.png",
+    "elapsed": 6.202663083997322,
+    "frame": 145362,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "680f602002d391b67bdf136c609680482216194dff1733ad3c25750102f2b69d"
+  },
+  {
+    "file": "00132.png",
+    "elapsed": 6.236792958996375,
+    "frame": 145366,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "6744370408511f08d58eb46230fe933bc187e224d474401bbbe277097af44822"
+  },
+  {
+    "file": "00133.png",
+    "elapsed": 6.2705884169990895,
+    "frame": 145374,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d11f766846751e81d25551f897d81b915f2ea45fd821682112354de2165faaad"
+  },
+  {
+    "file": "00134.png",
+    "elapsed": 6.304472000003443,
+    "frame": 145381,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "1ef40af0e8fbb831cfc2739e1017b574545e7286d4b7213a39e222f9b47b1680"
+  },
+  {
+    "file": "00135.png",
+    "elapsed": 6.338382624991937,
+    "frame": 145384,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f0748fc6930b057150f12424b46dda17d9874b83fada53bfe0aca23e82220299"
+  },
+  {
+    "file": "00136.png",
+    "elapsed": 6.376158458995633,
+    "frame": 145392,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c54ea2c6610b9fb9f7c7a149ddc57b92ed2158b9718a9df2106f730ec7cc426f"
+  },
+  {
+    "file": "00137.png",
+    "elapsed": 6.414728542004013,
+    "frame": 145393,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8b9f288ba26b96d2b0f75568f606b6cd1e66d14a2220a083eec47567cc5de270"
+  },
+  {
+    "file": "00138.png",
+    "elapsed": 6.448361167000257,
+    "frame": 145399,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9408b69110c7c30541898a6c83f8d31453e040ad9e5d64e31377678da6488d40"
+  },
+  {
+    "file": "00139.png",
+    "elapsed": 6.501483333995566,
+    "frame": 145400,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "1767cfd7b7d90ea759f321c7590d710f6b3d51e9f1f0830701e12036a48ef186"
+  },
+  {
+    "file": "00140.png",
+    "elapsed": 6.53508695900382,
+    "frame": 145406,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c94b34276d5226e5399e54e1e54aeff30a4754cb620222441773a98994cc955b"
+  },
+  {
+    "file": "00141.png",
+    "elapsed": 6.569673167003202,
+    "frame": 145413,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "68a6819e30fe8b9942c4080c1658d5a72c12fb94149324d355fa0f6ec68a3e85"
+  },
+  {
+    "file": "00142.png",
+    "elapsed": 6.604426499994588,
+    "frame": 145420,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f3e1599f3f8c4577fea3f8593c64d9b12a642d094499aa9fd1fc4b4ca6aea806"
+  },
+  {
+    "file": "00143.png",
+    "elapsed": 6.6421291250007926,
+    "frame": 145423,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "dd25247ffd213ed39199e05beb871723d6673815183259d618f7952e5324e080"
+  },
+  {
+    "file": "00144.png",
+    "elapsed": 6.676168541991501,
+    "frame": 145431,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "1e686c69302351016279ceb591c487bbe1ae8feddd0330339c127a35294da93f"
+  },
+  {
+    "file": "00145.png",
+    "elapsed": 6.709969584000646,
+    "frame": 145437,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8a1c302665c93edbde777c8cd8bf863556ccc4ed423dfa866e2576403f5e4ffb"
+  },
+  {
+    "file": "00146.png",
+    "elapsed": 6.804172042000573,
+    "frame": 145438,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "920a0e71a511bdf3d5a61505d03a9c81ca512f16f42234e67ebbd2e562fbe4de"
+  },
+  {
+    "file": "00147.png",
+    "elapsed": 6.83787587498955,
+    "frame": 145441,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "09a21fea2f1970e4a40838ffa51c66d14d1e5048f82f4040703d670df9132f7f"
+  },
+  {
+    "file": "00148.png",
+    "elapsed": 6.874248874999466,
+    "frame": 145448,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8355a962fda8d94671dd107da064d9c7e82d63007c47de4d0c326838397fdf33"
+  },
+  {
+    "file": "00149.png",
+    "elapsed": 6.93802158399194,
+    "frame": 145449,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "a6545b87675bb83fe73a12c7cb604d438cf4c8bf6d52a8fc445242eed0cd7821"
+  },
+  {
+    "file": "00150.png",
+    "elapsed": 6.9716611670010025,
+    "frame": 145453,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "0691e34dd5ec5300689b56f6376792d3903af8cde529d94c269381ec82347c7c"
+  },
+  {
+    "file": "00151.png",
+    "elapsed": 7.037925541997538,
+    "frame": 145454,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "eb90738dcad80bdb11ba0b9ffb4afbd8037bda676c9dbcd91696947776861b8d"
+  },
+  {
+    "file": "00152.png",
+    "elapsed": 7.075210625000182,
+    "frame": 145459,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b6a0eed9b5e753895c8b12802daf3d0b35f3e8bfeae6237682aa8042624d8b9d"
+  },
+  {
+    "file": "00153.png",
+    "elapsed": 7.113872417001403,
+    "frame": 145460,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5d19f5ecf083fc3d341522372a94807e26d674e52d935f41a7dbf30493dd72b5"
+  },
+  {
+    "file": "00154.png",
+    "elapsed": 7.1475725839991355,
+    "frame": 145467,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b6c18ca53642e74a611624c3b6e26e5f4995332fe12fec895faec8040a5c3148"
+  },
+  {
+    "file": "00155.png",
+    "elapsed": 7.184192959000939,
+    "frame": 145468,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "a71e91655524da3c459c77dbd4054afaffadd8e1422368325a488763ae0917cc"
+  },
+  {
+    "file": "00156.png",
+    "elapsed": 7.218246791991987,
+    "frame": 145477,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "a89d5797ccaf932e5b80bfe60f7ae57454b62166c902e75ccedefd5da28a3935"
+  },
+  {
+    "file": "00157.png",
+    "elapsed": 7.252766334000626,
+    "frame": 145483,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c1d12f093008968162f99896ab80f755b5fc0b4e82293c09a876dd3ac9a3e4b9"
+  },
+  {
+    "file": "00158.png",
+    "elapsed": 7.286916833996656,
+    "frame": 145491,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "1c6d3a8f2229fccda3e9c3e5a29f1f51fb3126c466ce443ad72a6a9d577cb1cd"
+  },
+  {
+    "file": "00159.png",
+    "elapsed": 7.320773125000414,
+    "frame": 145499,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f803a9e9fc58ba1bc1f0a55366b20aa9e238386e2d2f1a10472daca8ceb60558"
+  },
+  {
+    "file": "00160.png",
+    "elapsed": 7.35428229199897,
+    "frame": 145507,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "33cca8fcde92b7383d9d61d759e8e8248c9797f3a11d082aed674d7d385e24f8"
+  },
+  {
+    "file": "00161.png",
+    "elapsed": 7.391779917001259,
+    "frame": 145509,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "692cba7d87257c58032339c0d0e617cfc897b7a5823ebf54ded1d950932dce6c"
+  },
+  {
+    "file": "00162.png",
+    "elapsed": 7.425312209001277,
+    "frame": 145517,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "a15a007ff18837de93b3e617291f7c774329acbf5d58db44311c2158c8b4dc54"
+  },
+  {
+    "file": "00163.png",
+    "elapsed": 7.459741500002565,
+    "frame": 145526,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9c0b754b053e657c737c88ccda9a406b890f01fa6606836bfad3450bd2d1eedb"
+  },
+  {
+    "file": "00164.png",
+    "elapsed": 7.541132999991532,
+    "frame": 145527,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ed93634a8e0cc4ca8671299dc176824ce905de4051b3b2c9b3d614443d2a0b74"
+  },
+  {
+    "file": "00165.png",
+    "elapsed": 7.57456291699782,
+    "frame": 145531,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b5b15847ab92c353aec8436d93124c1c0687e46886760c77a1adfbfa9a142647"
+  },
+  {
+    "file": "00166.png",
+    "elapsed": 7.617828959002509,
+    "frame": 145532,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "145f4d1599773c3dbe022bdeed978a632bf04e3c05f79e6e33ce5f0cce87291c"
+  },
+  {
+    "file": "00167.png",
+    "elapsed": 7.651589792003506,
+    "frame": 145538,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bb6ff85f1253b1e1633850c9e17a21bcff6ff8253e92257f4050d95ff6cf5507"
+  },
+  {
+    "file": "00168.png",
+    "elapsed": 7.685891417000676,
+    "frame": 145546,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f790da07d4b4c7cbabd6d3239f9b479a8d8fe0fd5e2d6da3244e774a8ed82962"
+  },
+  {
+    "file": "00169.png",
+    "elapsed": 7.720122250000713,
+    "frame": 145553,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5ab6e1267334afd436546c91ef24ff638ad3d90982ea64cffbb8b38b1dd551e9"
+  },
+  {
+    "file": "00170.png",
+    "elapsed": 7.754145874991082,
+    "frame": 145561,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "818c091253bc8998d91eedb9d4c317a30556356adb1cd8c6601e57d6094d7000"
+  },
+  {
+    "file": "00171.png",
+    "elapsed": 7.790669374997378,
+    "frame": 145563,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9027aa1c9358f7468080b36c869b30eba9d8106383283978ae4314092753c12b"
+  },
+  {
+    "file": "00172.png",
+    "elapsed": 7.824677583994344,
+    "frame": 145568,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b07fda1b9c019f4b03f5a024e009fc22d95694d2a07b8e18538529076b13485d"
+  },
+  {
+    "file": "00173.png",
+    "elapsed": 7.881757416995242,
+    "frame": 145569,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "849be24f5196ad0844e7c432f3427583c5c1d6c2d1721ceb169cab0cef792184"
+  },
+  {
+    "file": "00174.png",
+    "elapsed": 7.916159792002873,
+    "frame": 145577,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9338e10693d1ce3946ca0ed2e4e4699f9a37f1b94077cdc4a4ee35a0db964729"
+  },
+  {
+    "file": "00175.png",
+    "elapsed": 7.949824958996032,
+    "frame": 145584,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8b5762f70845f00d884f04884d8baabae501a2dce07edf97b14c6addb7aa0a84"
+  },
+  {
+    "file": "00176.png",
+    "elapsed": 7.98790820899012,
+    "frame": 145585,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2ae3fede1403aeadcbd5e34d296e8da0977995b71cdd5c7c2d58a6d82167aac0"
+  },
+  {
+    "file": "00177.png",
+    "elapsed": 8.02500662500097,
+    "frame": 145592,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "3b9ecc550529e0aa9929c203e27552dcc2abbd9a5387e15c6937fa4c851344f2"
+  },
+  {
+    "file": "00178.png",
+    "elapsed": 8.081918249998125,
+    "frame": 145593,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "be5c467fb9be8d7f96a40ec014178f6575716aba2bf28a038a7342b6e218e8bc"
+  },
+  {
+    "file": "00179.png",
+    "elapsed": 8.11610554199433,
+    "frame": 145600,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d26e998c1a9cc19870249de441c7b54329e8c05e04876da7ce0c9f4d6587d5a9"
+  },
+  {
+    "file": "00180.png",
+    "elapsed": 8.153227249989868,
+    "frame": 145601,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "7b18fa787e839a84ee7a57b85cecdf76cb67c31e82a9f01a3db53bf0494e829a"
+  },
+  {
+    "file": "00181.png",
+    "elapsed": 8.187340749995201,
+    "frame": 145607,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "98106d4686875b80b014973ce166f9da5cba059d69d9bea4a14fc9650e88832e"
+  },
+  {
+    "file": "00182.png",
+    "elapsed": 8.224899499997264,
+    "frame": 145615,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "cd530239f707b4d94ea5be709aae954cecf61b537e075f5012b4dc1ee7fcfa19"
+  },
+  {
+    "file": "00183.png",
+    "elapsed": 8.258625999995274,
+    "frame": 145622,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "4f6c422faf088d995c254f4930355eb85416c089c3c7cdb042575436bc36602d"
+  },
+  {
+    "file": "00184.png",
+    "elapsed": 8.369322792001185,
+    "frame": 145623,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "7378ad3651f4d2645b70879249796b89e419c4d146f40ea04709a0f149f461ff"
+  },
+  {
+    "file": "00185.png",
+    "elapsed": 8.4038777090027,
+    "frame": 145625,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bea699f9d3bfc02226ad766c49ab2264d6862248c7b7dabe3fa1d8c629296f66"
+  },
+  {
+    "file": "00186.png",
+    "elapsed": 8.437303667000378,
+    "frame": 145631,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2dc53df4813885bae0da467eb8641b8e4549ffdfe71c89e4c570c808c26f1c9e"
+  },
+  {
+    "file": "00187.png",
+    "elapsed": 8.471542541999952,
+    "frame": 145639,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "77be60bd8b085be89c31ca23e113953184c98e9a76932413e1da3dac30d00a50"
+  },
+  {
+    "file": "00188.png",
+    "elapsed": 8.53754150000168,
+    "frame": 145640,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "97d5de54fa50119c0c0bdf5b2c1485e0b943774c2c66595aac59c42a4fae38c9"
+  },
+  {
+    "file": "00189.png",
+    "elapsed": 8.574035333993379,
+    "frame": 145646,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d74981903cfd7fb5949d02bf2c7eee71ec38226b9613dc039e56729830925183"
+  },
+  {
+    "file": "00190.png",
+    "elapsed": 8.636831041992991,
+    "frame": 145647,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ac38d3af2860d1b9de934a2040c8a34f8aa9acc125da36c9a46395216911f941"
+  },
+  {
+    "file": "00191.png",
+    "elapsed": 8.670816166995792,
+    "frame": 145652,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "7f7493001cf6f1566c20040a813b0eb09b4e76a96978cdcfffec6ca5b90d5a26"
+  },
+  {
+    "file": "00192.png",
+    "elapsed": 8.70461337499728,
+    "frame": 145659,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f64652e9221728c71e957324d47e2d474a69e8da9c9d7a82ab06e0e4fef967dc"
+  },
+  {
+    "file": "00193.png",
+    "elapsed": 8.739819458991406,
+    "frame": 145663,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "afd0a0c9449b8aea7412b2d6aebe02132564a40c6bc3691308b1e0aa44117d7f"
+  },
+  {
+    "file": "00194.png",
+    "elapsed": 8.776920874995994,
+    "frame": 145668,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "37fddea3c2a3cd80c1a1c4892b01ac84d302b681f19685d33a1245235852857d"
+  },
+  {
+    "file": "00195.png",
+    "elapsed": 8.817692583994358,
+    "frame": 145669,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "317e58c6a225e8f7bd2809134847172acd80eecc2050f150fed3bbed0fa0ccca"
+  },
+  {
+    "file": "00196.png",
+    "elapsed": 8.85192441700201,
+    "frame": 145676,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bed73a408372facd9690de97c459b6ca44f0cd788d9e309239a6c1e610848410"
+  },
+  {
+    "file": "00197.png",
+    "elapsed": 8.885866958997212,
+    "frame": 145681,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c9d79889ad3dba96bdb1975b1e7d36819657a23ea4a395b16a39d1d02d2dba4d"
+  },
+  {
+    "file": "00198.png",
+    "elapsed": 8.919763625002815,
+    "frame": 145688,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "77b72f4a5314649004d5a0e504f39f3897a64e9b597df87b1cbb1ce55f7e33ce"
+  },
+  {
+    "file": "00199.png",
+    "elapsed": 8.954016042000148,
+    "frame": 145694,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "adf095ae1ce5eaf572b4e4b9eaf8d392acd7db975df6c7fd2a149ef51ecdcad7"
+  },
+  {
+    "file": "00200.png",
+    "elapsed": 8.991684874999919,
+    "frame": 145696,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "cbcd1463d26703424acecb60ebae22ff64752e714c27d6e9d9ee250a503f5a4e"
+  },
+  {
+    "file": "00201.png",
+    "elapsed": 9.025594541992177,
+    "frame": 145702,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "63990564d30b2304afb4f43a0102d7c73c4914a7287a2fde803eef9ffba5d0bb"
+  },
+  {
+    "file": "00202.png",
+    "elapsed": 9.060227541995118,
+    "frame": 145707,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "3590887a9a42c23fcd92b325295467d6c8eafadc58b30bb003a278b96ac7b08d"
+  },
+  {
+    "file": "00203.png",
+    "elapsed": 9.14491737500066,
+    "frame": 145708,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "36122038bb00e8f071822c212a7d08cedf86a73da1e7036ef8b9d2d6cce2cdb9"
+  },
+  {
+    "file": "00204.png",
+    "elapsed": 9.178545959002804,
+    "frame": 145712,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "387facaffefd8c2d7b15184755f58bd5902a1e5d03278efb39218695766d19da"
+  },
+  {
+    "file": "00205.png",
+    "elapsed": 9.212520166998729,
+    "frame": 145719,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ee91e6dc92267ffed05a646f2e12edbbc28dffadf65cdda60a01285f9da8a58a"
+  },
+  {
+    "file": "00206.png",
+    "elapsed": 9.251029499995639,
+    "frame": 145720,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8d4575daad2d8eb5734613fd1716725ff46e07f275c3a9635e6fd4c33f56c773"
+  },
+  {
+    "file": "00207.png",
+    "elapsed": 9.286606833993574,
+    "frame": 145724,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "3eb15623052dc28c3cc4ae319fa9f083e7d6bc1065d5044cad53e2bc0e659939"
+  },
+  {
+    "file": "00208.png",
+    "elapsed": 9.320450667000841,
+    "frame": 145732,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9ab41c77af91113c78887ea04b31d067e18bbf4e8d622736a3ec73253d5fdb26"
+  },
+  {
+    "file": "00209.png",
+    "elapsed": 9.354224333990715,
+    "frame": 145741,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "99c3c4289ee3015e9ae45daf3a5837a13b6f97997e822c843b4b4abac597efe8"
+  },
+  {
+    "file": "00210.png",
+    "elapsed": 9.387679749997915,
+    "frame": 145745,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "971652c39c250de08f389a875b7d840c807b4696519a153717d0bff56642363d"
+  },
+  {
+    "file": "00211.png",
+    "elapsed": 9.421436958989943,
+    "frame": 145752,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c1dfdc7e4643e71772baece508e29e3e9853e50d1cff51a9363db22d89635887"
+  },
+  {
+    "file": "00212.png",
+    "elapsed": 9.490077416994609,
+    "frame": 145753,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bd85199eb6107d455d6897495573fb7ea086f5eeeda61ed3bf812a7a63e1ff76"
+  },
+  {
+    "file": "00213.png",
+    "elapsed": 9.524081208990538,
+    "frame": 145758,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ca30b52f47b7b12916056a3580530f51e5fa4729f0383d79146ec7ab565cc8ab"
+  },
+  {
+    "file": "00214.png",
+    "elapsed": 9.576880708991666,
+    "frame": 145759,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b462b73cb19358fe2db61f8198c3363fc7ee0f31d913dfc84aee2ecdf70decf0"
+  },
+  {
+    "file": "00215.png",
+    "elapsed": 9.61168629200256,
+    "frame": 145765,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9f3f1adeca142bdd56ada12c0ba765eba0c712d512a742380e7e229431e6c126"
+  },
+  {
+    "file": "00216.png",
+    "elapsed": 9.645198874990456,
+    "frame": 145771,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "24715ddfa7fc25cbbf8cfd0e71b5303a3ea40e7711cf6dd44588891e6641c591"
+  },
+  {
+    "file": "00217.png",
+    "elapsed": 9.712028374997317,
+    "frame": 145772,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "187dba9c97e35342dc8d44a8500385a84e4b25a5c4b13598864d48af1be36916"
+  },
+  {
+    "file": "00218.png",
+    "elapsed": 9.746019874990452,
+    "frame": 145778,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "4e67a3960a4200680ad54ed57cdeb684067ea1a5cffacf4eebe3c002ffa33636"
+  },
+  {
+    "file": "00219.png",
+    "elapsed": 9.818608125002356,
+    "frame": 145779,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f0294c680d10baf4d6efd1b56a40a5587df7e1f05a1c692a17d7270304150a0b"
+  },
+  {
+    "file": "00220.png",
+    "elapsed": 9.852965250000125,
+    "frame": 145783,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "22b030c9009fc4cd841f11f44fff08744bdab5b012040bcfe83833325da6ebf4"
+  },
+  {
+    "file": "00221.png",
+    "elapsed": 9.886386583995773,
+    "frame": 145787,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "849e0cb77e828c785b2671aac7ae8fc088e711c6011d564a1db536ba682e97c6"
+  },
+  {
+    "file": "00222.png",
+    "elapsed": 9.920576167001855,
+    "frame": 145794,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2a441e93658b55d7135433ef1c992b976564a7e63bb7dc1d7ed493b57724a8af"
+  },
+  {
+    "file": "00223.png",
+    "elapsed": 9.95397045899881,
+    "frame": 145801,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bce7bab9475325f30efd9c287acef61fc6629f4dae645ad1dfe5b7ddbc37caf9"
+  },
+  {
+    "file": "00224.png",
+    "elapsed": 9.987429708999116,
+    "frame": 145807,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d8fca9b1d7afc3de20cc0a152436ee98cb8bffa2aa9e72dc5a9b370985e4c7ed"
+  },
+  {
+    "file": "00225.png",
+    "elapsed": 10.02211887500016,
+    "frame": 145815,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "12c6d5dbfe8524c1d509c94ea9227564bec9eacaab864a1bafc778242e40ed7b"
+  },
+  {
+    "file": "00226.png",
+    "elapsed": 10.098808084003394,
+    "frame": 145816,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "fb87dce45cb517b3d07a4af2af3747c27e0a92b64c53656cf7ff618451ab3086"
+  },
+  {
+    "file": "00227.png",
+    "elapsed": 10.153182041991386,
+    "frame": 145817,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5b2b14071e346236217e4bac5316704f4d726c9ee85a405331bffbd123c3d6d5"
+  },
+  {
+    "file": "00228.png",
+    "elapsed": 10.27930212499632,
+    "frame": 145818,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "3f2b52dca0a108d1f4f7fbe596696b85adb5fc98df1824f6ad5cd9f4a69ca168"
+  },
+  {
+    "file": "00229.png",
+    "elapsed": 10.313160999998217,
+    "frame": 145819,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "42f3badffa5abb555eb515a53282a6eba1df892ab371c751bcd33ec34bc9c36e"
+  },
+  {
+    "file": "00230.png",
+    "elapsed": 10.347180500000832,
+    "frame": 145823,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "52d540a8a182fb18463c7a6ea84f98ada215dfede6f4df615ff640699e30c158"
+  },
+  {
+    "file": "00231.png",
+    "elapsed": 10.381070749994251,
+    "frame": 145831,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c071853c7e257bed83441960c0aa2ebfe801002ffbed5806a07ee83a46307693"
+  },
+  {
+    "file": "00232.png",
+    "elapsed": 10.415082042003633,
+    "frame": 145838,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "83cf8c9631f4177a31b836a9cb574a8009638ca878f4864a2130d6cbb29d80c4"
+  },
+  {
+    "file": "00233.png",
+    "elapsed": 10.469567334002932,
+    "frame": 145839,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "6802da21cf589473d889900250a59bf847db2ae5c1cfaa1a62b69a9d3c1bbd72"
+  },
+  {
+    "file": "00234.png",
+    "elapsed": 10.503083042000071,
+    "frame": 145845,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "3dd29f32624a1d223928b1b28435d670edd54d71a1944d443d902a25475c526b"
+  },
+  {
+    "file": "00235.png",
+    "elapsed": 10.536765917000594,
+    "frame": 145849,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2227fa7b57ef2facef56464e550dadeebcd7cb1a937d833ddb71a7086d92cdc9"
+  },
+  {
+    "file": "00236.png",
+    "elapsed": 10.570790833997307,
+    "frame": 145857,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "80d10753f920f3710f9749d936dda83ec3fbb60127e77659870f0de7b0629813"
+  },
+  {
+    "file": "00237.png",
+    "elapsed": 10.608338958991226,
+    "frame": 145865,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "71e754776b54d2175c854ab98562546b36c2b564f4cce15a3cbf1eff01460fd3"
+  },
+  {
+    "file": "00238.png",
+    "elapsed": 10.739058999999543,
+    "frame": 145866,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c4d168f30c5ad7c5f86e9f49eb8de8c2cdb0f9407eef9c819bca2d00d3d847f5"
+  },
+  {
+    "file": "00239.png",
+    "elapsed": 10.773816041997634,
+    "frame": 145867,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "eb1e7e24e08eba4a4cd0b08561cb9ffa22b3f1ee982a625eeb513686b4d3c3e8"
+  },
+  {
+    "file": "00240.png",
+    "elapsed": 10.843748333994881,
+    "frame": 145868,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "55c8d23693cbfb14afdbc5cde65313fc6337af7960ebb406f0826a2f080ba0eb"
+  },
+  {
+    "file": "00241.png",
+    "elapsed": 10.877424374994007,
+    "frame": 145872,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ccf11ac680da5b0214fb84f4af4a57b7bd182a3582317e9f0939bf966387679e"
+  },
+  {
+    "file": "00242.png",
+    "elapsed": 10.91176583399647,
+    "frame": 145878,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2c438fcbccabe9ea9c97c3e2032bf0cccaf4e921139c4b1ede0253c861d2143d"
+  },
+  {
+    "file": "00243.png",
+    "elapsed": 10.955078125,
+    "frame": 145879,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "0eb538fce17452be2aedd81a81f54e321bc3c612a23f63eef176a3e98b50081e"
+  },
+  {
+    "file": "00244.png",
+    "elapsed": 10.988597542003845,
+    "frame": 145887,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "e05bd4ce99ace6df1ac035477187543ac600a39bad92ccb7fd8b1a7b93c84cf1"
+  },
+  {
+    "file": "00245.png",
+    "elapsed": 11.022816999990027,
+    "frame": 145894,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "feb44eb7fff5dd640d36db4adcee577d7a92bfde07670474e9369173f084bd93"
+  },
+  {
+    "file": "00246.png",
+    "elapsed": 11.098405374999857,
+    "frame": 145895,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "db077d6adbee1b1ea5ab08b2ab117f000233decf957c4303c4bdc4e0a59dced7"
+  },
+  {
+    "file": "00247.png",
+    "elapsed": 11.135235041991109,
+    "frame": 145899,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "a2ec01ab1226d0fc4683f7ab7ed51908dd88b9625eabae3c72430cb88d71ad2a"
+  },
+  {
+    "file": "00248.png",
+    "elapsed": 11.169568375000381,
+    "frame": 145907,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "76aa1cab35e32844121f36dda1e7973aa868cbc321e763774d5db0b561ef5160"
+  },
+  {
+    "file": "00249.png",
+    "elapsed": 11.203102583996952,
+    "frame": 145915,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8a4df27937b35460cce1b3d757c9d62f257945d9d72f081d21303769ce4ab988"
+  },
+  {
+    "file": "00250.png",
+    "elapsed": 11.236580208991654,
+    "frame": 145923,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "dddb53e3a70d9c645cbc7cfd4f8fba4040ea03813ef8cbb04654233c360e183b"
+  },
+  {
+    "file": "00251.png",
+    "elapsed": 11.270196333993226,
+    "frame": 145930,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "42372729e7a338ff4c07f2936e990910188f6b984dd35b834d51f542772b4309"
+  },
+  {
+    "file": "00252.png",
+    "elapsed": 11.30404775000352,
+    "frame": 145938,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "501b70e24b595a93d4b3d0883e0b119815b7817f7c14aecdf95bcbdd3a6c78b8"
+  },
+  {
+    "file": "00253.png",
+    "elapsed": 11.34124929200334,
+    "frame": 145941,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f1788829f52785bd98b7e5a6c864bc0c5c4e41a1a967a990b15ba79ebdf3c94d"
+  },
+  {
+    "file": "00254.png",
+    "elapsed": 11.374849458996323,
+    "frame": 145947,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f0c55770d52af3364d841aaa73cac898b5a173d13d5bfb133e5237f2e8fd3dcd"
+  },
+  {
+    "file": "00255.png",
+    "elapsed": 11.411041416999069,
+    "frame": 145948,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "55b8ee1130932862f4d0b7f602269bdd615b4bb9afa6996d7ace428948800cf8"
+  },
+  {
+    "file": "00256.png",
+    "elapsed": 11.444947875002981,
+    "frame": 145955,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "790f60073d97a90eb27db1079b08cd4d612596dc4b02e6fdcab0547a1e398ebc"
+  },
+  {
+    "file": "00257.png",
+    "elapsed": 11.53125962500053,
+    "frame": 145956,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bf7844b5e4fe922fba6f46f41e77f87868b584d4b70eeb554246ef1857692f56"
+  },
+  {
+    "file": "00258.png",
+    "elapsed": 11.564897624994046,
+    "frame": 145959,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "e85655134a03c3167388279729fe63100e499d42234a86c43a55b057ea904b66"
+  },
+  {
+    "file": "00259.png",
+    "elapsed": 11.609558625001227,
+    "frame": 145960,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "135c592f1246c2445490ed6830f86d2cee2c2e255d5ef0c5dbb017eea87b12e6"
+  },
+  {
+    "file": "00260.png",
+    "elapsed": 11.643189333990449,
+    "frame": 145965,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f73c5ae2f115853e54dc3409f6bd766257b6823626f1168619a17f8283dc049c"
+  },
+  {
+    "file": "00261.png",
+    "elapsed": 11.738630042003933,
+    "frame": 145966,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2c41864754118dfacdeb768b19bdf4051efc2e4dce35e95321aa1f5cece7f73a"
+  },
+  {
+    "file": "00262.png",
+    "elapsed": 11.772943624993786,
+    "frame": 145968,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2abe63190b5f1e9b57a90ae4ab561bf8a27477787a25fda7036a68ed07d3b72c"
+  },
+  {
+    "file": "00263.png",
+    "elapsed": 11.838067916993168,
+    "frame": 145969,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "6465994d05a3a6996074ca8e98343d7653554e8cc8d38ff9dd04fecfa81d956e"
+  },
+  {
+    "file": "00264.png",
+    "elapsed": 11.87153220899927,
+    "frame": 145973,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "4d702e457839fd95e5ee9074ae9fb1080896e340de28a026a725c4833af6049f"
+  },
+  {
+    "file": "00265.png",
+    "elapsed": 11.93806400000176,
+    "frame": 145974,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f95c85a64b0084651c41078b5894e8f659a65e9a73b92f9c6697e0507dba46bb"
+  },
+  {
+    "file": "00266.png",
+    "elapsed": 11.972302875001333,
+    "frame": 145979,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "59dc00963110c94ea317f2c5938914d9b8e97f2fd0693f3b7b876d9cef1c63d3"
+  },
+  {
+    "file": "00267.png",
+    "elapsed": 12.037886334001087,
+    "frame": 145980,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b1e12b181f42a1be8c6a1523c54bb9692c7132a06095e4c29029eae759b05ed9"
+  },
+  {
+    "file": "00268.png",
+    "elapsed": 12.071256791998167,
+    "frame": 145984,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "a01b314363c8929c8122157419e578bb977a6778e05b7983a77effb646f502c5"
+  },
+  {
+    "file": "00269.png",
+    "elapsed": 12.106238334003137,
+    "frame": 145989,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "93bde76829a5dc98ee688b98185e94835d7743b6d034e4512fd22bce1a953780"
+  },
+  {
+    "file": "00270.png",
+    "elapsed": 12.263695458997972,
+    "frame": 145990,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b72442fdcb6b7df384ed5affc7494bf9424f29e6bdc06b904e7da2e58f85c1ce"
+  },
+  {
+    "file": "00271.png",
+    "elapsed": 12.301767166994978,
+    "frame": 145991,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d3bd0aeb96c1292487ee4b8fa4ab405275d7367bdedc5a1acbdffcb133f3b6db"
+  },
+  {
+    "file": "00272.png",
+    "elapsed": 12.3365004590014,
+    "frame": 145993,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "6bef7ed389b0b259fa5bee993636887aa54a262b1dc53f6129d799b1c78fe494"
+  },
+  {
+    "file": "00273.png",
+    "elapsed": 12.37046270899009,
+    "frame": 145999,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "42d3b37255231d895c28543f5ca20659daaaca2be14ee03d13885528dd029dca"
+  },
+  {
+    "file": "00274.png",
+    "elapsed": 12.404039291999652,
+    "frame": 146006,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "89b3dbc74cc27880f40229072b7d63e876e1c6f1ed5eebe3bb326d876b2cd271"
+  },
+  {
+    "file": "00275.png",
+    "elapsed": 12.437789208997856,
+    "frame": 146008,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5ab8b6d192b3fe4bb9078b8649b61b551c45756bdffd74ae7666aee91b373bd5"
+  },
+  {
+    "file": "00276.png",
+    "elapsed": 12.471273208997445,
+    "frame": 146016,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "3647a43ead18b6f52b99122e334449c7e4f27cc0f155718948efef065d16e145"
+  },
+  {
+    "file": "00277.png",
+    "elapsed": 12.50540754199028,
+    "frame": 146024,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b2f0fbe507708dd2471df2e1ba6d4d9a3c7401516ba05f36796794634b4159b7"
+  },
+  {
+    "file": "00278.png",
+    "elapsed": 12.637533792003524,
+    "frame": 146025,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2c89315d228b77633f3a0b8dbba1176d0aafc70dd44547e78a111091a784aa9f"
+  },
+  {
+    "file": "00279.png",
+    "elapsed": 12.67329104199598,
+    "frame": 146026,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5e16a67f9c2969cc22decf6e330c91d7928071c82cdc85517b7049ac03f20517"
+  },
+  {
+    "file": "00280.png",
+    "elapsed": 12.748360999990837,
+    "frame": 146027,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "57aaad5a077f9acfe3b7ba96d9f477e8bcd4ee5b8660a96de851a40171d19285"
+  },
+  {
+    "file": "00281.png",
+    "elapsed": 12.782977499999106,
+    "frame": 146031,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b07ed913947903322dd61d771ab2c59c15856a4c37939a40c82b8b596a40b093"
+  },
+  {
+    "file": "00282.png",
+    "elapsed": 12.823501291990397,
+    "frame": 146032,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "916c8390a2273ff6dc62911085ce20d7615f5902c1997d3acb2b1e97ec489c81"
+  },
+  {
+    "file": "00283.png",
+    "elapsed": 12.862406250002095,
+    "frame": 146033,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "77441fc61c796a2937fdc673f89040d73d3d7308459eaee5fa8cb1747ed45607"
+  },
+  {
+    "file": "00284.png",
+    "elapsed": 12.896778499998618,
+    "frame": 146040,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "65595b0413de5d157b6081e7cb9bb52d1709a92272b1c1d773457d2036795f17"
+  },
+  {
+    "file": "00285.png",
+    "elapsed": 12.943646333995275,
+    "frame": 146041,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5326bfb78a8ad89858254c5d344e6d3592248c7a65ed516b6e4aa4c125d13fd0"
+  },
+  {
+    "file": "00286.png",
+    "elapsed": 12.977981459000148,
+    "frame": 146048,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b44c2478891efc3e69a25ad9d5049d8039ae7eb286ca49f6a18941835059a269"
+  },
+  {
+    "file": "00287.png",
+    "elapsed": 13.011736000000383,
+    "frame": 146055,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5f43d24befa61f5ce990e6cb08c40bb9eb5d6ab75eb39764c5eb3b140f50cd26"
+  },
+  {
+    "file": "00288.png",
+    "elapsed": 13.096336709000752,
+    "frame": 146056,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b3ce3e5e21719ef904e419f255ebd2968ad3816fa001d985350ec9a735bc89ae"
+  },
+  {
+    "file": "00289.png",
+    "elapsed": 13.130062374999397,
+    "frame": 146060,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5993805c8e0db59b8db862a54f30622b9863e1b8732f63cced57c14dbac38fbb"
+  },
+  {
+    "file": "00290.png",
+    "elapsed": 13.164513041992905,
+    "frame": 146068,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "971027fd00ce6683b78b91140a57de149155438b3b7c9495f0a1a341d02708fa"
+  },
+  {
+    "file": "00291.png",
+    "elapsed": 13.207089749994338,
+    "frame": 146069,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "939dd361de3189aadab0228b6b4699e69e0080e890fad30df247e8d479b878f5"
+  },
+  {
+    "file": "00292.png",
+    "elapsed": 13.242769999997108,
+    "frame": 146074,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "37db4a722d0b1edeea11ccd263a5069b9af5d18e6618665c603403b9c53b0dd6"
+  },
+  {
+    "file": "00293.png",
+    "elapsed": 13.277007541997591,
+    "frame": 146081,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "bd751b347ae53a20631088f67177b850c47591a57085a1504bde91b5ba27d3b5"
+  },
+  {
+    "file": "00294.png",
+    "elapsed": 13.314364916994236,
+    "frame": 146082,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f9650feb1f3ba5a4946db546de9a6d6d5bffb135de9892bebd08f3a75dce399e"
+  },
+  {
+    "file": "00295.png",
+    "elapsed": 13.348224333996768,
+    "frame": 146090,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "249977d0b1552f5dd44a2bf0fd23e95c4be6c412a92293385c8bab24068dac86"
+  },
+  {
+    "file": "00296.png",
+    "elapsed": 13.401794374993187,
+    "frame": 146091,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ff2fcbe298aada658e9b7a8485a2b3416c7de9c2aa48e5df52f2aaa967a4670f"
+  },
+  {
+    "file": "00297.png",
+    "elapsed": 13.437310624998645,
+    "frame": 146094,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c4b0f122595fe3001c703ceda5b1d598e0b5eec79c155b4db65bdf20cf81469e"
+  },
+  {
+    "file": "00298.png",
+    "elapsed": 13.471259416997782,
+    "frame": 146101,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "44153c27e89ad1744fa0c5dd7a0082aaa66ce3dd3a5b2f83361794dedd0bf8cc"
+  },
+  {
+    "file": "00299.png",
+    "elapsed": 13.505022583995014,
+    "frame": 146108,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "4bda0fccc54629588bfcd2a64f30bad6ae259cc34e5562558452c78012e44ab8"
+  },
+  {
+    "file": "00300.png",
+    "elapsed": 13.638839708990417,
+    "frame": 146109,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "3abf58a0eb76dfec043b5f9dc07d78373af078a22f01b62d2d03d6fff67294fa"
+  },
+  {
+    "file": "00301.png",
+    "elapsed": 13.673347541989642,
+    "frame": 146110,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "27bc09f8425f388dde5a23d48cff161fc185393f630169cf0f1aad1cdeb09814"
+  },
+  {
+    "file": "00302.png",
+    "elapsed": 13.738595000002533,
+    "frame": 146111,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "69a0e15a41b24dec01f36282c8934d28978462686b63baf76abb24c142db6f8a"
+  },
+  {
+    "file": "00303.png",
+    "elapsed": 13.773386792003294,
+    "frame": 146115,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5bd9a0a8584181fdf4246e4a61617ab140dbd282d56177b3c74fdb2752b55fac"
+  },
+  {
+    "file": "00304.png",
+    "elapsed": 13.838287999999011,
+    "frame": 146116,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2dcea695e68b1eb41fba63a299b0f98dab352900ce59c53751e768f4a73c3ff3"
+  },
+  {
+    "file": "00305.png",
+    "elapsed": 13.876758541999152,
+    "frame": 146119,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "1cc557ba6714c8dd885742bbc2fb0821b3c49c1c789143547bd7836c717600de"
+  },
+  {
+    "file": "00306.png",
+    "elapsed": 13.915886041999329,
+    "frame": 146120,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "78512905dbbefc23c6ff78de9a2da1623ee222690c17fb9d134dd40d64209b77"
+  },
+  {
+    "file": "00307.png",
+    "elapsed": 13.950173999997787,
+    "frame": 146126,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5d68422c9cf81279b9b3abce97942c1a0986f6c030f15b189918d62ba6aa2383"
+  },
+  {
+    "file": "00308.png",
+    "elapsed": 13.98433845899126,
+    "frame": 146134,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "362dc5adb3efcf5be9b2c134400e13041b5ae8a2cbd16f4efff250a5c77062bc"
+  },
+  {
+    "file": "00309.png",
+    "elapsed": 14.018714249992627,
+    "frame": 146140,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "e1e655b90127a55939567426630481c2dcec5f97e63e3e81c039a5aedccf3112"
+  },
+  {
+    "file": "00310.png",
+    "elapsed": 14.052049624995561,
+    "frame": 146147,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "cc03fc7e2095e575ad2a9d567bbdb4d4e6c0b03a2aa6fb4166a4dde43bcaee7d"
+  },
+  {
+    "file": "00311.png",
+    "elapsed": 14.085653667003498,
+    "frame": 146152,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "95c78932f8de905a83ce6271a0c46062d080082390367e0df15e45c0250f9c56"
+  },
+  {
+    "file": "00312.png",
+    "elapsed": 14.119600666992483,
+    "frame": 146159,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "e59602228774dd604a292b3be16ccdbf42212f22550b18c3a2f31687784d8c4d"
+  },
+  {
+    "file": "00313.png",
+    "elapsed": 14.154177749995142,
+    "frame": 146167,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ce61820bb53ee0e0736c8c952de37a4bf72022f1aee872275be3af5992a91a41"
+  },
+  {
+    "file": "00314.png",
+    "elapsed": 14.191832124997745,
+    "frame": 146169,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8b1c7153a3708ec6f90eedf4085787923fa7c0db665f621568454268fc89e054"
+  },
+  {
+    "file": "00315.png",
+    "elapsed": 14.225535124991438,
+    "frame": 146176,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "6ccf201423ac02ef47017ff726ef1f7ec405c0d8734d73b79f5f1da2da29e3cc"
+  },
+  {
+    "file": "00316.png",
+    "elapsed": 14.277147166998475,
+    "frame": 146177,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "76896bf0a0744e6e58e0d72ac442b8d279070d929817065fd91d72f8d8dd12d0"
+  },
+  {
+    "file": "00317.png",
+    "elapsed": 14.310664584001643,
+    "frame": 146182,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "90c1a733f1820740804f42b71f10391ff300143b7285e234f84718b18237da8d"
+  },
+  {
+    "file": "00318.png",
+    "elapsed": 14.373040167003637,
+    "frame": 146183,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c02872ed495f79a8df679d9f396c60951e960cf9af43bc2d670661e803d5567c"
+  },
+  {
+    "file": "00319.png",
+    "elapsed": 14.408778958997573,
+    "frame": 146186,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "e75a555b20178e7660ae7111184be318021e84b89872d5f400bc3f92c130f354"
+  },
+  {
+    "file": "00320.png",
+    "elapsed": 14.570736458990723,
+    "frame": 146187,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "0b39bf9d1096f76c1662ee97c46f1dc1578460451fb10e2c78e069dc9b34f010"
+  },
+  {
+    "file": "00321.png",
+    "elapsed": 14.609095958992839,
+    "frame": 146188,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "65f4d7175e7edafc9104c86b4ef5030ed7d3f770956067edf2a142077fd3e518"
+  },
+  {
+    "file": "00322.png",
+    "elapsed": 14.772413749989937,
+    "frame": 146189,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d2a5c3d939a3de70cd1197bba9c99ed489e301365aba8e559ca2cf3e391ea32a"
+  },
+  {
+    "file": "00323.png",
+    "elapsed": 14.81363941699965,
+    "frame": 146190,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f3233ce3730be2adcbb09e0288eb9b110ce2c56f52d10e179d37b7867ce33099"
+  },
+  {
+    "file": "00324.png",
+    "elapsed": 14.959441416998743,
+    "frame": 146191,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8e8ca50b497c511d3c66baec1c69f3c42011b12e0cd6c42ff812eee8cb061ec1"
+  },
+  {
+    "file": "00325.png",
+    "elapsed": 14.997616458989796,
+    "frame": 146192,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "3c652a49b60dbf0e072875df9cf1c4692d071d5dbbacc1f0d1f3c9bf35b7e500"
+  },
+  {
+    "file": "00326.png",
+    "elapsed": 15.031301458991948,
+    "frame": 146197,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "e8012eba6e4662fa5a6c95527150f0a31510f5e776b862dd47bee262c1efa607"
+  },
+  {
+    "file": "00327.png",
+    "elapsed": 15.064908583997749,
+    "frame": 146204,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f7fe3bd56e3cffd332bc799cfcf429995862a2fb65ec3b517838a02bfda408de"
+  },
+  {
+    "file": "00328.png",
+    "elapsed": 15.10302620899165,
+    "frame": 146205,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "24b72e9ea9b20bc6f7dc304be9314350fc4bf17c43534a01a1495db98248b3e7"
+  },
+  {
+    "file": "00329.png",
+    "elapsed": 15.136935167000047,
+    "frame": 146212,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "db1ec5cab9ef3cd3818bd58b1c4f3392d35c7c96e5b263460ef98d74de21ec81"
+  },
+  {
+    "file": "00330.png",
+    "elapsed": 15.171831125000608,
+    "frame": 146220,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "487d34a9e803459fd8af93f07564032ec1119d69459ec7e7366488bd41f39f48"
+  },
+  {
+    "file": "00331.png",
+    "elapsed": 15.240714416999253,
+    "frame": 146221,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "e3402a0273c6352e0ba511e55c38903b871a3fd9dcdb99c08f3340a256f1f4c0"
+  },
+  {
+    "file": "00332.png",
+    "elapsed": 15.274474749996443,
+    "frame": 146225,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8425c0376a172625aa02065c1dd051ffb030a81b251db1095665baa49c9355ad"
+  },
+  {
+    "file": "00333.png",
+    "elapsed": 15.308524166990537,
+    "frame": 146232,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9a95df2092ea1756aa9387dff8e0b9b2d09c1e311d85b8e88e74355337410cee"
+  },
+  {
+    "file": "00334.png",
+    "elapsed": 15.404355708989897,
+    "frame": 146233,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d15544e06f67040a3a5729c55a32fce00d70dd01973205e6ad6048fff4cbd192"
+  },
+  {
+    "file": "00335.png",
+    "elapsed": 15.437851458991645,
+    "frame": 146236,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "832542a925bdeadac91691a17762e1464608d90f25546c404ad8243fe580a201"
+  },
+  {
+    "file": "00336.png",
+    "elapsed": 15.471865041996352,
+    "frame": 146241,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f83d3b141a1de20cdae0c2dec5e88ae12283e54e8a06abd6f29a527c2f4afb4e"
+  },
+  {
+    "file": "00337.png",
+    "elapsed": 15.537388416996691,
+    "frame": 146242,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9d6f3d572e578105aef7e28835e2926a911ec17f21a268115f2a148988e5f5ff"
+  },
+  {
+    "file": "00338.png",
+    "elapsed": 15.571175624994794,
+    "frame": 146248,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5507c7ac28b42594646caaa78684397b8098a0b5ea918c8896da9275ae416aae"
+  },
+  {
+    "file": "00339.png",
+    "elapsed": 15.604541209002491,
+    "frame": 146254,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c5a27f71e5cfe2e7bda4cd174bbad7e8e0134a82a3580411d669dd8349dd69e0"
+  },
+  {
+    "file": "00340.png",
+    "elapsed": 15.642106999992393,
+    "frame": 146257,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "6c434f5dc5d399c0f3c03167445fa45d596cb36101d9c709085c3ea6d4dc77ed"
+  },
+  {
+    "file": "00341.png",
+    "elapsed": 15.67564579199825,
+    "frame": 146264,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "98e2adcceda6ac0f2e71c651f12603d41a9312b38c0254ad17e06dd6e3e6f707"
+  },
+  {
+    "file": "00342.png",
+    "elapsed": 15.71408774999145,
+    "frame": 146265,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2848c1c29f3b633b3b35d16ccbead93456db8f3aea924058d6106a8caaa2b960"
+  },
+  {
+    "file": "00343.png",
+    "elapsed": 15.74863387500227,
+    "frame": 146273,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "164a2373d55b0112a970a27e91a4b65e74254b3b098d34bd2d056d2ad178910a"
+  },
+  {
+    "file": "00344.png",
+    "elapsed": 15.786715833994094,
+    "frame": 146274,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "70cd956e9e473a4bf781eccf929240e9cac04fe3a535466a0b9885a93ea3d6ee"
+  },
+  {
+    "file": "00345.png",
+    "elapsed": 15.820959958989988,
+    "frame": 146281,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "cb5d4155888199855d1d45a98062b123fcfc58b7e3cc1d067d5b78e9b196c9ac"
+  },
+  {
+    "file": "00346.png",
+    "elapsed": 15.854947250001715,
+    "frame": 146288,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ef7e10b3c05153b40b805042f881bb1ebc3632cc23f9f2308024fc9160205c19"
+  },
+  {
+    "file": "00347.png",
+    "elapsed": 15.892307250003796,
+    "frame": 146294,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5c7fc306f6f0ee31b4bbb0c1fefaf23640632160d5f6fb2b005fa27a224a4bc0"
+  },
+  {
+    "file": "00348.png",
+    "elapsed": 15.926238166997791,
+    "frame": 146299,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "59f9e4116853455f172c39d786f9af1583a5531865b3d7dd2a1eb1f8777e639b"
+  },
+  {
+    "file": "00349.png",
+    "elapsed": 15.977528458999586,
+    "frame": 146300,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9bd160f55d4e1d02d0e193ed2629a2f37c5db79e07a586a5de0b6f9e43d7bbd6"
+  },
+  {
+    "file": "00350.png",
+    "elapsed": 16.010865709002246,
+    "frame": 146306,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "560fff7a3bfddd10bb5d9ae3e656877c4eb5458670128c67c01eddc326b59add"
+  },
+  {
+    "file": "00351.png",
+    "elapsed": 16.09828862499853,
+    "frame": 146307,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "098bbdf2229e1d0a0683c2e5d5d6326d2db801ab2cc1b543e00d0db9e3a447d8"
+  },
+  {
+    "file": "00352.png",
+    "elapsed": 16.13531187499757,
+    "frame": 146311,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9eb155f3a821ffbc4e88208941ab6498d526bd428fcc7e5522f60c81642b0793"
+  },
+  {
+    "file": "00353.png",
+    "elapsed": 16.168886958999792,
+    "frame": 146317,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "e31e7cf96f752c2171caf911330bc25b4541233ccc2143bd0319351b4ba1b978"
+  },
+  {
+    "file": "00354.png",
+    "elapsed": 16.20303012499062,
+    "frame": 146325,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "cdb571fb4af7d90b60d8044221f7997a0954ecee100294b73d91d29e9b1e805a"
+  },
+  {
+    "file": "00355.png",
+    "elapsed": 16.236764417000813,
+    "frame": 146330,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ac15d722e00f490fa0841e791e57a01ee1bc4277da814c30193f1f6f250a241a"
+  },
+  {
+    "file": "00356.png",
+    "elapsed": 16.27063395899313,
+    "frame": 146338,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "be868af1c21bd840d19da142ef8c5ab8cd2c4837fdc6b349379074e3b625173e"
+  },
+  {
+    "file": "00357.png",
+    "elapsed": 16.304990834003547,
+    "frame": 146345,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "0c2b0d164f55bbe8009fa00636766e6ade18ed8cc814da99147feb9f87010eb2"
+  },
+  {
+    "file": "00358.png",
+    "elapsed": 16.339512334001483,
+    "frame": 146352,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "918649774c5bcf2ca8b274d41dac0417413ef28a317344b0006d924b8cd033bb"
+  },
+  {
+    "file": "00359.png",
+    "elapsed": 16.437532750001992,
+    "frame": 146353,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "48df4167a09107fa15c0ed418b8b0f649e1a6e9a89bfdee0f203c52a3f620071"
+  },
+  {
+    "file": "00360.png",
+    "elapsed": 16.472047208997537,
+    "frame": 146356,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c8a5281951b0266f1a5bcf0e01a9bf36014e771ebcb5a165a500078c84cd62e9"
+  },
+  {
+    "file": "00361.png",
+    "elapsed": 16.538089666995802,
+    "frame": 146357,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "1a49f4ac358f16315c43cfe50006bff13198a4fb6a4a55d412cfd8487fd591b1"
+  },
+  {
+    "file": "00362.png",
+    "elapsed": 16.571682958994643,
+    "frame": 146361,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2c94d2fc380c6f54e5915e1cf69885b820c1ceb1510fb0a6fb862aba93fa54f2"
+  },
+  {
+    "file": "00363.png",
+    "elapsed": 16.63797374999558,
+    "frame": 146362,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b6bee6866d60bad5b74a66975b122781e688c957e7bddb863486ae3c41cafdf1"
+  },
+  {
+    "file": "00364.png",
+    "elapsed": 16.671931208999013,
+    "frame": 146365,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "a69446c311f7590a7bd78ceca9cc8b59c8d1c383ba44d0782cab2daf3e5f5d00"
+  },
+  {
+    "file": "00365.png",
+    "elapsed": 16.74799741699826,
+    "frame": 146366,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "fb7013fc746609bc3ba796d910b389d8d80e9d778d54bce09533eabe71e7e171"
+  },
+  {
+    "file": "00366.png",
+    "elapsed": 16.782416667003417,
+    "frame": 146371,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "cf2cd6e39b55cb6c8d036a6aba2e9ed21534a84d86b6fa7bb67aad61a62bde6d"
+  },
+  {
+    "file": "00367.png",
+    "elapsed": 16.828537541994592,
+    "frame": 146372,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c89cd13ef47ec782be89716ed7b6e77137a4efa4959e43b22b904970dd7777cc"
+  },
+  {
+    "file": "00368.png",
+    "elapsed": 16.862353083997732,
+    "frame": 146378,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8f0550413f7f7b43b9ef96fab873dbdd3893f864e5c675d2b0858929c183d0d2"
+  },
+  {
+    "file": "00369.png",
+    "elapsed": 16.938230792002287,
+    "frame": 146379,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "5d1ef1c25115b1ce5ca31ea603a44ea16dd2206c9cbca394f1e3eceff7c5cbee"
+  },
+  {
+    "file": "00370.png",
+    "elapsed": 16.97188779199496,
+    "frame": 146384,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b5623df92aef8c870d31227f42f1de8ad86594ddc66e2262939dfaf896fafcb1"
+  },
+  {
+    "file": "00371.png",
+    "elapsed": 17.05275616700237,
+    "frame": 146385,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "86a011a805142a9553e6b91cc70d6add14444905deec17107c6391cf78e05a08"
+  },
+  {
+    "file": "00372.png",
+    "elapsed": 17.086631666999892,
+    "frame": 146388,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8fb66b0b3384645bb72e6e33711636303a18b530d6eb14c2a693d839dd81f280"
+  },
+  {
+    "file": "00373.png",
+    "elapsed": 17.12058299999626,
+    "frame": 146395,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "74734717b1c5d95e43efd4bbbf3a1661263a926d7eba41e7dc83fcc5ea24f052"
+  },
+  {
+    "file": "00374.png",
+    "elapsed": 17.154456499993103,
+    "frame": 146403,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d9d6c0191fac8868121a6bc2d9b269274382e001a00785ed045d6f935ef774c5"
+  },
+  {
+    "file": "00375.png",
+    "elapsed": 17.18953312499798,
+    "frame": 146412,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d4bcb3f313cd79638284de75f566e8b1af4b7ea19e19959a14b5a13bce6f849e"
+  },
+  {
+    "file": "00376.png",
+    "elapsed": 17.225909166998463,
+    "frame": 146418,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "0f64762ab1dee0482429a489206629adc7976bea64af7a7687c6506a25ee940f"
+  },
+  {
+    "file": "00377.png",
+    "elapsed": 17.263581124992925,
+    "frame": 146419,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "e739b496821aa34473406e0fe2e9b0b2298da1762717070ca5b41089ce13476e"
+  },
+  {
+    "file": "00378.png",
+    "elapsed": 17.29744095899514,
+    "frame": 146428,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "c82955f4054056ebc4c0314812d059472af247222bd42e68dafb1631d9b59905"
+  },
+  {
+    "file": "00379.png",
+    "elapsed": 17.337430208994192,
+    "frame": 146429,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "ee3553b9e62c6236bc8b634d58ab165f4c0654854b41f14523bee5bb27d4506a"
+  },
+  {
+    "file": "00380.png",
+    "elapsed": 17.37304220900114,
+    "frame": 146437,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "938ae7affad91df6988201101bb14b2648f6c4037ac96d7f28100ab8de0ea5e6"
+  },
+  {
+    "file": "00381.png",
+    "elapsed": 17.437815375000355,
+    "frame": 146438,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2a80f2cc04ac4dbf27391259269641584b9741cb4a2b86378ede27b8148c0c82"
+  },
+  {
+    "file": "00382.png",
+    "elapsed": 17.47133220899559,
+    "frame": 146446,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "2e499af050caff186e7204001ceb7e47534860cffc89bd2745ade1b2b0b62646"
+  },
+  {
+    "file": "00383.png",
+    "elapsed": 17.53780129199731,
+    "frame": 146447,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "502e9d590141ebd2ccae5e0199c135feb5dfc4a193a8887b0aced5977d250e31"
+  },
+  {
+    "file": "00384.png",
+    "elapsed": 17.572357124998234,
+    "frame": 146454,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "fa41e532cd05c5ca62670e7f72830801599cee126e99fb2a069c1682684963bb"
+  },
+  {
+    "file": "00385.png",
+    "elapsed": 17.63783812499605,
+    "frame": 146455,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9a8a84d69fb18f27afee9bf52755e4cc79d04fa3925ac0dc4d0afcb16dbda191"
+  },
+  {
+    "file": "00386.png",
+    "elapsed": 17.67406974999176,
+    "frame": 146461,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "b0e2342491f4d990f4a4ec208879de5b84144b862bf8538c01cb1d7995d50b40"
+  },
+  {
+    "file": "00387.png",
+    "elapsed": 17.736100875001284,
+    "frame": 146462,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "d3857268a98494c7ac828a5d3b013bd435dc0fd31fe3227798f791dd0dc1572c"
+  },
+  {
+    "file": "00388.png",
+    "elapsed": 17.770056958994246,
+    "frame": 146468,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "6ce45fe9226ae7b3a18877dd8951c97f4d9aeb9b78fd1abe1ba04c3658ac0cb4"
+  },
+  {
+    "file": "00389.png",
+    "elapsed": 17.8036864589958,
+    "frame": 146475,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "1a258bef61878f683a7e9734c54920246bc56dc270d2a02a6f470ff5ed5bb301"
+  },
+  {
+    "file": "00390.png",
+    "elapsed": 17.837609583992162,
+    "frame": 146482,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "828b9eefd56c5852901bc2ecf3f9830b132bd0b6e55b90fdf675073cbf8dedef"
+  },
+  {
+    "file": "00391.png",
+    "elapsed": 17.87168762499641,
+    "frame": 146489,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "22a6a8aec4190713617a8e5ecf8992e19ac6794bcd5b00c5626c9fd2b3d1eb79"
+  },
+  {
+    "file": "00392.png",
+    "elapsed": 17.93801812500169,
+    "frame": 146490,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f5f164e0f34785f64bacefc1bfb05d07e17fc895f5c108d8b934e579ef016fba"
+  },
+  {
+    "file": "00393.png",
+    "elapsed": 17.97166345900041,
+    "frame": 146495,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "3e0592fcd9460fef50bd553edc7c90a612d5441da4dad67d25b83e957cf24b72"
+  },
+  {
+    "file": "00394.png",
+    "elapsed": 18.043902499994147,
+    "frame": 146496,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "91fbe5cc4ea7ae73907edc210ca9fbd3944e55f95c0145d7d8054033d52691f6"
+  },
+  {
+    "file": "00395.png",
+    "elapsed": 18.077468916992075,
+    "frame": 146499,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "8fa7c84602f33d502e732151b5ba30ba169cee158af5d8c1a8fe6ed4ab93c569"
+  },
+  {
+    "file": "00396.png",
+    "elapsed": 18.110830584002542,
+    "frame": 146502,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "9b4a697b7f0ea5179cf9642a99a11d42582c952926c37728f8888f651985f6dc"
+  },
+  {
+    "file": "00397.png",
+    "elapsed": 18.175896834000014,
+    "frame": 146503,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "0e247a5c51e1a330c0cf455e2efe93eb5a2e6b7aefe8bf9b9207300fd9a9a22c"
+  },
+  {
+    "file": "00398.png",
+    "elapsed": 18.210130916995695,
+    "frame": 146509,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "f5020317e800144fc0bd1d25b758c2523d1cbba1cd69f13746fa40a35c310a24"
+  },
+  {
+    "file": "00399.png",
+    "elapsed": 18.293777874991065,
+    "frame": 146510,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "cdc3ef40ecd4ecd3c3bc8c115b08a075e6775801e4e83ba02d604380ffb80a18"
+  },
+  {
+    "file": "00400.png",
+    "elapsed": 18.50837666699954,
+    "frame": 146512,
+    "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+    "sha256": "a84de1bf4ab6d2dc329abbe6bd76000bce04585760ff166fac05fdcd91054533"
+  },
+  {
+    "file": "00401.png",
+    "elapsed": 18.541859916993417,
+    "frame": 146524,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00402.png",
+    "elapsed": 18.637381291991915,
+    "frame": 146525,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00403.png",
+    "elapsed": 18.67149416699249,
+    "frame": 146534,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00404.png",
+    "elapsed": 18.755160458997125,
+    "frame": 146535,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00405.png",
+    "elapsed": 18.789740416992572,
+    "frame": 146543,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00406.png",
+    "elapsed": 18.82371641699865,
+    "frame": 146554,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00407.png",
+    "elapsed": 18.87076716699812,
+    "frame": 146555,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00408.png",
+    "elapsed": 18.90419254200242,
+    "frame": 146566,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00409.png",
+    "elapsed": 18.937694499996724,
+    "frame": 146580,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00410.png",
+    "elapsed": 18.97421449999092,
+    "frame": 146595,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00411.png",
+    "elapsed": 19.034302792002563,
+    "frame": 146596,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00412.png",
+    "elapsed": 19.067934916995,
+    "frame": 146610,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00413.png",
+    "elapsed": 19.1012786670035,
+    "frame": 146613,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00414.png",
+    "elapsed": 19.138154999993276,
+    "frame": 146615,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "06609418e6bc10d7ce11c13125c5a39ca5bc60756f5bbd98531b0e5e90436063"
+  },
+  {
+    "file": "00415.png",
+    "elapsed": 19.342917000001762,
+    "frame": 146616,
+    "stage": "MainMenu / interrupted Combat8 / Continue",
+    "sha256": "550d82f9a539faab2c9a8d044a20202647fd09a3348369a5242667a225d567fc"
+  },
+  {
+    "file": "00416.png",
+    "elapsed": 19.37661058398953,
+    "frame": 146620,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00417.png",
+    "elapsed": 19.412820958998054,
+    "frame": 146621,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00418.png",
+    "elapsed": 19.446499666999443,
+    "frame": 146629,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00419.png",
+    "elapsed": 19.503243708997616,
+    "frame": 146630,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00420.png",
+    "elapsed": 19.537194874996203,
+    "frame": 146632,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00421.png",
+    "elapsed": 19.571243708996917,
+    "frame": 146642,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00422.png",
+    "elapsed": 19.606978208990768,
+    "frame": 146650,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00423.png",
+    "elapsed": 19.76024016700103,
+    "frame": 146651,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00424.png",
+    "elapsed": 19.795913541995105,
+    "frame": 146652,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00425.png",
+    "elapsed": 19.830129333990044,
+    "frame": 146658,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00426.png",
+    "elapsed": 19.863893166999333,
+    "frame": 146666,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00427.png",
+    "elapsed": 19.926285791996634,
+    "frame": 146667,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00428.png",
+    "elapsed": 19.960615709002013,
+    "frame": 146676,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00429.png",
+    "elapsed": 20.039827749991673,
+    "frame": 146677,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00430.png",
+    "elapsed": 20.073228749999544,
+    "frame": 146680,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00431.png",
+    "elapsed": 20.144486042001517,
+    "frame": 146681,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3fc379235975e92536ed4b4b19c5aa91c0bafcb438c66e55fb24bbf5f0880b93"
+  },
+  {
+    "file": "00432.png",
+    "elapsed": 20.178852041994105,
+    "frame": 146683,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "cd0b01700a7073b3a14e9e3da7d741c4700a79bd4f805f64e7e497a160b31369"
+  },
+  {
+    "file": "00433.png",
+    "elapsed": 20.213014458990074,
+    "frame": 146690,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "c7932d751f89b432d866e866d590741ed69ced5eaaf836028671e7c522237850"
+  },
+  {
+    "file": "00434.png",
+    "elapsed": 20.26169391699659,
+    "frame": 146691,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "82a900f0958cc43ba59deae21817aace7fa92861f3e95bb718235b2178ddb9f3"
+  },
+  {
+    "file": "00435.png",
+    "elapsed": 20.295506374997785,
+    "frame": 146698,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "82a900f0958cc43ba59deae21817aace7fa92861f3e95bb718235b2178ddb9f3"
+  },
+  {
+    "file": "00436.png",
+    "elapsed": 20.368184708990157,
+    "frame": 146699,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "82a900f0958cc43ba59deae21817aace7fa92861f3e95bb718235b2178ddb9f3"
+  },
+  {
+    "file": "00437.png",
+    "elapsed": 20.40176291699754,
+    "frame": 146703,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "82a900f0958cc43ba59deae21817aace7fa92861f3e95bb718235b2178ddb9f3"
+  },
+  {
+    "file": "00438.png",
+    "elapsed": 20.43634149999707,
+    "frame": 146707,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "82a900f0958cc43ba59deae21817aace7fa92861f3e95bb718235b2178ddb9f3"
+  },
+  {
+    "file": "00439.png",
+    "elapsed": 20.469851709000068,
+    "frame": 146714,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "82a900f0958cc43ba59deae21817aace7fa92861f3e95bb718235b2178ddb9f3"
+  },
+  {
+    "file": "00440.png",
+    "elapsed": 20.503507916990202,
+    "frame": 146721,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "82a900f0958cc43ba59deae21817aace7fa92861f3e95bb718235b2178ddb9f3"
+  },
+  {
+    "file": "00441.png",
+    "elapsed": 20.538269917000434,
+    "frame": 146728,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "82a900f0958cc43ba59deae21817aace7fa92861f3e95bb718235b2178ddb9f3"
+  },
+  {
+    "file": "00442.png",
+    "elapsed": 20.57478887499019,
+    "frame": 146734,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "82a900f0958cc43ba59deae21817aace7fa92861f3e95bb718235b2178ddb9f3"
+  },
+  {
+    "file": "00443.png",
+    "elapsed": 20.627512084000045,
+    "frame": 146735,
+    "stage": "Continue8 / clean shots and status owners / earned state",
+    "sha256": "3a5ea131777fe9c7f3683bf18aba04661bb9625c07e9efa71450502126ce9546"
+  },
+  {
+    "file": "00444.png",
+    "elapsed": 20.66154162499879,
+    "frame": 146742,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "876bd2cbad6eeb8222bafc204d302cc6cfa0a1d9bca9ee0eec925e462c9b17ce"
+  },
+  {
+    "file": "00445.png",
+    "elapsed": 20.73768495899276,
+    "frame": 146743,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00446.png",
+    "elapsed": 20.773501042000134,
+    "frame": 146750,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00447.png",
+    "elapsed": 20.837808750002296,
+    "frame": 146751,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00448.png",
+    "elapsed": 20.87148033399717,
+    "frame": 146755,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00449.png",
+    "elapsed": 20.937746249997872,
+    "frame": 146756,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00450.png",
+    "elapsed": 20.97457599999325,
+    "frame": 146761,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00451.png",
+    "elapsed": 21.013055542003713,
+    "frame": 146762,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00452.png",
+    "elapsed": 21.046452833994408,
+    "frame": 146770,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00453.png",
+    "elapsed": 21.09780329199566,
+    "frame": 146771,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00454.png",
+    "elapsed": 21.13398333400255,
+    "frame": 146778,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00455.png",
+    "elapsed": 21.167577416999848,
+    "frame": 146786,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00456.png",
+    "elapsed": 21.201711999994586,
+    "frame": 146796,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  },
+  {
+    "file": "00457.png",
+    "elapsed": 21.23664779200044,
+    "frame": 146805,
+    "stage": "Sold GALE / public command / no resource substitution",
+    "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
+  }
+]

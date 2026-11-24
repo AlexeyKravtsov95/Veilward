@@ -1,0 +1,10 @@
+{
+    "success": false,
+    "editor": true,
+    "realTime": true,
+    "liveResourceMutation": false,
+    "error": "InvalidOperationException: interrupted Combat8 before terminal",
+    "deviceDeferred": "QA53/54/55",
+    "frames": 738,
+    "elapsed": 25.375131167005749
+}

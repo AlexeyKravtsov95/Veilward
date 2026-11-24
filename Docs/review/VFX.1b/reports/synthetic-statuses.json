@@ -1,0 +1,24 @@
+{
+  "synthetic": true,
+  "all4NativeImpossible": true,
+  "slotsPerOwner": 2,
+  "owners": [
+    {
+      "id": 200,
+      "status": "Burn"
+    },
+    {
+      "id": 201,
+      "status": "Wet"
+    },
+    {
+      "id": 202,
+      "status": "Gust"
+    },
+    {
+      "id": 203,
+      "status": "Crack"
+    }
+  ],
+  "noGameplayClaim": true
+}

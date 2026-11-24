@@ -1,0 +1,38 @@
+[
+  {
+    "path": "Docs/review/VFX.1b/attempt-1-gates/edit-mode.json",
+    "rawBytes": 260780,
+    "rawSha256": "45386a4ffa24e0667ac90095f2f396cf90219863139de31ebef8ea55d48f6d19",
+    "lossless": true
+  },
+  {
+    "path": "Docs/review/VFX.1b/attempt-3-rollback/video-shots.json",
+    "rawBytes": 1952919,
+    "rawSha256": "a3fc53de4807dc5e7b73b238d646af410178957ef42a52084b8a7deec45b7584",
+    "lossless": true
+  },
+  {
+    "path": "Docs/review/VFX.1b/attempt-4-terminal/video-shots.json",
+    "rawBytes": 3158839,
+    "rawSha256": "46f9ebcdd2f6bb05bcf0584d6e1914bcb8bdc0a2b786dc6fd5badadaa2dca4d2",
+    "lossless": true
+  },
+  {
+    "path": "Docs/review/VFX.1b/reports/edit-mode.json",
+    "rawBytes": 259835,
+    "rawSha256": "b6770457c2b4a120db1b8240fda27f4db186568f9b6d261078da2256333140cb",
+    "lossless": true
+  },
+  {
+    "path": "Docs/review/VFX.1b/reports/video-decoded.json",
+    "rawBytes": 331259,
+    "rawSha256": "e8758e632e2b6e5657b18edbcceaaeffcb48feba62bd8ef0b786c0e8ded2a5a0",
+    "lossless": true
+  },
+  {
+    "path": "Docs/review/VFX.1b/reports/video-shots.json",
+    "rawBytes": 1887179,
+    "rawSha256": "ddc2ec63e6f705234709aad83324e9f1a6855ecb418c6fd7e4a7d4435696ade6",
+    "lossless": true
+  }
+]

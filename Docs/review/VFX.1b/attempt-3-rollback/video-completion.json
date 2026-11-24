@@ -1,0 +1,10 @@
+{
+    "success": false,
+    "editor": true,
+    "realTime": true,
+    "liveResourceMutation": false,
+    "error": "InvalidOperationException: whole state and Grid rollback",
+    "deviceDeferred": "QA53/54/55",
+    "frames": 480,
+    "elapsed": 17.003284167003586
+}

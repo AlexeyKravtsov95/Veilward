@@ -326,9 +326,11 @@ namespace Veilward.Editor
                 if (status == null) errors.Add("Enemy prefab requires EnemyStatusView.");
                 else
                 {
-                    var refs = RequireReferences(status, new[] { "firstSlot", "secondSlot" }, errors);
+                    var refs = RequireReferences(status, new[] { "firstSlot", "secondSlot", "firstCue", "secondCue" }, errors);
                     if (refs["firstSlot"] == refs["secondSlot"] || prefab.GetComponentsInChildren<UnityEngine.UI.Text>(true).Length != 2)
                         errors.Add("EnemyStatusView must have exactly two distinct overhead slots.");
+                    if (refs["firstCue"] == refs["secondCue"] || prefab.GetComponentsInChildren<StatusCueGraphic>(true).Length != EnemyStatusView.CueCapacity)
+                        errors.Add("EnemyStatusView requires exactly two prebuilt cue graphics.");
                 }
             }
             ValidateMissingScripts(prefab, path, errors);

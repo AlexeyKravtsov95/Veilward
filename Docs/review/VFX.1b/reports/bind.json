@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "command": "command",
+  "data": null,
+  "errors": [
+    {
+      "code": "COMMAND_FAILED",
+      "message": "Failed to execute command 'script': the Editor closed the connection without answering, as it does for an evalToken it doesn't accept; the command may not have run"
+    }
+  ],
+  "warnings": []
+}

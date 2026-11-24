@@ -1,0 +1,35 @@
+{
+  "Tide": {
+    "index": 125,
+    "visiblePixels": 22,
+    "event": {
+      "kind": "Tide",
+      "tower": 5,
+      "enemy": 57,
+      "attackTick": 2861,
+      "level": 1
+    }
+  },
+  "Gale": {
+    "index": 133,
+    "visiblePixels": 7,
+    "event": {
+      "kind": "Gale",
+      "tower": 2,
+      "enemy": 58,
+      "attackTick": 2874,
+      "level": 1
+    }
+  },
+  "Stone": {
+    "index": 153,
+    "visiblePixels": 37,
+    "event": {
+      "kind": "Stone",
+      "tower": 4,
+      "enemy": 58,
+      "attackTick": 2898,
+      "level": 1
+    }
+  }
+}

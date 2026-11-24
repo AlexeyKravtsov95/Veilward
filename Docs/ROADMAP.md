@@ -1,5 +1,7 @@
 # VEILWARD — Development Roadmap v0.1
 
+24.11.2026 — VFX.1b/#91 от merge94:3basic attacks+4status cues, [spec/regressions](VFX1B_BASIC_SHOTS_STATUS.md). Editor/source/Battle gates и independent review — Docs/review/VFX.1b; Review до owner merge. Parent47 остаётся1/4 до принятия полного пакета;#92/#93/G2/M0/release отдельно, Device Deferred QA53/54/55.
+
 23.11.2026 — VFX.1a/#90 от merge89: production FLAME projectile/pool/pause/Continue, [spec/regressions](VFX1A_FLAME_PROJECTILE.md). Editor scope реализован: Static38/Edit1252/Play96, [production Update evidence](review/VFX.1a/README.md), Review до owner merge; parent47 остаётся0/4 до первого owner merge. Device Deferred QA53/54/55; остальные VFX/review/merge/release отдельно.
 
 

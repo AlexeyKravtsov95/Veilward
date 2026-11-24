@@ -469,7 +469,19 @@ namespace Veilward.Editor
             var serialized = new SerializedObject(status);
             serialized.FindProperty("firstSlot").objectReferenceValue = first;
             serialized.FindProperty("secondSlot").objectReferenceValue = second;
+            serialized.FindProperty("firstCue").objectReferenceValue = AddStatusCue(first);
+            serialized.FindProperty("secondCue").objectReferenceValue = AddStatusCue(second);
             serialized.ApplyModifiedPropertiesWithoutUndo();
+        }
+
+        internal static StatusCueGraphic AddStatusCue(UnityEngine.UI.Text slot)
+        {
+            var go = new GameObject(slot.name + " cue", typeof(RectTransform), typeof(CanvasRenderer), typeof(StatusCueGraphic));
+            go.transform.SetParent(slot.transform, false);
+            var cue = go.GetComponent<StatusCueGraphic>();
+            cue.rectTransform.sizeDelta = Vector2.one * StatusCueGraphic.Size;
+            cue.raycastTarget = false; cue.enabled = false;
+            return cue;
         }
 
         private static Transform CreateSelection(Material material, float cellSize)

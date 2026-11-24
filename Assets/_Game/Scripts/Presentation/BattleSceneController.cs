@@ -28,6 +28,8 @@ namespace Veilward.Presentation
         [SerializeField] private Material flameProjectileCoreMaterial;
         private FlameProjectilePool _flameProjectiles;
         public FlameProjectilePool FlameProjectiles => _flameProjectiles;
+        private BasicProjectilePool _basicProjectiles;
+        public BasicProjectilePool BasicProjectiles => _basicProjectiles;
         [SerializeField] private BattlePauseController pauseController;
         [SerializeField] private BattlePlacementController placementController;
         [SerializeField] private BattleCheckpointController checkpointController;
@@ -129,6 +131,10 @@ namespace Veilward.Presentation
                     flameProjectileMaterial != null ? flameProjectileMaterial : attackBeamMaterial,
                     flameProjectileCoreMaterial != null ? flameProjectileCoreMaterial : attackBeamMaterial);
             else _flameProjectiles.Clear();
+            if (_basicProjectiles == null)
+                _basicProjectiles = new BasicProjectilePool(transform,
+                    reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial);
+            else _basicProjectiles.Clear();
             if (reactionSummaryText != null)
             {
                 _reactionSummaryOrigin = reactionSummaryText.rectTransform.anchoredPosition;
@@ -371,6 +377,7 @@ namespace Veilward.Presentation
             var activeDelta = Mathf.Min(Time.deltaTime, 0.25f);
             Presentation.Advance(activeDelta);
             _flameProjectiles?.Advance(activeDelta);
+            _basicProjectiles?.Advance(activeDelta);
             foreach (var view in _enemyViews.Values) if (view.Model != null) view.Model.Advance(activeDelta);
             for (var i = _enemyTails.Count - 1; i >= 0; i--)
                 if (_enemyTails[i] == null || _enemyTails[i].Advance(activeDelta))
@@ -470,7 +477,8 @@ namespace Veilward.Presentation
                     TowerState attacker = null;
                     for (var t = 0; t < towers.Count; t++)
                         if (towers[t].Id == attack.AttackerTowerId) { attacker = towers[t]; break; }
-                    if (attacker != null && attacker.Definition.Id.Value == "flame")
+                    var basicKind = attacker != null ? BasicProjectilePool.KindFor(attacker.Definition.Id) : BasicShotKind.None;
+                    if (attacker != null && (attacker.Definition.Id.Value == "flame" || basicKind != BasicShotKind.None))
                     {
                         var source = GetCellCenter(attacker.Coordinate) + Vector3.up * .85f;
                         if (_towerViews.TryGetValue(attacker.Id, out var towerView) && towerView != null &&
@@ -482,7 +490,8 @@ namespace Veilward.Presentation
                             if (anchor != null && (anchor.position - GetCellCenter(attacker.Coordinate)).sqrMagnitude <= limit * limit)
                                 source = anchor.position;
                         }
-                        _flameProjectiles?.Play(attack, attacker.Level, source);
+                        if (basicKind != BasicShotKind.None) _basicProjectiles?.Play(basicKind, attack, attacker.Level, source);
+                        else _flameProjectiles?.Play(attack, attacker.Level, source);
                         continue;
                     }
                     if (!TryGetTowerPosition(attack.AttackerTowerId, out var start))
@@ -556,6 +565,7 @@ namespace Veilward.Presentation
         public void ResetPresentation()
         {
             _flameProjectiles?.Clear();
+            _basicProjectiles?.Clear();
             if (bossHud != null) bossHud.ResetView();
             if (abilityController != null) abilityController.ResetTransient();
             _nextAbilityEffect = 0;

@@ -1,5 +1,7 @@
 # VEILWARD: Spirit Defense
 
+24.11.2026 — VFX.1b/#91: TIDE/GALE/STONE получают отдельные moving shapes в bounded pool12/48renderers; Burn/Wet/Gust/Crack — два prebuilt slot graphics по live snapshots. FLAME/двеslots/inspector/gameplay прежние. [Спецификация и regression plan](Docs/VFX1B_BASIC_SHOTS_STATUS.md); Editor evidence/review — в Docs/review/VFX.1b. Device Deferred QA53/54/55, self-merge/release не выполняются.
+
 VFX.1a / #90: production FLAME переходит на движущийся огненный снаряд с ограниченным pool; Domain damage/timing остаются прежними. [Спецификация и regression scenarios](Docs/VFX1A_FLAME_PROJECTILE.md). Editor scope VERIFIED: Static38/Edit1252/Play96, [production Update видео и evidence](Docs/review/VFX.1a/README.md); [независимое review](Docs/review/VFX.1a/review.md) без блокирующих замечаний; Device Deferred QA53/54/55, без self-merge.
 
 

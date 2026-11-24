@@ -1,0 +1,50 @@
+FFFFF
+======================================================================
+FAIL: test_duplicate_running_suite_rejected (__main__.ReviewControls.test_duplicate_running_suite_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alexeykravtsov/Desktop/workspace/Veilward/TestResults/vfx1b/review_red_controls.py", line 13, in test_duplicate_running_suite_rejected
+    with self.assertRaises(ValueError):v.positive_suite(bad)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_empty_maps_and_invalid_evidence_rejected (__main__.ReviewControls.test_empty_maps_and_invalid_evidence_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alexeykravtsov/Desktop/workspace/Veilward/TestResults/vfx1b/review_red_controls.py", line 22, in test_empty_maps_and_invalid_evidence_rejected
+    with contextlib.redirect_stdout(io.StringIO()),self.assertRaises(ValueError):v.main()
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_picks_rejected (__main__.ReviewControls.test_missing_picks_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alexeykravtsov/Desktop/workspace/Veilward/TestResults/vfx1b/review_red_controls.py", line 8, in test_missing_picks_rejected
+    with self.assertRaises(ValueError):v.video(bad,sources,shots,decoded)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reordered_telemetry_rejected (__main__.ReviewControls.test_reordered_telemetry_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alexeykravtsov/Desktop/workspace/Veilward/TestResults/vfx1b/review_red_controls.py", line 10, in test_reordered_telemetry_rejected
+    with self.assertRaises(ValueError):v.video(proof,sources,list(reversed(shots)),decoded)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_wrong_replay_start_rejected (__main__.ReviewControls.test_wrong_replay_start_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alexeykravtsov/Desktop/workspace/Veilward/TestResults/vfx1b/review_red_controls.py", line 29, in test_wrong_replay_start_rejected
+    with contextlib.redirect_stdout(io.StringIO()),self.assertRaises(ValueError):v.main()
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.181s
+
+FAILED (failures=5)

@@ -1,0 +1,16 @@
+{
+  "flame": {
+    "jsonEqual": true,
+    "fullTraceBytesEqual": true,
+    "rawTraceBytes": 2371375,
+    "sha256": "3c7211df871c7da8a5c47ce4317e18b388cdfe227314c3fc0b8205eb35cef7e6",
+    "outcome": "Victory"
+  },
+  "gale": {
+    "jsonEqual": true,
+    "fullTraceBytesEqual": true,
+    "rawTraceBytes": 2078626,
+    "sha256": "b8140ae0d3eda06e5af802be6af99be08e59bd7e7806b345ee314dadc8efbaf7",
+    "outcome": "Victory"
+  }
+}
