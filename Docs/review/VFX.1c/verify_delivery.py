@@ -438,6 +438,14 @@ def main(check_preservation):
     verify_gates(manifest)
     verify_replays()
     deps = verify_rendering(read("reports/render-inputs.json"))
+    media_head = (PACKET / "reports/media-head.txt").read_text().splitlines()[0]
+    supplement_head = (PACKET / "reports/supplement-head.txt").read_text().strip()
+    require(media_head == supplement_head == manifest["mediaSource"], "recorded media source commit")
+    require(read("reports/capture-advancing-final.json")["met"] is True and
+            read("reports/capture-console-errors-final.json")["returned"] == 0 and
+            read("reports/capture-final-flags-final.json")["result"]["scene"] == "Assets/_Game/Scenes/Battle.unity" and
+            read("reports/capture-final-flags-final.json")["result"]["runInBackground"] is False and
+            read("reports/capture-final-flags-final.json")["result"]["autoTick"] is False, "Editor advancement, console and recovery")
     count = verify_media()
     if check_preservation:
         local = strict_json((ROOT / "TestResults/vfx1c/initial-local-audit.json").read_bytes())

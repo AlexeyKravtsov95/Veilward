@@ -100,7 +100,14 @@ def main():
         line = next(l for l in item["data"]["lines"] if l["name"] == "Reaction stroke 2")
         line["world"][0], line["world"][-1] = line["world"][-1], line["world"][0]
     reject("reversed Storm hop", "captured hop endpoints", lambda: audit.supplemental(mutated(supplemental, swapped_endpoints), events))
-    print("PASS positive suite/replay/media inputs and 25 negative controls")
+    manifest = audit.read("manifest.json")
+    reject("missing protected inventory entry", "Git tree inventory", lambda: audit.inventory(
+        mutated(manifest, lambda m: m["trackedInventory"].pop())))
+    reject("missing evidence file inventory entry", "source/artifact inventory", lambda: audit.inventory(
+        mutated(manifest, lambda m: m["artifacts"].pop("Docs/review/VFX.1c/editor-flow.mp4"))))
+    reject("substituted media commit from before implementation", "ancestry", lambda: audit.inventory(
+        mutated(manifest, lambda m: m.update(mediaSource=m["beforeSource"]))))
+    print("PASS positive suite/replay/media inputs and 28 negative controls")
 
 
 if __name__ == "__main__":
