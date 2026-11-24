@@ -1,6 +1,8 @@
 # VEILWARD — Development Roadmap v0.1
 
-24.11.2026 — VFX.1c / #92. Две production атаки гибридов и причинные Steam/Storm reactions передаются на review. Parent #47 остаётся 2/4 до принятия владельцем. Финальная плотная приёмка, ability/boss cues и общий device QA находятся в #93 и #53/#54/#55. [Спецификация](VFX1C_HYBRID_REACTIONS.md) · [Editor evidence](review/VFX.1c/README.md).
+24.11.2026 — VFX.1d / #93. Печать, сигналы Стража и общая Editor-приёмка VFX.1. Parent #47 принят на 3/4. Следующая отдельная задача — #48 UI. Физический iPhone запланирован в QA #53/#54/#55. [Спецификация](VFX1D_RIFT_SEAL_BOSS.md) · [Сводка VFX.1](review/VFX.1d/README.md).
+
+24.11.2026 — VFX.1c / #92. Две production атаки гибридов и причинные Steam/Storm reactions приняты в PR #96. [Спецификация](VFX1C_HYBRID_REACTIONS.md) · [Editor evidence](review/VFX.1c/README.md).
 
 24.11.2026 — VFX.1b/#91 от merge94:3basic attacks+4status cues, [spec/regressions](VFX1B_BASIC_SHOTS_STATUS.md). Editor/source/Battle gates и independent review — Docs/review/VFX.1b; Review до owner merge. Parent47 остаётся1/4 до принятия полного пакета;#92/#93/G2/M0/release отдельно, Device Deferred QA53/54/55.
 

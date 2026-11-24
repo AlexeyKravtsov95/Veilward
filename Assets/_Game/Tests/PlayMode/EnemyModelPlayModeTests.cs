@@ -143,5 +143,76 @@ namespace Veilward.Tests.PlayMode
             Assert.That(s.State.Kills, Is.EqualTo(1)); Assert.That(Visuals.Count(v => v.gameObject.activeInHierarchy), Is.Zero, "spawn→kill without earlier view creates neither alive nor leak ghost");
             yield return null;
         }
+
+        [UnityTest] public IEnumerator Vfx1d_WardenCuesFollowTheRealOwnerAndKeepArt5Tails()
+        {
+            yield return SceneManager.LoadSceneAsync("Battle");
+            yield return null;
+            var battle = Battle;
+            var pool = battle.GetComponentsInChildren<BossCueView>(true);
+            Assert.That(pool.Length, Is.EqualTo(4));
+            Assert.That(pool.Select(cue => cue.GetComponentInChildren<LineRenderer>(true).sharedMaterial).Distinct().Count(), Is.EqualTo(1));
+            foreach (var lethal in new[] { true, false })
+            {
+                var s = Fixture("Dual");
+                Install(s);
+                s.StartWave();
+                var boss = s.State.Enemies.Single(enemy => enemy.Definition.Id.Value == BossHudController.BossId);
+                Call(battle, "ProcessAttackEvents");
+                var spawn = pool.Single(cue => cue.Kind == BossCueKind.Spawn);
+                Assert.That(spawn.EnemyId, Is.EqualTo(boss.Id));
+                Assert.That(spawn.Position, Is.EqualTo(s.Path.GetPosition(boss.DistanceAlongPath)));
+                Call(battle, "SynchronizeViews");
+                Assert.That(pool.Count(cue => cue.Kind == BossCueKind.Spawn), Is.EqualTo(1));
+
+                while (s.Path.TotalLength - boss.DistanceAlongPath > 2.25f) s.Step();
+                Call(battle, "ProcessAttackEvents");
+                Assert.That(pool.Any(cue => cue.Kind == BossCueKind.Threat), Is.False);
+                while (s.Path.TotalLength - boss.DistanceAlongPath > 2.2f) s.Step();
+                Call(battle, "ProcessAttackEvents");
+                var threat = pool.Single(cue => cue.Kind == BossCueKind.Threat);
+                var threatPosition = threat.Position;
+                Assert.That(threat.EnemyId, Is.EqualTo(boss.Id));
+                Assert.That(threat.Position, Is.EqualTo(s.Path.GetPosition(boss.DistanceAlongPath)));
+                Call(battle, "SynchronizeViews");
+                Assert.That(pool.Count(cue => cue.Kind == BossCueKind.Threat), Is.EqualTo(1));
+
+                if (lethal)
+                    Assert.That(s.CastAbility(new CastAbilityCommand(AbilityDefinitionId.RiftSeal, threat.Position,
+                        0, s.State.Tick, s.AbilityState.NextCastSequence)).Succeeded, Is.True);
+                else
+                    while (s.State.Phase == BattlePhase.Combat) s.Step();
+                Call(battle, "ProcessAttackEvents");
+                Call(battle, "ProcessAttackEvents");
+                var terminal = pool.Single(cue => cue.Kind != BossCueKind.None);
+                Assert.That(terminal.Kind, Is.EqualTo(lethal ? BossCueKind.Death : BossCueKind.Leak));
+                Assert.That(terminal.EnemyId, Is.EqualTo(boss.Id));
+                Assert.That(terminal.Position, Is.EqualTo(lethal ? threatPosition : s.Path.GetPosition(s.Path.TotalLength)));
+                Assert.That(Visuals.Any(view => view.IsTail && view.Pose == terminal.Kind.ToString()), Is.True);
+                Assert.That(Visuals.Any(view => !view.IsTail), Is.False);
+                if (lethal)
+                {
+                    var hit = battle.GetComponentsInChildren<AbilityEffectView>().Single(view => view.Hit?.TargetEnemyId == boss.Id);
+                    Assert.That(hit.Hit.Value.WasLethal, Is.True);
+                    Assert.That(hit.CapturedPosition, Is.EqualTo(terminal.Position));
+                }
+
+                battle.ResetPresentation();
+                CollectionAssert.AreEquivalent(pool, battle.GetComponentsInChildren<BossCueView>(true));
+                Assert.That(pool.All(cue => cue.Kind == BossCueKind.None && cue.EnemyId == default &&
+                    cue.GetComponentInChildren<LineRenderer>(true).positionCount == 0), Is.True);
+            }
+
+            var unseen = Fixture("Steam");
+            Install(unseen);
+            unseen.PlaceTower(new PlaceTowerCommand(new TowerDefinitionId("fixture"), new GridCoordinate(0, 1)));
+            unseen.StartWave();
+            unseen.Step();
+            Assert.That(unseen.State.Enemies.All(enemy => enemy.Definition.Id.Value != BossHudController.BossId), Is.True);
+            Call(battle, "ProcessAttackEvents");
+            Assert.That(pool.All(cue => cue.Kind == BossCueKind.None), Is.True);
+            Assert.That(Visuals.Any(view => view.IsTail), Is.False);
+
+        }
     }
 }

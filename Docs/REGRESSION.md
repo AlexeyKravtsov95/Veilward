@@ -381,3 +381,9 @@ P2.4f revision2: `AbilityBossTargetedSearchTests` — один opt-in ordered-hi
 - VFX1C-02: четыре пары kind/trigger, точный ключ, shuffled damage, лимиты, захваченные endpoints и AppliedHpLoss проверяются `HybridProjectileTests` и REG-BATTLE-156/157.
 - VFX1C-03: bounded reuse/expiry/reset, обычный Update, Pause/background и file Continue покрыты `HybridProjectilePlayModeTests`, REG-BATTLE-157/158/159 и проверкой finally в REG-BATTLE-207.
 - VFX1C-04–07: свежие whole Victory8 replay, полные gates, Editor PNG/непрерывное видео и read-only проверка поставки описаны в [контракте](VFX1C_HYBRID_REACTIONS.md) и [evidence](review/VFX.1c/README.md).
+
+### VFX.1d / #93 — Печать, Страж и общий бой
+
+- VFX1D-01–02: `AbilityPresentationTests` и `AbilityPlayModeTests` покрывают авторитетную границу и допустимость, Cancel/reject/repeat, event key, положительный HP loss, lethal координаты, clear и capacity.
+- VFX1D-03–04: `EnemyModelPlayModeTests` покрывает однократность boss spawn/threat, death/leak, ART5 tails и очистку владельцев. `AbilityPlayModeTests` проверяет freeze геометрии при Pause и первом Update после Resume.
+- VFX1D-05–06: [контракт](VFX1D_RIFT_SEAL_BOSS.md) и [Editor evidence](review/VFX.1d/README.md) фиксируют плотный бой, все семейства и статусы, realtime media, pools/profile и совпадение before/after replay.

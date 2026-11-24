@@ -44,6 +44,7 @@ namespace Veilward.Presentation
             if (battle == null || placement == null || beginButton == null || confirmButton == null || cancelButton == null ||
                 panel == null || statusText == null || preview == null)
                 throw new InvalidOperationException("Ability requires all scene references.");
+            preview.Initialize();
             beginButton.onClick.AddListener(HandleBegin);
             cancelButton.onClick.AddListener(CancelPreview);
             Refresh();

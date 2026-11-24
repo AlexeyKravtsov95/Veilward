@@ -39,8 +39,11 @@ namespace Veilward.Presentation
         [SerializeField] private ElementChoiceController elementChoice;
         [SerializeField] private AbilityController abilityController;
         [SerializeField] private BossHudController bossHud;
-        private readonly AbilityEffectView[] _abilityPool = new AbilityEffectView[32];
-        private int _nextAbilityEffect;
+        private readonly AbilityEffectView[] _abilityPool = new AbilityEffectView[AbilityEffectView.CastCapacity + AbilityEffectView.HitCapacity];
+        private int _nextAbilityCast;
+        private int _nextAbilityHit;
+        private readonly BossCueView[] _bossCues = new BossCueView[BossCueView.Capacity];
+        private long _bossCueOrder;
         [SerializeField] private UnityEngine.UI.Button mainMenuButton;
         [SerializeField] private UnityEngine.UI.Text reactionSummaryText;
         private const int ReactionPoolCapacity = 24;
@@ -154,12 +157,25 @@ namespace Veilward.Presentation
                 effect.Initialize(reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial);
                 _reactionPool[i] = effect;
             }
+            var sealMaterial = reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial;
             for (var i = 0; i < _abilityPool.Length; i++)
             {
+                if (_abilityPool[i] != null) { _abilityPool[i].Clear(); continue; }
                 var effect = new GameObject("Ability effect " + i).AddComponent<AbilityEffectView>();
-                effect.transform.SetParent(transform, false); effect.Initialize(reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial);
+                effect.transform.SetParent(transform, false);
+                effect.Initialize(sealMaterial, i < AbilityEffectView.CastCapacity);
                 _abilityPool[i] = effect;
             }
+            for (var i = 0; i < _bossCues.Length; i++)
+            {
+                if (_bossCues[i] != null) { _bossCues[i].Clear(); continue; }
+                var cue = new GameObject("Warden cue " + i).AddComponent<BossCueView>();
+                cue.transform.SetParent(transform, false);
+                cue.Initialize(sealMaterial);
+                _bossCues[i] = cue;
+            }
+            _nextAbilityCast = _nextAbilityHit = 0;
+            _bossCueOrder = 0;
             if (checkpointController != null) checkpointController.Restored += ResetPresentation;
             _accumulator = 0f;
             _skipNextDelta = true;
@@ -393,6 +409,7 @@ namespace Veilward.Presentation
             for (var i = 0; i < _reactionPool.Length; i++)
                 if (_reactionPool[i] != null) _reactionPool[i].Advance(activeDelta);
             for (var i = 0; i < _abilityPool.Length; i++) if (_abilityPool[i] != null) _abilityPool[i].Advance(activeDelta);
+            foreach (var cue in _bossCues) if (cue != null) cue.Advance(activeDelta);
             _accumulator += activeDelta;
             var steps = 0;
             while (_accumulator >= StepSeconds && steps < MaxStepsPerFrame)
@@ -459,15 +476,7 @@ namespace Veilward.Presentation
                 {
                     if (ai < abilities.Count && (ri == reactions.Count || abilities[ai].SequenceInTick < reactions[ri].SequenceInTick))
                     {
-                        var cast = abilities[ai++];
-                        PlayAbilityEffect(cast.Center, cast.Radius, cast.CastSequence, -1);
-                        for (var hitIndex = 0; hitIndex < damages.Count; hitIndex++)
-                        {
-                            var hit = damages[hitIndex];
-                            if (hit.Origin == DamageOrigin.Ability && hit.Tick == cast.Tick && hit.AbilityCastSequence == cast.CastSequence &&
-                                hit.SourceAbilityId == cast.AbilityId)
-                                PlayAbilityEffect(hit.TargetPosition, .18f, cast.CastSequence, hit.HitIndex);
-                        }
+                        PlayAbilityCast(abilities[ai++], damages);
                         continue;
                     }
                     var i = ri++;
@@ -531,11 +540,21 @@ namespace Veilward.Presentation
             }
         }
 
-        private void PlayAbilityEffect(PathPosition point, float radius, long sequence, int hitIndex)
+        private void PlayAbilityCast(AbilityCastEvent cast, IReadOnlyList<DamageResolvedEvent> damages)
         {
-            var effect = _abilityPool[_nextAbilityEffect];
-            if (effect != null) effect.Play(point, radius, sequence, hitIndex);
-            _nextAbilityEffect = (_nextAbilityEffect + 1) % _abilityPool.Length;
+            _abilityPool[_nextAbilityCast]?.Play(cast);
+            _nextAbilityCast = (_nextAbilityCast + 1) % AbilityEffectView.CastCapacity;
+            for (var i = 0; i < damages.Count; i++)
+            {
+                var hit = damages[i];
+                if (hit.Origin != DamageOrigin.Ability || hit.Tick != cast.Tick ||
+                    hit.SourceAbilityId != cast.AbilityId || hit.AbilityCastSequence != cast.CastSequence ||
+                    hit.AppliedHpLoss <= 0)
+                    continue;
+
+                _abilityPool[AbilityEffectView.CastCapacity + _nextAbilityHit]?.Play(cast, hit);
+                _nextAbilityHit = (_nextAbilityHit + 1) % AbilityEffectView.HitCapacity;
+            }
         }
 
         private bool TryGetTowerPosition(TowerId towerId, out Vector3 position)
@@ -580,8 +599,10 @@ namespace Veilward.Presentation
             _hybridProjectiles?.Clear();
             if (bossHud != null) bossHud.ResetView();
             if (abilityController != null) abilityController.ResetTransient();
-            _nextAbilityEffect = 0;
+            _nextAbilityCast = _nextAbilityHit = 0;
+            _bossCueOrder = 0;
             for (var i = 0; i < _abilityPool.Length; i++) if (_abilityPool[i] != null) _abilityPool[i].Clear();
+            foreach (var cue in _bossCues) if (cue != null) cue.Clear();
             Presentation.Reset(); _accumulator = 0; _skipNextDelta = true; _nextReactionEffect = 0;
             for (var i = 0; i < _reactionPool.Length; i++) if (_reactionPool[i] != null) _reactionPool[i].Clear();
             foreach (var beam in GetComponentsInChildren<AttackBeamView>())
@@ -600,7 +621,8 @@ namespace Veilward.Presentation
             if (placementController != null) placementController.ClearSelection();
             if (elementChoice != null) elementChoice.ClearPreview();
             if (reactionSummaryText != null) reactionSummaryText.text = string.Empty;
-            SynchronizeViews();
+            SynchronizeTowerViews();
+            SynchronizeEnemyViews(false);
         }
 
         private void SynchronizeViews()
@@ -675,7 +697,7 @@ namespace Veilward.Presentation
             return false;
         }
 
-        private void SynchronizeEnemyViews()
+        private void SynchronizeEnemyViews(bool playBossCues = true)
         {
             Presentation.Prune(_simulation.State.Enemies);
             var state = _simulation.State;
@@ -684,11 +706,12 @@ namespace Veilward.Presentation
             for (var index = 0; index < state.Enemies.Count; index++)
             {
                 var enemy = state.Enemies[index];
-                if (!_enemyViews.TryGetValue(enemy.Id, out var view))
+                var firstView = !_enemyViews.TryGetValue(enemy.Id, out var view);
+                if (firstView)
                 {
                     var prefab = SelectEnemyPrefab(enemy.Definition.Id);
-                    view = new EnemyView(Instantiate(prefab, transform));
-                    if (enemy.Definition.Id.Value == BossHudController.BossId)
+                    view = new EnemyView(Instantiate(prefab, transform), enemy.Definition.Id.Value == BossHudController.BossId);
+                    if (view.IsBoss)
                     { view.Transform.name = "Страж Разрыва " + enemy.Id.Value; if (prefab == enemyPrefab) view.Transform.localScale *= 1.4f; }
                     _enemyViews.Add(enemy.Id, view);
                 }
@@ -696,10 +719,20 @@ namespace Veilward.Presentation
                 var position = _simulation.Path.GetPosition(enemy.DistanceAlongPath);
                 view.Transform.position = new Vector3(position.X, 0.6f, position.Y);
                 view.SeenTick = state.Tick;
-                if (view.Model != null)
+                if (view.Model != null || view.IsBoss)
                 {
                     var ahead = _simulation.Path.GetPosition(Mathf.Min(_simulation.Path.TotalLength, enemy.DistanceAlongPath + .01f));
-                    view.Model.Synchronize(new Vector3(ahead.X - position.X, 0, ahead.Y - position.Y), state.Phase == BattlePhase.Combat);
+                    var forward = new Vector3(ahead.X - position.X, 0, ahead.Y - position.Y);
+                    if (view.Model != null) view.Model.Synchronize(forward, state.Phase == BattlePhase.Combat);
+                    if (view.IsBoss)
+                    {
+                        if (firstView && playBossCues) PlayBossCue(BossCueKind.Spawn, enemy.Id, position, forward);
+                        if (!view.BossThreatShown && _simulation.Path.TotalLength - enemy.DistanceAlongPath <= BossCueView.ThreatDistance)
+                        {
+                            view.BossThreatShown = true;
+                            if (playBossCues) PlayBossCue(BossCueKind.Threat, enemy.Id, position, forward);
+                        }
+                    }
                 }
                 if (view.Status != null)
                     view.Status.Refresh(enemy, state.Tick, _simulation.ReactionCatalog,
@@ -726,7 +759,7 @@ namespace Veilward.Presentation
             {
                 var enemyId = _staleEnemyIds[index];
                 var stale = _enemyViews[enemyId];
-                if (stale.Model != null)
+                if (stale.Model != null || stale.IsBoss)
                 {
                     var dead = false;
                     var tailPosition = _simulation.Path.GetPosition(_simulation.Path.TotalLength);
@@ -734,17 +767,41 @@ namespace Veilward.Presentation
                     for (var i = 0; i < damageEvents.Count; i++)
                         if (damageEvents[i].TargetEnemyId == enemyId && damageEvents[i].WasLethal)
                         { dead = true; tailPosition = damageEvents[i].TargetPosition; }
-                    stale.Transform.position = new Vector3(tailPosition.X, .6f, tailPosition.Y);
-                    // Tail содержит только visual child; EnemyId/HP/status/selection сразу исчезают.
-                    if (_enemyTails.Count == MaxEnemyTails)
-                    { RemoveEnemyVisual(_enemyTails[0].gameObject); _enemyTails.RemoveAt(0); }
-                    stale.Model.BeginTail(dead, transform);
-                    _enemyTails.Add(stale.Model);
+                    if (stale.IsBoss && playBossCues)
+                    {
+                        foreach (var cue in _bossCues)
+                            if (cue != null && cue.Kind != BossCueKind.None && cue.EnemyId == enemyId) cue.Clear();
+                        var end = _simulation.Path.GetPosition(_simulation.Path.TotalLength);
+                        var beforeEnd = _simulation.Path.GetPosition(Mathf.Max(0, _simulation.Path.TotalLength - .05f));
+                        PlayBossCue(dead ? BossCueKind.Death : BossCueKind.Leak, enemyId, tailPosition,
+                            new Vector3(end.X - beforeEnd.X, 0, end.Y - beforeEnd.Y));
+                    }
+                    if (stale.Model != null)
+                    {
+                        stale.Transform.position = new Vector3(tailPosition.X, .6f, tailPosition.Y);
+                        // Tail содержит только visual child; EnemyId/HP/status/selection сразу исчезают.
+                        if (_enemyTails.Count == MaxEnemyTails)
+                        { RemoveEnemyVisual(_enemyTails[0].gameObject); _enemyTails.RemoveAt(0); }
+                        stale.Model.BeginTail(dead, transform);
+                        _enemyTails.Add(stale.Model);
+                    }
                 }
                 RemoveEnemyVisual(stale.Transform.gameObject);
 
                 _enemyViews.Remove(enemyId);
             }
+        }
+
+        private void PlayBossCue(BossCueKind kind, EnemyId enemyId, PathPosition position, Vector3 forward)
+        {
+            BossCueView slot = null;
+            foreach (var cue in _bossCues)
+            {
+                if (cue == null) continue;
+                if (cue.Kind == BossCueKind.None) { slot = cue; break; }
+                if (slot == null || cue.Order < slot.Order) slot = cue;
+            }
+            slot?.Play(kind, enemyId, position, forward, ++_bossCueOrder);
         }
 
         public Transform SelectEnemyPrefab(EnemyDefinitionId id) =>
@@ -782,15 +839,18 @@ namespace Veilward.Presentation
 
         private sealed class EnemyView
         {
-            public EnemyView(Transform transform)
+            public EnemyView(Transform transform, bool isBoss)
             {
                 Transform = transform;
+                IsBoss = isBoss;
                 HealthBar = transform.GetComponentInChildren<EnemyHealthBarView>(true);
                 Status = transform.GetComponent<EnemyStatusView>();
                 Model = transform.GetComponentInChildren<EnemyModelView>(true);
             }
 
             public Transform Transform { get; }
+            public bool IsBoss { get; }
+            public bool BossThreatShown { get; set; }
             public EnemyHealthBarView HealthBar { get; }
             public EnemyStatusView Status { get; }
             public EnemyModelView Model { get; }

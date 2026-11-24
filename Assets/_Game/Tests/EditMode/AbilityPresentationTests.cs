@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using NUnit.Framework;
@@ -52,12 +53,78 @@ namespace Veilward.Tests.EditMode
         public void RegBattle204_CancelOrEmptyNeverCastsAndConsumesLease(bool empty)
         {
             Open(); Call(_ability, "BeginPreview");
-            Call(_ability, "SelectTarget", empty ? new PathPosition(4, 2) : new PathPosition(0, 0));
+            var center = empty ? new PathPosition(4, 2) : new PathPosition(0, 0);
+            Call(_ability, "SelectTarget", center);
+            var preview = _battle.GetComponentInChildren<AbilityPreviewView>();
+            Assert.That(preview, Is.Not.Null);
+            var outline = preview.GetComponent<LineRenderer>();
+            Assert.That(outline.loop, Is.True);
+            for (var i = 0; i < outline.positionCount; i++)
+            {
+                var vertex = outline.GetPosition(i);
+                Assert.That(Vector2.Distance(new Vector2(vertex.x, vertex.z), new Vector2(center.X, center.Y)),
+                    Is.EqualTo(_s.AbilityDefinition.Radius).Within(.0001f));
+            }
+            var mark = preview.GetComponentsInChildren<LineRenderer>().Single(line => line != outline);
+            Assert.That(mark.loop, Is.EqualTo(!empty), "Invalid marker is an open cross and valid marker is a closed seal.");
             if (empty) Call(_ability, "ConfirmPreview"); else Button("Cancel Ability Button").onClick.Invoke();
             Call(_battle, "LateUpdate");
             Assert.That(_s.AbilityState.NextCastSequence, Is.EqualTo(1));
+            Assert.That(_s.AbilityState.CooldownRemainingTicks, Is.Zero);
+            Assert.That(_battle.GetComponentsInChildren<AbilityEffectView>(), Is.Empty);
+            Assert.That(preview.gameObject.activeSelf, Is.False);
+            Assert.That(outline.positionCount + mark.positionCount, Is.Zero);
             Assert.That(Get("HasInputOwnership"), Is.EqualTo(false));
             if (empty) Assert.That(Get("Status"), Does.Contain("NoTargets"));
+        }
+
+        [Test]
+        public void Vfx1d_ConsumerAttributesOnlyMatchingPositiveHitsAndKeepsCastUnderOverflow()
+        {
+            Open();
+            var all = _battle.GetComponentsInChildren<AbilityEffectView>(true);
+            var renderers = all.SelectMany(view => view.GetComponentsInChildren<LineRenderer>(true)).ToArray();
+            Assert.That(all.Length, Is.EqualTo(32));
+            Assert.That(renderers.Length, Is.EqualTo(36));
+            Assert.That(renderers.Select(line => line.sharedMaterial).Distinct().Count(), Is.EqualTo(1));
+
+            var casts = (List<AbilityCastEvent>)_s.GetType().GetField("_abilityEvents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(_s);
+            var hits = (List<DamageResolvedEvent>)_s.GetType().GetField("_damageEvents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(_s);
+            var id = AbilityDefinitionId.RiftSeal;
+            var center = new PathPosition(1, 1);
+            casts.Add(new AbilityCastEvent(4, 0, id, 1, center, 1.5f, 31));
+            casts.Add(new AbilityCastEvent(5, 0, id, 2, center, 1.5f, 1));
+            DamageResolvedEvent Hit(int tick, long cast, int index, int loss = 1, DamageOrigin origin = DamageOrigin.Ability,
+                bool wrongId = false) => new DamageResolvedEvent(tick, index + 1, origin, default, new EnemyId(index + 20),
+                center, new PathPosition(index * .1f, .65f), 120, 120, 120, loss, 0, true, null, null, index,
+                wrongId ? default(AbilityDefinitionId) : id, cast);
+            for (var i = 0; i < 31; i++) hits.Add(Hit(4, 1, i));
+            hits.Add(Hit(5, 2, 0));
+            hits.Add(Hit(4, 2, 32));
+            hits.Add(Hit(5, 3, 33));
+            hits.Add(Hit(5, 2, 34, origin: DamageOrigin.Reaction));
+            hits.Add(Hit(5, 2, 35, wrongId: true));
+            hits.Add(Hit(5, 2, 36, loss: 0));
+
+            Call(_battle, "ProcessAttackEvents");
+            Assert.That(_s.AbilityEvents, Is.Empty);
+            Assert.That(_s.DamageEvents, Is.Empty);
+            var live = _battle.GetComponentsInChildren<AbilityEffectView>();
+            CollectionAssert.AreEquivalent(new long[] { 1, 2 }, live.Where(view => !view.Hit.HasValue).Select(view => view.CastSequence));
+            CollectionAssert.AreEquivalent(Enumerable.Range(4, 27), live.Where(view => view.Hit.HasValue && view.CastSequence == 1).Select(view => view.HitIndex));
+            var last = live.Single(view => view.Hit.HasValue && view.CastSequence == 2);
+            Assert.That(last.Hit.Value.TargetEnemyId, Is.EqualTo(new EnemyId(20)));
+            Assert.That(last.Hit.Value.WasLethal, Is.True);
+            Assert.That(last.CapturedPosition, Is.EqualTo(new PathPosition(0, .65f)), "No snapshot enemy was used for geometry.");
+            var spark = last.GetComponentInChildren<LineRenderer>();
+            Assert.That(spark.GetPosition(2).z, Is.EqualTo(last.CapturedPosition.Y));
+            Call(_battle, "ProcessAttackEvents");
+            CollectionAssert.AreEquivalent(live, _battle.GetComponentsInChildren<AbilityEffectView>());
+
+            _battle.ResetPresentation();
+            CollectionAssert.AreEquivalent(all, _battle.GetComponentsInChildren<AbilityEffectView>(true));
+            Assert.That(all.All(view => view.CastSequence == 0 && !view.Hit.HasValue && view.RemainingSeconds == 0), Is.True);
+            Assert.That(renderers.All(line => line.positionCount == 0 && !line.enabled), Is.True);
         }
         [Test]
         public void RegBattle204_DisabledProductionAndNonCombatRejectPublicApi()
