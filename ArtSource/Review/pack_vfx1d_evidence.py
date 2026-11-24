@@ -38,7 +38,10 @@ def stable_probe(video):
     command = ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
                "stream=width,height,pix_fmt,codec_name:frame=best_effort_timestamp_time",
                "-show_frames", "-of", "json", str(video)]
-    raw = json.loads(subprocess.check_output(command))
+    return probe_semantics(json.loads(subprocess.check_output(command)))
+
+
+def probe_semantics(raw):
     require(len(raw["streams"]) == 1, "Exactly one selected video stream.")
     stream = {key: raw["streams"][0][key] for key in ("width", "height", "pix_fmt", "codec_name")}
     pts = [float(row["best_effort_timestamp_time"]) for row in raw["frames"]]

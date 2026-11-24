@@ -449,6 +449,7 @@ public sealed class RiftVfxRecording : MonoBehaviour
             "Packages/com.unity.pipeline/package.json", "Packages/com.unity.pipeline/Editor/Commands/Capture/CaptureCommands.cs",
             "Packages/com.unity.render-pipelines.universal/package.json", "Packages/com.unity.render-pipelines.universal/Shaders/UnlitInput.hlsl",
             "Packages/com.unity.render-pipelines.universal/Shaders/UnlitForwardPass.hlsl", "Packages/com.unity.render-pipelines.core/package.json",
+            "Packages/com.unity.inputsystem/package.json", "Packages/com.unity.test-framework/package.json",
         }).Distinct().OrderBy(p => p, StringComparer.Ordinal);
         var dependencies = paths.Select(path =>
         {
