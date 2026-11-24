@@ -476,7 +476,7 @@ namespace Veilward.Editor
 
         internal static StatusCueGraphic AddStatusCue(UnityEngine.UI.Text slot)
         {
-            var go = new GameObject("Status cue", typeof(RectTransform), typeof(CanvasRenderer), typeof(StatusCueGraphic));
+            var go = new GameObject(slot.name + " cue", typeof(RectTransform), typeof(CanvasRenderer), typeof(StatusCueGraphic));
             go.transform.SetParent(slot.transform, false);
             var cue = go.GetComponent<StatusCueGraphic>();
             cue.rectTransform.sizeDelta = Vector2.one * StatusCueGraphic.Size;

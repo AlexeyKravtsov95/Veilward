@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4575087433760982679}
   - component: {fileID: 6324981514706610489}
   m_Layer: 0
-  m_Name: Status cue
+  m_Name: Status slot 2 cue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1292,7 +1292,7 @@ GameObject:
   - component: {fileID: 5804183888816050080}
   - component: {fileID: 1531805850979961511}
   m_Layer: 0
-  m_Name: Status cue
+  m_Name: Status slot 1 cue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
