@@ -553,11 +553,11 @@ namespace Veilward.Presentation
                     availability.FailureReason == PlaceTowerFailureReason.InsufficientGold ? "Low gold" : string.Empty;
                 var selected = archetype.Id == SelectedTowerTypeId;
                 var status = selected ? "Selected" : availabilityLabel;
-                var label = $"{TowerDisplay.Name(archetype.Id)}\n{archetype.Levels[0].Price} gold";
-                if (status.Length != 0) label += "\n" + status;
                 var text = button.GetComponentInChildren<UnityEngine.UI.Text>(true);
-                text.text = label;
+                text.text = TowerDisplay.Name(archetype.Id);
                 text.color = selected ? new Color32(231, 194, 121, 255) : new Color32(245, 233, 209, 255);
+                SetActionLabel(button.transform.Find("Catalog Price")?.GetComponent<UnityEngine.UI.Text>(), $"{archetype.Levels[0].Price} gold");
+                SetActionLabel(button.transform.Find("Catalog State")?.GetComponent<UnityEngine.UI.Text>(), status);
                 var glyph = button.GetComponentInChildren<VeilwardUiGlyph>(true);
                 if (glyph != null)
                 {

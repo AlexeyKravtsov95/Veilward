@@ -110,7 +110,10 @@ namespace Veilward.Editor
             layout.constraintCount = 3;
             var template = Action("Catalog Button Template", catalog, "", Center, 0, 0, 78, Raised, 68, 13);
             ButtonIcon(template, VeilwardGlyph.Flame, Gilt, 14, 3, top: true);
-            template.GetComponentInChildren<Text>().alignment = TextAnchor.UpperCenter;
+            var catalogName = template.GetComponentInChildren<Text>();
+            SetRect(catalogName.rectTransform, Top, new Vector2(0, -18), new Vector2(76, 16));
+            Label("Catalog Price", template.transform, Top, 0, -34, 76, 16, "", 13, Stone, TextAnchor.MiddleCenter, true);
+            Label("Catalog State", template.transform, Top, 0, -50, 76, 15, "", 12, Muted, TextAnchor.MiddleCenter);
             template.gameObject.SetActive(false);
             var buildStats = Label("Build Stats", build, TopLeft, 10, -170, 246, 48, "Choose a tower type", 13, Stone, TextAnchor.UpperLeft);
             var confirm = Action("Confirm Button", build, "Build", BottomRight, -10, 8, 118, Jade);

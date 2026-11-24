@@ -318,8 +318,6 @@ public sealed class CaptureProductionUi : MonoBehaviour
         }
         Click("Start Wave Button");
         var sim = Battle.Simulation;
-        var inspector = Battle.GetComponent<EnemyInspectorController>();
-        var inspect = true;
         foreach (var cast in script.casts.Where(row => row.wave == 8))
         {
             if (cast.relativeTick > 330)
@@ -333,20 +331,54 @@ public sealed class CaptureProductionUi : MonoBehaviour
                 "Final-wave earned cast intent.");
             yield return Until(() => Ability.LastCast.HasValue, 3);
             Need(Ability.LastCast.Value.Succeeded, "Final-wave earned cast.");
-            if (inspect)
-            {
-                inspect = false;
-                var enemy = sim.State.Enemies.FirstOrDefault(candidate => Battle.Presentation.GetMemory(candidate.Id) != null);
-                if (enemy != null && inspector.Select(enemy.Id))
-                {
-                    yield return Shot("reaction-inspector", .12f);
-                    inspector.Close();
-                }
-            }
+
         }
         yield return Until(() => sim.State.Phase != BattlePhase.Combat, 48);
         Need(sim.State.Phase == BattlePhase.Victory, "Normal Update must reach the earned victory.");
         yield return Shot("victory");
+        yield return DenseInspector();
+    }
+
+    private IEnumerator DenseInspector()
+    {
+        yield return SceneManager.LoadSceneAsync("Battle");
+        yield return Until(() => Battle != null && Battle.Simulation != null);
+        ApplyInsets();
+        var battle = Battle;
+        var production = battle.Simulation;
+        var schedule = production.Waves[production.Waves.Count - 1].Schedule;
+        var shade = schedule.First(row => row.Enemy.Id.Value == "shade").Enemy;
+        var boss = schedule.First(row => row.Enemy.Id.Value == BossHudController.BossId).Enemy;
+        var wave = new WaveDefinition(new[] { new WaveSpawnGroup(shade, 8, 0, 23), new WaveSpawnGroup(boss, 1, 115, 1) });
+        var staged = new BattleSimulation(production.Grid.Map, production.Path, new[] { wave }, production.TowerCatalog,
+            20, 1200, 20, production.ReactionCatalog, null, AbilityDefinition.RiftSeal);
+        typeof(BattleSceneController).GetField("_simulation", Instance).SetValue(battle, staged);
+        battle.GetComponent<BattleCheckpointController>().Configure(null, staged, "editor-all-open-ui1-density");
+        battle.ResetPresentation();
+        var types = new[] { "flame", "tide", "gale", "stone", "steam", "storm" };
+        var cells = new[] { new GridCoordinate(-5, -1), new GridCoordinate(-4, -1), new GridCoordinate(-3, -1),
+            new GridCoordinate(-2, -1), new GridCoordinate(-5, 0), new GridCoordinate(-4, 0) };
+        for (var i = 0; i < types.Length; i++)
+            Need(battle.PlaceTower(new TowerDefinitionId(types[i]), cells[i]).Success, "Place the six fixture towers.");
+        Need(battle.StartWave() == WaveTransitionResult.Started, "Dense fixture uses production Update.");
+        yield return Until(() => staged.State.Enemies.Count >= 6 &&
+            staged.State.Enemies.Any(enemy => enemy.Definition.Id.Value == BossHudController.BossId), 12);
+        yield return Shot("dense-fight-fixture", .04f);
+
+        EnemyState target = null;
+        yield return Until(() =>
+        {
+            target = staged.State.Enemies.FirstOrDefault(enemy =>
+            {
+                var memory = battle.Presentation.GetMemory(enemy.Id);
+                return enemy.IsAlive && (memory?.Steam?.AppliedHpLoss > 0 || memory?.Storm?.AppliedHpLoss > 0);
+            });
+            return target != null;
+        }, 12);
+        var inspector = battle.GetComponent<EnemyInspectorController>();
+        Need(inspector.Select(target.Id), "Inspect a live enemy with actual reaction damage.");
+        yield return Shot("reaction-inspector", .04f);
+        Need(inspector.Details.Contains("HP lost"), "The inspector reports applied damage.");
     }
 
     private static WaveCheckpointEnvelope Envelope(BattleSimulation simulation) => new WaveCheckpointEnvelope

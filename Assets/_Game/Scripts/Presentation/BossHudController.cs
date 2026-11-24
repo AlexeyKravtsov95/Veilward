@@ -42,16 +42,9 @@ namespace Veilward.Presentation
             for (var i = 0; i < wave.Schedule.Count; i++)
                 if (wave.Schedule[i].Enemy.Id.Value == BossId)
                 { definition = wave.Schedule[i].Enemy; break; }
-            panel.SetActive(definition != null && !battle.IsPaused);
+            var building = s.State.Phase == BattlePhase.Preparation && placement != null && placement.ShowsBuildDrawer;
+            panel.SetActive(definition != null && !battle.IsPaused && !building);
             if (definition == null) return;
-            var rect = PanelRect;
-            var dockRight = placement != null && placement.ShowsBuildDrawer && placement.BuildDrawerOnLeft;
-            var anchor = dockRight ? Vector2.one : Vector2.up;
-            if (rect.anchorMin != anchor)
-            {
-                rect.anchorMin = rect.anchorMax = rect.pivot = anchor;
-                rect.anchoredPosition = new Vector2(dockRight ? -10 : 10, -78);
-            }
             EnemyState boss = null;
             for (var i = 0; i < s.State.Enemies.Count; i++)
             {

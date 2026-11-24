@@ -25,7 +25,7 @@ REQUIRED = {
     "wide": COMMON | {"menu-corrupt-save", "combat-hud", "ability-invalid", "ability-cancelled", "ability-valid",
                      "ability-cooldown", "next-wave", "tower-upgraded", "build-low-gold", "sell-confirmation",
                      "menu-continue", "continue-rollback", "save-failed-fixture", "defeat-undefended-replay"},
-    "final": {"menu-backup-recovery", "warden-incoming", "warden-combat", "reaction-inspector", "victory"},
+    "final": {"menu-backup-recovery", "warden-incoming", "warden-combat", "reaction-inspector", "dense-fight-fixture", "victory"},
 }
 
 
