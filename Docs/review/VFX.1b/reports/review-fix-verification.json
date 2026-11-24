@@ -1,0 +1,16 @@
+{
+  "head": "aba680a7dec9caa068bb2fc03f1f55a35ac87f04",
+  "runtimeAndTestsUnchanged": "923ed7c63b6a828b32954a489c2d2f49d01b8b5b",
+  "deliveryVerifier": "PASS",
+  "sourceFiles": 908,
+  "protectedFiles": 4388,
+  "artifactsAtThisRun": 177,
+  "negativeControls": 28,
+  "reviewRegressionTests": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0
+  },
+  "MP4Reencoded": false,
+  "UnityRerunAfterEvidenceOnlyCorrection": false
+}
