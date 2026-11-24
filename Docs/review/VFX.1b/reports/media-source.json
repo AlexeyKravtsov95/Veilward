@@ -4,8 +4,9 @@
   "harnesses": {
     "ArtSource/Review/RecordBasicVfx.cs": "d8599635f4bb3fe82e459b575360186ed5b48082f1dcd06f1d0c5b310b9899c8",
     "ArtSource/Review/CaptureBasicCombat.cs": "d78e7f058281abec4b2b887645f962fdd4af53c0ef7b35f84674ea82bf81358d",
-    "ArtSource/Review/encode_basic_video.py": "95931e484b2bd857411212c3f4f45f3059e4e9ec0ce62863ea702337fb56ef79"
+    "ArtSource/Review/encode_basic_video.py": "3759f978e40f3044e77e84024af67c9ce997dcb83ff17b7b75b4fc24731bb2b0"
   },
   "sourceFrameClock": "Time.realtimeSinceStartupAsDouble; actual composited GameView; no forced frame rate in video",
-  "runtimeChangedSinceGates": false
+  "runtimeChangedSinceGates": false,
+  "reviewCorrection": "PNG selection only; same original MP4 bytes/frames/PTS; no Unity run or runtime/test changes"
 }

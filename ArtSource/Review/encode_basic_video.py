@@ -1,6 +1,10 @@
 """Encode actual composited PlayMode PNG frames with their captured real-time timestamps."""
 import hashlib
 import json
+import gzip
+import importlib.util
+import sys
+sys.dont_write_bytecode=True
 from pathlib import Path
 import shutil
 import subprocess
@@ -10,41 +14,57 @@ OUTPUT = ROOT / 'Docs/review/VFX.1b'
 FRAMES = ROOT / 'TestResults/vfx1b/video-frames'
 
 
-# Полные stage IDs исключают совпадение STORM L3 с более поздним rollback stage.
-PICK_STAGES = {
-    'video-menu.png':'MainMenu / earned file Continue8',
-    'video-pause.png':'Pause / frozen basic shot and status geometry',
-    'video-continue.png':'Continue8 / clean shots and status owners / earned state',
-    'video-sold.png':'Sold GALE / public command / no resource substitution',
-}
+# Конкретные серии выбраны независимым visual review; это editorial selection,
+# а не первый enabled impact внутри силуэта. Все фазы привязаны к одному событию.
+REVIEW_SERIES={'Tide':(119,121,125),'Gale':(129,130,133),'Stone':(147,149,153)}
+spec=importlib.util.spec_from_file_location('vfx1b_delivery',OUTPUT/'verify_delivery.py')
+audit=importlib.util.module_from_spec(spec);spec.loader.exec_module(audit)
+PICK_STAGES=audit.SYSTEM_PICKS
+
+def read_json(path):
+    return json.loads(path.read_text() if path.is_file() else gzip.decompress(path.with_suffix(path.suffix+'.gz').read_bytes()))
 
 def select_stage_frames(manifest):
     import math,re
-    shots=json.loads((OUTPUT/'reports/video-shots.json').read_text())
+    shots=read_json(OUTPUT/'reports/video-shots.json')
     picks={}
-    def pick(name,index):
+    def pick(name,index,event=None):
         frame=manifest[index]
         picks[name]=dict(manifestIndex=index,sourceFrameIndex=int(Path(frame['file']).stem),sourceFile=frame['file'],gameFrame=frame['frame'],elapsed=frame['elapsed'],stage=frame['stage'],sha256=frame['sha256'])
+        if event is not None:picks[name]['event']={k:event[k] for k in ('kind','tower','enemy','attackTick','level')}
     for name,stage in PICK_STAGES.items():
         matches=[i for i,f in enumerate(manifest) if f['stage']==stage];assert matches,stage
         pick(name,matches[len(matches)//2])
-    def vector(s):return [float(x) for x in re.findall(r'-?\d+(?:\.\d+)?(?:[Ee][+-]?\d+)?',s)]
-    def distance(a,b):return math.dist(vector(a),vector(b))
-    for kind in ('Tide','Gale','Stone'):
-        rows=[(i,v) for i,s in enumerate(shots) if not s['paused'] for v in s['shots'] or [] if v['kind']==kind and v['remaining']>0]
-        groups={}
-        for i,v in rows:groups.setdefault((v['tower'],v['enemy'],v['attackTick']),[]).append((i,v))
-        candidates=[v for v in groups.values() if sum(x['flying'] for _,x in v)>=2 and any(x['impact'] for _,x in v)]
-        assert candidates,(kind,'no complete moving shot captured')
-        same=max(candidates,key=len);flying=[(i,v) for i,v in same if v['flying']];impact=[(i,v) for i,v in same if v['impact']]
-        launch=min(flying,key=lambda x:distance(x[1]['head'],x[1]['source']))
-        mid=min(flying,key=lambda x:abs(distance(x[1]['head'],x[1]['source'])/max(.001,distance(x[1]['source'],x[1]['target']))-.5))
-        pick(kind.lower()+'-launch.png',launch[0]);pick(kind.lower()+'-flight.png',mid[0]);pick(kind.lower()+'-impact.png',impact[0][0])
+    camera=read_json(OUTPUT/'reports/actual-render-inputs.json')['productionCamera']
+    for kind,indices in REVIEW_SERIES.items():
+        events=[]
+        for phase,index in zip(('launch','flight','impact'),indices):
+            candidates=[v for v in shots[index]['shots'] if v['kind']==kind and v['remaining']>0 and (v['impact'] if phase=='impact' else v['flying'])]
+            assert len(candidates)==1,(kind,phase,index)
+            shot=candidates[0];events.append({k:shot[k] for k in ('kind','tower','enemy','attackTick','level')})
+            if phase=='impact':assert audit.visible_impact_pixels(FRAMES/manifest[index]['file'],kind,shot['target'],camera)>=3,(kind,'impact occluded')
+            pick(kind.lower()+'-'+phase+'.png',index,shot)
+        assert events[0]==events[1]==events[2],kind
     for kind in ('Wet','Gust','Crack'):
         matches=[i for i,s in enumerate(shots) if not s['paused'] and any(c['first']==kind or c['second']==kind for c in s['cues'] or [])]
         assert matches,kind
         pick('video-status-'+kind.lower()+'.png',matches[len(matches)//2])
     return picks
+
+
+def refresh_picks():
+    manifest=read_json(OUTPUT/'reports/video-source-frames.json');proof=read_json(OUTPUT/'reports/video-proof.json')
+    original_hash=hashlib.sha256((OUTPUT/'editor-flow.mp4').read_bytes()).hexdigest()
+    assert original_hash==proof['outputSha256']
+    picks=select_stage_frames(manifest)
+    for name,pick in picks.items():
+        source=FRAMES/pick['sourceFile'];assert hashlib.sha256(source.read_bytes()).hexdigest()==pick['sha256']
+        shutil.copyfile(source,OUTPUT/'playmode'/name)
+    proof['picks']=picks
+    (OUTPUT/'reports/video-proof.json').write_text(json.dumps(proof,indent=2)+'\n')
+    (OUTPUT/'reports/video-picked-frames.json').write_text(json.dumps(picks,indent=2)+'\n')
+    assert hashlib.sha256((OUTPUT/'editor-flow.mp4').read_bytes()).hexdigest()==original_hash
+    print('PASS:16 required picks refreshed;3same-event visible impact series; MP4 bytes unchanged')
 
 
 def main():
@@ -101,4 +121,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    if '--refresh-picks' in sys.argv:refresh_picks()
+    else:main()

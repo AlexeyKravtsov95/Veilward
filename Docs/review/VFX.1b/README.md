@@ -9,3 +9,5 @@
 Read-only delivery: `python3 Docs/review/VFX.1b/verify_delivery.py`; малые controls: `python3 Docs/review/VFX.1b/verify_controls.py`. Личные TXT/pycache не prerequisite; отдельный audit — `--check-local-preservation`.
 
 Device Deferred to prerelease QA #53/#54/#55. Editor не подтверждает player IL2CPP/Metal/performance/touch. Parent47 до owner merge остаётся1/4; #92/#93/G2/M0/release отдельно. Self-merge/release не выполняются.
+
+[Независимое review и устранение evidence findings](review.md). Runtime review без блокирующих дефектов; авторские RED→GREEN guards и видимые same-event impact PNG проверяются финальным verifier.

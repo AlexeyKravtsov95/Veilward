@@ -28,3 +28,9 @@
 ## NOT VERIFIED / DEFERRED
 
 Physical iPhone Deferred to prerelease QA #53/#54/#55. Player IL2CPP/Metal, native input/background/safe area, device frame pacing/thermal/memory, native video/export/signing/TestFlight не запускались. Запись Editor с overhead не является performance benchmark. Human ART/G2/balance/release approval не заявляются. Parent47 остаётся1/4 до owner merge; #92/#93/#48/M0/release отдельно. Self-merge не выполняется.
+
+## Независимое review и окончательный audit
+
+[Исходный независимый вердикт и fix table](review.md):4P2 только в evidence guards/PNG selection и1P3documentation. Пять weak-guard scenarios воспроизведены RED; corrected guards имеют28negative controls. Source/artifact inventories выводятся из HEAD, evidence anchored commit/ancestry/harness receipts обязательны; suites требуют unique names/completed, replay требует start/Victory8/rawBytes/SHA, video требует16same-source/event picks и видимые impact pixels. Новые impact22/7/37pixels, MP4 bytes/PTS прежние. Runtime/tests/Unity media clock не менялись.
+
+Для visible-pixel audit используется уже установленный ffmpeg: decode46×46RGB только в stdout, без новых Python/Unity packages и без записи изменённых изображений. Точная версия/хэш executable — reports/media-tools.json. Повторные финальные verifier/controls проводятся после committed freeze; исходные fail receipts и исходный verdict сохранены.

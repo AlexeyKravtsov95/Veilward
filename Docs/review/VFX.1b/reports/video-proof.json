@@ -81,85 +81,148 @@
       "sha256": "beedf3fa1aa71993ecb550cc51b71524796c552a58e372e956f1f267edecbd10"
     },
     "tide-launch.png": {
-      "manifestIndex": 304,
-      "sourceFrameIndex": 304,
-      "sourceFile": "00304.png",
-      "gameFrame": 146116,
-      "elapsed": 13.838287999999011,
+      "manifestIndex": 119,
+      "sourceFrameIndex": 119,
+      "sourceFile": "00119.png",
+      "gameFrame": 145316,
+      "elapsed": 5.520057583999005,
       "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
-      "sha256": "2dcea695e68b1eb41fba63a299b0f98dab352900ce59c53751e768f4a73c3ff3"
+      "sha256": "258b4ba9458552d13f6d8109b6113f87f25d9b628a53651030513e16c201206c",
+      "event": {
+        "kind": "Tide",
+        "tower": 5,
+        "enemy": 57,
+        "attackTick": 2861,
+        "level": 1
+      }
     },
     "tide-flight.png": {
-      "manifestIndex": 307,
-      "sourceFrameIndex": 307,
-      "sourceFile": "00307.png",
-      "gameFrame": 146126,
-      "elapsed": 13.950173999997787,
+      "manifestIndex": 121,
+      "sourceFrameIndex": 121,
+      "sourceFile": "00121.png",
+      "gameFrame": 145330,
+      "elapsed": 5.588034792002873,
       "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
-      "sha256": "5d68422c9cf81279b9b3abce97942c1a0986f6c030f15b189918d62ba6aa2383"
+      "sha256": "5c87adc033f66b22db155a70e5341be3bcd73db73b6dbfa19b859018b2681367",
+      "event": {
+        "kind": "Tide",
+        "tower": 5,
+        "enemy": 57,
+        "attackTick": 2861,
+        "level": 1
+      }
     },
     "tide-impact.png": {
-      "manifestIndex": 310,
-      "sourceFrameIndex": 310,
-      "sourceFile": "00310.png",
-      "gameFrame": 146147,
-      "elapsed": 14.052049624995561,
+      "manifestIndex": 125,
+      "sourceFrameIndex": 125,
+      "sourceFile": "00125.png",
+      "gameFrame": 145352,
+      "elapsed": 5.75683520900202,
       "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
-      "sha256": "cc03fc7e2095e575ad2a9d567bbdb4d4e6c0b03a2aa6fb4166a4dde43bcaee7d"
+      "sha256": "c5df3692fdc3adfbb9916564b38a13a4bbaa1d7a725b6a5efe04a1fe4bd3c899",
+      "event": {
+        "kind": "Tide",
+        "tower": 5,
+        "enemy": 57,
+        "attackTick": 2861,
+        "level": 1
+      }
     },
     "gale-launch.png": {
-      "manifestIndex": 46,
-      "sourceFrameIndex": 46,
-      "sourceFile": "00046.png",
-      "gameFrame": 144925,
-      "elapsed": 2.4004434169910382,
-      "stage": "GALE STONE TIDE / production Update / live status snapshots",
-      "sha256": "c23a2253bf3e7e39e3d0ac234eed074f310ab31ca60c18e9af01b52608a47fdd"
+      "manifestIndex": 129,
+      "sourceFrameIndex": 129,
+      "sourceFile": "00129.png",
+      "gameFrame": 145356,
+      "elapsed": 6.120992458992987,
+      "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+      "sha256": "5892cd60b472371fe2cc7341bef8718f0b35f7653a63797fdabce9a3883898e1",
+      "event": {
+        "kind": "Gale",
+        "tower": 2,
+        "enemy": 58,
+        "attackTick": 2874,
+        "level": 1
+      }
     },
     "gale-flight.png": {
-      "manifestIndex": 48,
-      "sourceFrameIndex": 48,
-      "sourceFile": "00048.png",
-      "gameFrame": 144934,
-      "elapsed": 2.4679337089910405,
-      "stage": "GALE STONE TIDE / production Update / live status snapshots",
-      "sha256": "c8e153663129d02bfb4daf34c906e8802a0d1db2b897e5f3113ba8466254f38a"
+      "manifestIndex": 130,
+      "sourceFrameIndex": 130,
+      "sourceFile": "00130.png",
+      "gameFrame": 145357,
+      "elapsed": 6.16929112499929,
+      "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
+      "sha256": "f1db987108aa293f430dcdab9a0b144c152645c6185cdfe486a2b238164d5586",
+      "event": {
+        "kind": "Gale",
+        "tower": 2,
+        "enemy": 58,
+        "attackTick": 2874,
+        "level": 1
+      }
     },
     "gale-impact.png": {
-      "manifestIndex": 70,
-      "sourceFrameIndex": 70,
-      "sourceFile": "00070.png",
-      "gameFrame": 145073,
-      "elapsed": 3.3863775840000017,
+      "manifestIndex": 133,
+      "sourceFrameIndex": 133,
+      "sourceFile": "00133.png",
+      "gameFrame": 145374,
+      "elapsed": 6.2705884169990895,
       "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
-      "sha256": "170b15fe649f56aac44106557a994338765b6af579796686d263dc0f16b86f9d"
+      "sha256": "d11f766846751e81d25551f897d81b915f2ea45fd821682112354de2165faaad",
+      "event": {
+        "kind": "Gale",
+        "tower": 2,
+        "enemy": 58,
+        "attackTick": 2874,
+        "level": 1
+      }
     },
     "stone-launch.png": {
-      "manifestIndex": 92,
-      "sourceFrameIndex": 92,
-      "sourceFile": "00092.png",
-      "gameFrame": 145189,
-      "elapsed": 4.438039041997399,
+      "manifestIndex": 147,
+      "sourceFrameIndex": 147,
+      "sourceFile": "00147.png",
+      "gameFrame": 145441,
+      "elapsed": 6.83787587498955,
       "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
-      "sha256": "8c063fe6e242a8b4cb6d8b2a0ab0b0ea55adc84d79297dce95b707dfa14ff56b"
+      "sha256": "09a21fea2f1970e4a40838ffa51c66d14d1e5048f82f4040703d670df9132f7f",
+      "event": {
+        "kind": "Stone",
+        "tower": 4,
+        "enemy": 58,
+        "attackTick": 2898,
+        "level": 1
+      }
     },
     "stone-flight.png": {
-      "manifestIndex": 95,
-      "sourceFrameIndex": 95,
-      "sourceFile": "00095.png",
-      "gameFrame": 145199,
-      "elapsed": 4.570236792002106,
+      "manifestIndex": 149,
+      "sourceFrameIndex": 149,
+      "sourceFile": "00149.png",
+      "gameFrame": 145449,
+      "elapsed": 6.93802158399194,
       "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
-      "sha256": "d53143bd8508a2b847d202ddc107f8c681054caad6533186b94b623f4ce2ddb1"
+      "sha256": "a6545b87675bb83fe73a12c7cb604d438cf4c8bf6d52a8fc445242eed0cd7821",
+      "event": {
+        "kind": "Stone",
+        "tower": 4,
+        "enemy": 58,
+        "attackTick": 2898,
+        "level": 1
+      }
     },
     "stone-impact.png": {
-      "manifestIndex": 99,
-      "sourceFrameIndex": 99,
-      "sourceFile": "00099.png",
-      "gameFrame": 145220,
-      "elapsed": 4.714727667000261,
+      "manifestIndex": 153,
+      "sourceFrameIndex": 153,
+      "sourceFile": "00153.png",
+      "gameFrame": 145460,
+      "elapsed": 7.113872417001403,
       "stage": "GALE STONE TIDE / production Update / cadence and status transitions",
-      "sha256": "dd9d726c1999873cada72bf120d8030099ac5b2b42e12aafb72d822ce712b32b"
+      "sha256": "5d19f5ecf083fc3d341522372a94807e26d674e52d935f41a7dbf30493dd72b5",
+      "event": {
+        "kind": "Stone",
+        "tower": 4,
+        "enemy": 58,
+        "attackTick": 2898,
+        "level": 1
+      }
     },
     "video-status-wet.png": {
       "manifestIndex": 237,
