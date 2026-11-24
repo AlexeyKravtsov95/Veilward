@@ -164,11 +164,12 @@ namespace Veilward.Presentation
 
             for (var i = 0; i < RendererCount; i++)
             {
-                var angle = i * Mathf.PI / 2 + .35f;
-                var direction = _side * Mathf.Cos(angle) + Vector3.up * Mathf.Sin(angle);
-                var from = Target + direction * (.06f + .22f * impact);
-                var to = from + direction * (.31f - .14f * impact);
-                HybridEffectGeometry.Style(_lines[i], 4, .060f * fade, i % 2 == 0 ? white : blue, _color);
+                var angle = i * Mathf.PI / 2 + .5f;
+                // Искры расходятся вокруг границ силуэта в плоскости поля.
+                var direction = Vector3.right * Mathf.Cos(angle) + Vector3.forward * Mathf.Sin(angle);
+                var from = Target + direction * (.23f + .17f * impact) + Vector3.up * .06f;
+                var to = from + direction * (.36f - .14f * impact) + Vector3.up * (.16f + .11f * impact);
+                HybridEffectGeometry.Style(_lines[i], 5, .072f * fade, i % 2 == 0 ? white : blue, _color);
                 HybridEffectGeometry.Bolt(_lines[i], from, to, i * 2, .09f);
             }
         }

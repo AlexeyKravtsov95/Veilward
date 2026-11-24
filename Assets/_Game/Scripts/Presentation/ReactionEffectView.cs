@@ -100,11 +100,12 @@ namespace Veilward.Presentation
             {
                 var hit = _hits[i];
                 if (hit.AppliedHpLoss <= 0) continue;
-                var center = Position(hit.TargetPosition, .60f + .29f * progress);
-                var size = .13f + .17f * progress;
-                HybridEffectGeometry.Style(_lines[i + 1], 13, .058f * fade, tint, _color);
-                HybridEffectGeometry.Curl(_lines[i + 1], center, Vector3.right, Vector3.up,
-                    size, progress * 9 + hit.HitIndex * 1.8f, 4.8f);
+                // Пар огибает ноги у captured точки и остаётся виден по краям модели.
+                var center = Position(hit.TargetPosition, .43f + .12f * progress);
+                var size = .35f + .14f * progress;
+                HybridEffectGeometry.Style(_lines[i + 1], 13, .073f * fade, tint, _color);
+                HybridEffectGeometry.Curl(_lines[i + 1], center, Vector3.right, Vector3.forward,
+                    size, progress * 7 + hit.HitIndex * 1.8f, 4.9f);
             }
         }
 
@@ -142,10 +143,11 @@ namespace Veilward.Presentation
                 HybridEffectGeometry.Style(line, 9, .074f * fade, tint, _color);
                 HybridEffectGeometry.Bolt(line, from, Vector3.Lerp(from, target, t), age * 90 + hit.HitIndex * 5, amplitude);
                 if (t < 1 || hit.AppliedHpLoss <= 0) continue;
-                HybridEffectGeometry.Style(flash, 5, .067f * fade, new Color(.87f, .96f, 1f), _color);
-                var spread = .14f + .19f * (1 - fade);
-                HybridEffectGeometry.Bolt(flash, target + Vector3.up * .22f - Vector3.right * spread,
-                    target - Vector3.up * .14f + Vector3.right * spread, age * 60, .16f);
+                HybridEffectGeometry.Style(flash, 5, .073f * fade, new Color(.87f, .96f, 1f), _color);
+                var spread = .38f + .13f * (1 - fade);
+                var diagonal = new Vector3(.82f, 0, -.57f) * spread;
+                HybridEffectGeometry.Bolt(flash, target + Vector3.up * .24f - diagonal,
+                    target + Vector3.up * .10f + diagonal, age * 60, .14f);
             }
         }
 
