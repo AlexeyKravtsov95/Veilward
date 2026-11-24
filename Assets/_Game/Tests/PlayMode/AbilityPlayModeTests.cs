@@ -94,13 +94,17 @@ namespace Veilward.Tests.PlayMode
         {
             yield return Enabled(); _ability.BeginPreview(); _ability.SelectTarget(Center); Confirm();
             var effect = _battle.GetComponentsInChildren<AbilityEffectView>(true).First(e => e.RemainingSeconds > 0);
+            var line = effect.GetComponentInChildren<LineRenderer>();
+            var geometry = Enumerable.Range(0, line.positionCount).Select(line.GetPosition).ToArray();
             var remaining = effect.RemainingSeconds; var tick = _battle.Simulation.State.Tick;
             var pause = _battle.GetComponent<BattlePauseController>(); pause.OnApplicationPause(true);
             Call(_battle, "Update"); yield return null; Call(_battle, "Update");
             Assert.That(effect.RemainingSeconds, Is.EqualTo(remaining)); Assert.That(_battle.Simulation.State.Tick, Is.EqualTo(tick));
+            CollectionAssert.AreEqual(geometry, Enumerable.Range(0, line.positionCount).Select(line.GetPosition));
             Assert.That(_battle.Simulation.AbilityState.CooldownRemainingTicks, Is.EqualTo(600));
             pause.OnApplicationPause(false); Assert.That(pause.IsPaused, Is.True); pause.Resume(); Call(_battle, "Update");
             Assert.That(_battle.Simulation.State.Tick, Is.EqualTo(tick)); Assert.That(_battle.Simulation.AbilityState.NextCastSequence, Is.EqualTo(2));
+            CollectionAssert.AreEqual(geometry, Enumerable.Range(0, line.positionCount).Select(line.GetPosition));
         }
         [UnityTest]
         public IEnumerator RegBattle207_LethalCompletionFailedSaveRetryAndDirtyFreshContinue()

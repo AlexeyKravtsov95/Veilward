@@ -7,22 +7,40 @@ namespace Veilward.Presentation
     public sealed class AbilityPreviewView : MonoBehaviour
     {
         private LineRenderer _line;
-        private MaterialPropertyBlock _color;
+        private LineRenderer _mark;
+        private readonly MaterialPropertyBlock _color = new MaterialPropertyBlock();
+
+        internal void Initialize()
+        {
+            if (_line != null) return;
+            _line = GetComponent<LineRenderer>();
+            _line.useWorldSpace = true;
+            _mark = HybridEffectGeometry.CreateLine(transform, _line.sharedMaterial, "Preview mark");
+            Clear();
+        }
+
         public void Show(PathPosition center, float radius, bool valid)
         {
-            if (_line == null) _line = GetComponent<LineRenderer>();
-            _line.useWorldSpace = true; _line.loop = true; _line.positionCount = 64;
-            var color = valid ? new Color(1, .7f, .2f) : Color.red;
-            if (_color == null) _color = new MaterialPropertyBlock();
-            _color.SetColor("_BaseColor", color); _line.SetPropertyBlock(_color);
-            _line.startColor = _line.endColor = color;
-            for (var i = 0; i < 64; i++)
+            Initialize();
+            if (float.IsNaN(center.X) || float.IsInfinity(center.X) || float.IsNaN(center.Y) || float.IsInfinity(center.Y))
             {
-                var angle = i * Mathf.PI * 2 / 64;
-                _line.SetPosition(i, new Vector3(center.X + radius * Mathf.Cos(angle), .16f, center.Y + radius * Mathf.Sin(angle)));
+                Clear();
+                return;
             }
+
+            var tint = valid ? AbilitySealGeometry.Amber : Color.red;
+            var ground = new Vector3(center.X, .20f, center.Y);
+            AbilitySealGeometry.Boundary(_line, ground, radius, .052f, tint, _color);
+            AbilitySealGeometry.Mark(_mark, ground, radius * .27f, .048f, tint, _color, valid);
             gameObject.SetActive(true);
         }
-        public void Clear() => gameObject.SetActive(false);
+
+        public void Clear()
+        {
+            if (_line != null) HybridEffectGeometry.Clear(_line);
+            if (_mark != null) HybridEffectGeometry.Clear(_mark);
+            _color.Clear();
+            gameObject.SetActive(false);
+        }
     }
 }
