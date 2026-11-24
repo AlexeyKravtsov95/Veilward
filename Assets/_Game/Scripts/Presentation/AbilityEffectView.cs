@@ -9,7 +9,7 @@ namespace Veilward.Presentation
         internal const int HitCapacity = 28;
         private const float CastLifetime = .50f;
         private const float HitLifetime = .34f;
-        private readonly MaterialPropertyBlock _color = new MaterialPropertyBlock();
+        private MaterialPropertyBlock _color;
         private LineRenderer _outline;
         private LineRenderer _mark;
         private float _lifetime;
@@ -23,6 +23,7 @@ namespace Veilward.Presentation
 
         internal void Initialize(Material material, bool castSlot)
         {
+            _color = new MaterialPropertyBlock();
             if (castSlot) _outline = HybridEffectGeometry.CreateLine(transform, material, "Seal boundary");
             _mark = HybridEffectGeometry.CreateLine(transform, material, castSlot ? "Seal mark" : "Seal hit spark");
             Clear();
@@ -76,7 +77,7 @@ namespace Veilward.Presentation
             RemainingSeconds = _lifetime = 0;
             Cast = default;
             Hit = null;
-            _color.Clear();
+            _color?.Clear();
             if (_outline != null) HybridEffectGeometry.Clear(_outline);
             if (_mark != null) HybridEffectGeometry.Clear(_mark);
             gameObject.SetActive(false);

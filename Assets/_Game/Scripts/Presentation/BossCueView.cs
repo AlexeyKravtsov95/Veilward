@@ -9,7 +9,7 @@ namespace Veilward.Presentation
     {
         internal const int Capacity = 4;
         internal const float ThreatDistance = 2.2f;
-        private readonly MaterialPropertyBlock _color = new MaterialPropertyBlock();
+        private MaterialPropertyBlock _color;
         private LineRenderer _line;
         private Vector3 _forward;
         private float _lifetime;
@@ -22,6 +22,7 @@ namespace Veilward.Presentation
 
         internal void Initialize(Material material)
         {
+            _color = new MaterialPropertyBlock();
             _line = HybridEffectGeometry.CreateLine(transform, material, "Warden cue stroke");
             Clear();
         }

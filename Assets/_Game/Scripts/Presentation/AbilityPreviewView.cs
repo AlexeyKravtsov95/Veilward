@@ -8,11 +8,12 @@ namespace Veilward.Presentation
     {
         private LineRenderer _line;
         private LineRenderer _mark;
-        private readonly MaterialPropertyBlock _color = new MaterialPropertyBlock();
+        private MaterialPropertyBlock _color;
 
         internal void Initialize()
         {
             if (_line != null) return;
+            _color = new MaterialPropertyBlock();
             _line = GetComponent<LineRenderer>();
             _line.useWorldSpace = true;
             _mark = HybridEffectGeometry.CreateLine(transform, _line.sharedMaterial, "Preview mark");
@@ -39,7 +40,7 @@ namespace Veilward.Presentation
         {
             if (_line != null) HybridEffectGeometry.Clear(_line);
             if (_mark != null) HybridEffectGeometry.Clear(_mark);
-            _color.Clear();
+            _color?.Clear();
             gameObject.SetActive(false);
         }
     }
