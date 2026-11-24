@@ -56,7 +56,7 @@ REACTION_PNGS = {
     "storm-statuspair-hop2": ("Storm", "StatusPair", "hop2"),
 }
 L3_PNGS = {f"{kind.lower()}-l3-{phase}" for kind in KINDS for phase in PHASES}
-DENSE_PNGS = {"synthetic-dense-six-boss", "synthetic-all-four-inspector"}
+DENSE_PNGS = {"synthetic-dense-six-boss", "synthetic-dense-six-boss-inspector", "synthetic-all-four-inspector"}
 REALTIME_PNGS = {f"realtime-{kind.lower()}-{phase}" for kind in KINDS for phase in PHASES} | {f"realtime-{p}" for p in STAGES}
 
 
@@ -379,7 +379,10 @@ def supplemental(reports, actual_events):
                     points = lines[stroke]["world"]
                     require(math.dist([points[0][0], points[0][2]], hits[i - 1]["from"]) < .00001 and
                             math.dist([points[-1][0], points[-1][2]], hits[i - 1]["to"]) < .00001, "captured hop endpoints " + name)
-                require(measured.get("Reaction stroke " + ("1" if stage == "hop1" else "2"), 0) >= 3, "visible Storm hop " + name)
+                current = "1" if stage == "hop1" else "2"
+                flash = "3" if stage == "hop1" else "4"
+                require(measured.get("Reaction stroke " + current, 0) >= 3 and measured.get("Reaction stroke " + flash, 0) >= 3,
+                        "visible Storm hop and actual impact " + name)
     for kind in KINDS:
         series = [by_name[f"{kind.lower()}-l3-{phase}"] for phase in PHASES]
         data = [r["data"] for r in series]
@@ -388,7 +391,10 @@ def supplemental(reports, actual_events):
                 series[0]["frame"] < series[1]["frame"] < series[2]["frame"], "same-event earned L3 sequence")
     dense = by_name["synthetic-dense-six-boss"]["data"]
     require(set(dense["seen"]) == {"flame", "tide", "gale", "stone", "steam", "storm"} and
-            dense["count"] >= 6 and dense["boss"] > 0, "dense six-family/boss scenario")
+            dense["count"] >= 6 and dense["boss"] > 0 and dense["distance"] >= 2.1, "dense six-family/boss scenario")
+    inspector = by_name["synthetic-dense-six-boss-inspector"]["data"]
+    require(inspector["boss"] == dense["boss"] and inspector["tick"] == dense["tick"] and inspector["hp"] > 0 and
+            "Страж" in inspector["details"], "live selected boss in the dense frame")
     status = by_name["synthetic-all-four-inspector"]["data"]
     require(set(status["statuses"]) == {"Burn", "Wet", "Gust", "Crack"} and status["slots"] == 2 and
             all(name in status["details"] for name in status["statuses"]), "four live statuses in two slots and inspector")

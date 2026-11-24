@@ -51,9 +51,13 @@ def visibility(path, lines):
     counts = {}
     for line in lines:
         tint = line["tint"]
+        screen = line["screen"]
+        if len(tint) != 3 or not all(0 <= channel <= 1 for channel in tint) or not 2 <= len(screen) <= 32 or not all(
+                len(point) == 2 and all(-1 <= coordinate <= 2 for coordinate in point) for point in screen):
+            raise ValueError("invalid projected stroke")
         expected = [tuple(round(x * 255) for x in tint)]
         expected.append(tuple(round((12.92 * x if x <= .0031308 else 1.055 * x ** (1 / 2.4) - .055) * 255) for x in tint))
-        points = [(x * 1600, (1 - y) * 900) for x, y in line["screen"]]
+        points = [(x * 1600, (1 - y) * 900) for x, y in screen]
         sampled = set()
         for (x0, y0), (x1, y1) in zip(points, points[1:]):
             steps = max(1, round(max(abs(x1 - x0), abs(y1 - y0))))

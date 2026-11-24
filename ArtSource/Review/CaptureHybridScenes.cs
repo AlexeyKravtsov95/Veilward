@@ -230,6 +230,7 @@ public sealed class CaptureHybridScenes : MonoBehaviour
         Require(_battle.StartWave() == WaveTransitionResult.Started, "Synthetic Start Wave.");
         var seen = new HashSet<string>();
         var inspector = _battle.GetComponent<EnemyInspectorController>();
+        var capturedAllFour = false;
         for (var i = 0; i < 170; i++)
         {
             Advance(1f / 30);
@@ -238,19 +239,32 @@ public sealed class CaptureHybridScenes : MonoBehaviour
                 seen.Add(fixture.State.Towers.Single(t => t.Id == attack.AttackerTowerId).Definition.Id.Value);
             Call("ProcessAttackEvents");
             var owner = fixture.State.Enemies.FirstOrDefault(e => e.Statuses.Count == 4);
-            if (fixture.State.Enemies.Count < 6 || !fixture.State.Enemies.Any(e => e.Definition.Id.Value == "rift-warden") ||
-                owner == null || seen.Count != types.Length) continue;
+            var warden = fixture.State.Enemies.FirstOrDefault(e => e.Definition.Id.Value == "rift-warden");
+            if (fixture.State.Enemies.Count < 6 || warden == null || seen.Count != types.Length) continue;
+            if (!capturedAllFour && owner != null)
+            {
+                Call("LateUpdate");
+                Require(inspector.Select(owner.Id), "Actual four-status owner inspector.");
+                Call("LateUpdate");
+                _label.text = "SYNTHETIC TEST CLOCK | four applied statuses | two overhead slots and inspector";
+                yield return Save("synthetic-all-four-inspector", "synthetic-test-clock",
+                    new { enemy = owner.Id.Value, tick = fixture.State.Tick, details = inspector.Details,
+                        statuses = owner.Statuses.Select(s => s.Kind.ToString()).ToArray(), slots = EnemyStatusView.CueCapacity });
+                inspector.Close();
+                capturedAllFour = true;
+            }
+
+            if (!capturedAllFour || warden.DistanceAlongPath < 2.1f) continue;
             Call("LateUpdate");
             _label.text = "SYNTHETIC TEST CLOCK | six tower families and Rift Warden | production camera";
             yield return Save("synthetic-dense-six-boss", "synthetic-test-clock",
                 new { seen, count = fixture.State.Enemies.Count, tick = fixture.State.Tick,
-                    boss = fixture.State.Enemies.Single(e => e.Definition.Id.Value == "rift-warden").Id.Value });
-            Require(inspector.Select(owner.Id), "Actual four-status owner inspector.");
+                    boss = warden.Id.Value, distance = warden.DistanceAlongPath });
+            Require(inspector.Select(warden.Id), "Live Rift Warden inspector.");
             Call("LateUpdate");
-            _label.text = "SYNTHETIC TEST CLOCK | four applied statuses | two overhead slots and inspector";
-            yield return Save("synthetic-all-four-inspector", "synthetic-test-clock",
-                new { enemy = owner.Id.Value, tick = fixture.State.Tick, details = inspector.Details,
-                    statuses = owner.Statuses.Select(s => s.Kind.ToString()).ToArray(), slots = EnemyStatusView.CueCapacity });
+            _label.text = "SYNTHETIC TEST CLOCK | Rift Warden selection with six tower families";
+            yield return Save("synthetic-dense-six-boss-inspector", "synthetic-test-clock",
+                new { boss = warden.Id.Value, hp = warden.Health, tick = fixture.State.Tick, details = inspector.Details });
             yield break;
         }
         throw new InvalidOperationException("Dense synthetic six-family and four-status frame not found.");
