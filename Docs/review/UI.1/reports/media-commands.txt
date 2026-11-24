@@ -1,0 +1,205 @@
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; return new { scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null) };'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled true --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled true
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetSmall
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled false
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled false --interval-ms 0
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; return new { scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null) };'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled true --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled true
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetSmall
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Small
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3894
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled false
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled false --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView"); var window=UnityEditor.EditorWindow.GetWindow(type); type.GetProperty("selectedSizeIndex",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).SetValue(window,36); return true;'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; return new { scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null) };'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled true --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled true
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetWide
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Wide
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3894
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled false
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled false --interval-ms 0
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView"); var window=UnityEditor.EditorWindow.GetWindow(type); type.GetProperty("selectedSizeIndex",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).SetValue(window,36); return true;'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; return new { scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null) };'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled true --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled true
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetWide
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Wide
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3896
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetSmall
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Small
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3897
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetTablet
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Tablet
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3897
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetWide
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Final
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3897
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled false
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled false --interval-ms 0
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView"); var window=UnityEditor.EditorWindow.GetWindow(type); type.GetProperty("selectedSizeIndex",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).SetValue(window,36); return true;'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; return new { scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null) };'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled true --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled true
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetWide
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Wide
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3897
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetSmall
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Small
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3898
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetTablet
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Tablet
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3898
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetWide
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Final
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3898
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled false
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled false --interval-ms 0
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView"); var window=UnityEditor.EditorWindow.GetWindow(type); type.GetProperty("selectedSizeIndex",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).SetValue(window,36); return true;'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; return new { scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null) };'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled true --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled true
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetWide
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Wide
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3907
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetSmall
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Small
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3908
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetTablet
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Tablet
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3908
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetWide
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Final
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 3908
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled false
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled false --interval-ms 0
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView"); var window=UnityEditor.EditorWindow.GetWindow(type); type.GetProperty("selectedSizeIndex",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).SetValue(window,36); return true;'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; return new { scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null) };'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled true --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled true
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetWide
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json job wait --condition '{"member":"UnityEngine.Time.frameCount","op":"changed"}' --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.Final
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 4046
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled false
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled false --interval-ms 0
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView"); var window=UnityEditor.EditorWindow.GetWindow(type); type.GetProperty("selectedSizeIndex",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).SetValue(window,36); return true;'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor status

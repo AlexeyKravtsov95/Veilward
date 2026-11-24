@@ -423,7 +423,8 @@ public sealed class CaptureProductionUi : MonoBehaviour
             .Select(rect => new { rect.name, pixels = Bounds(ScreenRect(rect)), parent = "battle-hud" }).ToArray();
         var texts = canvas.GetComponentsInChildren<Text>()
             .Where(text => !string.IsNullOrEmpty(text.text)).Select(text =>
-                new { text.name, text.text, text.fontSize, available = text.rectTransform.rect.height, text.preferredHeight }).ToArray();
+                new { text.name, text.text, text.fontSize, available = text.rectTransform.rect.height,
+                    preferredHeight = VisiblePreferredHeight(text) }).ToArray();
         var png = Capture();
         File.WriteAllBytes(_path + name + ".png", png);
         var battle = Battle;
@@ -437,6 +438,15 @@ public sealed class CaptureProductionUi : MonoBehaviour
         var corners = new Vector3[4];
         element.GetWorldCorners(corners);
         return Rect.MinMaxRect(corners[0].x, corners[0].y, corners[2].x, corners[2].y);
+    }
+
+    private static float VisiblePreferredHeight(Text label)
+    {
+        // У завершающего пустого ряда нет пикселей. Измеряем только отображаемый текст.
+        var visible = label.text.TrimEnd('\r', '\n');
+        if (visible.Length == label.text.Length) return label.preferredHeight;
+        var settings = label.GetGenerationSettings(new Vector2(label.GetPixelAdjustedRect().width, 0));
+        return label.cachedTextGeneratorForLayout.GetPreferredHeight(visible, settings) / label.pixelsPerUnit;
     }
 
     private static float[] Bounds(Rect rect) => new[] { rect.x, rect.y, rect.width, rect.height };

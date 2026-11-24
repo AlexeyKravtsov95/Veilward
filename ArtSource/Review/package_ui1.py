@@ -4,6 +4,7 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+import re
 import shutil
 import struct
 import subprocess
@@ -165,8 +166,23 @@ def verify_scope(base, source):
     allowed = ("Assets/_Game/Scenes/Battle.unity", "Assets/_Game/Scenes/MainMenu.unity",
                "Assets/_Game/Scripts/Editor/Battle", "Assets/_Game/Scripts/Presentation/",
                "Assets/_Game/Tests/", "ArtSource/Review/", "Docs/")
-    require(names and all(path.startswith(allowed) for path in names), "Unexpected source scope")
+    unexpected = [path for path in names if path != "README.md" and not path.startswith(allowed)]
+    require(names and not unexpected, f"Unexpected source scope: {unexpected}")
     return names
+
+
+def camera_signature(ref):
+    path = "Assets/_Game/Scenes/Battle.unity"
+    source = subprocess.check_output(["git", "show", ref + ":" + path], cwd=ROOT, text=True)
+    documents = re.findall(r"(?ms)^--- !u!(\d+) &(-?\d+)[^\n]*\n(.*?)(?=^--- !u!|\Z)", source)
+    cameras = [object_id for kind, object_id, content in documents
+               if kind == "1" and "\n  m_Name: Battle Camera\n" in content]
+    require(len(cameras) == 1, "Expected the production Battle Camera")
+    owner = "m_GameObject: {fileID: " + cameras[0] + "}"
+    components = [(kind, content.replace(owner, "m_GameObject: {fileID: camera}").strip())
+                  for kind, _, content in documents if kind in ("4", "20", "114") and owner in content]
+    require({kind for kind, _ in components} >= {"4", "20"}, "Missing camera or transform")
+    return sorted(components)
 
 
 def verify_inputs(manifests, source, carry):
@@ -230,10 +246,13 @@ def main(args):
     counts = verify_tests(args.gates)
     source = inputs["testedSource"]
     scope = verify_scope(args.base, source)
+    camera = camera_signature(source)
+    require(camera == camera_signature(args.base), "Production camera fields changed")
     result = {"source": source, "base": args.base, "profiles": profile_reports,
               "video": verify_video(manifests["wide"]["frames"], video),
               "tests": counts, "renderInputHashes": verify_inputs(manifests, source, inputs["carryInSha256"]),
-              "sourceScope": scope, "negativeControls": negative_controls(profile_reports["wide"]["safePixels"], 3)}
+              "sourceScope": scope, "cameraComponentsEqualToBase": len(camera),
+              "negativeControls": negative_controls(profile_reports["wide"]["safePixels"], 3)}
     if args.package:
         write(reports / "audit.json", result)
     else:

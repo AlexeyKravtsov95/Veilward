@@ -1,0 +1,161 @@
+{
+  "source": "2b5031b3bdcde4245c7a041a9787dc54bc928a2d",
+  "base": "38ca8429f9579ffa3d862944ebf3ece9bc76ee58",
+  "profiles": {
+    "small": {
+      "pixelSize": [
+        1136,
+        640
+      ],
+      "logicalSize": [
+        568.0,
+        320.0
+      ],
+      "safePixels": [
+        0,
+        0,
+        1136,
+        640
+      ],
+      "minTouchPoints": 46.05,
+      "originalPngs": 8
+    },
+    "wide": {
+      "pixelSize": [
+        2556,
+        1179
+      ],
+      "logicalSize": [
+        852.0,
+        393.0
+      ],
+      "safePixels": [
+        132,
+        63,
+        2292,
+        1116
+      ],
+      "minTouchPoints": 58.95,
+      "originalPngs": 23
+    },
+    "tablet": {
+      "pixelSize": [
+        2048,
+        1536
+      ],
+      "logicalSize": [
+        1024.0,
+        768.0
+      ],
+      "safePixels": [
+        0,
+        40,
+        2048,
+        1496
+      ],
+      "minTouchPoints": 83.03,
+      "originalPngs": 8
+    },
+    "final": {
+      "pixelSize": [
+        2556,
+        1179
+      ],
+      "logicalSize": [
+        852.0,
+        393.0
+      ],
+      "safePixels": [
+        132,
+        63,
+        2292,
+        1116
+      ],
+      "minTouchPoints": 58.95,
+      "originalPngs": 7
+    }
+  },
+  "video": {
+    "frames": 463,
+    "seconds": 20.667,
+    "maxTimestampDrift": 0.0006774999935892367,
+    "codec_name": "h264",
+    "pix_fmt": "yuv420p",
+    "width": 1280,
+    "height": 590,
+    "sha256": "b5061e6c12ff1b08fae1fce97d08fa2d05d58d1be96cb3fcec0d5e9983fa9e47",
+    "stages": [
+      "ability-cancelled",
+      "ability-cooldown",
+      "ability-invalid",
+      "ability-valid",
+      "build-locked",
+      "build-low-gold",
+      "build-preview",
+      "combat-hud",
+      "continue-rollback",
+      "menu-continue",
+      "menu-corrupt-save",
+      "menu-no-save",
+      "next-wave",
+      "pause",
+      "preparation-hud",
+      "sell-confirmation",
+      "starting-choice",
+      "starting-choice-preview",
+      "tower-upgrade-unaffordable",
+      "tower-upgraded"
+    ]
+  },
+  "tests": {
+    "edit-mode": 1304,
+    "play-mode": 105
+  },
+  "renderInputHashes": 312,
+  "sourceScope": [
+    "ArtSource/Review/CaptureProductionUi.cs",
+    "ArtSource/Review/package_ui1.py",
+    "ArtSource/Review/run_ui1_editor.py",
+    "ArtSource/Review/run_ui1_gates.py",
+    "Assets/_Game/Scenes/Battle.unity",
+    "Assets/_Game/Scenes/MainMenu.unity",
+    "Assets/_Game/Scripts/Editor/BattleAssetValidator.cs",
+    "Assets/_Game/Scripts/Editor/BattlePlayerUiBuilder.cs",
+    "Assets/_Game/Scripts/Editor/BattlePlayerUiBuilder.cs.meta",
+    "Assets/_Game/Scripts/Editor/BattleSceneBuilder.cs",
+    "Assets/_Game/Scripts/Presentation/AbilityController.cs",
+    "Assets/_Game/Scripts/Presentation/BattleHudSafeArea.cs",
+    "Assets/_Game/Scripts/Presentation/BattlePlacementController.cs",
+    "Assets/_Game/Scripts/Presentation/BattlePlayerHud.cs",
+    "Assets/_Game/Scripts/Presentation/BattlePlayerHud.cs.meta",
+    "Assets/_Game/Scripts/Presentation/BattleSceneController.cs",
+    "Assets/_Game/Scripts/Presentation/BossHudController.cs",
+    "Assets/_Game/Scripts/Presentation/ElementChoiceController.cs",
+    "Assets/_Game/Scripts/Presentation/EnemyInspectorController.cs",
+    "Assets/_Game/Scripts/Presentation/MainMenuController.cs",
+    "Assets/_Game/Scripts/Presentation/ReactionPresentationState.cs",
+    "Assets/_Game/Scripts/Presentation/TowerDisplay.cs",
+    "Assets/_Game/Scripts/Presentation/VeilwardUiButton.cs",
+    "Assets/_Game/Scripts/Presentation/VeilwardUiButton.cs.meta",
+    "Assets/_Game/Scripts/Presentation/VeilwardUiGlyph.cs",
+    "Assets/_Game/Scripts/Presentation/VeilwardUiGlyph.cs.meta",
+    "Assets/_Game/Tests/EditMode/AbilityPresentationTests.cs",
+    "Assets/_Game/Tests/EditMode/BattleAssetValidationTests.cs",
+    "Assets/_Game/Tests/EditMode/BattleElementChoicePresentationTests.cs",
+    "Assets/_Game/Tests/EditMode/BattleReactionPresentationTests.cs",
+    "Assets/_Game/Tests/EditMode/BattleTowerCatalogPresentationTests.cs",
+    "Assets/_Game/Tests/EditMode/BossPresentationTests.cs",
+    "Assets/_Game/Tests/EditMode/ProductionUiLayoutTests.cs",
+    "Assets/_Game/Tests/EditMode/ProductionUiLayoutTests.cs.meta",
+    "Assets/_Game/Tests/PlayMode/BattleEnemyInspectorWorldTapTests.cs",
+    "Assets/_Game/Tests/PlayMode/BattleReactionPlayModeTests.cs",
+    "Assets/_Game/Tests/PlayMode/BossPlayModeTests.cs",
+    "Assets/_Game/Tests/PlayMode/ProductionUiPlayModeTests.cs",
+    "Assets/_Game/Tests/PlayMode/ProductionUiPlayModeTests.cs.meta",
+    "Docs/REGRESSION.md",
+    "Docs/UI1_PRODUCTION_UI.md",
+    "README.md"
+  ],
+  "cameraComponentsEqualToBase": 2,
+  "negativeControls": 4
+}
