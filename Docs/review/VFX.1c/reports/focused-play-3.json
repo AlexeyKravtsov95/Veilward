@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "duration": 20.82,
+  "summary": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0,
+    "inconclusive": 0
+  },
+  "results": [
+    {
+      "FullName": "Veilward.Tests.PlayMode.HybridProjectilePlayModeTests.Vfx1C03_ProductionUpdateMovesBothAttacksAndFreezesGeometryThenFileContinueClearsIt",
+      "Status": "Failed",
+      "Duration": 20.804911,
+      "Message": "  Expected: equivalent to < Steam, Storm >\n  But was:  <empty>\n",
+      "StackTrace": "at NUnit.Framework.CollectionAssert.AreEquivalent (System.Collections.IEnumerable expected, System.Collections.IEnumerable actual, System.String message, System.Object[] args) [0x00007] in <f577cd9686154d6ab10efd7e65e64366>:0\nat NUnit.Framework.CollectionAssert.AreEquivalent (System.Collections.IEnumerable expected, System.Collections.IEnumerable actual) [0x00000] in <f577cd9686154d6ab10efd7e65e64366>:0\nat Veilward.Tests.PlayMode.HybridProjectilePlayModeTests+<Vfx1C03_ProductionUpdateMovesBothAttacksAndFreezesGeometryThenFileContinueClearsIt>d__0.MoveNext () [0x005be] in /Users/alexeykravtsov/Desktop/workspace/Veilward/Assets/_Game/Tests/PlayMode/HybridProjectilePlayModeTests.cs:100\nat UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in ./Library/PackageCache/com.unity.test-framework@bd7f943e9647/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:44\n"
+    }
+  ]
+}

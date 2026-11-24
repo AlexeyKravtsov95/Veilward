@@ -1,0 +1,53 @@
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json script eval --code var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); return new { scene=scene.path, dirty=scene.isDirty, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null), runInBackground=UnityEngine.Application.runInBackground };
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/RecordHybridVfx.cs --dry-run true
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureHybridScenes.cs --dry-run true
+unity command --caller plugin --skill unity-cli --format json script eval --code return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureArt5.cs --entry CaptureArt5.ConfigureView
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled true --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled true
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json job wait --condition {"member":"UnityEngine.Time.frameCount","op":"changed"} --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/RecordHybridVfx.cs --entry HybridEditorRecording.StartRecording
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/RecordHybridVfx.cs --dry-run true
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json job wait --condition {"member":"UnityEngine.Time.frameCount","op":"changed"} --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/RecordHybridVfx.cs --entry HybridEditorRecording.StartRecording
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureHybridScenes.cs --entry CaptureHybridScenes.Capture
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureHybridScenes.cs --entry CaptureHybridScenes.Capture
+unity command --caller plugin --skill unity-cli --format json console get --since 1006 --level error
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled false
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled false --interval-ms 0
+unity command --caller plugin --skill unity-cli --format json script eval --code return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity").path;
+unity command --caller plugin --skill unity-cli --format json script eval --code var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); return new { scene=scene.path, dirty=scene.isDirty, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null), runInBackground=UnityEngine.Application.runInBackground };
+unity command --caller plugin --skill unity-cli --format json console status
+
+Final source capture and restore
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/RecordHybridVfx.cs --dry-run true
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureHybridScenes.cs --dry-run true
+unity command --caller plugin --skill unity-cli --format json script eval --code var active=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if(active.isDirty) throw new System.InvalidOperationException("Expected saved scene"); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/MainMenu.unity").path;
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureArt5.cs --entry CaptureArt5.ConfigureView
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled true --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled true
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --format json
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json job wait --condition {"member":"UnityEngine.Time.frameCount","op":"changed"} --timeout 12
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/RecordHybridVfx.cs --entry HybridEditorRecording.StartRecording
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureHybridScenes.cs --entry CaptureHybridScenes.Capture
+unity command --caller plugin --skill unity-cli --format json console get --since 1143 --level error
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --format json
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled false
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled false --interval-ms 0
+unity command --caller plugin --skill unity-cli --format json script eval --code return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity").path;
+unity command --caller plugin --skill unity-cli --format json script eval --code var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); return new { scene=scene.path, dirty=scene.isDirty, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null), runInBackground=UnityEngine.Application.runInBackground };
+unity command --caller plugin --skill unity-cli --format json console status

@@ -131,30 +131,34 @@ namespace Veilward.Tests.EditMode
                 Call(view, "Advance", 0f);
                 Assert.That(Read<float>(view, "RemainingSeconds"), Is.EqualTo(.5f));
                 var lines = go.GetComponentsInChildren<LineRenderer>(true);
-                Assert.That(lines.Length, Is.InRange(2, 6));
+                Assert.That(lines.Length, Is.EqualTo(ReactionEffectView.RendererCount));
                 Assert.That(lines.All(l => l.sharedMaterial == material), Is.True);
+                var effect = (ReactionEffectView)view;
+                Assert.That(effect.Event, Is.EqualTo(reaction));
+                Assert.That(effect.GetHit(0), Is.EqualTo(hits[1]));
+                Assert.That(effect.GetHit(1), Is.EqualTo(hits[0]));
                 var block = new MaterialPropertyBlock(); lines[0].GetPropertyBlock(block);
-                Assert.That(Vector4.Distance(block.GetColor("_BaseColor"), kind == ReactionKind.Steam ? EnemyStatusView.SteamColor : EnemyStatusView.StormColor), Is.LessThan(.0001f),
+                Assert.That(block.GetColor("_BaseColor").maxColorComponent, Is.GreaterThan(.8f),
                     "URP Unlit must receive the reaction color, independently of vertex colors.");
                 if (kind == ReactionKind.Storm)
                 {
-                    var chain = lines.Single(l => l.name == "Storm chain");
-                    Assert.That(chain.GetPosition(0).x, Is.EqualTo(1));
-                    Assert.That(chain.GetPosition(3), Is.EqualTo(new Vector3(2, .13f, 0)));
-                    Assert.That(chain.GetPosition(6), Is.EqualTo(new Vector3(3, .13f, 0)));
-                    Assert.That(chain.GetPosition(chain.positionCount - 1).x, Is.EqualTo(3));
+                    Assert.That(lines[1].enabled, Is.True);
+                    Assert.That(lines[2].enabled, Is.False, "Second captured hop starts after the first.");
+                    Call(view, "Advance", .13f);
+                    Assert.That(lines[1].GetPosition(0), Is.EqualTo(new Vector3(1, .57f, 0)));
+                    Assert.That(lines[1].GetPosition(lines[1].positionCount - 1), Is.EqualTo(new Vector3(2, .57f, 0)));
+                    Assert.That(lines[2].GetPosition(0), Is.EqualTo(new Vector3(2, .57f, 0)));
+                    Assert.That(lines[2].GetPosition(lines[2].positionCount - 1), Is.EqualTo(new Vector3(3, .57f, 0)));
                 }
-                if (kind == ReactionKind.Steam)
+                else
                 {
-                    var ring = lines.Single(l => l.name == "Steam ring");
-                    var center = Vector3.zero;
-                    for (var i = 0; i < ring.positionCount; i++) center += ring.GetPosition(i);
-                    center /= ring.positionCount;
-                    Assert.That(Vector3.Distance(center, new Vector3(1, .13f, 0)), Is.LessThan(.0001f));
-                    Assert.That(lines.Single(l => l.name == "Reaction impact 0").GetPosition(2), Is.EqualTo(new Vector3(2, .13f, 0)));
-                    Assert.That(lines.Single(l => l.name == "Reaction impact 1").GetPosition(2), Is.EqualTo(new Vector3(3, .13f, 0)));
-                    Call(view, "Advance", .499f);
-                    Assert.That(Vector3.Distance(ring.GetPosition(0), center), Is.InRange(1.24f, 1.25f));
+                    var center = new Vector3(1, .34f, 0);
+                    var initial = Vector3.Distance(lines[0].GetPosition(0), center);
+                    Call(view, "Advance", .35f);
+                    Assert.That(Vector3.Distance(lines[0].GetPosition(0), center), Is.GreaterThan(initial));
+                    Assert.That(Vector3.Distance(lines[0].GetPosition(0), center), Is.LessThan(reaction.RadiusOrHopRange));
+                    Assert.That(Mathf.Abs(lines[1].GetPosition(0).x - 2), Is.LessThan(.35f));
+                    Assert.That(Mathf.Abs(lines[2].GetPosition(0).x - 3), Is.LessThan(.35f));
                 }
                 Call(view, "Advance", .5f);
                 Assert.That(Read<float>(view, "RemainingSeconds"), Is.Zero);

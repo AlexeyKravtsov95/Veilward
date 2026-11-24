@@ -1,0 +1,68 @@
+{
+  "flame": {
+    "sha256": "3c7211df871c7da8a5c47ce4317e18b388cdfe227314c3fc0b8205eb35cef7e6",
+    "rawBytes": 2371375,
+    "entries": 7856,
+    "wave": 8,
+    "outcome": "Victory",
+    "coverage": [
+      {
+        "kind": "Steam",
+        "trigger": "StatusPair",
+        "procs": 45,
+        "applied": 561
+      },
+      {
+        "kind": "Steam",
+        "trigger": "Intrinsic",
+        "procs": 3,
+        "applied": 72
+      },
+      {
+        "kind": "Storm",
+        "trigger": "StatusPair",
+        "procs": 5,
+        "applied": 36
+      },
+      {
+        "kind": "Storm",
+        "trigger": "Intrinsic",
+        "procs": 5,
+        "applied": 43
+      }
+    ]
+  },
+  "gale": {
+    "sha256": "b8140ae0d3eda06e5af802be6af99be08e59bd7e7806b345ee314dadc8efbaf7",
+    "rawBytes": 2078626,
+    "entries": 7372,
+    "wave": 8,
+    "outcome": "Victory",
+    "coverage": [
+      {
+        "kind": "Steam",
+        "trigger": "StatusPair",
+        "procs": 12,
+        "applied": 118
+      },
+      {
+        "kind": "Steam",
+        "trigger": "Intrinsic",
+        "procs": 4,
+        "applied": 51
+      },
+      {
+        "kind": "Storm",
+        "trigger": "StatusPair",
+        "procs": 12,
+        "applied": 91
+      },
+      {
+        "kind": "Storm",
+        "trigger": "Intrinsic",
+        "procs": 10,
+        "applied": 108
+      }
+    ]
+  }
+}
