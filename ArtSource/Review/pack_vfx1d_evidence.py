@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 sys.dont_write_bytecode = True
-from encode_hybrid_video import source_raster, verify_raster, visibility
+from encode_hybrid_video import RASTER_SIZE, source_raster, visibility
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "TestResults/vfx1d"
@@ -50,6 +50,20 @@ def probe_semantics(raw):
 
 def visible(path, lines):
     return sum(visibility(path, lines).values()) if lines else 0
+
+
+def verify_raster(video, source, count):
+    width, height = RASTER_SIZE
+    stride = width * height * 3
+    # Сохраняем 1 мс time base при выводе rawvideo, чтобы быстрые VFR кадры не делили DTS.
+    command = ["ffmpeg", "-v", "error", "-i", str(video), "-map", "0:v:0", "-vf", f"scale={width}:{height}:flags=area",
+               "-fps_mode", "passthrough", "-enc_time_base", "1:1000", "-pix_fmt", "rgb24", "-f", "rawvideo", "-"]
+    decoded = subprocess.check_output(command)
+    require(len(decoded) == len(source) == stride * count, "Full decoded raster frame count.")
+    worst = max(sum(abs(a - b) for a, b in zip(decoded[i:i + stride], source[i:i + stride])) / stride
+                for i in range(0, len(source), stride))
+    require(worst <= 3.5, f"Decoded raster differs from GameView frames: {worst:.3f}")
+    return worst
 
 
 def choose(scope, rows, sources):
