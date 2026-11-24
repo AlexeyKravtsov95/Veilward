@@ -30,6 +30,8 @@ namespace Veilward.Presentation
         public FlameProjectilePool FlameProjectiles => _flameProjectiles;
         private BasicProjectilePool _basicProjectiles;
         public BasicProjectilePool BasicProjectiles => _basicProjectiles;
+        private HybridProjectilePool _hybridProjectiles;
+        public HybridProjectilePool HybridProjectiles => _hybridProjectiles;
         [SerializeField] private BattlePauseController pauseController;
         [SerializeField] private BattlePlacementController placementController;
         [SerializeField] private BattleCheckpointController checkpointController;
@@ -135,6 +137,10 @@ namespace Veilward.Presentation
                 _basicProjectiles = new BasicProjectilePool(transform,
                     reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial);
             else _basicProjectiles.Clear();
+            if (_hybridProjectiles == null)
+                _hybridProjectiles = new HybridProjectilePool(transform,
+                    reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial);
+            else _hybridProjectiles.Clear();
             if (reactionSummaryText != null)
             {
                 _reactionSummaryOrigin = reactionSummaryText.rectTransform.anchoredPosition;
@@ -142,6 +148,7 @@ namespace Veilward.Presentation
             }
             for (var i = 0; i < _reactionPool.Length; i++)
             {
+                if (_reactionPool[i] != null) { _reactionPool[i].Clear(); continue; }
                 var effect = new GameObject("Reaction effect " + i).AddComponent<ReactionEffectView>();
                 effect.transform.SetParent(transform, false);
                 effect.Initialize(reactionEffectMaterial != null ? reactionEffectMaterial : attackBeamMaterial);
@@ -378,6 +385,7 @@ namespace Veilward.Presentation
             Presentation.Advance(activeDelta);
             _flameProjectiles?.Advance(activeDelta);
             _basicProjectiles?.Advance(activeDelta);
+            _hybridProjectiles?.Advance(activeDelta);
             foreach (var view in _enemyViews.Values) if (view.Model != null) view.Model.Advance(activeDelta);
             for (var i = _enemyTails.Count - 1; i >= 0; i--)
                 if (_enemyTails[i] == null || _enemyTails[i].Advance(activeDelta))
@@ -478,7 +486,9 @@ namespace Veilward.Presentation
                     for (var t = 0; t < towers.Count; t++)
                         if (towers[t].Id == attack.AttackerTowerId) { attacker = towers[t]; break; }
                     var basicKind = attacker != null ? BasicProjectilePool.KindFor(attacker.Definition.Id) : BasicShotKind.None;
-                    if (attacker != null && (attacker.Definition.Id.Value == "flame" || basicKind != BasicShotKind.None))
+                    var hybridKind = attacker != null ? HybridProjectilePool.KindFor(attacker.Definition.Id) : HybridShotKind.None;
+                    if (attacker != null && (attacker.Definition.Id.Value == "flame" ||
+                        basicKind != BasicShotKind.None || hybridKind != HybridShotKind.None))
                     {
                         var source = GetCellCenter(attacker.Coordinate) + Vector3.up * .85f;
                         if (_towerViews.TryGetValue(attacker.Id, out var towerView) && towerView != null &&
@@ -490,7 +500,8 @@ namespace Veilward.Presentation
                             if (anchor != null && (anchor.position - GetCellCenter(attacker.Coordinate)).sqrMagnitude <= limit * limit)
                                 source = anchor.position;
                         }
-                        if (basicKind != BasicShotKind.None) _basicProjectiles?.Play(basicKind, attack, attacker.Level, source);
+                        if (hybridKind != HybridShotKind.None) _hybridProjectiles?.Play(hybridKind, attack, attacker.Level, source);
+                        else if (basicKind != BasicShotKind.None) _basicProjectiles?.Play(basicKind, attack, attacker.Level, source);
                         else _flameProjectiles?.Play(attack, attacker.Level, source);
                         continue;
                     }
@@ -566,6 +577,7 @@ namespace Veilward.Presentation
         {
             _flameProjectiles?.Clear();
             _basicProjectiles?.Clear();
+            _hybridProjectiles?.Clear();
             if (bossHud != null) bossHud.ResetView();
             if (abilityController != null) abilityController.ResetTransient();
             _nextAbilityEffect = 0;

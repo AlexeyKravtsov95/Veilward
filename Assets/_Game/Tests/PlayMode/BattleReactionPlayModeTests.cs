@@ -200,8 +200,13 @@ namespace Veilward.Tests.PlayMode
             Assert.That(battle.GetComponentsInChildren<ReactionEffectView>(false), Is.Empty);
             Assert.That(battle.PlaceTower(new TowerDefinitionId("steam"), new GridCoordinate(-4, 0)).Success, Is.True);
             battle.StartWave(); battle.Simulation.Step();
-            var views = (System.Collections.Generic.Dictionary<TowerId, Transform>)typeof(BattleSceneController).GetField("_towerViews", Flags).GetValue(battle);
-            views[new TowerId(1)] = null;
+            // Неинициализированный consumer преднамеренно выбрасывает исключение при чтении реального batch.
+            var slots = (ReactionEffectView[])typeof(BattleSceneController).GetField("_reactionPool", Flags).GetValue(battle);
+            var fault = new GameObject("Synthetic consumer fault").AddComponent<ReactionEffectView>();
+            fault.transform.SetParent(battle.transform);
+            slots[0] = fault;
+            reactions.Insert(0, new ReactionEvent(battle.Simulation.State.Tick, 1, ReactionKind.Steam,
+                ReactionTriggerKind.Intrinsic, new TowerId(1), new EnemyId(1), new PathPosition(0, 0), StatusKind.Burn, StatusKind.Wet, 1.25f, 4));
             Assert.Throws<TargetInvocationException>(() => typeof(BattleSceneController).GetMethod("ProcessAttackEvents", Flags).Invoke(battle, null));
             Assert.That(battle.Simulation.AttackEvents, Is.Empty);
             Assert.That(battle.Simulation.ReactionEvents, Is.Empty);
