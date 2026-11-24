@@ -56,7 +56,7 @@ public sealed class HybridEditorRecording : MonoBehaviour
 
         _store = new WaveCheckpointStore(Path.GetFullPath(Root + "store"));
         var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWaveAbilityBossV2.asset");
-        var replay = new AbilityBossTrace.Run(config.CreateSimulation(), BossMissionScript.Load("flame"));
+        var replay = new AbilityBossTrace.Run(config.CreateSimulation(), AbilityBossTrace.Load("flame"));
         WaveCheckpointEnvelope earned = null;
         replay.stable = (r, phase) =>
         {

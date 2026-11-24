@@ -26,7 +26,7 @@ namespace Veilward.Tests.PlayMode
         {
             var store = new WaveCheckpointStore(Path.Combine("TestResults", "Vfx1c", Guid.NewGuid().ToString("N")));
             var config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWaveAbilityBossV2.asset");
-            var run = new AbilityBossTrace.Run(config.CreateSimulation(), BossMissionScript.Load("flame"));
+            var run = new AbilityBossTrace.Run(config.CreateSimulation(), AbilityBossTrace.Load("flame"));
             WaveCheckpointEnvelope earned = null;
             run.stable = (current, stage) =>
             {
@@ -47,6 +47,8 @@ namespace Veilward.Tests.PlayMode
             yield return OpenEarnedBattle();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             Assert.That(AbilityBossTrace.Snapshot(battle.Simulation), Is.EqualTo(safe));
+            var types = battle.Simulation.State.Towers.Select(t => t.Definition.Id.Value).ToArray();
+            Assert.That(types, Does.Contain("steam").And.Contain("storm"), "REG214 FLAME Preparation8.");
             Assert.That(battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
             var file = File.ReadAllBytes(store.PrimaryPath);
             var paused = false;

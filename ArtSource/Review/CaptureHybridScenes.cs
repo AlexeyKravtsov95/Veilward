@@ -59,7 +59,7 @@ public sealed class CaptureHybridScenes : MonoBehaviour
         Require(_battle != null && _battle.Simulation != null, "Battle loaded.");
         _battle.enabled = false;
         BuildLabel();
-        var script = BossMissionScript.Load("flame");
+        var script = AbilityBossTrace.Load("flame");
         var run = new AbilityBossTrace.Run(_config.CreateSimulation(), script);
         var earned = new Dictionary<int, WaveCheckpointEnvelope>();
         run.stable = (r, stage) =>
