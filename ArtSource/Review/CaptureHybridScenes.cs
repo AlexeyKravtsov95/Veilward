@@ -73,8 +73,8 @@ public sealed class CaptureHybridScenes : MonoBehaviour
         yield return Reaction(earned[7], 7, script, ReactionKind.Storm, ReactionTriggerKind.StatusPair);
         yield return Reaction(earned[7], 7, script, ReactionKind.Steam, ReactionTriggerKind.Intrinsic);
         yield return Reaction(earned[8], 8, script, ReactionKind.Storm, ReactionTriggerKind.Intrinsic);
-        yield return LevelThree(earned[8], "steam");
-        yield return LevelThree(earned[8], "storm");
+        yield return LevelThree("steam", "ART.3e", 3);
+        yield return LevelThree("storm", "ART.3f", 2);
         yield return DenseFixture();
         File.WriteAllText(Root + "completion.json", JsonConvert.SerializeObject(new { ok = true, captures = _captures }, Formatting.Indented) + "\n");
     }
@@ -159,16 +159,26 @@ public sealed class CaptureHybridScenes : MonoBehaviour
             }), lines = VisibleLines(effect.transform),
         };
 
-    private IEnumerator LevelThree(WaveCheckpointEnvelope checkpoint, string type)
+    private IEnumerator LevelThree(string type, string route, int gold)
     {
+        var commands = "Docs/review/" + route + "/inputs/earned.commands.json";
+        var script = JsonUtility.FromJson<BossMissionScript>(File.ReadAllText(commands));
+        var run = new AbilityBossTrace.Run(_config.CreateSimulation(), script);
+        WaveCheckpointEnvelope checkpoint = null;
+        run.stable = (r, stage) =>
+        {
+            if (stage == "preparation" && r.sim.State.WaveIndex == 7) checkpoint = AbilityBossTrace.Envelope(r.sim);
+        };
+        run.Play();
+        Require(checkpoint != null, "Earned tier 3 Preparation8 from " + route);
         Restore(checkpoint);
         var simulation = _battle.Simulation;
-        var keeper = simulation.State.Towers.First(t => t.Definition.Id.Value == type);
-        foreach (var id in simulation.State.Towers.Where(t => t.Id != keeper.Id).Select(t => t.Id).ToArray())
-            Require(_battle.SellTower(id).Success, "Earned public Sell to fund level 3.");
-        Require(_battle.UpgradeTower(keeper.Id).Success && _battle.UpgradeTower(keeper.Id).Success, "Earned public Upgrade to level 3.");
-        Call("LateUpdate");
-        _label.text = "EARNED TEST CLOCK | public Sell and Upgrade | " + type.ToUpperInvariant() + " L3";
+        var keeper = simulation.State.Towers.Single(t => t.Definition.Id.Value == type);
+        Require(keeper.Level == 3 && keeper.InvestedGold == 495 && simulation.State.Gold == gold,
+            "Production route earned and paid for both hybrid upgrades.");
+        File.WriteAllText(Root + type + "-l3-earned-state.txt", AbilityBossTrace.Snapshot(simulation));
+        AbilityBossTrace.Write(Root + type + "-l3-earned-replay", run);
+        _label.text = "EARNED TEST CLOCK | " + route + " public-command replay | " + type.ToUpperInvariant() + " L3";
         Require(_battle.StartWave() == WaveTransitionResult.Started, "Earned L3 Start Wave.");
         for (var step = 0; step < 900 && simulation.State.Phase == BattlePhase.Combat; step++)
         {
@@ -181,21 +191,21 @@ public sealed class CaptureHybridScenes : MonoBehaviour
             var snapshot = AbilityBossTrace.Snapshot(simulation);
             Require(shot.Level == 3 && shot.Event.Equals(events.Single()), "Exact level 3 AttackEvent.");
             _battle.HybridProjectiles.Advance(.025f);
-            yield return Save(type + "-l3-launch", "earned-test-clock", Attack(shot, "launch"));
+            yield return Save(type + "-l3-launch", "earned-test-clock", Attack(shot, "launch", commands, gold));
             _battle.HybridProjectiles.Advance(shot.FlightDuration * .47f);
-            yield return Save(type + "-l3-flight", "earned-test-clock", Attack(shot, "intermediate"));
+            yield return Save(type + "-l3-flight", "earned-test-clock", Attack(shot, "intermediate", commands, gold));
             _battle.HybridProjectiles.Advance(shot.FlightDuration * .56f);
             Require(!shot.IsFlying && snapshot == AbilityBossTrace.Snapshot(simulation), "Cosmetic arrival leaves whole simulation untouched.");
-            yield return Save(type + "-l3-impact", "earned-test-clock", Attack(shot, "impact"));
+            yield return Save(type + "-l3-impact", "earned-test-clock", Attack(shot, "impact", commands, gold));
             yield break;
         }
         throw new InvalidOperationException("Earned level 3 attack missing for " + type);
     }
 
-    private object Attack(HybridStrikeView shot, string stage) => new
+    private object Attack(HybridStrikeView shot, string stage, string commands, int gold) => new
     {
         kind = shot.Kind.ToString(), tick = shot.Event.Tick, tower = shot.Event.AttackerTowerId.Value,
-        enemy = shot.Event.TargetEnemyId.Value, level = shot.Level, stage, shot.IsFlying,
+        enemy = shot.Event.TargetEnemyId.Value, level = shot.Level, stage, shot.IsFlying, commands, gold,
         source = Vector(shot.Source), target = Vector(shot.Target), head = Vector(shot.HeadPosition),
         lines = VisibleLines(_battle.transform.Find("Hybrid Projectile Pool 0")),
     };

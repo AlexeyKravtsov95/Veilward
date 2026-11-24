@@ -157,7 +157,7 @@ def main():
             lines.append(f'duration {rows[i + 1]["elapsed"] - rows[i]["elapsed"]:.9f}')
     concat.write_text("\n".join(lines) + "\n")
     video = OUT / "editor-flow.mp4"
-    command = ["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "1", "-i", str(concat.relative_to(ROOT)),
+    command = ["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(concat.relative_to(ROOT)),
                "-fps_mode", "vfr", "-enc_time_base", "1:1000", "-c:v", "libx264", "-preset", "medium", "-crf", "16",
                "-pix_fmt", "yuv420p", "-video_track_timescale", "1000", "-movflags", "+faststart", str(video.relative_to(ROOT))]
     subprocess.run(command, cwd=ROOT, check=True)
