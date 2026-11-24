@@ -236,12 +236,13 @@ def verify_rendering(actual):
     rows = actual["dependencies"]
     inputs = {row["path"]: row["sha256"] for row in rows}
     minimum = {"Assets/_Game/Scenes/Battle.unity", material["path"], material["shader"],
-               "Packages/packages-lock.json", "Packages/com.unity.pipeline/Editor/Commands/Capture/CaptureCommands.cs",
+               "Packages/packages-lock.json", "ProjectSettings/GraphicsSettings.asset", "ProjectSettings/QualitySettings.asset",
+               "Packages/com.unity.pipeline/Editor/Commands/Capture/CaptureCommands.cs",
                "Packages/com.unity.render-pipelines.universal/Shaders/UnlitForwardPass.hlsl"} | set(CARRY)
     require(len(inputs) == len(rows) and minimum <= set(inputs), "required actual rendering inputs")
     lock = strict_json((ROOT / "Packages/packages-lock.json").read_bytes())["dependencies"]
     for name, checksum in inputs.items():
-        require(not name.startswith("/") and ".." not in Path(name).parts and name.startswith(("Assets/", "Packages/")),
+        require(not name.startswith("/") and ".." not in Path(name).parts and name.startswith(("Assets/", "Packages/", "ProjectSettings/")),
                 "invalid dependency path " + name)
         if name in CARRY:
             require(checksum == CARRY[name], "exact capture carry-in " + name)

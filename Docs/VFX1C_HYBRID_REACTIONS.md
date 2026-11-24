@@ -11,7 +11,7 @@
 
 ## Бюджет и жизненный цикл
 
-Direct pool 8 × 4 LineRenderer, один существующий shared ReactionEffect material через PropertyBlock, first-free/oldest eviction. Переиспользуется существующий ring pool реакций, 24 × 5 LineRenderer и 4 damage slots на view, циклический overwrite. Максимум 16 vertices на direct линию и 32 на линию реакции. Runtime-эффекты берут только bounded CP/geometry buffers. При expiry/overwrite/reset очищаются origin/event/level/positions, impacts, геометрия, цвет и lifetime. Никаких новых материалов, physics callbacks или gameplay consumers.
+Direct pool 8 × 4 LineRenderer, один существующий shared ReactionEffect material через PropertyBlock, first-free/oldest eviction. Переиспользуется существующий ring pool реакций, 24 × 5 LineRenderer и 4 damage slots на view, циклический overwrite. Максимум 16 vertices на direct линию и 32 на линию реакции. Runtime-эффекты берут только ограниченные буферы геометрии. При expiry/overwrite/reset очищаются origin/event/level/positions, impacts, геометрия, цвет и lifetime. Никаких новых материалов, physics callbacks или gameplay consumers.
 
 Один activeDelta из BattleSceneController, включая freeze при Pause/background и пропуск первого resumed delta. Direct/reaction могут завершиться в пределах .40/.50 с после Sell/Upgrade/lethal/leak. Reset/Continue/Retry/NewGame/menu/unload очищают effects, даже если ID повторяются. Порядок ability/reaction и finally cleanup сохраняется. Основные риски — потеря captured endpoints при lethal, смешивание hops в одном tick, визуальное перекрытие HP/status и вытеснение старой косметики при saturation.
 

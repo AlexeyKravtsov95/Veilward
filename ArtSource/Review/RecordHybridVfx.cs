@@ -159,6 +159,7 @@ public sealed class HybridEditorRecording : MonoBehaviour
             if (elapsed < next) continue;
             next = elapsed + 1.0 / 30;
             var battle = Battle;
+            if (battle != null && battle.Simulation == null) battle = null;
             var index = _frames.Count;
             _prepare.Invoke(null, null);
             var pixels = (byte[])_encode.Invoke(null, new object[] { 1600, 900 });
@@ -243,6 +244,7 @@ public sealed class HybridEditorRecording : MonoBehaviour
             .Concat(new[]
             {
                 AssetDatabase.GetAssetPath(material.shader), "Packages/packages-lock.json",
+                "ProjectSettings/GraphicsSettings.asset", "ProjectSettings/QualitySettings.asset",
                 "Packages/com.unity.pipeline/package.json",
                 "Packages/com.unity.pipeline/Editor/Commands/Capture/CaptureCommands.cs",
                 "Packages/com.unity.render-pipelines.universal/package.json",
