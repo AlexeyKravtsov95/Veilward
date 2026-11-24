@@ -373,3 +373,11 @@ P2.4f revision2: `AbilityBossTargetedSearchTests` — один opt-in ordered-hi
 ### P2.4f revision3 — versioned winning matrix
 
 [Spec](review/P2.4f/revision-3/specification.md): 600/5 v2, v1 сохранён. REG214 не ослаблен: обязательная Victory, ability damage/kill, boss kill и все четыре positive cells одного run каждого старта, double full traces/accounting. REG215 повторяет file/menu/13 save faults/Retry/Combat7–8 dirty+fresh/two prefixes/full continuation на победных inputs. Fresh instance теперь берёт настоящий LoadReadOnly. REG216 сохраняет Stone controls, новый legal Sell/no-cast8 leak20 и versioned v1 boss276 leak. REG217 — реальные кадры, Console, hashes, history, gates и review. Новые version regressions: четыре режима ordered slots/no-write Load/backup, exact-ID dirty rejection обоих направлений; valid v1 payload по v2 path отвергается validator без записи. Balance probe outcomes (включая Defeat) не подменяют mandatory Victory. [Decision и ограничения timing](review/P2.4f/revision-3/decision.md).
+
+
+### VFX.1c / #92 — гибриды и фактические реакции
+
+- VFX1C-01: `HybridProjectileTests` проверяет L1–L3, authoritative anchor/fallback, lethal/removal, cooldown и операции между волнами.
+- VFX1C-02: четыре пары kind/trigger, точный ключ, shuffled damage, лимиты, захваченные endpoints и AppliedHpLoss проверяются `HybridProjectileTests` и REG-BATTLE-156/157.
+- VFX1C-03: bounded reuse/expiry/reset, обычный Update, Pause/background и file Continue покрыты `HybridProjectilePlayModeTests`, REG-BATTLE-157/158/159 и проверкой finally в REG-BATTLE-207.
+- VFX1C-04–07: свежие whole Victory8 replay, полные gates, Editor PNG/непрерывное видео и read-only проверка поставки описаны в [контракте](VFX1C_HYBRID_REACTIONS.md) и [evidence](review/VFX.1c/README.md).

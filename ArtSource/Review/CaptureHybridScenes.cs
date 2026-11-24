@@ -241,14 +241,22 @@ public sealed class CaptureHybridScenes : MonoBehaviour
         throw new InvalidOperationException("Dense synthetic six-family and four-status frame not found.");
     }
 
-    private static object[] VisibleLines(Transform root) => root.GetComponentsInChildren<LineRenderer>()
-        .Where(line => line.enabled).Select(line => (object)new
+    private static object[] VisibleLines(Transform root)
+    {
+        var block = new MaterialPropertyBlock();
+        return root.GetComponentsInChildren<LineRenderer>().Where(line => line.enabled).Select(line =>
         {
-            line.name, line.startWidth, line.endWidth,
-            screen = Enumerable.Range(0, line.positionCount).Select(i => Camera.main.WorldToViewportPoint(line.GetPosition(i)))
-                .Select(p => new[] { p.x, p.y }).ToArray(),
-            world = Enumerable.Range(0, line.positionCount).Select(i => Vector(line.GetPosition(i))).ToArray(),
+            line.GetPropertyBlock(block);
+            var tint = block.GetColor("_BaseColor");
+            return (object)new
+            {
+                line.name, line.startWidth, line.endWidth, tint = new[] { tint.r, tint.g, tint.b },
+                screen = Enumerable.Range(0, line.positionCount).Select(i => Camera.main.WorldToViewportPoint(line.GetPosition(i)))
+                    .Select(p => new[] { p.x, p.y }).ToArray(),
+                world = Enumerable.Range(0, line.positionCount).Select(i => Vector(line.GetPosition(i))).ToArray(),
+            };
         }).ToArray();
+    }
 
     private IEnumerator Save(string name, string scope, object data)
     {

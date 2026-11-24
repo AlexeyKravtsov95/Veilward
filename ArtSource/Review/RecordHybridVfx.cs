@@ -232,7 +232,16 @@ public sealed class HybridEditorRecording : MonoBehaviour
         var path = AssetDatabase.GetAssetPath(pipeline);
         var camera = Camera.main;
         var dependencies = AssetDatabase.GetDependencies(new[] { "Assets/_Game/Scenes/Battle.unity", path }, true)
-            .Append(AssetDatabase.GetAssetPath(material.shader)).Append("Packages/packages-lock.json")
+            .Concat(new[]
+            {
+                AssetDatabase.GetAssetPath(material.shader), "Packages/packages-lock.json",
+                "Packages/com.unity.pipeline/package.json",
+                "Packages/com.unity.pipeline/Editor/Commands/Capture/CaptureCommands.cs",
+                "Packages/com.unity.render-pipelines.universal/package.json",
+                "Packages/com.unity.render-pipelines.universal/Shaders/UnlitInput.hlsl",
+                "Packages/com.unity.render-pipelines.universal/Shaders/UnlitForwardPass.hlsl",
+                "Packages/com.unity.render-pipelines.core/package.json",
+            })
             .Distinct().OrderBy(p => p, StringComparer.Ordinal)
             .Select(p => new { path = p, resolved = Resolve(p) }).Where(p => File.Exists(p.resolved))
             .Select(p => new { p.path, sha256 = Hash(File.ReadAllBytes(p.resolved)) }).ToArray();
