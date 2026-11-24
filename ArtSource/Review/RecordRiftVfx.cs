@@ -167,11 +167,9 @@ public sealed class RiftVfxRecording : MonoBehaviour
         var battle = Battle;
         var sim = battle.Simulation;
         var placement = battle.GetComponent<BattlePlacementController>();
-        Require(placement.TrySelectCell(sim.State.Towers[0].Coordinate), "Public tower selection and range.");
-        _stage = "dense-range";
+        _stage = "dense-preparation";
         WriteRenderInputs(battle);
         yield return new WaitForSecondsRealtime(.60f);
-        placement.CancelSelection();
         Require(battle.StartWave() == WaveTransitionResult.Started, "Dense public Start Wave.");
         _stage = "dense-combat";
         var inspector = battle.GetComponent<EnemyInspectorController>();
@@ -204,6 +202,9 @@ public sealed class RiftVfxRecording : MonoBehaviour
         _stage = "dense-impact";
         yield return new WaitForSecondsRealtime(.35f);
 
+        Require(placement.TrySelectCell(sim.State.Towers[0].Coordinate), "Public tower selection and range in Combat.");
+        _stage = "dense-range";
+        yield return new WaitForSecondsRealtime(.55f);
         Require(inspector.Select(warden.Id), "Select live Warden in dense battle.");
         _stage = "dense-inspector";
         yield return new WaitForSecondsRealtime(1.1f);
@@ -324,6 +325,8 @@ public sealed class RiftVfxRecording : MonoBehaviour
                 timeScale = Time.timeScale, captureFramerate = Time.captureFramerate, productionUpdate = battle != null && battle.enabled,
                 paused = battle != null && battle.IsPaused, tick = sim?.State.Tick, phase = sim?.State.Phase.ToString(),
                 wave = sim?.State.WaveIndex + 1, hp = sim?.State.BaseHealth, kills = sim?.State.Kills, enemies = sim?.State.Enemies.Count,
+                selectedTower = battle == null ? null : battle.GetComponent<BattlePlacementController>().SelectedTowerId?.Value,
+                genericBeams = battle != null && battle.GetComponentInChildren<AttackBeamView>() != null,
                 boss = warden == null ? null : new { id = warden.Id.Value, hp = warden.Health, distance = warden.DistanceAlongPath },
                 shots, reactions, seal = battle == null ? null : Seal(battle),
                 cues = battle == null ? null : battle.GetComponentsInChildren<BossCueView>().Select(v => new {

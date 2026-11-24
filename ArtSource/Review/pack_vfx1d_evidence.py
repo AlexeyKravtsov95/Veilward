@@ -79,9 +79,10 @@ def choose(scope, rows, sources):
                  lambda p, r: visible(p, r["preview"]))
         for stage in ("cancel", "dense-range", "dense-inspector", "four-status-inspector"):
             pick(stage, (r for r in rows if r["stage"] == stage and (not stage.endswith("inspector") or r["inspector"])))
-        pick("dense-impact", (r for r in rows if r["stage"] == "dense-impact" and r["boss"] and r["enemies"] >= 6 and r["seal"]),
+        pick("dense-impact", (r for r in rows if r["stage"] == "dense-impact" and r["boss"] and r["enemies"] >= 6 and
+                              r["seal"] and any(h["loss"] > 0 for rx in r["reactions"] or [] for h in rx["hits"])),
              hit_pixels)
-        pick("dense-combat", (r for r in rows if r["productionUpdate"] and r["boss"] and r["enemies"] >= 6 and
+        pick("dense-combat", (r for r in rows if r["stage"] in ("dense-combat", "dense-live") and r["productionUpdate"] and r["boss"] and r["enemies"] >= 6 and
                               len(r["shots"] or []) >= 2 and r["reactions"] and any(s["slots"] == 2 for s in r["slots"] or [])))
     wanted = (("Death",) if scope == "earned" else ("Spawn", "Threat", "Leak"))
     for kind in wanted:
