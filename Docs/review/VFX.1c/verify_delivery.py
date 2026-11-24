@@ -13,7 +13,7 @@ sys.dont_write_bytecode = True
 PACKET = Path(__file__).resolve().parent
 ROOT = PACKET.parents[2]
 sys.path.insert(0, str(ROOT / "ArtSource/Review"))
-from encode_hybrid_video import (KINDS, PHASES, STAGES, attack_phase, digest, probe, select_event, visibility)
+from encode_hybrid_video import (KINDS, PHASES, STAGES, attack_phase, digest, probe, select_event, verify_raster, visibility)
 
 BASE = "4dac946a142e281adc739aeb05ffb9aba136f402"
 PREFIX = "Docs/review/VFX.1c/"
@@ -412,6 +412,9 @@ def verify_media():
     check = subprocess.run(["ffmpeg", "-v", "error", "-xerror", "-i", str(clip), "-map", "0:v:0",
                             "-fps_mode", "passthrough", "-f", "null", "-"], stderr=subprocess.PIPE, check=False)
     require(check.returncode == 0 and not check.stderr, "whole video decode")
+    raster = gzip.decompress((PACKET / "reports/video-source-raster.rgb.gz").read_bytes())
+    require(sha(raster) == proof["rasterSha256"] and proof["maxRasterError"] <= 3.5, "captured raster receipt")
+    require(verify_raster(clip, raster, count) <= 3.5, "fresh decoded video content versus capture")
     exact_picks(rows, proof["picks"])
     reactions = replay_reactions(gzip.decompress((PACKET / "reports/before-flame.trace.gz").read_bytes()))
     supplemental(read("reports/supplement.json"), reactions)

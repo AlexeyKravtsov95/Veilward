@@ -80,6 +80,12 @@ def main():
     reject("nonexistent encoded frame", "decoded metadata", lambda: audit.verify_video(
         rows, receipt, mutated(decoded, lambda d: d["frames"].pop()), proof))
 
+    video = audit.PACKET / "editor-flow.mp4"
+    raster = gzip.decompress((audit.PACKET / "reports/video-source-raster.rgb.gz").read_bytes())
+    audit.verify_raster(video, raster, len(rows))
+    reject("substituted source raster", "differs from captured", lambda: audit.verify_raster(
+        video, bytes(len(raster)), len(rows)))
+
     supplemental = audit.read("reports/supplement.json")
     events = audit.replay_reactions(trace)
     audit.supplemental(supplemental, events)
@@ -94,7 +100,7 @@ def main():
         line = next(l for l in item["data"]["lines"] if l["name"] == "Reaction stroke 2")
         line["world"][0], line["world"][-1] = line["world"][-1], line["world"][0]
     reject("reversed Storm hop", "captured hop endpoints", lambda: audit.supplemental(mutated(supplemental, swapped_endpoints), events))
-    print("PASS positive suite/replay/media inputs and 24 negative controls")
+    print("PASS positive suite/replay/media inputs and 25 negative controls")
 
 
 if __name__ == "__main__":

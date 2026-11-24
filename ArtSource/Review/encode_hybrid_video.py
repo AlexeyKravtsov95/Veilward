@@ -19,6 +19,7 @@ STAGES = {
     "continue": "Continue / preparation and clean effects",
 }
 EVENT_KEYS = ("kind", "tick", "tower", "enemy", "level")
+RASTER_SIZE = (64, 36)
 
 
 def digest(path):
@@ -66,6 +67,30 @@ def visibility(path, lines):
             for point in sampled
         )
     return counts
+
+
+def source_raster(files):
+    rows = []
+    for path in files:
+        with Image.open(path) as image:
+            rows.append(image.convert("RGB").resize(RASTER_SIZE, Image.Resampling.BOX).tobytes())
+    return b"".join(rows)
+
+
+def verify_raster(video, source, count):
+    width, height = RASTER_SIZE
+    stride = width * height * 3
+    command = ["ffmpeg", "-v", "error", "-i", str(video), "-map", "0:v:0", "-vf", f"scale={width}:{height}:flags=area",
+               "-fps_mode", "passthrough", "-pix_fmt", "rgb24", "-f", "rawvideo", "-"]
+    decoded = subprocess.check_output(command)
+    if len(decoded) != len(source) or len(source) != stride * count:
+        raise ValueError("complete video raster frame count")
+    errors = [sum(abs(a - b) for a, b in zip(decoded[i:i + stride], source[i:i + stride])) / stride
+              for i in range(0, len(source), stride)]
+    worst = max(errors)
+    if worst > 3.5:
+        raise ValueError(f"decoded raster differs from captured source frames: {worst:.3f}")
+    return worst
 
 
 def probe(video):
@@ -143,6 +168,8 @@ def main():
     error = max(abs(t - (r["elapsed"] - rows[0]["elapsed"])) for t, r in zip(timestamps, rows))
     if error > .002:
         raise ValueError(f"Source timestamps changed: {error}")
+    raster = source_raster(files)
+    raster_error = verify_raster(video, raster, len(rows))
     (OUT / "playmode").mkdir(exist_ok=True)
     for name, pick in picks.items():
         source = files[pick["index"]]
@@ -153,10 +180,12 @@ def main():
                  "continued-state.txt", "continued-file.json", "combat-safe-file.json", "source.ffconcat"):
         shutil.copyfile(RAW / name, reports / name)
     (reports / "video-frames.json.gz").write_bytes(gzip.compress((RAW / "frames.json").read_bytes(), mtime=0))
+    (reports / "video-source-raster.rgb.gz").write_bytes(gzip.compress(raster, mtime=0))
     (reports / "video-proof.json").write_text(json.dumps(dict(
         command=command, executableSha256=digest(Path(shutil.which("ffmpeg"))),
         versions=[subprocess.check_output([program, "-version"], text=True).splitlines()[0] for program in ("ffmpeg", "ffprobe")],
-        maxPtsError=error, frames=len(rows), lastPts=timestamps[-1], sha256=digest(video),
+        maxPtsError=error, maxRasterError=raster_error, rasterSha256=hashlib.sha256(raster).hexdigest(),
+        frames=len(rows), lastPts=timestamps[-1], sha256=digest(video),
         splices=0, speed=1, decoded=decoded, picks=picks,
     ), indent=2) + "\n")
     print(f"{len(rows)} real-time Editor frames / {timestamps[-1]:.3f}s / max PTS error {error:.6f}s")
