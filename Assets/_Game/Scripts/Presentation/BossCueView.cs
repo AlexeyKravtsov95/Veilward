@@ -71,7 +71,8 @@ namespace Veilward.Presentation
                 var leak = Kind == BossCueKind.Leak;
                 var tint = leak ? new Color(1f, .40f, .32f) : new Color(.98f, .62f, .26f);
                 var right = Vector3.Cross(Vector3.up, _forward);
-                var point = ground + _forward * (leak ? -.13f + progress * .40f : .66f + progress * .40f);
+                // Стрелка leak подходит к Сердцу со стороны пути и остаётся над нижней панелью.
+                var point = ground + _forward * (leak ? -.72f + progress * .40f : .66f + progress * .40f);
                 HybridEffectGeometry.Style(_line, 3, .102f * fade, tint, _color);
                 _line.endWidth = _line.startWidth;
                 _line.SetPosition(0, point - _forward * .39f - right * .45f);

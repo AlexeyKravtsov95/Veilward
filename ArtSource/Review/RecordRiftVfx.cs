@@ -174,10 +174,17 @@ public sealed class RiftVfxRecording : MonoBehaviour
         placement.CancelSelection();
         Require(battle.StartWave() == WaveTransitionResult.Started, "Dense public Start Wave.");
         _stage = "dense-combat";
+        var inspector = battle.GetComponent<EnemyInspectorController>();
+        yield return Until(() => sim.WaveElapsedTicks >= 90 && sim.State.Enemies.Any(e => e.Statuses.Count == 4), 6);
+        Require(inspector.Select(sim.State.Enemies.First(e => e.Statuses.Count == 4).Id), "Inspect four actual statuses.");
+        _stage = "four-status-inspector";
+        yield return new WaitForSecondsRealtime(.45f);
+        inspector.Close();
+        _stage = "dense-combat";
         yield return Until(() => sim.State.Enemies.Count >= 6 && Warden(sim) != null, 15);
         var warden = Warden(sim);
         var ability = battle.GetComponent<AbilityController>();
-        Require(ability.BeginPreview() && ability.SelectTarget(new PathPosition(5, 3)), "Invalid world center preview.");
+        Require(ability.BeginPreview() && ability.SelectTarget(new PathPosition(-3, 1.5f)), "Invalid world center preview.");
         _stage = "invalid-preview";
         yield return new WaitForSecondsRealtime(.48f);
         Require(ability.Status == "NoTargets", "Invalid preview uses Domain validation.");
@@ -197,9 +204,7 @@ public sealed class RiftVfxRecording : MonoBehaviour
         _stage = "dense-impact";
         yield return new WaitForSecondsRealtime(.35f);
 
-        var inspector = battle.GetComponent<EnemyInspectorController>();
-        var four = sim.State.Enemies.FirstOrDefault(e => e.Statuses.Count == 4);
-        Require(inspector.Select((four ?? warden).Id), "Select live enemy in dense battle.");
+        Require(inspector.Select(warden.Id), "Select live Warden in dense battle.");
         _stage = "dense-inspector";
         yield return new WaitForSecondsRealtime(1.1f);
         inspector.Close();
@@ -250,7 +255,7 @@ public sealed class RiftVfxRecording : MonoBehaviour
             using (var batches = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Batches Count", 1))
             using (var allocations = ProfilerRecorder.StartNew(ProfilerCategory.Memory, "GC Allocated In Frame", 1))
             {
-                var rows = new List<ProfileSample>(2048);
+                var rows = new List<ProfileSample>(16384);
                 var start = Time.realtimeSinceStartupAsDouble;
                 var startTick = battle.Simulation.State.Tick;
                 var dense = Counts(battle);

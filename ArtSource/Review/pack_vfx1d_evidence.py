@@ -77,8 +77,8 @@ def choose(scope, rows, sources):
         for stage in ("invalid-preview", "valid-preview"):
             pick(stage, (r for r in rows if r["stage"] == stage and r["preview"]),
                  lambda p, r: visible(p, r["preview"]))
-        for stage in ("cancel", "dense-range", "dense-inspector"):
-            pick(stage, (r for r in rows if r["stage"] == stage and (stage != "dense-inspector" or r["inspector"])))
+        for stage in ("cancel", "dense-range", "dense-inspector", "four-status-inspector"):
+            pick(stage, (r for r in rows if r["stage"] == stage and (not stage.endswith("inspector") or r["inspector"])))
         pick("dense-impact", (r for r in rows if r["stage"] == "dense-impact" and r["boss"] and r["enemies"] >= 6 and r["seal"]),
              hit_pixels)
         pick("dense-combat", (r for r in rows if r["productionUpdate"] and r["boss"] and r["enemies"] >= 6 and

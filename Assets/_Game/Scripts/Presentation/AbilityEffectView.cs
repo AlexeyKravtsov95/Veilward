@@ -54,13 +54,13 @@ namespace Veilward.Presentation
             var point = CapturedPosition;
             if (Hit.HasValue)
             {
-                var center = new Vector3(point.X, .36f + .28f * progress, point.Y);
-                var size = .26f + .15f * progress;
-                var color = Hit.Value.WasLethal ? new Color(1f, .77f, .43f) : new Color(1f, .91f, .64f);
-                HybridEffectGeometry.Style(_mark, 5, .083f * fade, color, _color);
+                var center = new Vector3(point.X, .53f + .25f * progress, point.Y);
+                var size = .36f + .16f * progress;
+                var color = Hit.Value.WasLethal ? new Color(1f, .43f, .15f) : new Color(1f, .64f, .18f);
+                HybridEffectGeometry.Style(_mark, 5, .105f * fade, color, _color);
                 _mark.SetPosition(0, center + new Vector3(-size, .19f, 0f));
                 _mark.SetPosition(1, center + new Vector3(-.08f, .02f, 0f));
-                _mark.SetPosition(2, center + new Vector3(0f, .45f, 0f));
+                _mark.SetPosition(2, center + new Vector3(0f, .53f, 0f));
                 _mark.SetPosition(3, center + new Vector3(.08f, .02f, 0f));
                 _mark.SetPosition(4, center + new Vector3(size, .19f, 0f));
                 return;
