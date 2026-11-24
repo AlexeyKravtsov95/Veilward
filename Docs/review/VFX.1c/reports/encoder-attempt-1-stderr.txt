@@ -1,0 +1,4 @@
+[in#0 @ 0x7807408000] Line 3: option not allowed if safe
+[in#0 @ 0x7807404000] Error opening input: Invalid data found when processing input
+Error opening input file TestResults/vfx1c/video/source.ffconcat.
+Error opening input files: Invalid data found when processing input

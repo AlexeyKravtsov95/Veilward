@@ -1,0 +1,20 @@
+{
+  "success": false,
+  "command": "command",
+  "data": {
+    "candidates": [
+      {
+        "project": "Veilward",
+        "projectPath": "/Users/alexeykravtsov/Desktop/workspace/Veilward",
+        "pid": 46676
+      }
+    ]
+  },
+  "errors": [
+    {
+      "code": "PIPELINE_UNREACHABLE",
+      "message": "Found a running Unity Editor with the Pipeline package installed, but its Pipeline server isn't reachable:\n\n  1. Veilward - /Users/alexeykravtsov/Desktop/workspace/Veilward\n\nThis can happen if the Editor just started, a domain reload is in progress, or the Pipeline package is too old. Check with unity pipeline editors."
+    }
+  ],
+  "warnings": []
+}

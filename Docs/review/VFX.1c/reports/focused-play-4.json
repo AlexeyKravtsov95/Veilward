@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "duration": 6.01,
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "inconclusive": 0
+  },
+  "results": [
+    {
+      "FullName": "Veilward.Tests.PlayMode.HybridProjectilePlayModeTests.Vfx1C03_ProductionUpdateMovesBothAttacksAndFreezesGeometryThenFileContinueClearsIt",
+      "Status": "Passed",
+      "Duration": 5.9897776,
+      "Message": null,
+      "StackTrace": null
+    }
+  ]
+}
