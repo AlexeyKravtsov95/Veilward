@@ -1,0 +1,1 @@
+{"ok":true,"errors":[],"scope":"TestResults/vfx1d/dense-all-open/","frames":571,"elapsed":19.692304791999049,"shots":["flame","gale","steam","stone","storm","tide"],"statuses":["Burn","Crack","Gust","Wet"],"reactions":["Steam/Intrinsic","Steam/StatusPair","Storm/Intrinsic","Storm/StatusPair"]}

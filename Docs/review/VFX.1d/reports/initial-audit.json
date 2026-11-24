@@ -1,0 +1,12 @@
+{
+  "base": "913adb1d4d255fe4fc6683c18091b8379f38f917",
+  "editorPid": 46676,
+  "consoleCursor": 1143,
+  "renderCarry": {
+    "Assets/Settings/Mobile_RPAsset.asset": "2d5182d2b8884ac88bc6ed033a0a722c23cfb15a7bc8b7daa38db37227bafd09",
+    "Assets/_Game/Art/Materials/GrayboxSelection.mat": "6107f7e1b6deb79ceb4489599637fdb16c5e01870013e0cc3a71d2c50b35ad65",
+    "Assets/_Game/Art/Materials/GrayboxTower.mat": "71ced636160a68dca7cf26fd2338913b0d0620aeb891c4ea106d7cacba94f275",
+    "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat": "1b49d268ffb66f7e898a81d0a4a7b02e404d14dc7d884cae98cac05bdfa4ce70"
+  },
+  "baseTree": "9a1b5aa3f32c4d657d3866c8c77245ea2d5fc3f1"
+}
