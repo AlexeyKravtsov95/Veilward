@@ -1,0 +1,422 @@
+{
+  "actualPlayMode": true,
+  "unity": "6000.3.28f1",
+  "graphics": "Metal",
+  "quality": "Mobile",
+  "pipelinePath": "Assets/Settings/Mobile_RPAsset.asset",
+  "pipelineSerialized": {
+    "MonoBehaviour": {
+      "m_Enabled": true,
+      "m_EditorHideFlags": 0,
+      "m_Name": "Mobile_RPAsset",
+      "m_EditorClassIdentifier": "",
+      "k_AssetVersion": 13,
+      "k_AssetPreviousVersion": 13,
+      "m_RendererType": 1,
+      "m_RendererData": {
+        "instanceID": 0
+      },
+      "m_RendererDataList": [
+        {
+          "fileID": 11400000,
+          "guid": "65bc7dbf4170f435aa868c779acfb082",
+          "type": 2
+        }
+      ],
+      "m_DefaultRendererIndex": 0,
+      "m_RequireDepthTexture": false,
+      "m_RequireOpaqueTexture": false,
+      "m_OpaqueDownsampling": 0,
+      "m_SupportsTerrainHoles": true,
+      "m_SupportsHDR": true,
+      "m_HDRColorBufferPrecision": 0,
+      "m_MSAA": 1,
+      "m_RenderScale": 0.800000011920929,
+      "m_UpscalingFilter": 0,
+      "m_FsrOverrideSharpness": false,
+      "m_FsrSharpness": 0.92000001668930054,
+      "m_EnableLODCrossFade": true,
+      "m_LODCrossFadeDitheringType": 1,
+      "m_ShEvalMode": 0,
+      "m_LightProbeSystem": 0,
+      "m_ProbeVolumeMemoryBudget": 1024,
+      "m_ProbeVolumeBlendingMemoryBudget": 256,
+      "m_SupportProbeVolumeGPUStreaming": false,
+      "m_SupportProbeVolumeDiskStreaming": false,
+      "m_SupportProbeVolumeScenarios": false,
+      "m_SupportProbeVolumeScenarioBlending": false,
+      "m_ProbeVolumeSHBands": 1,
+      "m_MainLightRenderingMode": 1,
+      "m_MainLightShadowsSupported": true,
+      "m_MainLightShadowmapResolution": 1024,
+      "m_AdditionalLightsRenderingMode": 1,
+      "m_AdditionalLightsPerObjectLimit": 4,
+      "m_AdditionalLightShadowsSupported": false,
+      "m_AdditionalLightsShadowmapResolution": 2048,
+      "m_AdditionalLightsShadowResolutionTierLow": 256,
+      "m_AdditionalLightsShadowResolutionTierMedium": 512,
+      "m_AdditionalLightsShadowResolutionTierHigh": 1024,
+      "m_ReflectionProbeBlending": true,
+      "m_ReflectionProbeBoxProjection": true,
+      "m_ReflectionProbeAtlas": true,
+      "m_ShadowDistance": 50.0,
+      "m_ShadowCascadeCount": 1,
+      "m_Cascade2Split": 0.25,
+      "m_Cascade3Split": {
+        "x": 0.10000000149011612,
+        "y": 0.30000001192092896
+      },
+      "m_Cascade4Split": {
+        "x": 0.067000001668930054,
+        "y": 0.20000000298023224,
+        "z": 0.46700000762939453
+      },
+      "m_CascadeBorder": 0.20000000298023224,
+      "m_ShadowDepthBias": 1.0,
+      "m_ShadowNormalBias": 1.0,
+      "m_AnyShadowsSupported": true,
+      "m_SoftShadowsSupported": false,
+      "m_ConservativeEnclosingSphere": true,
+      "m_NumIterationsEnclosingSphere": 64,
+      "m_SoftShadowQuality": 2,
+      "m_AdditionalLightsCookieResolution": 1024,
+      "m_AdditionalLightsCookieFormat": 1,
+      "m_UseSRPBatcher": true,
+      "m_SupportsDynamicBatching": false,
+      "m_MixedLightingSupported": true,
+      "m_SupportsLightCookies": true,
+      "m_SupportsLightLayers": true,
+      "m_DebugLevel": 0,
+      "m_StoreActionsOptimization": 0,
+      "m_UseAdaptivePerformance": true,
+      "m_ColorGradingMode": 0,
+      "m_ColorGradingLutSize": 32,
+      "m_AllowPostProcessAlphaOutput": false,
+      "m_UseFastSRGBLinearConversion": true,
+      "m_SupportDataDrivenLensFlare": true,
+      "m_SupportScreenSpaceLensFlare": true,
+      "m_GPUResidentDrawerMode": 0,
+      "m_SmallMeshScreenPercentage": 0.0,
+      "m_GPUResidentDrawerEnableOcclusionCullingInCameras": false,
+      "m_ShadowType": 1,
+      "m_LocalShadowsSupported": false,
+      "m_LocalShadowsAtlasResolution": 256,
+      "m_MaxPixelLights": 0,
+      "m_ShadowAtlasResolution": 256,
+      "m_VolumeFrameworkUpdateMode": 0,
+      "m_VolumeProfile": {
+        "fileID": 11400000,
+        "guid": "10fc4df2da32a41aaa32d77bc913491c",
+        "type": 2
+      },
+      "apvScenesData": {
+        "obsoleteSceneBounds": {
+          "m_Keys": [],
+          "m_Values": []
+        },
+        "obsoleteHasProbeVolumes": {
+          "m_Keys": [],
+          "m_Values": []
+        }
+      },
+      "m_PrefilteringModeMainLightShadows": 3,
+      "m_PrefilteringModeAdditionalLight": 4,
+      "m_PrefilteringModeAdditionalLightShadows": 0,
+      "m_PrefilterXRKeywords": true,
+      "m_PrefilteringModeForwardPlus": 1,
+      "m_PrefilteringModeDeferredRendering": 0,
+      "m_PrefilteringModeScreenSpaceOcclusion": 0,
+      "m_PrefilterDebugKeywords": true,
+      "m_PrefilterWriteRenderingLayers": true,
+      "m_PrefilterHDROutput": true,
+      "m_PrefilterAlphaOutput": false,
+      "m_PrefilterSSAODepthNormals": true,
+      "m_PrefilterSSAOSourceDepthLow": true,
+      "m_PrefilterSSAOSourceDepthMedium": false,
+      "m_PrefilterSSAOSourceDepthHigh": true,
+      "m_PrefilterSSAOInterleaved": false,
+      "m_PrefilterSSAOBlueNoise": true,
+      "m_PrefilterSSAOSampleCountLow": true,
+      "m_PrefilterSSAOSampleCountMedium": false,
+      "m_PrefilterSSAOSampleCountHigh": true,
+      "m_PrefilterDBufferMRT1": true,
+      "m_PrefilterDBufferMRT2": true,
+      "m_PrefilterDBufferMRT3": true,
+      "m_PrefilterSoftShadowsQualityLow": true,
+      "m_PrefilterSoftShadowsQualityMedium": true,
+      "m_PrefilterSoftShadowsQualityHigh": true,
+      "m_PrefilterSoftShadows": false,
+      "m_PrefilterScreenCoord": true,
+      "m_PrefilterScreenSpaceIrradiance": false,
+      "m_PrefilterNativeRenderPass": true,
+      "m_PrefilterUseLegacyLightmaps": false,
+      "m_PrefilterBicubicLightmapSampling": false,
+      "m_PrefilterReflectionProbeRotation": false,
+      "m_PrefilterReflectionProbeBlending": false,
+      "m_PrefilterReflectionProbeBoxProjection": false,
+      "m_PrefilterReflectionProbeAtlas": false,
+      "m_ShaderVariantLogLevel": 0,
+      "m_ShadowCascades": 0,
+      "m_Textures": {
+        "blueNoise64LTex": {
+          "fileID": 2800000,
+          "guid": "e3d24661c1e055f45a7560c033dbb837",
+          "type": 3
+        },
+        "bayerMatrixTex": {
+          "fileID": 2800000,
+          "guid": "f9ee4ed84c1d10c49aabb9b210b0fc44",
+          "type": 3
+        }
+      }
+    }
+  },
+  "frame": 119,
+  "tick": 3351,
+  "productionCamera": {
+    "position": "(8, 11, 8)",
+    "rotation": "(-0.143957868, 0.8560174, -0.347545058, -0.354574025)",
+    "orthographicSize": 8.5,
+    "aspect": 1.77777779
+  },
+  "renderers": 48,
+  "slots": 48,
+  "capacity": 12,
+  "materials": [
+    {
+      "path": "Assets/_Game/Art/Materials/ReactionEffect.mat",
+      "shader": "Universal Render Pipeline/Unlit",
+      "shaderPath": "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader",
+      "passes": 7,
+      "queue": 2000,
+      "color": "RGBA(1, 1, 1, 1)",
+      "instance": 49426
+    }
+  ],
+  "levels": [
+    {
+      "FireRate": 1.0,
+      "AttackIntervalTicks": 30,
+      "Damage": 12
+    },
+    {
+      "FireRate": 1.1,
+      "AttackIntervalTicks": 27,
+      "Damage": 16
+    },
+    {
+      "FireRate": 1.2,
+      "AttackIntervalTicks": 25,
+      "Damage": 22
+    }
+  ],
+  "actualActiveViews": 2,
+  "flameRenderers": 104,
+  "liveStatusOwners": 4,
+  "statusGraphics": 8,
+  "statusSlotsPerOwner": 2,
+  "statusMaterial": "UI/Default shared; no material instances",
+  "basicLevels": [
+    {
+      "type": "tide",
+      "levels": [
+        {
+          "FireRate": 0.8,
+          "AttackIntervalTicks": 38,
+          "Damage": 10
+        },
+        {
+          "FireRate": 0.9,
+          "AttackIntervalTicks": 33,
+          "Damage": 14
+        },
+        {
+          "FireRate": 1.0,
+          "AttackIntervalTicks": 30,
+          "Damage": 18
+        }
+      ]
+    },
+    {
+      "type": "gale",
+      "levels": [
+        {
+          "FireRate": 3.0,
+          "AttackIntervalTicks": 10,
+          "Damage": 6
+        },
+        {
+          "FireRate": 3.5,
+          "AttackIntervalTicks": 9,
+          "Damage": 8
+        },
+        {
+          "FireRate": 4.0,
+          "AttackIntervalTicks": 8,
+          "Damage": 10
+        }
+      ]
+    },
+    {
+      "type": "stone",
+      "levels": [
+        {
+          "FireRate": 0.5,
+          "AttackIntervalTicks": 60,
+          "Damage": 40
+        },
+        {
+          "FireRate": 0.55,
+          "AttackIntervalTicks": 55,
+          "Damage": 55
+        },
+        {
+          "FireRate": 0.6,
+          "AttackIntervalTicks": 50,
+          "Damage": 75
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberCore.mat": "5c30864335e7c45b8657587d0615d9654e3c434b327d1ecfa93eaee3350b4ff1",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberStroke.mat": "dbf69cfa175fdc6f8314c9b9f7f960e5303459532253b3673e4b1c58d11e62c5",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_Glow.mat": "b34d8d22c19e952ab8c1bb84541053b4315ba1b24465201557cff7dcfb58987f",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art1_Surface.mat": "5b55291d7e6aca5bda90574b56d6a8084ae61901d64d1c0ab70c65d5de594d34",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art21_ShadeOcclusion.mat": "34b660123266796a8e8a327ae2a41b99a3cf787099e084f422d478a706dec82d",
+    "Assets/_Game/Art/Materials/ART1/MAT_Art21_TowerMask.mat": "0de469ef41854ba8aab1c53ca76c4fac066dd406565c899c180afa021f8a2443",
+    "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthBackground.mat": "5c6b6f31626dece1f82d33708007203f7d22c9a03624989b2c03d92801a9695a",
+    "Assets/_Game/Art/Materials/ART3/MAT_OccludedHealthFill.mat": "cb661450814943b02a32731fb5c8368f306cdfb31e0917a9e31a56555f544387",
+    "Assets/_Game/Art/Materials/AttackBeam.mat": "c1b84083940598bd2e502a3f8d8ccb9e4d6cae262da451b41b1df9377dcba516",
+    "Assets/_Game/Art/Materials/GrayboxSelection.mat": "6107f7e1b6deb79ceb4489599637fdb16c5e01870013e0cc3a71d2c50b35ad65",
+    "Assets/_Game/Art/Materials/GrayboxShade.mat": "26263cc48bc3fd9487336a3852445a4f076309d3f3ef7bd23362a7a042ec6596",
+    "Assets/_Game/Art/Materials/GrayboxTower.mat": "71ced636160a68dca7cf26fd2338913b0d0620aeb891c4ea106d7cacba94f275",
+    "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat": "1b49d268ffb66f7e898a81d0a4a7b02e404d14dc7d884cae98cac05bdfa4ce70",
+    "Assets/_Game/Art/Materials/HealthBackground.mat": "5110677ea68472656d16750227b8951541f357b38cbe6748fae9491ded252cea",
+    "Assets/_Game/Art/Materials/HealthFill.mat": "d8eab10147f883570bc8c6aaa56e0615abf8e098f7da41f9f2110ea4d95a3e3f",
+    "Assets/_Game/Art/Materials/RangePreview.mat": "fe2754907be728f15f08d2d1f619745db38454f9ebe4b0d6e5c2621baac92b28",
+    "Assets/_Game/Art/Materials/ReactionEffect.mat": "c5726f7f7e26cef3ef94a623517383dda9285414805310b0dc81e106ff44cf52",
+    "Assets/_Game/Art/Models/ART1/Prop_MossRock.fbx": "5bf820cfd8cb91174af3f3658895a18f6a7d22272c90b3229605f7366933754d",
+    "Assets/_Game/Art/Models/ART1/Prop_RitualShrub.fbx": "7887b8b8f9ae6d0dcf7456dec4c22d18faac6f177fa0e1069a4592e64b3967d6",
+    "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL1.fbx": "03aaec340a6653fcf1343b0d195c5325f9f8484949423a06f2b284165445a1e2",
+    "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL2.fbx": "a381957a75f6020c2eb61d848088dc0de2a607d38decb0ab292d469775e17189",
+    "Assets/_Game/Art/Models/ART3/GALE/Tower_GaleTalismanL3.fbx": "41a7054669a827468f45313713fdb4d9625eaa386757eb0ede432f1adb1ded54",
+    "Assets/_Game/Art/Models/ART3/STEAM/Tower_SteamFoxL1.fbx": "7297474962246af9e694d370a64d043d71e643bd30408f04c36bc18a0429721c",
+    "Assets/_Game/Art/Models/ART3/STEAM/Tower_SteamFoxL2.fbx": "879d5cde7bb8507e7774f9c1eb65730b750ccb7289bf3f921126a912c76d35cf",
+    "Assets/_Game/Art/Models/ART3/STEAM/Tower_SteamFoxL3.fbx": "615fdfee56506c2deb4a4f33b7d86bbb6439e78990d8d41ea7ddc277175bf748",
+    "Assets/_Game/Art/Models/ART3/STONE/Tower_StoneSealL1.fbx": "513ba779be967ccc8bc5a2b2b9f503efd94d7a28361a02f6ec14ad0b44064cf5",
+    "Assets/_Game/Art/Models/ART3/STONE/Tower_StoneSealL2.fbx": "981758fd2f4f9167fa57502c8e625a626c218bc017f2541e14d650977d09df18",
+    "Assets/_Game/Art/Models/ART3/STONE/Tower_StoneSealL3.fbx": "e08bc4a1ed9a12ef7684dc0c636b56867713fab0c54a06c87d2b5e59bf44f756",
+    "Assets/_Game/Art/Models/ART3/STORM/Tower_StormCarpL1.fbx": "1f8cd4d14ef51e47b4d3959a3f8f96f05ddff07341abf66576cbe04f1b9472c0",
+    "Assets/_Game/Art/Models/ART3/STORM/Tower_StormCarpL2.fbx": "f0de8f75dee427910ed064f7ba88b0f9b5f3ee2f0d1a1462dbed54b1bd946d23",
+    "Assets/_Game/Art/Models/ART3/STORM/Tower_StormCarpL3.fbx": "bc8d08797c1721d799be4911f006b0d27ce1120adb1fe56c643ba74ce5b33bfa",
+    "Assets/_Game/Art/Models/ART3/TIDE/Tower_TideBellL1.fbx": "f52e98cc3f77c757a44e70befa0d2655e97bd778f6e818a508d18cdc73f91613",
+    "Assets/_Game/Art/Models/ART3/TIDE/Tower_TideBellL2.fbx": "11dd8e149b4b91a4628b677f09c065536ced024436bb4ccc8904fc736811f19b",
+    "Assets/_Game/Art/Models/ART3/TIDE/Tower_TideBellL3.fbx": "2f3ba8c2c1b89de1d7cb0332c68e0dbd007a2ab81fdbe845148bf2ebd151dab1",
+    "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL1.fbx": "5189489eabff2aa3713798c1cfeaf27477b88f7e1e0c728306473d864206119e",
+    "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL2.fbx": "302e2307e2d6f409b6dce610907952647d57c2dfe24c352063dcd65c308ebf63",
+    "Assets/_Game/Art/Models/ART3/Tower_FlameLanternL3.fbx": "93d0910b88455ee6c3c7c4cccd9a1c5ce4a14c8e40703ff752f60a6955ca5644",
+    "Assets/_Game/Art/Models/ART4/Environment_BuildSocket.fbx": "ecf3235d42c00ecaa3f47d107df954a4a69683d46f12f405cd653f064a1132f7",
+    "Assets/_Game/Art/Models/ART4/Environment_RimPine.fbx": "4f0e25186bce4f874ee9b5df1e526322639c21879fe1a9729021b5e7ba092bd6",
+    "Assets/_Game/Art/Models/ART4/Environment_SanctuaryIsland.fbx": "ebfbc04a3f6bcc0f85460ce32225852c9eebcff6d9edc2c2e70baa0ea590968a",
+    "Assets/_Game/Art/Models/ART4/Environment_SanctuaryPath.fbx": "2fd83f2fe9cd3974d2e4715cbd561b058031f68509f396be5a69b16faa288d3a",
+    "Assets/_Game/Art/Models/ART4/Environment_SealHeart.fbx": "a17a6da5213122426bb733977e1c44becfab69aec67b2bd19f39b6fcc9b9816f",
+    "Assets/_Game/Art/Models/ART4/Environment_SpawnGate.fbx": "a120d8c90296dab529cdb525c996141f42d613cd430e31aa44803502e0e91ff5",
+    "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx": "b8b82c2b2e05abaa5ab5e2caabb9b828772c9c0336c8f74a49b4d7fc4184a785",
+    "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx": "023f21a244d67dc7784e0a0bc2da89d3cbeda25f387ed204a6ea979a603fc6c0",
+    "Assets/_Game/Art/Shaders/FlameImpulse.shader": "6ad2a8f20980e422280bf9e5386626a32f7688dc94ea3caa38523a88c003b363",
+    "Assets/_Game/Art/Shaders/ShadeOcclusion.shader": "bbc6aafc654f6019a8a7d8d3338dd81592e5e4d667129694ec86b189d3463adc",
+    "Assets/_Game/Art/Shaders/TowerOcclusionMask.shader": "316cca7a1d483fde5ccaa98a5221fff0a326c2c409243286097edfd03ed7f0f1",
+    "Assets/_Game/Art/Textures/ART1/Art1Palette_BaseColor_128.png": "04a69863179f0778a6603cb62c419e05749f405fd727acee3ddf7f3f351652ab",
+    "Assets/_Game/Configs/EightWave.asset": "5f0c013d73dfa34a1ea2fcc0360baceb0ff36b4196b6e0ef9c700c665caf4182",
+    "Assets/_Game/Configs/EightWaveAbilityBoss.asset": "33cab710f01f2753090b82cd240298452db78c50336b98fe7ceafdfd25ee9c9e",
+    "Assets/_Game/Configs/EightWaveAbilityBossV2.asset": "d9e85098df18a3e5bc6b73da31a2a0845af351aabecec45882c9f97b0c6ac661",
+    "Assets/_Game/Configs/TestWave.asset": "4a1f02674410bc99b7862d5c9873ef6f5d60d56a43d88c0aeab5f4f5deffb6c3",
+    "Assets/_Game/Prefabs/ART1/P_Prop_MossRock.prefab": "b254fed15c8b299262c6554f2b774ee15d4de9d8493e5559ddc00ea354bbeef8",
+    "Assets/_Game/Prefabs/ART1/P_Prop_RitualShrub.prefab": "10cacf5c9168256579f636f6ece7ac0d7a9e59e87d49a4d6865da2fbb8210738",
+    "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL1.prefab": "c5d9987dd31f505e38ead8f42fe8da1853f2f638092edb29a75f1c1963b0fba4",
+    "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL2.prefab": "33a030bc0fce86fec2bf69da7f5cf1bc08340e77a8a288f2380faedb1ebe098c",
+    "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL3.prefab": "b9005f72b0fab22be1d7e5ac40b5c7d59992d192db093a6ed95b15bee1e9ed30",
+    "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL1.prefab": "ce5c89529585c5d680bae1796464a7bfb3e51ae5a2d70e5a76d22a42d1fcda51",
+    "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL2.prefab": "22ce271bd3e9e1c6e1b64240d0be3db6e7e779b310c4d566ba39b6d06863bfba",
+    "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL3.prefab": "8a2ba831a64b09a3ae41a43707a73563f619026d21bd690f016de3291965c155",
+    "Assets/_Game/Prefabs/ART3/STEAM/P_Tower_SteamFoxL1.prefab": "58498d4786693860854ba16438376f62a4d50408d92991dd594a49f9226b8589",
+    "Assets/_Game/Prefabs/ART3/STEAM/P_Tower_SteamFoxL2.prefab": "af96a343fa565148985127f5004dad631663460bc19162990d674e4f6ea9b28e",
+    "Assets/_Game/Prefabs/ART3/STEAM/P_Tower_SteamFoxL3.prefab": "b6b68b05e00a4698f35b3085c27f661b44fddac8c4d7cc8a518dd75fa7e139aa",
+    "Assets/_Game/Prefabs/ART3/STONE/P_Tower_StoneSealL1.prefab": "d07d4da3bf5279a81dd2ee2fee78f0ceaaa46d8775314f69479c90436fbb86c9",
+    "Assets/_Game/Prefabs/ART3/STONE/P_Tower_StoneSealL2.prefab": "e78e53934b77a67c8c5858681890fc7daca3db3737f74e0dcfe58eab8428eae0",
+    "Assets/_Game/Prefabs/ART3/STONE/P_Tower_StoneSealL3.prefab": "5b2b9990f3fb6511718937272473cd378b905b06ae2d31dcbf37333041376fd9",
+    "Assets/_Game/Prefabs/ART3/STORM/P_Tower_StormCarpL1.prefab": "1cc8ba1822c9dfaddd59a48391fc2c70904452138dcc457606a204b691446163",
+    "Assets/_Game/Prefabs/ART3/STORM/P_Tower_StormCarpL2.prefab": "5fcb2f09686a9299aadd7e74748da55a3c7d8a1b331e1b636ecf3b8c71b433a5",
+    "Assets/_Game/Prefabs/ART3/STORM/P_Tower_StormCarpL3.prefab": "59d438b48bee099687651c7592c36ff7a03e250a252e8023b466dc8d748c824c",
+    "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL1.prefab": "9381de1f64fb7a53aa8f83616c2ed3e65daa9db464cc04a744b6977082eac443",
+    "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL2.prefab": "3d06f1f5e374f7a09bd454831320954484f42bed7aade0ce50ac3ebb2af3f550",
+    "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL3.prefab": "68e8fb37e5e194c962647abccc6812b48596b4bb1fbff711abd857dd876de51c",
+    "Assets/_Game/Prefabs/ART4/P_Environment_BuildSocket.prefab": "2a7e5f792f47d390bcdcdbbd69cc08f4cb07495f91c6fe97ef0b58bd8984e381",
+    "Assets/_Game/Prefabs/ART4/P_Environment_RimPine.prefab": "ddafb306179e0b4b60f4e25fe03083497cf525eb25634e3b64779ad185ced3b6",
+    "Assets/_Game/Prefabs/ART4/P_Environment_SanctuaryIsland.prefab": "a8d080ce8d22007363df01e221e7ccfe45b64ef3f0c25a57bf2f5b920f39c474",
+    "Assets/_Game/Prefabs/ART4/P_Environment_SanctuaryPath.prefab": "c65b0d12f87963a8edbb740c2befaf0f13c0daeb62584abfaafb9c7043c105e8",
+    "Assets/_Game/Prefabs/ART4/P_Environment_SealHeart.prefab": "f73f4082db61ea9aaffb9b3a0c3b4913fc44d593bb2f0372df2379d54bc61792",
+    "Assets/_Game/Prefabs/ART4/P_Environment_SpawnGate.prefab": "2c28b4081b977926aec794e4f981b423861ac6e998ff874327cd8f20e027c193",
+    "Assets/_Game/Prefabs/ART5/P_Enemy_RiftWarden.prefab": "692c72e74c8a5f1fd9bf92b4f009b8dcd410ad783c18300b184d9ddc2ca4416d",
+    "Assets/_Game/Prefabs/Shade.prefab": "ecd52434531b78647dbf0a3e0ffb09a63666e5ca28450ff654091f17cda60359",
+    "Assets/_Game/Prefabs/TestTower.prefab": "3ee648e277d73d4f90f556a3d4b8a4dbf38223f3fd5c59e81eb99ac5e884a619",
+    "Assets/_Game/Scenes/Battle.unity": "8a931ab1a39379bad10b37079b284ff8d0efdfd518f8e03046ee447ddd40b424",
+    "Assets/_Game/Scripts/Presentation/AbilityController.cs": "a1c5d7ee411cb19acdb18f37e8487b00d752dea0fd4ffe043fd15995db87783e",
+    "Assets/_Game/Scripts/Presentation/AbilityPreviewView.cs": "7677ce913b0a341b4736d11783f49b60715193c4f1179cdc857e14aa5c92df2e",
+    "Assets/_Game/Scripts/Presentation/BattleCheckpointController.cs": "7a6c386fd6e1a67829f5e30c349115fecaa2544505d15645ad0a67a7352d6a91",
+    "Assets/_Game/Scripts/Presentation/BattleHudSafeArea.cs": "1049a0444dc388ffd9cde73b9e8de0cf1c1bfe71cd7ad16c9e8d111f013c762f",
+    "Assets/_Game/Scripts/Presentation/BattlePauseController.cs": "fe0a14a12fed0796a7718d1f59e8d69e97dc929a40f4c9cc9e5ed745355a2884",
+    "Assets/_Game/Scripts/Presentation/BattlePlacementController.cs": "d8d7c7607376db95b55bf2a97ad7ef19abedca1b6b85dccd8d51f24235719a8d",
+    "Assets/_Game/Scripts/Presentation/BattleScenarioConfig.cs": "c0bf4e2856129e5eee3db5495affa815c3ce948aa6596a2b4d3a09b8c3774847",
+    "Assets/_Game/Scripts/Presentation/BattleSceneController.cs": "20f195dc137d13b1b41fa9ec3f130d39fd29a3bb66abf0110f6e61b35427e2b7",
+    "Assets/_Game/Scripts/Presentation/BossHudController.cs": "1b8e85ff198a68f068d5b736562f9b077fe7ddf75667b64d242dd2adce46ebea",
+    "Assets/_Game/Scripts/Presentation/ElementChoiceController.cs": "faeaf8b828364882a98b0abae233f58d3f096a3f583b25cf19c4ccf878245e10",
+    "Assets/_Game/Scripts/Presentation/EnemyHealthBarView.cs": "5b918f2a8bbaaffe8958baa40300e25f6b084998d0ed75deb5f0aabe6902a75b",
+    "Assets/_Game/Scripts/Presentation/EnemyInspectorController.cs": "3bb10e41afb8cf85694c52ac94316fcfe3fa63eb2ba70dae4d60eaccef1eb991",
+    "Assets/_Game/Scripts/Presentation/EnemyModelView.cs": "18d385ad1163b7a01a32cca179da54ef5f21133aa91867fb13727d958e927e99",
+    "Assets/_Game/Scripts/Presentation/EnemyStatusView.cs": "1624cbeb5cb7cf04c0ed9a879925b5d8a921054c92525476d28d55a9c192876f",
+    "Assets/_Game/Scripts/Presentation/FlameModelBinding.cs": "fca4390c5baa6a7d9496729da03b0c31be3bdff1221a8af12306783592ae8697",
+    "Assets/_Game/Scripts/Presentation/StatusCueGraphic.cs": "a484d49a5a08366288eb0da05094397c8b740e4fb22d70f660a911fcfa5233cc",
+    "Packages/com.unity.inputsystem/InputSystem/Editor/AssetImporter/InputActionImporter.cs": "fe4cbe72c1154619c64e4846cea4a143c17784ddf4a48c09a4b2e24bb4ed1547",
+    "Packages/com.unity.inputsystem/InputSystem/Runtime/Actions/InputActionAsset.cs": "a868b366987c8ba954575e4aef34caad5be9cdfde89225b25de46e1fcc5d8ee1",
+    "Packages/com.unity.inputsystem/InputSystem/Runtime/Actions/InputActionReference.cs": "ee360ec873de33f3ed05ae32bc5c19b1163da10917971f171ceadf611e528538",
+    "Packages/com.unity.inputsystem/InputSystem/Runtime/Plugins/PlayerInput/DefaultInputActions.inputactions": "265c9048b31cd9ad9ab53ef0f789088b358731968296909245fe76f88b8803c6",
+    "Packages/com.unity.inputsystem/InputSystem/Runtime/Plugins/UI/InputSystemUIInputModule.cs": "f7e0beea803ff4fd17bda939d3b7ded5ce22abf946cc06968e74f6e464d01443",
+    "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs": "96ed27e15286cda1fdada6923e804887b6447a905b38360e0f5561f79cd0344c",
+    "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader": "6f4648b6b5271132cfed1d7d7c771ba0a73ef7972470d6694047804d259c0997",
+    "Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader": "37ef434d3bd626d59f2aa813fed56850eab15e3b759c2399212f2cc1a4d08964",
+    "Packages/com.unity.ugui/Runtime/UGUI/EventSystem/EventSystem.cs": "284a5e996bc0047dac6a2fc0314ab7d154add68767c583ea8004606087de1e8c",
+    "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Button.cs": "3ad850616d59ed6303135ba648a620a3730398ee9d398914612c581becf7c69c",
+    "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/GraphicRaycaster.cs": "d46836408d508bbb36b3a15a980252cfda49b2617aa48d11aae33e971af9cb64",
+    "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Image.cs": "dd355a38db1057add8c2fcd2234165a6834444ba619fa53a0f5a45ee1afe5198",
+    "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Layout/CanvasScaler.cs": "dc05385101ef3274634e888a684f838d62aabe7c4c1e057fff8882b2dc403e0e",
+    "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Layout/HorizontalLayoutGroup.cs": "c58ea59d2648e24d79bab8a1c3ed64521dc2007b3b3e7c050b4a22747467e4e0",
+    "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Text.cs": "f30f32c4234d541178f1c64fc084a0d4f259283688c3f85f3a36252d1926dfe5",
+    "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/VertexModifiers/Outline.cs": "8477bf808f908cab637f042811432887d3fdb9ef0f1821467b2d39b72a0567d6"
+  },
+  "enemies": [
+    {
+      "name": "Authored enemy orientation",
+      "Pose": "Hit",
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx"
+    },
+    {
+      "name": "Authored enemy orientation",
+      "Pose": "Move",
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx"
+    },
+    {
+      "name": "Authored enemy orientation",
+      "Pose": "Move",
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_Shade.fbx"
+    },
+    {
+      "name": "Authored enemy orientation",
+      "Pose": "Move",
+      "model": "Assets/_Game/Art/Models/ART5/Enemy_RiftWarden.fbx"
+    }
+  ],
+  "damageIsImmediate": true,
+  "visualSnapshotRing": false
+}

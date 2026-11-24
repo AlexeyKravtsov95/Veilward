@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "command": "recompile",
+  "data": {
+    "status": "completed",
+    "compiling": false,
+    "failed": false,
+    "compilationFailed": false,
+    "errors": [],
+    "warnings": [
+      {
+        "type": "compile-warning",
+        "raw": "Assets/_Game/Tests/EditMode/BossGreedySearchTests.cs(30,117): warning CS0219: The variable 'mask' is assigned but its value is never used",
+        "file": "Assets/_Game/Tests/EditMode/BossGreedySearchTests.cs",
+        "line": 30,
+        "column": 117,
+        "code": "CS0219",
+        "message": "The variable 'mask' is assigned but its value is never used"
+      }
+    ],
+    "summary": {
+      "errors": 0,
+      "warnings": 1
+    }
+  },
+  "errors": [],
+  "warnings": [
+    "Assets/_Game/Tests/EditMode/BossGreedySearchTests.cs(30,117): The variable 'mask' is assigned but its value is never used"
+  ]
+}

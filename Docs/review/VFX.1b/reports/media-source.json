@@ -1,0 +1,11 @@
+{
+  "testedSource": "923ed7c63b6a828b32954a489c2d2f49d01b8b5b",
+  "mediaSource": "923ed7c63b6a828b32954a489c2d2f49d01b8b5b",
+  "harnesses": {
+    "ArtSource/Review/RecordBasicVfx.cs": "d8599635f4bb3fe82e459b575360186ed5b48082f1dcd06f1d0c5b310b9899c8",
+    "ArtSource/Review/CaptureBasicCombat.cs": "d78e7f058281abec4b2b887645f962fdd4af53c0ef7b35f84674ea82bf81358d",
+    "ArtSource/Review/encode_basic_video.py": "95931e484b2bd857411212c3f4f45f3059e4e9ec0ce62863ea702337fb56ef79"
+  },
+  "sourceFrameClock": "Time.realtimeSinceStartupAsDouble; actual composited GameView; no forced frame rate in video",
+  "runtimeChangedSinceGates": false
+}

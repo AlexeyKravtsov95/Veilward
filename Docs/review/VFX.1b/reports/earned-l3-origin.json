@@ -1,0 +1,98 @@
+{
+    "schemaVersion": 4,
+    "scenarioContentId": "eight-wave-ability-boss-v2",
+    "state": {
+        "phase": 0,
+        "waveIndex": 7,
+        "tick": 3021,
+        "baseHealth": 16,
+        "gold": 11,
+        "kills": 52,
+        "nextEnemyId": 57,
+        "nextTowerId": 9,
+        "towers": [
+            {
+                "towerId": 1,
+                "towerTypeId": "flame",
+                "x": 2,
+                "y": 1,
+                "level": 1,
+                "investedGold": 70,
+                "nextAttackTick": 3039
+            },
+            {
+                "towerId": 3,
+                "towerTypeId": "flame",
+                "x": -2,
+                "y": 0,
+                "level": 1,
+                "investedGold": 70,
+                "nextAttackTick": 3024
+            },
+            {
+                "towerId": 5,
+                "towerTypeId": "tide",
+                "x": 2,
+                "y": -1,
+                "level": 1,
+                "investedGold": 60,
+                "nextAttackTick": 3046
+            },
+            {
+                "towerId": 6,
+                "towerTypeId": "gale",
+                "x": 1,
+                "y": 0,
+                "level": 1,
+                "investedGold": 80,
+                "nextAttackTick": 3025
+            },
+            {
+                "towerId": 7,
+                "towerTypeId": "steam",
+                "x": 2,
+                "y": 0,
+                "level": 1,
+                "investedGold": 110,
+                "nextAttackTick": 3054
+            },
+            {
+                "towerId": 8,
+                "towerTypeId": "storm",
+                "x": 1,
+                "y": -1,
+                "level": 1,
+                "investedGold": 110,
+                "nextAttackTick": 0
+            }
+        ],
+        "elementProgression": {
+            "rulesId": "wave-unlocks-v1",
+            "startResonanceId": "flame",
+            "unlockedElementIds": [
+                "flame",
+                "tide",
+                "gale"
+            ],
+            "choicesEarned": 2,
+            "choicesSpent": 2,
+            "spentChoices": [
+                {
+                    "choiceId": "after-wave-3",
+                    "elementId": "tide"
+                },
+                {
+                    "choiceId": "after-wave-6",
+                    "elementId": "gale"
+                }
+            ],
+            "pendingChoiceId": "none"
+        },
+        "ability": {
+            "rulesId": "rift-seal-v1",
+            "abilityId": "rift-seal",
+            "cooldownRemainingTicks": 169,
+            "nextCastSequence": 5
+        }
+    }
+}
