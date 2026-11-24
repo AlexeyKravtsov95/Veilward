@@ -110,6 +110,15 @@ namespace Veilward.Tests.PlayMode
             var placement = battle.GetComponent<BattlePlacementController>();
             Assert.That(placement.TrySelectCell(FirstCell), Is.True);
             placement.SelectTowerType(new TowerDefinitionId("flame"));
+            var tile = Find<Button>("Catalog flame");
+            var face = tile.GetComponentInChildren<Text>().rectTransform;
+            var initialFacePosition = face.anchoredPosition;
+            Assert.That(initialFacePosition.y, Is.EqualTo(-18), "A cloned inactive template preserves its authored inset.");
+            var pointer = new PointerEventData(EventSystem.current) { button = PointerEventData.InputButton.Left };
+            tile.OnPointerDown(pointer);
+            Assert.That(face.anchoredPosition, Is.EqualTo(initialFacePosition + Vector2.down * 2));
+            tile.OnPointerUp(pointer);
+            Assert.That(face.anchoredPosition, Is.EqualTo(initialFacePosition));
             Find<Button>("Confirm Button").onClick.Invoke();
             Assert.That(placement.TrySelectCell(FirstCell), Is.True);
             placement.enabled = false;
@@ -230,7 +239,8 @@ namespace Veilward.Tests.PlayMode
             });
             Directory.Delete(_store.TempPath);
             retry.onClick.Invoke();
-            Assert.That(File.ReadAllText(_store.PrimaryPath), Is.EqualTo(checkpoint));
+            var written = WaveCheckpointJson.Deserialize(File.ReadAllText(_store.PrimaryPath));
+            Assert.That(WaveCheckpointJson.Serialize(written), Is.EqualTo(checkpoint));
             Assert.That(battle.GetComponent<BattleCheckpointController>().LastSaveSucceeded, Is.True);
         }
 

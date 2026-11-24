@@ -8,17 +8,18 @@ namespace Veilward.Presentation
         [SerializeField] private RectTransform face;
         private Vector2 _restingPosition;
 
-        protected override void Awake()
-        {
-            base.Awake();
-            if (face != null) _restingPosition = face.anchoredPosition;
-        }
+        private bool _positionCaptured;
 
         protected override void DoStateTransition(SelectionState state, bool instant)
         {
             base.DoStateTransition(state, instant);
-            if (face != null)
-                face.anchoredPosition = _restingPosition + (state == SelectionState.Pressed ? Vector2.down * 2 : Vector2.zero);
+            if (!UnityEngine.Application.isPlaying || !isActiveAndEnabled || face == null) return;
+            if (!_positionCaptured)
+            {
+                _restingPosition = face.anchoredPosition;
+                _positionCaptured = true;
+            }
+            face.anchoredPosition = _restingPosition + (state == SelectionState.Pressed ? Vector2.down * 2 : Vector2.zero);
         }
     }
 }

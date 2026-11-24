@@ -347,7 +347,8 @@ public sealed class CaptureProductionUi : MonoBehaviour
         var battle = Battle;
         var production = battle.Simulation;
         var schedule = production.Waves[production.Waves.Count - 1].Schedule;
-        var shade = schedule.First(row => row.Enemy.Id.Value == "shade").Enemy;
+        // Тот же изолированный stress fixture, что в VFX.1d. Запас HP удерживает врагов в кадре.
+        var shade = new EnemyDefinition(new EnemyDefinitionId("shade"), 1000, 1.1f, 1, 0, 5);
         var boss = schedule.First(row => row.Enemy.Id.Value == BossHudController.BossId).Enemy;
         var wave = new WaveDefinition(new[] { new WaveSpawnGroup(shade, 8, 0, 23), new WaveSpawnGroup(boss, 1, 115, 1) });
         var staged = new BattleSimulation(production.Grid.Map, production.Path, new[] { wave }, production.TowerCatalog,
@@ -371,7 +372,7 @@ public sealed class CaptureProductionUi : MonoBehaviour
             target = staged.State.Enemies.FirstOrDefault(enemy =>
             {
                 var memory = battle.Presentation.GetMemory(enemy.Id);
-                return enemy.IsAlive && (memory?.Steam?.AppliedHpLoss > 0 || memory?.Storm?.AppliedHpLoss > 0);
+                return enemy.Health > 30 && (memory?.Steam?.AppliedHpLoss > 0 || memory?.Storm?.AppliedHpLoss > 0);
             });
             return target != null;
         }, 12);
