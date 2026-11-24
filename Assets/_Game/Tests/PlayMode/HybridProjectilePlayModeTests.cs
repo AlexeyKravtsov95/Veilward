@@ -43,6 +43,7 @@ namespace Veilward.Tests.PlayMode
             reference.RestoreCheckpoint(earned.state);
             var safe = AbilityBossTrace.Snapshot(reference);
 
+            yield return SceneManager.LoadSceneAsync("MainMenu");
             yield return OpenEarnedBattle();
             var battle = Object.FindFirstObjectByType<BattleSceneController>();
             Assert.That(AbilityBossTrace.Snapshot(battle.Simulation), Is.EqualTo(safe));
@@ -118,13 +119,22 @@ namespace Veilward.Tests.PlayMode
 
         private static IEnumerator OpenEarnedBattle()
         {
-            if (SceneManager.GetActiveScene().name != "MainMenu")
-                yield return SceneManager.LoadSceneAsync("MainMenu");
+            var deadline = Time.realtimeSinceStartup + 5;
+            while (SceneManager.GetActiveScene().name != "MainMenu" && Time.realtimeSinceStartup < deadline)
+                yield return null;
+            Assert.That(SceneManager.GetActiveScene().name, Is.EqualTo("MainMenu"));
             var menu = Object.FindFirstObjectByType<MainMenuController>();
             Assert.That(menu.ContinueButton.interactable, Is.True);
             menu.ContinueButton.onClick.Invoke();
-            yield return null;
-            yield return null;
+            deadline = Time.realtimeSinceStartup + 5;
+            BattleSceneController battle;
+            do
+            {
+                yield return null;
+                battle = Object.FindFirstObjectByType<BattleSceneController>();
+            } while ((battle == null || battle.Simulation == null) && Time.realtimeSinceStartup < deadline);
+            Assert.That(battle, Is.Not.Null);
+            Assert.That(battle.Simulation, Is.Not.Null);
         }
 
         private static object[] Geometry(BattleSceneController battle)

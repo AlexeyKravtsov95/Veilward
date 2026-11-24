@@ -86,8 +86,7 @@ public sealed class HybridEditorRecording : MonoBehaviour
             yield return SceneManager.LoadSceneAsync("MainMenu");
         yield return new WaitForSecondsRealtime(.55f);
         ContinueFromMenu();
-        yield return null;
-        yield return null;
+        yield return WaitForBattle();
         var battle = Battle;
         Require(AbilityBossTrace.Snapshot(battle.Simulation) == earnedState, "MainMenu loaded whole earned state.");
         _stage = "Preparation8 / earned Continue";
@@ -119,8 +118,7 @@ public sealed class HybridEditorRecording : MonoBehaviour
         _stage = "MainMenu / interrupted Combat8";
         yield return new WaitForSecondsRealtime(.55f);
         ContinueFromMenu();
-        yield return null;
-        yield return null;
+        yield return WaitForBattle();
         battle = Battle;
         Require(AbilityBossTrace.Snapshot(battle.Simulation) == earnedState && File.ReadAllBytes(_store.PrimaryPath).SequenceEqual(safe),
             "File Continue rolls back whole state and leaves save bytes unchanged.");
@@ -132,6 +130,14 @@ public sealed class HybridEditorRecording : MonoBehaviour
         _stage = "Continue / preparation and clean effects";
         yield return new WaitForSecondsRealtime(.75f);
         Finish(true, "");
+    }
+
+    private IEnumerator WaitForBattle()
+    {
+        var deadline = Time.realtimeSinceStartupAsDouble + 5;
+        while ((Battle == null || Battle.Simulation == null) && Time.realtimeSinceStartupAsDouble < deadline)
+            yield return null;
+        Require(Battle != null && Battle.Simulation != null, "Continue entered and initialized Battle.");
     }
 
     private static void ContinueFromMenu()

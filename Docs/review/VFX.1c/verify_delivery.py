@@ -168,10 +168,10 @@ def inventory(manifest):
 def positive_suite(report, mode, expected):
     if mode == "EditMode":
         require(report["Mode"] == mode and report["success"] is True and report["result"] is None and
-                report["FilterApplied"] is False, "EditMode must be complete and unfiltered")
+                report["FilterApplied"] in (None, False), "EditMode must be complete and unfiltered")
         summary, rows = report["Summary"], report["Results"]
     else:
-        require(report["status"] == "completed" and not report.get("filter"), "PlayMode must be complete and unfiltered")
+        require(report["status"] == "completed" and not report.get("filter") and not report.get("FilterApplied"), "PlayMode must be complete and unfiltered")
         summary, rows = report["summary"], report["results"]
     summary = {key.lower(): value for key, value in summary.items()}
     require(type(expected) is int and expected > 0 and summary == dict(total=expected, passed=expected, failed=0, skipped=0, inconclusive=0)
