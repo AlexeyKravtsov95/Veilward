@@ -112,7 +112,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(Vector3.Distance(_battle.FlameProjectiles.GetView(0).Source, new Vector3(-4, .89f, -1)), Is.LessThan(.0001f));
         }
 
-        [TestCase("tide")] [TestCase("gale")] [TestCase("stone")] [TestCase("steam")] [TestCase("storm")] [TestCase("test-tower")]
+        [TestCase("steam")] [TestCase("storm")] [TestCase("test-tower")]
         public void Vfx1A01_OtherDefinitionsKeepGenericBeam(string type)
         {
             var s = InstallFixture(type);

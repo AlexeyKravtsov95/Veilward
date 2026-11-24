@@ -1,5 +1,7 @@
 # VEILWARD — Technical Design / Architecture v0.1
 
+VFX.1b/#91: BasicProjectilePool захватывает authoritative AttackEvent/type/level/source до finally clear;12slots×4renderers, existing shared ReactionEffect material. TIDE drop/ripple, GALE rotating crescent, STONE tumbling shard; .20/.14/.24s flight, cosmetic impacts. EnemyStatusView сохраняет Describe/дваlabels/layout/inspector; два prebuilt StatusCueGraphic читают typed selected kinds и active presentation time, без дополнительного owner dictionary и per-refresh allocation. FLAME/gameplay/ART3–5 прежние. [Контракт/REG](VFX1B_BASIC_SHOTS_STATUS.md).
+
 VFX.1a / #90: FLAME consumption захватывает authoritative type/level/source и AttackEvent до finally clear; 8 prewarmed FlameStrikeView, oldest overflow без очереди, activeDelta/pause/reset от BattleSceneController. Полёт .2s — косметический, HP/Burn/Hit/Death/reward исходного tick без visual-delay ring. Прочие атаки прежние. [Контракт](VFX1A_FLAME_PROJECTILE.md).
 
 

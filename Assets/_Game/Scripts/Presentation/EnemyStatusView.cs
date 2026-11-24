@@ -7,18 +7,26 @@ namespace Veilward.Presentation
 {
     public readonly struct EnemyStatusSlots
     {
-        public EnemyStatusSlots(string first, string second, Color firstColor, Color secondColor)
-        { First = first; Second = second; FirstColor = firstColor; SecondColor = secondColor; }
+        public EnemyStatusSlots(string first, string second, Color firstColor, Color secondColor,
+            StatusKind? firstKind = null, StatusKind? secondKind = null)
+        { First = first; Second = second; FirstColor = firstColor; SecondColor = secondColor; FirstKind = firstKind; SecondKind = secondKind; }
         public string First { get; }
         public string Second { get; }
         public Color FirstColor { get; }
         public Color SecondColor { get; }
+        public StatusKind? FirstKind { get; }
+        public StatusKind? SecondKind { get; }
     }
 
     public sealed class EnemyStatusView : MonoBehaviour
     {
         [SerializeField] private Text firstSlot;
         [SerializeField] private Text secondSlot;
+        [SerializeField] private StatusCueGraphic firstCue;
+        [SerializeField] private StatusCueGraphic secondCue;
+        public const int CueCapacity = 2;
+        public StatusCueGraphic FirstCue => firstCue;
+        public StatusCueGraphic SecondCue => secondCue;
         private Vector3 _slotOrigin;
         private bool _hasOrigin;
         public static readonly Color SteamColor = new Color(1f, .77f, .35f);
@@ -30,10 +38,19 @@ namespace Veilward.Presentation
             var slots = Describe(enemy, tick, catalog, memory, activeTime);
             SetSlot(firstSlot, slots.First, slots.FirstColor);
             SetSlot(secondSlot, slots.Second, slots.SecondColor);
+            RefreshCue(firstCue, firstSlot, slots.FirstKind, activeTime, slots.FirstColor);
+            RefreshCue(secondCue, secondSlot, slots.SecondKind, activeTime, slots.SecondColor);
             var root = firstSlot.transform.parent;
             if (!_hasOrigin) { _slotOrigin = root.localPosition; _hasOrigin = true; }
             root.localPosition = _slotOrigin;
             if (camera != null) root.rotation = camera.transform.rotation;
+        }
+        private static void RefreshCue(StatusCueGraphic cue, Text slot, StatusKind? kind, double time, Color tint)
+        {
+            if (cue == null) return; // Старые serialized fixtures сохраняют labels без новой графики.
+            cue.Refresh(kind, time, tint);
+            if (kind.HasValue)
+                cue.rectTransform.anchoredPosition = new Vector2(-Mathf.Min(slot.rectTransform.rect.width, slot.preferredWidth) * .5f - StatusCueGraphic.Size * .6f, 0);
         }
         // Простой локальный layout двух уже существующих slots; новых badges нет.
         public void Layout(Camera camera, List<Rect> occupied)
@@ -55,20 +72,21 @@ namespace Veilward.Presentation
         }
         private Rect Bounds(Camera camera)
         {
-            var result = SlotBounds(firstSlot, camera);
-            if (!firstSlot.gameObject.activeSelf) return SlotBounds(secondSlot, camera);
+            var result = SlotBounds(firstSlot, firstCue, camera);
+            if (!firstSlot.gameObject.activeSelf) return SlotBounds(secondSlot, secondCue, camera);
             if (!secondSlot.gameObject.activeSelf) return result;
-            var other = SlotBounds(secondSlot, camera);
+            var other = SlotBounds(secondSlot, secondCue, camera);
             return Rect.MinMaxRect(Mathf.Min(result.xMin, other.xMin), Mathf.Min(result.yMin, other.yMin),
                 Mathf.Max(result.xMax, other.xMax), Mathf.Max(result.yMax, other.yMax));
         }
-        private static Rect SlotBounds(Text slot, Camera camera)
+        private static Rect SlotBounds(Text slot, StatusCueGraphic cue, Camera camera)
         {
             var center = (Vector2)camera.WorldToScreenPoint(slot.transform.position);
             var unit = ((Vector2)camera.WorldToScreenPoint(slot.transform.position + camera.transform.right) - center).magnitude;
             var width = Mathf.Min(slot.rectTransform.rect.width, slot.preferredWidth) * slot.transform.lossyScale.x * unit;
             var height = slot.preferredHeight * slot.transform.lossyScale.y * unit;
-            return new Rect(center.x - width * .5f - 2, center.y - height * .5f - 2, width + 4, height + 4);
+            var extra = cue != null && cue.enabled ? StatusCueGraphic.Size * 1.2f * slot.transform.lossyScale.x * unit : 0;
+            return new Rect(center.x - width * .5f - 2 - extra, center.y - height * .5f - 2, width + 4 + extra, height + 4);
         }
 
         private static void SetSlot(Text slot, string label, Color color)
@@ -94,7 +112,7 @@ namespace Veilward.Presentation
                 }
                 return new EnemyStatusSlots(cue.MarkerLabel,
                     remaining.HasValue ? Label(remaining.Value) : "", cue.Reaction.Kind == ReactionKind.Steam ? SteamColor : StormColor,
-                    remaining.HasValue ? ColorFor(remaining.Value) : Color.white);
+                    remaining.HasValue ? ColorFor(remaining.Value) : Color.white, null, remaining);
             }
             StatusKind? first = null, second = null;
             if (enemy.Burn != null && enemy.Wet != null && ReactionPresentationState.Cooldown(enemy, ReactionKind.Steam, tick, catalog) == 0)
@@ -106,7 +124,7 @@ namespace Veilward.Presentation
                     if (Get(enemy, (StatusKind)i) != null)
                     { if (!first.HasValue) first = (StatusKind)i; else { second = (StatusKind)i; break; } }
             return new EnemyStatusSlots(first.HasValue ? Label(first.Value) : "", second.HasValue ? Label(second.Value) : "",
-                first.HasValue ? ColorFor(first.Value) : Color.white, second.HasValue ? ColorFor(second.Value) : Color.white);
+                first.HasValue ? ColorFor(first.Value) : Color.white, second.HasValue ? ColorFor(second.Value) : Color.white, first, second);
         }
 
         private static StatusInstance Get(EnemyState e, StatusKind k)
