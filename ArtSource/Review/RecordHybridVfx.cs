@@ -143,8 +143,10 @@ public sealed class HybridEditorRecording : MonoBehaviour
     private static void ContinueFromMenu()
     {
         var menu = Object.FindFirstObjectByType<MainMenuController>();
-        Require(menu != null && menu.ContinueButton.interactable, "Earned file Continue available.");
-        menu.ContinueButton.onClick.Invoke();
+        Require(menu != null, "MainMenu ready for file Continue.");
+        menu.RefreshCheckpointStatus();
+        Require(menu.ContinueButton.interactable, "Earned file Continue available.");
+        menu.Continue();
     }
 
     private IEnumerator Record()

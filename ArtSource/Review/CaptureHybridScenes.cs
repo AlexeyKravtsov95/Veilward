@@ -50,8 +50,13 @@ public sealed class CaptureHybridScenes : MonoBehaviour
         _config = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>("Assets/_Game/Configs/EightWaveAbilityBossV2.asset");
         BattleSessionContext.Clear();
         yield return SceneManager.LoadSceneAsync("Battle");
-        yield return null;
-        _battle = Object.FindFirstObjectByType<BattleSceneController>();
+        var ready = Time.realtimeSinceStartup + 5;
+        do
+        {
+            yield return null;
+            _battle = Object.FindFirstObjectByType<BattleSceneController>();
+        } while ((_battle == null || _battle.Simulation == null) && Time.realtimeSinceStartup < ready);
+        Require(_battle != null && _battle.Simulation != null, "Battle loaded.");
         _battle.enabled = false;
         BuildLabel();
         var script = BossMissionScript.Load("flame");

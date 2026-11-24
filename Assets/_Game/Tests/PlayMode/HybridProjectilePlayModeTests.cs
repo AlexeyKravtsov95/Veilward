@@ -124,8 +124,10 @@ namespace Veilward.Tests.PlayMode
                 yield return null;
             Assert.That(SceneManager.GetActiveScene().name, Is.EqualTo("MainMenu"));
             var menu = Object.FindFirstObjectByType<MainMenuController>();
+            Assert.That(menu, Is.Not.Null);
+            menu.RefreshCheckpointStatus();
             Assert.That(menu.ContinueButton.interactable, Is.True);
-            menu.ContinueButton.onClick.Invoke();
+            menu.Continue();
             deadline = Time.realtimeSinceStartup + 5;
             BattleSceneController battle;
             do
