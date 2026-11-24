@@ -72,6 +72,8 @@ public sealed class HybridEditorRecording : MonoBehaviour
 
         MainMenuController.CheckpointStoreFactory = () => _store;
         BattleSessionContext.Clear();
+        var initialMenu = Object.FindFirstObjectByType<MainMenuController>();
+        if (initialMenu != null) initialMenu.ConfigureStore(_store);
         _stage = "MainMenu / earned Preparation8";
         _startTime = Time.realtimeSinceStartupAsDouble;
         _recording = true;
@@ -140,11 +142,11 @@ public sealed class HybridEditorRecording : MonoBehaviour
         Require(Battle != null && Battle.Simulation != null, "Continue entered and initialized Battle.");
     }
 
-    private static void ContinueFromMenu()
+    private void ContinueFromMenu()
     {
         var menu = Object.FindFirstObjectByType<MainMenuController>();
         Require(menu != null, "MainMenu ready for file Continue.");
-        menu.RefreshCheckpointStatus();
+        menu.ConfigureStore(_store);
         Require(menu.ContinueButton.interactable, "Earned file Continue available.");
         menu.Continue();
     }
