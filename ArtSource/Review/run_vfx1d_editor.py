@@ -59,9 +59,10 @@ def capture(entries):
                   'enabled=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), '
                   'interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null) };',
                   name="editor-settings-before")["result"]
+    game_view = None
     try:
         scene("Assets/_Game/Scenes/MainMenu.unity")
-        unity("script", "run", "--file", "ArtSource/Review/CaptureArt5.cs", "--entry", "CaptureArt5.ConfigureView", name="game-view")
+        game_view = unity("script", "run", "--file", "ArtSource/Review/CaptureArt5.cs", "--entry", "CaptureArt5.ConfigureView", name="game-view")["result"]
         unity("editor", "set_auto_tick", "--enabled", "true", "--interval-ms", "16")
         unity("editor.playmode", "set_run_in_background", "--enabled", "true")
         for entry in entries:
@@ -96,6 +97,11 @@ def capture(entries):
         unity("editor.playmode", "set_run_in_background", "--enabled", str(status["runInBackground"]).lower())
         unity("editor", "set_auto_tick", "--enabled", str(state["enabled"]).lower(),
               "--interval-ms", str(state["interval"]))
+        if game_view and game_view["index"] != game_view["previousIndex"]:
+            unity("script", "eval", "--code", 'var type=typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView"); '
+                  'var window=UnityEditor.EditorWindow.GetWindow(type); '
+                  'type.GetProperty("selectedSizeIndex",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|'
+                  f'System.Reflection.BindingFlags.NonPublic).SetValue(window,{game_view["previousIndex"]}); return true;')
         if state["active"]:
             scene(state["active"])
         unity("editor", "status", name="editor-after")

@@ -419,6 +419,7 @@ public sealed class RiftVfxRecording : MonoBehaviour
         var roots = battle.gameObject.scene.GetRootGameObjects();
         var transforms = roots.SelectMany(r => r.GetComponentsInChildren<Transform>(true)).ToArray();
         var renderers = roots.SelectMany(r => r.GetComponentsInChildren<Renderer>(true)).ToArray();
+        var canvasRenderers = roots.SelectMany(r => r.GetComponentsInChildren<CanvasRenderer>(true)).ToArray();
         var active = renderers.Where(r => r.enabled && r.gameObject.activeInHierarchy).ToArray();
         var lines = renderers.OfType<LineRenderer>().ToArray();
         var seal = battle.GetComponentsInChildren<AbilityEffectView>(true);
@@ -426,6 +427,7 @@ public sealed class RiftVfxRecording : MonoBehaviour
         var reactions = battle.GetComponentsInChildren<ReactionEffectView>(true);
         return new { objects = transforms.Length, activeObjects = transforms.Count(t => t.gameObject.activeInHierarchy),
             renderers = renderers.Length, activeRenderers = active.Length, lines = lines.Length,
+            canvasRenderers = canvasRenderers.Length, activeCanvasRenderers = canvasRenderers.Count(r => r.gameObject.activeInHierarchy),
             activeLines = active.OfType<LineRenderer>().Count(), materialSlots = renderers.Sum(r => r.sharedMaterials.Length),
             uniqueMaterials = renderers.SelectMany(r => r.sharedMaterials).Where(m => m != null).Distinct().Count(),
             activeMaterials = active.SelectMany(r => r.sharedMaterials).Where(m => m != null).Distinct().Count(),
