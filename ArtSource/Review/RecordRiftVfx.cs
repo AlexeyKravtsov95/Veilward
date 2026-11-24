@@ -254,6 +254,9 @@ public sealed class RiftVfxRecording : MonoBehaviour
                 var start = Time.realtimeSinceStartupAsDouble;
                 var startTick = battle.Simulation.State.Tick;
                 var dense = Counts(battle);
+                var position = battle.Simulation.Path.GetPosition(Warden(battle.Simulation).DistanceAlongPath);
+                var ability = battle.GetComponent<AbilityController>();
+                Require(ability.BeginPreview() && ability.SelectTarget(position) && ability.ConfirmPreview(), "Profile public cast.");
                 while (Time.realtimeSinceStartupAsDouble - start < 6)
                 {
                     yield return null;
@@ -320,8 +323,13 @@ public sealed class RiftVfxRecording : MonoBehaviour
                 shots, reactions, seal = battle == null ? null : Seal(battle),
                 cues = battle == null ? null : battle.GetComponentsInChildren<BossCueView>().Select(v => new {
                     kind = v.Kind.ToString(), enemy = v.EnemyId.Value, position = Point(v.Position), remaining = v.RemainingSeconds, lines = Lines(v.transform) }).ToArray(),
+                poses = battle == null ? null : battle.GetComponentsInChildren<EnemyModelView>()
+                    .Where(v => v.Model != null && v.Model.name.Contains("RiftWarden")).Select(v => new { v.Pose, v.IsTail }).ToArray(),
                 preview = preview == null ? null : Lines(preview.transform),
                 inspector = inspector?.SelectedEnemyId.HasValue == true ? inspector.Details : null,
+                enemyStatuses = sim?.State.Enemies.Where(e => e.Statuses.Count > 0).Select(e => new {
+                    id = e.Id.Value, e.Health, isBoss = e == warden,
+                    statuses = e.Statuses.Select(s => s.Kind.ToString()).ToArray() }).ToArray(),
                 slots = battle == null ? null : battle.GetComponentsInChildren<EnemyStatusView>().Select(v => new {
                     owner = v.name, first = v.FirstCue.Kind?.ToString(), second = v.SecondCue.Kind?.ToString(), slots = v.VisibleSlotCount }).ToArray() });
         }
@@ -372,6 +380,7 @@ public sealed class RiftVfxRecording : MonoBehaviour
         return (object)new { id = v.Cast.AbilityId.Value, tick = v.Cast.Tick, sequence = v.CastSequence, center = Point(v.Cast.Center),
             radius = v.Cast.Radius, v.Cast.HitCount, position = Point(v.CapturedPosition), index = v.HitIndex,
             enemy = hit?.TargetEnemyId.Value, loss = hit?.AppliedHpLoss, lethal = hit?.WasLethal, origin = hit?.Origin.ToString(),
+            damageTick = hit?.Tick, damageAbility = hit?.SourceAbilityId?.Value, damageCast = hit?.AbilityCastSequence,
             remaining = v.RemainingSeconds, lines = Lines(v.transform) };
     }).ToArray();
 
@@ -442,6 +451,9 @@ public sealed class RiftVfxRecording : MonoBehaviour
         var camera = Camera.main;
         Write(_output + "render-inputs.json", new { unity = Application.unityVersion, graphics = SystemInfo.graphicsDeviceType.ToString(),
             quality = QualitySettings.names[QualitySettings.GetQualityLevel()], pipeline, counts = Counts(battle),
+            lineMaterials = battle.GetComponentsInChildren<LineRenderer>(true).Select(l => l.sharedMaterial)
+                .Where(m => m != null).Distinct().Select(m => new { path = AssetDatabase.GetAssetPath(m),
+                    shader = AssetDatabase.GetAssetPath(m.shader), m.passCount, m.renderQueue }).ToArray(),
             camera = new { position = camera.transform.position.ToString("F6"), rotation = camera.transform.rotation.eulerAngles.ToString("F6"),
                 camera.orthographicSize, camera.aspect }, dependencies });
     }
