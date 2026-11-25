@@ -21,7 +21,8 @@ namespace Veilward.Tests.PlayMode
         private static readonly string[] Keys = { "Master", "Music", "SFX", "Mute" };
         private const string Prefix = AudioPreferences.Prefix;
         private bool[] _existed;
-        private AudioPreferences _previous;
+        private float[] _previousLevels;
+        private int _previousMute;
         private string _directory;
         private WaveCheckpointStore _store;
 
@@ -29,7 +30,8 @@ namespace Veilward.Tests.PlayMode
         public void SetUp()
         {
             _existed = Keys.Select(key => PlayerPrefs.HasKey(Prefix + key)).ToArray();
-            _previous = AudioPreferences.Load();
+            _previousLevels = Keys.Take(3).Select(key => PlayerPrefs.GetFloat(Prefix + key)).ToArray();
+            _previousMute = PlayerPrefs.GetInt(Prefix + "Mute");
             foreach (var key in Keys) PlayerPrefs.DeleteKey(Prefix + key);
             _directory = Path.GetFullPath(Path.Combine("TestResults", "Audio1Tests", Guid.NewGuid().ToString("N")));
             Directory.CreateDirectory(_directory);
@@ -44,9 +46,11 @@ namespace Veilward.Tests.PlayMode
             MainMenuController.CheckpointStoreFactory = null;
             BattleSessionContext.Clear();
             yield return SceneManager.LoadSceneAsync("Battle");
-            _previous.Save();
-            for (var i = 0; i < Keys.Length; i++)
-                if (!_existed[i]) PlayerPrefs.DeleteKey(Prefix + Keys[i]);
+            for (var i = 0; i < 3; i++)
+                if (_existed[i]) PlayerPrefs.SetFloat(Prefix + Keys[i], _previousLevels[i]);
+                else PlayerPrefs.DeleteKey(Prefix + Keys[i]);
+            if (_existed[3]) PlayerPrefs.SetInt(Prefix + "Mute", _previousMute);
+            else PlayerPrefs.DeleteKey(Prefix + "Mute");
             PlayerPrefs.Save();
             Directory.Delete(_directory, true);
         }
@@ -63,21 +67,34 @@ namespace Veilward.Tests.PlayMode
             Assert.That(menu.NewGameButton.IsInteractable(), Is.False);
             menu.NewGameButton.onClick.Invoke();
             Assert.That(SceneManager.GetActiveScene().name, Is.EqualTo("MainMenu"));
+            yield return null;
             Canvas.ForceUpdateCanvases();
+            var newGameArea = (RectTransform)menu.NewGameButton.transform;
             var hits = new System.Collections.Generic.List<RaycastResult>();
             EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current)
             {
-                position = RectTransformUtility.WorldToScreenPoint(null, menu.NewGameButton.transform.position)
+                position = RectTransformUtility.WorldToScreenPoint(null, newGameArea.TransformPoint(newGameArea.rect.center))
             }, hits);
-            Assert.That(hits[0].gameObject.transform.IsChildOf(Find<RectTransform>("Audio Settings Overlay")), Is.True);
+            var overlay = Find<RectTransform>("Audio Settings Overlay");
+            Assert.That(hits.Count, Is.GreaterThan(0));
+            Assert.That(hits[0].gameObject.transform == overlay || hits[0].gameObject.transform.IsChildOf(overlay),
+                Is.True, string.Join(", ", hits.Select(hit => hit.gameObject.name)));
+            Assert.That(hits.All(hit => hit.gameObject != menu.NewGameButton.gameObject), Is.True);
 
             Find<Slider>("Master Volume").value = .40f;
             Find<Slider>("Music Volume").value = .53f;
             Find<Slider>("SFX Volume").value = .67f;
+            var mixer = owner.MusicSource.outputAudioMixerGroup.audioMixer;
+            Assert.That(mixer.GetFloat(VeilwardAudio.MusicParameter, out var musicDb), Is.True);
+            Assert.That(musicDb, Is.EqualTo(AudioPreferences.ToDecibels(.53f)).Within(.001f));
             Button("Mute Button").onClick.Invoke();
             Assert.That(owner.GetComponents<AudioSource>().All(source => source.mute), Is.True);
+            Assert.That(mixer.GetFloat(VeilwardAudio.MasterParameter, out var mutedDb), Is.True);
+            Assert.That(mutedDb, Is.EqualTo(-80f));
             Button("Mute Button").onClick.Invoke();
             Assert.That(owner.GetComponents<AudioSource>().All(source => !source.mute), Is.True);
+            Assert.That(mixer.GetFloat(VeilwardAudio.MasterParameter, out var masterDb), Is.True);
+            Assert.That(masterDb, Is.EqualTo(AudioPreferences.ToDecibels(.4f)).Within(.001f));
 
             Button("Close Audio Button").onClick.Invoke();
             Assert.That(menu.NewGameButton.IsInteractable(), Is.True);
@@ -214,6 +231,37 @@ namespace Veilward.Tests.PlayMode
         }
 
         [UnityTest]
+        public IEnumerator Audio102_OrdinaryUpdateConsumesEveryStepInAFrame()
+        {
+            yield return Load("Battle");
+            var battle = Object.FindFirstObjectByType<BattleSceneController>();
+            var choice = battle.GetComponent<ElementChoiceController>();
+            Assert.That(choice.SelectOption("flame") && choice.ConfirmChoice().Success, Is.True);
+            Assert.That(battle.PlaceTower(new TowerDefinitionId("flame"), new GridCoordinate(-4, 0)).Success, Is.True);
+            var oldRate = Time.captureFramerate;
+            try
+            {
+                Time.captureFramerate = 5;
+                Assert.That(battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+                var simulation = battle.Simulation;
+                var maxSteps = 0L;
+                var heardAttack = false;
+                for (var frame = 0; frame < 60 && !heardAttack; frame++)
+                {
+                    var previousTick = simulation.State.Tick;
+                    yield return null;
+                    maxSteps = Math.Max(maxSteps, simulation.State.Tick - previousTick);
+                    heardAttack = Clips(Owner()).Any(clip => clip.StartsWith("FlameShot", StringComparison.Ordinal));
+                    Assert.That(simulation.AttackEvents, Is.Empty);
+                    Assert.That(simulation.DamageEvents, Is.Empty);
+                }
+                Assert.That(maxSteps, Is.InRange(2, 8));
+                Assert.That(heardAttack, Is.True);
+            }
+            finally { Time.captureFramerate = oldRate; }
+        }
+
+        [UnityTest]
         public IEnumerator Audio103_PauseAndBackgroundDiscardSourcesAndResumeOneMusicStream()
         {
             yield return Load("Battle");
@@ -238,6 +286,15 @@ namespace Veilward.Tests.PlayMode
             yield return null;
             Assert.That(audio.MusicSource.isPlaying, Is.True);
             Assert.That(Clips(audio), Is.Empty);
+            AssertMusic(audio, "BattleMusic");
+            audio.SendMessage("OnApplicationFocus", false);
+            pause.OnApplicationFocus(false);
+            Assert.That(audio.MusicSource.isPlaying, Is.False);
+            Assert.That(pause.Resume(), Is.False);
+            audio.SendMessage("OnApplicationFocus", true);
+            pause.OnApplicationFocus(true);
+            Assert.That(pause.Resume(), Is.True);
+            yield return null;
             AssertMusic(audio, "BattleMusic");
         }
 

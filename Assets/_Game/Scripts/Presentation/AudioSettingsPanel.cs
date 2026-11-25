@@ -32,6 +32,7 @@ namespace Veilward.Presentation
             Refresh();
             overlay.SetActive(true);
             underlyingActions.interactable = false;
+            underlyingActions.blocksRaycasts = false;
             Select(closeButton);
             audioOwner.Play(AudioCue.Select);
         }
@@ -41,6 +42,7 @@ namespace Veilward.Presentation
             if (!IsOpen) return;
             overlay.SetActive(false);
             underlyingActions.interactable = true;
+            underlyingActions.blocksRaycasts = true;
             Flush();
             if (openButton.isActiveAndEnabled) Select(openButton);
             audioOwner.Play(AudioCue.Cancel);

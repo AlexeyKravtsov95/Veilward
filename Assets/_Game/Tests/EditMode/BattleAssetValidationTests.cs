@@ -122,7 +122,11 @@ namespace Veilward.Tests.EditMode
             Assert.That(overlay.anchorMax, Is.EqualTo(Vector2.one));
             Assert.That(overlay.offsetMin, Is.EqualTo(Vector2.zero));
             Assert.That(overlay.offsetMax, Is.EqualTo(Vector2.zero));
-            Assert.That(overlay.GetSiblingIndex(), Is.EqualTo(overlay.parent.childCount - 1));
+            var audioOverlay = rects.Single(rect => rect.name == "Audio Settings Overlay");
+            Assert.That(audioOverlay.parent, Is.EqualTo(overlay.parent));
+            Assert.That(audioOverlay.GetSiblingIndex(), Is.EqualTo(overlay.parent.childCount - 1));
+            Assert.That(overlay.GetSiblingIndex(), Is.EqualTo(audioOverlay.GetSiblingIndex() - 1));
+            Assert.That(audioOverlay.gameObject.activeSelf, Is.False);
             Assert.That(overlay.gameObject.activeSelf, Is.False);
 
             var serialized = new SerializedObject(pause);
