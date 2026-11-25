@@ -37,6 +37,15 @@ namespace Veilward.Tests.EditMode
                     Assert.That(button.targetGraphic.raycastTarget, Is.True, button.name);
                     Assert.That(button.transform.GetComponentInParent<Canvas>(), Is.EqualTo(scaler.GetComponent<Canvas>()));
                 }
+                var sliders = scaler.GetComponentsInChildren<Slider>(true);
+                Assert.That(sliders.Length, Is.EqualTo(3));
+                foreach (var slider in sliders)
+                {
+                    var size = ((RectTransform)slider.transform).sizeDelta * scale / dpr;
+                    Assert.That(size.x, Is.GreaterThanOrEqualTo(44), slider.name);
+                    Assert.That(size.y, Is.GreaterThanOrEqualTo(44), slider.name);
+                    Assert.That(slider.targetGraphic.raycastTarget, Is.True, slider.name);
+                }
                 var apply = typeof(BattleHudSafeArea).GetMethod("ApplySafeArea",
                     System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
                 apply.Invoke(safe, new object[] { area, new Vector2(width, height), scale });

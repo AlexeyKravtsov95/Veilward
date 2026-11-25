@@ -359,3 +359,7 @@ EightWaveAbilityBoss использует shared TestWave и отдельный 
 ### ART.3e — пятое семейство в прежнем model binding
 
 `FlameModelBinding` сохраняет class/meta GUID, `levels/fallbackRenderers/tideLevels/galeLevels/stoneLevels` и добавляет optional `steamLevels`. Выбор пяти семейств идёт по authoritative definitionId+level, старый child синхронно inactive до deferred Destroy; fallback STORM/legacy/unknown/missing-level остаётся у одного owner. `SteamModelBuilder` wire-ит прежнюю цепочку builders без повторного авторинга четырёх принятых семейств. ShotSource — только future presentation anchor; Domain/Infrastructure/config/schema4/content/цены и intrinsic contracts неизменны. STEAM не получает Burn/Wet: пустой basic payload и intrinsic Steam/AoE из catalog. [Контракт, tests и evidence](ART3E_STEAM_LEVELS.md). Device Deferred53/54/55; приёмка/merge отдельно.
+
+### AUDIO.1 — звук как consumer представления
+
+Один `VeilwardAudio` на MainMenu и Battle управляет петлёй и 14 SFX sources. Mixer Master → Music/SFX применяет отдельные `Veilward.Audio.v1` preferences. `BattleAudioEvents` читает захваченные event streams в существующем consumer и использует задержку от VFX только для звука. Continue очищает старые слоты и курсоры, Pause очищает боевые слоты и останавливает продвижение петли. [Полный контракт](AUDIO1.md).

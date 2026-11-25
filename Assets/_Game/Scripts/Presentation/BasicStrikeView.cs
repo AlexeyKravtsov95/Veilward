@@ -16,7 +16,9 @@ namespace Veilward.Presentation
         public Vector3 Target { get; private set; }
         public Vector3 HeadPosition { get; private set; }
         public float Remaining { get; private set; }
-        public float FlightDuration => Kind == BasicShotKind.Tide ? .20f : Kind == BasicShotKind.Gale ? .14f : .24f;
+        public float FlightDuration => FlightSeconds(Kind);
+        internal static float FlightSeconds(BasicShotKind kind) => kind == BasicShotKind.Tide ? .20f :
+            kind == BasicShotKind.Gale ? .14f : .24f;
         public float Lifetime => FlightDuration + (Kind == BasicShotKind.Gale ? .14f : .16f);
         public bool IsFlying => Remaining > 0 && _age + .000001f < FlightDuration;
         public bool ImpactVisible => _parts[2].enabled;

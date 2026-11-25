@@ -22,6 +22,8 @@ namespace Veilward.Presentation
         [SerializeField] private Transform towerPrefab;
         [SerializeField] private UnityEngine.UI.Text hudText;
         [SerializeField] private Camera worldCamera;
+        [SerializeField] private VeilwardAudio audioOwner;
+        private BattleAudioEvents _audioEvents;
         [SerializeField] private Material attackBeamMaterial;
         [SerializeField] private Material reactionEffectMaterial;
         [SerializeField] private Material flameProjectileMaterial;
@@ -129,6 +131,8 @@ namespace Veilward.Presentation
                 !WaveCheckpointCompatibility.TryNormalize(session.Checkpoint, scenario.ScenarioContentId, out checkpoint, out var error))
                 throw new InvalidOperationException("Battle session checkpoint is incompatible.");
             _simulation = checkpoint == null ? scenario.CreateSessionSimulation(session?.ScenarioContentId ?? scenario.ScenarioContentId) : scenario.CreateSimulationForCheckpoint(checkpoint);
+            if (audioOwner != null)
+                _audioEvents = new BattleAudioEvents(audioOwner, worldCamera, _simulation.State.Phase);
             if (_flameProjectiles == null)
                 _flameProjectiles = new FlameProjectilePool(transform,
                     flameProjectileMaterial != null ? flameProjectileMaterial : attackBeamMaterial,
@@ -202,6 +206,7 @@ namespace Veilward.Presentation
                 }
             }
 
+            if (session != null) PlayUiAudio(AudioCue.Confirm);
             if (mainMenuButton != null) mainMenuButton.onClick.AddListener(ReturnToMenu);
             // Синхронный Cast может завершить волну в кадре без fixed Step.
             if (checkpointController != null) checkpointController.ObserveCommandCompletion();
@@ -212,8 +217,9 @@ namespace Veilward.Presentation
         private bool _leaving;
         public void ReturnToMenu()
         {
-            if (_leaving) return;
+            if (_leaving || (pauseController != null && pauseController.AudioSettingsOpen)) return;
             _leaving = true;
+            audioOwner?.ClearRun();
             UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
         }
 
@@ -241,6 +247,7 @@ namespace Veilward.Presentation
             }
 
             var result = _simulation.PlaceTower(new PlaceTowerCommand(definitionId, coordinate));
+            PlayUiAudio(result.Success ? AudioCue.Build : AudioCue.Reject);
             if (result.Success && checkpointController != null)
             {
                 checkpointController.SaveCurrentState();
@@ -264,6 +271,7 @@ namespace Veilward.Presentation
             }
 
             var result = _simulation.UpgradeTower(towerId);
+            PlayUiAudio(result.Success ? AudioCue.Upgrade : AudioCue.Reject);
             if (result.Success && checkpointController != null)
             {
                 checkpointController.SaveCurrentState();
@@ -287,6 +295,7 @@ namespace Veilward.Presentation
             }
 
             var result = _simulation.SellTower(towerId);
+            PlayUiAudio(result.Success ? AudioCue.Sell : AudioCue.Reject);
             if (result.Success)
             {
                 if (checkpointController != null)
@@ -305,6 +314,7 @@ namespace Veilward.Presentation
             if (_simulation == null) throw new InvalidOperationException("Battle simulation is not initialized.");
             if (!CanAcceptInput(BattleInputOwner.ElementChoice)) return new ElementChoiceResult(ElementChoiceFailureReason.InvalidPhase);
             var result = _simulation.ChooseElement(command);
+            PlayUiAudio(result.Success ? AudioCue.Unlock : AudioCue.Reject);
             if (result.Success && checkpointController != null) checkpointController.SaveCurrentState();
             return result;
         }
@@ -323,7 +333,11 @@ namespace Veilward.Presentation
             }
 
             var eligibility = _simulation.CheckStartWave();
-            if (eligibility != WaveTransitionResult.Started) return eligibility;
+            if (eligibility != WaveTransitionResult.Started)
+            {
+                PlayUiAudio(AudioCue.Reject);
+                return eligibility;
+            }
             if (!CanAcceptInput()) return WaveTransitionResult.RejectedInvalidPhase;
             if (checkpointController != null && !checkpointController.SaveForStartWave())
             {
@@ -348,12 +362,21 @@ namespace Veilward.Presentation
             }
 
             var eligibility = _simulation.CheckContinueToNextWave();
-            if (eligibility != WaveTransitionResult.Continued) return eligibility;
+            if (eligibility != WaveTransitionResult.Continued)
+            {
+                PlayUiAudio(AudioCue.Reject);
+                return eligibility;
+            }
             if (!CanAcceptInput()) return WaveTransitionResult.RejectedInvalidPhase;
             if (checkpointController != null && !checkpointController.SaveForNextWave())
                 return WaveTransitionResult.RejectedInvalidPhase;
 
             var result = _simulation.ContinueToNextWave();
+            if (result == WaveTransitionResult.Continued)
+            {
+                _audioEvents?.PhaseChanged(_simulation.State.Phase);
+                PlayUiAudio(AudioCue.Confirm);
+            }
             if (result == WaveTransitionResult.Continued && checkpointController != null)
             {
                 checkpointController.SaveCurrentState();
@@ -373,8 +396,12 @@ namespace Veilward.Presentation
                 try { ProcessAttackEvents(); }
                 finally { if (checkpointController != null) checkpointController.ObserveCommandCompletion(); }
             }
+            if (!result.Succeeded) PlayUiAudio(AudioCue.Reject);
             return result;
         }
+
+        internal void PlayUiAudio(AudioCue cue) => audioOwner?.Play(cue);
+        internal void SetAudioPaused(bool paused) => audioOwner?.SetPaused(paused);
 
         private void Update()
         {
@@ -463,11 +490,14 @@ namespace Veilward.Presentation
                 {
                     if (ai < abilities.Count && (ri == reactions.Count || abilities[ai].SequenceInTick < reactions[ri].SequenceInTick))
                     {
-                        PlayAbilityCast(abilities[ai++], damages);
+                        var cast = abilities[ai++];
+                        PlayAbilityCast(cast, damages);
+                        _audioEvents?.Cast(cast, damages);
                         continue;
                     }
                     var i = ri++;
                     Presentation.Consume(reactions[i], damages);
+                    _audioEvents?.Reaction(reactions[i], damages);
                     var effect = _reactionPool[_nextReactionEffect];
                     if (effect != null) effect.Play(reactions[i], damages);
                     _nextReactionEffect = (_nextReactionEffect + 1) % _reactionPool.Length;
@@ -496,9 +526,19 @@ namespace Veilward.Presentation
                             if (anchor != null && (anchor.position - GetCellCenter(attacker.Coordinate)).sqrMagnitude <= limit * limit)
                                 source = anchor.position;
                         }
-                        if (hybridKind != HybridShotKind.None) _hybridProjectiles?.Play(hybridKind, attack, attacker.Level, source);
-                        else if (basicKind != BasicShotKind.None) _basicProjectiles?.Play(basicKind, attack, attacker.Level, source);
+                        var flight = FlameStrikeView.FlightDuration;
+                        if (hybridKind != HybridShotKind.None)
+                        {
+                            _hybridProjectiles?.Play(hybridKind, attack, attacker.Level, source);
+                            flight = HybridStrikeView.FlightSeconds(hybridKind);
+                        }
+                        else if (basicKind != BasicShotKind.None)
+                        {
+                            _basicProjectiles?.Play(basicKind, attack, attacker.Level, source);
+                            flight = BasicStrikeView.FlightSeconds(basicKind);
+                        }
                         else _flameProjectiles?.Play(attack, attacker.Level, source);
+                        _audioEvents?.Attack(attack, damages, attacker.Definition.Id.Value, source, flight);
                         continue;
                     }
                     if (!TryGetTowerPosition(attack.AttackerTowerId, out var start))
@@ -516,6 +556,7 @@ namespace Veilward.Presentation
                         end,
                         this);
                 }
+                _audioEvents?.PhaseChanged(_simulation.State.Phase);
             }
             finally
             {
@@ -581,6 +622,7 @@ namespace Veilward.Presentation
 
         public void ResetPresentation()
         {
+            _audioEvents?.Reset(_simulation.State.Phase);
             _flameProjectiles?.Clear();
             _basicProjectiles?.Clear();
             _hybridProjectiles?.Clear();
@@ -781,6 +823,7 @@ namespace Veilward.Presentation
 
         private void PlayBossCue(BossCueKind kind, EnemyId enemyId, PathPosition position, Vector3 forward)
         {
+            _audioEvents?.Boss(kind, enemyId, position);
             BossCueView slot = null;
             foreach (var cue in _bossCues)
             {

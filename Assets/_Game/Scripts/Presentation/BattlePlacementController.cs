@@ -114,14 +114,14 @@ namespace Veilward.Presentation
             }
             catalogButtonTemplate.gameObject.SetActive(false);
             confirmButton.onClick.AddListener(ConfirmSelection);
-            cancelButton.onClick.AddListener(CancelSelection);
+            cancelButton.onClick.AddListener(HandleCancelSelection);
             startWaveButton.onClick.AddListener(StartWave);
             nextWaveButton.onClick.AddListener(ContinueToNextWave);
             upgradeButton.onClick.AddListener(HandleUpgradeClicked);
             sellButton.onClick.AddListener(RequestSellSelectedTower);
-            if (closeTowerButton != null) closeTowerButton.onClick.AddListener(CancelSelection);
+            if (closeTowerButton != null) closeTowerButton.onClick.AddListener(HandleCancelSelection);
             confirmSellButton.onClick.AddListener(HandleConfirmSellClicked);
-            cancelSellButton.onClick.AddListener(CancelSellConfirmation);
+            cancelSellButton.onClick.AddListener(HandleCancelSell);
             var cellSize = battle.Simulation.Grid.Map.CellSize;
             selectionHighlight.localScale = new Vector3(0.98f * cellSize, 0.04f, 0.98f * cellSize);
             towerPreview.localScale = Vector3.one * cellSize;
@@ -176,7 +176,7 @@ namespace Veilward.Presentation
 
             if (cancelButton != null)
             {
-                cancelButton.onClick.RemoveListener(CancelSelection);
+                cancelButton.onClick.RemoveListener(HandleCancelSelection);
             }
 
             if (startWaveButton != null)
@@ -199,7 +199,7 @@ namespace Veilward.Presentation
                 sellButton.onClick.RemoveListener(RequestSellSelectedTower);
             }
 
-            if (closeTowerButton != null) closeTowerButton.onClick.RemoveListener(CancelSelection);
+            if (closeTowerButton != null) closeTowerButton.onClick.RemoveListener(HandleCancelSelection);
             if (confirmSellButton != null)
             {
                 confirmSellButton.onClick.RemoveListener(HandleConfirmSellClicked);
@@ -207,7 +207,7 @@ namespace Veilward.Presentation
 
             if (cancelSellButton != null)
             {
-                cancelSellButton.onClick.RemoveListener(CancelSellConfirmation);
+                cancelSellButton.onClick.RemoveListener(HandleCancelSell);
             }
         }
 
@@ -283,6 +283,8 @@ namespace Veilward.Presentation
                 SelectedTowerTypeId = id;
                 _selectedDefinition = archetype.Levels[0];
                 var locked = MissingElements(archetype).Count > 0;
+                var canPlace = battle.Simulation.GetTowerAvailability(new PlaceTowerCommand(id, SelectedCell)).CanPlace;
+                battle.PlayUiAudio(canPlace ? AudioCue.Select : AudioCue.Reject);
                 ShowSelectionVisual(SelectedCell, _selectedDefinition.Range, isPlacement: true);
                 towerPreview.gameObject.SetActive(!locked);
                 rangePreview.gameObject.SetActive(!locked);
@@ -391,6 +393,7 @@ namespace Veilward.Presentation
                 $"Refund: {(long)tower.InvestedGold * 70 / 100} gold";
             _sellConfirmationTowerId = SelectedTowerId;
             _isSellConfirmationVisible = true;
+            battle.PlayUiAudio(AudioCue.Select);
             RefreshUi();
         }
 
@@ -416,6 +419,13 @@ namespace Veilward.Presentation
             return result;
         }
 
+        private void HandleCancelSell()
+        {
+            if (_isSellConfirmationVisible && battle.CanAcceptInput(BattleInputOwner.Sell))
+                battle.PlayUiAudio(AudioCue.Cancel);
+            CancelSellConfirmation();
+        }
+
         public void CancelSellConfirmation()
         {
             if (!battle.CanAcceptInput(BattleInputOwner.Sell)) return;
@@ -431,6 +441,13 @@ namespace Veilward.Presentation
             {
                 RefreshUi();
             }
+        }
+
+        private void HandleCancelSelection()
+        {
+            if (_hasSelection && battle.CanAcceptInput(BattleInputOwner.Placement))
+                battle.PlayUiAudio(AudioCue.Cancel);
+            CancelSelection();
         }
 
         public void CancelSelection()

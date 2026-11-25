@@ -65,10 +65,16 @@ namespace Veilward.Editor
             var status = Label("Status Text", actions, TopLeft, 0, -275, 216, 63, "", 15, Muted, TextAnchor.UpperLeft);
             var retry = Action("Retry Load Button", actions, "Retry", TopRight, 0, -275, 108, Raised);
             retry.gameObject.SetActive(false);
-            ApplySafeRoots(canvas, safe);
+            var opener = Action("Audio Button", safe, "Audio", Vector2.zero, 10, 10, 96, Raised);
+            var menuActions = safe.gameObject.AddComponent<CanvasGroup>();
+            var audioPanel = CreateAudioPanel(canvas, opener, menuActions, out var audioSafe);
+            ApplySafeRoots(canvas, safe, audioSafe);
             CreateEventSystem();
             var menu = new GameObject("Main Menu Controller").AddComponent<MainMenuController>();
-            Bind(menu, ("scenario", AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath)),
+            var audioOwner = AddAudioOwner(menu.gameObject, false);
+            Bind(audioPanel, ("audioOwner", audioOwner));
+            Bind(menu, ("audioOwner", audioOwner), ("audioSettings", audioPanel),
+                ("scenario", AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath)),
                 ("newGameButton", newGame), ("continueButton", continueButton), ("statusText", status), ("retryButton", retry));
 
             EditorSceneManager.MarkSceneDirty(scene);
@@ -195,10 +201,12 @@ namespace Veilward.Editor
             Icon("Pause Seal", pauseCard, Top, 0, -12, 34, VeilwardGlyph.Seal, Gilt);
             Label("Paused Label", pauseCard, Top, 0, -49, 320, 38, "Paused", 32, Gilt, TextAnchor.MiddleCenter, true);
             var pauseSave = Label("Pause Save Status", pauseCard, Top, 0, -91, 320, 33, "", 15, Stone, TextAnchor.MiddleCenter);
-            var resume = Action("Resume Button", pauseCard, "Resume", BottomRight, -12, 12, 153, Jade);
-            var menu = Action("Main Menu Button", pauseCard, "Main Menu", Vector2.zero, 12, 12, 153, Raised);
+            var resume = Action("Resume Button", pauseCard, "Resume", BottomRight, -12, 12, 104, Jade);
+            var menu = Action("Main Menu Button", pauseCard, "Main Menu", Vector2.zero, 12, 12, 104, Raised);
+            var opener = Action("Audio Button", pauseCard, "Audio", Bottom, 0, 12, 104, Raised);
+            var audioPanel = CreateAudioPanel(canvas, opener, pauseCard.gameObject.AddComponent<CanvasGroup>(), out var audioSafe);
 
-            ApplySafeRoots(canvas, safe, sellSafe, choiceSafe, resultSafe, warningSafe, pauseSafe);
+            ApplySafeRoots(canvas, safe, sellSafe, choiceSafe, resultSafe, warningSafe, pauseSafe, audioSafe);
             var playerHud = canvas.gameObject.AddComponent<BattlePlayerHud>();
             Bind(playerHud, ("heart", heart), ("gold", gold), ("wave", wave), ("phase", stage),
                 ("result", resultOverlay.gameObject), ("resultTitle", resultTitle), ("resultDetails", resultDetails),
@@ -208,7 +216,7 @@ namespace Veilward.Editor
 
             return new HudReferences
             {
-                PlayerHud = playerHud,
+                PlayerHud = playerHud, AudioSettings = audioPanel,
                 BossPanel = boss.gameObject, BossNotice = bossNotice, BossHealth = bossHealth, BossFill = bossFill,
                 AbilityBegin = abilityBegin, AbilityConfirm = abilityConfirm, AbilityCancel = abilityCancel,
                 AbilityPanel = ability.gameObject, AbilityStatus = abilityStatus, AbilityFeedback = feedback,

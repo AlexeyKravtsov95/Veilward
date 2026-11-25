@@ -143,3 +143,7 @@ Playtest comprehension: >=70% discover or execute first reaction following the t
 
 
 **P2.4f / #40 — revision3, Review до merge:** делегированный HP-проход выбрал600/5 в новом content v2; v1/1000/5 и все прежние evidence bytes сохранены. REG214 обоих стартов и полная winning trace/file/menu/Retry/Combat7–8 matrix зелёные. [Результаты, gates, timing-ограничения и независимое review](review/P2.4f/revision-3/validation.md). #40 остаётся open до фактического merge; human G2/device/ART/#52/#56/release отдельно. Без self-merge/release/TestFlight.
+
+### AUDIO.1 / #49 — миссия M0
+
+[Контракт музыки, игрового звука и настроек](AUDIO1.md). Editor acceptance включает реальные звуковые дорожки и независимое прослушивание. Нативный звук и iOS lifecycle входят в prerelease QA #53/#54/#55.

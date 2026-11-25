@@ -84,6 +84,7 @@ namespace Veilward.Presentation
                 return true;
             }
 
+            var previousSaveSucceeded = LastSaveSucceeded;
             BattleCheckpoint state;
             try
             {
@@ -92,6 +93,7 @@ namespace Veilward.Presentation
             catch (InvalidOperationException exception)
             {
                 LastSaveSucceeded = false;
+                if (previousSaveSucceeded && battle != null) battle.PlayUiAudio(AudioCue.SaveError);
                 SetStatus("Checkpoint save requires a stable battle phase.");
                 Debug.LogError(exception.Message);
                 return false;
@@ -104,6 +106,8 @@ namespace Veilward.Presentation
                 state = state
             };
             LastSaveSucceeded = _store.TrySave(envelope, _simulation.TryValidateCheckpoint, out var error, _simulationFactory);
+            if (previousSaveSucceeded != LastSaveSucceeded && battle != null)
+                battle.PlayUiAudio(LastSaveSucceeded ? AudioCue.SaveRecovered : AudioCue.SaveError);
             if (!LastSaveSucceeded)
             {
                 SetStatus("Save failed — live changes unsaved; exit may roll back. Retry Save.");
