@@ -96,11 +96,15 @@ def evidence(video, manifest):
     restored_level = rms(unmute + .26, unmute + .9)
     need(restored_level > .001 and muted_level < restored_level * .04, "No measurable mute / restore")
     need(max(data["activeVoices"].values()) <= 14, "Voice cap exceeded in game")
+    budget = data["budgetAtPeak"]
+    for stage in ("ordinary-wave-one", "synthetic-six-tower-density", "earned-wave-eight-continue"):
+        need(budget[stage] == dict(sources=15, registeredClips=50, loadedSfx=48, streamingReady=1, musicPlaying=True),
+             "Unexpected scene audio budget: " + stage)
     return dict(codec=audio["codec_name"], channels=audio["channels"], sampleRate=rate,
                 duration=float(audio["duration"]), videoCodec=picture["codec_name"], width=picture["width"],
                 height=picture["height"], videoSha256=digest(video), rawPeakDbfs=decibels(data["peak"]),
                 peakDbfs=decibels(peak), mutedRmsDbfs=decibels(muted_level), restoredRmsDbfs=decibels(restored_level),
-                marks=marks, activeVoices=data["activeVoices"])
+                marks=marks, activeVoices=data["activeVoices"], budgetAtPeak=budget)
 
 
 def negative_controls():

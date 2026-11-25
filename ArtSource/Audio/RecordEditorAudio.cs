@@ -26,9 +26,10 @@ public sealed class RecordEditorAudio : MonoBehaviour
     private const int Height = 444;
     private static readonly string[] Keys = { "Master", "Music", "SFX", "Mute" };
     private readonly List<object> _marks = new List<object>();
-    private readonly HashSet<string> _heard = new HashSet<string>();
+    private readonly HashSet<string> _observedClips = new HashSet<string>();
     private readonly HashSet<string> _loops = new HashSet<string>();
     private readonly Dictionary<string, int> _maximumVoices = new Dictionary<string, int>();
+    private readonly Dictionary<string, object> _budgetAtPeak = new Dictionary<string, object>();
     private readonly List<string> _errors = new List<string>();
     private BinaryWriter _audio;
     private MethodInfo _capture;
@@ -293,9 +294,23 @@ public sealed class RecordEditorAudio : MonoBehaviour
             _lastPosition = music.timeSamples;
             var voices = Owner.GetComponents<AudioSource>().Where(source => source != music && source.clip != null).ToArray();
             foreach (var source in voices)
-                if (source.isPlaying && !source.mute && _heard.Add(source.clip.name)) Mark(source.clip.name, false);
-            _maximumVoices.TryGetValue(_stage, out var previous);
-            _maximumVoices[_stage] = Math.Max(voices.Length, previous);
+                if (source.isPlaying && !source.mute && _observedClips.Add(source.clip.name)) Mark(source.clip.name, false);
+            if (!_maximumVoices.TryGetValue(_stage, out var previous) || voices.Length > previous)
+            {
+                _maximumVoices[_stage] = voices.Length;
+                var clips = Resources.FindObjectsOfTypeAll<AudioClip>().Where(clip =>
+                    AssetDatabase.GetAssetPath(clip).StartsWith("Assets/_Game/Audio/Clips/", StringComparison.Ordinal)).ToArray();
+                _budgetAtPeak[_stage] = new
+                {
+                    sources = Owner.GetComponents<AudioSource>().Length,
+                    registeredClips = clips.Length,
+                    loadedSfx = clips.Count(clip => clip.loadType == AudioClipLoadType.DecompressOnLoad &&
+                        clip.loadState == AudioDataLoadState.Loaded),
+                    streamingReady = clips.Count(clip => clip.loadType == AudioClipLoadType.Streaming &&
+                        clip.loadState == AudioDataLoadState.Loaded),
+                    musicPlaying = music.isPlaying
+                };
+            }
         }
     }
 
@@ -320,7 +335,8 @@ public sealed class RecordEditorAudio : MonoBehaviour
         File.WriteAllText(Root + "/manifest.json", JsonConvert.SerializeObject(new
         {
             frameRate = FrameRate, width = Width, height = Height, frames = _frames, sampleRate = AudioSettings.outputSampleRate,
-            samples = _samples, peak = _peak, marks = _marks, activeVoices = _maximumVoices, errors = _errors
+            samples = _samples, peak = _peak, marks = _marks, activeVoices = _maximumVoices,
+            budgetAtPeak = _budgetAtPeak, errors = _errors
         }, Formatting.Indented));
         Destroy(gameObject);
     }

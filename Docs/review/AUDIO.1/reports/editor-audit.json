@@ -611,7 +611,7 @@
     "videoCodec": "h264",
     "width": 960,
     "height": 444,
-    "videoSha256": "2ad85679475275dfbe7ddd5d440096732b92d175302674225596c5f7c14712c9",
+    "videoSha256": "fbf7ef8d012b95642fe7a3cee63eadb5c2b44f4a191c2d83e3d87f519a0578af",
     "rawPeakDbfs": -17.8,
     "peakDbfs": -17.73,
     "mutedRmsDbfs": null,
@@ -694,6 +694,113 @@
       "earned-victory": 7,
       "synthetic-boss-leak": 2,
       "synthetic-leak-defeat": 2
+    },
+    "budgetAtPeak": {
+      "menu-loop": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "main-menu-audio": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "menu-mute-on": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "menu-mute-off-restored": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "ordinary-command-flow": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "ordinary-wave-one": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "accepted-seal": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "pause-audio": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": false
+      },
+      "resume": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "file-continue": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "synthetic-six-tower-density": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "earned-wave-eight-continue": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "earned-victory": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "synthetic-boss-leak": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      },
+      "synthetic-leak-defeat": {
+        "sources": 15,
+        "registeredClips": 50,
+        "loadedSfx": 48,
+        "streamingReady": 1,
+        "musicPlaying": true
+      }
     }
   }
 }
