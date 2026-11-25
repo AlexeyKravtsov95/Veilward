@@ -16,15 +16,38 @@ namespace Veilward.Presentation
         private Transform _model;
         private int _level;
         private TowerDefinitionId _definitionId;
+        private InkFlameView[] _inkLevels;
+        private Camera _inkCamera;
+        private InkFlameView _ink;
 
         public Transform Model => _model;
         public int Level => _level;
-        public Transform ShotSource => _model != null ? _model.Find("ShotSource") : null;
+        public Transform ShotSource => _ink != null ? _ink.Muzzle : _model != null ? _model.Find("ShotSource") : null;
+
+        internal void ConfigureInk(InkFlameView[] inkLevels, Camera camera)
+        {
+            _inkLevels = inkLevels;
+            _inkCamera = camera;
+        }
+
+        internal void AdvanceInk(float activeDelta)
+        {
+            if (_ink != null) _ink.Advance(activeDelta);
+        }
+
+        internal void ReactToShot(Vector3 target)
+        {
+            if (_ink == null) return;
+            _ink.Aim(target);
+            _ink.Recoil();
+        }
 
         public bool Apply(TowerDefinitionId definitionId, int level)
         {
             var family = definitionId.Value == "flame" ? levels : definitionId.Value == "tide" ? tideLevels : definitionId.Value == "gale" ? galeLevels : definitionId.Value == "stone" ? stoneLevels : definitionId.Value == "steam" ? steamLevels : definitionId.Value == "storm" ? stormLevels : null;
-            var supported = family != null && level >= 1 && level <= family.Length && family[level - 1] != null;
+            var inkLevel = definitionId.Value == "flame" && _inkCamera != null &&
+                _inkLevels != null && level >= 1 && level <= _inkLevels.Length ? _inkLevels[level - 1] : null;
+            var supported = inkLevel != null || (family != null && level >= 1 && level <= family.Length && family[level - 1] != null);
             if (!supported)
             {
                 ClearModel();
@@ -33,7 +56,13 @@ namespace Veilward.Presentation
             }
             if (_model != null && _definitionId == definitionId && _level == level) return true;
             ClearModel();
-            _model = Instantiate(family[level - 1], transform, false);
+            if (inkLevel != null)
+            {
+                _ink = Instantiate(inkLevel, transform, false);
+                _ink.Face(_inkCamera);
+                _model = _ink.transform;
+            }
+            else _model = Instantiate(family[level - 1], transform, false);
             _model.name = definitionId.Value.ToUpperInvariant() + " L" + level;
             _definitionId = definitionId;
             _level = level;
@@ -58,6 +87,7 @@ namespace Veilward.Presentation
                 else DestroyImmediate(_model.gameObject);
             }
             _model = null;
+            _ink = null;
             _level = 0;
             _definitionId = default;
         }

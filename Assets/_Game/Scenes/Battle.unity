@@ -19502,6 +19502,12 @@ MonoBehaviour:
   scenario: {fileID: 11400000, guid: 51112ffff0ed421f84c8f7820a54ceba, type: 2}
   enemyPrefab: {fileID: 8610946186364702524, guid: 1b22335062b814d4ca031183c8751afe, type: 3}
   bossPrefab: {fileID: 9053073197084086546, guid: 8abc9f5138e5b4e0fb95769c09d95bd7, type: 3}
+  inkShadePrefab: {fileID: 3915384011102682441, guid: a3d1ff2d809254464ae8811c45496e38, type: 3}
+  inkWardenPrefab: {fileID: 7801235363827230634, guid: 9416bb3b132824fac8af3400006ca3f7, type: 3}
+  inkFlameLevels:
+  - {fileID: 2933182745748752052, guid: 3ebfe6ed499c0457a9a42d6453d98c31, type: 3}
+  - {fileID: 1240053747194469359, guid: a6bd4020e9b04418ca2f44924f450f98, type: 3}
+  - {fileID: 4244729147165909223, guid: 34a4a82738148435ab7a5016671787ed, type: 3}
   towerPrefab: {fileID: 6628681064324196385, guid: ce1e21b89ff564f58be023fcbb56e252, type: 3}
   hudText: {fileID: 1757146726}
   worldCamera: {fileID: 1849336368}

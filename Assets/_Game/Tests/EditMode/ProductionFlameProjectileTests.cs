@@ -66,8 +66,8 @@ namespace Veilward.Tests.EditMode
             Invoke(_battle, "SynchronizeViews");
             var binding = _battle.GetComponentsInChildren<FlameModelBinding>().Single();
             Assert.That(binding.Level, Is.EqualTo(level));
-            var source = binding.ShotSource.position;
             s.StartWave(); s.Step(); var attack = s.AttackEvents.Single(); Invoke(_battle, "ProcessAttackEvents");
+            var source = binding.ShotSource.position;
             var pool = _battle.FlameProjectiles; var view = pool.GetView(0);
             Assert.That(pool.GetLevel(0), Is.EqualTo(level));
             Assert.That(pool.GetEvent(0).AttackerTowerId, Is.EqualTo(s.State.Towers[0].Id));
