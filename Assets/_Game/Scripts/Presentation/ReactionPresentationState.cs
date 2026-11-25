@@ -15,8 +15,8 @@ namespace Veilward.Presentation
             ? (Reaction.Kind == ReactionKind.Steam ? "STEAM: встроенная" : "STORM: встроенная")
             : Reaction.Kind == ReactionKind.Steam ? "Пламя + Прилив → Пар" : "Прилив + Ветер → Шторм";
         public string MarkerLabel => Reaction.Kind == ReactionKind.Steam
-            ? (Reaction.TriggerKind == ReactionTriggerKind.Intrinsic ? "○ STEAM: встроенная" : "○ Пламя + Прилив → Пар")
-            : (Reaction.TriggerKind == ReactionTriggerKind.Intrinsic ? "ϟ STORM: встроенная" : "ϟ Прилив + Ветер → Шторм");
+            ? (Reaction.TriggerKind == ReactionTriggerKind.Intrinsic ? "Steam burst" : "Flame + Tide: Steam")
+            : (Reaction.TriggerKind == ReactionTriggerKind.Intrinsic ? "Storm chain" : "Tide + Gale: Storm");
         public string Summary => $"{(Reaction.Kind == ReactionKind.Steam ? "Пар" : "Шторм")}: {HitCount} целей, {AppliedHpLoss} HP";
     }
 

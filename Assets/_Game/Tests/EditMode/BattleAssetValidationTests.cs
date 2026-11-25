@@ -167,7 +167,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(canvas.GetComponent<UnityEngine.UI.GraphicRaycaster>(), Is.Not.Null);
             var scaler = canvas.GetComponent<UnityEngine.UI.CanvasScaler>();
             Assert.That(scaler, Is.Not.Null);
-            Assert.That(scaler.referenceResolution, Is.EqualTo(new Vector2(1920f, 1080f)));
+            Assert.That(scaler.referenceResolution, Is.EqualTo(new Vector2(740f, 400f)));
             Assert.That(BattleAssetValidator.ValidateSavedMainMenu(), Is.Empty);
         }
 
@@ -193,8 +193,7 @@ namespace Veilward.Tests.EditMode
             {
                 temporary = (UnityEngine.GameObject)UnityEngine.Object.Instantiate(stats.gameObject, measurementScene);
                 var copy = temporary.GetComponent<UnityEngine.UI.Text>();
-                copy.text = "STONE — Level: 3\nDamage: 75    Range: 3 units\nFireRate: 0.6/s\n" +
-                    "Status: Crack — Power: -4 armor\nDuration: 4 s    Armor pierce: 8\nUpgrade: MAX\nSell refund: 283 gold";
+                copy.text =  "STONE — Level: 3\nDamage: 75 · Range: 3 · Rate: 0.6/s\nCrack: -4 armor\nUpgrade: MAX · Sell refund: 283 gold";
 
                 Assert.That(
                     stats.rectTransform.rect.height,

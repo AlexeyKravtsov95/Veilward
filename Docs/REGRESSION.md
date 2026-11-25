@@ -387,3 +387,11 @@ P2.4f revision2: `AbilityBossTargetedSearchTests` — один opt-in ordered-hi
 - VFX1D-01–02: `AbilityPresentationTests` и `AbilityPlayModeTests` покрывают авторитетную границу и допустимость, Cancel/reject/repeat, event key, положительный HP loss, lethal координаты, clear и capacity.
 - VFX1D-03–04: `EnemyModelPlayModeTests` покрывает однократность boss spawn/threat, death/leak, ART5 tails и очистку владельцев. `AbilityPlayModeTests` проверяет freeze геометрии при Pause и первом Update после Resume.
 - VFX1D-05–06: [контракт](VFX1D_RIFT_SEAL_BOSS.md) и [Editor evidence](review/VFX.1d/README.md) фиксируют плотный бой, все семейства и статусы, realtime media, pools/profile и совпадение before/after replay.
+
+### UI.1 / #48 — интерфейс игрока
+
+- UI1-01: `ProductionUiPlayModeTests` проверяет ошибку чтения, Retry, повторный New Game, reload и Continue с неизменным durable snapshot.
+- UI1-02: `ProductionUiPlayModeTests`, REG-BATTLE-117–124 и REG-BATTLE-173–185 покрывают native element choice, причины lock/low gold/max level, повтор Upgrade и Sell Confirm/Cancel.
+- UI1-03: `ProductionUiPlayModeTests`, REG-BATTLE-178, REG-BATTLE-204–208 и boss suites проверяют фактический результат, Retry после ошибки записи, Rift Seal target/cancel/cast/lease и реакцию с фактическим HP loss.
+- UI1-04: `ProductionUiLayoutTests`, `ProductionUiPlayModeTests`, REG-BATTLE-054–066 и REG-BATTLE-120 проверяют размеры целей, safe area, touch routing, pause, overlay blockers и повтор команд.
+- UI1-05: [Спецификация и профили](UI1_PRODUCTION_UI.md).

@@ -86,7 +86,7 @@ namespace Veilward.Tests.PlayMode
                     var bossRect=((GameObject)typeof(BossHudController).GetField("panel",Flags).GetValue(Hud)).GetComponent<RectTransform>();
                     var stats=Object.FindObjectsByType<RectTransform>(FindObjectsSortMode.None).Single(r=>r.name=="Stats Panel");
                     var a=new Vector3[4];var b=new Vector3[4];bossRect.GetWorldCorners(a);stats.GetWorldCorners(b);
-                    Assert.That(a[0].x,Is.GreaterThan(b[2].x),"narrow/wide with injected44px insets: boss must not overlap Stats");
+                    Assert.That(a[1].y, Is.LessThan(b[0].y), "The boss strip fits below the stats with injected insets.");
                     yield return Shot("01b-injected-safe-area");
                     typeof(BattleHudSafeArea).GetMethod("ApplySafeArea",Flags).Invoke(safe,new object[]{Screen.safeArea,new Vector2(Screen.width,Screen.height),scale});
                     // Real disk MainMenu Continue, whole Preparation8; no DTO edits.

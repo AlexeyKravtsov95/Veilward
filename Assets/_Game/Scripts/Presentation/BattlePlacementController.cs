@@ -26,7 +26,7 @@ namespace Veilward.Presentation
         [SerializeField] private GameObject towerPanel;
         [SerializeField] private UnityEngine.UI.Text towerStatsText;
         [SerializeField] private UnityEngine.UI.Button upgradeButton;
-        [SerializeField] private UnityEngine.UI.Button sellButton;
+        [SerializeField] private UnityEngine.UI.Button sellButton, closeTowerButton;
         [SerializeField] private GameObject sellConfirmationPanel;
         [SerializeField] private UnityEngine.UI.Button confirmSellButton;
         [SerializeField] private UnityEngine.UI.Button cancelSellButton;
@@ -38,14 +38,6 @@ namespace Veilward.Presentation
 
         private readonly List<UnityEngine.UI.Button> _catalogButtons = new List<UnityEngine.UI.Button>();
         private readonly List<RaycastResult> _uiHits = new List<RaycastResult>();
-        private Canvas _canvas;
-        private RectTransform _placementPanelRect;
-        private RectTransform _towerPanelRect;
-        private Vector2 _placementPanelOrigin;
-        private Vector2 _towerPanelOrigin;
-        private Rect _lastSafeArea;
-        private Vector2 _lastScreenSize;
-        private float _lastCanvasScale;
         private ElementProgressionState _catalogProgression;
         private BattleSimulation _catalogSimulation;
         private int _catalogGold = -1;
@@ -53,6 +45,9 @@ namespace Veilward.Presentation
         private GridCoordinate _catalogCell;
         private TowerDefinition _selectedDefinition;
         private TowerDefinition _displayedTowerDefinition;
+        private (TowerDefinition definition, int gold, int refund, BattlePhase phase) _shownTowerActions;
+        private double _nextUpgradeTap;
+        private UnityEngine.UI.Text _upgradeLabel, _sellLabel;
         public TowerDefinitionId SelectedTowerTypeId { get; private set; }
         public IReadOnlyList<UnityEngine.UI.Button> CatalogButtons => _catalogButtons;
         public UnityEngine.UI.Text BuildStatsText => buildStatsText;
@@ -67,6 +62,8 @@ namespace Veilward.Presentation
         private bool _lastPointerPaused;
 
         public bool HasSelection => _hasSelection;
+        internal bool ShowsBuildDrawer => confirmationPanel != null && confirmationPanel.activeSelf;
+        internal bool BuildDrawerOnLeft => ((RectTransform)confirmationPanel.transform).anchorMin.x == 0;
         public GridCoordinate SelectedCell { get; private set; }
         public TowerId? SelectedTowerId { get; private set; }
         public UnityEngine.UI.Text TowerStatsText => towerStatsText;
@@ -76,6 +73,7 @@ namespace Veilward.Presentation
         private void OnEnable()
         {
             EnhancedTouchSupport.Enable();
+            SuppressPointerForCurrentFrame();
         }
 
         private void Start()
@@ -101,12 +99,8 @@ namespace Veilward.Presentation
             ValidateReference(catalogButtonTemplate, nameof(catalogButtonTemplate));
             ValidateReference(buildStatsText, nameof(buildStatsText));
             ValidateReference(sellConfirmationText, nameof(sellConfirmationText));
-            _canvas = confirmationPanel.GetComponentInParent<Canvas>();
-            _placementPanelRect = confirmationPanel.GetComponent<RectTransform>();
-            _towerPanelRect = towerPanel.GetComponent<RectTransform>();
-            _placementPanelOrigin = _placementPanelRect.anchoredPosition;
-            _towerPanelOrigin = _towerPanelRect.anchoredPosition;
-            RefreshSafeArea();
+            _upgradeLabel = upgradeButton.GetComponentInChildren<UnityEngine.UI.Text>(true);
+            _sellLabel = sellButton.GetComponentInChildren<UnityEngine.UI.Text>(true);
             foreach (var archetype in battle.Simulation.TowerCatalog.Archetypes)
             {
                 if (!archetype.ShowInCatalog) continue;
@@ -125,6 +119,7 @@ namespace Veilward.Presentation
             nextWaveButton.onClick.AddListener(ContinueToNextWave);
             upgradeButton.onClick.AddListener(HandleUpgradeClicked);
             sellButton.onClick.AddListener(RequestSellSelectedTower);
+            if (closeTowerButton != null) closeTowerButton.onClick.AddListener(CancelSelection);
             confirmSellButton.onClick.AddListener(HandleConfirmSellClicked);
             cancelSellButton.onClick.AddListener(CancelSellConfirmation);
             var cellSize = battle.Simulation.Grid.Map.CellSize;
@@ -145,7 +140,6 @@ namespace Veilward.Presentation
                 return;
             }
 
-            RefreshSafeArea();
             RefreshUi();
             if (_heldPointers.Count > 0 && (_lastPointerOwner != battle.ActiveModalOwner || _lastPointerPaused != battle.IsPaused))
                 SuppressPointerForCurrentFrame();
@@ -169,6 +163,8 @@ namespace Veilward.Presentation
         private void OnDisable()
         {
             EnhancedTouchSupport.Disable();
+            _heldPointers.Clear();
+            SuppressPointerForCurrentFrame();
         }
 
         private void OnDestroy()
@@ -203,6 +199,7 @@ namespace Veilward.Presentation
                 sellButton.onClick.RemoveListener(RequestSellSelectedTower);
             }
 
+            if (closeTowerButton != null) closeTowerButton.onClick.RemoveListener(CancelSelection);
             if (confirmSellButton != null)
             {
                 confirmSellButton.onClick.RemoveListener(HandleConfirmSellClicked);
@@ -216,7 +213,8 @@ namespace Veilward.Presentation
 
         private void HandleUpgradeClicked()
         {
-            UpgradeSelectedTower();
+            if (!upgradeButton.interactable || Time.unscaledTimeAsDouble < _nextUpgradeTap) return;
+            if (UpgradeSelectedTower().Success) _nextUpgradeTap = Time.unscaledTimeAsDouble + .30;
         }
 
         private void HandleConfirmSellClicked()
@@ -267,6 +265,7 @@ namespace Veilward.Presentation
             CancelSelection();
             SelectedCell = coordinate;
             _hasSelection = true;
+            DockBuildDrawer(coordinate);
             ShowSelectionVisual(coordinate, 0f, isPlacement: true);
             towerPreview.gameObject.SetActive(false);
             rangePreview.gameObject.SetActive(false);
@@ -283,16 +282,13 @@ namespace Veilward.Presentation
                 if (archetype.Id != id || !archetype.ShowInCatalog) continue;
                 SelectedTowerTypeId = id;
                 _selectedDefinition = archetype.Levels[0];
-                buildStatsText.text = $"{TowerDisplay.Name(id)} — {TowerDisplay.Role(_selectedDefinition)}\n" +
-                    $"Price: {_selectedDefinition.Price} gold\n" + TowerDisplay.Stats(_selectedDefinition, battle.Simulation.ReactionCatalog);
-                var availability = battle.Simulation.GetTowerAvailability(new PlaceTowerCommand(id, SelectedCell));
-                buildStatsText.text += "\n" + AvailabilityText(archetype, availability);
                 var locked = MissingElements(archetype).Count > 0;
                 ShowSelectionVisual(SelectedCell, _selectedDefinition.Range, isPlacement: true);
                 towerPreview.gameObject.SetActive(!locked);
                 rangePreview.gameObject.SetActive(!locked);
                 selectionHighlight.gameObject.SetActive(!locked);
                 if (!locked) TowerDisplay.ApplyVisual(towerPreview, _selectedDefinition, 1);
+                _catalogSimulation = null;
                 RefreshUi();
                 return;
             }
@@ -305,8 +301,18 @@ namespace Veilward.Presentation
             SelectedTowerId = tower.Id;
             _hasSelection = true;
             _hasTowerSelection = true;
+            _nextUpgradeTap = 0;
             ShowSelectionVisual(tower.Coordinate, tower.Definition.Range, isPlacement: false);
             RefreshUi();
+        }
+
+        private void DockBuildDrawer(GridCoordinate coordinate)
+        {
+            var side = worldCamera.WorldToViewportPoint(battle.GetCellCenter(coordinate)).x;
+            var drawer = (RectTransform)confirmationPanel.transform;
+            var anchor = side >= .5f ? Vector2.zero : Vector2.right;
+            drawer.anchorMin = drawer.anchorMax = drawer.pivot = anchor;
+            drawer.anchoredPosition = new Vector2(anchor.x == 0 ? 10 : -10, 10);
         }
 
         private void ShowSelectionVisual(GridCoordinate coordinate, float radius, bool isPlacement)
@@ -381,7 +387,7 @@ namespace Veilward.Presentation
 
             var tower = FindSelectedTower();
             if (tower == null) return;
-            sellConfirmationText.text = $"Sell {TowerDisplay.Name(tower.Definition.Id)} (#{tower.Id.Value})?\n" +
+            sellConfirmationText.text = $"Sell {TowerDisplay.ArchetypeName(tower.Definition.Id)}?\n" +
                 $"Refund: {(long)tower.InvestedGold * 70 / 100} gold";
             _sellConfirmationTowerId = SelectedTowerId;
             _isSellConfirmationVisible = true;
@@ -542,9 +548,28 @@ namespace Veilward.Presentation
                 button.interactable = !isPaused && isPreparing && !isSellConfirmationActive;
                 if (!refreshCatalog) continue;
                 var availability = battle.Simulation.GetTowerAvailability(new PlaceTowerCommand(archetype.Id, SelectedCell));
-                var label = $"{TowerDisplay.Name(archetype.Id)}\n{archetype.Levels[0].Price} gold\n" + AvailabilityText(archetype, availability);
+                var locked = MissingElements(archetype).Count > 0;
+                var availabilityLabel = locked ? "Locked" :
+                    availability.FailureReason == PlaceTowerFailureReason.InsufficientGold ? "Low gold" : string.Empty;
+                var selected = archetype.Id == SelectedTowerTypeId;
+                var status = selected ? "Selected" : availabilityLabel;
                 var text = button.GetComponentInChildren<UnityEngine.UI.Text>(true);
-                if (text.text != label) text.text = label;
+                text.text = TowerDisplay.Name(archetype.Id);
+                text.color = selected ? new Color32(231, 194, 121, 255) : new Color32(245, 233, 209, 255);
+                SetActionLabel(button.transform.Find("Catalog Price")?.GetComponent<UnityEngine.UI.Text>(), $"{archetype.Levels[0].Price} gold");
+                SetActionLabel(button.transform.Find("Catalog State")?.GetComponent<UnityEngine.UI.Text>(), status);
+                var glyph = button.GetComponentInChildren<VeilwardUiGlyph>(true);
+                if (glyph != null)
+                {
+                    glyph.Glyph = locked ? VeilwardGlyph.Lock : TowerDisplay.Glyph(archetype.Id);
+                    glyph.color = locked ? new Color32(203, 191, 175, 255) : TowerDisplay.ElementTint(archetype.Id);
+                }
+                if (selected)
+                {
+                    var requirement = AvailabilityText(archetype, availability);
+                    buildStatsText.text = $"Price: {_selectedDefinition.Price} gold\n{TowerDisplay.CoreStats(_selectedDefinition)}\n" +
+                        (requirement.Length == 0 ? TowerDisplay.Effect(_selectedDefinition) : requirement);
+                }
             }
             _catalogSimulation = battle.Simulation; _catalogGold = state.Gold; _catalogPhase = state.Phase;
             _catalogCell = SelectedCell; _catalogProgression = state.ElementProgression;
@@ -556,13 +581,13 @@ namespace Veilward.Presentation
                                           state.WaveIndex + 1 < state.WaveCount && !isSellConfirmationActive &&
                 battle.Simulation.CheckContinueToNextWave() == WaveTransitionResult.Continued;
             towerPanel.SetActive(tower != null);
-            upgradeButton.interactable = false;
             sellButton.interactable = !isPaused && isPreparing && tower != null && !isSellConfirmationActive;
             sellConfirmationPanel.SetActive(isSellConfirmationActive);
             confirmSellButton.interactable = isSellConfirmationActive;
             cancelSellButton.interactable = isSellConfirmationActive;
             if (tower == null)
             {
+                upgradeButton.interactable = false;
                 towerStatsText.text = string.Empty;
                 return;
             }
@@ -574,13 +599,29 @@ namespace Veilward.Presentation
             if (_displayedTowerDefinition != tower.Definition)
             {
                 _displayedTowerDefinition = tower.Definition;
-                towerStatsText.text = $"{TowerDisplay.Name(tower.Definition.Id)} — Level: {tower.Level}\n" +
-                    TowerDisplay.Stats(tower.Definition, battle.Simulation.ReactionCatalog) + "\n" +
+                var name = TowerDisplay.ArchetypeName(tower.Definition.Id);
+                var element = TowerDisplay.Name(tower.Definition.Id);
+                var title = name == element ? name : $"{name} · {element}";
+                towerStatsText.text = $"{title} · Level: {tower.Level}\n" +
+                    TowerDisplay.CoreStats(tower.Definition) + "\n" + TowerDisplay.Effect(tower.Definition) + "\n" +
                     (hasNextLevel ? $"Upgrade: {nextLevel.Price} gold" : "Upgrade: MAX") +
-                    $"\nSell refund: {refund} gold";
+                    $" · Sell refund: {refund} gold";
+            }
+            var actions = (tower.Definition, state.Gold, refund, state.Phase);
+            if (_shownTowerActions != actions)
+            {
+                _shownTowerActions = actions;
+                SetActionLabel(_upgradeLabel, !isPreparing ? "Build phase only" : !hasNextLevel ? "Max level" :
+                    state.Gold < nextLevel.Price ? $"Need {nextLevel.Price} gold" : $"Upgrade · {nextLevel.Price}");
+                SetActionLabel(_sellLabel, isPreparing ? $"Sell · +{refund}" : "Build phase only");
             }
             upgradeButton.interactable = !isPaused && isPreparing && !isSellConfirmationActive &&
                                          hasNextLevel && state.Gold >= nextLevel.Price;
+        }
+
+        private static void SetActionLabel(UnityEngine.UI.Text label, string value)
+        {
+            if (label != null && label.text != value) label.text = value;
         }
 
         private List<string> MissingElements(TowerArchetypeDefinition archetype)
@@ -600,10 +641,16 @@ namespace Veilward.Presentation
         {
             var missing = MissingElements(archetype);
             if (missing.Count > 0) return "Locked — Missing: " + string.Join(" + ", missing);
-            if (availability.FailureReason == PlaceTowerFailureReason.InsufficientGold) return "Недостаточно Gold";
-            if (availability.CanPlace) return "Доступна";
-            return availability.FailureReason == PlaceTowerFailureReason.PendingElementChoice
-                ? "Сначала выберите стихию" : availability.FailureReason.ToString();
+            return availability.FailureReason switch
+            {
+                PlaceTowerFailureReason.None => string.Empty,
+                PlaceTowerFailureReason.InsufficientGold => "Not enough gold",
+                PlaceTowerFailureReason.PendingElementChoice => "Choose an element first",
+                PlaceTowerFailureReason.InvalidPhase => "Build between waves",
+                PlaceTowerFailureReason.Blocked or PlaceTowerFailureReason.OutsideMap => "Choose a building tile",
+                PlaceTowerFailureReason.Occupied => "This tile is occupied",
+                _ => "This tower cannot be built here"
+            };
         }
 
         private TowerState FindSelectedTower()
@@ -623,27 +670,6 @@ namespace Veilward.Presentation
             }
 
             return null;
-        }
-
-        private void RefreshSafeArea()
-        {
-            var size = new Vector2(Screen.width, Screen.height);
-            var area = Screen.safeArea;
-            var scale = _canvas != null ? _canvas.scaleFactor : 1f;
-            if (area == _lastSafeArea && size == _lastScreenSize && scale == _lastCanvasScale) return;
-            ApplySafeArea(area, size, scale);
-            _lastSafeArea = area;
-            _lastScreenSize = size;
-            _lastCanvasScale = scale;
-        }
-
-        private void ApplySafeArea(Rect area, Vector2 screenSize, float canvasScale)
-        {
-            if (screenSize.x <= 0f || screenSize.y <= 0f || area.width <= 0f || area.height <= 0f || canvasScale <= 0f) return;
-            // Новые панели привязаны к правому нижнему углу; fullscreen Pause Overlay не сужаем.
-            var inset = new Vector2(-Mathf.Max(0f, screenSize.x - area.xMax), Mathf.Max(0f, area.yMin)) / canvasScale;
-            _placementPanelRect.anchoredPosition = _placementPanelOrigin + inset;
-            _towerPanelRect.anchoredPosition = _towerPanelOrigin + inset;
         }
 
         internal void DispatchPointer(Vector2 position, int pointerId, TouchPhase phase)

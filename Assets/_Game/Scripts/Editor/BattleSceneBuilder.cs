@@ -9,7 +9,7 @@ using Veilward.Presentation;
 
 namespace Veilward.Editor
 {
-    public static class BattleSceneBuilder
+    public static partial class BattleSceneBuilder
     {
         private const string BattleScenePath = "Assets/_Game/Scenes/Battle.unity";
         private const string MainMenuScenePath = "Assets/_Game/Scenes/MainMenu.unity";
@@ -107,7 +107,7 @@ namespace Veilward.Editor
             var selection = CreateSelection(selectionMaterial, cellSize);
             var preview = CreatePreview(towerPrefab, previewMaterial, cellSize);
             var rangePreview = CreateRangePreview(rangeMaterial);
-            var hud = CreateHud(config.CreateSimulation().TowerDefinition.Price);
+            var hud = CreateHud();
             CreateEventSystem();
             CreateController(
                 config,
@@ -125,7 +125,7 @@ namespace Veilward.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             ValidateRequiredReferences();
-            BuildMainMenu(config);
+            BuildMainMenu();
         }
 
         private static BattleScenarioConfig EnsureAbilityBossConfig(BattleScenarioConfig historical)
@@ -262,76 +262,6 @@ namespace Veilward.Editor
             property.stringValue = contentId;
             serialized.ApplyModifiedPropertiesWithoutUndo();
             EditorUtility.SetDirty(config);
-        }
-
-        private static void BuildMainMenu(BattleScenarioConfig config)
-        {
-            var scene = EditorSceneManager.OpenScene(MainMenuScenePath);
-            foreach (var root in scene.GetRootGameObjects())
-            {
-                Object.DestroyImmediate(root);
-            }
-
-            var cameraObject = new GameObject("Main Camera", typeof(Camera), typeof(AudioListener));
-            cameraObject.tag = "MainCamera";
-            cameraObject.transform.position = new Vector3(0f, 1f, -10f);
-            var camera = cameraObject.GetComponent<Camera>();
-            camera.clearFlags = CameraClearFlags.SolidColor;
-            camera.backgroundColor = new Color(0.04f, 0.05f, 0.08f);
-
-            var canvasObject = new GameObject(
-                "Main Menu Canvas",
-                typeof(Canvas),
-                typeof(UnityEngine.UI.CanvasScaler),
-                typeof(UnityEngine.UI.GraphicRaycaster));
-            var canvas = canvasObject.GetComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            var scaler = canvasObject.GetComponent<UnityEngine.UI.CanvasScaler>();
-            scaler.uiScaleMode = UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1920f, 1080f);
-            scaler.matchWidthOrHeight = 0.5f;
-
-            var background = CreateUiObject("Background", canvasObject.transform);
-            var backgroundImage = background.AddComponent<UnityEngine.UI.Image>();
-            backgroundImage.color = new Color(0.04f, 0.05f, 0.08f, 1f);
-            backgroundImage.raycastTarget = false;
-            backgroundImage.rectTransform.anchorMin = Vector2.zero;
-            backgroundImage.rectTransform.anchorMax = Vector2.one;
-            backgroundImage.rectTransform.offsetMin = Vector2.zero;
-            backgroundImage.rectTransform.offsetMax = Vector2.zero;
-
-            var title = CreateText("Title", canvasObject.transform, 64, TextAnchor.MiddleCenter);
-            title.text = "VEILWARD";
-            title.raycastTarget = false;
-            SetRect(title.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, 220f), new Vector2(900f, 100f));
-            var subtitle = CreateText("Subtitle", canvasObject.transform, 28, TextAnchor.MiddleCenter);
-            subtitle.text = "Spirit Defense";
-            subtitle.raycastTarget = false;
-            SetRect(subtitle.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, 140f), new Vector2(700f, 60f));
-
-            var newGame = CreateButton("New Game Button", canvasObject.transform, "New Game", Vector2.zero);
-            SetRect(newGame.GetComponent<RectTransform>(), new Vector2(0.5f, 0.5f), new Vector2(0f, 20f), new Vector2(360f, 72f));
-            var continueButton = CreateButton("Continue Button", canvasObject.transform, "Continue", Vector2.zero);
-            SetRect(continueButton.GetComponent<RectTransform>(), new Vector2(0.5f, 0.5f), new Vector2(0f, -80f), new Vector2(360f, 72f));
-            var status = CreateText("Status Text", canvasObject.transform, 24, TextAnchor.MiddleCenter);
-            status.raycastTarget = false;
-            SetRect(status.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, -220f), new Vector2(900f, 100f));
-
-            CreateEventSystem();
-            var controllerObject = new GameObject("Main Menu Controller", typeof(MainMenuController));
-            var menu = controllerObject.GetComponent<MainMenuController>();
-            var menuConfig = AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath);
-            var serialized = new SerializedObject(menu);
-            serialized.FindProperty("scenario").objectReferenceValue = menuConfig;
-            serialized.FindProperty("newGameButton").objectReferenceValue = newGame;
-            serialized.FindProperty("continueButton").objectReferenceValue = continueButton;
-            serialized.FindProperty("statusText").objectReferenceValue = status;
-            serialized.ApplyModifiedPropertiesWithoutUndo();
-
-            EditorSceneManager.MarkSceneDirty(scene);
-            EditorSceneManager.SaveScene(scene);
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
         }
 
         public static GameObject CreateGridGeometry(
@@ -674,319 +604,6 @@ namespace Veilward.Editor
             light.intensity = 1.2f;
         }
 
-        private static HudReferences CreateHud(int towerPrice)
-        {
-            var canvasObject = new GameObject(
-                "HUD",
-                typeof(Canvas),
-                typeof(UnityEngine.UI.CanvasScaler),
-                typeof(UnityEngine.UI.GraphicRaycaster));
-            var canvas = canvasObject.GetComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            var scaler = canvasObject.GetComponent<UnityEngine.UI.CanvasScaler>();
-            scaler.uiScaleMode = UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1920f, 1080f);
-            scaler.matchWidthOrHeight = 0.5f;
-
-            var panelObject = CreateUiObject("Stats Panel", canvasObject.transform);
-            var panel = panelObject.AddComponent<UnityEngine.UI.Image>();
-            panel.color = new Color(0.02f, 0.03f, 0.05f, 0.85f);
-            panel.raycastTarget = true;
-            SetRect(panel.rectTransform, new Vector2(0f, 1f), new Vector2(24f, -24f), new Vector2(440f, 280f));
-            var stats = CreateText("Stats", panelObject.transform, 24, TextAnchor.UpperLeft);
-            SetRect(stats.rectTransform, Vector2.zero, Vector2.zero, Vector2.zero);
-            stats.rectTransform.anchorMin = Vector2.zero;
-            stats.rectTransform.anchorMax = Vector2.one;
-            stats.rectTransform.offsetMin = new Vector2(16f, 10f);
-            stats.rectTransform.offsetMax = new Vector2(-16f, -10f);
-            stats.raycastTarget = false;
-
-            var confirmation = CreateUiObject("Placement Panel", canvasObject.transform);
-            var confirmationImage = confirmation.AddComponent<UnityEngine.UI.Image>();
-            confirmationImage.color = new Color(0.02f, 0.03f, 0.05f, 0.92f);
-            SetRect(
-                confirmationImage.rectTransform,
-                new Vector2(1f, 0f),
-                new Vector2(-24f, 24f),
-                new Vector2(1080f, 540f));
-            var catalog = CreateUiObject("Tower Catalog", confirmation.transform).GetComponent<RectTransform>();
-            SetRect(catalog, new Vector2(0.5f, 1f), new Vector2(0f, -20f), new Vector2(1040f, 140f));
-            var layout = catalog.gameObject.AddComponent<UnityEngine.UI.HorizontalLayoutGroup>();
-            layout.spacing = 12f;
-            layout.childControlWidth = true;
-            layout.childControlHeight = true;
-            layout.childForceExpandWidth = true;
-            layout.childForceExpandHeight = true;
-            var catalogTemplate = CreateButton("Catalog Button Template", catalog, "Type", Vector2.zero);
-            catalogTemplate.GetComponentInChildren<UnityEngine.UI.Text>().fontSize = 22;
-            catalogTemplate.gameObject.SetActive(false);
-            var buildStats = CreateText("Build Stats", confirmation.transform, 24, TextAnchor.UpperLeft);
-            buildStats.text = "Choose a tower type";
-            buildStats.raycastTarget = false;
-            SetRect(buildStats.rectTransform, new Vector2(0f, 1f), new Vector2(20f, -180f), new Vector2(1040f, 260f));
-            var confirm = CreateButton(
-                "Confirm Button",
-                confirmation.transform,
-                "Confirm",
-                new Vector2(-160f, -225f));
-            var cancel = CreateButton(
-                "Cancel Button",
-                confirmation.transform,
-                "Cancel",
-                new Vector2(160f, -225f));
-            confirmation.SetActive(false);
-
-            var towerPanel = CreateUiObject("Tower Panel", canvasObject.transform);
-            var towerPanelImage = towerPanel.AddComponent<UnityEngine.UI.Image>();
-            towerPanelImage.color = new Color(0.02f, 0.03f, 0.05f, 0.92f);
-            SetRect(
-                towerPanelImage.rectTransform,
-                new Vector2(1f, 0f),
-                new Vector2(-24f, 24f),
-                new Vector2(720f, 350f));
-            var towerStats = CreateText("Tower Stats", towerPanel.transform, 22, TextAnchor.UpperLeft);
-            towerStats.raycastTarget = false;
-            towerStats.rectTransform.anchorMin = Vector2.zero;
-            towerStats.rectTransform.anchorMax = Vector2.one;
-            towerStats.rectTransform.offsetMin = new Vector2(20f, 90f);
-            towerStats.rectTransform.offsetMax = new Vector2(-20f, -20f);
-            var upgrade = CreateButton(
-                "Upgrade Button",
-                towerPanel.transform,
-                "Upgrade",
-                new Vector2(-160f, -125f));
-            var sell = CreateButton(
-                "Sell Button",
-                towerPanel.transform,
-                "Sell",
-                new Vector2(160f, -125f));
-            towerPanel.SetActive(false);
-
-            var sellConfirmation = CreateUiObject("Sell Confirmation Panel", canvasObject.transform);
-            var sellConfirmationImage = sellConfirmation.AddComponent<UnityEngine.UI.Image>();
-            sellConfirmationImage.color = new Color(0.02f, 0.03f, 0.05f, 0.96f);
-            SetRect(
-                sellConfirmationImage.rectTransform,
-                new Vector2(0.5f, 0.5f),
-                Vector2.zero,
-                new Vector2(600f, 190f));
-            var sellLabel = CreateText(
-                "Sell Confirmation Label",
-                sellConfirmation.transform,
-                24,
-                TextAnchor.MiddleCenter);
-            sellLabel.text = "Sell this tower?";
-            sellLabel.raycastTarget = false;
-            SetRect(
-                sellLabel.rectTransform,
-                new Vector2(0.5f, 1f),
-                new Vector2(0f, -16f),
-                new Vector2(560f, 60f));
-            var confirmSell = CreateButton(
-                "Confirm Sell Button",
-                sellConfirmation.transform,
-                "Confirm Sell",
-                new Vector2(-140f, -42f));
-            var cancelSell = CreateButton(
-                "Cancel Sell Button",
-                sellConfirmation.transform,
-                "Cancel",
-                new Vector2(140f, -42f));
-            sellConfirmation.SetActive(false);
-
-            var startWave = CreateButton("Start Wave Button", canvasObject.transform, "Start Wave", Vector2.zero);
-            SetRect(
-                startWave.GetComponent<RectTransform>(),
-                new Vector2(1f, 1f),
-                new Vector2(-24f, -24f),
-                new Vector2(230f, 68f));
-            var nextWave = CreateButton("Next Wave Button", canvasObject.transform, "Next Wave", Vector2.zero);
-            SetRect(
-                nextWave.GetComponent<RectTransform>(),
-                new Vector2(1f, 1f),
-                new Vector2(-24f, -100f),
-                new Vector2(230f, 68f));
-            var pause = CreateButton("Pause Button", canvasObject.transform, "Pause", Vector2.zero);
-            SetRect(
-                pause.GetComponent<RectTransform>(),
-                new Vector2(1f, 1f),
-                new Vector2(-24f, -176f),
-                new Vector2(230f, 68f));
-
-            var pauseOverlay = CreateUiObject("Pause Overlay", canvasObject.transform);
-            var overlayImage = pauseOverlay.AddComponent<UnityEngine.UI.Image>();
-            overlayImage.color = new Color(0.02f, 0.03f, 0.05f, 0.88f);
-            overlayImage.raycastTarget = true;
-            var overlayRect = overlayImage.rectTransform;
-            overlayRect.anchorMin = Vector2.zero;
-            overlayRect.anchorMax = Vector2.one;
-            overlayRect.offsetMin = Vector2.zero;
-            overlayRect.offsetMax = Vector2.zero;
-            var pausedLabel = CreateText("Paused Label", pauseOverlay.transform, 42, TextAnchor.MiddleCenter);
-            pausedLabel.text = "Paused";
-            pausedLabel.raycastTarget = false;
-            SetRect(
-                pausedLabel.rectTransform,
-                new Vector2(0.5f, 0.5f),
-                new Vector2(0f, 70f),
-                new Vector2(400f, 70f));
-            var resume = CreateButton("Resume Button", pauseOverlay.transform, "Resume", new Vector2(0f, -30f));
-            pauseOverlay.SetActive(false);
-
-            var inspectorPanel = CreateUiObject("Enemy Inspector Panel", canvasObject.transform);
-            inspectorPanel.AddComponent<UnityEngine.UI.Image>().color = new Color(.02f, .03f, .05f, .94f);
-            SetRect(inspectorPanel.GetComponent<RectTransform>(), new Vector2(1, 0), new Vector2(-24, 24), new Vector2(720, 390));
-            var inspectorText = CreateText("Enemy Inspector Details", inspectorPanel.transform, 22, TextAnchor.UpperLeft);
-            inspectorText.raycastTarget = false;
-            SetRect(inspectorText.rectTransform, new Vector2(0, 1), new Vector2(20, -16), new Vector2(680, 300));
-            var closeInspector = CreateButton("Close Inspector Button", inspectorPanel.transform, "Закрыть", new Vector2(0, -155));
-            inspectorPanel.SetActive(false);
-            var reactionSummary = CreateText("Reaction Summary", canvasObject.transform, 26, TextAnchor.MiddleCenter);
-            reactionSummary.raycastTarget = false;
-            SetRect(reactionSummary.rectTransform, new Vector2(.5f, 1), new Vector2(0, -24), new Vector2(680, 48));
-
-            var saveStatus = CreateText("Save Status", canvasObject.transform, 18, TextAnchor.UpperRight);
-            saveStatus.raycastTarget = false;
-            SetRect(
-                saveStatus.rectTransform,
-                new Vector2(1f, 1f),
-                new Vector2(-24f, -260f),
-                new Vector2(440f, 90f));
-            var progressionSummary = CreateText("Progression Summary", canvasObject.transform, 24, TextAnchor.UpperLeft);
-            progressionSummary.raycastTarget = false;
-            SetRect(progressionSummary.rectTransform, new Vector2(0, 0), new Vector2(24, 24), new Vector2(480, 90));
-            var choiceOverlay = CreateUiObject("Element Choice Overlay", canvasObject.transform);
-            choiceOverlay.AddComponent<UnityEngine.UI.Image>().color = new Color(.02f, .03f, .05f, .92f);
-            var overlay = choiceOverlay.GetComponent<RectTransform>();
-            overlay.anchorMin = Vector2.zero; overlay.anchorMax = Vector2.one;
-            overlay.offsetMin = overlay.offsetMax = Vector2.zero;
-            var safeRoot = CreateUiObject("Choice Safe Area", choiceOverlay.transform).GetComponent<RectTransform>();
-            safeRoot.anchorMin = Vector2.zero; safeRoot.anchorMax = Vector2.one;
-            safeRoot.offsetMin = safeRoot.offsetMax = Vector2.zero;
-            var choiceTitle = CreateText("Choice Title", safeRoot, 32, TextAnchor.MiddleCenter);
-            choiceTitle.raycastTarget = false;
-            SetRect(choiceTitle.rectTransform, new Vector2(.5f, .5f), new Vector2(0, 180), new Vector2(1160, 90));
-            var choices = new UnityEngine.UI.Button[4];
-            var ids = new[] { "flame", "tide", "gale", "stone" };
-            for (var i = 0; i < choices.Length; i++)
-            {
-                choices[i] = CreateButton(ids[i], safeRoot, ids[i].ToUpperInvariant(), new Vector2((i - 1.5f) * 270, 20));
-                choices[i].GetComponent<RectTransform>().sizeDelta = new Vector2(240, 100);
-            }
-            var confirmChoice = CreateButton("Confirm Element Button", safeRoot, "Confirm", new Vector2(-150, -150));
-            var cancelChoice = CreateButton("Cancel Element Button", safeRoot, "Cancel preview", new Vector2(150, -150));
-            var choiceHelp = CreateText("Choice Help", safeRoot, 24, TextAnchor.MiddleCenter);
-            choiceHelp.raycastTarget = false;
-            choiceHelp.text = "Выбор обязателен. Tap — preview; Confirm — открыть. Cancel очищает preview.";
-            SetRect(choiceHelp.rectTransform, new Vector2(.5f,.5f), new Vector2(0, -65), new Vector2(1160, 90));
-            choiceOverlay.SetActive(false);
-            var retrySave = CreateButton("Retry Save Button", canvasObject.transform, "Retry Save", Vector2.zero);
-            SetRect(retrySave.GetComponent<RectTransform>(), new Vector2(1, 1), new Vector2(-24, -360), new Vector2(230, 64));
-            retrySave.gameObject.SetActive(false);
-            var menu = CreateButton("Main Menu Button", canvasObject.transform, "Main Menu", Vector2.zero);
-            SetRect(menu.GetComponent<RectTransform>(), new Vector2(0, 0), new Vector2(24, 115), new Vector2(230, 64));
-            var abilityBegin = CreateButton("Ability Button", canvasObject.transform, "Печать — Ready", Vector2.zero);
-            SetRect(abilityBegin.GetComponent<RectTransform>(), new Vector2(.5f, 0), new Vector2(0, 55), new Vector2(300, 70));
-            abilityBegin.gameObject.SetActive(false);
-            var abilityPanel = CreateUiObject("Ability Panel", canvasObject.transform);
-            SetRect(abilityPanel.GetComponent<RectTransform>(), new Vector2(.5f, 0), new Vector2(0, 170), new Vector2(600, 150));
-            var abilityBlocker = abilityPanel.AddComponent<UnityEngine.UI.Image>(); abilityBlocker.color = new Color(.06f, .08f, .12f, .95f);
-            abilityBlocker.raycastTarget = true;
-            var abilityStatus = CreateText("Ability Status", abilityPanel.transform, 24, TextAnchor.MiddleCenter);
-            SetRect(abilityStatus.rectTransform, new Vector2(.5f, .5f), new Vector2(0, 35), new Vector2(580, 65));
-            var abilityConfirm = CreateButton("Confirm Ability Button", abilityPanel.transform, "Confirm", new Vector2(-145, -35));
-            var abilityCancel = CreateButton("Cancel Ability Button", abilityPanel.transform, "Cancel", new Vector2(145, -35));
-            abilityPanel.SetActive(false);
-            var bossPanel = CreateUiObject("Boss Panel", canvasObject.transform);
-            SetRect(bossPanel.GetComponent<RectTransform>(), new Vector2(.5f, 1), new Vector2(105, -24), new Vector2(720, 205));
-            var bossBackground = bossPanel.AddComponent<UnityEngine.UI.Image>();
-            bossBackground.color = new Color(.08f,.04f,.14f,.95f); bossBackground.raycastTarget = true;
-            var bossNotice = CreateText("Boss Notice", bossPanel.transform, 22, TextAnchor.UpperCenter);
-            SetRect(bossNotice.rectTransform, new Vector2(.5f, 1), new Vector2(0,-10), new Vector2(700,130));
-            bossNotice.raycastTarget = false; bossNotice.resizeTextForBestFit = true; bossNotice.resizeTextMinSize = 14; bossNotice.resizeTextMaxSize = 22;
-            var bossHealth = CreateText("Boss Health", bossPanel.transform, 27, TextAnchor.MiddleCenter);
-            SetRect(bossHealth.rectTransform, new Vector2(.5f, 0), new Vector2(0,30), new Vector2(700,45));
-            bossHealth.raycastTarget = false; bossHealth.resizeTextForBestFit = true; bossHealth.resizeTextMinSize = 14; bossHealth.resizeTextMaxSize = 27;
-            var bar = CreateUiObject("Boss HP Bar", bossPanel.transform);
-            SetRect(bar.GetComponent<RectTransform>(), new Vector2(.5f,0), new Vector2(0,10), new Vector2(680,14));
-            bar.AddComponent<UnityEngine.UI.Image>().color = new Color(.15f,.1f,.2f);
-            var fill = CreateUiObject("Boss HP Fill", bar.transform).AddComponent<UnityEngine.UI.Image>();
-            fill.rectTransform.anchorMin=Vector2.zero; fill.rectTransform.anchorMax=Vector2.one;
-            fill.rectTransform.offsetMin=Vector2.zero; fill.rectTransform.offsetMax=Vector2.zero;
-            fill.color=new Color(.9f,.5f,.75f); fill.raycastTarget=false;
-            bossPanel.SetActive(false);
-            var safeHud = canvasObject.AddComponent<BattleHudSafeArea>();
-            var safeSerialized = new SerializedObject(safeHud);
-            var edgeControls = new[] { panel.rectTransform, startWave.GetComponent<RectTransform>(), nextWave.GetComponent<RectTransform>(),
-                pause.GetComponent<RectTransform>(), saveStatus.rectTransform, retrySave.GetComponent<RectTransform>(),
-                menu.GetComponent<RectTransform>(), progressionSummary.rectTransform,
-                abilityBegin.GetComponent<RectTransform>(), abilityPanel.GetComponent<RectTransform>(), bossPanel.GetComponent<RectTransform>() };
-            var safeRefs = safeSerialized.FindProperty("edgeControls"); safeRefs.arraySize = edgeControls.Length;
-            for (var i = 0; i < edgeControls.Length; i++) safeRefs.GetArrayElementAtIndex(i).objectReferenceValue = edgeControls[i];
-            safeSerialized.ApplyModifiedPropertiesWithoutUndo();
-            saveStatus.transform.SetAsLastSibling();
-            pause.transform.SetAsLastSibling();
-            menu.transform.SetAsLastSibling();
-            pauseOverlay.transform.SetAsLastSibling();
-
-            return new HudReferences
-            {
-                BossPanel = bossPanel, BossNotice = bossNotice, BossHealth = bossHealth, BossFill = fill,
-                AbilityBegin = abilityBegin, AbilityConfirm = abilityConfirm, AbilityCancel = abilityCancel,
-                AbilityPanel = abilityPanel, AbilityStatus = abilityStatus,
-                ChoicePanel = choiceOverlay, ChoiceSafeArea = safeRoot, ChoiceTitle = choiceTitle,
-                ProgressionSummary = progressionSummary, ChoiceOptions = choices, ConfirmChoice = confirmChoice,
-                CancelChoice = cancelChoice, RetrySave = retrySave, MainMenuButton = menu,
-                InspectorPanel = inspectorPanel,
-                InspectorText = inspectorText,
-                CloseInspectorButton = closeInspector,
-                ReactionSummaryText = reactionSummary,
-                StatsText = stats,
-                SaveStatusText = saveStatus,
-                CatalogRoot = catalog,
-                CatalogButtonTemplate = catalogTemplate,
-                BuildStatsText = buildStats,
-                SellConfirmationText = sellLabel,
-                ConfirmationPanel = confirmation,
-                ConfirmButton = confirm,
-                CancelButton = cancel,
-                StartWaveButton = startWave,
-                NextWaveButton = nextWave,
-                PauseButton = pause,
-                PauseOverlay = pauseOverlay,
-                ResumeButton = resume,
-                TowerPanel = towerPanel,
-                TowerStatsText = towerStats,
-                UpgradeButton = upgrade,
-                SellButton = sell,
-                SellConfirmationPanel = sellConfirmation,
-                ConfirmSellButton = confirmSell,
-                CancelSellButton = cancelSell
-            };
-        }
-
-        private static UnityEngine.UI.Button CreateButton(
-            string name,
-            Transform parent,
-            string label,
-            Vector2 anchoredPosition)
-        {
-            var buttonObject = CreateUiObject(name, parent);
-            var image = buttonObject.AddComponent<UnityEngine.UI.Image>();
-            image.color = new Color(0.16f, 0.36f, 0.42f, 1f);
-            var button = buttonObject.AddComponent<UnityEngine.UI.Button>();
-            button.targetGraphic = image;
-            SetRect(image.rectTransform, new Vector2(0.5f, 0.5f), anchoredPosition, new Vector2(220f, 56f));
-            var text = CreateText("Label", buttonObject.transform, 24, TextAnchor.MiddleCenter);
-            text.text = label;
-            text.raycastTarget = false;
-            text.rectTransform.anchorMin = Vector2.zero;
-            text.rectTransform.anchorMax = Vector2.one;
-            text.rectTransform.offsetMin = Vector2.zero;
-            text.rectTransform.offsetMax = Vector2.zero;
-            return button;
-        }
-
         private static UnityEngine.UI.Text CreateText(
             string name,
             Transform parent,
@@ -1049,6 +666,7 @@ namespace Veilward.Editor
             var bossData = new SerializedObject(bossHud);
             bossData.FindProperty("battle").objectReferenceValue = controllerObject.GetComponent<BattleSceneController>();
             bossData.FindProperty("panel").objectReferenceValue = hud.BossPanel;
+            bossData.FindProperty("placement").objectReferenceValue = controllerObject.GetComponent<BattlePlacementController>();
             bossData.FindProperty("noticeText").objectReferenceValue = hud.BossNotice;
             bossData.FindProperty("healthText").objectReferenceValue = hud.BossHealth;
             bossData.FindProperty("healthFill").objectReferenceValue = hud.BossFill;
@@ -1107,6 +725,7 @@ namespace Veilward.Editor
             placementSerialized.FindProperty("towerPanel").objectReferenceValue = hud.TowerPanel;
             placementSerialized.FindProperty("towerStatsText").objectReferenceValue = hud.TowerStatsText;
             placementSerialized.FindProperty("upgradeButton").objectReferenceValue = hud.UpgradeButton;
+            placementSerialized.FindProperty("closeTowerButton").objectReferenceValue = hud.CloseTowerButton;
             placementSerialized.FindProperty("sellButton").objectReferenceValue = hud.SellButton;
             placementSerialized.FindProperty("sellConfirmationPanel").objectReferenceValue = hud.SellConfirmationPanel;
             placementSerialized.FindProperty("confirmSellButton").objectReferenceValue = hud.ConfirmSellButton;
@@ -1137,6 +756,7 @@ namespace Veilward.Editor
             abilitySerialized.FindProperty("cancelButton").objectReferenceValue = hud.AbilityCancel;
             abilitySerialized.FindProperty("panel").objectReferenceValue = hud.AbilityPanel;
             abilitySerialized.FindProperty("statusText").objectReferenceValue = hud.AbilityStatus;
+            abilitySerialized.FindProperty("feedbackText").objectReferenceValue = hud.AbilityFeedback;
             abilitySerialized.FindProperty("preview").objectReferenceValue = abilityPreviewObject.GetComponent<AbilityPreviewView>();
             abilitySerialized.ApplyModifiedPropertiesWithoutUndo();
 
@@ -1160,16 +780,19 @@ namespace Veilward.Editor
             pauseSerialized.FindProperty("pauseButton").objectReferenceValue = hud.PauseButton;
             pauseSerialized.FindProperty("resumeButton").objectReferenceValue = hud.ResumeButton;
             pauseSerialized.ApplyModifiedPropertiesWithoutUndo();
+            Bind(hud.PlayerHud, ("battle", battle), ("placement", placement), ("pause", pause),
+                ("ability", ability), ("choice", choice), ("inspector", inspector), ("checkpoints", checkpoint));
         }
 
         private sealed class HudReferences
         {
+            public BattlePlayerHud PlayerHud;
             public GameObject BossPanel;
             public UnityEngine.UI.Text BossNotice, BossHealth;
             public UnityEngine.UI.Image BossFill;
             public UnityEngine.UI.Button AbilityBegin, AbilityConfirm, AbilityCancel;
             public GameObject AbilityPanel;
-            public UnityEngine.UI.Text AbilityStatus;
+            public UnityEngine.UI.Text AbilityStatus, AbilityFeedback;
             public GameObject ChoicePanel;
             public RectTransform ChoiceSafeArea;
             public UnityEngine.UI.Text ChoiceTitle, ProgressionSummary;
@@ -1195,7 +818,7 @@ namespace Veilward.Editor
             public UnityEngine.UI.Button ResumeButton;
             public GameObject TowerPanel;
             public UnityEngine.UI.Text TowerStatsText;
-            public UnityEngine.UI.Button UpgradeButton;
+            public UnityEngine.UI.Button UpgradeButton, CloseTowerButton;
             public UnityEngine.UI.Button SellButton;
             public GameObject SellConfirmationPanel;
             public UnityEngine.UI.Button ConfirmSellButton;

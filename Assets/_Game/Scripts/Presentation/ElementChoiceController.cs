@@ -94,24 +94,25 @@ namespace Veilward.Presentation
             var pending = p.PendingChoiceId != "none";
             var allowed = battle.CanAcceptInput(BattleInputOwner.ElementChoice);
             if (panel != null) panel.SetActive(pending && allowed);
-            if (safeAreaRoot != null && Screen.width > 0 && Screen.height > 0)
-            {
-                var area = Screen.safeArea;
-                safeAreaRoot.anchorMin = new Vector2(area.xMin / Screen.width, area.yMin / Screen.height);
-                safeAreaRoot.anchorMax = new Vector2(area.xMax / Screen.width, area.yMax / Screen.height);
-                safeAreaRoot.offsetMin = safeAreaRoot.offsetMax = Vector2.zero;
-            }
             if (!changed && !_dirty && paused == _wasPaused && allowed == _wasAllowed) return;
             _observed = p; _wasPaused = paused; _wasAllowed = allowed; _dirty = false;
             if (titleText != null) titleText.text = p.PendingChoiceId == "start-resonance"
-                ? "Стартовый резонанс — выберите FLAME или GALE"
-                : "Открытие после волны " + (battle.Simulation.State.WaveIndex + 1);
+                ? "Choose your first element"
+                : "Unlock an element";
             if (summaryText != null)
             {
-                if (p.RulesId == "legacy-all-open-v1") summaryText.text = "Продолжение по прежним правилам: все стихии открыты";
-                else if (pending) summaryText.text = "Обязательный выбор стихии";
-                else if (p.ChoicesSpent >= 2) summaryText.text = "Открытия завершены: новых наград выбора нет.";
-                else summaryText.text = "Следующее открытие после волны " + (p.ChoicesSpent == 0 ? 3 : 6);
+                if (PreviewOptionId == null)
+                    summaryText.text = p.PendingChoiceId == "start-resonance"
+                        ? "Choose Flame or Gale to begin."
+                        : $"Wave {battle.Simulation.State.WaveIndex + 1} cleared. Choose one element.";
+                else
+                    summaryText.text = PreviewOptionId switch
+                    {
+                        "flame" => "Flame keeps enemies burning.",
+                        "tide" => "Tide slows advancing enemies.",
+                        "gale" => "Gale fires rapidly and amplifies damage.",
+                        _ => "Stone breaks through armor."
+                    };
             }
             if (optionButtons != null)
                 for (var i = 0; i < optionButtons.Length; i++)
@@ -119,7 +120,10 @@ namespace Veilward.Presentation
                     var button = optionButtons[i]; if (button == null) continue;
                     button.gameObject.SetActive(IsOption(Ids[i]));
                     button.interactable = allowed && !_sending;
-                    button.GetComponentInChildren<Text>(true).text = Ids[i].ToUpperInvariant() + (PreviewOptionId == Ids[i] ? " ✓" : "");
+                    var label = button.GetComponentInChildren<Text>(true);
+                    var selected = PreviewOptionId == Ids[i];
+                    label.text = TowerDisplay.Name(new TowerDefinitionId(Ids[i])) + (selected ? "\nSelected" : "");
+                    label.color = selected ? new Color32(231, 194, 121, 255) : new Color32(245, 233, 209, 255);
                 }
             if (confirmButton != null) confirmButton.interactable = pending && allowed && PreviewOptionId != null && !_sending;
             if (cancelButton != null) cancelButton.interactable = pending && allowed && !_sending;

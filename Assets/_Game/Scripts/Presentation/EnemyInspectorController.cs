@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,8 +15,6 @@ namespace Veilward.Presentation
         [SerializeField] private Text detailsText;
         [SerializeField] private Button closeButton;
         private readonly StringBuilder _text = new StringBuilder(512);
-        private Canvas _canvas;
-        private Vector2 _origin;
         private long _displayedTick = -1;
         public EnemyId? SelectedEnemyId { get; private set; }
         public string Details => detailsText != null ? detailsText.text : string.Empty;
@@ -24,8 +23,6 @@ namespace Veilward.Presentation
         {
             if (battle == null || placement == null || worldCamera == null || panel == null || detailsText == null || closeButton == null)
                 throw new System.InvalidOperationException("Enemy inspector requires all scene references.");
-            _canvas = panel.GetComponentInParent<Canvas>();
-            _origin = panel.GetComponent<RectTransform>().anchoredPosition;
             closeButton.onClick.AddListener(Close);
             Close();
         }
@@ -76,36 +73,50 @@ namespace Veilward.Presentation
             var enemy = SelectedEnemyId.HasValue ? Find(SelectedEnemyId.Value) : null;
             if (enemy == null) { if (SelectedEnemyId.HasValue) ClearSelection(); return; }
             panel.SetActive(!battle.IsPaused && !placement.IsSellConfirmationVisible);
-            var scale = _canvas != null ? _canvas.scaleFactor : 1;
-            if (scale > 0)
-                panel.GetComponent<RectTransform>().anchoredPosition = _origin + new Vector2(
-                    -Mathf.Max(0, Screen.width - Screen.safeArea.xMax), Mathf.Max(0, Screen.safeArea.yMin)) / scale;
             var state = battle.Simulation.State;
             if (_displayedTick == state.Tick) return;
             _displayedTick = state.Tick;
-            _text.Clear(); _text.Append(enemy.Definition.Id.Value == BossHudController.BossId ? "Страж Разрыва #" : "Враг #").Append(enemy.Id.Value).Append("  HP ").Append(enemy.Health).Append('/').Append(enemy.Definition.MaxHealth).Append("  Armor ").Append(enemy.Definition.Armor).Append('\n');
-            for (var i = 0; i < 4; i++)
-                for (var j = 0; j < enemy.Statuses.Count; j++)
-                {
-                    var status = enemy.Statuses[j]; if ((int)status.Kind != i) continue;
-                    _text.Append(status.Kind).Append(": power ").Append(status.Power).Append(", ")
-                        .Append(status.RemainingTicks).Append(" ticks\n");
-                }
-            if (enemy.Statuses.Count == 0) _text.Append("Активных статусов нет\n");
-            _text.Append("Steam CD: ").Append(ReactionPresentationState.Cooldown(enemy, ReactionKind.Steam, state.Tick, battle.Simulation.ReactionCatalog))
-                .Append(" ticks   Storm CD: ").Append(ReactionPresentationState.Cooldown(enemy, ReactionKind.Storm, state.Tick, battle.Simulation.ReactionCatalog)).Append(" ticks\n");
+            _text.Clear();
+            _text.Append(enemy.Definition.Id.Value == BossHudController.BossId ? "RIFT WARDEN" : "SHADE");
+            _text.Append("   HP ").Append(enemy.Health).Append('/').Append(enemy.Definition.MaxHealth)
+                .Append("   Armor ").Append(enemy.Definition.Armor).Append('\n');
+
+            _text.Append("Effects: ");
+            if (enemy.Statuses.Count == 0) _text.Append("None");
+            for (var i = 0; i < enemy.Statuses.Count; i++)
+            {
+                var status = enemy.Statuses[i];
+                if (i == 2) _text.Append('\n');
+                else if (i != 0) _text.Append(" · ");
+                _text.Append(status.Kind).Append(' ').Append(status.Power)
+                    .Append(" (").Append(Seconds(status.RemainingTicks)).Append("s)");
+            }
+            var steam = ReactionPresentationState.Cooldown(enemy, ReactionKind.Steam, state.Tick, battle.Simulation.ReactionCatalog);
+            var storm = ReactionPresentationState.Cooldown(enemy, ReactionKind.Storm, state.Tick, battle.Simulation.ReactionCatalog);
+            _text.Append("\nREACTIONS\nSteam ").Append(steam == 0 ? "ready" : Seconds(steam) + "s")
+                .Append(" · Storm ").Append(storm == 0 ? "ready" : Seconds(storm) + "s").Append('\n');
             var memory = battle.Presentation.GetMemory(enemy.Id);
-            Append(memory?.Steam); Append(memory?.Storm);
-            if (memory == null) _text.Append("Реакций ещё не было");
-            var text = _text.ToString(); if (detailsText.text != text) detailsText.text = text;
+            Append(memory?.Steam);
+            Append(memory?.Storm);
+            if (memory == null) _text.Append("No reactions yet");
+            var text = _text.ToString();
+            if (detailsText.text != text) detailsText.text = text;
         }
+
+        private static string Seconds(long ticks) =>
+            (ticks / (float)SimulationTiming.TicksPerSecond).ToString("0.#", CultureInfo.InvariantCulture);
+
         private void Append(ReactionExplanation? explanation)
         {
             if (!explanation.HasValue) return;
             var e = explanation.Value;
-            _text.Append(e.Cause).Append("\n").Append(e.HitCount).Append(" hits, AppliedHpLoss ").Append(e.AppliedHpLoss)
-                .Append(" HP всего; tick ").Append(e.Reaction.Tick).Append('\n');
+            var steam = e.Reaction.Kind == ReactionKind.Steam;
+            var cause = e.Reaction.TriggerKind == ReactionTriggerKind.Intrinsic ? "Innate attack" :
+                steam ? "Flame + Tide" : "Tide + Gale";
+            _text.Append(steam ? "Steam · " : "Storm · ").Append(cause).Append('\n')
+                .Append(e.HitCount).Append(" hit").Append(e.HitCount == 1 ? " · " : "s · ").Append(e.AppliedHpLoss).Append(" HP lost\n");
         }
+
         private EnemyState Find(EnemyId id)
         {
             if (battle.Simulation == null) return null;

@@ -23,7 +23,7 @@ namespace Veilward.Presentation
         [SerializeField] private BattlePlacementController placement;
         [SerializeField] private Button beginButton, confirmButton, cancelButton;
         [SerializeField] private GameObject panel;
-        [SerializeField] private Text statusText;
+        [SerializeField] private Text statusText, feedbackText;
         [SerializeField] private AbilityPreviewView preview;
         private BattleSimulation _observed;
         private BattleState _observedState;
@@ -33,6 +33,9 @@ namespace Veilward.Presentation
         private AbilityPreviewLease _intentLease;
         private AbilityCastFailureReason _previewCheckReason;
         private UnityAction _confirmCallback;
+        private Text _beginLabel;
+        private double _feedbackUntil;
+        private (bool combat, bool ready, int seconds) _shownAbility = (false, false, -1);
         public AbilityPreviewLease Lease { get; private set; }
         public bool HasInputOwnership => _previewing || _intent;
         public bool HasTarget { get; private set; }
@@ -45,6 +48,7 @@ namespace Veilward.Presentation
                 panel == null || statusText == null || preview == null)
                 throw new InvalidOperationException("Ability requires all scene references.");
             preview.Initialize();
+            _beginLabel = beginButton.GetComponentInChildren<Text>(true);
             beginButton.onClick.AddListener(HandleBegin);
             cancelButton.onClick.AddListener(CancelPreview);
             Refresh();
@@ -87,7 +91,7 @@ namespace Veilward.Presentation
             if (s.State.Phase != BattlePhase.Combat) return Fail("InvalidPhase");
             if (s.AbilityState.CooldownRemainingTicks != 0) return Fail("CooldownActive");
             Lease = new AbilityPreviewLease(_epoch, ++_generation, s.State.WaveIndex, s.AbilityState.NextCastSequence);
-            _previewing = true; HasTarget = false; LastCast = null; Status = "Выберите центр — бой продолжается";
+            _previewing = true; HasTarget = false; LastCast = null; Status = "Tap the field to aim the seal.";
             UnbindConfirm(); var lease = Lease;
             _confirmCallback = () => ConfirmLease(lease); confirmButton.onClick.AddListener(_confirmCallback);
             placement.SuppressPointerForCurrentFrame(); Refresh(); return true;
@@ -99,7 +103,7 @@ namespace Veilward.Presentation
             _center = center; HasTarget = true;
             var result = battle.Simulation.CheckCastAbility(Command(center));
             _previewCheckReason = result.FailureReason;
-            Status = result.Succeeded ? "Цель выбрана — Confirm / Cancel" : result.FailureReason.ToString();
+            Status = result.Succeeded ? "Enemies in range. Cast when ready." : result.FailureReason.ToString();
             preview.Show(center, battle.Simulation.AbilityDefinition.Radius, result.Succeeded);
             Refresh(); return true;
         }
@@ -131,14 +135,18 @@ namespace Veilward.Presentation
                 var result = battle.DispatchAbility(this, new CastAbilityCommand(battle.Simulation.AbilityState.AbilityId,
                     center, lease.Wave, battle.Simulation.State.Tick, lease.Sequence));
                 LastCast = result;
-                Status = result.Succeeded ? $"Печать: {result.HitCount} hits, {result.TotalAppliedHpLoss} HP" : result.FailureReason.ToString();
+                Status = result.Succeeded ? $"Rift Seal hit {result.HitCount} · {result.TotalAppliedHpLoss} HP lost" : result.FailureReason.ToString();
+                _feedbackUntil = Time.unscaledTimeAsDouble + 2.5;
             }
             finally { _generation++; placement.SuppressPointerForCurrentFrame(); Refresh(); }
         }
         public void CancelPreview()
         {
             Reconcile(); if (!battle.CanAcceptInput(BattleInputOwner.Ability)) return;
-            Invalidate(); Status = "Отменено — способность не применена"; Refresh();
+            Invalidate();
+            Status = "Rift Seal cancelled.";
+            _feedbackUntil = Time.unscaledTimeAsDouble + 2.5;
+            Refresh();
         }
         internal void Invalidate()
         {
@@ -146,8 +154,28 @@ namespace Veilward.Presentation
             if (preview != null) preview.Clear();
             if (placement != null) placement.SuppressPointerForCurrentFrame();
         }
-        internal void ResetTransient() { Invalidate(); Status = string.Empty; LastCast = null; }
-        private bool Fail(string reason) { Status = reason; Refresh(); return false; }
+        internal void ResetTransient() { Invalidate(); Status = string.Empty; LastCast = null; _feedbackUntil = 0; }
+        private bool Fail(string reason)
+        {
+            Status = reason;
+            _feedbackUntil = Time.unscaledTimeAsDouble + 2.5;
+            Refresh();
+            return false;
+        }
+
+        private static string PlayerStatus(string value) => value switch
+        {
+            "Paused" => "Resume before casting.",
+            "InvalidPhase" => "Rift Seal is usable in battle.",
+            "CooldownActive" => "Rift Seal is recharging.",
+            "NoTargets" => "No enemies in range.",
+            "InvalidTarget" => "Aim at a valid point on the field.",
+            "AbilityDisabled" or "UnknownAbility" => "Rift Seal is unavailable in this battle.",
+            "InputBlocked" => "Close the open card before aiming.",
+            "StalePreview" or "StaleCommand" or "ConfirmationRequired" => "Aim the seal again.",
+            "IdentifierExhausted" => "Rift Seal is no longer available.",
+            _ => value
+        };
         public void Refresh()
         {
             if (battle == null || battle.Simulation == null) return;
@@ -159,20 +187,38 @@ namespace Veilward.Presentation
                 if (targetCheck.Value.FailureReason != _previewCheckReason)
                 {
                     _previewCheckReason = targetCheck.Value.FailureReason;
-                    Status = targetCheck.Value.Succeeded ? "Цель выбрана — Confirm / Cancel" : _previewCheckReason.ToString();
+                    Status = targetCheck.Value.Succeeded ? "Enemies in range. Cast when ready." : _previewCheckReason.ToString();
                     preview.Show(_center, s.AbilityDefinition.Radius, targetCheck.Value.Succeeded);
                 }
             }
             if (beginButton != null)
             {
-                beginButton.gameObject.SetActive(enabled);
-                beginButton.interactable = enabled && s.State.Phase == BattlePhase.Combat &&
-                    s.AbilityState.CooldownRemainingTicks == 0 && battle.CanAcceptInput() && !HasInputOwnership;
-                beginButton.GetComponentInChildren<Text>().text = s.AbilityState.CooldownRemainingTicks == 0
-                    ? "Печать — Ready" : $"Печать — {s.AbilityState.CooldownRemainingTicks} ticks";
+                beginButton.gameObject.SetActive(enabled && !HasInputOwnership &&
+                    battle.ActiveModalOwner != BattleInputOwner.Placement);
+                var remaining = s.AbilityState.CooldownRemainingTicks;
+                var inCombat = s.State.Phase == BattlePhase.Combat;
+                beginButton.interactable = enabled && inCombat && remaining == 0 && battle.CanAcceptInput();
+                var seconds = Mathf.CeilToInt((float)remaining / SimulationTiming.TicksPerSecond);
+                var display = (inCombat, beginButton.interactable, seconds);
+                if (_shownAbility != display)
+                {
+                    _shownAbility = display;
+                    var label = _beginLabel != null ? _beginLabel : beginButton.GetComponentInChildren<Text>(true);
+                    var caption = !inCombat ? "In battle only" : remaining > 0 ? $"Recharging · {seconds}s" :
+                        beginButton.interactable ? "Ready" : "Close active card";
+                    if (label != null) label.text = "Rift Seal\n" + caption;
+                }
             }
-            if (panel != null) panel.SetActive(enabled && !battle.IsPaused && (HasInputOwnership || (Status.Length > 0 && battle.ActiveModalOwner == BattleInputOwner.None)));
-            if (statusText != null) statusText.text = Status;
+            if (panel != null) panel.SetActive(enabled && !battle.IsPaused && HasInputOwnership);
+            var playerStatus = PlayerStatus(Status);
+            if (statusText != null && statusText.text != playerStatus) statusText.text = playerStatus;
+            if (feedbackText != null)
+            {
+                var showFeedback = enabled && !battle.IsPaused && battle.ActiveModalOwner == BattleInputOwner.None &&
+                    !HasInputOwnership && Time.unscaledTimeAsDouble < _feedbackUntil && playerStatus.Length > 0;
+                feedbackText.transform.parent.gameObject.SetActive(showFeedback);
+                if (showFeedback && feedbackText.text != playerStatus) feedbackText.text = playerStatus;
+            }
             if (confirmButton != null)
             {
                 confirmButton.gameObject.SetActive(_previewing);
