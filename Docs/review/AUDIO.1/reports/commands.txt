@@ -1,0 +1,17 @@
+unity command --caller plugin --skill unity-cli --format json editor status
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (scene.isDirty) throw new System.InvalidOperationException("Unsaved editor scene"); var type=System.AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType("Unity.Pipeline.Editor.Commands.AutoTickCommand")).First(t=>t!=null); var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; return new { scene=scene.path, autoTick=(bool)type.GetProperty("IsEnabled",flags).GetValue(null), interval=(long)type.GetProperty("CurrentIntervalMs",flags).GetValue(null) };'
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Review/CaptureProductionUi.cs --entry CaptureProductionUi.SetWide
+unity command --caller plugin --skill unity-cli --format json console status
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled true --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled true
+unity command --caller plugin --skill unity-cli --format json editor.playmode start
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json script run --file ArtSource/Audio/RecordEditorAudio.cs --entry RecordEditorAudio.Begin
+unity command --caller plugin --skill unity-cli --format json console get --level error --since 4331
+unity command --caller plugin --skill unity-cli --format json editor.playmode stop
+unity status --until-ready --project-path /Users/alexeykravtsov/Desktop/workspace/Veilward --format json
+unity command --caller plugin --skill unity-cli --format json editor.playmode set_run_in_background --enabled false
+unity command --caller plugin --skill unity-cli --format json editor set_auto_tick --enabled false --interval-ms 16
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var type=typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView"); var window=UnityEditor.EditorWindow.GetWindow(type); type.GetProperty("selectedSizeIndex",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).SetValue(window,36); return true;'
+unity command --caller plugin --skill unity-cli --format json script eval --code 'var current=UnityEngine.SceneManagement.SceneManager.GetActiveScene(); if (current.isDirty) throw new System.InvalidOperationException("The active scene has unsaved changes."); return UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity").path;'
+unity command --caller plugin --skill unity-cli --format json editor status

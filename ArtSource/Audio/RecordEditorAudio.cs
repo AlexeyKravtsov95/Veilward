@@ -42,6 +42,7 @@ public sealed class RecordEditorAudio : MonoBehaviour
     private long _samples;
     private float _peak;
     private bool _started;
+    private bool _finished;
     private string _stage = "menu-loop";
     private AudioSource _lastMusic;
     private int _lastPosition;
@@ -187,6 +188,7 @@ public sealed class RecordEditorAudio : MonoBehaviour
             new GridCoordinate(-2, -1), new GridCoordinate(-5, 0), new GridCoordinate(-4, 0) };
         for (var i = 0; i < types.Length; i++)
             Need(battle.PlaceTower(new TowerDefinitionId(types[i]), cells[i]).Success, "Place six fixture towers.");
+        yield return null;
         Click("Start Wave Button");
         yield return Hold(10f);
         Need(staged.State.Enemies.Count >= 6, "Dense fixture has at least six live enemies.");
@@ -244,6 +246,7 @@ public sealed class RecordEditorAudio : MonoBehaviour
         var staged = new BattleSimulation(production.Grid.Map, production.Path, new[] { wave }, production.TowerCatalog,
             20, 150, 20, production.ReactionCatalog, null, AbilityDefinition.RiftSeal);
         SetFixture(battle, staged, "editor-audio-boss-leak");
+        yield return null;
         Click("Start Wave Button");
         yield return WaitUntil(() => staged.State.Phase == BattlePhase.Defeat, 18);
         Need(staged.State.BaseHealth == 0, "The test Warden actually leaks and causes Defeat.");
@@ -305,8 +308,15 @@ public sealed class RecordEditorAudio : MonoBehaviour
             tick = Battle?.Simulation?.State.Tick, dspTime = AudioSettings.dspTime });
     }
 
+    private void LateUpdate()
+    {
+        if (_errors.Count > 0) Finish();
+    }
+
     private void Finish()
     {
+        if (_finished) return;
+        _finished = true;
         File.WriteAllText(Root + "/manifest.json", JsonConvert.SerializeObject(new
         {
             frameRate = FrameRate, width = Width, height = Height, frames = _frames, sampleRate = AudioSettings.outputSampleRate,

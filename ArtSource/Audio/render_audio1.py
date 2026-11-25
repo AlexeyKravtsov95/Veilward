@@ -91,7 +91,7 @@ def score(name, combat):
             left[echo] += value * gain * (.12 + spread / 3)
             right[echo] += value * gain * (.12 - spread / 3)
 
-    # Dorian pentatonic frame with changing sixth and an unresolved turnaround.
+    # D minor pentatonic motif over open fifths and an unresolved turnaround.
     roots = (50, 50, 53, 48, 55, 53, 48, 50)
     motif = ((.5, 62), (2, 65), (3.5, 69), (5.5, 67), (7, 65), (9, 62), (10.5, 60),
              (12, 65), (14.5, 62), (16.5, 69), (18, 72), (19, 74), (21, 69), (22.5, 67),

@@ -1,0 +1,7 @@
+{
+  "source": "ArtSource/Audio/render_audio1.py",
+  "clips": 50,
+  "bitExact": true,
+  "mismatches": [],
+  "generatorSha256": "9312eb97e43cb4479e4f5c1b718b58aac50a5897ef1b8613342a1c8ec3a6f1e3"
+}

@@ -1,0 +1,509 @@
+{
+  "frameRate": 24,
+  "width": 960,
+  "height": 444,
+  "frames": 2549,
+  "sampleRate": 48000,
+  "samples": 10191872,
+  "peak": 0.128771126,
+  "marks": [
+    {
+      "label": "menu-loop",
+      "frame": 0,
+      "frameCount": 624,
+      "scene": "MainMenu",
+      "tick": null,
+      "dspTime": 5904.896
+    },
+    {
+      "label": "MenuMusic-wrap",
+      "frame": 646,
+      "frameCount": 1269,
+      "scene": "MainMenu",
+      "tick": null,
+      "dspTime": 5931.0933333333332
+    },
+    {
+      "label": "main-menu-audio",
+      "frame": 677,
+      "frameCount": 1301,
+      "scene": "MainMenu",
+      "tick": null,
+      "dspTime": 5932.352
+    },
+    {
+      "label": "Select",
+      "frame": 678,
+      "frameCount": 1301,
+      "scene": "MainMenu",
+      "tick": null,
+      "dspTime": 5932.394666666667
+    },
+    {
+      "label": "menu-mute-on",
+      "frame": 712,
+      "frameCount": 1336,
+      "scene": "MainMenu",
+      "tick": null,
+      "dspTime": 5933.7813333333334
+    },
+    {
+      "label": "menu-mute-off-restored",
+      "frame": 746,
+      "frameCount": 1370,
+      "scene": "MainMenu",
+      "tick": null,
+      "dspTime": 5935.168
+    },
+    {
+      "label": "Confirm",
+      "frame": 747,
+      "frameCount": 1370,
+      "scene": "MainMenu",
+      "tick": null,
+      "dspTime": 5935.1893333333337
+    },
+    {
+      "label": "Cancel",
+      "frame": 775,
+      "frameCount": 1398,
+      "scene": "MainMenu",
+      "tick": null,
+      "dspTime": 5936.3413333333338
+    },
+    {
+      "label": "ordinary-command-flow",
+      "frame": 786,
+      "frameCount": 1410,
+      "scene": "Battle",
+      "tick": 0,
+      "dspTime": 5936.7893333333332
+    },
+    {
+      "label": "Unlock",
+      "frame": 809,
+      "frameCount": 1432,
+      "scene": "Battle",
+      "tick": 0,
+      "dspTime": 5937.728
+    },
+    {
+      "label": "Build",
+      "frame": 833,
+      "frameCount": 1456,
+      "scene": "Battle",
+      "tick": 0,
+      "dspTime": 5938.688
+    },
+    {
+      "label": "ordinary-wave-one",
+      "frame": 843,
+      "frameCount": 1467,
+      "scene": "Battle",
+      "tick": 0,
+      "dspTime": 5939.0933333333332
+    },
+    {
+      "label": "WaveStart",
+      "frame": 844,
+      "frameCount": 1467,
+      "scene": "Battle",
+      "tick": 0,
+      "dspTime": 5939.136
+    },
+    {
+      "label": "FlameShot2",
+      "frame": 845,
+      "frameCount": 1468,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5939.1786666666667
+    },
+    {
+      "label": "FlameImpact2",
+      "frame": 845,
+      "frameCount": 1468,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5939.1786666666667
+    },
+    {
+      "label": "Reject",
+      "frame": 869,
+      "frameCount": 1492,
+      "scene": "Battle",
+      "tick": 31,
+      "dspTime": 5940.16
+    },
+    {
+      "label": "SealCast",
+      "frame": 895,
+      "frameCount": 1518,
+      "scene": "Battle",
+      "tick": 63,
+      "dspTime": 5941.2266666666665
+    },
+    {
+      "label": "SealHit",
+      "frame": 895,
+      "frameCount": 1518,
+      "scene": "Battle",
+      "tick": 63,
+      "dspTime": 5941.2266666666665
+    },
+    {
+      "label": "accepted-seal",
+      "frame": 895,
+      "frameCount": 1519,
+      "scene": "Battle",
+      "tick": 65,
+      "dspTime": 5941.2266666666665
+    },
+    {
+      "label": "pause-audio",
+      "frame": 933,
+      "frameCount": 1557,
+      "scene": "Battle",
+      "tick": 112,
+      "dspTime": 5942.7626666666665
+    },
+    {
+      "label": "resume",
+      "frame": 998,
+      "frameCount": 1622,
+      "scene": "Battle",
+      "tick": 112,
+      "dspTime": 5945.408
+    },
+    {
+      "label": "FlameShot1",
+      "frame": 1032,
+      "frameCount": 1655,
+      "scene": "Battle",
+      "tick": 151,
+      "dspTime": 5946.7946666666667
+    },
+    {
+      "label": "FlameImpact1",
+      "frame": 1032,
+      "frameCount": 1655,
+      "scene": "Battle",
+      "tick": 151,
+      "dspTime": 5946.7946666666667
+    },
+    {
+      "label": "WaveEnd",
+      "frame": 1230,
+      "frameCount": 1853,
+      "scene": "Battle",
+      "tick": 399,
+      "dspTime": 5954.8373333333329
+    },
+    {
+      "label": "BattleMusic-wrap",
+      "frame": 1355,
+      "frameCount": 1978,
+      "scene": "Battle",
+      "tick": 399,
+      "dspTime": 5959.9146666666666
+    },
+    {
+      "label": "file-continue",
+      "frame": 1407,
+      "frameCount": 2031,
+      "scene": "Battle",
+      "tick": 399,
+      "dspTime": 5962.048
+    },
+    {
+      "label": "synthetic-six-tower-density",
+      "frame": 1444,
+      "frameCount": 2068,
+      "scene": "Battle",
+      "tick": 0,
+      "dspTime": 5963.5413333333336
+    },
+    {
+      "label": "SteamBurst",
+      "frame": 1447,
+      "frameCount": 2070,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5963.6693333333333
+    },
+    {
+      "label": "StormImpact1",
+      "frame": 1447,
+      "frameCount": 2070,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5963.6693333333333
+    },
+    {
+      "label": "TideShot1",
+      "frame": 1447,
+      "frameCount": 2070,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5963.6693333333333
+    },
+    {
+      "label": "TideImpact1",
+      "frame": 1447,
+      "frameCount": 2070,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5963.6693333333333
+    },
+    {
+      "label": "GaleShot2",
+      "frame": 1447,
+      "frameCount": 2070,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5963.6693333333333
+    },
+    {
+      "label": "GaleImpact2",
+      "frame": 1447,
+      "frameCount": 2070,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5963.6693333333333
+    },
+    {
+      "label": "SteamShot2",
+      "frame": 1447,
+      "frameCount": 2070,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5963.6693333333333
+    },
+    {
+      "label": "SteamImpact2",
+      "frame": 1447,
+      "frameCount": 2070,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5963.6693333333333
+    },
+    {
+      "label": "StormShot1",
+      "frame": 1447,
+      "frameCount": 2070,
+      "scene": "Battle",
+      "tick": 1,
+      "dspTime": 5963.6693333333333
+    },
+    {
+      "label": "StoneShot2",
+      "frame": 1466,
+      "frameCount": 2089,
+      "scene": "Battle",
+      "tick": 24,
+      "dspTime": 5964.4373333333333
+    },
+    {
+      "label": "StoneImpact2",
+      "frame": 1466,
+      "frameCount": 2089,
+      "scene": "Battle",
+      "tick": 24,
+      "dspTime": 5964.4373333333333
+    },
+    {
+      "label": "StormChain",
+      "frame": 1471,
+      "frameCount": 2094,
+      "scene": "Battle",
+      "tick": 31,
+      "dspTime": 5964.6506666666664
+    },
+    {
+      "label": "SteamShot1",
+      "frame": 1508,
+      "frameCount": 2131,
+      "scene": "Battle",
+      "tick": 77,
+      "dspTime": 5966.144
+    },
+    {
+      "label": "SteamImpact1",
+      "frame": 1508,
+      "frameCount": 2131,
+      "scene": "Battle",
+      "tick": 77,
+      "dspTime": 5966.144
+    },
+    {
+      "label": "StormHop",
+      "frame": 1519,
+      "frameCount": 2142,
+      "scene": "Battle",
+      "tick": 91,
+      "dspTime": 5966.592
+    },
+    {
+      "label": "TideShot2",
+      "frame": 1539,
+      "frameCount": 2162,
+      "scene": "Battle",
+      "tick": 116,
+      "dspTime": 5967.4026666666668
+    },
+    {
+      "label": "TideImpact2",
+      "frame": 1539,
+      "frameCount": 2162,
+      "scene": "Battle",
+      "tick": 116,
+      "dspTime": 5967.4026666666668
+    },
+    {
+      "label": "BossSpawn",
+      "frame": 1539,
+      "frameCount": 2162,
+      "scene": "Battle",
+      "tick": 116,
+      "dspTime": 5967.4026666666668
+    },
+    {
+      "label": "StormShot2",
+      "frame": 1543,
+      "frameCount": 2166,
+      "scene": "Battle",
+      "tick": 121,
+      "dspTime": 5967.5733333333337
+    },
+    {
+      "label": "StormImpact2",
+      "frame": 1543,
+      "frameCount": 2166,
+      "scene": "Battle",
+      "tick": 121,
+      "dspTime": 5967.5733333333337
+    },
+    {
+      "label": "GaleShot1",
+      "frame": 1543,
+      "frameCount": 2166,
+      "scene": "Battle",
+      "tick": 121,
+      "dspTime": 5967.5733333333337
+    },
+    {
+      "label": "GaleImpact1",
+      "frame": 1543,
+      "frameCount": 2166,
+      "scene": "Battle",
+      "tick": 121,
+      "dspTime": 5967.5733333333337
+    },
+    {
+      "label": "StoneShot1",
+      "frame": 1658,
+      "frameCount": 2281,
+      "scene": "Battle",
+      "tick": 264,
+      "dspTime": 5972.2453333333333
+    },
+    {
+      "label": "StoneImpact1",
+      "frame": 1658,
+      "frameCount": 2281,
+      "scene": "Battle",
+      "tick": 264,
+      "dspTime": 5972.2453333333333
+    },
+    {
+      "label": "earned-wave-eight-continue",
+      "frame": 1688,
+      "frameCount": 2312,
+      "scene": "MainMenu",
+      "tick": null,
+      "dspTime": 5973.4613333333336
+    },
+    {
+      "label": "BossThreat",
+      "frame": 2303,
+      "frameCount": 2926,
+      "scene": "Battle",
+      "tick": 3766,
+      "dspTime": 5998.4853333333331
+    },
+    {
+      "label": "earned-victory",
+      "frame": 2336,
+      "frameCount": 2960,
+      "scene": "Battle",
+      "tick": 3808,
+      "dspTime": 5999.8293333333331
+    },
+    {
+      "label": "BossDeath",
+      "frame": 2337,
+      "frameCount": 2960,
+      "scene": "Battle",
+      "tick": 3808,
+      "dspTime": 5999.8506666666663
+    },
+    {
+      "label": "Victory",
+      "frame": 2337,
+      "frameCount": 2960,
+      "scene": "Battle",
+      "tick": 3808,
+      "dspTime": 5999.8506666666663
+    },
+    {
+      "label": "synthetic-boss-leak",
+      "frame": 2401,
+      "frameCount": 3025,
+      "scene": "Battle",
+      "tick": 0,
+      "dspTime": 6002.4533333333329
+    },
+    {
+      "label": "synthetic-leak-defeat",
+      "frame": 2487,
+      "frameCount": 3111,
+      "scene": "Battle",
+      "tick": 106,
+      "dspTime": 6005.952
+    },
+    {
+      "label": "BossLeak",
+      "frame": 2488,
+      "frameCount": 3111,
+      "scene": "Battle",
+      "tick": 106,
+      "dspTime": 6005.9946666666665
+    },
+    {
+      "label": "Defeat",
+      "frame": 2488,
+      "frameCount": 3111,
+      "scene": "Battle",
+      "tick": 106,
+      "dspTime": 6005.9946666666665
+    }
+  ],
+  "activeVoices": {
+    "menu-loop": 0,
+    "main-menu-audio": 1,
+    "menu-mute-on": 0,
+    "menu-mute-off-restored": 1,
+    "ordinary-command-flow": 1,
+    "ordinary-wave-one": 5,
+    "accepted-seal": 5,
+    "pause-audio": 1,
+    "resume": 2,
+    "file-continue": 1,
+    "synthetic-six-tower-density": 12,
+    "earned-wave-eight-continue": 11,
+    "earned-victory": 7,
+    "synthetic-boss-leak": 2,
+    "synthetic-leak-defeat": 2
+  },
+  "errors": []
+}
