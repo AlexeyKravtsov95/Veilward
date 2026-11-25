@@ -1,9 +1,11 @@
 using System.Linq;
 using NUnit.Framework;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Audio;
 using Veilward.Presentation;
+using Veilward.Editor;
 
 namespace Veilward.Tests.EditMode
 {
@@ -64,6 +66,30 @@ namespace Veilward.Tests.EditMode
             AssertClip(menu, true);
             AssertClip(battle, true);
             Assert.That(menu, Is.Not.EqualTo(battle));
+        }
+
+        [TestCase("Battle", "catalog")]
+        [TestCase("Battle", "audioOwner")]
+        [TestCase("MainMenu", "catalog")]
+        [TestCase("MainMenu", "audioOwner")]
+        public void Audio104_SavedSceneValidatorRejectsBrokenAudioReferences(string scene, string property)
+        {
+            var path = $"Assets/_Game/Scenes/{scene}.unity";
+            var previous = UnityEngine.SceneManagement.SceneManager.GetActiveScene().path;
+            try
+            {
+                EditorSceneManager.OpenScene(path);
+                var battle = scene == "Battle";
+                Component target = property == "catalog" ? Object.FindFirstObjectByType<VeilwardAudio>()
+                    : battle ? Object.FindFirstObjectByType<BattleSceneController>()
+                    : Object.FindFirstObjectByType<MainMenuController>();
+                var serialized = new SerializedObject(target);
+                serialized.FindProperty(property).objectReferenceValue = null;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                var errors = battle ? BattleAssetValidator.ValidateSavedBattle() : BattleAssetValidator.ValidateSavedMainMenu();
+                Assert.That(errors, Has.Some.Contains(property));
+            }
+            finally { EditorSceneManager.OpenScene(string.IsNullOrEmpty(previous) ? path : previous); }
         }
 
         private static void AssertClip(AudioClip clip, bool music)

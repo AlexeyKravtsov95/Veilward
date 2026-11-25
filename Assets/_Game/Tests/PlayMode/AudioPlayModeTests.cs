@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -228,6 +229,70 @@ namespace Veilward.Tests.PlayMode
             audio.ClearRun();
             events.Cast(cast, new[] { castHit });
             Assert.That(Clips(audio), Is.Empty);
+        }
+
+        [UnityTest]
+        public IEnumerator Audio102_LethalRiftSealKeepsImpactAlongsideBossDeathAndVictory()
+        {
+            yield return Load("Battle");
+            var battle = Object.FindFirstObjectByType<BattleSceneController>();
+            var production = battle.Simulation;
+            var boss = new EnemyDefinition(new EnemyDefinitionId(BossHudController.BossId), 100, .3f, 20, 70, 5);
+            var wave = new WaveDefinition(new[] { new WaveSpawnGroup(boss, 1, 0, 1) });
+            var simulation = new BattleSimulation(production.Grid.Map, production.Path, new[] { wave },
+                production.TowerCatalog, 20, 150, 20, production.ReactionCatalog, null, AbilityDefinition.RiftSeal);
+            typeof(BattleSceneController).GetField("_simulation", BindingFlags.Instance | BindingFlags.NonPublic)
+                .SetValue(battle, simulation);
+            battle.GetComponent<BattleCheckpointController>().Configure(null, simulation, "audio-terminal-seal");
+            battle.ResetPresentation();
+            Assert.That(battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+            for (var frame = 0; frame < 90 && simulation.State.Enemies.Count == 0; frame++) yield return null;
+            Assert.That(simulation.State.Enemies.Count, Is.EqualTo(1));
+            var target = simulation.Path.GetPosition(simulation.State.Enemies[0].DistanceAlongPath);
+            var ability = battle.GetComponent<AbilityController>();
+            Assert.That(ability.BeginPreview() && ability.SelectTarget(target) && ability.ConfirmPreview(), Is.True);
+            yield return null;
+            yield return null;
+            Assert.That(simulation.State.Phase, Is.EqualTo(BattlePhase.Victory));
+            Assert.That(ability.LastCast?.Succeeded, Is.True);
+            Assert.That(Clips(Owner()), Is.SupersetOf(new[] { "SealCast", "SealHit", "BossDeath", "Victory" }));
+        }
+
+        [UnityTest]
+        public IEnumerator Audio102_SaveFailureAndRecoveryHavePriorityOverGenericConfirmation()
+        {
+            var writer = new FaultWriter { FailWrite = true };
+            _store = new WaveCheckpointStore(_directory, writer);
+            yield return Load("MainMenu");
+            LogAssert.Expect(LogType.Error, "Checkpoint save failed: audio write fixture");
+            Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke();
+            yield return null;
+            yield return null;
+            var battle = Object.FindFirstObjectByType<BattleSceneController>();
+            var checkpoint = battle.GetComponent<BattleCheckpointController>();
+            var audio = Owner();
+            Assert.That(checkpoint.LastSaveSucceeded, Is.False);
+            Assert.That(Clips(audio), Is.EqualTo(new[] { "SaveError" }));
+
+            writer.FailWrite = false;
+            Assert.That(checkpoint.RetrySave(), Is.True);
+            Assert.That(File.Exists(_store.PrimaryPath), Is.True);
+            Assert.That(audio.Play(AudioCue.Confirm), Is.False);
+            Assert.That(Clips(audio), Is.EqualTo(new[] { "SaveRecovered" }));
+        }
+
+        private sealed class FaultWriter : IWaveCheckpointWriter
+        {
+            private readonly FileWaveCheckpointWriter _writer = new FileWaveCheckpointWriter();
+            internal bool FailWrite { get; set; }
+
+            public void WriteTemporary(string path, string json)
+            {
+                if (FailWrite) throw new IOException("audio write fixture");
+                _writer.WriteTemporary(path, json);
+            }
+
+            public void Commit(string temp, string primary, string backup) => _writer.Commit(temp, primary, backup);
         }
 
         [UnityTest]

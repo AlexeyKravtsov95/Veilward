@@ -167,6 +167,7 @@ public sealed class RecordEditorAudio : MonoBehaviour
         yield return Hold(1.4f);
         yield return Dense();
         yield return EarnedVictory();
+        yield return TerminalSeal();
         yield return LeakDefeat();
         Finish();
     }
@@ -232,6 +233,31 @@ public sealed class RecordEditorAudio : MonoBehaviour
         yield return WaitUntil(() => simulation.State.Phase != BattlePhase.Combat, 40);
         Need(simulation.State.Phase == BattlePhase.Victory, "Production Update reaches the earned Victory.");
         Mark("earned-victory");
+        yield return Hold(2.6f);
+    }
+
+    private IEnumerator TerminalSeal()
+    {
+        yield return SceneManager.LoadSceneAsync("Battle");
+        yield return WaitUntil(() => Battle != null && Battle.Simulation != null);
+        Mark("synthetic-terminal-seal");
+        var battle = Battle;
+        var production = battle.Simulation;
+        var boss = new EnemyDefinition(new EnemyDefinitionId(BossHudController.BossId), 100, .3f, 20, 70, 5);
+        var wave = new WaveDefinition(new[] { new WaveSpawnGroup(boss, 1, 0, 1) });
+        var simulation = new BattleSimulation(production.Grid.Map, production.Path, new[] { wave }, production.TowerCatalog,
+            20, 150, 20, production.ReactionCatalog, null, AbilityDefinition.RiftSeal);
+        SetFixture(battle, simulation, "editor-audio-terminal-seal");
+        yield return null;
+        Click("Start Wave Button");
+        yield return WaitUntil(() => simulation.State.Enemies.Count == 1);
+        yield return Hold(.6f);
+        var ability = battle.GetComponent<AbilityController>();
+        var enemy = simulation.State.Enemies[0];
+        Need(ability.BeginPreview() && ability.SelectTarget(simulation.Path.GetPosition(enemy.DistanceAlongPath)) &&
+            ability.ConfirmPreview(), "Aim the seal at the real fixture boss.");
+        yield return WaitUntil(() => simulation.State.Phase == BattlePhase.Victory);
+        Mark("synthetic-terminal-seal-victory");
         yield return Hold(2.6f);
     }
 

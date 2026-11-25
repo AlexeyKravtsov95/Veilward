@@ -83,7 +83,8 @@ def evidence(video, manifest):
     need(abs(float(audio["duration"]) - float(picture["duration"])) <= .075, "Audio/video duration drift")
     marks = {mark["label"]: mark["frame"] / data["frameRate"] for mark in data["marks"]}
     for label in ("MenuMusic-wrap", "BattleMusic-wrap", "accepted-seal", "resume", "file-continue",
-                  "synthetic-six-tower-density", "earned-victory", "synthetic-leak-defeat"):
+                  "synthetic-six-tower-density", "earned-victory", "synthetic-terminal-seal-victory",
+                  "synthetic-leak-defeat"):
         need(label in marks, "Missing capture marker " + label)
     mute, unmute = marks["menu-mute-on"], marks["menu-mute-off-restored"]
 

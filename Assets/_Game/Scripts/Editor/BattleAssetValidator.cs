@@ -74,7 +74,7 @@ namespace Veilward.Editor
                     RequireProductionContent(references["scenario"], errors);
                 }
 
-                ValidateAudio(roots, false, errors);
+                ValidateAudio(roots, false, menus.Count == 1 ? menus[0] : null, errors);
                 var canvases = FindComponents<Canvas>(roots);
                 var raycasters = FindComponents<UnityEngine.UI.GraphicRaycaster>(roots);
                 var eventSystems = FindComponents<UnityEngine.EventSystems.EventSystem>(roots);
@@ -112,8 +112,8 @@ namespace Veilward.Editor
                 ValidateMissingScripts(root, $"Scene {root.name}", errors);
             }
 
-            ValidateAudio(roots, true, errors);
             var controllers = FindComponents<BattleSceneController>(roots);
+            ValidateAudio(roots, true, controllers.Count == 1 ? controllers[0] : null, errors);
             if (controllers.Count != 1)
             {
                 errors.Add($"Battle must contain exactly one BattleSceneController; found {controllers.Count}.");
@@ -238,7 +238,7 @@ namespace Veilward.Editor
             ValidatePrefabAsset(TowerPrefabPath, errors);
         }
 
-        private static void ValidateAudio(GameObject[] roots, bool battle, List<string> errors)
+        private static void ValidateAudio(GameObject[] roots, bool battle, Component controller, List<string> errors)
         {
             var listeners = FindComponents<AudioListener>(roots);
             var owners = FindComponents<VeilwardAudio>(roots);
@@ -252,8 +252,11 @@ namespace Veilward.Editor
             var owner = new SerializedObject(owners[0]);
             if (owner.FindProperty("battleMusic").boolValue != battle)
                 errors.Add("Production audio is set to the wrong scene music.");
-            RequireAssetPath(owner.FindProperty("catalog").objectReferenceValue, BattleSceneBuilder.AudioCatalogPath,
-                "Audio catalog", errors);
+            var ownerRefs = RequireReferences(owners[0], new[] { "catalog" }, errors);
+            RequireAssetPath(ownerRefs["catalog"], BattleSceneBuilder.AudioCatalogPath, "Audio catalog", errors);
+            if (controller != null &&
+                new SerializedObject(controller).FindProperty("audioOwner").objectReferenceValue != owners[0])
+                errors.Add($"{controller.GetType().Name} audioOwner must reference the scene audio owner.");
             var refs = RequireReferences(panels[0], new[] { "audioOwner", "overlay", "underlyingActions", "openButton",
                 "closeButton", "muteButton", "master", "music", "sfx", "masterValue", "musicValue", "sfxValue", "muteLabel" }, errors);
             if (refs["audioOwner"] != owners[0]) errors.Add("Audio settings must use the scene audio owner.");

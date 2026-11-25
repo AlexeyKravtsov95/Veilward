@@ -175,7 +175,9 @@ namespace Veilward.Presentation
             var index = (int)cue;
             if (now < _nextCue[index]) return false;
             var priority = Priority(cue);
-            var start = ui ? VoiceCapacity - 1 : cue >= AudioCue.SealCast ? CombatCapacity : 0;
+            // Hit Печати может совпасть с Cast, BossDeath и Victory в одном DSP-буфере.
+            var priorityVoice = cue >= AudioCue.SealCast && cue != AudioCue.SealHit;
+            var start = ui ? VoiceCapacity - 1 : priorityVoice ? CombatCapacity : 0;
             var end = ui ? VoiceCapacity : start == 0 ? CombatCapacity : VoiceCapacity - 1;
             Voice slot = null;
             for (var i = start; i < end; i++)
@@ -199,7 +201,8 @@ namespace Veilward.Presentation
             slot.Source.outputAudioMixerGroup = throughMusic ? catalog.Music : catalog.Sfx;
             slot.Source.mute = false;
             slot.Source.panStereo = pan;
-            slot.Source.volume = gain * (ui ? .15f : start == 0 ? .058f : .13f);
+            var voiceGain = ui ? .15f : priorityVoice || cue == AudioCue.SealHit ? .13f : .058f;
+            slot.Source.volume = gain * voiceGain;
             if (delay > 0f) slot.Source.PlayScheduled(startTime);
             else slot.Source.Play();
 
@@ -214,12 +217,15 @@ namespace Veilward.Presentation
                 case AudioCue.Victory:
                 case AudioCue.Defeat: return 4;
                 case AudioCue.SealCast:
+                case AudioCue.SealHit:
                 case AudioCue.BossDeath:
                 case AudioCue.BossLeak: return 3;
                 case AudioCue.BossSpawn:
                 case AudioCue.BossThreat:
                 case AudioCue.SteamBurst:
-                case AudioCue.StormChain: return 2;
+                case AudioCue.StormChain:
+                case AudioCue.SaveError:
+                case AudioCue.SaveRecovered: return 2;
                 default: return 1;
             }
         }
