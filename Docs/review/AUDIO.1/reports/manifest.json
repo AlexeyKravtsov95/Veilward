@@ -2,490 +2,506 @@
   "frameRate": 24,
   "width": 960,
   "height": 444,
-  "frames": 2549,
+  "frames": 2633,
   "sampleRate": 48000,
-  "samples": 10191872,
+  "samples": 10527744,
   "peak": 0.128771126,
   "marks": [
     {
       "label": "menu-loop",
       "frame": 0,
-      "frameCount": 659,
+      "frameCount": 1639,
       "scene": "MainMenu",
       "tick": null,
-      "dspTime": 6074.6026666666667
+      "dspTime": 6393.3866666666663
     },
     {
       "label": "MenuMusic-wrap",
-      "frame": 646,
-      "frameCount": 1304,
+      "frame": 647,
+      "frameCount": 2285,
       "scene": "MainMenu",
       "tick": null,
-      "dspTime": 6100.8
+      "dspTime": 6419.626666666667
     },
     {
       "label": "main-menu-audio",
-      "frame": 677,
-      "frameCount": 1336,
+      "frame": 678,
+      "frameCount": 2317,
       "scene": "MainMenu",
       "tick": null,
-      "dspTime": 6102.0586666666668
+      "dspTime": 6420.8853333333336
     },
     {
       "label": "Select",
-      "frame": 678,
-      "frameCount": 1336,
+      "frame": 679,
+      "frameCount": 2317,
       "scene": "MainMenu",
       "tick": null,
-      "dspTime": 6102.1013333333331
+      "dspTime": 6420.928
     },
     {
       "label": "menu-mute-on",
-      "frame": 712,
-      "frameCount": 1371,
+      "frame": 713,
+      "frameCount": 2352,
       "scene": "MainMenu",
       "tick": null,
-      "dspTime": 6103.488
+      "dspTime": 6422.3146666666671
     },
     {
       "label": "menu-mute-off-restored",
-      "frame": 746,
-      "frameCount": 1405,
+      "frame": 747,
+      "frameCount": 2386,
       "scene": "MainMenu",
       "tick": null,
-      "dspTime": 6104.8746666666666
+      "dspTime": 6423.68
     },
     {
       "label": "Confirm",
-      "frame": 747,
-      "frameCount": 1405,
+      "frame": 748,
+      "frameCount": 2386,
       "scene": "MainMenu",
       "tick": null,
-      "dspTime": 6104.896
+      "dspTime": 6423.7226666666666
     },
     {
       "label": "Cancel",
-      "frame": 775,
-      "frameCount": 1433,
+      "frame": 776,
+      "frameCount": 2414,
       "scene": "MainMenu",
       "tick": null,
-      "dspTime": 6106.048
+      "dspTime": 6424.8746666666666
     },
     {
       "label": "ordinary-command-flow",
-      "frame": 786,
-      "frameCount": 1445,
+      "frame": 787,
+      "frameCount": 2426,
       "scene": "Battle",
       "tick": 0,
-      "dspTime": 6106.496
+      "dspTime": 6425.3226666666669
     },
     {
       "label": "Unlock",
-      "frame": 809,
-      "frameCount": 1467,
+      "frame": 810,
+      "frameCount": 2448,
       "scene": "Battle",
       "tick": 0,
-      "dspTime": 6107.434666666667
+      "dspTime": 6426.2613333333329
     },
     {
       "label": "Build",
-      "frame": 833,
-      "frameCount": 1491,
+      "frame": 834,
+      "frameCount": 2472,
       "scene": "Battle",
       "tick": 0,
-      "dspTime": 6108.394666666667
+      "dspTime": 6427.221333333333
     },
     {
       "label": "ordinary-wave-one",
-      "frame": 843,
-      "frameCount": 1502,
+      "frame": 844,
+      "frameCount": 2483,
       "scene": "Battle",
       "tick": 0,
-      "dspTime": 6108.8
+      "dspTime": 6427.626666666667
     },
     {
       "label": "WaveStart",
-      "frame": 844,
-      "frameCount": 1502,
+      "frame": 845,
+      "frameCount": 2483,
       "scene": "Battle",
       "tick": 0,
-      "dspTime": 6108.8426666666664
+      "dspTime": 6427.6693333333333
     },
     {
       "label": "FlameShot2",
-      "frame": 845,
-      "frameCount": 1503,
+      "frame": 846,
+      "frameCount": 2484,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6108.8853333333336
+      "dspTime": 6427.712
     },
     {
       "label": "FlameImpact2",
-      "frame": 845,
-      "frameCount": 1503,
+      "frame": 846,
+      "frameCount": 2484,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6108.8853333333336
+      "dspTime": 6427.712
     },
     {
       "label": "Reject",
-      "frame": 869,
-      "frameCount": 1527,
+      "frame": 870,
+      "frameCount": 2508,
       "scene": "Battle",
       "tick": 31,
-      "dspTime": 6109.8666666666668
-    },
-    {
-      "label": "SealCast",
-      "frame": 895,
-      "frameCount": 1553,
-      "scene": "Battle",
-      "tick": 63,
-      "dspTime": 6110.9333333333334
+      "dspTime": 6428.6933333333336
     },
     {
       "label": "SealHit",
-      "frame": 895,
-      "frameCount": 1553,
+      "frame": 896,
+      "frameCount": 2534,
       "scene": "Battle",
       "tick": 63,
-      "dspTime": 6110.9333333333334
+      "dspTime": 6429.76
+    },
+    {
+      "label": "SealCast",
+      "frame": 896,
+      "frameCount": 2534,
+      "scene": "Battle",
+      "tick": 63,
+      "dspTime": 6429.76
     },
     {
       "label": "accepted-seal",
-      "frame": 895,
-      "frameCount": 1554,
+      "frame": 896,
+      "frameCount": 2535,
       "scene": "Battle",
       "tick": 65,
-      "dspTime": 6110.9333333333334
+      "dspTime": 6429.76
     },
     {
       "label": "pause-audio",
-      "frame": 933,
-      "frameCount": 1592,
+      "frame": 934,
+      "frameCount": 2573,
       "scene": "Battle",
       "tick": 112,
-      "dspTime": 6112.4693333333335
+      "dspTime": 6431.296
     },
     {
       "label": "resume",
-      "frame": 998,
-      "frameCount": 1657,
+      "frame": 999,
+      "frameCount": 2638,
       "scene": "Battle",
       "tick": 112,
-      "dspTime": 6115.1146666666664
+      "dspTime": 6433.9413333333332
     },
     {
       "label": "FlameShot1",
-      "frame": 1032,
-      "frameCount": 1690,
+      "frame": 1033,
+      "frameCount": 2671,
       "scene": "Battle",
       "tick": 151,
-      "dspTime": 6116.5013333333336
+      "dspTime": 6435.328
     },
     {
       "label": "FlameImpact1",
-      "frame": 1032,
-      "frameCount": 1690,
+      "frame": 1033,
+      "frameCount": 2671,
       "scene": "Battle",
       "tick": 151,
-      "dspTime": 6116.5013333333336
+      "dspTime": 6435.328
     },
     {
       "label": "WaveEnd",
-      "frame": 1230,
-      "frameCount": 1888,
+      "frame": 1231,
+      "frameCount": 2869,
       "scene": "Battle",
       "tick": 399,
-      "dspTime": 6124.544
+      "dspTime": 6443.3706666666667
     },
     {
       "label": "BattleMusic-wrap",
-      "frame": 1355,
-      "frameCount": 2013,
+      "frame": 1357,
+      "frameCount": 2995,
       "scene": "Battle",
       "tick": 399,
-      "dspTime": 6129.6213333333335
+      "dspTime": 6448.4906666666666
     },
     {
       "label": "file-continue",
-      "frame": 1407,
-      "frameCount": 2066,
+      "frame": 1409,
+      "frameCount": 3048,
       "scene": "Battle",
       "tick": 399,
-      "dspTime": 6131.7546666666667
+      "dspTime": 6450.6026666666667
     },
     {
       "label": "synthetic-six-tower-density",
-      "frame": 1444,
-      "frameCount": 2103,
+      "frame": 1446,
+      "frameCount": 3085,
       "scene": "Battle",
       "tick": 0,
-      "dspTime": 6133.248
+      "dspTime": 6452.1173333333336
     },
     {
       "label": "SteamBurst",
-      "frame": 1447,
-      "frameCount": 2105,
+      "frame": 1449,
+      "frameCount": 3087,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6133.376
+      "dspTime": 6452.2453333333333
     },
     {
       "label": "StormImpact1",
-      "frame": 1447,
-      "frameCount": 2105,
+      "frame": 1449,
+      "frameCount": 3087,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6133.376
+      "dspTime": 6452.2453333333333
     },
     {
       "label": "TideShot1",
-      "frame": 1447,
-      "frameCount": 2105,
+      "frame": 1449,
+      "frameCount": 3087,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6133.376
+      "dspTime": 6452.2453333333333
     },
     {
       "label": "TideImpact1",
-      "frame": 1447,
-      "frameCount": 2105,
+      "frame": 1449,
+      "frameCount": 3087,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6133.376
+      "dspTime": 6452.2453333333333
     },
     {
       "label": "GaleShot2",
-      "frame": 1447,
-      "frameCount": 2105,
+      "frame": 1449,
+      "frameCount": 3087,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6133.376
+      "dspTime": 6452.2453333333333
     },
     {
       "label": "GaleImpact2",
-      "frame": 1447,
-      "frameCount": 2105,
+      "frame": 1449,
+      "frameCount": 3087,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6133.376
+      "dspTime": 6452.2453333333333
     },
     {
       "label": "SteamShot2",
-      "frame": 1447,
-      "frameCount": 2105,
+      "frame": 1449,
+      "frameCount": 3087,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6133.376
+      "dspTime": 6452.2453333333333
     },
     {
       "label": "SteamImpact2",
-      "frame": 1447,
-      "frameCount": 2105,
+      "frame": 1449,
+      "frameCount": 3087,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6133.376
+      "dspTime": 6452.2453333333333
     },
     {
       "label": "StormShot1",
-      "frame": 1447,
-      "frameCount": 2105,
+      "frame": 1449,
+      "frameCount": 3087,
       "scene": "Battle",
       "tick": 1,
-      "dspTime": 6133.376
+      "dspTime": 6452.2453333333333
     },
     {
       "label": "StoneShot2",
-      "frame": 1466,
-      "frameCount": 2124,
+      "frame": 1468,
+      "frameCount": 3106,
       "scene": "Battle",
       "tick": 24,
-      "dspTime": 6134.144
+      "dspTime": 6453.0133333333333
     },
     {
       "label": "StoneImpact2",
-      "frame": 1466,
-      "frameCount": 2124,
+      "frame": 1468,
+      "frameCount": 3106,
       "scene": "Battle",
       "tick": 24,
-      "dspTime": 6134.144
+      "dspTime": 6453.0133333333333
     },
     {
       "label": "StormChain",
-      "frame": 1471,
-      "frameCount": 2129,
+      "frame": 1473,
+      "frameCount": 3111,
       "scene": "Battle",
       "tick": 31,
-      "dspTime": 6134.3573333333334
+      "dspTime": 6453.2053333333333
     },
     {
       "label": "SteamShot1",
-      "frame": 1508,
-      "frameCount": 2166,
+      "frame": 1510,
+      "frameCount": 3148,
       "scene": "Battle",
       "tick": 77,
-      "dspTime": 6135.8506666666663
+      "dspTime": 6454.72
     },
     {
       "label": "SteamImpact1",
-      "frame": 1508,
-      "frameCount": 2166,
+      "frame": 1510,
+      "frameCount": 3148,
       "scene": "Battle",
       "tick": 77,
-      "dspTime": 6135.8506666666663
+      "dspTime": 6454.72
     },
     {
       "label": "StormHop",
-      "frame": 1519,
-      "frameCount": 2177,
+      "frame": 1521,
+      "frameCount": 3159,
       "scene": "Battle",
       "tick": 91,
-      "dspTime": 6136.2986666666666
+      "dspTime": 6455.168
     },
     {
       "label": "TideShot2",
-      "frame": 1539,
-      "frameCount": 2197,
+      "frame": 1541,
+      "frameCount": 3179,
       "scene": "Battle",
       "tick": 116,
-      "dspTime": 6137.1093333333338
+      "dspTime": 6455.9786666666669
     },
     {
       "label": "TideImpact2",
-      "frame": 1539,
-      "frameCount": 2197,
+      "frame": 1541,
+      "frameCount": 3179,
       "scene": "Battle",
       "tick": 116,
-      "dspTime": 6137.1093333333338
+      "dspTime": 6455.9786666666669
     },
     {
       "label": "BossSpawn",
-      "frame": 1539,
-      "frameCount": 2197,
+      "frame": 1541,
+      "frameCount": 3179,
       "scene": "Battle",
       "tick": 116,
-      "dspTime": 6137.1093333333338
+      "dspTime": 6455.9786666666669
     },
     {
       "label": "StormShot2",
-      "frame": 1543,
-      "frameCount": 2201,
+      "frame": 1545,
+      "frameCount": 3183,
       "scene": "Battle",
       "tick": 121,
-      "dspTime": 6137.28
+      "dspTime": 6456.1493333333337
     },
     {
       "label": "StormImpact2",
-      "frame": 1543,
-      "frameCount": 2201,
+      "frame": 1545,
+      "frameCount": 3183,
       "scene": "Battle",
       "tick": 121,
-      "dspTime": 6137.28
+      "dspTime": 6456.1493333333337
     },
     {
       "label": "GaleShot1",
-      "frame": 1543,
-      "frameCount": 2201,
+      "frame": 1545,
+      "frameCount": 3183,
       "scene": "Battle",
       "tick": 121,
-      "dspTime": 6137.28
+      "dspTime": 6456.1493333333337
     },
     {
       "label": "GaleImpact1",
-      "frame": 1543,
-      "frameCount": 2201,
+      "frame": 1545,
+      "frameCount": 3183,
       "scene": "Battle",
       "tick": 121,
-      "dspTime": 6137.28
+      "dspTime": 6456.1493333333337
     },
     {
       "label": "StoneShot1",
-      "frame": 1658,
-      "frameCount": 2316,
+      "frame": 1660,
+      "frameCount": 3298,
       "scene": "Battle",
       "tick": 264,
-      "dspTime": 6141.952
+      "dspTime": 6460.8213333333333
     },
     {
       "label": "StoneImpact1",
-      "frame": 1658,
-      "frameCount": 2316,
+      "frame": 1660,
+      "frameCount": 3298,
       "scene": "Battle",
       "tick": 264,
-      "dspTime": 6141.952
+      "dspTime": 6460.8213333333333
     },
     {
       "label": "earned-wave-eight-continue",
-      "frame": 1688,
-      "frameCount": 2347,
+      "frame": 1690,
+      "frameCount": 3329,
       "scene": "MainMenu",
       "tick": null,
-      "dspTime": 6143.168
+      "dspTime": 6462.0373333333337
     },
     {
       "label": "BossThreat",
-      "frame": 2303,
-      "frameCount": 2961,
+      "frame": 2305,
+      "frameCount": 3943,
       "scene": "Battle",
       "tick": 3766,
-      "dspTime": 6168.192
+      "dspTime": 6487.04
     },
     {
       "label": "earned-victory",
-      "frame": 2336,
-      "frameCount": 2995,
+      "frame": 2338,
+      "frameCount": 3977,
       "scene": "Battle",
       "tick": 3808,
-      "dspTime": 6169.536
+      "dspTime": 6488.384
     },
     {
       "label": "BossDeath",
-      "frame": 2337,
-      "frameCount": 2995,
+      "frame": 2339,
+      "frameCount": 3977,
       "scene": "Battle",
       "tick": 3808,
-      "dspTime": 6169.5573333333332
+      "dspTime": 6488.4266666666663
     },
     {
       "label": "Victory",
-      "frame": 2337,
-      "frameCount": 2995,
+      "frame": 2339,
+      "frameCount": 3977,
       "scene": "Battle",
       "tick": 3808,
-      "dspTime": 6169.5573333333332
+      "dspTime": 6488.4266666666663
+    },
+    {
+      "label": "synthetic-terminal-seal",
+      "frame": 2403,
+      "frameCount": 4042,
+      "scene": "Battle",
+      "tick": 0,
+      "dspTime": 6491.0293333333329
+    },
+    {
+      "label": "synthetic-terminal-seal-victory",
+      "frame": 2420,
+      "frameCount": 4059,
+      "scene": "Battle",
+      "tick": 18,
+      "dspTime": 6491.7333333333336
     },
     {
       "label": "synthetic-boss-leak",
-      "frame": 2401,
-      "frameCount": 3060,
+      "frame": 2485,
+      "frameCount": 4124,
       "scene": "Battle",
       "tick": 0,
-      "dspTime": 6172.16
+      "dspTime": 6494.3786666666665
     },
     {
       "label": "synthetic-leak-defeat",
-      "frame": 2487,
-      "frameCount": 3146,
+      "frame": 2571,
+      "frameCount": 4210,
       "scene": "Battle",
       "tick": 106,
-      "dspTime": 6175.6586666666662
+      "dspTime": 6497.856
     },
     {
       "label": "BossLeak",
-      "frame": 2488,
-      "frameCount": 3146,
+      "frame": 2572,
+      "frameCount": 4210,
       "scene": "Battle",
       "tick": 106,
-      "dspTime": 6175.7013333333334
+      "dspTime": 6497.8986666666669
     },
     {
       "label": "Defeat",
-      "frame": 2488,
-      "frameCount": 3146,
+      "frame": 2572,
+      "frameCount": 4210,
       "scene": "Battle",
       "tick": 106,
-      "dspTime": 6175.7013333333334
+      "dspTime": 6497.8986666666669
     }
   ],
   "activeVoices": {
@@ -502,6 +518,8 @@
     "synthetic-six-tower-density": 12,
     "earned-wave-eight-continue": 11,
     "earned-victory": 7,
+    "synthetic-terminal-seal": 5,
+    "synthetic-terminal-seal-victory": 5,
     "synthetic-boss-leak": 2,
     "synthetic-leak-defeat": 2
   },
@@ -591,6 +609,20 @@
       "musicPlaying": true
     },
     "earned-victory": {
+      "sources": 15,
+      "registeredClips": 50,
+      "loadedSfx": 48,
+      "streamingReady": 1,
+      "musicPlaying": true
+    },
+    "synthetic-terminal-seal": {
+      "sources": 15,
+      "registeredClips": 50,
+      "loadedSfx": 48,
+      "streamingReady": 1,
+      "musicPlaying": true
+    },
+    "synthetic-terminal-seal-victory": {
       "sources": 15,
       "registeredClips": 50,
       "loadedSfx": 48,

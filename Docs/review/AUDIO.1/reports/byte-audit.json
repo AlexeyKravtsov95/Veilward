@@ -4,12 +4,12 @@
     {
       "path": "Assets/_Game/Scenes/Battle.unity",
       "before": "39edf032e45bb4a85be20f3c00f4c9beb45b7bd3b4cfdd17d484e98a920f7d25",
-      "generated": "c81384d2bebba053ffafdfb12ca19243b24e59ac55f79487c16c6192de92f816"
+      "generated": "2199a2eced9bb63a4e48854e0bad780cc8c1d6f9782ee27b9c1731ce89e4cd37"
     },
     {
       "path": "Assets/_Game/Scenes/MainMenu.unity",
       "before": "2c605b6bfbb03fe7ee4d4e98c63ee40024845ad3862a4dd499c1b24c8501e3c7",
-      "generated": "198daf0dee505525fb7ad5648182f9c3c2c4bc48214a42352c317a8c9e445957"
+      "generated": "c72c4135a4f0d9b2d53d85c0fc31a25a792e22db63cf4292ce3f0e61358086a1"
     },
     {
       "path": "Assets/_Game/Prefabs/TestTower.prefab",
@@ -63,14 +63,17 @@
     }
   ],
   "unexpected": [],
-  "newInputs": [],
+  "newInputs": [
+    "Assets/InitTestScenedaa6bc71-8cfd-4ca7-9d0d-8bfdd9090dab.unity",
+    "Assets/InitTestScenedaa6bc71-8cfd-4ca7-9d0d-8bfdd9090dab.unity.meta"
+  ],
   "allOriginalInputsRestored": true,
   "editorSceneDetached": true,
   "editorInputsRefreshed": true,
   "recoveryNeeded": false,
   "commandDiagnostics": [],
   "copiedWholeProject": false,
-  "testedSource": "fcffe6c5244d76010b7daea8d44cb32b6269765d",
+  "testedSource": "6d494e478550bab62e9669d8f9e0916fa6e07ae8",
   "results": {
     "static": 0,
     "edit-mode": 0,
