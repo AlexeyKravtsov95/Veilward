@@ -395,3 +395,11 @@ P2.4f revision2: `AbilityBossTargetedSearchTests` — один opt-in ordered-hi
 - UI1-03: `ProductionUiPlayModeTests`, REG-BATTLE-178, REG-BATTLE-204–208 и boss suites проверяют фактический результат, Retry после ошибки записи, Rift Seal target/cancel/cast/lease и реакцию с фактическим HP loss.
 - UI1-04: `ProductionUiLayoutTests`, `ProductionUiPlayModeTests`, REG-BATTLE-054–066 и REG-BATTLE-120 проверяют размеры целей, safe area, touch routing, pause, overlay blockers и повтор команд.
 - UI1-05: [Спецификация и профили](UI1_PRODUCTION_UI.md).
+
+### UI.REWORK.1 / #103 — «Чернила и фонари»
+
+- UI.REWORK.1-01. В сохранённых production-сценах каждый `VeilwardUiGlyph` имеет полный набор рисованных спрайтов. Переключение стихия → замок → стихия меняет UV на одном компоненте.
+- UI.REWORK.1-02. EventSystem направляет нажатия на края кнопок MainMenu, Pause и карточек. Орнаменты пропускают луч, а backdrop открытого модального окна поглощает луч над картой.
+- UI.REWORK.1-03. Повторное открытие подтверждения постройки, улучшения и продажи сохраняет одну плату или возврат за действие. При смене доступности каталог показывает актуальную цену, замок и причину отказа.
+- UI.REWORK.1-04. При ошибке чтения и записи виден Retry. Восстановление сохраняет единый durable snapshot и соблюдает очередность модальных состояний.
+- UI.REWORK.1-05. В каждом профиле из [спецификации](UI_REWORK_1_DESIGN.md) активные контролы остаются в safe area, не перекрывают друг друга и имеют размер не меньше 44×44 logical pt.

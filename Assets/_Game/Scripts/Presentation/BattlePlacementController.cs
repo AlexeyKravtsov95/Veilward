@@ -63,7 +63,6 @@ namespace Veilward.Presentation
 
         public bool HasSelection => _hasSelection;
         internal bool ShowsBuildDrawer => confirmationPanel != null && confirmationPanel.activeSelf;
-        internal bool BuildDrawerOnLeft => ((RectTransform)confirmationPanel.transform).anchorMin.x == 0;
         public GridCoordinate SelectedCell { get; private set; }
         public TowerId? SelectedTowerId { get; private set; }
         public UnityEngine.UI.Text TowerStatsText => towerStatsText;
@@ -552,7 +551,7 @@ namespace Veilward.Presentation
                 var availabilityLabel = locked ? "Locked" :
                     availability.FailureReason == PlaceTowerFailureReason.InsufficientGold ? "Low gold" : string.Empty;
                 var selected = archetype.Id == SelectedTowerTypeId;
-                var status = selected ? "Selected" : availabilityLabel;
+                var status = selected && availabilityLabel.Length == 0 ? "Selected" : availabilityLabel;
                 var text = button.GetComponentInChildren<UnityEngine.UI.Text>(true);
                 text.text = TowerDisplay.Name(archetype.Id);
                 text.color = selected ? new Color32(231, 194, 121, 255) : new Color32(245, 233, 209, 255);
@@ -567,7 +566,8 @@ namespace Veilward.Presentation
                 if (selected)
                 {
                     var requirement = AvailabilityText(archetype, availability);
-                    buildStatsText.text = $"Price: {_selectedDefinition.Price} gold\n{TowerDisplay.CoreStats(_selectedDefinition)}\n" +
+                    buildStatsText.text = $"{TowerDisplay.ArchetypeName(archetype.Id)} · Price: {_selectedDefinition.Price} gold\n" +
+                        $"{TowerDisplay.CoreStats(_selectedDefinition)}\n" +
                         (requirement.Length == 0 ? TowerDisplay.Effect(_selectedDefinition) : requirement);
                 }
             }

@@ -1,29 +1,48 @@
 using UnityEngine;
+using UnityEngine.Sprites;
 using UnityEngine.UI;
 
 namespace Veilward.Presentation
 {
     public enum VeilwardGlyph { Seal, Heart, Gold, Wave, Pause, Flame, Tide, Gale, Stone, Steam, Storm, Lock }
 
-    // Контуры авторских пиктограмм в нормализованных координатах. Данные редактируются вместе с UI.
     [RequireComponent(typeof(CanvasRenderer))]
     public sealed class VeilwardUiGlyph : MaskableGraphic
     {
         [SerializeField] private VeilwardGlyph glyph;
+        [SerializeField] private Sprite[] artwork;
         private Rect _square;
         private VertexHelper _vertices;
+
+        private Sprite CurrentSprite => artwork != null && (uint)glyph < (uint)artwork.Length ? artwork[(int)glyph] : null;
+
+        public override Texture mainTexture => CurrentSprite != null ? CurrentSprite.texture : base.mainTexture;
 
         public VeilwardGlyph Glyph
         {
             get => glyph;
-            set { if (glyph == value) return; glyph = value; SetVerticesDirty(); }
+            set
+            {
+                if (glyph == value) return;
+                glyph = value;
+                SetVerticesDirty();
+                SetMaterialDirty();
+            }
         }
 
         protected override void OnPopulateMesh(VertexHelper vertices)
         {
             vertices.Clear();
-            _vertices = vertices;
             var rect = GetPixelAdjustedRect();
+            var sprite = CurrentSprite;
+            if (sprite != null)
+            {
+                DrawArtwork(vertices, rect, sprite);
+                return;
+            }
+
+            // Старые тестовые сцены могут создавать компонент без атласа.
+            _vertices = vertices;
             var side = Mathf.Min(rect.width, rect.height);
             _square = new Rect(rect.center - Vector2.one * side * .5f, Vector2.one * side);
             switch (glyph)
@@ -85,6 +104,24 @@ namespace Veilward.Presentation
                     Path(.35f,.55f,.35f,.72f,.43f,.84f,.57f,.84f,.65f,.72f,.65f,.55f); break;
             }
             _vertices = null;
+        }
+
+        private void DrawArtwork(VertexHelper vertices, Rect bounds, Sprite sprite)
+        {
+            var size = sprite.rect.size;
+            var scale = Mathf.Min(bounds.width / size.x, bounds.height / size.y);
+            var half = size * (scale * .5f);
+            var min = bounds.center - half;
+            var max = bounds.center + half;
+            var uv = DataUtility.GetOuterUV(sprite);
+            // У рисованного спрайта собственные цвета. Прозрачность остаётся управляемой через Graphic.
+            var tint = new Color(1, 1, 1, color.a);
+            vertices.AddVert(new Vector3(min.x, min.y), tint, new Vector2(uv.x, uv.y));
+            vertices.AddVert(new Vector3(min.x, max.y), tint, new Vector2(uv.x, uv.w));
+            vertices.AddVert(new Vector3(max.x, max.y), tint, new Vector2(uv.z, uv.w));
+            vertices.AddVert(new Vector3(max.x, min.y), tint, new Vector2(uv.z, uv.y));
+            vertices.AddTriangle(0, 1, 2);
+            vertices.AddTriangle(2, 3, 0);
         }
 
         private void Path(params float[] points)

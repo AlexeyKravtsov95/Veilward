@@ -83,13 +83,8 @@ namespace Veilward.Presentation
             if (failedSave)
             {
                 var rect = (RectTransform)saveWarning.transform;
-                var anchor = new Vector2(1, 1);
+                var anchor = Vector2.one;
                 var offset = new Vector2(-10, pendingChoice || terminal ? -6 : -78);
-                if (!terminal && placement.ShowsBuildDrawer)
-                {
-                    anchor = placement.BuildDrawerOnLeft ? Vector2.right : Vector2.zero;
-                    offset = new Vector2(placement.BuildDrawerOnLeft ? -10 : 10, 10);
-                }
                 rect.anchorMin = rect.anchorMax = rect.pivot = anchor;
                 rect.anchoredPosition = offset;
             }
@@ -130,7 +125,7 @@ namespace Veilward.Presentation
                 _kills = state.Kills;
                 var won = state.Phase == BattlePhase.Victory;
                 resultTitle.text = won ? "Victory" : "Defeat";
-                resultTitle.color = won ? new Color32(231, 194, 121, 255) : new Color32(244, 151, 131, 255);
+                resultTitle.color = won ? new Color32(39, 77, 66, 255) : new Color32(127, 48, 55, 255);
             }
             if (changedPhase || !ReferenceEquals(_resultState, state) || _resultHeart != _heart || _resultGold != _gold || _resultKills != _kills)
             {
