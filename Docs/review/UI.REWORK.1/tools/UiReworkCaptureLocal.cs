@@ -57,7 +57,7 @@ namespace Veilward.Presentation
             yield return null;
             yield return End;
             Ensure(Screen.width == Width && Screen.height == Height, "baseline GameView dimensions");
-            switch (mode)
+            switch (mode.StartsWith("polish-") ? mode.Substring("polish-".Length) : mode)
             {
                 case "story": yield return Story(); break;
                 case "earned": yield return Earned(); break;
@@ -161,6 +161,8 @@ namespace Veilward.Presentation
             var casts = 0;
             var framesUntilCast = 0;
             var showedBoss = false;
+            var showedReady = false;
+            var showedCooldown = false;
             var inspected = false;
             var inspectionTime = 0d;
             var deadline = Time.unscaledTimeAsDouble + 49;
@@ -169,6 +171,22 @@ namespace Veilward.Presentation
                 yield return End;
                 var elapsedTicks = simulation.State.Tick - start;
                 var ability = battle.GetComponent<AbilityController>();
+                if ((!showedReady || !showedCooldown) && !ability.HasInputOwnership)
+                {
+                    var seal = Button("Ability Button");
+                    var caption = seal.GetComponentInChildren<Text>().text;
+                    if (!showedReady && seal.interactable && caption.EndsWith("Ready"))
+                    {
+                        SaveStill("ability-ready");
+                        showedReady = true;
+                    }
+                    if (!showedCooldown && casts == 1 && elapsedTicks > 205 &&
+                        !seal.interactable && caption.EndsWith("s left"))
+                    {
+                        SaveStill("ability-cooldown");
+                        showedCooldown = true;
+                    }
+                }
                 if (framesUntilCast > 0)
                 {
                     framesUntilCast--;
@@ -213,7 +231,7 @@ namespace Veilward.Presentation
             }
 
             yield return Still("victory", 1.25f);
-            Ensure(casts == 2 && showedBoss && inspected && simulation.State.Phase == BattlePhase.Victory &&
+            Ensure(casts == 2 && showedReady && showedCooldown && showedBoss && inspected && simulation.State.Phase == BattlePhase.Victory &&
                 simulation.State.BaseHealth == 16 && simulation.State.Kills == 64, "earned result");
             Click("Result Menu Button");
             yield return Hold(.6f);
@@ -244,6 +262,12 @@ namespace Veilward.Presentation
                 yield return Hold(.3f);
                 Click("Catalog flame");
                 yield return Still(label + "-build", 0);
+                Click("Cancel Button");
+                yield return Hold(.2f);
+                TapCell(new GridCoordinate(3, 3));
+                yield return Hold(.32f);
+                Click("Catalog flame");
+                yield return Still(label + "-build-center", 0);
                 Click("Pause Button");
                 yield return Still(label + "-pause", 0);
             }
@@ -384,7 +408,7 @@ namespace Veilward.Presentation
                     .Single(rect => rect.name == "Placement Panel");
                 var point = (Vector2)Camera.main.WorldToScreenPoint(Battle.GetCellCenter(cell));
                 Ensure(!RectTransformUtility.RectangleContainsScreenPoint(drawer, point), "central preview remains visible");
-                Ensure(drawer.GetComponentInChildren<GridLayoutGroup>().constraintCount == 3, "compact catalog is active");
+                Ensure(drawer.GetComponentInChildren<GridLayoutGroup>().constraintCount == 6, "all six schools are in one row");
                 yield return Still(label + "-build-center", 0);
                 if (label == "modern")
                 {
@@ -395,8 +419,8 @@ namespace Veilward.Presentation
                     yield return Hold(.3f);
                     TapCell(new GridCoordinate(3, 1));
                     yield return Hold(.3f);
-                    Ensure(drawer.anchorMin.x == 1 && drawer.GetComponentInChildren<GridLayoutGroup>().constraintCount == 3,
-                        "right compact catalog is active");
+                    Ensure(drawer.anchorMin.x == .5f && drawer.GetComponentInChildren<GridLayoutGroup>().constraintCount == 6,
+                        "centered build strip is active");
                     Ensure(!Button("Retry Save Button").interactable, "open drawer guards Retry");
                     foreach (var school in new[] { "tide", "gale", "flame" }) Click("Catalog " + school);
                     yield return Still("modern-build-save-warning", 0);

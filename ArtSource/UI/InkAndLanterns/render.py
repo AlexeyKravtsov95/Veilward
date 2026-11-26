@@ -6,7 +6,7 @@ import random
 from pathlib import Path
 
 import cairosvg
-from PIL import Image, ImageChops, ImageDraw, ImageOps
+from PIL import Image, ImageOps
 
 HERE = Path(__file__).resolve().parent
 DESTINATION = HERE.parents[2] / "Assets/_Game/Art/UI/InkAndLanterns"
@@ -44,20 +44,35 @@ GRADIENTS = {
     "pool": ("#3a726d", "#23444d", "#142b40"),
 }
 
+# Each silhouette has its own corners. The central nine-slice region carries only a soft wash.
 SURFACES = {
-    "InkStrip": ("#25374b", "#182435", "#c68f73", "brush", 30),
-    "InkCard": ("#283747", "#172332", "#bc9278", "paper", 26),
-    "PaperCard": ("#fae9c6", "#e5c59e", "#9c614b", "paper", 28),
-    "CoralButton": ("#ad4e51", "#793644", "#efc293", "brush", 28),
-    "PaperButton": ("#f9e8c5", "#dfb998", "#875541", "brush", 30),
-    "JadeButton": ("#3f695d", "#214747", "#e1bb89", "brush", 27),
-    "DarkButton": ("#344756", "#233044", "#a5866c", "paper", 24),
-    "HealthTrack": ("#512f42", "#382a39", "#c0876c", "paper", 16),
-}
-
-OUTLINES = {
-    "brush": "M11 108 18 96 8 96 15 79 5 77 10 66 20 65 12 57 20 44 12 39 26 27 22 17 45 12 91 13 138 9 196 12 221 10 232 16 225 29 236 30 229 45 235 51 226 66 235 72 225 87 229 94 219 106 220 111 203 116 154 115 120 119 71 115 33 117 16 114Z",
-    "paper": "M12 24 25 14 42 11 102 13 134 10 180 12 214 11 230 22 228 34 233 55 230 82 231 101 220 113 194 116 149 115 120 118 70 116 28 117 10 106 12 88 8 70 12 54 9 40Z",
+    "InkStrip": ("#1c2939", "#121e2e", "#bd8f78", 30,
+        "M12 27C18 14 32 14 51 14C99 14 150 15 198 14C214 13 226 17 234 26"
+        "Q227 29 234 37C225 51 232 74 228 98Q218 111 195 110C144 110 81 110 41 110"
+        "Q17 110 7 96Q21 92 12 81Q5 74 14 61Q18 48 8 38Z"),
+    "InkCard": ("#253437", "#19242f", "#9a816e", 26,
+        "M11 27Q9 18 24 15L89 15Q162 14 221 15Q230 15 230 28"
+        "L231 89Q233 105 217 109Q185 111 158 111L32 111Q12 110 10 97Q10 58 11 27Z"),
+    "PaperCard": ("#f3dfbc", "#e8cba5", "#785246", 28,
+        "M11 23Q10 16 26 14Q61 13 93 14L204 14Q229 10 230 27Q231 55 230 81"
+        "Q233 102 223 110Q206 113 191 110L48 112Q41 110 24 110Q10 110 10 96Q9 51 11 23Z"),
+    "CoralButton": ("#b25455", "#8e404a", "#e8b888", 28,
+        "M16 29Q20 16 42 15Q102 15 176 15Q211 11 227 20Q234 24 227 34"
+        "Q220 42 226 53Q231 64 223 81Q218 91 220 97Q211 111 193 110"
+        "L40 110Q25 111 12 102Q7 98 13 86Q17 75 12 64Q8 56 13 43Z"),
+    "PaperButton": ("#f2dfbd", "#e4c29d", "#765245", 30,
+        "M14 31Q17 19 33 16Q74 15 112 15Q164 17 211 14Q227 14 231 24"
+        "Q232 31 227 43Q224 54 229 68Q231 80 224 91Q227 103 211 108"
+        "L47 110Q22 112 13 104Q8 98 13 85Q18 76 11 61Q8 52 14 31Z"),
+    "JadeButton": ("#416b65", "#2e504f", "#ab9476", 27,
+        "M11 31Q12 19 30 15Q63 14 96 15L208 14Q223 14 230 25L229 85"
+        "Q232 104 216 109L37 110Q15 110 10 101L11 31Z"),
+    "DarkButton": ("#2a3d48", "#202d3b", "#7e796f", 24,
+        "M11 28Q10 19 23 16L213 16Q228 14 230 29L230 93Q229 109 214 109"
+        "Q154 110 102 109L29 110Q12 109 10 96Z"),
+    "HealthTrack": ("#432e39", "#342431", "#856051", 16,
+        "M10 41Q10 17 37 16L199 16Q229 16 230 45L230 77Q230 106 202 108"
+        "L41 108Q10 108 10 84Z"),
 }
 
 
@@ -73,29 +88,27 @@ def svg_image(body, width, height):
 
 
 def surface(name, colors):
-    upper, lower, outline, style, _ = colors
-    path = OUTLINES[style]
+    upper, lower, line, _, path = colors
     GRADIENTS["wash"] = (upper, upper, lower)
+    # Faint dry pigment stays in the fixed-size corners, outside the stretch region.
+    rng = random.Random(name)
+    scuffs = []
+    for x_edge in (12, 220):
+        for y_edge in (16, 105):
+            for _ in range(14):
+                x = x_edge + rng.uniform(-5, 5)
+                y = y_edge + rng.uniform(-4, 4)
+                length = rng.uniform(.8, 3.8)
+                scuffs.append(f'<path d="M{x:.2f} {y:.2f}q{length / 2:.2f} -.7 {length:.2f} -.5"/>')
     body = (
-        f'<path d="{path}" transform="translate(0 3)" fill="#130f23" opacity=".75" stroke="#231a29" stroke-width="3"/>'
-        f'<path d="{path}" fill="url(#wash)" stroke="#271f2a" stroke-width="5" stroke-linejoin="round"/>'
-        f'<path d="{path}" fill="none" stroke="{outline}" stroke-width="2" stroke-opacity=".88" stroke-linejoin="round"/>'
-        f'<path d="{path}" transform="translate(8 8) scale(.933 .875)" fill="none" stroke="{outline}" stroke-opacity=".36"/>'
+        f'<clipPath id="edge"><path d="{path}"/></clipPath>'
+        f'<path d="{path}" transform="translate(0 2)" fill="#161725" opacity=".43"/>'
+        f'<path d="{path}" fill="url(#wash)" stroke="{line}" stroke-width="1.45" stroke-linejoin="round"/>'
+        f'<g clip-path="url(#edge)" fill="none" stroke="{line}" opacity=".21" stroke-width=".6">{"".join(scuffs)}</g>'
     )
     image = svg_image(body, 240, 124)
     del GRADIENTS["wash"]
-    # Low-contrast dry-brush flecks respect the alpha silhouette.
-    rng = random.Random(name)
-    grain = Image.new("RGBA", image.size)
-    draw = ImageDraw.Draw(grain)
-    for _ in range(1250):
-        x, y = rng.randrange(image.width), rng.randrange(image.height)
-        color = (255, 235, 207) if rng.getrandbits(1) else (23, 18, 29)
-        draw.line((x, y, x + rng.randrange(1, 7), y), fill=color + (rng.randrange(5, 23),))
-    grain.putalpha(ImageChops.multiply(grain.getchannel("A"), image.getchannel("A")))
-    textured = Image.alpha_composite(image, grain)
-    textured.putalpha(image.getchannel("A"))
-    return textured
+    return image
 
 
 def render():
@@ -111,7 +124,7 @@ def render():
         body = f'<g stroke="#38263b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">{body}</g>'
         place(name, svg_image(body, 80, 80), 3 + (index % 12) * 84, 4 + (index // 12) * 84)
     for index, (name, colors) in enumerate(SURFACES.items()):
-        place(name, surface(name, colors), 5 + (index % 4) * 251, 178 + (index // 4) * 130, colors[-1])
+        place(name, surface(name, colors), 5 + (index % 4) * 251, 178 + (index // 4) * 130, colors[3])
 
     DESTINATION.mkdir(parents=True, exist_ok=True)
     atlas.save(DESTINATION / "InkUi.png", optimize=True)

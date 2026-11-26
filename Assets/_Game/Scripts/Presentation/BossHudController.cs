@@ -67,12 +67,12 @@ namespace Veilward.Presentation
             {
                 healthText.text = $"HP {boss.Health}/{definition.MaxHealth}   ·   Armor {definition.Armor}";
                 healthFill.rectTransform.anchorMax = new Vector2((float)boss.Health / definition.MaxHealth, 1);
-                noticeText.text = $"Rift Warden\nDeals {definition.LeakDamage} if it reaches the Heart.";
+                noticeText.text = $"Rift Warden · {definition.LeakDamage} to Heart";
             }
             else if (_outcome != null) noticeText.text = _outcome;
             else if (s.State.Phase == BattlePhase.Victory) noticeText.text = "Rift Warden defeated.";
             else if (s.State.Phase == BattlePhase.Defeat) noticeText.text = "The Heart fell.";
-            else noticeText.text = $"Rift Warden incoming · {definition.MaxHealth} HP\nDeals {definition.LeakDamage} if it reaches the Heart.";
+            else noticeText.text = $"Rift Warden incoming\n{definition.MaxHealth} HP · Deals {definition.LeakDamage} to Heart";
         }
     }
 }

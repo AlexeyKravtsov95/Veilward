@@ -52,7 +52,8 @@ namespace Veilward.Tests.EditMode
                     text.text = id.ToUpperInvariant() + " — Level: 3\n" + TowerDisplay.CoreStats(level) + "\n" + TowerDisplay.Effect(level) + "\nUpgrade: MAX · Sell refund: 999 gold";
                     Assert.That(text.preferredHeight, Is.LessThanOrEqualTo(panel.rectTransform.rect.height));
                     text.fontSize = preview.fontSize; text.rectTransform.sizeDelta = preview.rectTransform.rect.size;
-                    text.text = "Price: 999 gold\n" + TowerDisplay.CoreStats(level) + "\n" + TowerDisplay.Effect(level);
+                    text.text = $"<b>{TowerDisplay.ArchetypeName(level.Id)}</b>\nPrice: 999 gold\n" +
+                        TowerDisplay.CoreStats(level, compact: true) + "\n" + TowerDisplay.Effect(level);
                     Assert.That(text.preferredHeight, Is.LessThanOrEqualTo(preview.rectTransform.rect.height));
                     text.fontSize = panel.fontSize; text.rectTransform.sizeDelta = panel.rectTransform.rect.size;
                 }

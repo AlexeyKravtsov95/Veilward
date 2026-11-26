@@ -1,4 +1,5 @@
 """Проверить размеры PNG, полное декодирование видео и число кадров по записи."""
+import argparse
 import hashlib
 import json
 import subprocess
@@ -20,6 +21,13 @@ EXPECTED = {
     "milestones": ("after-wave-3", "after-wave-6"),
     "review": ("narrow-build-center", "modern-build-center", "modern-build-save-warning", "inspector-full"),
 }
+POLISH_EXPECTED = {
+    "story": ("menu-new", "menu-load-error", "build-locked", "build-preview", "tower-low-gold", "pause", "save-error"),
+    "earned": ("boss-combat", "ability-ready", "ability-cooldown", "ability-preview", "enemy-inspector", "victory"),
+    "profiles": tuple(f"{profile}-{screen}" for profile in ("narrow", "modern", "ipad")
+                      for screen in ("menu", "build", "build-center", "pause")),
+    "review": ("modern-build-save-warning", "inspector-full"),
+}
 SCREEN = {"narrow": (1136, 640), "modern": (2556, 1179), "ipad": (2048, 1536)}
 
 
@@ -27,7 +35,7 @@ def checksum(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def verify_video(path, rows):
+def verify_video(path, rows, root):
     result = subprocess.check_output(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0",
         "-show_entries", "stream=codec_name,width,height,r_frame_rate,nb_read_frames,duration",
         "-of", "json", str(path)], text=True)
@@ -38,27 +46,31 @@ def verify_video(path, rows):
     assert int(stream["nb_read_frames"]) > 100
     subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-xerror", "-i", str(path),
                    "-map", "0:v:0", "-f", "null", "-"], check=True)
-    return {"path": str(path.relative_to(ROOT)), "sha256": checksum(path), **stream}
+    return {"path": str(path.relative_to(root)), "sha256": checksum(path), **stream}
 
 
-def verify():
+def verify(root=ROOT, expected_frames=EXPECTED):
     images = []
     video = []
-    for folder, expected in EXPECTED.items():
-        rows = (ROOT / folder / "events.tsv").read_text().splitlines()
+    for folder, expected in expected_frames.items():
+        rows = (root / folder / "events.tsv").read_text().splitlines()
         assert rows[-1].startswith("done\t") and rows[-1].endswith("\tFalse")
         for name in expected:
-            path = ROOT / folder / f"{name}.png"
+            path = root / folder / f"{name}.png"
             with Image.open(path) as image:
                 dimensions = SCREEN.get(name.split("-", 1)[0], (1600, 900))
                 assert image.size == dimensions and image.format == "PNG", path
                 image.verify()
             assert any(row.startswith("png\t") and f"\t{name}\t" in row for row in rows), path
-            images.append({"path": str(path.relative_to(ROOT)), "size": dimensions, "sha256": checksum(path)})
+            images.append({"path": str(path.relative_to(root)), "size": dimensions, "sha256": checksum(path)})
         if folder in ("story", "earned"):
-            video.append(verify_video(ROOT / folder / "gameview.mp4", rows))
+            video.append(verify_video(root / folder / "gameview.mp4", rows, root))
     return {"png": images, "video": video}
 
 
 if __name__ == "__main__":
-    print(json.dumps(verify(), indent=2))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--polish", action="store_true")
+    args = parser.parse_args()
+    evidence = verify(ROOT / "polish", POLISH_EXPECTED) if args.polish else verify()
+    print(json.dumps(evidence, indent=2))

@@ -10,4 +10,6 @@
 
 `render.py` хранит авторские векторные контуры и градиенты пиктограмм, контуры бумаги и кисти, а также детерминированную фактуру. Он выводит один прозрачный runtime atlas 1024×512, отдельный MenuBackdrop JPEG и координаты слайсов. Растровые размеры, девять сегментов и имена спрайтов фиксирует Unity TextureImporter в `InkUi.png.meta`. Повторить вывод можно командой `python3.12 ArtSource/UI/InkAndLanterns/render.py` с CairoSVG 2.9.0 и Pillow 12.3.0.
 
+Для Review 26.11.2026 отрисованы восемь отдельных силуэтов поверхностей. Один тонкий контур, матовые градиенты и слабые следы пигмента в углах сохраняют читаемость при растяжении 9-slice. [Кадры GameView](../../../Docs/review/UI.REWORK.1/polish/README.md)
+
 Заголовки используют Cormorant Garamond Bold Italic, Christian Thalmann / The Cormorant Project Authors, [upstream 0167848](https://github.com/CatharsisFonts/Cormorant/tree/016784836d2ad47bc4c62b7f504a0a5875d85aeb). [SIL Open Font License 1.1](OFL-Cormorant.txt) сохранена рядом. Шрифт встроенных контролов и динамического мелкого текста взят из Unity 6000.3.28f1 (`LegacyRuntime.ttf`).

@@ -42,8 +42,8 @@ namespace Veilward.Presentation
         private BattleSimulation _catalogSimulation;
         private int _catalogGold = -1;
         private BattlePhase _catalogPhase;
-        private UnityEngine.UI.GridLayoutGroup _catalogGrid;
-        private (Vector2 Panel, Vector2 Catalog, Vector2 Details, Vector2 DetailsPosition) _wideDrawer;
+        private bool _usesBuildStrip;
+        private bool _selectedCellOnRight;
         private GridCoordinate _catalogCell;
         private TowerDefinition _selectedDefinition;
         private TowerDefinition _displayedTowerDefinition;
@@ -65,7 +65,8 @@ namespace Veilward.Presentation
 
         public bool HasSelection => _hasSelection;
         internal bool ShowsBuildDrawer => confirmationPanel != null && confirmationPanel.activeSelf;
-        internal bool BuildDrawerOnLeft => ((RectTransform)confirmationPanel.transform).anchorMin.x == 0;
+        internal bool BuildDrawerAtTop => ((RectTransform)confirmationPanel.transform).anchorMin.y == 1;
+        internal bool SelectedCellOnRight => _selectedCellOnRight;
         public GridCoordinate SelectedCell { get; private set; }
         public TowerId? SelectedTowerId { get; private set; }
         public UnityEngine.UI.Text TowerStatsText => towerStatsText;
@@ -102,12 +103,7 @@ namespace Veilward.Presentation
             ValidateReference(buildStatsText, nameof(buildStatsText));
             ValidateReference(sellConfirmationText, nameof(sellConfirmationText));
             var grid = catalogRoot.GetComponent<UnityEngine.UI.GridLayoutGroup>();
-            if (grid != null && grid.constraintCount == 6)
-            {
-                _catalogGrid = grid;
-                _wideDrawer = (((RectTransform)confirmationPanel.transform).sizeDelta, catalogRoot.sizeDelta,
-                    buildStatsText.rectTransform.sizeDelta, buildStatsText.rectTransform.anchoredPosition);
-            }
+            _usesBuildStrip = grid != null && grid.constraintCount == 6;
             _upgradeLabel = upgradeButton.GetComponentInChildren<UnityEngine.UI.Text>(true);
             _sellLabel = sellButton.GetComponentInChildren<UnityEngine.UI.Text>(true);
             foreach (var archetype in battle.Simulation.TowerCatalog.Archetypes)
@@ -317,38 +313,25 @@ namespace Veilward.Presentation
 
         private void DockBuildDrawer(GridCoordinate coordinate)
         {
-            const float edge = 10f;
-            const float previewClearance = 22f;
+            const float edge = 8f;
+            const float previewClearance = 18f;
             var cell = battle.GetCellCenter(coordinate);
             var drawer = (RectTransform)confirmationPanel.transform;
-            var dockLeft = worldCamera.WorldToViewportPoint(cell).x >= .5f;
-            if (_catalogGrid != null && drawer.parent is RectTransform root &&
+            _selectedCellOnRight = worldCamera.WorldToViewportPoint(cell).x >= .5f;
+            if (_usesBuildStrip && drawer.parent is RectTransform root &&
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(root, worldCamera.WorldToScreenPoint(cell), null, out var point))
             {
-                var safe = root.rect;
-                dockLeft = point.x >= safe.center.x;
-                var nearDrawer = dockLeft
-                    ? point.x < safe.xMin + edge + _wideDrawer.Panel.x + previewClearance
-                    : point.x > safe.xMax - edge - _wideDrawer.Panel.x - previewClearance;
-                var compact = nearDrawer && point.y < safe.yMin + edge + _wideDrawer.Panel.y + previewClearance;
-                ApplyBuildDrawerLayout(drawer, compact);
+                // Лента уходит над полем, если нижний край закрывает выбранную клетку.
+                var above = point.y <= root.rect.yMin + edge + drawer.rect.height + previewClearance;
+                var center = new Vector2(.5f, above ? 1 : 0);
+                drawer.anchorMin = drawer.anchorMax = drawer.pivot = center;
+                drawer.anchoredPosition = new Vector2(0, above ? -78f : edge);
+                return;
             }
 
-            var anchor = dockLeft ? Vector2.zero : Vector2.right;
+            var anchor = _selectedCellOnRight ? Vector2.zero : Vector2.right;
             drawer.anchorMin = drawer.anchorMax = drawer.pivot = anchor;
-            drawer.anchoredPosition = new Vector2(dockLeft ? edge : -edge, edge);
-        }
-
-        private void ApplyBuildDrawerLayout(RectTransform drawer, bool compact)
-        {
-            var columns = compact ? 3 : 6;
-            if (_catalogGrid.constraintCount == columns) return;
-            _catalogGrid.constraintCount = columns;
-            drawer.sizeDelta = compact ? new Vector2(310, 300) : _wideDrawer.Panel;
-            catalogRoot.sizeDelta = compact ? new Vector2(214, 145) : _wideDrawer.Catalog;
-            var details = buildStatsText.rectTransform;
-            details.sizeDelta = compact ? new Vector2(278, 48) : _wideDrawer.Details;
-            details.anchoredPosition = compact ? new Vector2(16, -181) : _wideDrawer.DetailsPosition;
+            drawer.anchoredPosition = new Vector2(_selectedCellOnRight ? 10 : -10, 10);
         }
 
         private void ShowSelectionVisual(GridCoordinate coordinate, float radius, bool isPlacement)
@@ -481,7 +464,7 @@ namespace Veilward.Presentation
             SelectedTowerTypeId = default;
             _selectedDefinition = null;
             _displayedTowerDefinition = null;
-            if (buildStatsText != null) buildStatsText.text = "Choose a tower type";
+            if (buildStatsText != null) buildStatsText.text = "Choose a school";
             _hasSelection = false;
             _hasTowerSelection = false;
             _isSellConfirmationVisible = false;
@@ -585,27 +568,29 @@ namespace Veilward.Presentation
                 if (!refreshCatalog) continue;
                 var availability = battle.Simulation.GetTowerAvailability(new PlaceTowerCommand(archetype.Id, SelectedCell));
                 var locked = MissingElements(archetype).Count > 0;
-                var availabilityLabel = locked ? "Locked" :
-                    availability.FailureReason == PlaceTowerFailureReason.InsufficientGold ? "Low gold" : string.Empty;
                 var selected = archetype.Id == SelectedTowerTypeId;
-                var status = selected && availabilityLabel.Length == 0 ? "Selected" : availabilityLabel;
                 var text = button.GetComponentInChildren<UnityEngine.UI.Text>(true);
                 text.text = TowerDisplay.Name(archetype.Id);
                 text.color = selected ? new Color32(231, 194, 121, 255) : new Color32(245, 233, 209, 255);
-                SetActionLabel(button.transform.Find("Catalog Price")?.GetComponent<UnityEngine.UI.Text>(), $"{archetype.Levels[0].Price} gold");
-                SetActionLabel(button.transform.Find("Catalog State")?.GetComponent<UnityEngine.UI.Text>(), status);
+                if (button.TryGetComponent<UnityEngine.UI.Outline>(out var outline))
+                    outline.enabled = selected;
+                var badge = button.transform.Find("Lock Badge");
+                if (badge != null)
+                    badge.gameObject.SetActive(locked);
                 var glyph = button.GetComponentInChildren<VeilwardUiGlyph>(true);
                 if (glyph != null)
                 {
-                    glyph.Glyph = locked ? VeilwardGlyph.Lock : TowerDisplay.Glyph(archetype.Id);
-                    glyph.color = locked ? new Color32(203, 191, 175, 255) : TowerDisplay.ElementTint(archetype.Id);
+                    glyph.Glyph = locked && badge == null ? VeilwardGlyph.Lock : TowerDisplay.Glyph(archetype.Id);
+                    var tint = TowerDisplay.ElementTint(archetype.Id);
+                    tint.a = locked && badge != null ? .64f : 1f;
+                    glyph.color = tint;
                 }
                 if (selected)
                 {
                     var requirement = AvailabilityText(archetype, availability);
-                    buildStatsText.text = $"{TowerDisplay.ArchetypeName(archetype.Id)} · Price: {_selectedDefinition.Price} gold\n" +
-                        $"{TowerDisplay.CoreStats(_selectedDefinition)}\n" +
-                        (requirement.Length == 0 ? TowerDisplay.Effect(_selectedDefinition) : requirement);
+                    var detail = requirement.Length == 0 ? TowerDisplay.Effect(_selectedDefinition) : requirement;
+                    buildStatsText.text = $"<b>{TowerDisplay.ArchetypeName(archetype.Id)}</b>\nPrice: {_selectedDefinition.Price} gold\n" +
+                        $"{TowerDisplay.CoreStats(_selectedDefinition, compact: true)}\n{detail}";
                 }
             }
             _catalogSimulation = battle.Simulation; _catalogGold = state.Gold; _catalogPhase = state.Phase;

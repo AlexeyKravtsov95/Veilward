@@ -2,6 +2,8 @@
 
 [Принятый эскиз](../../../ArtSource/References/UI_REWORK_1/approved-ui-concept.png) · [Спецификация](../../UI_REWORK_1_DESIGN.md) · [Мастера и лицензия](../../../ArtSource/UI/InkAndLanterns/README.md) · [Проверки и воспроизведение](validation.md) · [Независимое ревью](review.md).
 
+Актуальные кадры и проверки после Review 26.11.2026 собраны в [отдельной галерее](polish/README.md). Ниже сохранена запись предыдущей версии PR.
+
 ## Игровой маршрут
 
 | Сцена | Кадры и видео |

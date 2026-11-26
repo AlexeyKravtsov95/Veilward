@@ -150,7 +150,7 @@ namespace Veilward.Tests.PlayMode
             var tile = Find<Button>("Catalog flame");
             var face = tile.GetComponentInChildren<Text>().rectTransform;
             var initialFacePosition = face.anchoredPosition;
-            Assert.That(initialFacePosition.y, Is.EqualTo(-25), "A cloned inactive template preserves its authored inset.");
+            Assert.That(initialFacePosition.y, Is.EqualTo(-43), "A cloned inactive template preserves its authored inset.");
             var pointer = new PointerEventData(EventSystem.current) { button = PointerEventData.InputButton.Left };
             tile.OnPointerDown(pointer);
             Assert.That(face.anchoredPosition, Is.EqualTo(initialFacePosition + Vector2.down * 2));
@@ -236,14 +236,15 @@ namespace Veilward.Tests.PlayMode
 
             var tide = Find<Button>("Catalog tide");
             var glyph = tide.GetComponentInChildren<VeilwardUiGlyph>();
-            var price = tide.transform.Find("Catalog Price").GetComponent<Text>();
-            var status = tide.transform.Find("Catalog State").GetComponent<Text>();
-            Assert.That(glyph.Glyph, Is.EqualTo(VeilwardGlyph.Lock));
-            Assert.That(price.text, Is.EqualTo("60 gold"));
+            var lockBadge = tide.transform.Find("Lock Badge").GetComponent<VeilwardUiGlyph>();
+            Assert.That(glyph.Glyph, Is.EqualTo(VeilwardGlyph.Tide));
+            Assert.That(lockBadge.Glyph, Is.EqualTo(VeilwardGlyph.Lock));
+            Assert.That(lockBadge.gameObject.activeSelf, Is.True);
             yield return null;
             Click(tide);
-            Assert.That(status.text, Is.EqualTo("Locked"));
-            Assert.That(placement.BuildStatsText.text, Does.Contain("Missing: TIDE"));
+            Assert.That(tide.GetComponent<Outline>().enabled, Is.True);
+            Assert.That(placement.BuildStatsText.text, Does.Contain("Price: 60 gold")
+                .And.Contain("Damage ").And.Contain("Missing: TIDE"));
             var build = Find<Button>("Confirm Button");
             Assert.That(build.interactable, Is.False);
             Click(build);
@@ -265,8 +266,9 @@ namespace Veilward.Tests.PlayMode
             Click(tide);
             Assert.That(tide.GetComponentInChildren<VeilwardUiGlyph>(), Is.SameAs(glyph));
             Assert.That(glyph.Glyph, Is.EqualTo(VeilwardGlyph.Tide));
-            Assert.That(price.text, Is.EqualTo("60 gold"));
-            Assert.That(status.text, Is.EqualTo("Low gold"));
+            Assert.That(lockBadge.gameObject.activeSelf, Is.False);
+            Assert.That(placement.BuildStatsText.text, Does.Contain("Price: 60 gold")
+                .And.Contain("Damage ").And.Contain("Not enough gold"));
             Assert.That(build.interactable, Is.False);
             Click(build);
             Assert.That(simulation.State.Towers, Is.Empty);
@@ -309,11 +311,12 @@ namespace Veilward.Tests.PlayMode
             var placement = battle.GetComponent<BattlePlacementController>();
             Assert.That(placement.TrySelectCell(new GridCoordinate(3, 1)), Is.True);
             yield return null;
-            Assert.That(Find<RectTransform>("Placement Panel").anchorMin.x, Is.EqualTo(1f));
-            Assert.That(Find<RectTransform>("Tower Catalog").GetComponent<GridLayoutGroup>().constraintCount, Is.EqualTo(3));
+            var drawer = Find<RectTransform>("Placement Panel");
+            Assert.That(drawer.anchorMin.x, Is.EqualTo(.5f));
+            Assert.That(Find<RectTransform>("Tower Catalog").GetComponent<GridLayoutGroup>().constraintCount, Is.EqualTo(6));
             Assert.That(retry.gameObject.activeInHierarchy && !retry.interactable, Is.True);
-            Assert.That(Find<RectTransform>("Save Warning").anchorMin.x, Is.Zero,
-                "The warning must dock away from the right-hand compact catalog.");
+            Assert.That(Find<RectTransform>("Save Warning").anchorMin.y, Is.EqualTo(1 - drawer.anchorMin.y),
+                "The warning must stay on the opposite edge from the catalog.");
             foreach (var school in new[] { "flame", "tide", "gale" })
                 Click(Find<Button>("Catalog " + school));
             Click(retry);

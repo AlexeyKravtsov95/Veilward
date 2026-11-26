@@ -108,11 +108,11 @@ namespace Veilward.Editor
         {
             var canvas = UiCanvas("HUD");
             var safe = SafeRoot(canvas, "Battle Safe Area");
-            var stats = Card("Stats Panel", safe, TopLeft, 10, -10, 285, 54, "InkStrip");
+            var stats = Card("Stats Panel", safe, TopLeft, 10, -10, 285, 46, "InkStrip");
             var heart = Metric(stats, "Heart", 17, 62, VeilwardGlyph.Heart);
             var gold = Metric(stats, "Gold", 91, 82, VeilwardGlyph.Gold);
             var wave = Metric(stats, "Wave", 178, 102, VeilwardGlyph.Wave);
-            var phasePlate = Card("Phase Plate", safe, TopLeft, 304, -13, 128, 44, "PaperButton");
+            var phasePlate = Card("Phase Plate", safe, TopLeft, 304, -12, 128, 40, "PaperButton");
             var stage = DisplayLabel("Battle Phase", phasePlate, Center, 0, 0, 115, 35, "", 20, PaperText);
             var start = Action("Start Wave Button", safe, "Start Wave", TopRight, -78, -8, 137, Primary);
             var next = Action("Next Wave Button", safe, "Next Wave", TopRight, -78, -8, 137, Primary);
@@ -120,38 +120,37 @@ namespace Veilward.Editor
             var pause = Action("Pause Button", safe, "", TopRight, -10, -8, 60, Secondary);
             Icon("Pause Mark", pause.transform, Center, 0, 0, 44, VeilwardGlyph.Pause, PaperText);
 
-            var boss = Card("Boss Panel", safe, TopLeft, 10, -67, 301, 79, "InkStrip");
-            Decoration("Warden Mask", boss, Left, 9, 0, 61, 61, "Warden");
-            // Справа остаётся полоса для двух status badges в #104.
-            var bossNotice = Label("Boss Notice", boss, TopLeft, 72, -9, 219, 34, "", 12, Stone, TextAnchor.UpperLeft, true);
-            var bossHealth = Label("Boss Health", boss, TopLeft, 72, -44, 162, 17, "", 12, Stone, bold: true);
-            var bossBar = ArtImage("Boss HP Bar", boss, Vector2.zero, 68, 9, 169, 10, "HealthTrack", false).rectTransform;
+            var boss = Card("Boss Panel", safe, TopLeft, 10, -60, 246, 52, "InkStrip");
+            Decoration("Warden Mask", boss, Left, 6, 0, 44, 44, "Warden");
+            // Справа от полосы HP остаётся место для двух значков #104.
+            var bossNotice = Label("Boss Notice", boss, TopLeft, 52, -9, 184, 34, "", 12, Stone, TextAnchor.UpperLeft, true);
+            var bossHealth = Label("Boss Health", boss, TopLeft, 52, -22, 152, 16, "", 12, Stone, bold: true);
+            var bossBar = ArtImage("Boss HP Bar", boss, Vector2.zero, 52, 9, 136, 7, "HealthTrack", false).rectTransform;
             var bossFill = Image("Boss HP Fill", bossBar, Center, 0, 0, 0, 0, Coral, false);
             Stretch(bossFill.rectTransform);
             boss.gameObject.SetActive(false);
 
-            var build = Card("Placement Panel", safe, BottomRight, -10, 10, 462, 184);
-            var buildTitle = DisplayLabel("Build Title", build, TopLeft, 15, -7, 433, 26,
-                "Build a tower", 23, Gilt, TextAnchor.MiddleLeft).rectTransform;
-            buildTitle.anchorMax = Vector2.one;
-            buildTitle.offsetMin = new Vector2(15, -33);
-            buildTitle.offsetMax = new Vector2(-15, -7);
-            var catalog = Rect("Tower Catalog", build, Top, 0, -34, 434, 70);
+            var build = Card("Placement Panel", safe, BottomRight, -10, 8, 718, 84, "InkStrip");
+            var catalog = Rect("Tower Catalog", build, Left, 12, 0, 370, 62);
             var layout = catalog.gameObject.AddComponent<GridLayoutGroup>();
-            layout.cellSize = new Vector2(68, 70);
-            layout.spacing = new Vector2(5, 5);
+            layout.cellSize = new Vector2(60, 62);
+            layout.spacing = new Vector2(2, 0);
             layout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             layout.constraintCount = 6;
-            var template = Action("Catalog Button Template", catalog, "", Center, 0, 0, 68, Option, 70, 13);
-            ButtonIcon(template, VeilwardGlyph.Flame, Gilt, 23, 3, top: true);
+            var template = Action("Catalog Button Template", catalog, "", Center, 0, 0, 60, Option, 62, 11);
+            ButtonIcon(template, VeilwardGlyph.Flame, Gilt, 36, 4, top: true);
             var catalogName = template.GetComponentInChildren<Text>();
-            SetRect(catalogName.rectTransform, Top, new Vector2(0, -25), new Vector2(65, 15));
-            Label("Catalog Price", template.transform, Top, 0, -40, 64, 14, "", 12, Stone, TextAnchor.MiddleCenter, true);
-            Label("Catalog State", template.transform, Top, 0, -54, 64, 13, "", 11, Muted, TextAnchor.MiddleCenter);
+            SetRect(catalogName.rectTransform, Top, new Vector2(0, -43), new Vector2(56, 15));
+            var selection = template.gameObject.AddComponent<Outline>();
+            selection.effectColor = Gilt;
+            selection.effectDistance = new Vector2(1.5f, -1.5f);
+            selection.enabled = false;
+            Icon("Lock Badge", template.transform, TopRight, -2, -2, 18, VeilwardGlyph.Lock, Gilt).gameObject.SetActive(false);
             template.gameObject.SetActive(false);
-            var buildStats = Label("Build Stats", build, TopLeft, 16, -112, 218, 63, "Choose a tower type", 12, Stone, TextAnchor.UpperLeft);
-            var confirm = Action("Confirm Button", build, "Build", BottomRight, -10, 10, 102, Primary);
-            var cancel = Action("Cancel Button", build, "Cancel", BottomRight, -116, 10, 102, Secondary);
+            Image("Catalog Divider", build, Left, 387, 0, 1, 53, new Color32(164, 120, 93, 150), false);
+            var buildStats = Label("Build Stats", build, Left, 395, 0, 169, 74, "Choose a school", 12, Stone);
+            var confirm = Action("Confirm Button", build, "Build", Right, -84, 0, 66, Primary, fontSize: 15);
+            var cancel = Action("Cancel Button", build, "Cancel", Right, -10, 0, 68, Secondary, fontSize: 15);
             build.gameObject.SetActive(false);
 
             var tower = Card("Tower Panel", safe, BottomRight, -10, 10, 353, 179);
@@ -161,14 +160,24 @@ namespace Veilward.Editor
             var sell = Action("Sell Button", tower, "Sell", BottomRight, -141, 9, 119, Secondary, fontSize: 14);
             tower.gameObject.SetActive(false);
 
-            var inspector = Card("Enemy Inspector Panel", safe, Vector2.zero, 10, 10, 310, 225);
-            var inspectorText = Label("Enemy Inspector Details", inspector, TopLeft, 13, -6, 284, 148, "", 14, Stone, TextAnchor.UpperLeft);
+            var inspector = Card("Enemy Inspector Panel", safe, Vector2.zero, 10, 10, 310, 241);
+            var inspectorText = Label("Enemy Inspector Details", inspector, TopLeft, 13, -13, 284, 158, "", 14, Stone, TextAnchor.UpperLeft);
             var closeInspector = Action("Close Inspector Button", inspector, "Close", BottomRight, -10, 9, 100, Secondary);
             inspector.gameObject.SetActive(false);
 
-            var abilityBegin = Action("Ability Button", safe, "Rift Seal", BottomRight, -10, 10, 166, "JadeButton", 72, 14);
-            ButtonIcon(abilityBegin, VeilwardGlyph.Seal, Gilt, 57, 7);
-            var abilityFeedback = Card("Ability Feedback", safe, BottomRight, -10, 85, 240, 45, "InkStrip");
+            var abilityBegin = Action("Ability Button", safe, "Rift Seal", BottomRight, -10, 8, 104, "JadeButton", 84, 12);
+            var hit = abilityBegin.image;
+            hit.sprite = null;
+            hit.color = Color.clear;
+            hit.canvasRenderer.cullTransparentMesh = false;
+            var seal = Decoration("Seal Medallion", abilityBegin.transform, Top, 0, -1, 56, 56, "Seal");
+            Decoration("Seal Caption Paper", abilityBegin.transform, Bottom, 0, -2, 104, 44, "PaperButton");
+            var sealLabel = abilityBegin.GetComponentInChildren<Text>();
+            sealLabel.transform.SetAsLastSibling();
+            sealLabel.color = PaperText;
+            SetRect(sealLabel.rectTransform, Bottom, new Vector2(0, 4), new Vector2(98, 30));
+            Bind(abilityBegin, ("stateGraphic", seal));
+            var abilityFeedback = Card("Ability Feedback", safe, BottomRight, -10, 94, 240, 40, "InkStrip");
             var feedback = Label("Ability Feedback Text", abilityFeedback, Center, 0, 0, 217, 39, "", 14, Stone, TextAnchor.MiddleCenter);
             abilityFeedback.gameObject.SetActive(false);
             var ability = Card("Ability Panel", safe, BottomRight, -10, 10, 264, 132);

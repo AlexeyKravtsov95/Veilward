@@ -98,6 +98,27 @@ namespace Veilward.Tests.EditMode
             }
         }
 
+        [TestCase("Stats Panel", false, 48)]
+        [TestCase("Boss Panel", false, 54)]
+        [TestCase("Ability Button", true, 110)]
+        [TestCase("Placement Panel", false, 86)]
+        public void UiRework109_ReviewSurfacesKeepCompactBattleFootprint(string name, bool width, int limit)
+        {
+            var previous = UnityEngine.SceneManagement.SceneManager.GetActiveScene().path;
+            try
+            {
+                EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity");
+                var root = (RectTransform)Object.FindFirstObjectByType<CanvasScaler>().transform;
+                var rect = Find(root, name).rect;
+                Assert.That(width ? rect.width : rect.height, Is.LessThanOrEqualTo(limit));
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(previous))
+                    EditorSceneManager.OpenScene(previous);
+            }
+        }
+
         [TestCase(1600, 900, 2, 0, 0)]
         [TestCase(1136, 640, 2, 0, 0)]
         [TestCase(2556, 1179, 3, 132, 63)]
@@ -141,9 +162,17 @@ namespace Veilward.Tests.EditMode
                 foreach (var phase in phases) VerifyTargets(battle, logicalScale, phase);
 
                 var drawer = Find(battle, "Placement Panel");
-                drawer.anchorMin = drawer.anchorMax = drawer.pivot = Vector2.zero;
-                drawer.anchoredPosition = new Vector2(10, 10);
-                VerifyTargets(battle, logicalScale, phases[0]);
+                drawer.anchorMin = drawer.anchorMax = drawer.pivot = new Vector2(.5f, 0);
+                drawer.anchoredPosition = new Vector2(0, 8);
+                VerifyTargets(battle, logicalScale, phases[0].Append("Save Warning").ToArray());
+
+                drawer.anchorMin = drawer.anchorMax = drawer.pivot = new Vector2(.5f, 1);
+                drawer.anchoredPosition = new Vector2(0, -78);
+                var warning = Find(battle, "Save Warning");
+                warning.anchorMin = warning.anchorMax = warning.pivot = Vector2.right;
+                warning.anchoredPosition = new Vector2(-10, 8);
+                VerifyTargets(battle, logicalScale, phases[0].Concat(new[]
+                    { "Stats Panel", "Phase Plate", "Start Wave Button", "Pause Button", "Save Warning" }).ToArray());
                 VerifyTargets(battle, logicalScale, "Save Warning Text", "Retry Save Button");
             }
             finally
