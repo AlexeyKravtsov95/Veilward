@@ -1,0 +1,322 @@
+{
+  "png": [
+    {
+      "path": "story/menu-new.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "e527fb98f4d6491d3b5281a550d6392802b795d2e74c163434282a08eef90b41"
+    },
+    {
+      "path": "story/menu-load-error.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "334f79dcb6778a129613bed7495ab9b35c4f2a9468368a84af780905a8b7a087"
+    },
+    {
+      "path": "story/first-element.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "f61b6b74dfb2f5558223a161b5208c16d44b2eb795fce77a3cb87e20ae0873c6"
+    },
+    {
+      "path": "story/element-preview.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "c31c3be155182a34fc32938e3e9473199448f1544514ece3bca5cc5e2039770e"
+    },
+    {
+      "path": "story/save-error.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "8aa45174dff0a627c5e2271f6d21b849caaffe494bcae2aa5f9ca5302e8b180d"
+    },
+    {
+      "path": "story/preparation.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "034eab3e2144f6f46415fea2f1e458683e472ef31c87d9bf93e4a83c40363683"
+    },
+    {
+      "path": "story/build-locked.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "7e49f2fadc0c7e70e242cf11d9c25d02effa57ddf48f9cde2a09aadfe478576d"
+    },
+    {
+      "path": "story/build-preview.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "9524fb20391372d4db426683a82a765c90c538a7927dadfbadd4823dc5e321e3"
+    },
+    {
+      "path": "story/tower-low-gold.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "51001e1ef5a785cd752bfc6611cf9603846b156e1addd5c39de03ee86fc26cf6"
+    },
+    {
+      "path": "story/sell-confirmation.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "794b6a3aa686684e88381bd289755a8cfd1788b062dcbe7a35b614fd624019e4"
+    },
+    {
+      "path": "story/pause.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "d3444bc732cc595d2adf1026d83718ef8b89202aa9730d68a55d44be28ab5d3f"
+    },
+    {
+      "path": "story/menu-continue.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "ad6c7620891e301d33c8ab906bb75a0ff5c12d5dd5011a3582c35b55f345f797"
+    },
+    {
+      "path": "earned/menu-earned.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "ba88d90736673541b0f6414f4257be123db833933770b8aeb2850df26760d2f5"
+    },
+    {
+      "path": "earned/earned-preparation.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "c5f6feee27e2f0ba3a2800bbbed15966e37330743c1f475d6e095a60dac0d588"
+    },
+    {
+      "path": "earned/ability-preview.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "8abda0f8ba9629e12c9e4e7045972d6c985168d2ecd57af384998b677916e029"
+    },
+    {
+      "path": "earned/boss-combat.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "5373885ff24e45cd63277662c8cfbcaaa7366c66fca2b1de548de440c1b5301c"
+    },
+    {
+      "path": "earned/enemy-inspector.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "be2a3b0b873e3b714ac58ce5e0ecd9dcb04468a13dc4d016a54f0d679debdc1a"
+    },
+    {
+      "path": "earned/victory.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "0d5e9ff4532f30cb6f83168397939e6012460c2c3ed8f16aa2a8e4774e90f091"
+    },
+    {
+      "path": "earned/menu-finished.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "8eaac2fa9b48be5dcba33bf109655ffe7b851276a058b3140f2d6e1ad104385f"
+    },
+    {
+      "path": "profiles/narrow-menu.png",
+      "size": [
+        1136,
+        640
+      ],
+      "sha256": "c29455226ca47b4cbc46ace8a9ccd9d058fa3bccb2b2cfe0f4d48caf1685e522"
+    },
+    {
+      "path": "profiles/narrow-hud.png",
+      "size": [
+        1136,
+        640
+      ],
+      "sha256": "fd3bf8dba02e1ff404688b323ab48d343238c6dd44aa34708e9977f7e3924330"
+    },
+    {
+      "path": "profiles/narrow-build.png",
+      "size": [
+        1136,
+        640
+      ],
+      "sha256": "640750b4cd182cdec1e8d3e11a6ccaaabf3d95d33799bce85db786c65a54bab4"
+    },
+    {
+      "path": "profiles/narrow-pause.png",
+      "size": [
+        1136,
+        640
+      ],
+      "sha256": "2ef870714574193aa9e4515a9237912abf0be64c2a091f9eb6095ccfed6b44ee"
+    },
+    {
+      "path": "profiles/modern-menu.png",
+      "size": [
+        2556,
+        1179
+      ],
+      "sha256": "c157f6dbfe549c67141c78ae6314cca5e0eea141593dbefa60a9236ca69f6d36"
+    },
+    {
+      "path": "profiles/modern-hud.png",
+      "size": [
+        2556,
+        1179
+      ],
+      "sha256": "4ac2743cd7ef59eb5734b8a5e877638953470b64bdbfbf19338e030d37beb331"
+    },
+    {
+      "path": "profiles/modern-build.png",
+      "size": [
+        2556,
+        1179
+      ],
+      "sha256": "ac54a75353ded30c051ddb9070de44dfca7d3f619eb20a001249ca23a77a3114"
+    },
+    {
+      "path": "profiles/modern-pause.png",
+      "size": [
+        2556,
+        1179
+      ],
+      "sha256": "e6ec816754ffe96e657b9587668068e1586e102121b62a0ba368a0b78c509725"
+    },
+    {
+      "path": "profiles/ipad-menu.png",
+      "size": [
+        2048,
+        1536
+      ],
+      "sha256": "a824550b81c9459e839c3ad10a8d7f8b5c368571ffc5b47e40c5125426fdec51"
+    },
+    {
+      "path": "profiles/ipad-hud.png",
+      "size": [
+        2048,
+        1536
+      ],
+      "sha256": "1aacbd65bede69d0246e85da838b28135d4dc255e7bd601b7364dd2cc6968f7f"
+    },
+    {
+      "path": "profiles/ipad-build.png",
+      "size": [
+        2048,
+        1536
+      ],
+      "sha256": "0a2ae73c0f4566dccc2f4fa4142c098d79629fa9dafb54e8f6947c0c0922ecb8"
+    },
+    {
+      "path": "profiles/ipad-pause.png",
+      "size": [
+        2048,
+        1536
+      ],
+      "sha256": "55ad786a4cfb0f48f05ae6c2b504e2336cc80e0e51a12ea61b502bc61b8c4d17"
+    },
+    {
+      "path": "defeat/defeat-save-error.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "ba1eb8d1902f5ec89da04111878e78cc3cb5e80c3389349edf6d935655bdb2d1"
+    },
+    {
+      "path": "defeat/defeat.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "c397b030af7658eaa22eaf0fcd390fc363164e30cbf2874a74aa400cb83a7688"
+    },
+    {
+      "path": "stress/upgrade.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "dd163506fcedafd07ee7b6da07c1a844f7f965058d87358a6799c2ce28913ab2"
+    },
+    {
+      "path": "stress/dense-wave.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "bdc8332f4651613a7a1ef0603a72be34a8b4efffc4cd16cc12e6feb32b97f96e"
+    },
+    {
+      "path": "milestones/after-wave-3.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "5d23264494866564b0e0e4ab0fab195218e8bf50d0684f980c42d2c4b10e9fd6"
+    },
+    {
+      "path": "milestones/after-wave-6.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "f7876434e396f46ec644e38b1b8be727e8073042cf3bcaf7d1c20d85f32c349d"
+    }
+  ],
+  "video": [
+    {
+      "path": "story/gameview.mp4",
+      "sha256": "11adeda4057b2672498badd9f3560522f8cf91f2d44f41253bd9bc1ca93087fd",
+      "codec_name": "h264",
+      "width": 1600,
+      "height": 900,
+      "r_frame_rate": "20/1",
+      "duration": "18.300000",
+      "nb_read_frames": "366"
+    },
+    {
+      "path": "earned/gameview.mp4",
+      "sha256": "c6033544c6e75bab17f554bdae03e8c6922c0e43185871f34fc3382114e278ab",
+      "codec_name": "h264",
+      "width": 1600,
+      "height": 900,
+      "r_frame_rate": "20/1",
+      "duration": "31.300000",
+      "nb_read_frames": "626"
+    }
+  ]
+}
