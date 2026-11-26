@@ -1,0 +1,32 @@
+{
+  "Summary": {
+    "Total": 4,
+    "Passed": 0,
+    "Failed": 4,
+    "Skipped": 0,
+    "Inconclusive": 0
+  },
+  "FilterApplied": "testname: UiRework109",
+  "Results": [
+    {
+      "FullName": "Veilward.Tests.EditMode.ProductionUiLayoutTests.UiRework109_ReviewSurfacesKeepCompactBattleFootprint(\"Stats Panel\",False,48)",
+      "Status": "Failed",
+      "Message": "  Expected: less than or equal to 48\n  But was:  54.0f\n"
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.ProductionUiLayoutTests.UiRework109_ReviewSurfacesKeepCompactBattleFootprint(\"Boss Panel\",False,54)",
+      "Status": "Failed",
+      "Message": "  Expected: less than or equal to 54\n  But was:  79.0f\n"
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.ProductionUiLayoutTests.UiRework109_ReviewSurfacesKeepCompactBattleFootprint(\"Ability Button\",True,110)",
+      "Status": "Failed",
+      "Message": "  Expected: less than or equal to 110\n  But was:  166.0f\n"
+    },
+    {
+      "FullName": "Veilward.Tests.EditMode.ProductionUiLayoutTests.UiRework109_ReviewSurfacesKeepCompactBattleFootprint(\"Placement Panel\",False,86)",
+      "Status": "Failed",
+      "Message": "  Expected: less than or equal to 86\n  But was:  184.0f\n"
+    }
+  ]
+}
