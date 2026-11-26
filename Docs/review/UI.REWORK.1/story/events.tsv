@@ -1,398 +1,457 @@
-frame	16.2725						0	start
-frame	16.3466						1	start
-frame	16.3726						2	start
-frame	16.4226						3	start
-png	16.4485						menu-new	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	16.5263						4	menu-new
-frame	16.5323						5	menu-new
-frame	16.5768						6	menu-new
-frame	16.6267						7	menu-new
-frame	16.6765						8	menu-new
-frame	16.7267						9	menu-new
-frame	16.7764						10	menu-new
-frame	16.8268						11	menu-new
-frame	16.8768						12	menu-new
-frame	16.9266						13	menu-new
-frame	16.9765						14	menu-new
-frame	17.0265						15	menu-new
-frame	17.0766						16	menu-new
-frame	17.1266						17	menu-new
-frame	17.1766						18	menu-new
-frame	17.2264						19	menu-new
-frame	17.2767						20	menu-new
-frame	17.3264						21	menu-new
-frame	17.3768						22	menu-new
-png	17.3908						menu-load-error	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	17.4631						23	menu-load-error
-frame	17.4765						24	menu-load-error
-frame	17.5265						25	menu-load-error
-frame	17.5768						26	menu-load-error
-frame	17.6266						27	menu-load-error
-frame	17.6767						28	menu-load-error
-frame	17.7265						29	menu-load-error
-frame	17.7764						30	menu-load-error
-frame	17.8263						31	menu-load-error
-frame	17.8764						32	menu-load-error
-frame	17.9267						33	menu-load-error
-frame	17.9767						34	menu-load-error
-frame	18.0265						35	menu-load-error
-frame	18.0766						36	menu-load-error
-frame	18.1264						37	menu-load-error
-tap	18.1409						Retry Load Button	(585.95, 142.97)
-frame	18.1766						38	menu-load-error
-frame	18.2268						39	menu-load-error
-frame	18.2764						40	menu-load-error
-frame	18.3265						41	menu-load-error
-frame	18.3767						42	menu-load-error
-frame	18.4268						43	menu-load-error
-frame	18.4767						44	menu-load-error
-frame	18.5267						45	menu-load-error
-tap	18.5410						New Game Button	(402.16, 287.84)
-frame	18.5816	Preparation	0	150	20	0	46	menu-load-error
-frame	18.8269	Preparation	0	150	20	0	47	menu-load-error
-frame	18.8325	Preparation	0	150	20	0	48	menu-load-error
-frame	18.8772	Preparation	0	150	20	0	49	menu-load-error
-frame	18.9274	Preparation	0	150	20	0	50	menu-load-error
-frame	18.9774	Preparation	0	150	20	0	51	menu-load-error
-frame	19.0273	Preparation	0	150	20	0	52	menu-load-error
-frame	19.0771	Preparation	0	150	20	0	53	menu-load-error
-frame	19.1273	Preparation	0	150	20	0	54	menu-load-error
-frame	19.1772	Preparation	0	150	20	0	55	menu-load-error
-frame	19.2270	Preparation	0	150	20	0	56	menu-load-error
-frame	19.2772	Preparation	0	150	20	0	57	menu-load-error
-frame	19.3273	Preparation	0	150	20	0	58	menu-load-error
-frame	19.3774	Preparation	0	150	20	0	59	menu-load-error
-frame	19.4273	Preparation	0	150	20	0	60	menu-load-error
-frame	19.4772	Preparation	0	150	20	0	61	menu-load-error
-png	19.4829	Preparation	0	150	20	0	first-element	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	19.5270	Preparation	0	150	20	0	62	first-element
-frame	19.5772	Preparation	0	150	20	0	63	first-element
-frame	19.6274	Preparation	0	150	20	0	64	first-element
-frame	19.6771	Preparation	0	150	20	0	65	first-element
-frame	19.7270	Preparation	0	150	20	0	66	first-element
-frame	19.7770	Preparation	0	150	20	0	67	first-element
-frame	19.8270	Preparation	0	150	20	0	68	first-element
-frame	19.8773	Preparation	0	150	20	0	69	first-element
-frame	19.9275	Preparation	0	150	20	0	70	first-element
-frame	19.9774	Preparation	0	150	20	0	71	first-element
-frame	20.0273	Preparation	0	150	20	0	72	first-element
-frame	20.0770	Preparation	0	150	20	0	73	first-element
-frame	20.1273	Preparation	0	150	20	0	74	first-element
-frame	20.1773	Preparation	0	150	20	0	75	first-element
-frame	20.2271	Preparation	0	150	20	0	76	first-element
-tap	20.2332	Preparation	0	150	20	0	flame	(572.97, 424.05)
-frame	20.2772	Preparation	0	150	20	0	77	first-element
-frame	20.3270	Preparation	0	150	20	0	78	first-element
-png	20.3753	Preparation	0	150	20	0	element-preview	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	20.4117	Preparation	0	150	20	0	79	element-preview
-frame	20.4272	Preparation	0	150	20	0	80	element-preview
-frame	20.4769	Preparation	0	150	20	0	81	element-preview
-frame	20.5271	Preparation	0	150	20	0	82	element-preview
-frame	20.5773	Preparation	0	150	20	0	83	element-preview
-frame	20.6270	Preparation	0	150	20	0	84	element-preview
-frame	20.6772	Preparation	0	150	20	0	85	element-preview
-frame	20.7274	Preparation	0	150	20	0	86	element-preview
-frame	20.7774	Preparation	0	150	20	0	87	element-preview
-frame	20.8269	Preparation	0	150	20	0	88	element-preview
-frame	20.8770	Preparation	0	150	20	0	89	element-preview
-tap	20.9257	Preparation	0	150	20	0	Confirm Element Button	(1115.68, 255.41)
-frame	20.9296	Preparation	0	150	20	0	90	element-preview
-frame	20.9770	Preparation	0	150	20	0	91	element-preview
-frame	21.0270	Preparation	0	150	20	0	92	element-preview
-frame	21.0769	Preparation	0	150	20	0	93	element-preview
-frame	21.1273	Preparation	0	150	20	0	94	element-preview
-frame	21.1771	Preparation	0	150	20	0	95	element-preview
-frame	21.2275	Preparation	0	150	20	0	96	element-preview
-frame	21.2774	Preparation	0	150	20	0	97	element-preview
-frame	21.3274	Preparation	0	150	20	0	98	element-preview
-frame	21.3774	Preparation	0	150	20	0	99	element-preview
-frame	21.4273	Preparation	0	150	20	0	100	element-preview
-png	21.4671	Preparation	0	150	20	0	save-error	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	21.5027	Preparation	0	150	20	0	101	save-error
-frame	21.5270	Preparation	0	150	20	0	102	save-error
-frame	21.5770	Preparation	0	150	20	0	103	save-error
-frame	21.6269	Preparation	0	150	20	0	104	save-error
-frame	21.6770	Preparation	0	150	20	0	105	save-error
-frame	21.7271	Preparation	0	150	20	0	106	save-error
-frame	21.7769	Preparation	0	150	20	0	107	save-error
-frame	21.8269	Preparation	0	150	20	0	108	save-error
-frame	21.8770	Preparation	0	150	20	0	109	save-error
-frame	21.9269	Preparation	0	150	20	0	110	save-error
-frame	21.9773	Preparation	0	150	20	0	111	save-error
-frame	22.0272	Preparation	0	150	20	0	112	save-error
-frame	22.0772	Preparation	0	150	20	0	113	save-error
-frame	22.1274	Preparation	0	150	20	0	114	save-error
-frame	22.1769	Preparation	0	150	20	0	115	save-error
-frame	22.2280	Preparation	0	150	20	0	116	save-error
-frame	22.2770	Preparation	0	150	20	0	117	save-error
-frame	22.3273	Preparation	0	150	20	0	118	save-error
-frame	22.3772	Preparation	0	150	20	0	119	save-error
-frame	22.4271	Preparation	0	150	20	0	120	save-error
-tap	22.4675	Preparation	0	150	20	0	Retry Save Button	(1457.30, 653.51)
-frame	22.4771	Preparation	0	150	20	0	121	save-error
-frame	22.5274	Preparation	0	150	20	0	122	save-error
-frame	22.5771	Preparation	0	150	20	0	123	save-error
-frame	22.6274	Preparation	0	150	20	0	124	save-error
-frame	22.6771	Preparation	0	150	20	0	125	save-error
-frame	22.7271	Preparation	0	150	20	0	126	save-error
-frame	22.7772	Preparation	0	150	20	0	127	save-error
-frame	22.8272	Preparation	0	150	20	0	128	save-error
-frame	22.8770	Preparation	0	150	20	0	129	save-error
-frame	22.9274	Preparation	0	150	20	0	130	save-error
-frame	22.9772	Preparation	0	150	20	0	131	save-error
-frame	23.0270	Preparation	0	150	20	0	132	save-error
-png	23.0591	Preparation	0	150	20	0	preparation	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	23.0928	Preparation	0	150	20	0	133	preparation
-frame	23.1276	Preparation	0	150	20	0	134	preparation
-frame	23.1769	Preparation	0	150	20	0	135	preparation
-frame	23.2273	Preparation	0	150	20	0	136	preparation
-frame	23.2769	Preparation	0	150	20	0	137	preparation
-frame	23.3274	Preparation	0	150	20	0	138	preparation
-frame	23.3771	Preparation	0	150	20	0	139	preparation
-frame	23.4272	Preparation	0	150	20	0	140	preparation
-frame	23.4771	Preparation	0	150	20	0	141	preparation
-frame	23.5272	Preparation	0	150	20	0	142	preparation
-frame	23.5773	Preparation	0	150	20	0	143	preparation
-frame	23.6277	Preparation	0	150	20	0	144	preparation
-frame	23.6772	Preparation	0	150	20	0	145	preparation
-world	23.7091	Preparation	0	150	20	0	(-4, 0)	(949.74, 555.90)
-frame	23.7274	Preparation	0	150	20	0	146	preparation
-frame	23.7773	Preparation	0	150	20	0	147	preparation
-frame	23.8269	Preparation	0	150	20	0	148	preparation
-frame	23.8772	Preparation	0	150	20	0	149	preparation
-frame	23.9272	Preparation	0	150	20	0	150	preparation
-frame	23.9769	Preparation	0	150	20	0	151	preparation
-frame	24.0269	Preparation	0	150	20	0	152	preparation
-tap	24.0598	Preparation	0	150	20	0	Catalog tide	(283.24, 270.27)
-frame	24.0771	Preparation	0	150	20	0	153	preparation
-frame	24.1271	Preparation	0	150	20	0	154	preparation
-frame	24.1770	Preparation	0	150	20	0	155	preparation
-png	24.2022	Preparation	0	150	20	0	build-locked	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	24.2397	Preparation	0	150	20	0	156	build-locked
-frame	24.2775	Preparation	0	150	20	0	157	build-locked
-frame	24.3275	Preparation	0	150	20	0	158	build-locked
-frame	24.3769	Preparation	0	150	20	0	159	build-locked
-frame	24.4272	Preparation	0	150	20	0	160	build-locked
-frame	24.4769	Preparation	0	150	20	0	161	build-locked
-frame	24.5270	Preparation	0	150	20	0	162	build-locked
-frame	24.5772	Preparation	0	150	20	0	163	build-locked
-frame	24.6269	Preparation	0	150	20	0	164	build-locked
-frame	24.6770	Preparation	0	150	20	0	165	build-locked
-frame	24.7270	Preparation	0	150	20	0	166	build-locked
-frame	24.7771	Preparation	0	150	20	0	167	build-locked
-frame	24.8271	Preparation	0	150	20	0	168	build-locked
-frame	24.8771	Preparation	0	150	20	0	169	build-locked
-frame	24.9273	Preparation	0	150	20	0	170	build-locked
-tap	24.9527	Preparation	0	150	20	0	Catalog flame	(125.41, 270.27)
-frame	24.9769	Preparation	0	150	20	0	171	build-locked
-frame	25.0273	Preparation	0	150	20	0	172	build-locked
-frame	25.0770	Preparation	0	150	20	0	173	build-locked
-png	25.0954	Preparation	0	150	20	0	build-preview	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	25.1335	Preparation	0	150	20	0	174	build-preview
-frame	25.1775	Preparation	0	150	20	0	175	build-preview
-frame	25.2274	Preparation	0	150	20	0	176	build-preview
-frame	25.2774	Preparation	0	150	20	0	177	build-preview
-frame	25.3270	Preparation	0	150	20	0	178	build-preview
-frame	25.3772	Preparation	0	150	20	0	179	build-preview
-frame	25.4274	Preparation	0	150	20	0	180	build-preview
-frame	25.4771	Preparation	0	150	20	0	181	build-preview
-frame	25.5274	Preparation	0	150	20	0	182	build-preview
-frame	25.5773	Preparation	0	150	20	0	183	build-preview
-frame	25.6273	Preparation	0	150	20	0	184	build-preview
-frame	25.6770	Preparation	0	150	20	0	185	build-preview
-frame	25.7271	Preparation	0	150	20	0	186	build-preview
-frame	25.7773	Preparation	0	150	20	0	187	build-preview
-frame	25.8272	Preparation	0	150	20	0	188	build-preview
-frame	25.8773	Preparation	0	150	20	0	189	build-preview
-frame	25.9274	Preparation	0	150	20	0	190	build-preview
-frame	25.9770	Preparation	0	150	20	0	191	build-preview
-tap	25.9958	Preparation	0	80	20	0	Confirm Button	(888.65, 108.11)
-frame	26.0272	Preparation	0	80	20	0	192	build-preview
-frame	26.0773	Preparation	0	80	20	0	193	build-preview
-frame	26.1269	Preparation	0	80	20	0	194	build-preview
-frame	26.1770	Preparation	0	80	20	0	195	build-preview
-frame	26.2274	Preparation	0	80	20	0	196	build-preview
-frame	26.2772	Preparation	0	80	20	0	197	build-preview
-frame	26.3270	Preparation	0	80	20	0	198	build-preview
-frame	26.3770	Preparation	0	80	20	0	199	build-preview
-frame	26.4269	Preparation	0	80	20	0	200	build-preview
-frame	26.4769	Preparation	0	80	20	0	201	build-preview
-frame	26.5272	Preparation	0	80	20	0	202	build-preview
-frame	26.5803	Preparation	0	80	20	0	203	build-preview
-frame	26.6274	Preparation	0	80	20	0	204	build-preview
-world	26.6459	Preparation	0	80	20	0	(-4, 0)	(949.74, 555.90)
-frame	26.6773	Preparation	0	80	20	0	205	build-preview
-frame	26.7272	Preparation	0	80	20	0	206	build-preview
-frame	26.7771	Preparation	0	80	20	0	207	build-preview
-png	26.7877	Preparation	0	80	20	0	tower-low-gold	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	26.8273	Preparation	0	80	20	0	208	tower-low-gold
-frame	26.8770	Preparation	0	80	20	0	209	tower-low-gold
-frame	26.9271	Preparation	0	80	20	0	210	tower-low-gold
-frame	26.9774	Preparation	0	80	20	0	211	tower-low-gold
-frame	27.0271	Preparation	0	80	20	0	212	tower-low-gold
-frame	27.0771	Preparation	0	80	20	0	213	tower-low-gold
-frame	27.1270	Preparation	0	80	20	0	214	tower-low-gold
-frame	27.1771	Preparation	0	80	20	0	215	tower-low-gold
-frame	27.2275	Preparation	0	80	20	0	216	tower-low-gold
-frame	27.2774	Preparation	0	80	20	0	217	tower-low-gold
-frame	27.3273	Preparation	0	80	20	0	218	tower-low-gold
-frame	27.3775	Preparation	0	80	20	0	219	tower-low-gold
-frame	27.4269	Preparation	0	80	20	0	220	tower-low-gold
-frame	27.4770	Preparation	0	80	20	0	221	tower-low-gold
-frame	27.5273	Preparation	0	80	20	0	222	tower-low-gold
-frame	27.5772	Preparation	0	80	20	0	223	tower-low-gold
-frame	27.6272	Preparation	0	80	20	0	224	tower-low-gold
-frame	27.6770	Preparation	0	80	20	0	225	tower-low-gold
-frame	27.7271	Preparation	0	80	20	0	226	tower-low-gold
-tap	27.7378	Preparation	0	80	20	0	Sell Button	(1144.87, 105.95)
-frame	27.7771	Preparation	0	80	20	0	227	tower-low-gold
-frame	27.8274	Preparation	0	80	20	0	228	tower-low-gold
-frame	27.8771	Preparation	0	80	20	0	229	tower-low-gold
-png	27.8795	Preparation	0	80	20	0	sell-confirmation	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	27.9275	Preparation	0	80	20	0	230	sell-confirmation
-frame	27.9771	Preparation	0	80	20	0	231	sell-confirmation
-frame	28.0272	Preparation	0	80	20	0	232	sell-confirmation
-frame	28.0769	Preparation	0	80	20	0	233	sell-confirmation
-frame	28.1274	Preparation	0	80	20	0	234	sell-confirmation
-frame	28.1773	Preparation	0	80	20	0	235	sell-confirmation
-frame	28.2269	Preparation	0	80	20	0	236	sell-confirmation
-frame	28.2773	Preparation	0	80	20	0	237	sell-confirmation
-frame	28.3271	Preparation	0	80	20	0	238	sell-confirmation
-frame	28.3772	Preparation	0	80	20	0	239	sell-confirmation
-frame	28.4271	Preparation	0	80	20	0	240	sell-confirmation
-frame	28.4774	Preparation	0	80	20	0	241	sell-confirmation
-frame	28.5274	Preparation	0	80	20	0	242	sell-confirmation
-frame	28.5770	Preparation	0	80	20	0	243	sell-confirmation
-frame	28.6269	Preparation	0	80	20	0	244	sell-confirmation
-frame	28.6772	Preparation	0	80	20	0	245	sell-confirmation
-frame	28.7270	Preparation	0	80	20	0	246	sell-confirmation
-tap	28.7313	Preparation	0	80	20	0	Cancel Sell Button	(620.54, 353.78)
-frame	28.7772	Preparation	0	80	20	0	247	sell-confirmation
-frame	28.8270	Preparation	0	80	20	0	248	sell-confirmation
-frame	28.8774	Preparation	0	80	20	0	249	sell-confirmation
-frame	28.9272	Preparation	0	80	20	0	250	sell-confirmation
-frame	28.9774	Preparation	0	80	20	0	251	sell-confirmation
-frame	29.0274	Preparation	0	80	20	0	252	sell-confirmation
-frame	29.0774	Preparation	0	80	20	0	253	sell-confirmation
-frame	29.1270	Preparation	0	80	20	0	254	sell-confirmation
-tap	29.1318	Preparation	0	80	20	0	Sell Button	(1144.87, 105.95)
-frame	29.1771	Preparation	0	80	20	0	255	sell-confirmation
-frame	29.2271	Preparation	0	80	20	0	256	sell-confirmation
-frame	29.2770	Preparation	0	80	20	0	257	sell-confirmation
-frame	29.3271	Preparation	0	80	20	0	258	sell-confirmation
-frame	29.3770	Preparation	0	80	20	0	259	sell-confirmation
-frame	29.4274	Preparation	0	80	20	0	260	sell-confirmation
-frame	29.4770	Preparation	0	80	20	0	261	sell-confirmation
-tap	29.4823	Preparation	0	129	20	0	Confirm Sell Button	(979.46, 353.78)
-frame	29.5269	Preparation	0	129	20	0	262	sell-confirmation
-frame	29.5771	Preparation	0	129	20	0	263	sell-confirmation
-frame	29.6275	Preparation	0	129	20	0	264	sell-confirmation
-frame	29.6770	Preparation	0	129	20	0	265	sell-confirmation
-frame	29.7273	Preparation	0	129	20	0	266	sell-confirmation
-frame	29.7775	Preparation	0	129	20	0	267	sell-confirmation
-frame	29.8269	Preparation	0	129	20	0	268	sell-confirmation
-frame	29.8771	Preparation	0	129	20	0	269	sell-confirmation
-frame	29.9271	Preparation	0	129	20	0	270	sell-confirmation
-frame	29.9771	Preparation	0	129	20	0	271	sell-confirmation
-frame	30.0272	Preparation	0	129	20	0	272	sell-confirmation
-tap	30.0325	Preparation	0	129	20	0	Pause Button	(1513.51, 817.84)
-frame	30.0771	Preparation	0	129	20	0	273	sell-confirmation
-frame	30.1271	Preparation	0	129	20	0	274	sell-confirmation
-png	30.1744	Preparation	0	129	20	0	pause	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	30.2087	Preparation	0	129	20	0	275	pause
-frame	30.2272	Preparation	0	129	20	0	276	pause
-frame	30.2772	Preparation	0	129	20	0	277	pause
-frame	30.3274	Preparation	0	129	20	0	278	pause
-frame	30.3773	Preparation	0	129	20	0	279	pause
-frame	30.4271	Preparation	0	129	20	0	280	pause
-frame	30.4771	Preparation	0	129	20	0	281	pause
-frame	30.5274	Preparation	0	129	20	0	282	pause
-frame	30.5770	Preparation	0	129	20	0	283	pause
-frame	30.6273	Preparation	0	129	20	0	284	pause
-frame	30.6770	Preparation	0	129	20	0	285	pause
-frame	30.7272	Preparation	0	129	20	0	286	pause
-frame	30.7774	Preparation	0	129	20	0	287	pause
-frame	30.8271	Preparation	0	129	20	0	288	pause
-frame	30.8769	Preparation	0	129	20	0	289	pause
-frame	30.9270	Preparation	0	129	20	0	290	pause
-frame	30.9770	Preparation	0	129	20	0	291	pause
-frame	31.0271	Preparation	0	129	20	0	292	pause
-frame	31.0773	Preparation	0	129	20	0	293	pause
-frame	31.1269	Preparation	0	129	20	0	294	pause
-frame	31.1772	Preparation	0	129	20	0	295	pause
-frame	31.2273	Preparation	0	129	20	0	296	pause
-frame	31.2772	Preparation	0	129	20	0	297	pause
-frame	31.3270	Preparation	0	129	20	0	298	pause
-tap	31.3745	Preparation	0	129	20	0	Resume Button	(800.00, 485.68)
-frame	31.3773	Preparation	0	129	20	0	299	pause
-frame	31.4272	Preparation	0	129	20	0	300	pause
-frame	31.4770	Preparation	0	129	20	0	301	pause
-frame	31.5273	Preparation	0	129	20	0	302	pause
-frame	31.5773	Preparation	0	129	20	0	303	pause
-frame	31.6272	Preparation	0	129	20	0	304	pause
-frame	31.6770	Preparation	0	129	20	0	305	pause
-frame	31.7269	Preparation	0	129	20	0	306	pause
-frame	31.7771	Preparation	0	129	20	0	307	pause
-frame	31.8274	Preparation	0	129	20	0	308	pause
-frame	31.8771	Preparation	0	129	20	0	309	pause
-frame	31.9271	Preparation	0	129	20	0	310	pause
-frame	31.9774	Preparation	0	129	20	0	311	pause
-tap	32.0246	Preparation	0	129	20	0	Pause Button	(1513.51, 817.84)
-frame	32.0269	Preparation	0	129	20	0	312	pause
-frame	32.0773	Preparation	0	129	20	0	313	pause
-frame	32.1271	Preparation	0	129	20	0	314	pause
-frame	32.1771	Preparation	0	129	20	0	315	pause
-frame	32.2269	Preparation	0	129	20	0	316	pause
-frame	32.2774	Preparation	0	129	20	0	317	pause
-frame	32.3269	Preparation	0	129	20	0	318	pause
-tap	32.3749	Preparation	0	129	20	0	Main Menu Button	(800.00, 349.46)
-frame	32.3779						319	pause
-frame	32.5797						320	pause
-frame	32.5857						321	pause
-frame	32.6298						322	pause
-frame	32.6802						323	pause
-frame	32.7299						324	pause
-frame	32.7800						325	pause
-frame	32.8302						326	pause
-frame	32.8801						327	pause
-frame	32.9299						328	pause
-frame	32.9798						329	pause
-frame	33.0301						330	pause
-frame	33.0801						331	pause
-frame	33.1299						332	pause
-frame	33.1799						333	pause
-frame	33.2301						334	pause
-png	33.2666						menu-continue	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
-frame	33.3380						335	menu-continue
-frame	33.3411						336	menu-continue
-frame	33.3882						337	menu-continue
-frame	33.4381						338	menu-continue
-frame	33.4884						339	menu-continue
-frame	33.5381						340	menu-continue
-frame	33.5883						341	menu-continue
-frame	33.6385						342	menu-continue
-frame	33.6880						343	menu-continue
-frame	33.7382						344	menu-continue
-frame	33.7882						345	menu-continue
-frame	33.8382						346	menu-continue
-frame	33.8882						347	menu-continue
-frame	33.9381						348	menu-continue
-frame	33.9884						349	menu-continue
-frame	34.0383						350	menu-continue
-tap	34.0669						Continue Button	(402.16, 428.38)
-frame	34.1097	Preparation	0	129	20	0	351	menu-continue
-frame	34.3142	Preparation	0	129	20	0	352	menu-continue
-frame	34.3208	Preparation	0	129	20	0	353	menu-continue
-frame	34.3646	Preparation	0	129	20	0	354	menu-continue
-frame	34.4144	Preparation	0	129	20	0	355	menu-continue
-frame	34.4642	Preparation	0	129	20	0	356	menu-continue
-frame	34.5146	Preparation	0	129	20	0	357	menu-continue
-frame	34.5647	Preparation	0	129	20	0	358	menu-continue
-frame	34.6147	Preparation	0	129	20	0	359	menu-continue
-frame	34.6643	Preparation	0	129	20	0	360	menu-continue
-frame	34.7143	Preparation	0	129	20	0	361	menu-continue
-frame	34.7643	Preparation	0	129	20	0	362	menu-continue
-frame	34.8146	Preparation	0	129	20	0	363	menu-continue
-frame	34.8645	Preparation	0	129	20	0	364	menu-continue
-frame	34.9145	Preparation	0	129	20	0	365	menu-continue
-done	366	False
+frame	14.5162						0	start
+frame	14.6608						1	start
+frame	14.6608						2	start
+frame	14.7708						3	start
+frame	14.7708						4	start
+frame	14.7708						5	start
+png	14.7708						menu-new	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	14.8726						6	menu-new
+frame	14.8726						7	menu-new
+frame	14.9761						8	menu-new
+frame	14.9761						9	menu-new
+frame	15.0827						10	menu-new
+frame	15.0827						11	menu-new
+frame	15.1885						12	menu-new
+frame	15.1885						13	menu-new
+frame	15.2927						14	menu-new
+frame	15.2927						15	menu-new
+frame	15.3995						16	menu-new
+frame	15.3995						17	menu-new
+frame	15.5029						18	menu-new
+frame	15.5029						19	menu-new
+frame	15.6084						20	menu-new
+frame	15.6084						21	menu-new
+frame	15.7162						22	menu-new
+frame	15.7162						23	menu-new
+frame	15.7162						24	menu-new
+frame	15.8241						25	menu-new
+frame	15.8241						26	menu-new
+png	15.8241						menu-load-error	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	15.9252						27	menu-load-error
+frame	15.9252						28	menu-load-error
+frame	16.0290						29	menu-load-error
+frame	16.0290						30	menu-load-error
+frame	16.1318						31	menu-load-error
+frame	16.1318						32	menu-load-error
+frame	16.2384						33	menu-load-error
+frame	16.2384						34	menu-load-error
+frame	16.3456						35	menu-load-error
+frame	16.3456						36	menu-load-error
+frame	16.4535						37	menu-load-error
+frame	16.4535						38	menu-load-error
+frame	16.5612						39	menu-load-error
+frame	16.5612						40	menu-load-error
+tap	16.6625						Retry Load Button	(585.95, 142.97)
+frame	16.6687						41	menu-load-error
+frame	16.6687						42	menu-load-error
+frame	16.6687						43	menu-load-error
+frame	16.7759						44	menu-load-error
+frame	16.7759						45	menu-load-error
+frame	16.8841						46	menu-load-error
+frame	16.8841						47	menu-load-error
+frame	16.9894						48	menu-load-error
+frame	16.9894						49	menu-load-error
+tap	17.0929						New Game Button	(402.16, 287.84)
+frame	17.1297	Preparation	0	150	20	0	50	menu-load-error
+frame	17.1297	Preparation	0	150	20	0	51	menu-load-error
+frame	17.1297	Preparation	0	150	20	0	52	menu-load-error
+frame	17.4429	Preparation	0	150	20	0	53	menu-load-error
+frame	17.4429	Preparation	0	150	20	0	54	menu-load-error
+frame	17.4429	Preparation	0	150	20	0	55	menu-load-error
+frame	17.4429	Preparation	0	150	20	0	56	menu-load-error
+frame	17.4429	Preparation	0	150	20	0	57	menu-load-error
+frame	17.4429	Preparation	0	150	20	0	58	menu-load-error
+frame	17.5507	Preparation	0	150	20	0	59	menu-load-error
+frame	17.5507	Preparation	0	150	20	0	60	menu-load-error
+frame	17.6553	Preparation	0	150	20	0	61	menu-load-error
+frame	17.6553	Preparation	0	150	20	0	62	menu-load-error
+frame	17.7601	Preparation	0	150	20	0	63	menu-load-error
+frame	17.7601	Preparation	0	150	20	0	64	menu-load-error
+frame	17.8680	Preparation	0	150	20	0	65	menu-load-error
+frame	17.8680	Preparation	0	150	20	0	66	menu-load-error
+frame	17.8680	Preparation	0	150	20	0	67	menu-load-error
+frame	17.9748	Preparation	0	150	20	0	68	menu-load-error
+frame	17.9748	Preparation	0	150	20	0	69	menu-load-error
+frame	18.0777	Preparation	0	150	20	0	70	menu-load-error
+frame	18.0777	Preparation	0	150	20	0	71	menu-load-error
+frame	18.1857	Preparation	0	150	20	0	72	menu-load-error
+frame	18.1857	Preparation	0	150	20	0	73	menu-load-error
+png	18.1857	Preparation	0	150	20	0	first-element	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	18.2883	Preparation	0	150	20	0	74	first-element
+frame	18.2883	Preparation	0	150	20	0	75	first-element
+frame	18.3919	Preparation	0	150	20	0	76	first-element
+frame	18.3919	Preparation	0	150	20	0	77	first-element
+frame	18.5004	Preparation	0	150	20	0	78	first-element
+frame	18.5004	Preparation	0	150	20	0	79	first-element
+frame	18.6080	Preparation	0	150	20	0	80	first-element
+frame	18.6080	Preparation	0	150	20	0	81	first-element
+frame	18.7136	Preparation	0	150	20	0	82	first-element
+frame	18.7136	Preparation	0	150	20	0	83	first-element
+frame	18.8214	Preparation	0	150	20	0	84	first-element
+frame	18.8214	Preparation	0	150	20	0	85	first-element
+frame	18.8214	Preparation	0	150	20	0	86	first-element
+frame	18.9273	Preparation	0	150	20	0	87	first-element
+frame	18.9273	Preparation	0	150	20	0	88	first-element
+tap	19.0296	Preparation	0	150	20	0	flame	(572.97, 424.05)
+frame	19.0359	Preparation	0	150	20	0	89	first-element
+frame	19.0359	Preparation	0	150	20	0	90	first-element
+frame	19.1432	Preparation	0	150	20	0	91	first-element
+frame	19.1432	Preparation	0	150	20	0	92	first-element
+frame	19.2506	Preparation	0	150	20	0	93	first-element
+frame	19.2506	Preparation	0	150	20	0	94	first-element
+png	19.2506	Preparation	0	150	20	0	element-preview	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	19.3541	Preparation	0	150	20	0	95	element-preview
+frame	19.3541	Preparation	0	150	20	0	96	element-preview
+frame	19.4586	Preparation	0	150	20	0	97	element-preview
+frame	19.4586	Preparation	0	150	20	0	98	element-preview
+frame	19.5671	Preparation	0	150	20	0	99	element-preview
+frame	19.5671	Preparation	0	150	20	0	100	element-preview
+frame	19.5671	Preparation	0	150	20	0	101	element-preview
+frame	19.6736	Preparation	0	150	20	0	102	element-preview
+frame	19.6736	Preparation	0	150	20	0	103	element-preview
+frame	19.7809	Preparation	0	150	20	0	104	element-preview
+frame	19.7809	Preparation	0	150	20	0	105	element-preview
+tap	19.8825	Preparation	0	150	20	0	Confirm Element Button	(1115.68, 255.41)
+frame	19.8926	Preparation	0	150	20	0	106	element-preview
+frame	19.8926	Preparation	0	150	20	0	107	element-preview
+frame	19.9999	Preparation	0	150	20	0	108	element-preview
+frame	19.9999	Preparation	0	150	20	0	109	element-preview
+frame	20.1113	Preparation	0	150	20	0	110	element-preview
+frame	20.1113	Preparation	0	150	20	0	111	element-preview
+frame	20.2180	Preparation	0	150	20	0	112	element-preview
+frame	20.2180	Preparation	0	150	20	0	113	element-preview
+frame	20.2180	Preparation	0	150	20	0	114	element-preview
+frame	20.3250	Preparation	0	150	20	0	115	element-preview
+frame	20.3250	Preparation	0	150	20	0	116	element-preview
+frame	20.4311	Preparation	0	150	20	0	117	element-preview
+frame	20.4311	Preparation	0	150	20	0	118	element-preview
+frame	20.5376	Preparation	0	150	20	0	119	element-preview
+frame	20.5376	Preparation	0	150	20	0	120	element-preview
+png	20.5376	Preparation	0	150	20	0	save-error	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	20.6395	Preparation	0	150	20	0	121	save-error
+frame	20.6395	Preparation	0	150	20	0	122	save-error
+frame	20.7439	Preparation	0	150	20	0	123	save-error
+frame	20.7439	Preparation	0	150	20	0	124	save-error
+frame	20.8479	Preparation	0	150	20	0	125	save-error
+frame	20.8479	Preparation	0	150	20	0	126	save-error
+frame	20.9551	Preparation	0	150	20	0	127	save-error
+frame	20.9551	Preparation	0	150	20	0	128	save-error
+frame	21.0608	Preparation	0	150	20	0	129	save-error
+frame	21.0608	Preparation	0	150	20	0	130	save-error
+frame	21.1685	Preparation	0	150	20	0	131	save-error
+frame	21.1685	Preparation	0	150	20	0	132	save-error
+frame	21.1685	Preparation	0	150	20	0	133	save-error
+frame	21.2763	Preparation	0	150	20	0	134	save-error
+frame	21.2763	Preparation	0	150	20	0	135	save-error
+frame	21.3845	Preparation	0	150	20	0	136	save-error
+frame	21.3845	Preparation	0	150	20	0	137	save-error
+frame	21.4904	Preparation	0	150	20	0	138	save-error
+frame	21.4904	Preparation	0	150	20	0	139	save-error
+tap	21.5929	Preparation	0	150	20	0	Retry Save Button	(1457.30, 653.51)
+frame	21.5999	Preparation	0	150	20	0	140	save-error
+frame	21.5999	Preparation	0	150	20	0	141	save-error
+frame	21.7063	Preparation	0	150	20	0	142	save-error
+frame	21.7063	Preparation	0	150	20	0	143	save-error
+frame	21.8149	Preparation	0	150	20	0	144	save-error
+frame	21.8149	Preparation	0	150	20	0	145	save-error
+frame	21.9234	Preparation	0	150	20	0	146	save-error
+frame	21.9234	Preparation	0	150	20	0	147	save-error
+frame	21.9234	Preparation	0	150	20	0	148	save-error
+frame	22.0309	Preparation	0	150	20	0	149	save-error
+frame	22.0309	Preparation	0	150	20	0	150	save-error
+frame	22.1373	Preparation	0	150	20	0	151	save-error
+frame	22.1373	Preparation	0	150	20	0	152	save-error
+frame	22.2436	Preparation	0	150	20	0	153	save-error
+frame	22.2436	Preparation	0	150	20	0	154	save-error
+frame	22.3511	Preparation	0	150	20	0	155	save-error
+frame	22.3511	Preparation	0	150	20	0	156	save-error
+png	22.3511	Preparation	0	150	20	0	preparation	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	22.4545	Preparation	0	150	20	0	157	preparation
+frame	22.4545	Preparation	0	150	20	0	158	preparation
+frame	22.5578	Preparation	0	150	20	0	159	preparation
+frame	22.5578	Preparation	0	150	20	0	160	preparation
+frame	22.6632	Preparation	0	150	20	0	161	preparation
+frame	22.6632	Preparation	0	150	20	0	162	preparation
+frame	22.7694	Preparation	0	150	20	0	163	preparation
+frame	22.7694	Preparation	0	150	20	0	164	preparation
+frame	22.7694	Preparation	0	150	20	0	165	preparation
+frame	22.8758	Preparation	0	150	20	0	166	preparation
+frame	22.8758	Preparation	0	150	20	0	167	preparation
+frame	22.9838	Preparation	0	150	20	0	168	preparation
+frame	22.9838	Preparation	0	150	20	0	169	preparation
+world	23.0851	Preparation	0	150	20	0	(-4, 0)	(949.74, 555.90)
+frame	23.0933	Preparation	0	150	20	0	170	preparation
+frame	23.0933	Preparation	0	150	20	0	171	preparation
+frame	23.2003	Preparation	0	150	20	0	172	preparation
+frame	23.2003	Preparation	0	150	20	0	173	preparation
+frame	23.3097	Preparation	0	150	20	0	174	preparation
+frame	23.3097	Preparation	0	150	20	0	175	preparation
+frame	23.4160	Preparation	0	150	20	0	176	preparation
+frame	23.4160	Preparation	0	150	20	0	177	preparation
+tap	23.5171	Preparation	0	150	20	0	Catalog tide	(283.24, 270.27)
+frame	23.5231	Preparation	0	150	20	0	178	preparation
+frame	23.5231	Preparation	0	150	20	0	179	preparation
+frame	23.5231	Preparation	0	150	20	0	180	preparation
+frame	23.6310	Preparation	0	150	20	0	181	preparation
+frame	23.6310	Preparation	0	150	20	0	182	preparation
+frame	23.8384	Preparation	0	150	20	0	183	preparation
+frame	23.8384	Preparation	0	150	20	0	184	preparation
+frame	23.8384	Preparation	0	150	20	0	185	preparation
+frame	23.8384	Preparation	0	150	20	0	186	preparation
+png	23.8384	Preparation	0	150	20	0	build-locked	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	23.9417	Preparation	0	150	20	0	187	build-locked
+frame	23.9417	Preparation	0	150	20	0	188	build-locked
+frame	24.0437	Preparation	0	150	20	0	189	build-locked
+frame	24.0437	Preparation	0	150	20	0	190	build-locked
+frame	24.1516	Preparation	0	150	20	0	191	build-locked
+frame	24.1516	Preparation	0	150	20	0	192	build-locked
+frame	24.2575	Preparation	0	150	20	0	193	build-locked
+frame	24.2575	Preparation	0	150	20	0	194	build-locked
+frame	24.3653	Preparation	0	150	20	0	195	build-locked
+frame	24.3653	Preparation	0	150	20	0	196	build-locked
+frame	24.4733	Preparation	0	150	20	0	197	build-locked
+frame	24.4733	Preparation	0	150	20	0	198	build-locked
+frame	24.4733	Preparation	0	150	20	0	199	build-locked
+frame	24.5816	Preparation	0	150	20	0	200	build-locked
+frame	24.5816	Preparation	0	150	20	0	201	build-locked
+tap	24.6826	Preparation	0	150	20	0	Catalog flame	(125.41, 270.27)
+frame	24.6891	Preparation	0	150	20	0	202	build-locked
+frame	24.6891	Preparation	0	150	20	0	203	build-locked
+frame	24.7967	Preparation	0	150	20	0	204	build-locked
+frame	24.7967	Preparation	0	150	20	0	205	build-locked
+frame	24.9018	Preparation	0	150	20	0	206	build-locked
+frame	24.9018	Preparation	0	150	20	0	207	build-locked
+png	24.9018	Preparation	0	150	20	0	build-preview	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	25.0054	Preparation	0	150	20	0	208	build-preview
+frame	25.0054	Preparation	0	150	20	0	209	build-preview
+frame	25.1089	Preparation	0	150	20	0	210	build-preview
+frame	25.1089	Preparation	0	150	20	0	211	build-preview
+frame	25.2172	Preparation	0	150	20	0	212	build-preview
+frame	25.2172	Preparation	0	150	20	0	213	build-preview
+frame	25.2172	Preparation	0	150	20	0	214	build-preview
+frame	25.3234	Preparation	0	150	20	0	215	build-preview
+frame	25.3234	Preparation	0	150	20	0	216	build-preview
+frame	25.4308	Preparation	0	150	20	0	217	build-preview
+frame	25.4308	Preparation	0	150	20	0	218	build-preview
+frame	25.5381	Preparation	0	150	20	0	219	build-preview
+frame	25.5381	Preparation	0	150	20	0	220	build-preview
+frame	25.6455	Preparation	0	150	20	0	221	build-preview
+frame	25.6455	Preparation	0	150	20	0	222	build-preview
+frame	25.7523	Preparation	0	150	20	0	223	build-preview
+frame	25.7523	Preparation	0	150	20	0	224	build-preview
+tap	25.8534	Preparation	0	80	20	0	Confirm Button	(888.65, 108.11)
+frame	25.8665	Preparation	0	80	20	0	225	build-preview
+frame	25.8665	Preparation	0	80	20	0	226	build-preview
+frame	25.8665	Preparation	0	80	20	0	227	build-preview
+frame	25.9755	Preparation	0	80	20	0	228	build-preview
+frame	25.9755	Preparation	0	80	20	0	229	build-preview
+frame	26.0835	Preparation	0	80	20	0	230	build-preview
+frame	26.0835	Preparation	0	80	20	0	231	build-preview
+frame	26.1906	Preparation	0	80	20	0	232	build-preview
+frame	26.1906	Preparation	0	80	20	0	233	build-preview
+frame	26.2964	Preparation	0	80	20	0	234	build-preview
+frame	26.2964	Preparation	0	80	20	0	235	build-preview
+frame	26.4038	Preparation	0	80	20	0	236	build-preview
+frame	26.4038	Preparation	0	80	20	0	237	build-preview
+world	26.5049	Preparation	0	80	20	0	(-4, 0)	(949.74, 555.90)
+frame	26.5121	Preparation	0	80	20	0	238	build-preview
+frame	26.5121	Preparation	0	80	20	0	239	build-preview
+frame	26.6200	Preparation	0	80	20	0	240	build-preview
+frame	26.6200	Preparation	0	80	20	0	241	build-preview
+frame	26.6200	Preparation	0	80	20	0	242	build-preview
+frame	26.7264	Preparation	0	80	20	0	243	build-preview
+frame	26.7264	Preparation	0	80	20	0	244	build-preview
+png	26.7264	Preparation	0	80	20	0	tower-low-gold	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	26.8300	Preparation	0	80	20	0	245	tower-low-gold
+frame	26.8300	Preparation	0	80	20	0	246	tower-low-gold
+frame	26.9334	Preparation	0	80	20	0	247	tower-low-gold
+frame	26.9334	Preparation	0	80	20	0	248	tower-low-gold
+frame	27.0380	Preparation	0	80	20	0	249	tower-low-gold
+frame	27.0380	Preparation	0	80	20	0	250	tower-low-gold
+frame	27.1427	Preparation	0	80	20	0	251	tower-low-gold
+frame	27.1427	Preparation	0	80	20	0	252	tower-low-gold
+frame	27.2475	Preparation	0	80	20	0	253	tower-low-gold
+frame	27.2475	Preparation	0	80	20	0	254	tower-low-gold
+frame	27.3536	Preparation	0	80	20	0	255	tower-low-gold
+frame	27.3536	Preparation	0	80	20	0	256	tower-low-gold
+frame	27.4615	Preparation	0	80	20	0	257	tower-low-gold
+frame	27.4615	Preparation	0	80	20	0	258	tower-low-gold
+frame	27.5692	Preparation	0	80	20	0	259	tower-low-gold
+frame	27.5692	Preparation	0	80	20	0	260	tower-low-gold
+frame	27.5692	Preparation	0	80	20	0	261	tower-low-gold
+frame	27.6772	Preparation	0	80	20	0	262	tower-low-gold
+frame	27.6772	Preparation	0	80	20	0	263	tower-low-gold
+tap	27.6772	Preparation	0	80	20	0	Sell Button	(1144.87, 105.95)
+frame	27.7872	Preparation	0	80	20	0	264	tower-low-gold
+frame	27.7872	Preparation	0	80	20	0	265	tower-low-gold
+frame	27.8954	Preparation	0	80	20	0	266	tower-low-gold
+frame	27.8954	Preparation	0	80	20	0	267	tower-low-gold
+frame	28.0025	Preparation	0	80	20	0	268	tower-low-gold
+frame	28.0025	Preparation	0	80	20	0	269	tower-low-gold
+png	28.0025	Preparation	0	80	20	0	sell-confirmation	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	28.1062	Preparation	0	80	20	0	270	sell-confirmation
+frame	28.1062	Preparation	0	80	20	0	271	sell-confirmation
+frame	28.2088	Preparation	0	80	20	0	272	sell-confirmation
+frame	28.2088	Preparation	0	80	20	0	273	sell-confirmation
+frame	28.3169	Preparation	0	80	20	0	274	sell-confirmation
+frame	28.3169	Preparation	0	80	20	0	275	sell-confirmation
+frame	28.3169	Preparation	0	80	20	0	276	sell-confirmation
+frame	28.4243	Preparation	0	80	20	0	277	sell-confirmation
+frame	28.4243	Preparation	0	80	20	0	278	sell-confirmation
+frame	28.5275	Preparation	0	80	20	0	279	sell-confirmation
+frame	28.5275	Preparation	0	80	20	0	280	sell-confirmation
+frame	28.6354	Preparation	0	80	20	0	281	sell-confirmation
+frame	28.6354	Preparation	0	80	20	0	282	sell-confirmation
+frame	28.7386	Preparation	0	80	20	0	283	sell-confirmation
+frame	28.7386	Preparation	0	80	20	0	284	sell-confirmation
+frame	28.8465	Preparation	0	80	20	0	285	sell-confirmation
+frame	28.8465	Preparation	0	80	20	0	286	sell-confirmation
+tap	28.9486	Preparation	0	80	20	0	Cancel Sell Button	(620.54, 353.78)
+frame	28.9548	Preparation	0	80	20	0	287	sell-confirmation
+frame	28.9548	Preparation	0	80	20	0	288	sell-confirmation
+frame	29.0622	Preparation	0	80	20	0	289	sell-confirmation
+frame	29.0622	Preparation	0	80	20	0	290	sell-confirmation
+frame	29.1676	Preparation	0	80	20	0	291	sell-confirmation
+frame	29.1676	Preparation	0	80	20	0	292	sell-confirmation
+frame	29.1676	Preparation	0	80	20	0	293	sell-confirmation
+frame	29.2758	Preparation	0	80	20	0	294	sell-confirmation
+frame	29.2758	Preparation	0	80	20	0	295	sell-confirmation
+tap	29.3772	Preparation	0	80	20	0	Sell Button	(1144.87, 105.95)
+frame	29.3826	Preparation	0	80	20	0	296	sell-confirmation
+frame	29.3826	Preparation	0	80	20	0	297	sell-confirmation
+frame	29.4885	Preparation	0	80	20	0	298	sell-confirmation
+frame	29.4885	Preparation	0	80	20	0	299	sell-confirmation
+frame	29.5979	Preparation	0	80	20	0	300	sell-confirmation
+frame	29.5979	Preparation	0	80	20	0	301	sell-confirmation
+frame	29.7041	Preparation	0	80	20	0	302	sell-confirmation
+frame	29.7041	Preparation	0	80	20	0	303	sell-confirmation
+tap	29.8070	Preparation	0	129	20	0	Confirm Sell Button	(979.46, 353.78)
+frame	29.8224	Preparation	0	129	20	0	304	sell-confirmation
+frame	29.8224	Preparation	0	129	20	0	305	sell-confirmation
+frame	29.8224	Preparation	0	129	20	0	306	sell-confirmation
+frame	29.9255	Preparation	0	129	20	0	307	sell-confirmation
+frame	29.9255	Preparation	0	129	20	0	308	sell-confirmation
+frame	30.0385	Preparation	0	129	20	0	309	sell-confirmation
+frame	30.0385	Preparation	0	129	20	0	310	sell-confirmation
+frame	30.1423	Preparation	0	129	20	0	311	sell-confirmation
+frame	30.1423	Preparation	0	129	20	0	312	sell-confirmation
+frame	30.2493	Preparation	0	129	20	0	313	sell-confirmation
+frame	30.2493	Preparation	0	129	20	0	314	sell-confirmation
+frame	30.3535	Preparation	0	129	20	0	315	sell-confirmation
+frame	30.3535	Preparation	0	129	20	0	316	sell-confirmation
+tap	30.4553	Preparation	0	129	20	0	Pause Button	(1513.51, 817.84)
+frame	30.4621	Preparation	0	129	20	0	317	sell-confirmation
+frame	30.4621	Preparation	0	129	20	0	318	sell-confirmation
+frame	30.5684	Preparation	0	129	20	0	319	sell-confirmation
+frame	30.5684	Preparation	0	129	20	0	320	sell-confirmation
+frame	30.5684	Preparation	0	129	20	0	321	sell-confirmation
+frame	30.6754	Preparation	0	129	20	0	322	sell-confirmation
+frame	30.6754	Preparation	0	129	20	0	323	sell-confirmation
+png	30.6754	Preparation	0	129	20	0	pause	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	30.7768	Preparation	0	129	20	0	324	pause
+frame	30.7768	Preparation	0	129	20	0	325	pause
+frame	30.8812	Preparation	0	129	20	0	326	pause
+frame	30.8812	Preparation	0	129	20	0	327	pause
+frame	30.9868	Preparation	0	129	20	0	328	pause
+frame	30.9868	Preparation	0	129	20	0	329	pause
+frame	31.0925	Preparation	0	129	20	0	330	pause
+frame	31.0925	Preparation	0	129	20	0	331	pause
+frame	31.1989	Preparation	0	129	20	0	332	pause
+frame	31.1989	Preparation	0	129	20	0	333	pause
+frame	31.3064	Preparation	0	129	20	0	334	pause
+frame	31.3064	Preparation	0	129	20	0	335	pause
+frame	31.4108	Preparation	0	129	20	0	336	pause
+frame	31.4108	Preparation	0	129	20	0	337	pause
+frame	31.5185	Preparation	0	129	20	0	338	pause
+frame	31.5185	Preparation	0	129	20	0	339	pause
+frame	31.5185	Preparation	0	129	20	0	340	pause
+frame	31.6265	Preparation	0	129	20	0	341	pause
+frame	31.6265	Preparation	0	129	20	0	342	pause
+frame	31.7346	Preparation	0	129	20	0	343	pause
+frame	31.7346	Preparation	0	129	20	0	344	pause
+frame	31.8414	Preparation	0	129	20	0	345	pause
+frame	31.8414	Preparation	0	129	20	0	346	pause
+tap	31.9441	Preparation	0	129	20	0	Resume Button	(800.00, 485.68)
+frame	31.9500	Preparation	0	129	20	0	347	pause
+frame	31.9500	Preparation	0	129	20	0	348	pause
+frame	32.0571	Preparation	0	129	20	0	349	pause
+frame	32.0571	Preparation	0	129	20	0	350	pause
+frame	32.1648	Preparation	0	129	20	0	351	pause
+frame	32.1648	Preparation	0	129	20	0	352	pause
+frame	32.2688	Preparation	0	129	20	0	353	pause
+frame	32.2688	Preparation	0	129	20	0	354	pause
+frame	32.2688	Preparation	0	129	20	0	355	pause
+frame	32.3760	Preparation	0	129	20	0	356	pause
+frame	32.3760	Preparation	0	129	20	0	357	pause
+frame	32.4827	Preparation	0	129	20	0	358	pause
+frame	32.4827	Preparation	0	129	20	0	359	pause
+frame	32.5886	Preparation	0	129	20	0	360	pause
+frame	32.5886	Preparation	0	129	20	0	361	pause
+tap	32.6909	Preparation	0	129	20	0	Pause Button	(1513.51, 817.84)
+frame	32.6968	Preparation	0	129	20	0	362	pause
+frame	32.6968	Preparation	0	129	20	0	363	pause
+frame	32.8055	Preparation	0	129	20	0	364	pause
+frame	32.8055	Preparation	0	129	20	0	365	pause
+frame	32.9098	Preparation	0	129	20	0	366	pause
+frame	32.9098	Preparation	0	129	20	0	367	pause
+frame	33.0180	Preparation	0	129	20	0	368	pause
+frame	33.0180	Preparation	0	129	20	0	369	pause
+frame	33.0180	Preparation	0	129	20	0	370	pause
+tap	33.1200	Preparation	0	129	20	0	Main Menu Button	(800.00, 349.46)
+frame	33.1264						371	pause
+frame	33.1264						372	pause
+frame	33.4302						373	pause
+frame	33.4302						374	pause
+frame	33.4302						375	pause
+frame	33.4302						376	pause
+frame	33.4302						377	pause
+frame	33.4302						378	pause
+frame	33.5338						379	pause
+frame	33.5338						380	pause
+frame	33.6356						381	pause
+frame	33.6356						382	pause
+frame	33.7430						383	pause
+frame	33.7430						384	pause
+frame	33.8501						385	pause
+frame	33.8501						386	pause
+frame	33.9570						387	pause
+frame	33.9570						388	pause
+frame	34.0601						389	pause
+frame	34.0601						390	pause
+frame	34.1639						391	pause
+frame	34.1639						392	pause
+png	34.1639						menu-continue	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	34.2672						393	menu-continue
+frame	34.2672						394	menu-continue
+frame	34.2672						395	menu-continue
+frame	34.3709						396	menu-continue
+frame	34.3709						397	menu-continue
+frame	34.4748						398	menu-continue
+frame	34.4748						399	menu-continue
+frame	34.5816						400	menu-continue
+frame	34.5816						401	menu-continue
+frame	34.6863						402	menu-continue
+frame	34.6863						403	menu-continue
+frame	34.7932						404	menu-continue
+frame	34.7932						405	menu-continue
+frame	34.9003						406	menu-continue
+frame	34.9003						407	menu-continue
+tap	35.0018						Continue Button	(402.16, 428.38)
+frame	35.0355	Preparation	0	129	20	0	408	menu-continue
+frame	35.0355	Preparation	0	129	20	0	409	menu-continue
+frame	35.0355	Preparation	0	129	20	0	410	menu-continue
+frame	35.3310	Preparation	0	129	20	0	411	menu-continue
+frame	35.3310	Preparation	0	129	20	0	412	menu-continue
+frame	35.3310	Preparation	0	129	20	0	413	menu-continue
+frame	35.3310	Preparation	0	129	20	0	414	menu-continue
+frame	35.3310	Preparation	0	129	20	0	415	menu-continue
+frame	35.3310	Preparation	0	129	20	0	416	menu-continue
+frame	35.4401	Preparation	0	129	20	0	417	menu-continue
+frame	35.4401	Preparation	0	129	20	0	418	menu-continue
+frame	35.5442	Preparation	0	129	20	0	419	menu-continue
+frame	35.5442	Preparation	0	129	20	0	420	menu-continue
+frame	35.6525	Preparation	0	129	20	0	421	menu-continue
+frame	35.6525	Preparation	0	129	20	0	422	menu-continue
+frame	35.7599	Preparation	0	129	20	0	423	menu-continue
+frame	35.7599	Preparation	0	129	20	0	424	menu-continue
+done	425	False

@@ -38,7 +38,7 @@
         1600,
         900
       ],
-      "sha256": "8aa45174dff0a627c5e2271f6d21b849caaffe494bcae2aa5f9ca5302e8b180d"
+      "sha256": "35d27218f0ea1dca5e94867a0dd08770be15cf65e99886c25253250f861b29cf"
     },
     {
       "path": "story/preparation.png",
@@ -46,7 +46,7 @@
         1600,
         900
       ],
-      "sha256": "034eab3e2144f6f46415fea2f1e458683e472ef31c87d9bf93e4a83c40363683"
+      "sha256": "02127fb0da2ba83f3428b644e67e2dbe52583dad7e8d64b0e48dee440188b235"
     },
     {
       "path": "story/build-locked.png",
@@ -54,7 +54,7 @@
         1600,
         900
       ],
-      "sha256": "7e49f2fadc0c7e70e242cf11d9c25d02effa57ddf48f9cde2a09aadfe478576d"
+      "sha256": "9fed6bca26c25d4acf993615bc9b5d0713e4ac182fb934b22059843506fe2a7e"
     },
     {
       "path": "story/build-preview.png",
@@ -62,7 +62,7 @@
         1600,
         900
       ],
-      "sha256": "9524fb20391372d4db426683a82a765c90c538a7927dadfbadd4823dc5e321e3"
+      "sha256": "62142106191b2cd51bc35f764038f7303c58b645c4702337d45bcbc4a58902be"
     },
     {
       "path": "story/tower-low-gold.png",
@@ -70,7 +70,7 @@
         1600,
         900
       ],
-      "sha256": "51001e1ef5a785cd752bfc6611cf9603846b156e1addd5c39de03ee86fc26cf6"
+      "sha256": "0a3300081e182367820f0e36d2c7cf46091ba19dc56fa501eb546151f3173341"
     },
     {
       "path": "story/sell-confirmation.png",
@@ -78,7 +78,7 @@
         1600,
         900
       ],
-      "sha256": "794b6a3aa686684e88381bd289755a8cfd1788b062dcbe7a35b614fd624019e4"
+      "sha256": "829df07980b7de9d4e71ffb94934108815a25df5549a0388f0a75eaf20fb84de"
     },
     {
       "path": "story/pause.png",
@@ -110,7 +110,7 @@
         1600,
         900
       ],
-      "sha256": "c5f6feee27e2f0ba3a2800bbbed15966e37330743c1f475d6e095a60dac0d588"
+      "sha256": "da7cbbd1b107d2d7eb33d9bc991f304e8e515de1ded9f97294965ccacac03c2a"
     },
     {
       "path": "earned/ability-preview.png",
@@ -118,7 +118,7 @@
         1600,
         900
       ],
-      "sha256": "8abda0f8ba9629e12c9e4e7045972d6c985168d2ecd57af384998b677916e029"
+      "sha256": "23c9f15aaba60ef155de8fd1c212c605e5fb58f565795516494b5dc9db59d52e"
     },
     {
       "path": "earned/boss-combat.png",
@@ -126,7 +126,7 @@
         1600,
         900
       ],
-      "sha256": "5373885ff24e45cd63277662c8cfbcaaa7366c66fca2b1de548de440c1b5301c"
+      "sha256": "74b61eb33c99dc7e66c0455adffc4f54dce518c0e8336ff9cea08c4cebef480d"
     },
     {
       "path": "earned/enemy-inspector.png",
@@ -134,7 +134,7 @@
         1600,
         900
       ],
-      "sha256": "be2a3b0b873e3b714ac58ce5e0ecd9dcb04468a13dc4d016a54f0d679debdc1a"
+      "sha256": "e59fea3e8c68f3ad9d2ee618994370810d93df0634a076036afd1c0ecb1de242"
     },
     {
       "path": "earned/victory.png",
@@ -142,7 +142,7 @@
         1600,
         900
       ],
-      "sha256": "0d5e9ff4532f30cb6f83168397939e6012460c2c3ed8f16aa2a8e4774e90f091"
+      "sha256": "34e1d9cbd888cfd50eda991b9cd722f57c6db9ae610f28a0fc8c20987d9ccb74"
     },
     {
       "path": "earned/menu-finished.png",
@@ -166,7 +166,7 @@
         1136,
         640
       ],
-      "sha256": "fd3bf8dba02e1ff404688b323ab48d343238c6dd44aa34708e9977f7e3924330"
+      "sha256": "3e4d1dc8f718f3c27314d9c21735b72518692e67423e2b727945c85f00c96470"
     },
     {
       "path": "profiles/narrow-build.png",
@@ -174,7 +174,7 @@
         1136,
         640
       ],
-      "sha256": "640750b4cd182cdec1e8d3e11a6ccaaabf3d95d33799bce85db786c65a54bab4"
+      "sha256": "2b5b06b3ec720686be575b4ac5ee2d4c2fe9e0ed1a58e38e40395e2506e5d9d8"
     },
     {
       "path": "profiles/narrow-pause.png",
@@ -198,7 +198,7 @@
         2556,
         1179
       ],
-      "sha256": "4ac2743cd7ef59eb5734b8a5e877638953470b64bdbfbf19338e030d37beb331"
+      "sha256": "1cfdc39b438c7f73242f25d261237a9a44456cb7c337872c880e811f9ff664ce"
     },
     {
       "path": "profiles/modern-build.png",
@@ -206,7 +206,7 @@
         2556,
         1179
       ],
-      "sha256": "ac54a75353ded30c051ddb9070de44dfca7d3f619eb20a001249ca23a77a3114"
+      "sha256": "47485ed4a209f66a15e223e7e79bac7dcca2550e42b1006e1f78ad1d5d6df753"
     },
     {
       "path": "profiles/modern-pause.png",
@@ -230,7 +230,7 @@
         2048,
         1536
       ],
-      "sha256": "1aacbd65bede69d0246e85da838b28135d4dc255e7bd601b7364dd2cc6968f7f"
+      "sha256": "ddc06e0f4208478202ed92cba3caa15f60ac4eb24dd3ad35d8af0da62a0cddee"
     },
     {
       "path": "profiles/ipad-build.png",
@@ -238,7 +238,7 @@
         2048,
         1536
       ],
-      "sha256": "0a2ae73c0f4566dccc2f4fa4142c098d79629fa9dafb54e8f6947c0c0922ecb8"
+      "sha256": "ddacf67b36a2b21ee1296470f698e486b46a93e9c9387e7f3eb781484a7096e1"
     },
     {
       "path": "profiles/ipad-pause.png",
@@ -270,7 +270,7 @@
         1600,
         900
       ],
-      "sha256": "dd163506fcedafd07ee7b6da07c1a844f7f965058d87358a6799c2ce28913ab2"
+      "sha256": "21e4bf94f760c08fec2872c009e45d6a5d222e12940f133b1480f581ce5d848e"
     },
     {
       "path": "stress/dense-wave.png",
@@ -278,7 +278,7 @@
         1600,
         900
       ],
-      "sha256": "bdc8332f4651613a7a1ef0603a72be34a8b4efffc4cd16cc12e6feb32b97f96e"
+      "sha256": "460fff5714d42a0dd5d377321da4998a75620730660d338c97aec19cd02d2e46"
     },
     {
       "path": "milestones/after-wave-3.png",
@@ -295,28 +295,60 @@
         900
       ],
       "sha256": "f7876434e396f46ec644e38b1b8be727e8073042cf3bcaf7d1c20d85f32c349d"
+    },
+    {
+      "path": "review/narrow-build-center.png",
+      "size": [
+        1136,
+        640
+      ],
+      "sha256": "09e5438e9059a60e6310fa36a82bd7beaaeb8a87a6cdb0f204eb9cf6a7248a8d"
+    },
+    {
+      "path": "review/modern-build-center.png",
+      "size": [
+        2556,
+        1179
+      ],
+      "sha256": "1c58fd1f133838de87aa218d81d45f858777d99af65e428ccc6b091bbc1dcf52"
+    },
+    {
+      "path": "review/modern-build-save-warning.png",
+      "size": [
+        2556,
+        1179
+      ],
+      "sha256": "9b439becb6bfdcc6786fa09498b7da08a89e3fc37afde5de908c77d5ca14a704"
+    },
+    {
+      "path": "review/inspector-full.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "ae5faf7bfbb52b33a340bf8f29b05d20859eec711e75f174d74515f690fd22f7"
     }
   ],
   "video": [
     {
       "path": "story/gameview.mp4",
-      "sha256": "11adeda4057b2672498badd9f3560522f8cf91f2d44f41253bd9bc1ca93087fd",
+      "sha256": "5b32ff50ed10b6bf152a701474e03aa43dac0deba810b7c896980b0d4b7fa824",
       "codec_name": "h264",
       "width": 1600,
       "height": 900,
       "r_frame_rate": "20/1",
-      "duration": "18.300000",
-      "nb_read_frames": "366"
+      "duration": "21.250000",
+      "nb_read_frames": "425"
     },
     {
       "path": "earned/gameview.mp4",
-      "sha256": "c6033544c6e75bab17f554bdae03e8c6922c0e43185871f34fc3382114e278ab",
+      "sha256": "d90a96ebe917cda55069e27ba879e48737c84ed721322bab449d1b68ee902508",
       "codec_name": "h264",
       "width": 1600,
       "height": 900,
       "r_frame_rate": "20/1",
-      "duration": "31.300000",
-      "nb_read_frames": "626"
+      "duration": "32.150000",
+      "nb_read_frames": "643"
     }
   ]
 }

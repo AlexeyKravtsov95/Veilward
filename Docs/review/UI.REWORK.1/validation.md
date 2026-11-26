@@ -2,10 +2,10 @@
 
 ## VERIFIED
 
-Unity 6000.3.28f1 (8f082d2fe476), macOS arm64, Metal, активная платформа редактора iOS. Код и сохранённые сцены проверялись в существующем checkout. Проверенная ревизия реализации `decdd8a570e93f4ea3185179ba7b5c72461a2978`. Конкретные входы каждой сцены, скриптов и импортов перечислены в [SHA-256](reports/inputs.sha256).
+Unity 6000.3.28f1 (8f082d2fe476), macOS arm64, Metal, активная платформа редактора iOS. Код и сохранённые сцены проверялись в существующем checkout. Проверенная ревизия реализации `48ec4419ac1183a28b5a5761610a2afb055706cd`. Конкретные входы каждой сцены, скриптов и импортов перечислены в [SHA-256](reports/inputs.sha256).
 
 - Сборка C# завершена с 0 ошибками. В Editor suite остался ранее существовавший CS0219 в `BossGreedySearchTests.cs`. [Компиляция](reports/compile.json)
-- Полные прогоны дали EditMode 1315/1315 и PlayMode 109/109. Failed, skipped и inconclusive равны 0. [EditMode](reports/EditMode.json) · [PlayMode](reports/PlayMode.json)
+- Полные прогоны дали EditMode 1315/1315 и PlayMode 110/110. Failed, skipped и inconclusive равны 0. [EditMode](reports/EditMode.json) · [PlayMode](reports/PlayMode.json)
 - Static checks 38/38 и `git diff --check`. Скрипт проверяет версию проекта, Packages, GUID, .meta и assembly definitions. [Static](reports/static.txt)
 - Регрессии проверяют authored sprite UV при смене стихии и Lock, первый результат EventSystem raycast на краях кнопок, закрытие поля модальным фоном, один расход и возврат за команду, сохранение после Retry. Проверка повреждённого слота подтверждает состояние Retry и Continue. [REGRESSION](../../REGRESSION.md)
 - Реальные открытые группы контролов проверены после layout rebuild. Минимальная цель 60×60 единиц Canvas даёт 46,05×46,05 logical pt на узком профиле. Применён прежний CanvasScaler 740×400/Expand. Профили повторены в GameView, modern и iPad используют заданные тестовые inset. [Кадры](README.md)
@@ -19,6 +19,13 @@ Unity 6000.3.28f1 (8f082d2fe476), macOS arm64, Metal, активная плат�
 ### Визуальная проверка
 
 Первый кадр выявил обрезанный заголовок из-за метрики декоративного шрифта. Повторный кадр показывает весь заголовок и отдельный контрастный статус слота. Второй проход уменьшил контраст фактуры и сместил ветку на угол бумаги. Play Mode кадры с устоявшимся tint показывают различимые состояния доступной и отключённой кнопок. Динамические числа и причины блокировки остаются текстом.
+
+### Проверки после независимого ревью
+
+- `UiRework107` воспроизвёл перекрытие клетки (3, 3), затем подтвердил видимость клетки и возврат к одному ряду на свободном участке экрана. Два кадра показывают срабатывание адаптивного каталога. [1136×640](review/narrow-build-center.png) · [2556×1179](review/modern-build-center.png)
+- В REG156 прежний рендер уместил 180 из 198 символов. Поле 284×148 со шрифтом 14 отображает оба итога реакций и проходит валидатор сохранённой сцены. [Полный инспектор](review/inspector-full.png)
+- При правом компактном каталоге предупреждение закрепляется слева. На modern проверены реальные raycast и нажатия TIDE, GALE и FLAME, затем Cancel и Retry. [Кадр](review/modern-build-save-warning.png) · [События](review/events.tsv)
+- Команда пересборки запрашивает решение автора для открытых изменённых сцен. Проверка YAML обходит реальные поддеревья Canvas и проверяет принадлежность всех добавленных и удалённых записей.
 
 ### Воспроизведение
 
@@ -36,9 +43,9 @@ python3.12 Docs/review/UI.REWORK.1/tools/verify_scene_scope.py
 python3.12 Docs/review/UI.REWORK.1/tools/verify_media.py
 ```
 
-Команда `VEILWARD/Rebuild Player UI` заменяет Canvas и привязки обеих сцен. Она сохраняет существующие объекты мира и контроллеры. Ранее существовавшие тесты полного генератора записывают сцены и общие ассеты во время EditMode. Обёртка сохраняет их байты перед прогоном, открывает Bootstrap и восстанавливает эти файлы после прогона. Локальные изменения четырёх файлов совпали с исходным SHA-256 diff.
+Команда `VEILWARD/Rebuild Player UI` заменяет Canvas и привязки обеих сцен. Она сохраняет существующие объекты мира и контроллеры. Ранее существовавшие тесты полного генератора записывают сцены и общие ассеты во время EditMode. Обёртка сохраняет их байты перед прогоном, открывает Bootstrap и восстанавливает эти файлы после прогона. В контроле сбоя обеих команд, отчёта с ошибкой и успешного отчёта обёртка восстановила изменённый и удалённый файлы. Все три снимка сохранились отдельно. [Контроли восстановления](reports/snapshot-controls.txt) Локальный diff настроек URP и трёх graybox-материалов совпал с исходным SHA-256.
 
-[Драйвер записи](tools/UiReworkCaptureLocal.cs) временно помещался в `Assets/_Game/Scripts/Presentation/`. В активном Play Mode он запускается через `unity command script eval` вызовом `Veilward.Presentation.UiReworkCaptureLocal.Begin("story");`. Поддерживаются также `earned`, `profiles`, `defeat`, `stress` и `milestones`. Дождаться `complete.txt` каждого режима, затем остановить Play Mode и убрать временные `.cs` и `.meta`. PNG получены через `ScreenCapture.CaptureScreenshotAsTexture`. Видео получено через Unity AsyncGPUReadback и FFmpeg, H.264, 1600×900, 20 кадров/с, без аудио. Кнопки используют EventSystem RaycastAll и pointer events. Слоты временные. Для earned использован [заработанный ранее v2](../VFX.1d/reports/safe-file.json). Повреждённая запись, поражение с 1 HP, плотная волна и пороги после волн 3/6 используют явные fixtures.
+[Драйвер записи](tools/UiReworkCaptureLocal.cs) временно помещался в `Assets/_Game/Scripts/Presentation/`. В активном Play Mode он запускается через `unity command script eval` вызовом `Veilward.Presentation.UiReworkCaptureLocal.Begin("story");`. Поддерживаются также `earned`, `profiles`, `defeat`, `stress`, `milestones` и `review`. Дождаться `complete.txt` каждого режима, затем остановить Play Mode и убрать временные `.cs` и `.meta`. PNG получены через `ScreenCapture.CaptureScreenshotAsTexture`. Видео получено через Unity AsyncGPUReadback и FFmpeg, H.264, 1600×900, 20 кадров/с, без аудио. При задержке Unity текущий снятый кадр повторяется для сохранения темпа. Кнопки используют EventSystem RaycastAll и pointer events. Слоты временные. Для earned использован [заработанный ранее v2](../VFX.1d/reports/safe-file.json). Повреждённая запись, поражение с 1 HP, плотная волна и пороги после волн 3/6 используют явные fixtures.
 
 ## NOT VERIFIED / BLOCKED
 

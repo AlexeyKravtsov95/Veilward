@@ -15,12 +15,41 @@ def records(content):
     return {parts[i + 1]: (parts[i], parts[i + 2]) for i in range(0, len(parts), 3)}
 
 
+def canvas_subtree(scene, name):
+    (canvas_id,) = (key for key, (kind, data) in scene.items()
+                    if kind == "1" and re.search(rf"^  m_Name: {re.escape(name)}$", data, re.M))
+    transform_links = {}
+    for key, (kind, data) in scene.items():
+        if kind in ("4", "224"):
+            game_object = re.search(r"^  m_GameObject: \{fileID: (-?\d+)\}$", data, re.M)
+            parent = re.search(r"^  m_Father: \{fileID: (-?\d+)\}$", data, re.M)
+            if game_object and parent:
+                transform_links[key] = (game_object.group(1), parent.group(1))
+    (canvas_transform,) = (key for key, (owner, _) in transform_links.items() if owner == canvas_id)
+    descendants = {canvas_transform}
+    while True:
+        children = {key for key, (_, parent) in transform_links.items() if parent in descendants}
+        if children <= descendants:
+            break
+        descendants.update(children)
+    objects = {transform_links[key][0] for key in descendants}
+    components = set()
+    for key, (_, data) in scene.items():
+        match = re.search(r"^  m_GameObject: \{fileID: (-?\d+)\}$", data, re.M)
+        if match and match.group(1) in objects:
+            components.add(key)
+    return objects | components
+
+
 def scene_scope(path):
     before = records(subprocess.check_output(["git", "show", f"{BASE}:{path}"], cwd=ROOT, text=True))
     after = records((ROOT / path).read_text())
     common = before.keys() & after.keys()
     old_ui = before.keys() - after.keys()
     new_ui = after.keys() - before.keys()
+    canvas = "HUD" if path.endswith("/Battle.unity") else "Main Menu Canvas"
+    assert old_ui <= canvas_subtree(before, canvas), (path, "Non-UI records removed")
+    assert new_ui <= canvas_subtree(after, canvas), (path, "Non-UI records added")
     stable = 0
     rewritten = []
     for key in sorted(common):

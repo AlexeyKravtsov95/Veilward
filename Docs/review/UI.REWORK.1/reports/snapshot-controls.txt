@@ -1,0 +1,4 @@
+PASS: two Unity command failures. Overwritten and removed files restored.
+PASS: completed report with one failure. Overwritten and removed files restored.
+PASS: complete positive report. Overwritten and removed files restored.
+PASS: all three snapshots retained separately.

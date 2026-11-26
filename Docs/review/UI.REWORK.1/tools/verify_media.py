@@ -18,6 +18,7 @@ EXPECTED = {
     "defeat": ("defeat-save-error", "defeat"),
     "stress": ("upgrade", "dense-wave"),
     "milestones": ("after-wave-3", "after-wave-6"),
+    "review": ("narrow-build-center", "modern-build-center", "modern-build-save-warning", "inspector-full"),
 }
 SCREEN = {"narrow": (1136, 640), "modern": (2556, 1179), "ipad": (2048, 1536)}
 

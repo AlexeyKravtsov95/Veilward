@@ -65,6 +65,7 @@ namespace Veilward.Presentation
                 case "defeat": yield return Defeat(); break;
                 case "stress": yield return Stress(); break;
                 case "milestones": yield return Milestones(); break;
+                case "review": yield return ReviewCases(); break;
                 default: throw new ArgumentOutOfRangeException(nameof(mode));
             }
 
@@ -357,6 +358,96 @@ namespace Veilward.Presentation
             }
         }
 
+        private IEnumerator ReviewCases()
+        {
+            var cell = new GridCoordinate(3, 3);
+            foreach (var (width, height, side, bottom, label) in new[]
+                     {
+                         (1136, 640, 0, 0, "narrow"),
+                         (2556, 1179, 132, 63, "modern")
+                     })
+            {
+                _sideInset = side;
+                _bottomInset = bottom;
+                ConfigureGameView(width, height);
+                yield return Hold(.6f);
+                yield return OpenMenu(false);
+                Click("New Game Button");
+                yield return Hold(.65f);
+                Click("flame");
+                Click("Confirm Element Button");
+                yield return Hold(.35f);
+                TapCell(cell);
+                yield return Hold(.3f);
+                Click("Catalog flame");
+                var drawer = FindFirstObjectByType<BattleHudSafeArea>().GetComponentsInChildren<RectTransform>()
+                    .Single(rect => rect.name == "Placement Panel");
+                var point = (Vector2)Camera.main.WorldToScreenPoint(Battle.GetCellCenter(cell));
+                Ensure(!RectTransformUtility.RectangleContainsScreenPoint(drawer, point), "central preview remains visible");
+                Ensure(drawer.GetComponentInChildren<GridLayoutGroup>().constraintCount == 3, "compact catalog is active");
+                yield return Still(label + "-build-center", 0);
+                if (label == "modern")
+                {
+                    Click("Cancel Button");
+                    var store = MainMenuController.CheckpointStoreFactory();
+                    Directory.CreateDirectory(store.TempPath);
+                    Ensure(!Battle.GetComponent<BattleCheckpointController>().SaveCurrentState(), "fixture write failed");
+                    yield return Hold(.3f);
+                    TapCell(new GridCoordinate(3, 1));
+                    yield return Hold(.3f);
+                    Ensure(drawer.anchorMin.x == 1 && drawer.GetComponentInChildren<GridLayoutGroup>().constraintCount == 3,
+                        "right compact catalog is active");
+                    Ensure(!Button("Retry Save Button").interactable, "open drawer guards Retry");
+                    foreach (var school in new[] { "tide", "gale", "flame" }) Click("Catalog " + school);
+                    yield return Still("modern-build-save-warning", 0);
+                    Click("Cancel Button");
+                    Directory.Delete(store.TempPath);
+                    yield return Hold(.3f);
+                    Click("Retry Save Button");
+                }
+            }
+
+            _sideInset = _bottomInset = 0;
+            ConfigureGameView(Width, Height);
+            yield return Hold(.6f);
+            yield return OpenMenu(false);
+            Click("New Game Button");
+            yield return Hold(.65f);
+            Click("flame");
+            Click("Confirm Element Button");
+            yield return Hold(.35f);
+            Click("Start Wave Button");
+            yield return Hold(.35f);
+            var battle = Battle;
+            battle.enabled = false;
+            var enemy = battle.Simulation.State.Enemies[0];
+            var tick = battle.Simulation.State.Tick;
+            var tower = new TowerId(9);
+            foreach (StatusKind kind in Enum.GetValues(typeof(StatusKind)))
+                typeof(EnemyState).GetMethod("ApplyStatus", Flags).Invoke(enemy, new object[]
+                {
+                    new StatusEffectDefinition(kind, 7, 90, kind == StatusKind.Burn ? 30 : 0), tower, tick
+                });
+            foreach (ReactionKind kind in Enum.GetValues(typeof(ReactionKind)))
+                typeof(EnemyState).GetMethod("ReserveReaction", Flags).Invoke(enemy, new object[] { kind, tick });
+
+            var center = battle.Simulation.Path.GetPosition(enemy.DistanceAlongPath);
+            var steam = new ReactionEvent(tick, 1, ReactionKind.Steam, ReactionTriggerKind.StatusPair, tower, enemy.Id,
+                center, StatusKind.Burn, StatusKind.Wet, 1.25f, 4);
+            var storm = new ReactionEvent(tick, 5, ReactionKind.Storm, ReactionTriggerKind.Intrinsic, tower, enemy.Id,
+                center, StatusKind.Wet, StatusKind.Gust, 2, 2);
+            var steamHit = new DamageResolvedEvent(tick, 2, DamageOrigin.Reaction, tower, enemy.Id, center, center,
+                4, 4, 4, 4, 0, false, ReactionKind.Steam, 1, 0);
+            var stormHit = new DamageResolvedEvent(tick, 6, DamageOrigin.Reaction, tower, new EnemyId(99), center, center,
+                6, 6, 6, 6, 0, false, ReactionKind.Storm, 5, 1);
+            battle.Presentation.Consume(steam, new[] { steamHit, stormHit });
+            battle.Presentation.Consume(storm, new[] { steamHit, stormHit });
+            var inspector = battle.GetComponent<EnemyInspectorController>();
+            Ensure(inspector.Select(enemy.Id), "full inspector fixture opened");
+            Ensure(inspector.Details.Contains("4 HP lost") && inspector.Details.Contains("6 HP lost"), "both reaction totals");
+            yield return Still("inspector-full", 0);
+        }
+
         private IEnumerator Hold(float seconds)
         {
             var until = Time.unscaledTimeAsDouble + seconds;
@@ -475,7 +566,9 @@ namespace Veilward.Presentation
                 yield return End;
                 var now = Time.unscaledTimeAsDouble;
                 if (_pending || now < next) continue;
-                next = Math.Max(now, next + 1d / Fps);
+                // Сохраняем темп записи, повторяя текущий GameView кадр при задержке выдачи кадра.
+                var copies = Math.Min(Fps, (int)((now - next) * Fps) + 1);
+                next += copies / (double)Fps;
                 ScreenCapture.CaptureScreenshotIntoRenderTexture(_videoTarget);
                 _pending = true;
                 AsyncGPUReadback.Request(_videoTarget, 0, TextureFormat.RGBA32, request =>
@@ -487,9 +580,10 @@ namespace Veilward.Presentation
                         return;
                     }
                     request.GetData<byte>().CopyTo(_videoBytes);
-                    _encoder.StandardInput.BaseStream.Write(_videoBytes, 0, _videoBytes.Length);
+                    for (var i = 0; i < copies; i++)
+                        _encoder.StandardInput.BaseStream.Write(_videoBytes, 0, _videoBytes.Length);
                 });
-                Write("frame", $"{_frames++}\t{_marker}");
+                for (var i = 0; i < copies; i++) Write("frame", $"{_frames++}\t{_marker}");
             }
         }
 
