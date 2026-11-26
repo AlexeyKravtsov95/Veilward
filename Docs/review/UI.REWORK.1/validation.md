@@ -6,7 +6,7 @@ Unity 6000.3.28f1 (8f082d2fe476), macOS arm64, Metal, активная плат�
 
 - Сборка C# завершена с 0 ошибками. В Editor suite остался ранее существовавший CS0219 в `BossGreedySearchTests.cs`. [Компиляция](reports/compile.json)
 - Полные прогоны дали EditMode 1315/1315 и PlayMode 109/109. Failed, skipped и inconclusive равны 0. [EditMode](reports/EditMode.json) · [PlayMode](reports/PlayMode.json)
-- Static checks 38/38 и `git diff --check`. Скрипт проверяет версию проекта, Packages, GUID, .meta и assembly definitions. [Static](reports/static.log)
+- Static checks 38/38 и `git diff --check`. Скрипт проверяет версию проекта, Packages, GUID, .meta и assembly definitions. [Static](reports/static.txt)
 - Регрессии проверяют authored sprite UV при смене стихии и Lock, первый результат EventSystem raycast на краях кнопок, закрытие поля модальным фоном, один расход и возврат за команду, сохранение после Retry. Проверка повреждённого слота подтверждает состояние Retry и Continue. [REGRESSION](../../REGRESSION.md)
 - Реальные открытые группы контролов проверены после layout rebuild. Минимальная цель 60×60 единиц Canvas даёт 46,05×46,05 logical pt на узком профиле. Применён прежний CanvasScaler 740×400/Expand. Профили повторены в GameView, modern и iPad используют заданные тестовые inset. [Кадры](README.md)
 - В Battle совпадают 383 сериализованные записи, в MainMenu 14. Из общих записей изменились только ссылки контроллеров и корней сцен на uGUI. Неразрешённых локальных fileID нет. [Проверка YAML](reports/scene-scope.txt)
