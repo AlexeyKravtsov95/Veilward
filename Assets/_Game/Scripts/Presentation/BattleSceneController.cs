@@ -19,6 +19,9 @@ namespace Veilward.Presentation
         [SerializeField] private BattleScenarioConfig scenario;
         [SerializeField] private Transform enemyPrefab;
         [SerializeField] private Transform bossPrefab;
+        [SerializeField] private Transform inkShadePrefab;
+        [SerializeField] private Transform inkWardenPrefab;
+        [SerializeField] private InkFlameView[] inkFlameLevels;
         [SerializeField] private Transform towerPrefab;
         [SerializeField] private UnityEngine.UI.Text hudText;
         [SerializeField] private Camera worldCamera;
@@ -57,6 +60,7 @@ namespace Veilward.Presentation
         private readonly Dictionary<EnemyId, EnemyView> _enemyViews = new Dictionary<EnemyId, EnemyView>();
         private readonly Dictionary<TowerId, int> _towerViewLevels = new Dictionary<TowerId, int>();
         private readonly Dictionary<TowerId, Transform> _towerViews = new Dictionary<TowerId, Transform>();
+        private readonly Dictionary<TowerId, FlameModelBinding> _inkFlameBindings = new Dictionary<TowerId, FlameModelBinding>();
         private readonly List<Rect> _statusRects = new List<Rect>();
         private readonly List<EnemyId> _staleEnemyIds = new List<EnemyId>();
         private readonly List<TowerId> _staleTowerIds = new List<TowerId>();
@@ -402,6 +406,7 @@ namespace Veilward.Presentation
             _flameProjectiles?.Advance(activeDelta);
             _basicProjectiles?.Advance(activeDelta);
             _hybridProjectiles?.Advance(activeDelta);
+            foreach (var binding in _inkFlameBindings.Values) binding.AdvanceInk(activeDelta);
             foreach (var view in _enemyViews.Values) if (view.Model != null) view.Model.Advance(activeDelta);
             for (var i = _enemyTails.Count - 1; i >= 0; i--)
                 if (_enemyTails[i] == null || _enemyTails[i].Advance(activeDelta))
@@ -490,6 +495,7 @@ namespace Veilward.Presentation
                         if (_towerViews.TryGetValue(attacker.Id, out var towerView) && towerView != null &&
                             towerView.TryGetComponent<FlameModelBinding>(out var binding) && binding.Level == attacker.Level)
                         {
+                            binding.ReactToShot(new Vector3(attack.TargetPosition.X, .6f, attack.TargetPosition.Y));
                             var anchor = binding.ShotSource;
                             // Не принимаем повреждённый/чужой anchor далеко от authoritative cell.
                             var limit = 2 * _simulation.Grid.Map.CellSize;
@@ -604,6 +610,7 @@ namespace Veilward.Presentation
                 if (UnityEngine.Application.isPlaying) Destroy(view.gameObject); else DestroyImmediate(view.gameObject);
             }
             _towerViews.Clear(); _towerViewLevels.Clear();
+            _inkFlameBindings.Clear();
             if (enemyInspector != null) enemyInspector.ClearSelection();
             if (placementController != null) placementController.ClearSelection();
             if (elementChoice != null) elementChoice.ClearPreview();
@@ -638,6 +645,12 @@ namespace Veilward.Presentation
                 view.name = $"Tower {tower.Id.Value}";
                 view.position = GetCellCenter(tower.Coordinate);
                 view.localScale = Vector3.one * _simulation.Grid.Map.CellSize;
+                if (tower.Definition.Id.Value == "flame" && inkFlameLevels != null &&
+                    view.TryGetComponent<FlameModelBinding>(out var inkBinding))
+                {
+                    inkBinding.ConfigureInk(inkFlameLevels, worldCamera);
+                    _inkFlameBindings.Add(tower.Id, inkBinding);
+                }
                 TowerDisplay.ApplyVisual(view, tower.Definition, tower.Level);
                 _towerViews.Add(tower.Id, view);
                 _towerViewLevels.Add(tower.Id, tower.Level);
@@ -668,6 +681,7 @@ namespace Veilward.Presentation
 
                 _towerViews.Remove(towerId);
                 _towerViewLevels.Remove(towerId);
+                _inkFlameBindings.Remove(towerId);
             }
         }
 
@@ -710,7 +724,7 @@ namespace Veilward.Presentation
                 {
                     var ahead = _simulation.Path.GetPosition(Mathf.Min(_simulation.Path.TotalLength, enemy.DistanceAlongPath + .01f));
                     var forward = new Vector3(ahead.X - position.X, 0, ahead.Y - position.Y);
-                    if (view.Model != null) view.Model.Synchronize(forward, state.Phase == BattlePhase.Combat);
+                    if (view.Model != null) view.Model.Synchronize(forward, state.Phase == BattlePhase.Combat, worldCamera);
                     if (view.IsBoss)
                     {
                         if (firstView && playBossCues) PlayBossCue(BossCueKind.Spawn, enemy.Id, position, forward);
@@ -791,8 +805,12 @@ namespace Veilward.Presentation
             slot?.Play(kind, enemyId, position, forward, ++_bossCueOrder);
         }
 
-        public Transform SelectEnemyPrefab(EnemyDefinitionId id) =>
-            id.Value == BossHudController.BossId && bossPrefab != null ? bossPrefab : enemyPrefab;
+        public Transform SelectEnemyPrefab(EnemyDefinitionId id)
+        {
+            if (id.Value == BossHudController.BossId)
+                return inkWardenPrefab != null ? inkWardenPrefab : bossPrefab != null ? bossPrefab : enemyPrefab;
+            return id.Value == "shade" && inkShadePrefab != null ? inkShadePrefab : enemyPrefab;
+        }
 
         private static void RemoveEnemyVisual(GameObject visual)
         {

@@ -460,7 +460,7 @@ namespace Veilward.Editor
             var serialized = new SerializedObject(controller);
             var propertyNames = new[]
             {
-                "scenario", "enemyPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
+                "scenario", "enemyPrefab", "inkShadePrefab", "inkWardenPrefab", "towerPrefab", "hudText", "worldCamera", "attackBeamMaterial",
                 "pauseController", "placementController", "checkpointController", "enemyInspector", "reactionSummaryText", "reactionEffectMaterial", "abilityController", "bossHud"
             };
             foreach (var propertyName in propertyNames)
@@ -682,6 +682,7 @@ namespace Veilward.Editor
             serialized.FindProperty("scenario").objectReferenceValue = config;
             serialized.FindProperty("enemyPrefab").objectReferenceValue = enemyPrefab;
             serialized.FindProperty("bossPrefab").objectReferenceValue = AssetDatabase.LoadAssetAtPath<GameObject>(EnemyModelBuilder.BossPath).transform;
+            InkBattleArtBuilder.BindController(serialized);
             serialized.FindProperty("towerPrefab").objectReferenceValue = towerPrefab;
             serialized.FindProperty("hudText").objectReferenceValue = hud.StatsText;
             serialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;

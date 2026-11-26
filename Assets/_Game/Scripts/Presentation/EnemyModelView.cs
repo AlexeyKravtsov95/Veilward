@@ -12,6 +12,8 @@ namespace Veilward.Presentation
         [SerializeField] private AnimationClip hit;
         [SerializeField] private AnimationClip death;
         [SerializeField] private AnimationClip leak;
+        [SerializeField] private InkEnemyView ink;
+        private const float InkHitDuration = .24f;
         private float _clock;
         private float _hitRemaining;
         private float _tailClock;
@@ -24,11 +26,12 @@ namespace Veilward.Presentation
         public float TailClock => _tailClock;
         public string Pose => _tail ? (_dead ? "Death" : "Leak") : _hitRemaining > 0 ? "Hit" : _moving ? "Move" : "Idle";
 
-        public void Synchronize(Vector3 tangent, bool moving)
+        public void Synchronize(Vector3 tangent, bool moving, Camera camera = null)
         {
             if (_tail) return;
             _moving = moving;
-            if (tangent.sqrMagnitude > .000001f) transform.rotation = Quaternion.LookRotation(tangent, Vector3.up);
+            if (ink != null) ink.Face(camera, tangent);
+            else if (tangent.sqrMagnitude > .000001f) transform.rotation = Quaternion.LookRotation(tangent, Vector3.up);
             Sample();
         }
 
@@ -36,7 +39,7 @@ namespace Veilward.Presentation
         {
             if (_tail) return;
             // Повторные hits обновляют один response, не создают objects/material instances.
-            _hitRemaining = hit != null ? hit.length : .4f;
+            _hitRemaining = ink != null ? InkHitDuration : hit != null ? hit.length : .4f;
             Sample();
         }
 
@@ -60,6 +63,11 @@ namespace Veilward.Presentation
 
         private void Sample()
         {
+            if (ink != null)
+            {
+                ink.Sample(_clock, _moving, _hitRemaining / InkHitDuration, _tail ? _tailClock / TailDuration : -1f, _dead);
+                return;
+            }
             if (model == null) return;
             // Полный idle pose reset исключает остаток scale/rotation от Death/Hit.
             if (idle != null) idle.SampleAnimation(model.gameObject, 0);

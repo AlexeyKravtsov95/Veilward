@@ -126,16 +126,17 @@ namespace Veilward.Tests.EditMode
             var tower = _battle.Simulation.State.Towers.Single();
             var levels = _battle.Simulation.TowerCatalog.Get(tower.Definition.Id).Levels;
             Color? previousColor = null;
-            Mesh previousModelMesh = null;
+            Object previousArtwork = null;
             for (var level = 1; level <= 3; level++)
             {
                 Invoke(_battle, "LateUpdate");
                 var view = GameObject.Find($"Tower {tower.Id.Value}");
                 if (id == "flame" || id == "tide" || id == "gale" || id == "stone")
                 {
-                    var mesh = AssertProductionPalette(view, id, level);
-                    if (previousModelMesh != null) Assert.That(mesh, Is.Not.SameAs(previousModelMesh), "level changes geometry, not brightness");
-                    previousModelMesh = mesh;
+                    var artwork = AssertProductionPalette(view, id, level);
+                    if (previousArtwork != null)
+                        Assert.That(artwork, Is.Not.SameAs(previousArtwork), "each level has distinct artwork");
+                    previousArtwork = artwork;
                 }
                 else
                 {
@@ -167,7 +168,7 @@ namespace Veilward.Tests.EditMode
             Assert.That(_battle.Simulation.State.Towers, Is.Empty);
         }
 
-        private static Mesh AssertProductionPalette(GameObject view, string id, int level)
+        private static Object AssertProductionPalette(GameObject view, string id, int level)
         {
             var binding = view.GetComponent<FlameModelBinding>();
             Assert.That(binding, Is.Not.Null);
@@ -175,8 +176,24 @@ namespace Veilward.Tests.EditMode
             Assert.That(binding.Model, Is.Not.Null);
             Assert.That(binding.Model.name, Is.EqualTo(id.ToUpperInvariant() + " L" + level));
             Assert.That(binding.ShotSource, Is.Not.Null);
-            var expectedPath = id == "flame" ? "Assets/_Game/Prefabs/ART3/P_Tower_FlameLanternL" + level + ".prefab"
-                : id == "tide" ? "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL" + level + ".prefab"
+            Assert.That(binding.Model.GetComponentsInChildren<Renderer>().All(r => r.enabled && !r.HasPropertyBlock()), Is.True);
+            Assert.That(view.transform.Find("Foundation").GetComponent<Renderer>().enabled, Is.False);
+            Assert.That(view.transform.Find("Spirit").GetComponent<Renderer>().enabled, Is.False);
+            Assert.That(view.transform.Cast<Transform>().Count(t => t.gameObject.activeSelf &&
+                (t.name.StartsWith("FLAME L") || t.name.StartsWith("TIDE L") || t.name.StartsWith("GALE L") || t.name.StartsWith("STONE L"))), Is.EqualTo(1));
+            if (id == "flame")
+            {
+                var layers = binding.Model.GetComponentsInChildren<SpriteRenderer>();
+                Assert.That(layers.Length, Is.EqualTo(2));
+                foreach (var layer in layers)
+                {
+                    var path = Veilward.Editor.InkBattleArtBuilder.Sprites + $"Flame{level}{layer.name}.png";
+                    Assert.That(layer.sprite, Is.SameAs(AssetDatabase.LoadAssetAtPath<Sprite>(path)));
+                    Assert.That(layer.sharedMaterial.name, Is.EqualTo("Shrine"));
+                }
+                return layers.Single(layer => layer.name == "Shrine").sprite;
+            }
+            var expectedPath = id == "tide" ? "Assets/_Game/Prefabs/ART3/TIDE/P_Tower_TideBellL" + level + ".prefab"
                 : id == "gale" ? "Assets/_Game/Prefabs/ART3/GALE/P_Tower_GaleTalismanL" + level + ".prefab"
                 : "Assets/_Game/Prefabs/ART3/STONE/P_Tower_StoneSealL" + level + ".prefab";
             var expected = AssetDatabase.LoadAssetAtPath<GameObject>(expectedPath);
@@ -185,12 +202,6 @@ namespace Veilward.Tests.EditMode
             Assert.That(mesh, Is.SameAs(expected.GetComponentInChildren<MeshFilter>().sharedMesh));
             var renderer = binding.Model.GetComponentInChildren<MeshRenderer>();
             CollectionAssert.AreEqual(expected.GetComponentInChildren<MeshRenderer>().sharedMaterials, renderer.sharedMaterials);
-            Assert.That(renderer.HasPropertyBlock(), Is.False, "authored palette replaces graybox type tint");
-            Assert.That(binding.Model.GetComponentsInChildren<Renderer>().All(r => r.enabled && !r.HasPropertyBlock()), Is.True);
-            Assert.That(view.transform.Find("Foundation").GetComponent<Renderer>().enabled, Is.False);
-            Assert.That(view.transform.Find("Spirit").GetComponent<Renderer>().enabled, Is.False);
-            Assert.That(view.transform.Cast<Transform>().Count(t => t.gameObject.activeSelf &&
-                (t.name.StartsWith("FLAME L") || t.name.StartsWith("TIDE L") || t.name.StartsWith("GALE L") || t.name.StartsWith("STONE L"))), Is.EqualTo(1));
             return mesh;
         }
 

@@ -118,10 +118,19 @@ namespace Veilward.Tests.EditMode
             var shade = AssetDatabase.LoadAssetAtPath<GameObject>(EnemyModelBuilder.ShadePath).transform;
             var boss = AssetDatabase.LoadAssetAtPath<GameObject>(EnemyModelBuilder.BossPath).transform;
             Assert.That(AssetDatabase.AssetPathToGUID(EnemyModelBuilder.ShadePath), Is.EqualTo("1b22335062b814d4ca031183c8751afe"));
+            Assert.That(AssetDatabase.GetAssetPath(battle.SelectEnemyPrefab(new EnemyDefinitionId("shade"))),
+                Is.EqualTo(InkBattleArtBuilder.Prefabs + "Shade.prefab"));
+            Assert.That(AssetDatabase.GetAssetPath(battle.SelectEnemyPrefab(new EnemyDefinitionId("rift-warden"))),
+                Is.EqualTo(InkBattleArtBuilder.Prefabs + "Warden.prefab"));
+            Assert.That(battle.SelectEnemyPrefab(new EnemyDefinitionId("unknown")), Is.SameAs(shade));
+            var so = new SerializedObject(battle);
+            so.FindProperty("inkShadePrefab").objectReferenceValue = null;
+            so.FindProperty("inkWardenPrefab").objectReferenceValue = null;
+            so.ApplyModifiedPropertiesWithoutUndo();
             Assert.That(battle.SelectEnemyPrefab(new EnemyDefinitionId("shade")), Is.SameAs(shade));
             Assert.That(battle.SelectEnemyPrefab(new EnemyDefinitionId("rift-warden")), Is.SameAs(boss));
-            Assert.That(battle.SelectEnemyPrefab(new EnemyDefinitionId("unknown")), Is.SameAs(shade));
-            var so = new SerializedObject(battle); so.FindProperty("bossPrefab").objectReferenceValue = null; so.ApplyModifiedPropertiesWithoutUndo();
+            so.FindProperty("bossPrefab").objectReferenceValue = null;
+            so.ApplyModifiedPropertiesWithoutUndo();
             Assert.That(battle.SelectEnemyPrefab(new EnemyDefinitionId("rift-warden")), Is.SameAs(shade));
             EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity");
         }

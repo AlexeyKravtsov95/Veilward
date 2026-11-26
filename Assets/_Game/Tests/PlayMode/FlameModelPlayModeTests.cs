@@ -148,6 +148,38 @@ namespace Veilward.Tests.PlayMode
             Assert.That(_console.Any(c => c.StartsWith("Error|") || c.StartsWith("Exception|") || c.StartsWith("Assert|")), Is.False, string.Join("\n", _console));
         }
 
+        [UnityTest] public IEnumerator Ar0a04_FoxAnimatesAtDoubleSpeedAndFreezesInPause()
+        {
+            yield return SceneManager.LoadSceneAsync("MainMenu");
+            yield return null;
+            Object.FindFirstObjectByType<MainMenuController>().NewGameButton.onClick.Invoke();
+            yield return null;
+            yield return null;
+            Assert.That(Battle.ChooseElement(new ChooseElementCommand("start-resonance", "flame")).Success, Is.True);
+            Assert.That(Battle.PlaceTower(new TowerDefinitionId("flame"), new GridCoordinate(2, 1)).Success, Is.True);
+            yield return null;
+            var view = Battle.GetComponentInChildren<InkFlameView>();
+            var fox = view.Muzzle.parent;
+            var originalSpeed = Time.timeScale;
+            var pause = Battle.GetComponent<BattlePauseController>();
+            try
+            {
+                Time.timeScale = 2f;
+                var initial = fox.localRotation;
+                for (var i = 0; i < 5; i++) yield return null;
+                Assert.That(fox.localRotation, Is.Not.EqualTo(initial));
+                pause.Pause();
+                var frozen = fox.localRotation;
+                for (var i = 0; i < 5; i++) yield return null;
+                Assert.That(fox.localRotation, Is.EqualTo(frozen));
+                pause.OnApplicationFocus(true);
+                Assert.That(pause.Resume(), Is.True);
+                for (var i = 0; i < 5; i++) yield return null;
+                Assert.That(fox.localRotation, Is.Not.EqualTo(frozen));
+            }
+            finally { Time.timeScale = originalSpeed; }
+        }
+
         private IEnumerator ContinueAndCheck(int level)
         {
             var combat = Battle.Simulation.State.Phase == BattlePhase.Combat;
@@ -176,6 +208,8 @@ namespace Veilward.Tests.PlayMode
             Assert.That(root.Cast<Transform>().Count(t => t.gameObject.activeSelf && t.name.StartsWith("FLAME L")), Is.EqualTo(1));
             Assert.That(binding.Model.GetComponentsInChildren<Renderer>().All(r => !r.HasPropertyBlock()), Is.True);
             Assert.That(binding.ShotSource, Is.Not.Null);
+            Assert.That(binding.Model.GetComponentsInChildren<SpriteRenderer>().Select(layer => layer.sprite.name),
+                Is.EquivalentTo(new[] { $"Flame{level}Shrine", $"Flame{level}Fox" }));
             Record("verified ID=" + id.Value + " L" + level);
         }
         private void Record(string message)
