@@ -42,6 +42,8 @@ namespace Veilward.Presentation
         private BattleSimulation _catalogSimulation;
         private int _catalogGold = -1;
         private BattlePhase _catalogPhase;
+        private UnityEngine.UI.GridLayoutGroup _catalogGrid;
+        private (Vector2 Panel, Vector2 Catalog, Vector2 Details, Vector2 DetailsPosition) _wideDrawer;
         private GridCoordinate _catalogCell;
         private TowerDefinition _selectedDefinition;
         private TowerDefinition _displayedTowerDefinition;
@@ -63,6 +65,7 @@ namespace Veilward.Presentation
 
         public bool HasSelection => _hasSelection;
         internal bool ShowsBuildDrawer => confirmationPanel != null && confirmationPanel.activeSelf;
+        internal bool BuildDrawerOnLeft => ((RectTransform)confirmationPanel.transform).anchorMin.x == 0;
         public GridCoordinate SelectedCell { get; private set; }
         public TowerId? SelectedTowerId { get; private set; }
         public UnityEngine.UI.Text TowerStatsText => towerStatsText;
@@ -98,6 +101,13 @@ namespace Veilward.Presentation
             ValidateReference(catalogButtonTemplate, nameof(catalogButtonTemplate));
             ValidateReference(buildStatsText, nameof(buildStatsText));
             ValidateReference(sellConfirmationText, nameof(sellConfirmationText));
+            var grid = catalogRoot.GetComponent<UnityEngine.UI.GridLayoutGroup>();
+            if (grid != null && grid.constraintCount == 6)
+            {
+                _catalogGrid = grid;
+                _wideDrawer = (((RectTransform)confirmationPanel.transform).sizeDelta, catalogRoot.sizeDelta,
+                    buildStatsText.rectTransform.sizeDelta, buildStatsText.rectTransform.anchoredPosition);
+            }
             _upgradeLabel = upgradeButton.GetComponentInChildren<UnityEngine.UI.Text>(true);
             _sellLabel = sellButton.GetComponentInChildren<UnityEngine.UI.Text>(true);
             foreach (var archetype in battle.Simulation.TowerCatalog.Archetypes)
@@ -307,11 +317,38 @@ namespace Veilward.Presentation
 
         private void DockBuildDrawer(GridCoordinate coordinate)
         {
-            var side = worldCamera.WorldToViewportPoint(battle.GetCellCenter(coordinate)).x;
+            const float edge = 10f;
+            const float previewClearance = 22f;
+            var cell = battle.GetCellCenter(coordinate);
             var drawer = (RectTransform)confirmationPanel.transform;
-            var anchor = side >= .5f ? Vector2.zero : Vector2.right;
+            var dockLeft = worldCamera.WorldToViewportPoint(cell).x >= .5f;
+            if (_catalogGrid != null && drawer.parent is RectTransform root &&
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(root, worldCamera.WorldToScreenPoint(cell), null, out var point))
+            {
+                var safe = root.rect;
+                dockLeft = point.x >= safe.center.x;
+                var nearDrawer = dockLeft
+                    ? point.x < safe.xMin + edge + _wideDrawer.Panel.x + previewClearance
+                    : point.x > safe.xMax - edge - _wideDrawer.Panel.x - previewClearance;
+                var compact = nearDrawer && point.y < safe.yMin + edge + _wideDrawer.Panel.y + previewClearance;
+                ApplyBuildDrawerLayout(drawer, compact);
+            }
+
+            var anchor = dockLeft ? Vector2.zero : Vector2.right;
             drawer.anchorMin = drawer.anchorMax = drawer.pivot = anchor;
-            drawer.anchoredPosition = new Vector2(anchor.x == 0 ? 10 : -10, 10);
+            drawer.anchoredPosition = new Vector2(dockLeft ? edge : -edge, edge);
+        }
+
+        private void ApplyBuildDrawerLayout(RectTransform drawer, bool compact)
+        {
+            var columns = compact ? 3 : 6;
+            if (_catalogGrid.constraintCount == columns) return;
+            _catalogGrid.constraintCount = columns;
+            drawer.sizeDelta = compact ? new Vector2(310, 300) : _wideDrawer.Panel;
+            catalogRoot.sizeDelta = compact ? new Vector2(214, 145) : _wideDrawer.Catalog;
+            var details = buildStatsText.rectTransform;
+            details.sizeDelta = compact ? new Vector2(278, 48) : _wideDrawer.Details;
+            details.anchoredPosition = compact ? new Vector2(16, -181) : _wideDrawer.DetailsPosition;
         }
 
         private void ShowSelectionVisual(GridCoordinate coordinate, float radius, bool isPlacement)

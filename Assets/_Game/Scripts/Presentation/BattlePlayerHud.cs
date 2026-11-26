@@ -83,8 +83,9 @@ namespace Veilward.Presentation
             if (failedSave)
             {
                 var rect = (RectTransform)saveWarning.transform;
-                var anchor = Vector2.one;
-                var offset = new Vector2(-10, pendingChoice || terminal ? -6 : -78);
+                var warnOnLeft = !terminal && !pendingChoice && placement.ShowsBuildDrawer && !placement.BuildDrawerOnLeft;
+                var anchor = warnOnLeft ? Vector2.up : Vector2.one;
+                var offset = new Vector2(warnOnLeft ? 10 : -10, pendingChoice || terminal ? -6 : -78);
                 rect.anchorMin = rect.anchorMax = rect.pivot = anchor;
                 rect.anchoredPosition = offset;
             }

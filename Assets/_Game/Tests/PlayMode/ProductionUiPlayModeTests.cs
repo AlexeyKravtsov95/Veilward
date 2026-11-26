@@ -196,6 +196,31 @@ namespace Veilward.Tests.PlayMode
         }
 
         [UnityTest]
+        public IEnumerator UiRework107_CatalogLeavesSelectedCentralBuildCellVisible()
+        {
+            yield return SceneManager.LoadSceneAsync("Battle");
+            yield return null;
+            var battle = Object.FindFirstObjectByType<BattleSceneController>();
+            ConfirmStartingElement(battle);
+            var placement = battle.GetComponent<BattlePlacementController>();
+            var coordinate = new GridCoordinate(3, 3);
+            Assert.That(placement.TrySelectCell(coordinate), Is.True);
+            yield return null;
+
+            Canvas.ForceUpdateCanvases();
+            var point = (Vector2)Camera.main.WorldToScreenPoint(battle.GetCellCenter(coordinate));
+            var drawer = Find<RectTransform>("Placement Panel");
+            var hover = RectTransformUtility.RectangleContainsScreenPoint(drawer, point);
+            Assert.That(hover, Is.False, $"The build drawer covers selected cell {coordinate} at {point}.");
+            Click(Find<Button>("Catalog flame"));
+            Assert.That(Find<Button>("Confirm Button").interactable, Is.True);
+            Click(Find<Button>("Cancel Button"));
+            Assert.That(placement.TrySelectCell(FirstCell), Is.True);
+            yield return null;
+            Assert.That(Find<RectTransform>("Tower Catalog").GetComponent<GridLayoutGroup>().constraintCount, Is.EqualTo(6));
+        }
+
+        [UnityTest]
         public IEnumerator UiRework104_LockedSchoolAndPricesRefreshInDecoratedCatalog()
         {
             yield return SceneManager.LoadSceneAsync("Battle");
@@ -282,9 +307,15 @@ namespace Veilward.Tests.PlayMode
             Assert.That(retry.gameObject.activeInHierarchy && retry.interactable, Is.True);
             Directory.Delete(_store.TempPath);
             var placement = battle.GetComponent<BattlePlacementController>();
-            Assert.That(placement.TrySelectCell(FirstCell), Is.True);
+            Assert.That(placement.TrySelectCell(new GridCoordinate(3, 1)), Is.True);
             yield return null;
+            Assert.That(Find<RectTransform>("Placement Panel").anchorMin.x, Is.EqualTo(1f));
+            Assert.That(Find<RectTransform>("Tower Catalog").GetComponent<GridLayoutGroup>().constraintCount, Is.EqualTo(3));
             Assert.That(retry.gameObject.activeInHierarchy && !retry.interactable, Is.True);
+            Assert.That(Find<RectTransform>("Save Warning").anchorMin.x, Is.Zero,
+                "The warning must dock away from the right-hand compact catalog.");
+            foreach (var school in new[] { "flame", "tide", "gale" })
+                Click(Find<Button>("Catalog " + school));
             Click(retry);
             Assert.That(checkpoint.LastSaveSucceeded, Is.False);
             Click(Find<Button>("Cancel Button"));

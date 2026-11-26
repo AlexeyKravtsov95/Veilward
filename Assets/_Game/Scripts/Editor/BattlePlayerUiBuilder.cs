@@ -37,6 +37,8 @@ namespace Veilward.Editor
         [MenuItem("VEILWARD/Rebuild Player UI")]
         public static void RebuildPlayerUi()
         {
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+
             _inkSprites = null;
             var scene = EditorSceneManager.OpenScene(BattleScenePath);
             var battle = scene.GetRootGameObjects().Select(root => root.GetComponent<BattleSceneController>())
@@ -129,11 +131,15 @@ namespace Veilward.Editor
             boss.gameObject.SetActive(false);
 
             var build = Card("Placement Panel", safe, BottomRight, -10, 10, 462, 184);
-            DisplayLabel("Build Title", build, TopLeft, 15, -7, 433, 26, "Build a tower", 23, Gilt, TextAnchor.MiddleLeft);
+            var buildTitle = DisplayLabel("Build Title", build, TopLeft, 15, -7, 433, 26,
+                "Build a tower", 23, Gilt, TextAnchor.MiddleLeft).rectTransform;
+            buildTitle.anchorMax = Vector2.one;
+            buildTitle.offsetMin = new Vector2(15, -33);
+            buildTitle.offsetMax = new Vector2(-15, -7);
             var catalog = Rect("Tower Catalog", build, Top, 0, -34, 434, 70);
             var layout = catalog.gameObject.AddComponent<GridLayoutGroup>();
             layout.cellSize = new Vector2(68, 70);
-            layout.spacing = new Vector2(5, 0);
+            layout.spacing = new Vector2(5, 5);
             layout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             layout.constraintCount = 6;
             var template = Action("Catalog Button Template", catalog, "", Center, 0, 0, 68, Option, 70, 13);
@@ -155,8 +161,8 @@ namespace Veilward.Editor
             var sell = Action("Sell Button", tower, "Sell", BottomRight, -141, 9, 119, Secondary, fontSize: 14);
             tower.gameObject.SetActive(false);
 
-            var inspector = Card("Enemy Inspector Panel", safe, Vector2.zero, 10, 10, 273, 225);
-            var inspectorText = Label("Enemy Inspector Details", inspector, TopLeft, 15, -15, 243, 138, "", 14, Stone, TextAnchor.UpperLeft);
+            var inspector = Card("Enemy Inspector Panel", safe, Vector2.zero, 10, 10, 310, 225);
+            var inspectorText = Label("Enemy Inspector Details", inspector, TopLeft, 13, -6, 284, 148, "", 14, Stone, TextAnchor.UpperLeft);
             var closeInspector = Action("Close Inspector Button", inspector, "Close", BottomRight, -10, 9, 100, Secondary);
             inspector.gameObject.SetActive(false);
 
