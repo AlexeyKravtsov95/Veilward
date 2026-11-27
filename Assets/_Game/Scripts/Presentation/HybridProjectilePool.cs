@@ -71,7 +71,8 @@ namespace Veilward.Presentation
         public Vector3 Target { get; private set; }
         public Vector3 HeadPosition { get; private set; }
         public float Remaining { get; private set; }
-        public float FlightDuration => Kind == HybridShotKind.Steam ? .22f : .14f;
+        public float FlightDuration => FlightSeconds(Kind);
+        internal static float FlightSeconds(HybridShotKind kind) => kind == HybridShotKind.Steam ? .22f : .14f;
         private float ImpactDuration => Kind == HybridShotKind.Steam ? .18f : .16f;
         public bool IsFlying => Remaining > 0 && _age < FlightDuration;
         internal long Order { get; private set; }

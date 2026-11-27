@@ -492,7 +492,7 @@ namespace Veilward.Editor
 
             var pause = Object.FindFirstObjectByType<BattlePauseController>();
             var pauseSerialized = new SerializedObject(pause);
-            var pauseProperties = new[] { "battle", "placement", "pauseOverlay", "pauseButton", "resumeButton" };
+            var pauseProperties = new[] { "battle", "placement", "pauseOverlay", "pauseButton", "resumeButton", "audioSettings" };
             foreach (var propertyName in pauseProperties)
             {
                 if (pauseSerialized.FindProperty(propertyName).objectReferenceValue == null)
@@ -583,7 +583,7 @@ namespace Veilward.Editor
 
         private static Camera CreateCamera()
         {
-            var cameraObject = new GameObject("Battle Camera", typeof(Camera));
+            var cameraObject = new GameObject("Battle Camera", typeof(Camera), typeof(AudioListener));
             cameraObject.tag = "MainCamera";
             cameraObject.transform.position = new Vector3(8f, 11f, 8f);
             cameraObject.transform.LookAt(Vector3.zero);
@@ -678,7 +678,10 @@ namespace Veilward.Editor
             var placement = controllerObject.GetComponent<BattlePlacementController>();
             var pause = controllerObject.GetComponent<BattlePauseController>();
             var checkpoint = controllerObject.GetComponent<BattleCheckpointController>();
+            var audioOwner = AddAudioOwner(controllerObject, true);
+            Bind(hud.AudioSettings, ("audioOwner", audioOwner));
             var serialized = new SerializedObject(battle);
+            serialized.FindProperty("audioOwner").objectReferenceValue = audioOwner;
             serialized.FindProperty("scenario").objectReferenceValue = config;
             serialized.FindProperty("enemyPrefab").objectReferenceValue = enemyPrefab;
             serialized.FindProperty("bossPrefab").objectReferenceValue = AssetDatabase.LoadAssetAtPath<GameObject>(EnemyModelBuilder.BossPath).transform;
@@ -780,6 +783,7 @@ namespace Veilward.Editor
             pauseSerialized.FindProperty("pauseOverlay").objectReferenceValue = hud.PauseOverlay;
             pauseSerialized.FindProperty("pauseButton").objectReferenceValue = hud.PauseButton;
             pauseSerialized.FindProperty("resumeButton").objectReferenceValue = hud.ResumeButton;
+            pauseSerialized.FindProperty("audioSettings").objectReferenceValue = hud.AudioSettings;
             pauseSerialized.ApplyModifiedPropertiesWithoutUndo();
             Bind(hud.PlayerHud, ("battle", battle), ("placement", placement), ("pause", pause),
                 ("ability", ability), ("choice", choice), ("inspector", inspector), ("checkpoints", checkpoint));
@@ -788,6 +792,7 @@ namespace Veilward.Editor
         private sealed class HudReferences
         {
             public BattlePlayerHud PlayerHud;
+            public AudioSettingsPanel AudioSettings;
             public GameObject BossPanel;
             public UnityEngine.UI.Text BossNotice, BossHealth;
             public UnityEngine.UI.Image BossFill;

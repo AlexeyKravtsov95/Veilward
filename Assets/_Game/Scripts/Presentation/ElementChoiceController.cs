@@ -52,6 +52,7 @@ namespace Veilward.Presentation
             Refresh();
             if (_sending || !battle.CanAcceptInput(BattleInputOwner.ElementChoice) || !IsOption(optionId)) return false;
             _dirty = true;
+            battle.PlayUiAudio(AudioCue.Select);
             PreviewOptionId = optionId;
             _previewChoiceId = battle.Simulation.State.ElementProgression.PendingChoiceId;
             Refresh(); return true;
@@ -72,6 +73,7 @@ namespace Veilward.Presentation
         public void CancelSelection()
         {
             if (!battle.CanAcceptInput(BattleInputOwner.ElementChoice)) return;
+            if (PreviewOptionId != null) battle.PlayUiAudio(AudioCue.Cancel);
             ClearPreview(); placement.SuppressPointerForCurrentFrame(); Refresh();
         }
         internal void ClearPreview() { PreviewOptionId = null; _previewChoiceId = null; _dirty = true; }

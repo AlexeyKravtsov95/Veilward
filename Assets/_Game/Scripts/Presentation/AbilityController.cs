@@ -94,6 +94,7 @@ namespace Veilward.Presentation
             _previewing = true; HasTarget = false; LastCast = null; Status = "Tap the field to aim the seal.";
             UnbindConfirm(); var lease = Lease;
             _confirmCallback = () => ConfirmLease(lease); confirmButton.onClick.AddListener(_confirmCallback);
+            battle.PlayUiAudio(AudioCue.SealTarget);
             placement.SuppressPointerForCurrentFrame(); Refresh(); return true;
         }
         public bool SelectTarget(PathPosition center)
@@ -105,6 +106,7 @@ namespace Veilward.Presentation
             _previewCheckReason = result.FailureReason;
             Status = result.Succeeded ? "Enemies in range. Cast when ready." : result.FailureReason.ToString();
             preview.Show(center, battle.Simulation.AbilityDefinition.Radius, result.Succeeded);
+            battle.PlayUiAudio(result.Succeeded ? AudioCue.Select : AudioCue.Reject);
             Refresh(); return true;
         }
         private CastAbilityCommand Command(PathPosition center) => new CastAbilityCommand(
@@ -143,6 +145,7 @@ namespace Veilward.Presentation
         public void CancelPreview()
         {
             Reconcile(); if (!battle.CanAcceptInput(BattleInputOwner.Ability)) return;
+            if (HasInputOwnership) battle.PlayUiAudio(AudioCue.Cancel);
             Invalidate();
             Status = "Rift Seal cancelled.";
             _feedbackUntil = Time.unscaledTimeAsDouble + 2.5;
@@ -157,6 +160,7 @@ namespace Veilward.Presentation
         internal void ResetTransient() { Invalidate(); Status = string.Empty; LastCast = null; _feedbackUntil = 0; }
         private bool Fail(string reason)
         {
+            if (!battle.IsPaused) battle.PlayUiAudio(AudioCue.Reject);
             Status = reason;
             _feedbackUntil = Time.unscaledTimeAsDouble + 2.5;
             Refresh();

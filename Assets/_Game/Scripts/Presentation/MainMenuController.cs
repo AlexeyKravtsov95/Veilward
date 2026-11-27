@@ -18,6 +18,10 @@ namespace Veilward.Presentation
 
         [SerializeField] private UnityEngine.UI.Button retryButton;
 
+        [SerializeField] private VeilwardAudio audioOwner;
+        [SerializeField] private AudioSettingsPanel audioSettings;
+        private bool AudioSettingsOpen => audioSettings != null && audioSettings.IsOpen;
+        private WaveCheckpointLoadStatus? _priorLoad;
         private bool _leaving;
         private WaveCheckpointStore _store;
         private WaveCheckpointEnvelope _availableCheckpoint;
@@ -32,7 +36,7 @@ namespace Veilward.Presentation
             ValidateReferences();
             newGameButton.onClick.AddListener(StartNewGame);
             continueButton.onClick.AddListener(Continue);
-            if (retryButton != null) retryButton.onClick.AddListener(RefreshCheckpointStatus);
+            if (retryButton != null) retryButton.onClick.AddListener(RetryLoad);
             RefreshCheckpointStatus();
         }
 
@@ -47,7 +51,7 @@ namespace Veilward.Presentation
             {
                 continueButton.onClick.RemoveListener(Continue);
             }
-            if (retryButton != null) retryButton.onClick.RemoveListener(RefreshCheckpointStatus);
+            if (retryButton != null) retryButton.onClick.RemoveListener(RetryLoad);
         }
 
         public void ConfigureStore(WaveCheckpointStore store)
@@ -57,6 +61,11 @@ namespace Veilward.Presentation
             {
                 RefreshCheckpointStatus();
             }
+        }
+
+        private void RetryLoad()
+        {
+            if (!AudioSettingsOpen) RefreshCheckpointStatus();
         }
 
         public void RefreshCheckpointStatus()
@@ -69,6 +78,14 @@ namespace Veilward.Presentation
                 scenario.ScenarioContentId,
                 scenario.CreateSimulationForCheckpoint,
                 out var result);
+            if (result.Status != _priorLoad)
+            {
+                var recovered = result.Status == WaveCheckpointLoadStatus.LoadedBackup || (loaded && _priorLoad.HasValue &&
+                    _priorLoad != WaveCheckpointLoadStatus.Missing && _priorLoad != WaveCheckpointLoadStatus.LoadedPrimary);
+                if (recovered) audioOwner?.Play(AudioCue.SaveRecovered);
+                if (!loaded && result.Status != WaveCheckpointLoadStatus.Missing) audioOwner?.Play(AudioCue.SaveError);
+                _priorLoad = result.Status;
+            }
             if (loaded)
             {
                 var phase = result.Envelope.state.phase;
@@ -116,6 +133,7 @@ namespace Veilward.Presentation
             if (!_store.Delete(out var error))
             {
                 statusText.text = "Unable to reset the save. Try New Game again.";
+                audioOwner?.Play(AudioCue.SaveError);
                 Debug.LogError(error);
                 return false;
             }
@@ -141,7 +159,7 @@ namespace Veilward.Presentation
 
         public void StartNewGame()
         {
-            if (!_leaving && PrepareNewGameSession())
+            if (!_leaving && !AudioSettingsOpen && PrepareNewGameSession())
             {
                 _leaving = true;
                 SceneManager.LoadScene(BattleSceneName, LoadSceneMode.Single);
@@ -150,7 +168,7 @@ namespace Veilward.Presentation
 
         public void Continue()
         {
-            if (!_leaving && PrepareContinueSession())
+            if (!_leaving && !AudioSettingsOpen && PrepareContinueSession())
             {
                 _leaving = true;
                 SceneManager.LoadScene(BattleSceneName, LoadSceneMode.Single);

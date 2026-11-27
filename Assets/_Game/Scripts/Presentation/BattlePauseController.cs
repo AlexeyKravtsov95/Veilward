@@ -11,13 +11,15 @@ namespace Veilward.Presentation
         [SerializeField] private GameObject pauseOverlay;
         [SerializeField] private Button pauseButton;
         [SerializeField] private Button resumeButton;
+        [SerializeField] private AudioSettingsPanel audioSettings;
 
         private bool _isPaused;
         private bool _applicationPaused;
         private bool _hasFocus = true;
 
         public bool IsPaused => _isPaused;
-        public bool CanResume => _isPaused && !_applicationPaused && _hasFocus;
+        internal bool AudioSettingsOpen => audioSettings != null && audioSettings.IsOpen;
+        public bool CanResume => _isPaused && !_applicationPaused && _hasFocus && !AudioSettingsOpen;
 
         private void Start()
         {
@@ -26,7 +28,7 @@ namespace Veilward.Presentation
             ValidateReference(pauseOverlay, nameof(pauseOverlay));
             ValidateReference(pauseButton, nameof(pauseButton));
             ValidateReference(resumeButton, nameof(resumeButton));
-            pauseButton.onClick.AddListener(Pause);
+            pauseButton.onClick.AddListener(HandlePauseClicked);
             resumeButton.onClick.AddListener(HandleResumeClicked);
             RefreshUi();
         }
@@ -40,13 +42,20 @@ namespace Veilward.Presentation
         {
             if (pauseButton != null)
             {
-                pauseButton.onClick.RemoveListener(Pause);
+                pauseButton.onClick.RemoveListener(HandlePauseClicked);
             }
 
             if (resumeButton != null)
             {
                 resumeButton.onClick.RemoveListener(HandleResumeClicked);
             }
+        }
+
+        private void HandlePauseClicked()
+        {
+            if (_isPaused) return;
+            Pause();
+            battle.PlayUiAudio(AudioCue.Confirm);
         }
 
         public void Pause()
@@ -57,6 +66,7 @@ namespace Veilward.Presentation
             }
 
             _isPaused = true;
+            if (battle != null) battle.SetAudioPaused(true);
             if (battle != null) battle.FreezePresentationClock();
             if (placement != null)
             {
@@ -81,6 +91,7 @@ namespace Veilward.Presentation
             }
 
             _isPaused = false;
+            if (battle != null) battle.SetAudioPaused(false);
             if (battle != null) battle.FreezePresentationClock();
             if (placement != null)
             {
@@ -119,7 +130,7 @@ namespace Veilward.Presentation
 
         private void HandleResumeClicked()
         {
-            Resume();
+            if (Resume() && battle != null) battle.PlayUiAudio(AudioCue.Confirm);
         }
 
         private void RefreshUi()

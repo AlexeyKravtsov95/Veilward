@@ -68,12 +68,13 @@ namespace Veilward.Editor
                 {
                     var references = RequireReferences(
                         menus[0],
-                        new[] { "scenario", "newGameButton", "continueButton", "statusText", "retryButton" },
+                        new[] { "scenario", "newGameButton", "continueButton", "statusText", "retryButton", "audioOwner", "audioSettings" },
                         errors);
                     RequireAssetPath(references["scenario"], ConfigPath, "Main Menu scenario", errors);
                     RequireProductionContent(references["scenario"], errors);
                 }
 
+                ValidateAudio(roots, false, menus.Count == 1 ? menus[0] : null, errors);
                 var canvases = FindComponents<Canvas>(roots);
                 var raycasters = FindComponents<UnityEngine.UI.GraphicRaycaster>(roots);
                 var eventSystems = FindComponents<UnityEngine.EventSystems.EventSystem>(roots);
@@ -112,6 +113,7 @@ namespace Veilward.Editor
             }
 
             var controllers = FindComponents<BattleSceneController>(roots);
+            ValidateAudio(roots, true, controllers.Count == 1 ? controllers[0] : null, errors);
             if (controllers.Count != 1)
             {
                 errors.Add($"Battle must contain exactly one BattleSceneController; found {controllers.Count}.");
@@ -152,7 +154,7 @@ namespace Veilward.Editor
             {
                 RequireReferences(
                     pauses[0],
-                    new[] { "battle", "placement", "pauseOverlay", "pauseButton", "resumeButton" },
+                    new[] { "battle", "placement", "pauseOverlay", "pauseButton", "resumeButton", "audioSettings" },
                     errors);
             }
 
@@ -174,7 +176,7 @@ namespace Veilward.Editor
             else
             {
                 var controls = new SerializedObject(safeAreas[0]).FindProperty("safeRoots");
-                if (controls.arraySize != 6) errors.Add("HUD requires six safe-area roots.");
+                if (controls.arraySize != 7) errors.Add("HUD requires seven safe-area roots, including Audio settings.");
                 for (var i = 0; i < controls.arraySize; i++)
                     if (controls.GetArrayElementAtIndex(i).objectReferenceValue == null) errors.Add("Missing HUD safe-area reference.");
             }
@@ -234,6 +236,33 @@ namespace Veilward.Editor
 
             ValidatePrefabAsset(EnemyPrefabPath, errors);
             ValidatePrefabAsset(TowerPrefabPath, errors);
+        }
+
+        private static void ValidateAudio(GameObject[] roots, bool battle, Component controller, List<string> errors)
+        {
+            var listeners = FindComponents<AudioListener>(roots);
+            var owners = FindComponents<VeilwardAudio>(roots);
+            var panels = FindComponents<AudioSettingsPanel>(roots);
+            if (listeners.Count != 1 || owners.Count != 1 || panels.Count != 1)
+            {
+                errors.Add("Production audio requires one listener, playback owner and settings panel per scene.");
+                return;
+            }
+
+            var owner = new SerializedObject(owners[0]);
+            if (owner.FindProperty("battleMusic").boolValue != battle)
+                errors.Add("Production audio is set to the wrong scene music.");
+            var ownerRefs = RequireReferences(owners[0], new[] { "catalog" }, errors);
+            RequireAssetPath(ownerRefs["catalog"], BattleSceneBuilder.AudioCatalogPath, "Audio catalog", errors);
+            if (controller != null &&
+                new SerializedObject(controller).FindProperty("audioOwner").objectReferenceValue != owners[0])
+                errors.Add($"{controller.GetType().Name} audioOwner must reference the scene audio owner.");
+            var refs = RequireReferences(panels[0], new[] { "audioOwner", "overlay", "underlyingActions", "openButton",
+                "closeButton", "muteButton", "master", "music", "sfx", "masterValue", "musicValue", "sfxValue", "muteLabel" }, errors);
+            if (refs["audioOwner"] != owners[0]) errors.Add("Audio settings must use the scene audio owner.");
+            if (refs["overlay"] is GameObject overlay && (overlay.activeSelf ||
+                !overlay.TryGetComponent<UnityEngine.UI.Image>(out var dim) || !dim.raycastTarget))
+                errors.Add("Audio settings must start hidden and block raycasts when open.");
         }
 
         private static void ValidateBattleController(BattleSceneController controller, List<string> errors)

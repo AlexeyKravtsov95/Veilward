@@ -395,3 +395,7 @@ P2.4f revision2: `AbilityBossTargetedSearchTests` — один opt-in ordered-hi
 - UI1-03: `ProductionUiPlayModeTests`, REG-BATTLE-178, REG-BATTLE-204–208 и boss suites проверяют фактический результат, Retry после ошибки записи, Rift Seal target/cancel/cast/lease и реакцию с фактическим HP loss.
 - UI1-04: `ProductionUiLayoutTests`, `ProductionUiPlayModeTests`, REG-BATTLE-054–066 и REG-BATTLE-120 проверяют размеры целей, safe area, touch routing, pause, overlay blockers и повтор команд.
 - UI1-05: [Спецификация и профили](UI1_PRODUCTION_UI.md).
+
+### AUDIO.1 / #49 — звук и настройки
+
+AUDIO1-01–04 определены в [спецификации](AUDIO1.md). Обязательны отдельная persistence настроек, фактическая атрибуция команд и событий, ограниченные и очищаемые голоса, слышимое Editor evidence и независимое прослушивание.
