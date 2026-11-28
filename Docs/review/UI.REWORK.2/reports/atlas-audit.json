@@ -1,0 +1,14 @@
+{
+  "pixels": [
+    1024,
+    512
+  ],
+  "slicesBefore": 24,
+  "slicesAfter": 30,
+  "pngBefore": 162884,
+  "pngAfter": 182499,
+  "rgba32WorstCaseBytes": 2097152,
+  "inheritedSpritePixelsAndIdsIdentical": true,
+  "regenerationMatches": true,
+  "atlasSha256": "b90ea71f78fefc7aca99b431ccc837cdcb277bafba46c48d1dab4da346d78680"
+}
