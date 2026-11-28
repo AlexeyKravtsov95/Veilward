@@ -1,0 +1,194 @@
+[
+  {
+    "name": "Seal",
+    "x": 3,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Heart",
+    "x": 87,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Gold",
+    "x": 171,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Wave",
+    "x": 255,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Pause",
+    "x": 339,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Flame",
+    "x": 423,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Tide",
+    "x": 507,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Gale",
+    "x": 591,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Stone",
+    "x": 675,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Steam",
+    "x": 759,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Storm",
+    "x": 843,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Lock",
+    "x": 927,
+    "y": 428,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Gate",
+    "x": 3,
+    "y": 344,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Warden",
+    "x": 87,
+    "y": 344,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "Blossom",
+    "x": 171,
+    "y": 344,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "FoxCrest",
+    "x": 255,
+    "y": 344,
+    "width": 80,
+    "height": 80,
+    "border": 0
+  },
+  {
+    "name": "InkStrip",
+    "x": 5,
+    "y": 210,
+    "width": 240,
+    "height": 124,
+    "border": 30
+  },
+  {
+    "name": "InkCard",
+    "x": 256,
+    "y": 210,
+    "width": 240,
+    "height": 124,
+    "border": 26
+  },
+  {
+    "name": "PaperCard",
+    "x": 507,
+    "y": 210,
+    "width": 240,
+    "height": 124,
+    "border": 28
+  },
+  {
+    "name": "CoralButton",
+    "x": 758,
+    "y": 210,
+    "width": 240,
+    "height": 124,
+    "border": 28
+  },
+  {
+    "name": "PaperButton",
+    "x": 5,
+    "y": 80,
+    "width": 240,
+    "height": 124,
+    "border": 30
+  },
+  {
+    "name": "JadeButton",
+    "x": 256,
+    "y": 80,
+    "width": 240,
+    "height": 124,
+    "border": 27
+  },
+  {
+    "name": "DarkButton",
+    "x": 507,
+    "y": 80,
+    "width": 240,
+    "height": 124,
+    "border": 24
+  },
+  {
+    "name": "HealthTrack",
+    "x": 758,
+    "y": 80,
+    "width": 240,
+    "height": 124,
+    "border": 16
+  }
+]

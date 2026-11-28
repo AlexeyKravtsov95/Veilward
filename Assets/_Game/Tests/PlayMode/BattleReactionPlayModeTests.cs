@@ -87,6 +87,15 @@ namespace Veilward.Tests.PlayMode
             text = (string)inspector.GetType().GetProperty("Details").GetValue(inspector);
             Assert.That(text, Does.Contain("Steam 2s").And.Contain("Storm 2s").And.Contain("Steam · Flame + Tide").And.Contain("Storm · Innate attack"));
             Assert.That(text, Does.Contain("4 HP lost").And.Contain("6 HP lost").And.Not.Contain("999"));
+            yield return null;
+            Canvas.ForceUpdateCanvases();
+            var view = Object.FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None)
+                .Single(label => label.name == "Enemy Inspector Details");
+            var generator = new TextGenerator();
+            Assert.That(generator.Populate(view.text, view.GetGenerationSettings(view.rectTransform.rect.size)), Is.True);
+            Assert.That(generator.characterCountVisible, Is.GreaterThanOrEqualTo(view.text.TrimEnd().Length),
+                "All reaction totals must fit the rendered inspector.");
+
             Assert.That(enemy.Health, Is.EqualTo(enemy.Definition.MaxHealth), "Read-only inspector cannot apply captured damage.");
             typeof(EnemyState).GetMethod("ApplyDamage", Flags).Invoke(enemy, new object[] { enemy.Health });
             Call(inspector, "Refresh");

@@ -204,8 +204,8 @@ namespace Veilward.Presentation
                 {
                     _shownAbility = display;
                     var label = _beginLabel != null ? _beginLabel : beginButton.GetComponentInChildren<Text>(true);
-                    var caption = !inCombat ? "In battle only" : remaining > 0 ? $"Recharging · {seconds}s" :
-                        beginButton.interactable ? "Ready" : "Close active card";
+                    var caption = !inCombat ? "In battle only" : remaining > 0 ? $"{seconds}s left" :
+                        beginButton.interactable ? "Ready" : "Close card";
                     if (label != null) label.text = "Rift Seal\n" + caption;
                 }
             }

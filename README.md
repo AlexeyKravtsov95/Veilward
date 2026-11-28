@@ -1,5 +1,7 @@
 # VEILWARD: Spirit Defense
 
+UI.REWORK.1 / #103 переносит «Чернила и фонари» в MainMenu, Battle HUD и карточки uGUI. [Контракт](Docs/UI_REWORK_1_DESIGN.md) · [Кадры GameView, видео и проверки](Docs/review/UI.REWORK.1/README.md).
+
 VFX.1d / #93 оформляет Печать Разрыва и четыре сигнала Стража. Применение и попадания используют события симуляции. [Спецификация и регрессии](Docs/VFX1D_RIFT_SEAL_BOSS.md) · [Приёмка VFX.1](Docs/review/VFX.1d/README.md). Проверка на iPhone отложена до QA #53/#54/#55.
 
 VFX.1c / #92 добавляет короткий паровой импульс STEAM и сегментированный разряд STORM. Паровая реакция и штормовые дуги отражают фактические попадания, включая captured цели после удаления. [Контракт и регрессии](Docs/VFX1C_HYBRID_REACTIONS.md) · [Editor evidence](Docs/review/VFX.1c/README.md). Физический iPhone отложен до QA #53/#54/#55.

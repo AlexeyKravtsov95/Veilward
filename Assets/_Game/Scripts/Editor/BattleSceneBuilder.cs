@@ -662,127 +662,81 @@ namespace Veilward.Editor
                 typeof(BattlePauseController),
                 typeof(BattleCheckpointController),
                 typeof(EnemyInspectorController), typeof(ElementChoiceController), typeof(AbilityController), typeof(BossHudController));
-            var bossHud = controllerObject.GetComponent<BossHudController>();
-            var bossData = new SerializedObject(bossHud);
-            bossData.FindProperty("battle").objectReferenceValue = controllerObject.GetComponent<BattleSceneController>();
-            bossData.FindProperty("panel").objectReferenceValue = hud.BossPanel;
-            bossData.FindProperty("placement").objectReferenceValue = controllerObject.GetComponent<BattlePlacementController>();
-            bossData.FindProperty("noticeText").objectReferenceValue = hud.BossNotice;
-            bossData.FindProperty("healthText").objectReferenceValue = hud.BossHealth;
-            bossData.FindProperty("healthFill").objectReferenceValue = hud.BossFill;
-            bossData.ApplyModifiedPropertiesWithoutUndo();
-            var ability = controllerObject.GetComponent<AbilityController>();
-            var choice = controllerObject.GetComponent<ElementChoiceController>();
-            var inspector = controllerObject.GetComponent<EnemyInspectorController>();
             var battle = controllerObject.GetComponent<BattleSceneController>();
             var placement = controllerObject.GetComponent<BattlePlacementController>();
-            var pause = controllerObject.GetComponent<BattlePauseController>();
-            var checkpoint = controllerObject.GetComponent<BattleCheckpointController>();
+            var abilityPreviewObject = new GameObject("Ability Preview", typeof(LineRenderer), typeof(AbilityPreviewView));
+            abilityPreviewObject.transform.SetParent(controllerObject.transform, false);
+            var abilityLine = abilityPreviewObject.GetComponent<LineRenderer>();
+            abilityLine.sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>(MaterialsFolder + "/ReactionEffect.mat");
+            abilityLine.startWidth = abilityLine.endWidth = .04f;
+            abilityLine.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            abilityLine.receiveShadows = false;
+            abilityPreviewObject.SetActive(false);
+            Bind(controllerObject.GetComponent<AbilityController>(), ("preview", abilityPreviewObject.GetComponent<AbilityPreviewView>()));
+            Bind(placement, ("worldCamera", battleCamera), ("selectionHighlight", selection),
+                ("towerPreview", preview), ("rangePreview", rangePreview));
+            Bind(controllerObject.GetComponent<EnemyInspectorController>(), ("worldCamera", battleCamera));
+
             var serialized = new SerializedObject(battle);
             serialized.FindProperty("scenario").objectReferenceValue = config;
             serialized.FindProperty("enemyPrefab").objectReferenceValue = enemyPrefab;
             serialized.FindProperty("bossPrefab").objectReferenceValue = AssetDatabase.LoadAssetAtPath<GameObject>(EnemyModelBuilder.BossPath).transform;
             InkBattleArtBuilder.BindController(serialized);
             serialized.FindProperty("towerPrefab").objectReferenceValue = towerPrefab;
-            serialized.FindProperty("hudText").objectReferenceValue = hud.StatsText;
             serialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
             serialized.FindProperty("attackBeamMaterial").objectReferenceValue = beamMaterial;
             serialized.FindProperty("flameProjectileMaterial").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberStroke.mat");
             serialized.FindProperty("flameProjectileCoreMaterial").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Materials/ART1/MAT_Art1_EmberCore.mat");
             serialized.FindProperty("reactionEffectMaterial").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Material>(MaterialsFolder + "/ReactionEffect.mat");
-            serialized.FindProperty("pauseController").objectReferenceValue = pause;
-            serialized.FindProperty("placementController").objectReferenceValue = placement;
-            serialized.FindProperty("checkpointController").objectReferenceValue = checkpoint;
-            serialized.FindProperty("enemyInspector").objectReferenceValue = inspector;
-            serialized.FindProperty("elementChoice").objectReferenceValue = choice;
-            serialized.FindProperty("abilityController").objectReferenceValue = ability;
-            serialized.FindProperty("bossHud").objectReferenceValue = bossHud;
-            serialized.FindProperty("mainMenuButton").objectReferenceValue = hud.MainMenuButton;
-            serialized.FindProperty("reactionSummaryText").objectReferenceValue = hud.ReactionSummaryText;
             serialized.ApplyModifiedPropertiesWithoutUndo();
 
-            var checkpointSerialized = new SerializedObject(checkpoint);
-            checkpointSerialized.FindProperty("saveStatusText").objectReferenceValue = hud.SaveStatusText;
-            checkpointSerialized.FindProperty("retrySaveButton").objectReferenceValue = hud.RetrySave;
-            checkpointSerialized.FindProperty("battle").objectReferenceValue = battle;
-            checkpointSerialized.ApplyModifiedPropertiesWithoutUndo();
+            BindPlayerUi(battle, hud);
+        }
 
-            var placementSerialized = new SerializedObject(placement);
-            placementSerialized.FindProperty("battle").objectReferenceValue = battle;
-            placementSerialized.FindProperty("enemyInspector").objectReferenceValue = inspector;
-            placementSerialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
-            placementSerialized.FindProperty("selectionHighlight").objectReferenceValue = selection;
-            placementSerialized.FindProperty("towerPreview").objectReferenceValue = preview;
-            placementSerialized.FindProperty("rangePreview").objectReferenceValue = rangePreview;
-            placementSerialized.FindProperty("catalogRoot").objectReferenceValue = hud.CatalogRoot;
-            placementSerialized.FindProperty("catalogButtonTemplate").objectReferenceValue = hud.CatalogButtonTemplate;
-            placementSerialized.FindProperty("buildStatsText").objectReferenceValue = hud.BuildStatsText;
-            placementSerialized.FindProperty("sellConfirmationText").objectReferenceValue = hud.SellConfirmationText;
-            placementSerialized.FindProperty("confirmationPanel").objectReferenceValue = hud.ConfirmationPanel;
-            placementSerialized.FindProperty("confirmButton").objectReferenceValue = hud.ConfirmButton;
-            placementSerialized.FindProperty("cancelButton").objectReferenceValue = hud.CancelButton;
-            placementSerialized.FindProperty("startWaveButton").objectReferenceValue = hud.StartWaveButton;
-            placementSerialized.FindProperty("nextWaveButton").objectReferenceValue = hud.NextWaveButton;
-            placementSerialized.FindProperty("towerPanel").objectReferenceValue = hud.TowerPanel;
-            placementSerialized.FindProperty("towerStatsText").objectReferenceValue = hud.TowerStatsText;
-            placementSerialized.FindProperty("upgradeButton").objectReferenceValue = hud.UpgradeButton;
-            placementSerialized.FindProperty("closeTowerButton").objectReferenceValue = hud.CloseTowerButton;
-            placementSerialized.FindProperty("sellButton").objectReferenceValue = hud.SellButton;
-            placementSerialized.FindProperty("sellConfirmationPanel").objectReferenceValue = hud.SellConfirmationPanel;
-            placementSerialized.FindProperty("confirmSellButton").objectReferenceValue = hud.ConfirmSellButton;
-            placementSerialized.FindProperty("cancelSellButton").objectReferenceValue = hud.CancelSellButton;
-            placementSerialized.ApplyModifiedPropertiesWithoutUndo();
+        private static void BindPlayerUi(BattleSceneController battle, HudReferences hud)
+        {
+            var placement = battle.GetComponent<BattlePlacementController>();
+            var pause = battle.GetComponent<BattlePauseController>();
+            var checkpoints = battle.GetComponent<BattleCheckpointController>();
+            var inspector = battle.GetComponent<EnemyInspectorController>();
+            var choice = battle.GetComponent<ElementChoiceController>();
+            var ability = battle.GetComponent<AbilityController>();
+            var boss = battle.GetComponent<BossHudController>();
 
-            var inspectorSerialized = new SerializedObject(inspector);
-            inspectorSerialized.FindProperty("battle").objectReferenceValue = battle;
-            inspectorSerialized.FindProperty("placement").objectReferenceValue = placement;
-            inspectorSerialized.FindProperty("worldCamera").objectReferenceValue = battleCamera;
-            inspectorSerialized.FindProperty("panel").objectReferenceValue = hud.InspectorPanel;
-            inspectorSerialized.FindProperty("detailsText").objectReferenceValue = hud.InspectorText;
-            inspectorSerialized.FindProperty("closeButton").objectReferenceValue = hud.CloseInspectorButton;
-            inspectorSerialized.ApplyModifiedPropertiesWithoutUndo();
-
-            var abilityPreviewObject = new GameObject("Ability Preview", typeof(LineRenderer), typeof(AbilityPreviewView));
-            abilityPreviewObject.transform.SetParent(controllerObject.transform, false);
-            var abilityLine = abilityPreviewObject.GetComponent<LineRenderer>();
-            abilityLine.sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>(MaterialsFolder + "/ReactionEffect.mat");
-            abilityLine.startWidth = abilityLine.endWidth = .04f;
-            abilityLine.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; abilityLine.receiveShadows = false;
-            abilityPreviewObject.SetActive(false);
-            var abilitySerialized = new SerializedObject(ability);
-            abilitySerialized.FindProperty("battle").objectReferenceValue = battle;
-            abilitySerialized.FindProperty("placement").objectReferenceValue = placement;
-            abilitySerialized.FindProperty("beginButton").objectReferenceValue = hud.AbilityBegin;
-            abilitySerialized.FindProperty("confirmButton").objectReferenceValue = hud.AbilityConfirm;
-            abilitySerialized.FindProperty("cancelButton").objectReferenceValue = hud.AbilityCancel;
-            abilitySerialized.FindProperty("panel").objectReferenceValue = hud.AbilityPanel;
-            abilitySerialized.FindProperty("statusText").objectReferenceValue = hud.AbilityStatus;
-            abilitySerialized.FindProperty("feedbackText").objectReferenceValue = hud.AbilityFeedback;
-            abilitySerialized.FindProperty("preview").objectReferenceValue = abilityPreviewObject.GetComponent<AbilityPreviewView>();
-            abilitySerialized.ApplyModifiedPropertiesWithoutUndo();
-
-            var choiceSerialized = new SerializedObject(choice);
-            choiceSerialized.FindProperty("battle").objectReferenceValue = battle;
-            choiceSerialized.FindProperty("placement").objectReferenceValue = placement;
-            choiceSerialized.FindProperty("panel").objectReferenceValue = hud.ChoicePanel;
-            choiceSerialized.FindProperty("safeAreaRoot").objectReferenceValue = hud.ChoiceSafeArea;
-            choiceSerialized.FindProperty("titleText").objectReferenceValue = hud.ChoiceTitle;
-            choiceSerialized.FindProperty("summaryText").objectReferenceValue = hud.ProgressionSummary;
-            var optionRefs = choiceSerialized.FindProperty("optionButtons"); optionRefs.arraySize = 4;
-            for (var i = 0; i < 4; i++) optionRefs.GetArrayElementAtIndex(i).objectReferenceValue = hud.ChoiceOptions[i];
-            choiceSerialized.FindProperty("confirmButton").objectReferenceValue = hud.ConfirmChoice;
-            choiceSerialized.FindProperty("cancelButton").objectReferenceValue = hud.CancelChoice;
-            choiceSerialized.ApplyModifiedPropertiesWithoutUndo();
-
-            var pauseSerialized = new SerializedObject(pause);
-            pauseSerialized.FindProperty("battle").objectReferenceValue = battle;
-            pauseSerialized.FindProperty("placement").objectReferenceValue = placement;
-            pauseSerialized.FindProperty("pauseOverlay").objectReferenceValue = hud.PauseOverlay;
-            pauseSerialized.FindProperty("pauseButton").objectReferenceValue = hud.PauseButton;
-            pauseSerialized.FindProperty("resumeButton").objectReferenceValue = hud.ResumeButton;
-            pauseSerialized.ApplyModifiedPropertiesWithoutUndo();
+            Bind(battle, ("hudText", hud.StatsText), ("pauseController", pause), ("placementController", placement),
+                ("checkpointController", checkpoints), ("enemyInspector", inspector), ("elementChoice", choice),
+                ("abilityController", ability), ("bossHud", boss), ("mainMenuButton", hud.MainMenuButton),
+                ("reactionSummaryText", hud.ReactionSummaryText));
+            Bind(boss, ("battle", battle), ("placement", placement), ("panel", hud.BossPanel),
+                ("noticeText", hud.BossNotice), ("healthText", hud.BossHealth), ("healthFill", hud.BossFill));
+            Bind(checkpoints, ("battle", battle), ("saveStatusText", hud.SaveStatusText), ("retrySaveButton", hud.RetrySave));
+            Bind(placement, ("battle", battle), ("enemyInspector", inspector), ("catalogRoot", hud.CatalogRoot),
+                ("catalogButtonTemplate", hud.CatalogButtonTemplate), ("buildStatsText", hud.BuildStatsText),
+                ("sellConfirmationText", hud.SellConfirmationText), ("confirmationPanel", hud.ConfirmationPanel),
+                ("confirmButton", hud.ConfirmButton), ("cancelButton", hud.CancelButton),
+                ("startWaveButton", hud.StartWaveButton), ("nextWaveButton", hud.NextWaveButton),
+                ("towerPanel", hud.TowerPanel), ("towerStatsText", hud.TowerStatsText),
+                ("upgradeButton", hud.UpgradeButton), ("closeTowerButton", hud.CloseTowerButton),
+                ("sellButton", hud.SellButton), ("sellConfirmationPanel", hud.SellConfirmationPanel),
+                ("confirmSellButton", hud.ConfirmSellButton), ("cancelSellButton", hud.CancelSellButton));
+            Bind(inspector, ("battle", battle), ("placement", placement), ("panel", hud.InspectorPanel),
+                ("detailsText", hud.InspectorText), ("closeButton", hud.CloseInspectorButton));
+            Bind(ability, ("battle", battle), ("placement", placement), ("beginButton", hud.AbilityBegin),
+                ("confirmButton", hud.AbilityConfirm), ("cancelButton", hud.AbilityCancel), ("panel", hud.AbilityPanel),
+                ("statusText", hud.AbilityStatus), ("feedbackText", hud.AbilityFeedback));
+            Bind(choice, ("battle", battle), ("placement", placement), ("panel", hud.ChoicePanel),
+                ("safeAreaRoot", hud.ChoiceSafeArea), ("titleText", hud.ChoiceTitle), ("summaryText", hud.ProgressionSummary),
+                ("confirmButton", hud.ConfirmChoice), ("cancelButton", hud.CancelChoice));
+            using var choiceData = new SerializedObject(choice);
+            var options = choiceData.FindProperty("optionButtons");
+            options.arraySize = hud.ChoiceOptions.Length;
+            for (var i = 0; i < options.arraySize; i++)
+                options.GetArrayElementAtIndex(i).objectReferenceValue = hud.ChoiceOptions[i];
+            choiceData.ApplyModifiedPropertiesWithoutUndo();
+            Bind(pause, ("battle", battle), ("placement", placement), ("pauseOverlay", hud.PauseOverlay),
+                ("pauseButton", hud.PauseButton), ("resumeButton", hud.ResumeButton));
             Bind(hud.PlayerHud, ("battle", battle), ("placement", placement), ("pause", pause),
-                ("ability", ability), ("choice", choice), ("inspector", inspector), ("checkpoints", checkpoint));
+                ("ability", ability), ("choice", choice), ("inspector", inspector), ("checkpoints", checkpoints));
         }
 
         private sealed class HudReferences

@@ -89,6 +89,32 @@ namespace Veilward.Tests.EditMode
         }
 
         [Test]
+        public void DamagedSave_UsesRetryUntilAPlayableCheckpointIsAvailable()
+        {
+            var menu = CreateMenu();
+            var retry = CreateButton("Retry Load Button");
+            using var serialized = new SerializedObject(menu);
+            serialized.FindProperty("retryButton").objectReferenceValue = retry;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            File.WriteAllText(_store.PrimaryPath, "{corrupt");
+
+            menu.RefreshCheckpointStatus();
+            Assert.That(retry.gameObject.activeSelf, Is.True);
+            Assert.That(menu.ContinueButton.interactable, Is.False);
+            Assert.That(menu.StatusText.text, Is.EqualTo("The save is damaged."));
+
+            File.Delete(_store.PrimaryPath);
+            Save(BattlePhase.Preparation);
+            var durable = File.ReadAllBytes(_store.PrimaryPath);
+            menu.RefreshCheckpointStatus();
+            Assert.That(retry.gameObject.activeSelf, Is.False);
+            Assert.That(menu.ContinueButton.interactable, Is.True);
+            Assert.That(menu.StatusText.text, Does.Contain("Saved at wave"));
+            Assert.That(File.ReadAllBytes(_store.PrimaryPath), Is.EqualTo(durable));
+            Assert.That(BattleSessionContext.Consume(), Is.Null);
+        }
+
+        [Test]
         public void NewGame_DeletesSlotAndCreatesFreshSession()
         {
             var menu = CreateMenu();

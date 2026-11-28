@@ -1,17 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using Veilward.Presentation;
+using Object = UnityEngine.Object;
 
 namespace Veilward.Editor
 {
     public static partial class BattleSceneBuilder
     {
         private static readonly Color Ink = new Color32(16, 20, 33, 255);
-        private static readonly Color Surface = new Color32(27, 34, 51, 250);
-        private static readonly Color Raised = new Color32(39, 50, 70, 255);
-        private static readonly Color Jade = new Color32(39, 104, 83, 255);
+        private static readonly Color PaperText = new Color32(57, 37, 43, 255);
+        private static readonly Color PaperMuted = new Color32(103, 65, 57, 255);
         private static readonly Color Gilt = new Color32(231, 194, 121, 255);
         private static readonly Color Stone = new Color32(245, 233, 209, 255);
         private static readonly Color Muted = new Color32(203, 191, 175, 255);
@@ -25,135 +28,175 @@ namespace Veilward.Editor
         private static readonly Vector2 TopRight = Vector2.one;
         private static readonly Vector2 BottomRight = Vector2.right;
 
+        private const string UiArtPath = "Assets/_Game/Art/UI/InkAndLanterns/";
+        private const string Primary = "CoralButton";
+        private const string Secondary = "PaperButton";
+        private const string Option = "DarkButton";
+        private static Dictionary<string, Sprite> _inkSprites;
+
+        [MenuItem("VEILWARD/Rebuild Player UI")]
+        public static void RebuildPlayerUi()
+        {
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+
+            _inkSprites = null;
+            var scene = EditorSceneManager.OpenScene(BattleScenePath);
+            var battle = scene.GetRootGameObjects().Select(root => root.GetComponent<BattleSceneController>())
+                .Single(component => component != null);
+            var previous = scene.GetRootGameObjects().Single(root => root.GetComponent<BattlePlayerHud>() != null);
+            var hud = CreateHud();
+            BindPlayerUi(battle, hud);
+            Object.DestroyImmediate(previous);
+            ValidateRequiredReferences();
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            BuildMainMenu();
+        }
+
         private static void BuildMainMenu()
         {
             var scene = EditorSceneManager.OpenScene(MainMenuScenePath);
-            foreach (var root in scene.GetRootGameObjects())
-                Object.DestroyImmediate(root);
-
-            var camera = new GameObject("Main Camera", typeof(Camera), typeof(AudioListener)).GetComponent<Camera>();
-            camera.tag = "MainCamera";
-            camera.transform.position = new Vector3(0, 1, -10);
-            camera.clearFlags = CameraClearFlags.SolidColor;
-            camera.backgroundColor = Ink;
-            var canvas = UiCanvas("Main Menu Canvas");
-            var safe = SafeRoot(canvas, "Menu Safe Area");
-            var composition = Rect("Title Composition", safe, Center, 0, 0, 660, 348);
-            var emblem = Rect("Seal Artwork", composition, Left, 0, 0, 282, 282);
-            Image("Tile", emblem, Center, 0, 0, 224, 224, new Color32(28, 53, 58, 255), false)
-                .rectTransform.localEulerAngles = new Vector3(0, 0, 45);
-            Icon("Inner seal", emblem, Center, 0, 0, 242, VeilwardGlyph.Seal, Gilt);
-            Icon("Outer seal", emblem, Center, 0, 0, 306, VeilwardGlyph.Seal, new Color32(94, 134, 125, 90));
-            foreach (var (glyph, x, y) in new[]
+            var roots = scene.GetRootGameObjects();
+            var camera = roots.Select(root => root.GetComponent<Camera>()).FirstOrDefault(component => component != null);
+            if (camera == null)
             {
-                (VeilwardGlyph.Flame, 0f, 103f), (VeilwardGlyph.Tide, 103f, 0f),
-                (VeilwardGlyph.Gale, 0f, -103f), (VeilwardGlyph.Stone, -103f, 0f)
-            })
-            {
-                Image(glyph + " tile", emblem, Center, x, y, 34, 34, Ink, false)
-                    .rectTransform.localEulerAngles = new Vector3(0, 0, 45);
-                Icon(glyph.ToString(), emblem, Center, x, y, 24, glyph, ElementColor(glyph));
+                camera = new GameObject("Main Camera", typeof(Camera), typeof(AudioListener)).GetComponent<Camera>();
+                camera.tag = "MainCamera";
+                camera.transform.position = new Vector3(0, 1, -10);
+                camera.clearFlags = CameraClearFlags.SolidColor;
+                camera.backgroundColor = Ink;
             }
 
-            var actions = Rect("Title and Actions", composition, Right, 0, 0, 336, 348);
-            Label("Subtitle", actions, TopLeft, 0, -11, 336, 22, "S P I R I T   D E F E N S E", 15, Gilt, bold: true);
-            Label("Title", actions, TopLeft, 0, -32, 336, 74, "VEILWARD", 59, Stone, bold: true);
-            Image("Rule", actions, TopLeft, 0, -116, 336, 1, Gilt, false);
-            var newGame = Action("New Game Button", actions, "New Game", TopLeft, 0, -135, 336, Jade);
-            var continueButton = Action("Continue Button", actions, "Continue", TopLeft, 0, -203, 336, Raised);
+            var canvas = UiCanvas("Main Menu Canvas");
+            var backdrop = Image("Shrine Illustration", canvas, Center, 0, 0, 0, 0, Color.white, false);
+            backdrop.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(UiArtPath + "MenuBackdrop.jpg")
+                ?? throw new InvalidOperationException("Missing shrine illustration.");
+            Stretch(backdrop.rectTransform);
+            var crop = backdrop.gameObject.AddComponent<AspectRatioFitter>();
+            crop.aspectMode = AspectRatioFitter.AspectMode.EnvelopeParent;
+            crop.aspectRatio = backdrop.sprite.rect.width / backdrop.sprite.rect.height;
+
+            var safe = SafeRoot(canvas, "Menu Safe Area");
+            var actions = Rect("Title and Actions", safe, Left, 26, 0, 320, 352);
+            Decoration("Fox Crest", actions, Top, 0, -1, 82, 72, "FoxCrest");
+            DisplayLabel("Title", actions, Top, 0, -62, 320, 65, "VEILWARD", 62, Stone);
+            Label("Subtitle", actions, Top, 0, -125, 310, 22, "S P I R I T   D E F E N S E", 13, Gilt, TextAnchor.MiddleCenter, true);
+            var continueButton = Action("Continue Button", actions, "Continue", Top, 0, -156, 270, Primary, fontSize: 22);
+            ButtonIcon(continueButton, VeilwardGlyph.Flame, Gilt, 35, 25);
             continueButton.interactable = false;
-            var status = Label("Status Text", actions, TopLeft, 0, -275, 216, 63, "", 15, Muted, TextAnchor.UpperLeft);
-            var retry = Action("Retry Load Button", actions, "Retry", TopRight, 0, -275, 108, Raised);
+            var newGame = Action("New Game Button", actions, "New Game", Top, 0, -221, 270, Secondary, fontSize: 22);
+            ButtonDecoration(newGame, "Gate", 33, 25);
+
+            Decoration("Checkpoint strip", actions, Top, 0, -286, 274, 56, "InkStrip");
+            var status = Label("Status Text", actions, TopLeft, 41, -288, 145, 61, "", 13, Stone);
+            var retry = Action("Retry Load Button", actions, "Retry", TopRight, -25, -288, 100, Option);
             retry.gameObject.SetActive(false);
             ApplySafeRoots(canvas, safe);
-            CreateEventSystem();
-            var menu = new GameObject("Main Menu Controller").AddComponent<MainMenuController>();
+            if (Object.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>() == null) CreateEventSystem();
+            var menu = roots.Select(root => root.GetComponent<MainMenuController>()).FirstOrDefault(component => component != null);
+            if (menu == null) menu = new GameObject("Main Menu Controller").AddComponent<MainMenuController>();
             Bind(menu, ("scenario", AssetDatabase.LoadAssetAtPath<BattleScenarioConfig>(ConfigPath)),
                 ("newGameButton", newGame), ("continueButton", continueButton), ("statusText", status), ("retryButton", retry));
+            foreach (var root in roots)
+                if (root.GetComponent<Canvas>() != null) Object.DestroyImmediate(root);
 
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
         }
 
         private static HudReferences CreateHud()
         {
             var canvas = UiCanvas("HUD");
             var safe = SafeRoot(canvas, "Battle Safe Area");
-            var stats = Card("Stats Panel", safe, TopLeft, 10, -10, 318, 60);
-            var heart = Metric(stats, "Heart", 10, 84, VeilwardGlyph.Heart, Coral);
-            var gold = Metric(stats, "Gold", 106, 80, VeilwardGlyph.Gold, Gilt);
-            var wave = Metric(stats, "Wave", 198, 110, VeilwardGlyph.Wave, new Color32(139, 214, 186, 255));
-            var phasePlate = Card("Phase Plate", safe, TopLeft, 336, -10, 112, 60);
-            var stage = Label("Battle Phase", phasePlate, Center, 0, 0, 108, 40, "", 15, Stone, TextAnchor.MiddleCenter, true);
-            var start = Action("Start Wave Button", safe, "Start Wave", TopRight, -78, -10, 138, Jade);
-            var next = Action("Next Wave Button", safe, "Next Wave", TopRight, -78, -10, 138, Jade);
+            var stats = Card("Stats Panel", safe, TopLeft, 10, -10, 285, 46, "InkStrip");
+            var heart = Metric(stats, "Heart", 17, 62, VeilwardGlyph.Heart);
+            var gold = Metric(stats, "Gold", 91, 82, VeilwardGlyph.Gold);
+            var wave = Metric(stats, "Wave", 178, 102, VeilwardGlyph.Wave);
+            var phasePlate = Card("Phase Plate", safe, TopLeft, 304, -12, 128, 40, "PaperButton");
+            var stage = DisplayLabel("Battle Phase", phasePlate, Center, 0, 0, 115, 35, "", 20, PaperText);
+            var start = Action("Start Wave Button", safe, "Start Wave", TopRight, -78, -8, 137, Primary);
+            var next = Action("Next Wave Button", safe, "Next Wave", TopRight, -78, -8, 137, Primary);
             next.gameObject.SetActive(false);
-            var pause = Action("Pause Button", safe, "Pause", TopRight, -10, -10, 60, Raised);
+            var pause = Action("Pause Button", safe, "", TopRight, -10, -8, 60, Secondary);
+            Icon("Pause Mark", pause.transform, Center, 0, 0, 44, VeilwardGlyph.Pause, PaperText);
 
-            var boss = Card("Boss Panel", safe, TopLeft, 10, -78, 244, 74);
-            var bossNotice = Label("Boss Notice", boss, TopLeft, 12, -8, 220, 35, "", 14, Coral, TextAnchor.UpperLeft, true);
-            var bossHealth = Label("Boss Health", boss, TopLeft, 12, -42, 220, 18, "", 14, Stone, bold: true);
-            var bossBar = Image("Boss HP Bar", boss, Bottom, 0, 8, 220, 4, Ink, false).rectTransform;
+            var boss = Card("Boss Panel", safe, TopLeft, 10, -60, 246, 52, "InkStrip");
+            Decoration("Warden Mask", boss, Left, 6, 0, 44, 44, "Warden");
+            // Справа от полосы HP остаётся место для двух значков #104.
+            var bossNotice = Label("Boss Notice", boss, TopLeft, 52, -9, 184, 34, "", 12, Stone, TextAnchor.UpperLeft, true);
+            var bossHealth = Label("Boss Health", boss, TopLeft, 52, -22, 152, 16, "", 12, Stone, bold: true);
+            var bossBar = ArtImage("Boss HP Bar", boss, Vector2.zero, 52, 9, 136, 7, "HealthTrack", false).rectTransform;
             var bossFill = Image("Boss HP Fill", bossBar, Center, 0, 0, 0, 0, Coral, false);
             Stretch(bossFill.rectTransform);
             boss.gameObject.SetActive(false);
 
-            var build = Card("Placement Panel", safe, BottomRight, -10, 10, 266, 290);
-            Label("Build Title", build, TopLeft, 10, -4, 246, 21, "Build a tower", 17, Gilt, bold: true);
-            var catalog = Rect("Tower Catalog", build, Top, 0, -26, 246, 141);
+            var build = Card("Placement Panel", safe, BottomRight, -10, 8, 718, 84, "InkStrip");
+            var catalog = Rect("Tower Catalog", build, Left, 12, 0, 370, 62);
             var layout = catalog.gameObject.AddComponent<GridLayoutGroup>();
-            layout.cellSize = new Vector2(78, 68);
-            layout.spacing = new Vector2(6, 5);
+            layout.cellSize = new Vector2(60, 62);
+            layout.spacing = new Vector2(2, 0);
             layout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-            layout.constraintCount = 3;
-            var template = Action("Catalog Button Template", catalog, "", Center, 0, 0, 78, Raised, 68, 13);
-            ButtonIcon(template, VeilwardGlyph.Flame, Gilt, 14, 3, top: true);
+            layout.constraintCount = 6;
+            var template = Action("Catalog Button Template", catalog, "", Center, 0, 0, 60, Option, 62, 11);
+            ButtonIcon(template, VeilwardGlyph.Flame, Gilt, 36, 4, top: true);
             var catalogName = template.GetComponentInChildren<Text>();
-            SetRect(catalogName.rectTransform, Top, new Vector2(0, -18), new Vector2(76, 16));
-            Label("Catalog Price", template.transform, Top, 0, -34, 76, 16, "", 13, Stone, TextAnchor.MiddleCenter, true);
-            Label("Catalog State", template.transform, Top, 0, -50, 76, 15, "", 12, Muted, TextAnchor.MiddleCenter);
+            SetRect(catalogName.rectTransform, Top, new Vector2(0, -43), new Vector2(56, 15));
+            var selection = template.gameObject.AddComponent<Outline>();
+            selection.effectColor = Gilt;
+            selection.effectDistance = new Vector2(1.5f, -1.5f);
+            selection.enabled = false;
+            Icon("Lock Badge", template.transform, TopRight, -2, -2, 18, VeilwardGlyph.Lock, Gilt).gameObject.SetActive(false);
             template.gameObject.SetActive(false);
-            var buildStats = Label("Build Stats", build, TopLeft, 10, -170, 246, 48, "Choose a tower type", 13, Stone, TextAnchor.UpperLeft);
-            var confirm = Action("Confirm Button", build, "Build", BottomRight, -10, 8, 118, Jade);
-            var cancel = Action("Cancel Button", build, "Cancel", Vector2.zero, 10, 8, 118, Raised);
+            Image("Catalog Divider", build, Left, 387, 0, 1, 53, new Color32(164, 120, 93, 150), false);
+            var buildStats = Label("Build Stats", build, Left, 395, 0, 169, 74, "Choose a school", 12, Stone);
+            var confirm = Action("Confirm Button", build, "Build", Right, -84, 0, 66, Primary, fontSize: 15);
+            var cancel = Action("Cancel Button", build, "Cancel", Right, -10, 0, 68, Secondary, fontSize: 15);
             build.gameObject.SetActive(false);
 
-            var tower = Card("Tower Panel", safe, BottomRight, -10, 10, 350, 156);
-            var towerStats = Label("Tower Stats", tower, TopLeft, 12, -8, 328, 72, "", 14, Stone, TextAnchor.UpperLeft);
-            var closeTower = Action("Close Tower Button", tower, "Close", Vector2.zero, 10, 8, 68, Raised, fontSize: 14);
-            var upgrade = Action("Upgrade Button", tower, "Upgrade", BottomRight, -10, 8, 128, Jade, fontSize: 14);
-            var sell = Action("Sell Button", tower, "Sell", BottomRight, -146, 8, 118, Raised, fontSize: 14);
+            var tower = Card("Tower Panel", safe, BottomRight, -10, 10, 353, 179);
+            var towerStats = Label("Tower Stats", tower, TopLeft, 16, -15, 318, 91, "", 14, Stone, TextAnchor.UpperLeft);
+            var closeTower = Action("Close Tower Button", tower, "Close", Vector2.zero, 10, 9, 73, Secondary, fontSize: 14);
+            var upgrade = Action("Upgrade Button", tower, "Upgrade", BottomRight, -10, 9, 126, Primary, fontSize: 14);
+            var sell = Action("Sell Button", tower, "Sell", BottomRight, -141, 9, 119, Secondary, fontSize: 14);
             tower.gameObject.SetActive(false);
 
-            var inspector = Card("Enemy Inspector Panel", safe, BottomRight, -10, 10, 262, 234);
-            var inspectorText = Label("Enemy Inspector Details", inspector, TopLeft, 12, -11, 238, 151, "", 14, Stone, TextAnchor.UpperLeft);
-            var closeInspector = Action("Close Inspector Button", inspector, "Close", BottomRight, -10, 8, 100, Raised);
+            var inspector = Card("Enemy Inspector Panel", safe, Vector2.zero, 10, 10, 310, 241);
+            var inspectorText = Label("Enemy Inspector Details", inspector, TopLeft, 13, -13, 284, 158, "", 14, Stone, TextAnchor.UpperLeft);
+            var closeInspector = Action("Close Inspector Button", inspector, "Close", BottomRight, -10, 9, 100, Secondary);
             inspector.gameObject.SetActive(false);
 
-            var abilityBegin = Action("Ability Button", safe, "Rift Seal", Vector2.zero, 10, 10, 166, Jade, fontSize: 14);
-            ButtonIcon(abilityBegin, VeilwardGlyph.Seal, Gilt, 31, 10);
-            var abilityFeedback = Card("Ability Feedback", safe, Vector2.zero, 10, 77, 254, 44);
-            var feedback = Label("Ability Feedback Text", abilityFeedback, Center, 0, 0, 234, 40, "", 14, Stone);
+            var abilityBegin = Action("Ability Button", safe, "Rift Seal", BottomRight, -10, 8, 104, "JadeButton", 84, 12);
+            var hit = abilityBegin.image;
+            hit.sprite = null;
+            hit.color = Color.clear;
+            hit.canvasRenderer.cullTransparentMesh = false;
+            var seal = Decoration("Seal Medallion", abilityBegin.transform, Top, 0, -1, 56, 56, "Seal");
+            Decoration("Seal Caption Paper", abilityBegin.transform, Bottom, 0, -2, 104, 44, "PaperButton");
+            var sealLabel = abilityBegin.GetComponentInChildren<Text>();
+            sealLabel.transform.SetAsLastSibling();
+            sealLabel.color = PaperText;
+            SetRect(sealLabel.rectTransform, Bottom, new Vector2(0, 4), new Vector2(98, 30));
+            Bind(abilityBegin, ("stateGraphic", seal));
+            var abilityFeedback = Card("Ability Feedback", safe, BottomRight, -10, 94, 240, 40, "InkStrip");
+            var feedback = Label("Ability Feedback Text", abilityFeedback, Center, 0, 0, 217, 39, "", 14, Stone, TextAnchor.MiddleCenter);
             abilityFeedback.gameObject.SetActive(false);
-            var ability = Card("Ability Panel", safe, Vector2.zero, 10, 10, 252, 130);
-            var abilityStatus = Label("Ability Status", ability, TopLeft, 12, -10, 228, 43, "", 15, Stone, TextAnchor.UpperLeft);
-            var abilityConfirm = Action("Confirm Ability Button", ability, "Cast Seal", Vector2.zero, 10, 8, 112, Jade);
-            var abilityCancel = Action("Cancel Ability Button", ability, "Cancel", BottomRight, -10, 8, 112, Raised);
+            var ability = Card("Ability Panel", safe, BottomRight, -10, 10, 264, 132);
+            var abilityStatus = Label("Ability Status", ability, TopLeft, 16, -13, 231, 44, "", 14, Stone, TextAnchor.UpperLeft);
+            var abilityConfirm = Action("Confirm Ability Button", ability, "Cast Seal", Vector2.zero, 10, 8, 116, Primary);
+            var abilityCancel = Action("Cancel Ability Button", ability, "Cancel", BottomRight, -10, 8, 116, Secondary);
             ability.gameObject.SetActive(false);
 
             var sellOverlay = Modal(canvas, "Sell Confirmation Panel", out var sellSafe);
-            var sellCard = Card("Sell Dialog", sellSafe, Center, 0, 0, 332, 164);
-            var sellLabel = Label("Sell Confirmation Label", sellCard, Top, 0, -14, 308, 72, "Sell this tower?", 20, Stone, TextAnchor.MiddleCenter, true);
-            var confirmSell = Action("Confirm Sell Button", sellCard, "Sell tower", BottomRight, -12, 12, 146, Jade);
-            var cancelSell = Action("Cancel Sell Button", sellCard, "Keep tower", Vector2.zero, 12, 12, 146, Raised);
+            var sellCard = Dialogue("Sell Dialog", sellSafe, 346, 173);
+            var sellLabel = Label("Sell Confirmation Label", sellCard, Top, 0, -18, 293, 72, "Sell this tower?", 19, PaperText, TextAnchor.MiddleCenter, true);
+            var confirmSell = Action("Confirm Sell Button", sellCard, "Sell tower", BottomRight, -15, 12, 150, Primary);
+            var cancelSell = Action("Cancel Sell Button", sellCard, "Keep tower", Vector2.zero, 15, 12, 150, Secondary);
 
             var choiceOverlay = Modal(canvas, "Element Choice Overlay", out var choiceSafe);
-            var choice = Card("Element Choice Card", choiceSafe, Center, 0, 0, 444, 235);
-            var choiceTitle = Label("Choice Title", choice, Top, 0, -12, 420, 34, "", 27, Gilt, TextAnchor.MiddleCenter, true);
-            var choiceHelp = Label("Choice Help", choice, Top, 0, -52, 420, 28, "", 15, Stone, TextAnchor.MiddleCenter);
-            var choiceRow = Rect("Element Options", choice, Top, 0, -87, 420, 66);
+            var choice = Dialogue("Element Choice Card", choiceSafe, 446, 242, -11);
+            var choiceTitle = DisplayLabel("Choice Title", choice, Top, 0, -14, 372, 35, "", 31, PaperText);
+            var choiceHelp = Label("Choice Help", choice, Top, 0, -51, 382, 29, "", 15, PaperMuted, TextAnchor.MiddleCenter);
+            var choiceRow = Rect("Element Options", choice, Top, 0, -84, 412, 76);
             var choicesLayout = choiceRow.gameObject.AddComponent<HorizontalLayoutGroup>();
             choicesLayout.spacing = 8;
             choicesLayout.childControlWidth = choicesLayout.childControlHeight = true;
@@ -163,25 +206,26 @@ namespace Veilward.Editor
             var options = new Button[ids.Length];
             for (var i = 0; i < ids.Length; i++)
             {
-                options[i] = Action(ids[i], choiceRow, ids[i], Center, 0, 0, 98, Raised, 66, 14);
-                ButtonIcon(options[i], glyphs[i], ElementColor(glyphs[i]), 20, 5, top: true);
+                options[i] = Action(ids[i], choiceRow, ids[i], Center, 0, 0, 96, Option, 76, 14);
+                ButtonIcon(options[i], glyphs[i], Gilt, 34, 4, top: true);
             }
-            var choiceMenu = Action("Choice Menu Button", choice, "Main Menu", Vector2.zero, 12, 12, 124, Raised);
-            var cancelChoice = Action("Cancel Element Button", choice, "Clear", Bottom, 0, 12, 96, Raised);
-            var confirmChoice = Action("Confirm Element Button", choice, "Unlock", BottomRight, -12, 12, 124, Jade);
+            var choiceMenu = Action("Choice Menu Button", choice, "Main Menu", Vector2.zero, 15, 12, 124, Secondary);
+            var cancelChoice = Action("Cancel Element Button", choice, "Clear", Bottom, 0, 12, 96, Secondary);
+            var confirmChoice = Action("Confirm Element Button", choice, "Unlock", BottomRight, -15, 12, 124, Primary);
 
             var resultOverlay = Modal(canvas, "Battle Result Overlay", out var resultSafe);
-            var result = Card("Battle Result", resultSafe, Center, 0, -14, 350, 256);
-            Icon("Result Seal", result, Top, 0, -10, 40, VeilwardGlyph.Seal, Gilt);
-            var resultTitle = Label("Result Title", result, Top, 0, -52, 326, 38, "", 32, Gilt, TextAnchor.MiddleCenter, true);
-            var resultDetails = Label("Result Details", result, Top, 0, -96, 326, 63, "", 17, Stone, TextAnchor.MiddleCenter);
-            var resultSave = Label("Result Save Status", result, Top, 0, -163, 326, 18, "", 14, Coral, TextAnchor.MiddleCenter);
-            var resultMenu = Action("Result Menu Button", result, "Main Menu", Bottom, 0, 10, 180, Jade);
+            var result = Dialogue("Battle Result", resultSafe, 360, 258, -14);
+            Icon("Result Seal", result, Top, 0, -8, 50, VeilwardGlyph.Seal, Gilt);
+            var resultTitle = DisplayLabel("Result Title", result, Top, 0, -57, 326, 43, "", 42, PaperText);
+            var resultDetails = Label("Result Details", result, Top, 0, -101, 326, 58, "", 16, PaperText, TextAnchor.MiddleCenter);
+            var resultSave = Label("Result Save Status", result, Top, 0, -160, 326, 21, "", 14, PaperMuted, TextAnchor.MiddleCenter);
+            var resultMenu = Action("Result Menu Button", result, "Main Menu", Bottom, 0, 11, 181, Primary);
+            ButtonDecoration(resultMenu, "Gate", 28, 15);
 
             var warningSafe = SafeRoot(canvas, "Save Warning Safe Area");
-            var warning = Card("Save Warning", warningSafe, TopRight, -10, -78, 306, 64);
-            var saveStatus = Label("Save Warning Text", warning, Left, 12, 0, 173, 62, "", 15, Coral);
-            var retrySave = Action("Retry Save Button", warning, "Retry Save", Right, -8, 0, 106, Raised, fontSize: 14);
+            var warning = Card("Save Warning", warningSafe, TopRight, -10, -78, 270, 72);
+            var saveStatus = Label("Save Warning Text", warning, Left, 14, 0, 147, 61, "", 13, Coral);
+            var retrySave = Action("Retry Save Button", warning, "Retry Save", Right, -8, 0, 96, Secondary, fontSize: 14);
             warning.gameObject.SetActive(false);
 
             var diagnostics = Card("Battle Diagnostics", safe, TopLeft, 10, -78, 300, 259);
@@ -191,12 +235,13 @@ namespace Veilward.Editor
             diagnostics.gameObject.SetActive(false);
 
             var pauseOverlay = Modal(canvas, "Pause Overlay", out var pauseSafe);
-            var pauseCard = Card("Pause Dialog", pauseSafe, Center, 0, 0, 350, 196);
-            Icon("Pause Seal", pauseCard, Top, 0, -12, 34, VeilwardGlyph.Seal, Gilt);
-            Label("Paused Label", pauseCard, Top, 0, -49, 320, 38, "Paused", 32, Gilt, TextAnchor.MiddleCenter, true);
-            var pauseSave = Label("Pause Save Status", pauseCard, Top, 0, -91, 320, 33, "", 15, Stone, TextAnchor.MiddleCenter);
-            var resume = Action("Resume Button", pauseCard, "Resume", BottomRight, -12, 12, 153, Jade);
-            var menu = Action("Main Menu Button", pauseCard, "Main Menu", Vector2.zero, 12, 12, 153, Raised);
+            var pauseCard = Dialogue("Pause Dialog", pauseSafe, 339, 243);
+            DisplayLabel("Paused Label", pauseCard, Top, 0, -18, 270, 52, "Paused", 49, PaperText);
+            var resume = Action("Resume Button", pauseCard, "Resume", Top, 0, -75, 231, Primary, fontSize: 21);
+            ButtonIcon(resume, VeilwardGlyph.Flame, Gilt, 34, 20);
+            var menu = Action("Main Menu Button", pauseCard, "Main Menu", Top, 0, -138, 231, Secondary, fontSize: 21);
+            ButtonDecoration(menu, "Gate", 33, 20);
+            var pauseSave = Label("Pause Save Status", pauseCard, Bottom, 0, 13, 302, 26, "", 13, PaperMuted, TextAnchor.MiddleCenter);
 
             ApplySafeRoots(canvas, safe, sellSafe, choiceSafe, resultSafe, warningSafe, pauseSafe);
             var playerHud = canvas.gameObject.AddComponent<BattlePlayerHud>();
@@ -225,11 +270,10 @@ namespace Veilward.Editor
             };
         }
 
-        private static Text Metric(Transform parent, string name, float x, float width, VeilwardGlyph glyph, Color accent)
+        private static Text Metric(Transform parent, string name, float x, float width, VeilwardGlyph glyph)
         {
-            Icon(name + " Icon", parent, Left, x, 0, 23, glyph, accent);
-            Label(name + " Label", parent, TopLeft, x + 29, -8, width - 29, 18, name, 13, Muted);
-            return Label(name + " Value", parent, TopLeft, x + 29, -27, width - 24, 25, "", 21, Stone, bold: true);
+            Icon(name + " Icon", parent, Left, x, 0, 33, glyph, Color.white);
+            return Label(name + " Value", parent, Left, x + 36, 0, width - 31, 34, "", 22, Stone, bold: true);
         }
 
         private static RectTransform UiCanvas(string name)
@@ -270,36 +314,46 @@ namespace Veilward.Editor
             return dim;
         }
 
-        private static RectTransform Card(string name, Transform parent, Vector2 anchor, float x, float y, float w, float h)
+        private static RectTransform Card(string name, Transform parent, Vector2 anchor, float x, float y,
+            float w, float h, string face = "InkCard") =>
+            ArtImage(name, parent, anchor, x, y, w, h, face, true).rectTransform;
+
+        private static RectTransform Dialogue(string name, Transform parent, float w, float h, float y = 0)
         {
-            var card = Image(name, parent, anchor, x, y, w, h, Surface, true).rectTransform;
-            Image("Jade edge", card, TopLeft, 0, 0, w, 2, new Color32(88, 157, 133, 255), false);
+            var card = Card(name, parent, Center, 0, y, w, h, "PaperCard");
+            Decoration("Blossom Branch", card, TopLeft, -17, 12, 68, 68, "Blossom")
+                .rectTransform.localEulerAngles = new Vector3(0, 0, 15);
             return card;
         }
 
         private static Button Action(string name, Transform parent, string title, Vector2 anchor, float x, float y,
-            float w, Color baseColor, float h = 60, int fontSize = 16)
+            float w, string face, float h = 60, int fontSize = 16)
         {
-            var image = Image(name, parent, anchor, x, y, w, h, baseColor, true);
+            var image = ArtImage(name, parent, anchor, x, y, w, h, face, true);
             var button = image.gameObject.AddComponent<VeilwardUiButton>();
             button.targetGraphic = image;
             var colors = button.colors;
             colors.normalColor = Color.white;
-            colors.highlightedColor = new Color(.91f, 1f, .92f);
-            colors.pressedColor = new Color(.62f, .7f, .66f);
-            colors.selectedColor = new Color(1f, .91f, .74f);
-            colors.disabledColor = new Color(.57f, .58f, .64f);
+            colors.highlightedColor = new Color(1f, .94f, .83f);
+            colors.pressedColor = new Color(.75f, .71f, .67f);
+            colors.selectedColor = new Color(1f, .86f, .68f);
+            colors.disabledColor = face == Secondary ? new Color(.74f, .7f, .68f) : new Color(.48f, .52f, .58f);
             colors.fadeDuration = .12f;
             button.colors = colors;
-            var text = Label("Label", image.transform, Center, 0, 0, w, h, title, fontSize, Stone, TextAnchor.MiddleCenter, true);
-            Stretch(text.rectTransform, new Vector2(4, 2), new Vector2(-4, -2));
-            var edge = Image("Bottom edge", image.transform, Bottom, 0, 0, w - 8, 2, new Color32(16, 20, 33, 125), false).rectTransform;
-            edge.anchorMin = Vector2.zero;
-            edge.anchorMax = Vector2.right;
-            edge.offsetMin = new Vector2(4, 0);
-            edge.offsetMax = new Vector2(-4, 2);
+            var textColor = face == Secondary ? PaperText : Stone;
+            var text = fontSize >= 20
+                ? DisplayLabel("Label", image.transform, Center, 0, 0, w, h, title, fontSize, textColor)
+                : Label("Label", image.transform, Center, 0, 0, w, h, title, fontSize, textColor, TextAnchor.MiddleCenter, true);
+            Stretch(text.rectTransform, new Vector2(9, 4), new Vector2(-9, -4));
             Bind(button, ("face", text.rectTransform));
             return button;
+        }
+
+        private static void ButtonDecoration(Button button, string artwork, float size, float inset)
+        {
+            Decoration("Symbol", button.transform, Left, inset, 0, size, size, artwork);
+            var label = button.GetComponentInChildren<Text>();
+            Stretch(label.rectTransform, new Vector2(size + inset + 4, 4), new Vector2(-9, -4));
         }
 
         private static void ButtonIcon(Button button, VeilwardGlyph glyph, Color color, float size, float inset, bool top = false)
@@ -313,7 +367,7 @@ namespace Veilward.Editor
             else
             {
                 Icon("Symbol", button.transform, Left, inset, 0, size, glyph, color);
-                Stretch(label.rectTransform, new Vector2(size + inset + 4, 2), new Vector2(-5, -2));
+                Stretch(label.rectTransform, new Vector2(size + inset + 4, 2), new Vector2(-8, -2));
             }
         }
 
@@ -326,16 +380,36 @@ namespace Veilward.Editor
             icon.Glyph = kind;
             icon.color = color;
             icon.raycastTarget = false;
+            using var data = new SerializedObject(icon);
+            var array = data.FindProperty("artwork");
+            var kinds = (VeilwardGlyph[])Enum.GetValues(typeof(VeilwardGlyph));
+            array.arraySize = kinds.Length;
+            foreach (var glyph in kinds)
+                array.GetArrayElementAtIndex((int)glyph).objectReferenceValue = SpriteFor(glyph.ToString());
+            data.ApplyModifiedPropertiesWithoutUndo();
             return icon;
         }
 
-        private static Color ElementColor(VeilwardGlyph glyph) => glyph switch
+        private static Sprite SpriteFor(string name)
         {
-            VeilwardGlyph.Flame => Coral,
-            VeilwardGlyph.Tide => new Color32(132, 195, 234, 255),
-            VeilwardGlyph.Gale => new Color32(139, 214, 186, 255),
-            _ => Gilt
-        };
+            _inkSprites ??= AssetDatabase.LoadAllAssetsAtPath(UiArtPath + "InkUi.png").OfType<Sprite>()
+                .ToDictionary(sprite => sprite.name);
+            return _inkSprites.TryGetValue(name, out var sprite)
+                ? sprite : throw new InvalidOperationException("Missing UI artwork: " + name);
+        }
+
+        private static Image Decoration(string name, Transform parent, Vector2 anchor, float x, float y, float w, float h,
+            string artwork) => ArtImage(name, parent, anchor, x, y, w, h, artwork, false);
+
+        private static Image ArtImage(string name, Transform parent, Vector2 anchor, float x, float y, float w, float h,
+            string artwork, bool hit)
+        {
+            var image = Image(name, parent, anchor, x, y, w, h, Color.white, hit);
+            image.sprite = SpriteFor(artwork);
+            if (image.sprite.border != Vector4.zero) image.type = UnityEngine.UI.Image.Type.Sliced;
+            else image.preserveAspect = true;
+            return image;
+        }
 
         private static Image Image(string name, Transform parent, Vector2 anchor, float x, float y, float w, float h, Color color, bool hit)
         {
@@ -357,6 +431,16 @@ namespace Veilward.Editor
             return text;
         }
 
+        private static Text DisplayLabel(string name, Transform parent, Vector2 anchor, float x, float y, float w,
+            float h, string label, int size, Color color, TextAnchor alignment = TextAnchor.MiddleCenter)
+        {
+            var text = Label(name, parent, anchor, x, y, w, h, label, size, color, alignment);
+            text.font = AssetDatabase.LoadAssetAtPath<Font>(UiArtPath + "CormorantGaramond-BoldItalic.ttf")
+                ?? throw new InvalidOperationException("Missing UI display font.");
+            text.verticalOverflow = VerticalWrapMode.Overflow;
+            return text;
+        }
+
         private static RectTransform Rect(string name, Transform parent, Vector2 anchor, float x, float y, float w, float h)
         {
             var rect = CreateUiObject(name, parent).GetComponent<RectTransform>();
@@ -374,7 +458,7 @@ namespace Veilward.Editor
 
         private static void Bind(Component component, params (string field, Object value)[] fields)
         {
-            var data = new SerializedObject(component);
+            using var data = new SerializedObject(component);
             foreach (var (field, value) in fields) data.FindProperty(field).objectReferenceValue = value;
             data.ApplyModifiedPropertiesWithoutUndo();
         }

@@ -1,0 +1,659 @@
+frame	14.4046						0	start
+frame	14.5474						1	start
+frame	14.5474						2	start
+frame	14.6568						3	start
+frame	14.6568						4	start
+frame	14.6568						5	start
+png	14.6568						menu-earned	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	14.7599						6	menu-earned
+frame	14.7599						7	menu-earned
+frame	14.8636						8	menu-earned
+frame	14.8636						9	menu-earned
+frame	14.9704						10	menu-earned
+frame	14.9704						11	menu-earned
+frame	15.0758						12	menu-earned
+frame	15.0758						13	menu-earned
+frame	15.1793						14	menu-earned
+frame	15.1793						15	menu-earned
+frame	15.2866						16	menu-earned
+frame	15.2866						17	menu-earned
+frame	15.3897						18	menu-earned
+frame	15.3897						19	menu-earned
+tap	15.4901						Continue Button	(402.16, 428.38)
+frame	15.5224	Preparation	3021	11	16	52	20	menu-earned
+frame	15.5224	Preparation	3021	11	16	52	21	menu-earned
+frame	15.5224	Preparation	3021	11	16	52	22	menu-earned
+frame	15.8301	Preparation	3021	11	16	52	23	menu-earned
+frame	15.8301	Preparation	3021	11	16	52	24	menu-earned
+frame	15.8301	Preparation	3021	11	16	52	25	menu-earned
+frame	15.8301	Preparation	3021	11	16	52	26	menu-earned
+frame	15.8301	Preparation	3021	11	16	52	27	menu-earned
+frame	15.8301	Preparation	3021	11	16	52	28	menu-earned
+frame	15.9408	Preparation	3021	11	16	52	29	menu-earned
+frame	15.9408	Preparation	3021	11	16	52	30	menu-earned
+frame	16.0445	Preparation	3021	11	16	52	31	menu-earned
+frame	16.0445	Preparation	3021	11	16	52	32	menu-earned
+frame	16.1537	Preparation	3021	11	16	52	33	menu-earned
+frame	16.1537	Preparation	3021	11	16	52	34	menu-earned
+frame	16.2612	Preparation	3021	11	16	52	35	menu-earned
+frame	16.2612	Preparation	3021	11	16	52	36	menu-earned
+frame	16.2612	Preparation	3021	11	16	52	37	menu-earned
+frame	16.3680	Preparation	3021	11	16	52	38	menu-earned
+frame	16.3680	Preparation	3021	11	16	52	39	menu-earned
+frame	16.4722	Preparation	3021	11	16	52	40	menu-earned
+frame	16.4722	Preparation	3021	11	16	52	41	menu-earned
+frame	16.5793	Preparation	3021	11	16	52	42	menu-earned
+frame	16.5793	Preparation	3021	11	16	52	43	menu-earned
+png	16.5793	Preparation	3021	11	16	52	earned-preparation	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	16.6825	Preparation	3021	11	16	52	44	earned-preparation
+frame	16.6825	Preparation	3021	11	16	52	45	earned-preparation
+frame	16.7866	Preparation	3021	11	16	52	46	earned-preparation
+frame	16.7866	Preparation	3021	11	16	52	47	earned-preparation
+frame	16.8947	Preparation	3021	11	16	52	48	earned-preparation
+frame	16.8947	Preparation	3021	11	16	52	49	earned-preparation
+frame	17.0031	Preparation	3021	11	16	52	50	earned-preparation
+frame	17.0031	Preparation	3021	11	16	52	51	earned-preparation
+frame	17.1109	Preparation	3021	11	16	52	52	earned-preparation
+frame	17.1109	Preparation	3021	11	16	52	53	earned-preparation
+frame	17.1109	Preparation	3021	11	16	52	54	earned-preparation
+frame	17.2200	Preparation	3021	11	16	52	55	earned-preparation
+frame	17.2200	Preparation	3021	11	16	52	56	earned-preparation
+tap	17.3207	Combat	3021	11	16	52	Start Wave Button	(1283.24, 817.84)
+frame	17.3339	Combat	3021	11	16	52	57	earned-preparation
+frame	17.3339	Combat	3021	11	16	52	58	earned-preparation
+frame	17.4423	Combat	3025	11	16	52	59	earned-preparation
+frame	17.4423	Combat	3025	11	16	52	60	earned-preparation
+frame	17.5499	Combat	3028	11	16	52	61	earned-preparation
+frame	17.5499	Combat	3028	11	16	52	62	earned-preparation
+frame	17.6574	Combat	3031	11	16	52	63	earned-preparation
+frame	17.6574	Combat	3031	11	16	52	64	earned-preparation
+frame	17.6574	Combat	3031	11	16	52	65	earned-preparation
+frame	17.7654	Combat	3034	11	16	52	66	earned-preparation
+frame	17.7654	Combat	3034	11	16	52	67	earned-preparation
+frame	17.8848	Combat	3038	11	16	52	68	earned-preparation
+frame	17.8848	Combat	3038	11	16	52	69	earned-preparation
+frame	17.9997	Combat	3041	11	16	52	70	earned-preparation
+frame	17.9997	Combat	3041	11	16	52	71	earned-preparation
+frame	18.1094	Combat	3045	11	16	52	72	earned-preparation
+frame	18.1094	Combat	3045	11	16	52	73	earned-preparation
+frame	18.1094	Combat	3045	11	16	52	74	earned-preparation
+frame	18.2170	Combat	3048	11	16	52	75	earned-preparation
+frame	18.2170	Combat	3048	11	16	52	76	earned-preparation
+frame	18.3277	Combat	3051	11	16	52	77	earned-preparation
+frame	18.3277	Combat	3051	11	16	52	78	earned-preparation
+frame	18.4377	Combat	3054	11	16	52	79	earned-preparation
+frame	18.4377	Combat	3054	11	16	52	80	earned-preparation
+frame	18.5475	Combat	3058	11	16	52	81	earned-preparation
+frame	18.5475	Combat	3058	11	16	52	82	earned-preparation
+frame	18.6559	Combat	3061	11	16	52	83	earned-preparation
+frame	18.6559	Combat	3061	11	16	52	84	earned-preparation
+frame	18.6559	Combat	3061	11	16	52	85	earned-preparation
+frame	18.7633	Combat	3064	11	16	52	86	earned-preparation
+frame	18.7633	Combat	3064	11	16	52	87	earned-preparation
+frame	18.8727	Combat	3067	11	16	52	88	earned-preparation
+frame	18.8727	Combat	3067	11	16	52	89	earned-preparation
+frame	18.9802	Combat	3071	11	16	52	90	earned-preparation
+frame	18.9802	Combat	3071	11	16	52	91	earned-preparation
+frame	19.0949	Combat	3074	11	16	52	92	earned-preparation
+frame	19.0949	Combat	3074	11	16	52	93	earned-preparation
+frame	19.2037	Combat	3077	11	16	52	94	earned-preparation
+frame	19.2037	Combat	3077	11	16	52	95	earned-preparation
+frame	19.3116	Combat	3081	11	16	52	96	earned-preparation
+frame	19.3116	Combat	3081	11	16	52	97	earned-preparation
+frame	19.3116	Combat	3081	11	16	52	98	earned-preparation
+frame	19.4206	Combat	3084	11	16	52	99	earned-preparation
+frame	19.4206	Combat	3084	11	16	52	100	earned-preparation
+frame	19.5281	Combat	3087	11	16	52	101	earned-preparation
+frame	19.5281	Combat	3087	11	16	52	102	earned-preparation
+frame	19.6342	Combat	3090	11	16	52	103	earned-preparation
+frame	19.6342	Combat	3090	11	16	52	104	earned-preparation
+frame	19.7428	Combat	3094	11	16	52	105	earned-preparation
+frame	19.7428	Combat	3094	11	16	52	106	earned-preparation
+frame	19.8508	Combat	3097	11	16	52	107	earned-preparation
+frame	19.8508	Combat	3097	11	16	52	108	earned-preparation
+frame	19.9577	Combat	3100	11	16	52	109	earned-preparation
+frame	19.9577	Combat	3100	11	16	52	110	earned-preparation
+frame	19.9577	Combat	3100	11	16	52	111	earned-preparation
+frame	20.0641	Combat	3103	11	16	52	112	earned-preparation
+frame	20.0641	Combat	3103	11	16	52	113	earned-preparation
+frame	20.1735	Combat	3106	11	16	52	114	earned-preparation
+frame	20.1735	Combat	3106	11	16	52	115	earned-preparation
+frame	20.2827	Combat	3110	11	16	52	116	earned-preparation
+frame	20.2827	Combat	3110	11	16	52	117	earned-preparation
+frame	20.3940	Combat	3113	16	16	53	118	earned-preparation
+frame	20.3940	Combat	3113	16	16	53	119	earned-preparation
+frame	20.5052	Combat	3116	16	16	53	120	earned-preparation
+frame	20.5052	Combat	3116	16	16	53	121	earned-preparation
+frame	20.5052	Combat	3116	16	16	53	122	earned-preparation
+frame	20.6125	Combat	3120	16	16	53	123	earned-preparation
+frame	20.6125	Combat	3120	16	16	53	124	earned-preparation
+frame	20.7219	Combat	3123	16	16	53	125	earned-preparation
+frame	20.7219	Combat	3123	16	16	53	126	earned-preparation
+frame	20.8307	Combat	3126	16	16	53	127	earned-preparation
+frame	20.8307	Combat	3126	16	16	53	128	earned-preparation
+frame	20.9397	Combat	3129	16	16	53	129	earned-preparation
+frame	20.9397	Combat	3129	16	16	53	130	earned-preparation
+frame	21.0475	Combat	3133	16	16	53	131	earned-preparation
+frame	21.0475	Combat	3133	16	16	53	132	earned-preparation
+frame	21.1578	Combat	3136	16	16	53	133	earned-preparation
+frame	21.1578	Combat	3136	16	16	53	134	earned-preparation
+frame	21.1578	Combat	3136	16	16	53	135	earned-preparation
+frame	21.2649	Combat	3139	16	16	53	136	earned-preparation
+frame	21.2649	Combat	3139	16	16	53	137	earned-preparation
+frame	21.3756	Combat	3142	16	16	53	138	earned-preparation
+frame	21.3756	Combat	3142	16	16	53	139	earned-preparation
+frame	21.4823	Combat	3146	16	16	53	140	earned-preparation
+frame	21.4823	Combat	3146	16	16	53	141	earned-preparation
+frame	21.5935	Combat	3149	21	16	54	142	earned-preparation
+frame	21.5935	Combat	3149	21	16	54	143	earned-preparation
+frame	21.7007	Combat	3152	21	16	54	144	earned-preparation
+frame	21.7007	Combat	3152	21	16	54	145	earned-preparation
+frame	21.8085	Combat	3155	21	16	54	146	earned-preparation
+frame	21.8085	Combat	3155	21	16	54	147	earned-preparation
+frame	21.8085	Combat	3155	21	16	54	148	earned-preparation
+frame	21.9175	Combat	3159	21	16	54	149	earned-preparation
+frame	21.9175	Combat	3159	21	16	54	150	earned-preparation
+frame	22.0273	Combat	3162	21	16	54	151	earned-preparation
+frame	22.0273	Combat	3162	21	16	54	152	earned-preparation
+frame	22.1353	Combat	3165	21	16	54	153	earned-preparation
+frame	22.1353	Combat	3165	21	16	54	154	earned-preparation
+frame	22.2434	Combat	3169	21	16	54	155	earned-preparation
+frame	22.2434	Combat	3169	21	16	54	156	earned-preparation
+frame	22.3525	Combat	3172	21	16	54	157	earned-preparation
+frame	22.3525	Combat	3172	21	16	54	158	earned-preparation
+frame	22.4598	Combat	3175	21	16	54	159	earned-preparation
+frame	22.4598	Combat	3175	21	16	54	160	earned-preparation
+frame	22.4598	Combat	3175	21	16	54	161	earned-preparation
+frame	22.5680	Combat	3178	21	16	54	162	earned-preparation
+frame	22.5680	Combat	3178	21	16	54	163	earned-preparation
+frame	22.6751	Combat	3181	21	16	54	164	earned-preparation
+frame	22.6751	Combat	3181	21	16	54	165	earned-preparation
+frame	22.7817	Combat	3185	21	16	54	166	earned-preparation
+frame	22.7817	Combat	3185	21	16	54	167	earned-preparation
+frame	22.8885	Combat	3188	26	16	55	168	earned-preparation
+frame	22.8885	Combat	3188	26	16	55	169	earned-preparation
+tap	22.9914	Combat	3191	26	16	55	Ability Button	(1398.92, 99.46)
+frame	23.0002	Combat	3191	26	16	55	170	earned-preparation
+frame	23.0002	Combat	3191	26	16	55	171	earned-preparation
+frame	23.1140	Combat	3195	26	16	55	172	earned-preparation
+frame	23.1140	Combat	3195	26	16	55	173	earned-preparation
+frame	23.1140	Combat	3195	26	16	55	174	earned-preparation
+frame	23.2242	Combat	3198	26	16	55	175	earned-preparation
+frame	23.2242	Combat	3198	26	16	55	176	earned-preparation
+png	23.2242	Combat	3198	26	16	55	ability-preview	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+tap	23.2242	Combat	3198	26	16	55	Confirm Ability Button	(1154.60, 103.78)
+frame	23.3301	Combat	3201	36	16	57	177	ability-preview
+frame	23.3301	Combat	3201	36	16	57	178	ability-preview
+frame	23.4343	Combat	3204	36	16	57	179	ability-preview
+frame	23.4343	Combat	3204	36	16	57	180	ability-preview
+frame	23.5406	Combat	3207	36	16	57	181	ability-preview
+frame	23.5406	Combat	3207	36	16	57	182	ability-preview
+frame	23.6495	Combat	3211	36	16	57	183	ability-preview
+frame	23.6495	Combat	3211	36	16	57	184	ability-preview
+frame	23.7588	Combat	3214	36	16	57	185	ability-preview
+frame	23.7588	Combat	3214	36	16	57	186	ability-preview
+frame	23.7588	Combat	3214	36	16	57	187	ability-preview
+frame	23.8674	Combat	3217	41	16	58	188	ability-preview
+frame	23.8674	Combat	3217	41	16	58	189	ability-preview
+frame	23.9775	Combat	3221	41	16	58	190	ability-preview
+frame	23.9775	Combat	3221	41	16	58	191	ability-preview
+frame	24.0840	Combat	3224	41	16	58	192	ability-preview
+frame	24.0840	Combat	3224	41	16	58	193	ability-preview
+frame	24.1922	Combat	3227	41	16	58	194	ability-preview
+frame	24.1922	Combat	3227	41	16	58	195	ability-preview
+frame	24.2989	Combat	3230	41	16	58	196	ability-preview
+frame	24.2989	Combat	3230	41	16	58	197	ability-preview
+frame	24.4087	Combat	3233	41	16	58	198	ability-preview
+frame	24.4087	Combat	3233	41	16	58	199	ability-preview
+frame	24.4087	Combat	3233	41	16	58	200	ability-preview
+frame	24.5148	Combat	3237	41	16	58	201	ability-preview
+frame	24.5148	Combat	3237	41	16	58	202	ability-preview
+frame	24.6245	Combat	3240	41	16	58	203	ability-preview
+frame	24.6245	Combat	3240	41	16	58	204	ability-preview
+frame	24.7322	Combat	3243	41	16	58	205	ability-preview
+frame	24.7322	Combat	3243	41	16	58	206	ability-preview
+frame	24.8389	Combat	3246	41	16	58	207	ability-preview
+frame	24.8389	Combat	3246	41	16	58	208	ability-preview
+frame	24.9462	Combat	3250	41	16	58	209	ability-preview
+frame	24.9462	Combat	3250	41	16	58	210	ability-preview
+frame	25.0565	Combat	3253	41	16	58	211	ability-preview
+frame	25.0565	Combat	3253	41	16	58	212	ability-preview
+frame	25.0565	Combat	3253	41	16	58	213	ability-preview
+frame	25.1652	Combat	3256	41	16	58	214	ability-preview
+frame	25.1652	Combat	3256	41	16	58	215	ability-preview
+frame	25.2753	Combat	3259	41	16	58	216	ability-preview
+frame	25.2753	Combat	3259	41	16	58	217	ability-preview
+frame	25.3846	Combat	3263	41	16	58	218	ability-preview
+frame	25.3846	Combat	3263	41	16	58	219	ability-preview
+frame	25.4931	Combat	3266	41	16	58	220	ability-preview
+frame	25.4931	Combat	3266	41	16	58	221	ability-preview
+frame	25.6014	Combat	3269	41	16	58	222	ability-preview
+frame	25.6014	Combat	3269	41	16	58	223	ability-preview
+frame	25.7111	Combat	3273	41	16	58	224	ability-preview
+frame	25.7111	Combat	3273	41	16	58	225	ability-preview
+frame	25.7111	Combat	3273	41	16	58	226	ability-preview
+frame	25.8201	Combat	3276	41	16	58	227	ability-preview
+frame	25.8201	Combat	3276	41	16	58	228	ability-preview
+frame	25.9287	Combat	3279	41	16	58	229	ability-preview
+frame	25.9287	Combat	3279	41	16	58	230	ability-preview
+frame	26.0362	Combat	3282	41	16	58	231	ability-preview
+frame	26.0362	Combat	3282	41	16	58	232	ability-preview
+frame	26.1447	Combat	3286	41	16	58	233	ability-preview
+frame	26.1447	Combat	3286	41	16	58	234	ability-preview
+frame	26.2536	Combat	3289	41	16	58	235	ability-preview
+frame	26.2536	Combat	3289	41	16	58	236	ability-preview
+frame	26.3641	Combat	3292	41	16	58	237	ability-preview
+frame	26.3641	Combat	3292	41	16	58	238	ability-preview
+frame	26.3641	Combat	3292	41	16	58	239	ability-preview
+frame	26.4720	Combat	3295	41	16	58	240	ability-preview
+frame	26.4720	Combat	3295	41	16	58	241	ability-preview
+frame	26.5810	Combat	3299	46	16	59	242	ability-preview
+frame	26.5810	Combat	3299	46	16	59	243	ability-preview
+frame	26.6867	Combat	3302	46	16	59	244	ability-preview
+frame	26.6867	Combat	3302	46	16	59	245	ability-preview
+frame	26.7955	Combat	3305	46	16	59	246	ability-preview
+frame	26.7955	Combat	3305	46	16	59	247	ability-preview
+frame	26.9048	Combat	3308	46	16	59	248	ability-preview
+frame	26.9048	Combat	3308	46	16	59	249	ability-preview
+frame	26.9048	Combat	3308	46	16	59	250	ability-preview
+frame	27.0137	Combat	3312	46	16	59	251	ability-preview
+frame	27.0137	Combat	3312	46	16	59	252	ability-preview
+frame	27.1199	Combat	3315	46	16	59	253	ability-preview
+frame	27.1199	Combat	3315	46	16	59	254	ability-preview
+frame	27.2291	Combat	3318	46	16	59	255	ability-preview
+frame	27.2291	Combat	3318	46	16	59	256	ability-preview
+frame	27.3403	Combat	3321	46	16	59	257	ability-preview
+frame	27.3403	Combat	3321	46	16	59	258	ability-preview
+frame	27.4488	Combat	3325	46	16	59	259	ability-preview
+frame	27.4488	Combat	3325	46	16	59	260	ability-preview
+frame	27.5578	Combat	3328	46	16	59	261	ability-preview
+frame	27.5578	Combat	3328	46	16	59	262	ability-preview
+frame	27.5578	Combat	3328	46	16	59	263	ability-preview
+frame	27.6673	Combat	3331	46	16	59	264	ability-preview
+frame	27.6673	Combat	3331	46	16	59	265	ability-preview
+frame	27.7767	Combat	3335	51	16	60	266	ability-preview
+frame	27.7767	Combat	3335	51	16	60	267	ability-preview
+frame	27.8862	Combat	3338	51	16	60	268	ability-preview
+frame	27.8862	Combat	3338	51	16	60	269	ability-preview
+frame	27.9947	Combat	3341	51	16	60	270	ability-preview
+frame	27.9947	Combat	3341	51	16	60	271	ability-preview
+frame	28.1034	Combat	3344	51	16	60	272	ability-preview
+frame	28.1034	Combat	3344	51	16	60	273	ability-preview
+frame	28.2114	Combat	3348	51	16	60	274	ability-preview
+frame	28.2114	Combat	3348	51	16	60	275	ability-preview
+frame	28.2114	Combat	3348	51	16	60	276	ability-preview
+frame	28.3243	Combat	3351	51	16	60	277	ability-preview
+frame	28.3243	Combat	3351	51	16	60	278	ability-preview
+frame	28.4322	Combat	3354	51	16	60	279	ability-preview
+frame	28.4322	Combat	3354	51	16	60	280	ability-preview
+frame	28.5419	Combat	3357	51	16	60	281	ability-preview
+frame	28.5419	Combat	3357	51	16	60	282	ability-preview
+frame	28.6503	Combat	3361	51	16	60	283	ability-preview
+frame	28.6503	Combat	3361	51	16	60	284	ability-preview
+frame	28.7583	Combat	3364	51	16	60	285	ability-preview
+frame	28.7583	Combat	3364	51	16	60	286	ability-preview
+frame	28.7583	Combat	3364	51	16	60	287	ability-preview
+frame	28.8672	Combat	3367	56	16	61	288	ability-preview
+frame	28.8672	Combat	3367	56	16	61	289	ability-preview
+frame	28.9726	Combat	3370	56	16	61	290	ability-preview
+frame	28.9726	Combat	3370	56	16	61	291	ability-preview
+png	29.0737	Combat	3373	56	16	61	boss-combat	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	29.1384	Combat	3375	56	16	61	292	boss-combat
+frame	29.1384	Combat	3375	56	16	61	293	boss-combat
+frame	29.1384	Combat	3375	56	16	61	294	boss-combat
+frame	29.2471	Combat	3379	56	16	61	295	boss-combat
+frame	29.2471	Combat	3379	56	16	61	296	boss-combat
+frame	29.3552	Combat	3382	56	16	61	297	boss-combat
+frame	29.3552	Combat	3382	56	16	61	298	boss-combat
+frame	29.3552	Combat	3382	56	16	61	299	boss-combat
+frame	29.4626	Combat	3385	56	16	61	300	boss-combat
+frame	29.4626	Combat	3385	56	16	61	301	boss-combat
+frame	29.5732	Combat	3388	56	16	61	302	boss-combat
+frame	29.5732	Combat	3388	56	16	61	303	boss-combat
+frame	29.6803	Combat	3392	56	16	61	304	boss-combat
+frame	29.6803	Combat	3392	56	16	61	305	boss-combat
+frame	29.7893	Combat	3395	56	16	61	306	boss-combat
+frame	29.7893	Combat	3395	56	16	61	307	boss-combat
+frame	29.8984	Combat	3398	56	16	61	308	boss-combat
+frame	29.8984	Combat	3398	56	16	61	309	boss-combat
+frame	30.0111	Combat	3402	56	16	61	310	boss-combat
+frame	30.0111	Combat	3402	56	16	61	311	boss-combat
+frame	30.0111	Combat	3402	56	16	61	312	boss-combat
+frame	30.1201	Combat	3405	61	16	62	313	boss-combat
+frame	30.1201	Combat	3405	61	16	62	314	boss-combat
+frame	30.2288	Combat	3408	61	16	62	315	boss-combat
+frame	30.2288	Combat	3408	61	16	62	316	boss-combat
+frame	30.3362	Combat	3411	61	16	62	317	boss-combat
+frame	30.3362	Combat	3411	61	16	62	318	boss-combat
+frame	30.4467	Combat	3415	61	16	62	319	boss-combat
+frame	30.4467	Combat	3415	61	16	62	320	boss-combat
+frame	30.5554	Combat	3418	61	16	62	321	boss-combat
+frame	30.5554	Combat	3418	61	16	62	322	boss-combat
+frame	30.5554	Combat	3418	61	16	62	323	boss-combat
+frame	30.6640	Combat	3421	61	16	62	324	boss-combat
+frame	30.6640	Combat	3421	61	16	62	325	boss-combat
+frame	30.7721	Combat	3424	61	16	62	326	boss-combat
+frame	30.7721	Combat	3424	61	16	62	327	boss-combat
+frame	30.8816	Combat	3428	61	16	62	328	boss-combat
+frame	30.8816	Combat	3428	61	16	62	329	boss-combat
+frame	30.9904	Combat	3431	61	16	62	330	boss-combat
+frame	30.9904	Combat	3431	61	16	62	331	boss-combat
+frame	31.1001	Combat	3434	61	16	62	332	boss-combat
+frame	31.1001	Combat	3434	61	16	62	333	boss-combat
+frame	31.2061	Combat	3437	61	16	62	334	boss-combat
+frame	31.2061	Combat	3437	61	16	62	335	boss-combat
+frame	31.2061	Combat	3437	61	16	62	336	boss-combat
+frame	31.3134	Combat	3441	66	16	63	337	boss-combat
+frame	31.3134	Combat	3441	66	16	63	338	boss-combat
+frame	31.4228	Combat	3444	66	16	63	339	boss-combat
+frame	31.4228	Combat	3444	66	16	63	340	boss-combat
+frame	31.5303	Combat	3447	66	16	63	341	boss-combat
+frame	31.5303	Combat	3447	66	16	63	342	boss-combat
+frame	31.6361	Combat	3450	66	16	63	343	boss-combat
+frame	31.6361	Combat	3450	66	16	63	344	boss-combat
+frame	31.7443	Combat	3454	66	16	63	345	boss-combat
+frame	31.7443	Combat	3454	66	16	63	346	boss-combat
+png	31.8469	Combat	3457	66	16	63	enemy-inspector	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+tap	31.8469	Combat	3457	66	16	63	Close Inspector Button	(562.16, 105.95)
+frame	31.9152	Combat	3459	66	16	63	347	enemy-inspector
+frame	31.9152	Combat	3459	66	16	63	348	enemy-inspector
+frame	31.9152	Combat	3459	66	16	63	349	enemy-inspector
+frame	31.9152	Combat	3459	66	16	63	350	enemy-inspector
+frame	32.0223	Combat	3462	66	16	63	351	enemy-inspector
+frame	32.0223	Combat	3462	66	16	63	352	enemy-inspector
+frame	32.1273	Combat	3465	66	16	63	353	enemy-inspector
+frame	32.1273	Combat	3465	66	16	63	354	enemy-inspector
+frame	32.2352	Combat	3468	66	16	63	355	enemy-inspector
+frame	32.2352	Combat	3468	66	16	63	356	enemy-inspector
+frame	32.3449	Combat	3472	66	16	63	357	enemy-inspector
+frame	32.3449	Combat	3472	66	16	63	358	enemy-inspector
+frame	32.4540	Combat	3475	66	16	63	359	enemy-inspector
+frame	32.4540	Combat	3475	66	16	63	360	enemy-inspector
+frame	32.5627	Combat	3478	66	16	63	361	enemy-inspector
+frame	32.5627	Combat	3478	66	16	63	362	enemy-inspector
+frame	32.5627	Combat	3478	66	16	63	363	enemy-inspector
+frame	32.6709	Combat	3481	66	16	63	364	enemy-inspector
+frame	32.6709	Combat	3481	66	16	63	365	enemy-inspector
+frame	32.7789	Combat	3485	66	16	63	366	enemy-inspector
+frame	32.7789	Combat	3485	66	16	63	367	enemy-inspector
+frame	32.8852	Combat	3488	66	16	63	368	enemy-inspector
+frame	32.8852	Combat	3488	66	16	63	369	enemy-inspector
+frame	32.9906	Combat	3491	66	16	63	370	enemy-inspector
+frame	32.9906	Combat	3491	66	16	63	371	enemy-inspector
+frame	33.0976	Combat	3494	66	16	63	372	enemy-inspector
+frame	33.0976	Combat	3494	66	16	63	373	enemy-inspector
+frame	33.2064	Combat	3497	66	16	63	374	enemy-inspector
+frame	33.2064	Combat	3497	66	16	63	375	enemy-inspector
+frame	33.2064	Combat	3497	66	16	63	376	enemy-inspector
+frame	33.3144	Combat	3501	66	16	63	377	enemy-inspector
+frame	33.3144	Combat	3501	66	16	63	378	enemy-inspector
+frame	33.4233	Combat	3504	66	16	63	379	enemy-inspector
+frame	33.4233	Combat	3504	66	16	63	380	enemy-inspector
+frame	33.5299	Combat	3507	66	16	63	381	enemy-inspector
+frame	33.5299	Combat	3507	66	16	63	382	enemy-inspector
+frame	33.6372	Combat	3510	66	16	63	383	enemy-inspector
+frame	33.6372	Combat	3510	66	16	63	384	enemy-inspector
+frame	33.7432	Combat	3514	66	16	63	385	enemy-inspector
+frame	33.7432	Combat	3514	66	16	63	386	enemy-inspector
+frame	33.8510	Combat	3517	66	16	63	387	enemy-inspector
+frame	33.8510	Combat	3517	66	16	63	388	enemy-inspector
+frame	33.9582	Combat	3520	66	16	63	389	enemy-inspector
+frame	33.9582	Combat	3520	66	16	63	390	enemy-inspector
+frame	33.9582	Combat	3520	66	16	63	391	enemy-inspector
+frame	34.0673	Combat	3523	66	16	63	392	enemy-inspector
+frame	34.0673	Combat	3523	66	16	63	393	enemy-inspector
+frame	34.1758	Combat	3527	66	16	63	394	enemy-inspector
+frame	34.1758	Combat	3527	66	16	63	395	enemy-inspector
+frame	34.2827	Combat	3530	66	16	63	396	enemy-inspector
+frame	34.2827	Combat	3530	66	16	63	397	enemy-inspector
+frame	34.3917	Combat	3533	66	16	63	398	enemy-inspector
+frame	34.3917	Combat	3533	66	16	63	399	enemy-inspector
+frame	34.4988	Combat	3536	66	16	63	400	enemy-inspector
+frame	34.4988	Combat	3536	66	16	63	401	enemy-inspector
+frame	34.6081	Combat	3539	66	16	63	402	enemy-inspector
+frame	34.6081	Combat	3539	66	16	63	403	enemy-inspector
+frame	34.6081	Combat	3539	66	16	63	404	enemy-inspector
+frame	34.7169	Combat	3543	66	16	63	405	enemy-inspector
+frame	34.7169	Combat	3543	66	16	63	406	enemy-inspector
+frame	34.8259	Combat	3546	66	16	63	407	enemy-inspector
+frame	34.8259	Combat	3546	66	16	63	408	enemy-inspector
+frame	34.9342	Combat	3549	66	16	63	409	enemy-inspector
+frame	34.9342	Combat	3549	66	16	63	410	enemy-inspector
+frame	35.0424	Combat	3553	66	16	63	411	enemy-inspector
+frame	35.0424	Combat	3553	66	16	63	412	enemy-inspector
+frame	35.1503	Combat	3556	66	16	63	413	enemy-inspector
+frame	35.1503	Combat	3556	66	16	63	414	enemy-inspector
+frame	35.2591	Combat	3559	66	16	63	415	enemy-inspector
+frame	35.2591	Combat	3559	66	16	63	416	enemy-inspector
+frame	35.2591	Combat	3559	66	16	63	417	enemy-inspector
+frame	35.3683	Combat	3562	66	16	63	418	enemy-inspector
+frame	35.3683	Combat	3562	66	16	63	419	enemy-inspector
+frame	35.4768	Combat	3566	66	16	63	420	enemy-inspector
+frame	35.4768	Combat	3566	66	16	63	421	enemy-inspector
+frame	35.5843	Combat	3569	66	16	63	422	enemy-inspector
+frame	35.5843	Combat	3569	66	16	63	423	enemy-inspector
+frame	35.6917	Combat	3572	66	16	63	424	enemy-inspector
+frame	35.6917	Combat	3572	66	16	63	425	enemy-inspector
+frame	35.8007	Combat	3575	66	16	63	426	enemy-inspector
+frame	35.8007	Combat	3575	66	16	63	427	enemy-inspector
+frame	35.9083	Combat	3578	66	16	63	428	enemy-inspector
+frame	35.9083	Combat	3578	66	16	63	429	enemy-inspector
+frame	35.9083	Combat	3578	66	16	63	430	enemy-inspector
+frame	36.0166	Combat	3582	66	16	63	431	enemy-inspector
+frame	36.0166	Combat	3582	66	16	63	432	enemy-inspector
+frame	36.1242	Combat	3585	66	16	63	433	enemy-inspector
+frame	36.1242	Combat	3585	66	16	63	434	enemy-inspector
+frame	36.2315	Combat	3588	66	16	63	435	enemy-inspector
+frame	36.2315	Combat	3588	66	16	63	436	enemy-inspector
+frame	36.3392	Combat	3591	66	16	63	437	enemy-inspector
+frame	36.3392	Combat	3591	66	16	63	438	enemy-inspector
+frame	36.4458	Combat	3595	66	16	63	439	enemy-inspector
+frame	36.4458	Combat	3595	66	16	63	440	enemy-inspector
+frame	36.5532	Combat	3598	66	16	63	441	enemy-inspector
+frame	36.5532	Combat	3598	66	16	63	442	enemy-inspector
+frame	36.6618	Combat	3601	66	16	63	443	enemy-inspector
+frame	36.6618	Combat	3601	66	16	63	444	enemy-inspector
+frame	36.6618	Combat	3601	66	16	63	445	enemy-inspector
+frame	36.7705	Combat	3604	66	16	63	446	enemy-inspector
+frame	36.7705	Combat	3604	66	16	63	447	enemy-inspector
+frame	36.8776	Combat	3608	66	16	63	448	enemy-inspector
+frame	36.8776	Combat	3608	66	16	63	449	enemy-inspector
+frame	36.9845	Combat	3611	66	16	63	450	enemy-inspector
+frame	36.9845	Combat	3611	66	16	63	451	enemy-inspector
+frame	37.0934	Combat	3614	66	16	63	452	enemy-inspector
+frame	37.0934	Combat	3614	66	16	63	453	enemy-inspector
+frame	37.2019	Combat	3617	66	16	63	454	enemy-inspector
+frame	37.2019	Combat	3617	66	16	63	455	enemy-inspector
+frame	37.3116	Combat	3621	66	16	63	456	enemy-inspector
+frame	37.3116	Combat	3621	66	16	63	457	enemy-inspector
+frame	37.3116	Combat	3621	66	16	63	458	enemy-inspector
+frame	37.4202	Combat	3624	66	16	63	459	enemy-inspector
+frame	37.4202	Combat	3624	66	16	63	460	enemy-inspector
+frame	37.5272	Combat	3627	66	16	63	461	enemy-inspector
+frame	37.5272	Combat	3627	66	16	63	462	enemy-inspector
+frame	37.6353	Combat	3630	66	16	63	463	enemy-inspector
+frame	37.6353	Combat	3630	66	16	63	464	enemy-inspector
+frame	37.7435	Combat	3634	66	16	63	465	enemy-inspector
+frame	37.7435	Combat	3634	66	16	63	466	enemy-inspector
+frame	37.8503	Combat	3637	66	16	63	467	enemy-inspector
+frame	37.8503	Combat	3637	66	16	63	468	enemy-inspector
+frame	37.9587	Combat	3640	66	16	63	469	enemy-inspector
+frame	37.9587	Combat	3640	66	16	63	470	enemy-inspector
+frame	37.9587	Combat	3640	66	16	63	471	enemy-inspector
+frame	38.0663	Combat	3643	66	16	63	472	enemy-inspector
+frame	38.0663	Combat	3643	66	16	63	473	enemy-inspector
+frame	38.1751	Combat	3646	66	16	63	474	enemy-inspector
+frame	38.1751	Combat	3646	66	16	63	475	enemy-inspector
+frame	38.2824	Combat	3650	66	16	63	476	enemy-inspector
+frame	38.2824	Combat	3650	66	16	63	477	enemy-inspector
+frame	38.3915	Combat	3653	66	16	63	478	enemy-inspector
+frame	38.3915	Combat	3653	66	16	63	479	enemy-inspector
+frame	38.4995	Combat	3656	66	16	63	480	enemy-inspector
+frame	38.4995	Combat	3656	66	16	63	481	enemy-inspector
+frame	38.6085	Combat	3659	66	16	63	482	enemy-inspector
+frame	38.6085	Combat	3659	66	16	63	483	enemy-inspector
+frame	38.6085	Combat	3659	66	16	63	484	enemy-inspector
+frame	38.7174	Combat	3663	66	16	63	485	enemy-inspector
+frame	38.7174	Combat	3663	66	16	63	486	enemy-inspector
+frame	38.8252	Combat	3666	66	16	63	487	enemy-inspector
+frame	38.8252	Combat	3666	66	16	63	488	enemy-inspector
+frame	38.9317	Combat	3669	66	16	63	489	enemy-inspector
+frame	38.9317	Combat	3669	66	16	63	490	enemy-inspector
+frame	39.0397	Combat	3672	66	16	63	491	enemy-inspector
+frame	39.0397	Combat	3672	66	16	63	492	enemy-inspector
+frame	39.1475	Combat	3676	66	16	63	493	enemy-inspector
+frame	39.1475	Combat	3676	66	16	63	494	enemy-inspector
+frame	39.2572	Combat	3679	66	16	63	495	enemy-inspector
+frame	39.2572	Combat	3679	66	16	63	496	enemy-inspector
+frame	39.2572	Combat	3679	66	16	63	497	enemy-inspector
+frame	39.3660	Combat	3682	66	16	63	498	enemy-inspector
+frame	39.3660	Combat	3682	66	16	63	499	enemy-inspector
+frame	39.4747	Combat	3685	66	16	63	500	enemy-inspector
+frame	39.4747	Combat	3685	66	16	63	501	enemy-inspector
+frame	39.5830	Combat	3689	66	16	63	502	enemy-inspector
+frame	39.5830	Combat	3689	66	16	63	503	enemy-inspector
+frame	39.6920	Combat	3692	66	16	63	504	enemy-inspector
+frame	39.6920	Combat	3692	66	16	63	505	enemy-inspector
+frame	39.7988	Combat	3695	66	16	63	506	enemy-inspector
+frame	39.7988	Combat	3695	66	16	63	507	enemy-inspector
+frame	39.9071	Combat	3698	66	16	63	508	enemy-inspector
+frame	39.9071	Combat	3698	66	16	63	509	enemy-inspector
+frame	39.9071	Combat	3698	66	16	63	510	enemy-inspector
+frame	40.0155	Combat	3702	66	16	63	511	enemy-inspector
+frame	40.0155	Combat	3702	66	16	63	512	enemy-inspector
+frame	40.1228	Combat	3705	66	16	63	513	enemy-inspector
+frame	40.1228	Combat	3705	66	16	63	514	enemy-inspector
+frame	40.2297	Combat	3708	66	16	63	515	enemy-inspector
+frame	40.2297	Combat	3708	66	16	63	516	enemy-inspector
+frame	40.3339	Combat	3711	66	16	63	517	enemy-inspector
+frame	40.3339	Combat	3711	66	16	63	518	enemy-inspector
+frame	40.4431	Combat	3715	66	16	63	519	enemy-inspector
+frame	40.4431	Combat	3715	66	16	63	520	enemy-inspector
+frame	40.5515	Combat	3718	66	16	63	521	enemy-inspector
+frame	40.5515	Combat	3718	66	16	63	522	enemy-inspector
+frame	40.6602	Combat	3721	66	16	63	523	enemy-inspector
+frame	40.6602	Combat	3721	66	16	63	524	enemy-inspector
+frame	40.6602	Combat	3721	66	16	63	525	enemy-inspector
+frame	40.7681	Combat	3724	66	16	63	526	enemy-inspector
+frame	40.7681	Combat	3724	66	16	63	527	enemy-inspector
+frame	40.8764	Combat	3728	66	16	63	528	enemy-inspector
+frame	40.8764	Combat	3728	66	16	63	529	enemy-inspector
+frame	40.9851	Combat	3731	66	16	63	530	enemy-inspector
+frame	40.9851	Combat	3731	66	16	63	531	enemy-inspector
+frame	41.0926	Combat	3734	66	16	63	532	enemy-inspector
+frame	41.0926	Combat	3734	66	16	63	533	enemy-inspector
+frame	41.2018	Combat	3737	66	16	63	534	enemy-inspector
+frame	41.2018	Combat	3737	66	16	63	535	enemy-inspector
+frame	41.3094	Combat	3741	66	16	63	536	enemy-inspector
+frame	41.3094	Combat	3741	66	16	63	537	enemy-inspector
+frame	41.3094	Combat	3741	66	16	63	538	enemy-inspector
+frame	41.4137	Combat	3744	66	16	63	539	enemy-inspector
+frame	41.4137	Combat	3744	66	16	63	540	enemy-inspector
+frame	41.5223	Combat	3747	66	16	63	541	enemy-inspector
+frame	41.5223	Combat	3747	66	16	63	542	enemy-inspector
+frame	41.6292	Combat	3750	66	16	63	543	enemy-inspector
+frame	41.6292	Combat	3750	66	16	63	544	enemy-inspector
+frame	41.7377	Combat	3753	66	16	63	545	enemy-inspector
+frame	41.7377	Combat	3753	66	16	63	546	enemy-inspector
+frame	41.8453	Combat	3757	66	16	63	547	enemy-inspector
+frame	41.8453	Combat	3757	66	16	63	548	enemy-inspector
+frame	41.9516	Combat	3760	66	16	63	549	enemy-inspector
+frame	41.9516	Combat	3760	66	16	63	550	enemy-inspector
+frame	42.0594	Combat	3763	66	16	63	551	enemy-inspector
+frame	42.0594	Combat	3763	66	16	63	552	enemy-inspector
+frame	42.0594	Combat	3763	66	16	63	553	enemy-inspector
+frame	42.1699	Combat	3766	66	16	63	554	enemy-inspector
+frame	42.1699	Combat	3766	66	16	63	555	enemy-inspector
+frame	42.2797	Combat	3770	66	16	63	556	enemy-inspector
+frame	42.2797	Combat	3770	66	16	63	557	enemy-inspector
+frame	42.3864	Combat	3773	66	16	63	558	enemy-inspector
+frame	42.3864	Combat	3773	66	16	63	559	enemy-inspector
+frame	42.4943	Combat	3776	66	16	63	560	enemy-inspector
+frame	42.4943	Combat	3776	66	16	63	561	enemy-inspector
+frame	42.6028	Combat	3779	66	16	63	562	enemy-inspector
+frame	42.6028	Combat	3779	66	16	63	563	enemy-inspector
+frame	42.7115	Combat	3783	66	16	63	564	enemy-inspector
+frame	42.7115	Combat	3783	66	16	63	565	enemy-inspector
+frame	42.7115	Combat	3783	66	16	63	566	enemy-inspector
+frame	42.8201	Combat	3786	66	16	63	567	enemy-inspector
+frame	42.8201	Combat	3786	66	16	63	568	enemy-inspector
+frame	42.9283	Combat	3789	66	16	63	569	enemy-inspector
+frame	42.9283	Combat	3789	66	16	63	570	enemy-inspector
+frame	43.0364	Combat	3792	66	16	63	571	enemy-inspector
+frame	43.0364	Combat	3792	66	16	63	572	enemy-inspector
+frame	43.1461	Combat	3796	66	16	63	573	enemy-inspector
+frame	43.1461	Combat	3796	66	16	63	574	enemy-inspector
+frame	43.2538	Combat	3799	66	16	63	575	enemy-inspector
+frame	43.2538	Combat	3799	66	16	63	576	enemy-inspector
+tap	43.3568	Combat	3802	66	16	63	Ability Button	(1398.92, 99.46)
+frame	43.3656	Combat	3802	66	16	63	577	enemy-inspector
+frame	43.3656	Combat	3802	66	16	63	578	enemy-inspector
+frame	43.3656	Combat	3802	66	16	63	579	enemy-inspector
+frame	43.4724	Combat	3805	66	16	63	580	enemy-inspector
+frame	43.4724	Combat	3805	66	16	63	581	enemy-inspector
+frame	43.5810	Combat	3809	66	16	63	582	enemy-inspector
+frame	43.5810	Combat	3809	66	16	63	583	enemy-inspector
+tap	43.5810	Combat	3809	66	16	63	Confirm Ability Button	(1154.60, 103.78)
+frame	43.6957	Victory	3812	136	16	64	584	enemy-inspector
+frame	43.6957	Victory	3812	136	16	64	585	enemy-inspector
+frame	43.8042	Victory	3812	136	16	64	586	enemy-inspector
+frame	43.8042	Victory	3812	136	16	64	587	enemy-inspector
+frame	43.9100	Victory	3812	136	16	64	588	enemy-inspector
+frame	43.9100	Victory	3812	136	16	64	589	enemy-inspector
+frame	43.9100	Victory	3812	136	16	64	590	enemy-inspector
+png	43.9100	Victory	3812	136	16	64	victory	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	44.0128	Victory	3812	136	16	64	591	victory
+frame	44.0128	Victory	3812	136	16	64	592	victory
+frame	44.1169	Victory	3812	136	16	64	593	victory
+frame	44.1169	Victory	3812	136	16	64	594	victory
+frame	44.2231	Victory	3812	136	16	64	595	victory
+frame	44.2231	Victory	3812	136	16	64	596	victory
+frame	44.3286	Victory	3812	136	16	64	597	victory
+frame	44.3286	Victory	3812	136	16	64	598	victory
+frame	44.4375	Victory	3812	136	16	64	599	victory
+frame	44.4375	Victory	3812	136	16	64	600	victory
+frame	44.5420	Victory	3812	136	16	64	601	victory
+frame	44.5420	Victory	3812	136	16	64	602	victory
+frame	44.6463	Victory	3812	136	16	64	603	victory
+frame	44.6463	Victory	3812	136	16	64	604	victory
+frame	44.7539	Victory	3812	136	16	64	605	victory
+frame	44.7539	Victory	3812	136	16	64	606	victory
+frame	44.8605	Victory	3812	136	16	64	607	victory
+frame	44.8605	Victory	3812	136	16	64	608	victory
+frame	44.8605	Victory	3812	136	16	64	609	victory
+frame	44.9699	Victory	3812	136	16	64	610	victory
+frame	44.9699	Victory	3812	136	16	64	611	victory
+tap	45.1715	Victory	3812	136	16	64	Result Menu Button	(800.00, 229.46)
+frame	45.1836						612	victory
+frame	45.1836						613	victory
+frame	45.1836						614	victory
+frame	45.1836						615	victory
+frame	45.4874						616	victory
+frame	45.4874						617	victory
+frame	45.4874						618	victory
+frame	45.4874						619	victory
+frame	45.4874						620	victory
+frame	45.4874						621	victory
+frame	45.5916						622	victory
+frame	45.5916						623	victory
+frame	45.6957						624	victory
+frame	45.6957						625	victory
+frame	45.8032						626	victory
+frame	45.8032						627	victory
+frame	45.9107						628	victory
+frame	45.9107						629	victory
+frame	45.9107						630	victory
+frame	46.0125						631	victory
+frame	46.0125						632	victory
+png	46.0125						menu-finished	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+frame	46.1147						633	menu-finished
+frame	46.1147						634	menu-finished
+frame	46.2165						635	menu-finished
+frame	46.2165						636	menu-finished
+frame	46.3209						637	menu-finished
+frame	46.3209						638	menu-finished
+frame	46.4268						639	menu-finished
+frame	46.4268						640	menu-finished
+frame	46.5343						641	menu-finished
+frame	46.5343						642	menu-finished
+done	643	False

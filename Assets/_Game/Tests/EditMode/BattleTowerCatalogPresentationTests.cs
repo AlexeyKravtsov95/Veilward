@@ -61,9 +61,8 @@ namespace Veilward.Tests.EditMode
             Assert.That(_placement.SelectedTowerTypeId.Value, Is.EqualTo(id));
             var definition = _battle.Simulation.TowerCatalog.Get(new TowerDefinitionId(id)).Levels[0];
             Assert.That(_placement.BuildStatsText.text, Does.Contain($"Price: {price} gold"));
-            Assert.That(_placement.BuildStatsText.text, Does.Contain($"Damage: {definition.Damage}"));
-            Assert.That(_placement.BuildStatsText.text, Does.Contain("Range:"));
-            Assert.That(_placement.BuildStatsText.text, Does.Contain("Rate:"));
+            var coreStats = System.FormattableString.Invariant($"Damage {definition.Damage} · Range {range:0.##} · {definition.FireRate:0.##}/s");
+            Assert.That(_placement.BuildStatsText.text.Split('\n'), Does.Contain(coreStats));
             Assert.That(_placement.BuildStatsText.text, Does.Contain(status).And.Contain(effect));
             var preview = Object.FindObjectsByType<LineRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None)
                 .Single(r => r.name == "Range Preview");

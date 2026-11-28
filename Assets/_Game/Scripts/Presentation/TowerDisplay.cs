@@ -22,8 +22,10 @@ namespace Veilward.Presentation
             _ => Name(id)
         };
 
-        public static string CoreStats(TowerDefinition definition) =>
-            FormattableString.Invariant($"Damage: {definition.Damage} · Range: {definition.Range:0.##} · Rate: {definition.FireRate:0.##}/s");
+        public static string CoreStats(TowerDefinition definition, bool compact = false) =>
+            compact
+                ? FormattableString.Invariant($"Damage {definition.Damage} · Range {definition.Range:0.##} · {definition.FireRate:0.##}/s")
+                : FormattableString.Invariant($"Damage: {definition.Damage} · Range: {definition.Range:0.##} · Rate: {definition.FireRate:0.##}/s");
 
         public static string Effect(TowerDefinition definition)
         {
