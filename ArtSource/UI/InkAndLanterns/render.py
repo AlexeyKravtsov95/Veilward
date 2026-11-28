@@ -35,6 +35,16 @@ ICONS = {
     "FoxCrest": '<circle cx="27" cy="32" r="22" fill="url(#ember)" stroke="none"/><path d="M5 53C18 43 25 45 36 43C37 38 42 32 53 32L48 16Q62 20 64 29L70 34L78 38 72 45 62 48Q54 53 49 61C36 64 25 62 19 67L6 67 18 58 3 60 16 53Z" fill="url(#sand)" stroke="#512c37"/><path d="M9 56Q27 48 42 48L35 44 50 40l-4 8-10 6 10 3-9 3-13-2-14 6Z" fill="#b65b54" stroke="none"/><path d="m55 21 6 10-6-2-4-10m10 17 7 1-5 3z" fill="#b65b54" stroke="none"/><path d="m61 36 5 2-5 1zM74 38l4 1-3 3z" fill="#492831" stroke="none"/>',
 }
 
+# Small combat seals use broad, distinct contours that survive downsampling.
+BADGES = {
+    "BurnBadge": '<path d="M34 12C34 23 16 27 16 43C16 54 23 59 34 59C45 59 52 51 50 40C49 31 41 27 34 12Z" fill="url(#ember)"/><path d="M34 34C36 40 43 43 42 49C41 57 26 57 26 49C26 44 32 41 34 34Z" fill="#ffe0a3" stroke="none"/>',
+    "WetBadge": '<path d="M34 12C29 24 17 33 17 44C17 64 51 64 51 44C51 33 39 24 34 12Z" fill="url(#water)"/><path d="M26 43Q23 49 31 52" fill="none" stroke="#eff8d9" stroke-width="3"/>',
+    "GustBadge": '<path d="M12 30H37Q49 30 49 22Q49 16 43 17M11 40H49Q57 40 56 34M19 50H37Q44 50 44 55" fill="none" stroke="#bde3c9" stroke-width="5"/>',
+    "CrackBadge": '<path d="M14 23 33 13 51 21 55 45 43 55 21 54 13 40Z" fill="url(#sand)"/><path d="M35 14 29 29 39 33 28 43 26 55M39 33 52 27M28 43 17 39" fill="none" stroke="#4e3748" stroke-width="4"/>',
+    "SteamBadge": '<path d="M19 39C9 28 29 28 22 17M34 39C24 30 43 27 35 13M48 39C39 30 55 28 51 18M16 48Q34 53 52 48" fill="none" stroke="#f9dbba" stroke-width="5"/>',
+    "StormBadge": '<path d="M39 11 17 38 32 38 25 58 51 29 36 29 43 13Z" fill="url(#gold)" stroke="#ffe5aa" stroke-width="2"/>',
+}
+
 GRADIENTS = {
     "ember": ("#ffbb85", "#c1534d", "#822f43"),
     "water": ("#ddf3d6", "#4c9fb0", "#225273"),
@@ -125,6 +135,10 @@ def render():
         place(name, svg_image(body, 80, 80), 3 + (index % 12) * 84, 4 + (index // 12) * 84)
     for index, (name, colors) in enumerate(SURFACES.items()):
         place(name, surface(name, colors), 5 + (index % 4) * 251, 178 + (index // 4) * 130, colors[3])
+    for index, (name, body) in enumerate(BADGES.items()):
+        seal = '<path d="M17 3H51L65 17V51L51 65H17L3 51V17Z" fill="#182331" stroke="#dfc4a0" stroke-width="2.5"/>'
+        body = f'{seal}<g stroke="#38263b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{body}</g>'
+        place(name, svg_image(body, 68, 68), 5 + index * 74, 438)
 
     DESTINATION.mkdir(parents=True, exist_ok=True)
     atlas.save(DESTINATION / "InkUi.png", optimize=True)

@@ -39,7 +39,7 @@ namespace Veilward.Tests.EditMode
         public void Ar0a01_SpiritsShareDepthContractAndHaveThreeRegisteredStrideDrawings(string name)
         {
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(InkBattleArtBuilder.Prefabs + name + ".prefab");
-            Assert.That(prefab.GetComponent<EnemyStatusView>(), Is.Not.Null);
+            Assert.That(prefab.GetComponents<EnemyStatusView>().Length, Is.EqualTo(name == "Shade" ? 1 : 0));
             Assert.That(prefab.GetComponent<EnemyHealthBarView>(), Is.Not.Null);
             var legacy = AssetDatabase.LoadAssetAtPath<GameObject>(name == "Shade"
                 ? EnemyModelBuilder.ShadePath : EnemyModelBuilder.BossPath);

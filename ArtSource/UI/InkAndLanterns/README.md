@@ -12,4 +12,6 @@
 
 Для Review 26.11.2026 отрисованы восемь отдельных силуэтов поверхностей. Один тонкий контур, матовые градиенты и слабые следы пигмента в углах сохраняют читаемость при растяжении 9-slice. [Кадры GameView](../../../Docs/review/UI.REWORK.1/polish/README.md)
 
+Для UI.REWORK.2 в `render.py` добавлены шесть оригинальных векторных контуров боя `BurnBadge`, `WetBadge`, `GustBadge`, `CrackBadge`, `SteamBadge`, `StormBadge`. Векторные мастера и матовая рамка находятся в том же файле. Слайсы 68×68 заняли свободную нижнюю строку 1024×512 без изменения прежних координат, fileID или import settings.
+
 Заголовки используют Cormorant Garamond Bold Italic, Christian Thalmann / The Cormorant Project Authors, [upstream 0167848](https://github.com/CatharsisFonts/Cormorant/tree/016784836d2ad47bc4c62b7f504a0a5875d85aeb). [SIL Open Font License 1.1](OFL-Cormorant.txt) сохранена рядом. Шрифт встроенных контролов и динамического мелкого текста взят из Unity 6000.3.28f1 (`LegacyRuntime.ttf`).

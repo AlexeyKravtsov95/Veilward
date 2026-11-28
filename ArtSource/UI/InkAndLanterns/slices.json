@@ -190,5 +190,53 @@
     "width": 240,
     "height": 124,
     "border": 16
+  },
+  {
+    "name": "BurnBadge",
+    "x": 5,
+    "y": 6,
+    "width": 68,
+    "height": 68,
+    "border": 0
+  },
+  {
+    "name": "WetBadge",
+    "x": 79,
+    "y": 6,
+    "width": 68,
+    "height": 68,
+    "border": 0
+  },
+  {
+    "name": "GustBadge",
+    "x": 153,
+    "y": 6,
+    "width": 68,
+    "height": 68,
+    "border": 0
+  },
+  {
+    "name": "CrackBadge",
+    "x": 227,
+    "y": 6,
+    "width": 68,
+    "height": 68,
+    "border": 0
+  },
+  {
+    "name": "SteamBadge",
+    "x": 301,
+    "y": 6,
+    "width": 68,
+    "height": 68,
+    "border": 0
+  },
+  {
+    "name": "StormBadge",
+    "x": 375,
+    "y": 6,
+    "width": 68,
+    "height": 68,
+    "border": 0
   }
 ]

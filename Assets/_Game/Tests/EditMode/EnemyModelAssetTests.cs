@@ -40,7 +40,8 @@ namespace Veilward.Tests.EditMode
                 Assert.That(visual.Model.GetComponentsInChildren<Renderer>().SelectMany(r => r.sharedMaterials).Distinct().Count(), Is.EqualTo(3), "Surface/Glow and one shared stencil material");
                 Assert.That(visual.Model.GetComponentsInChildren<Animation>().All(a => !a.enabled && !a.playAutomatically), Is.True);
                 Assert.That(instance.transform.Find("Health Bar").localPosition.y, Is.EqualTo(2));
-                Assert.That(instance.transform.Find("Status slots").GetComponentsInChildren<UnityEngine.UI.Text>(true).Length, Is.EqualTo(2));
+                Assert.That(instance.GetComponentsInChildren<UnityEngine.UI.Image>(true).Length, Is.EqualTo(boss ? 0 : 2));
+                Assert.That(instance.GetComponentsInChildren<UnityEngine.UI.Text>(true), Is.Empty);
                 var parts = visual.Model.GetComponentsInChildren<MeshFilter>().Where(m => !m.name.StartsWith("Body occlusion cue")).ToArray();
                 Assert.That(parts.Length, Is.EqualTo(4));
                 foreach (var part in parts)
@@ -99,7 +100,7 @@ namespace Veilward.Tests.EditMode
                     Assert.That(enemy.GetComponentsInChildren<EnemyModelView>(true).Length, Is.EqualTo(1));
                     var model = enemy.GetComponentInChildren<EnemyModelView>().Model;
                     Assert.That(model.GetComponentsInChildren<MeshFilter>(true).Length, Is.EqualTo(8));
-                    Assert.That(enemy.GetComponent<EnemyHealthBarView>(), Is.Not.Null); Assert.That(enemy.GetComponent<EnemyStatusView>(), Is.Not.Null);
+                    Assert.That(enemy.GetComponent<EnemyHealthBarView>(), Is.Not.Null); Assert.That(enemy.GetComponents<EnemyStatusView>().Length, Is.EqualTo(path == EnemyModelBuilder.ShadePath ? 1 : 0));
                 }
                 foreach (var path in paths.Where(p => p.EndsWith(".meta"))) CollectionAssert.AreEqual(saved[path], File.ReadAllBytes(path), path);
             }

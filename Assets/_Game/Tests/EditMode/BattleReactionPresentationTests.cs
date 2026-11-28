@@ -65,21 +65,21 @@ namespace Veilward.Tests.EditMode
         public void RegBattle155_TwoSlotsPriorityCooldownAndExactActiveLifetime()
         {
             var enemy = EnemyState.CreateInitial(new EnemyId(1), new EnemyDefinition(new EnemyDefinitionId("e"), 100, 1, 1, 0));
-            foreach (StatusKind k in Enum.GetValues(typeof(StatusKind))) Status(enemy, k);
+            foreach (var kind in new[] { StatusKind.Crack, StatusKind.Gust, StatusKind.Wet, StatusKind.Burn }) Status(enemy, kind);
             var state = NewState();
-            AssertSlots(enemy, state, 0, "Burn", "Wet");
+            AssertSlots(enemy, state, 0, StatusKind.Burn, StatusKind.Wet);
             Reserve(enemy, ReactionKind.Steam, 0);
-            AssertSlots(enemy, state, 59, "Wet", "Gust");
+            AssertSlots(enemy, state, 59, StatusKind.Wet, StatusKind.Gust);
             Reserve(enemy, ReactionKind.Storm, 0);
-            AssertSlots(enemy, state, 59, "Burn", "Wet");
+            AssertSlots(enemy, state, 59, StatusKind.Burn, StatusKind.Wet);
             Consume(state, Event(ReactionKind.Storm, 3));
             Consume(state, Event(ReactionKind.Steam, 5));
             Consume(state, Event(ReactionKind.Storm, 7));
-            AssertSlots(enemy, state, 60, "Flame + Tide: Steam", "Gust");
+            AssertSlots(enemy, state, 60, null, StatusKind.Gust, ReactionKind.Steam, ReactionTriggerKind.StatusPair);
             Call(state, "Advance", .499);
-            AssertSlots(enemy, state, 60, "Flame + Tide: Steam", "Gust");
+            AssertSlots(enemy, state, 60, null, StatusKind.Gust, ReactionKind.Steam, ReactionTriggerKind.StatusPair);
             Call(state, "Advance", .001);
-            AssertSlots(enemy, state, 60, "Burn", "Wet");
+            AssertSlots(enemy, state, 60, StatusKind.Burn, StatusKind.Wet);
         }
 
         [Test]
@@ -89,8 +89,9 @@ namespace Veilward.Tests.EditMode
             var state = NewState();
             Consume(state, Event(ReactionKind.Storm, 3, ReactionTriggerKind.Intrinsic));
             var slots = Describe(enemy, state, 0);
-            Assert.That(Read<string>(slots, "First"), Does.Contain("Storm chain"));
-            Assert.That(Read<string>(slots, "Second"), Is.Empty);
+            Assert.That(slots.First.Reaction, Is.EqualTo(ReactionKind.Storm));
+            Assert.That(slots.First.Trigger, Is.EqualTo(ReactionTriggerKind.Intrinsic));
+            Assert.That(slots.Second.Status, Is.Null);
             Consume(state, Event(ReactionKind.Steam, 5));
             var memory = Call(state, "GetMemory", enemy.Id);
             Assert.That(Read<object>(memory, "Steam"), Is.Not.Null);
@@ -185,47 +186,65 @@ namespace Veilward.Tests.EditMode
         {
             var errors = Veilward.Editor.BattleAssetValidator.ValidateSavedBattle();
             Assert.That(errors, Is.Empty);
-            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/Shade.prefab");
-            var view = prefab.GetComponent(Required("EnemyStatusView"));
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/InkAndLanterns/Shade.prefab");
+            var view = prefab.GetComponent<EnemyStatusView>();
             Assert.That(view, Is.Not.Null);
             var serialized = new SerializedObject(view);
-            foreach (var field in new[] { "firstSlot", "secondSlot" })
+            foreach (var field in new[] { "badges.firstSlot", "badges.secondSlot" })
                 Assert.That(serialized.FindProperty(field)?.objectReferenceValue, Is.Not.Null, field);
-            Assert.That(prefab.GetComponentsInChildren<UnityEngine.UI.Text>(true).Length, Is.EqualTo(2));
+            Assert.That(prefab.GetComponentsInChildren<UnityEngine.UI.Text>(true), Is.Empty);
         }
 
         [Test]
-        public void RegBattle159_StatusFontProjectsToAtLeastTwelvePixelsAtReferenceHeight()
+        public void RegBattle159_ArtworkProjectsToAtLeastTwelvePixelsAtReferenceHeight()
         {
             UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity");
-            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/Shade.prefab");
-            foreach (var text in prefab.GetComponentsInChildren<UnityEngine.UI.Text>(true))
-                Assert.That(text.fontSize * text.transform.lossyScale.y * 900f / (2 * Camera.main.orthographicSize),
-                    Is.GreaterThanOrEqualTo(12), "Overhead text is unreadable at the 1600×900 reference viewport.");
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/InkAndLanterns/Shade.prefab");
+            var images = prefab.GetComponentsInChildren<UnityEngine.UI.Image>(true);
+            Assert.That(images.Length, Is.EqualTo(2));
+            foreach (var image in images)
+                Assert.That(image.rectTransform.rect.width * image.transform.lossyScale.x * 900f / (2 * Camera.main.orthographicSize),
+                    Is.GreaterThanOrEqualTo(12));
         }
 
         [Test]
-        public void RegBattle155_DenseLayoutSeparatesExistingTwoSlots()
+        public void RegBattle155_DenseBadgesStayAttachedToAnEnemyHpWithoutOverlap()
         {
             UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/_Game/Scenes/Battle.unity");
-            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/Shade.prefab");
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/InkAndLanterns/Shade.prefab");
             var roots = new System.Collections.Generic.List<GameObject>();
             var rects = new System.Collections.Generic.List<Rect>();
+            var healthRects = new System.Collections.Generic.List<Rect>();
             try
             {
-                for (var i = 0; i < 4; i++)
+                var camera = Camera.main;
+                var enemy = EnemyState.CreateInitial(new EnemyId(1), new EnemyDefinition(new EnemyDefinitionId("e"), 100, 1, 1, 0));
+                Status(enemy, StatusKind.Wet);
+                Status(enemy, StatusKind.Gust);
+                for (var i = 0; i < 8; i++)
                 {
                     var root = UnityEngine.Object.Instantiate(prefab); roots.Add(root);
-                    root.transform.position = new Vector3(i * .15f, .6f, 0);
-                    var enemy = EnemyState.CreateInitial(new EnemyId(i + 1), new EnemyDefinition(new EnemyDefinitionId("e"), 100, 1, 1, 0));
-                    foreach (StatusKind kind in Enum.GetValues(typeof(StatusKind))) Status(enemy, kind);
-                    var view = root.GetComponent<EnemyStatusView>();
-                    view.Refresh(enemy, 0, Catalog(), null, 0, Camera.main); view.Layout(Camera.main, rects);
-                    Assert.That(view.VisibleSlotCount, Is.EqualTo(2));
-                    Assert.That(root.GetComponentsInChildren<UnityEngine.UI.Text>(true).Length, Is.EqualTo(2));
+                    root.transform.position = new Vector3(i * .07f, .6f, 0);
+                    var health = root.GetComponent<EnemyHealthBarView>();
+                    health.Face(camera);
+                    health.Layout(camera, healthRects);
                 }
+                foreach (var root in roots)
+                {
+                    var health = root.GetComponent<EnemyHealthBarView>();
+                    var view = root.GetComponent<EnemyStatusView>();
+                    view.Refresh(enemy, 0, Catalog(), null, 0, camera);
+                    view.Layout(camera, health.BarPosition, healthRects, rects);
+                    if (view.VisibleSlotCount == 0) continue;
+                    Assert.That(view.VisibleSlotCount, Is.EqualTo(2));
+                    Assert.That(Vector3.Distance(root.transform.Find("Status slots").position, health.BarPosition), Is.LessThan(.24f));
+                }
+                Assert.That(rects.Count, Is.InRange(1, roots.Count - 1), "Dense layout should suppress overlapping pairs.");
                 for (var i = 0; i < rects.Count; i++)
+                {
+                    Assert.That(healthRects.Exists(hp => hp.Overlaps(rects[i])), Is.False);
                     for (var j = 0; j < i; j++) Assert.That(rects[i].Overlaps(rects[j]), Is.False);
+                }
             }
             finally { foreach (var root in roots) UnityEngine.Object.DestroyImmediate(root); }
         }
@@ -249,13 +268,18 @@ namespace Veilward.Tests.EditMode
             new DamageResolvedEvent(tick, correlation + index + 1, DamageOrigin.Reaction, new TowerId(1), new EnemyId(id),
                 new PathPosition(id - 1, 0), new PathPosition(id, 0), 999, 999, 999, hpLoss, 0, true, kind, correlation, index);
         private static void Consume(object state, ReactionEvent reaction) => Call(state, "Consume", reaction, Array.Empty<DamageResolvedEvent>());
-        private static object Describe(EnemyState enemy, object state, long tick) => Required("EnemyStatusView").GetMethod("Describe").Invoke(null,
-            new[] { enemy, (object)tick, Catalog(), Call(state, "GetMemory", enemy.Id), Read<double>(state, "ActiveTime") });
-        private static void AssertSlots(EnemyState enemy, object state, long tick, string first, string second)
+        private static EnemyStatusSlots Describe(EnemyState enemy, object state, long tick) =>
+            EnemyStatusView.Describe(enemy, tick, Catalog(), (EnemyReactionMemory)Call(state, "GetMemory", enemy.Id),
+                Read<double>(state, "ActiveTime"));
+
+        private static void AssertSlots(EnemyState enemy, object state, long tick, StatusKind? first, StatusKind second,
+            ReactionKind? reaction = null, ReactionTriggerKind? trigger = null)
         {
             var slots = Describe(enemy, state, tick);
-            Assert.That(Read<string>(slots, "First"), Does.Contain(first));
-            Assert.That(Read<string>(slots, "Second"), Does.Contain(second));
+            Assert.That(slots.First.Status, Is.EqualTo(first));
+            Assert.That(slots.First.Reaction, Is.EqualTo(reaction));
+            Assert.That(slots.First.Trigger, Is.EqualTo(trigger));
+            Assert.That(slots.Second.Status, Is.EqualTo(second));
         }
     }
 }

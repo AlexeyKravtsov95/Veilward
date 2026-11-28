@@ -206,7 +206,12 @@ namespace Veilward.Editor
             }
             var bosses = FindComponents<BossHudController>(roots);
             if (bosses.Count != 1) errors.Add("Battle requires exactly one BossHudController.");
-            else RequireReferences(bosses[0], new[] { "battle", "placement", "panel", "noticeText", "healthText", "healthFill" }, errors);
+            else
+            {
+                RequireReferences(bosses[0], new[] { "battle", "placement", "panel", "noticeText", "healthText", "healthFill",
+                    "inspector", "inspectButton" }, errors);
+                ValidateStatusBadges(bosses[0], errors);
+            }
             var abilities = FindComponents<AbilityController>(roots);
             if (abilities.Count != 1) errors.Add("Battle requires exactly one AbilityController.");
             else
@@ -233,6 +238,7 @@ namespace Veilward.Editor
             }
 
             ValidatePrefabAsset(EnemyPrefabPath, errors);
+            ValidatePrefabAsset(InkBattleArtBuilder.Prefabs + "Shade.prefab", errors);
             ValidatePrefabAsset(TowerPrefabPath, errors);
         }
 
@@ -335,21 +341,32 @@ namespace Veilward.Editor
                 return;
             }
 
-            if (path == EnemyPrefabPath)
+            if (path.EndsWith("/Shade.prefab", StringComparison.Ordinal))
             {
                 var status = prefab.GetComponent<EnemyStatusView>();
                 if (status == null) errors.Add("Enemy prefab requires EnemyStatusView.");
                 else
                 {
-                    var refs = RequireReferences(status, new[] { "firstSlot", "secondSlot", "firstCue", "secondCue" }, errors);
-                    if (refs["firstSlot"] == refs["secondSlot"] || prefab.GetComponentsInChildren<UnityEngine.UI.Text>(true).Length != 2)
-                        errors.Add("EnemyStatusView must have exactly two distinct overhead slots.");
-                    if (refs["firstCue"] == refs["secondCue"] || prefab.GetComponentsInChildren<StatusCueGraphic>(true).Length != EnemyStatusView.CueCapacity)
-                        errors.Add("EnemyStatusView requires exactly two prebuilt cue graphics.");
+                    var refs = RequireReferences(status, new[] { "badgeRoot" }, errors);
+                    ValidateStatusBadges(status, errors);
+                    if (refs["badgeRoot"] is RectTransform root &&
+                        (root.GetComponentsInChildren<UnityEngine.UI.Graphic>(true).Length != EnemyStatusView.CueCapacity ||
+                         root.GetComponent<UnityEngine.UI.GraphicRaycaster>() != null))
+                        errors.Add("EnemyStatusView requires exactly two decorative badge graphics.");
                 }
             }
             ValidateMissingScripts(prefab, path, errors);
             ValidateRenderers(prefab.GetComponentsInChildren<Renderer>(true), path, errors);
+        }
+
+        private static void ValidateStatusBadges(Component owner, List<string> errors)
+        {
+            var refs = RequireReferences(owner, new[] { "badges.firstSlot", "badges.secondSlot",
+                "badges.burn", "badges.wet", "badges.gust", "badges.crack", "badges.steam", "badges.storm" }, errors);
+            if (refs["badges.firstSlot"] == refs["badges.secondSlot"] ||
+                refs["badges.firstSlot"] is UnityEngine.UI.Image first && first.raycastTarget ||
+                refs["badges.secondSlot"] is UnityEngine.UI.Image second && second.raycastTarget)
+                errors.Add("Status badge slots must refer to two distinct decorative images.");
         }
 
         private static void ValidateMissingScripts(GameObject root, string label, List<string> errors)

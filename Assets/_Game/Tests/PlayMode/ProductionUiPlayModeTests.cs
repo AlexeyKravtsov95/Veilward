@@ -14,6 +14,7 @@ using Veilward.Application;
 using Veilward.Domain;
 using Veilward.Infrastructure;
 using Veilward.Presentation;
+using Veilward.Tests.Shared;
 using Object = UnityEngine.Object;
 using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
@@ -25,6 +26,7 @@ namespace Veilward.Tests.PlayMode
         private static readonly GridCoordinate SecondCell = new GridCoordinate(-3, 0);
         private static readonly MethodInfo Dispatch = typeof(BattlePlacementController).GetMethod(
             "DispatchPointer", BindingFlags.Instance | BindingFlags.NonPublic);
+        private const BindingFlags InstanceMethods = BindingFlags.Instance | BindingFlags.NonPublic;
         private string _directory;
         private WaveCheckpointStore _store;
 
@@ -82,6 +84,107 @@ namespace Veilward.Tests.PlayMode
             yield return null;
             yield return null;
             Assert.That(Object.FindFirstObjectByType<BattleSceneController>().Simulation.State.Gold, Is.EqualTo(150));
+        }
+
+        [UnityTest]
+        public IEnumerator UiRework2_WardenBadgesUseCurrentOwnerAndBlockWorldInputAtUnchangedHp()
+        {
+            yield return SceneManager.LoadSceneAsync("Battle");
+            yield return null;
+            var battle = Object.FindFirstObjectByType<BattleSceneController>();
+            battle.enabled = false;
+            var config = (BattleScenarioConfig)typeof(BattleSceneController).GetField("scenario", InstanceMethods).GetValue(battle);
+            var run = new AbilityBossTrace.Run(config.CreateSimulation(), BossMissionScript.Load("gale"));
+            WaveCheckpointEnvelope earned = null;
+            run.stable = (r, stage) =>
+            {
+                if (stage == "preparation" && r.sim.State.WaveIndex == 7) earned = AbilityBossTrace.Envelope(r.sim);
+            };
+            run.Play();
+            Assert.That(earned, Is.Not.Null);
+            var saves = battle.GetComponent<BattleCheckpointController>();
+            var hud = battle.GetComponent<BossHudController>();
+            var inspector = battle.GetComponent<EnemyInspectorController>();
+            var placement = battle.GetComponent<BattlePlacementController>();
+            var ability = battle.GetComponent<AbilityController>();
+            saves.RestoreCheckpoint(earned);
+            yield return null;
+            Assert.That(hud.BadgeOwner, Is.Null);
+            var sim = battle.Simulation;
+            Assert.That(battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+            for (var i = 0; i < 330; i++) sim.Step();
+            var boss = sim.State.Enemies.Single(e => e.Definition.Id.Value == BossHudController.BossId);
+            typeof(BattleSceneController).GetMethod("LateUpdate", InstanceMethods).Invoke(battle, null);
+            var bossView = battle.transform.Find("Страж Разрыва " + boss.Id.Value);
+            Assert.That(bossView, Is.Not.Null);
+            Assert.That(bossView.GetComponentsInChildren<Graphic>(true), Is.Empty);
+            Assert.That(hud.BadgeOwner, Is.EqualTo(boss.Id));
+            Assert.That(hud.VisibleBadgeCount, Is.Zero);
+            var health = hud.Health;
+            var gold = sim.State.Gold;
+
+            var apply = typeof(EnemyState).GetMethod("ApplyStatus", InstanceMethods);
+            apply.Invoke(boss, new object[] { new StatusEffectDefinition(StatusKind.Wet, 7, 1, 0), new TowerId(9), sim.State.Tick });
+            apply.Invoke(boss, new object[] { new StatusEffectDefinition(StatusKind.Gust, 9, 2, 0), new TowerId(9), sim.State.Tick });
+            hud.Refresh();
+            var first = Find<Image>("Boss Badge 1");
+            var second = Find<Image>("Boss Badge 2");
+            Assert.That(first.sprite.name, Is.EqualTo("WetBadge"));
+            Assert.That(second.sprite.name, Is.EqualTo("GustBadge"));
+            Assert.That(hud.Health, Is.EqualTo(health));
+
+            var inspect = Find<Button>("Inspect Warden");
+            var point = ScreenPoint(inspect.GetComponent<RectTransform>());
+            Assert.That(Hits(point).First(), Is.EqualTo(inspect.name));
+            Click(inspect, .89f);
+            Send(placement, point, TouchPhase.Began);
+            Send(placement, point, TouchPhase.Ended);
+            Assert.That(inspector.SelectedEnemyId, Is.EqualTo(boss.Id));
+            Assert.That(inspector.Details, Does.Contain("Wet 7").And.Contain("Gust 9"));
+            yield return null;
+            Click(Find<Button>("Close Inspector Button"));
+            Click(inspect);
+            Assert.That(inspector.SelectedEnemyId, Is.EqualTo(boss.Id));
+            inspector.Close();
+            yield return null;
+            Assert.That(ability.BeginPreview(), Is.True);
+            hud.Refresh();
+            Assert.That(inspect.interactable, Is.False);
+            Click(inspect);
+            Send(placement, point, TouchPhase.Began);
+            Send(placement, point, TouchPhase.Ended);
+            Assert.That(inspector.SelectedEnemyId, Is.Null);
+            Assert.That(ability.HasTarget, Is.False);
+            Assert.That(placement.HasSelection, Is.False);
+            Assert.That(sim.State.Gold, Is.EqualTo(gold));
+
+            var reaction = new ReactionEvent(sim.State.Tick, 1, ReactionKind.Storm, ReactionTriggerKind.StatusPair,
+                new TowerId(9), boss.Id, sim.Path.GetPosition(boss.DistanceAlongPath), StatusKind.Wet, StatusKind.Gust, 2, 2);
+            battle.Presentation.Consume(reaction, Array.Empty<DamageResolvedEvent>());
+            hud.Refresh();
+            Assert.That(first.sprite.name, Is.EqualTo("StormBadge"));
+            Assert.That(second.enabled, Is.False);
+            var timers = typeof(EnemyState).GetMethod("AdvanceStatusTimers", InstanceMethods);
+            timers.Invoke(boss, null);
+            battle.Presentation.Advance(ReactionPresentationState.CueSeconds);
+            hud.Refresh();
+            Assert.That(first.sprite.name, Is.EqualTo("GustBadge"));
+            timers.Invoke(boss, null);
+            hud.Refresh();
+            Assert.That(hud.VisibleBadgeCount, Is.Zero);
+            Assert.That(hud.Health, Is.EqualTo(health));
+
+            saves.RestoreCheckpoint(earned);
+            Assert.That(hud.BadgeOwner, Is.Null);
+            Assert.That(hud.VisibleBadgeCount, Is.Zero);
+            Assert.That(battle.Presentation.GetMemory(boss.Id), Is.Null);
+            Assert.That(inspect.interactable, Is.False);
+            sim = battle.Simulation;
+            Assert.That(battle.StartWave(), Is.EqualTo(WaveTransitionResult.Started));
+            for (var i = 0; i < 330; i++) sim.Step();
+            hud.Refresh();
+            Assert.That(hud.BadgeOwner, Is.EqualTo(boss.Id), "Rollback reuses the same spawn ID.");
+            Assert.That(hud.VisibleBadgeCount, Is.Zero);
         }
 
         [UnityTest]

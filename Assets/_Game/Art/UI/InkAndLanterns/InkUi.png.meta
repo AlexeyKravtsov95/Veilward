@@ -637,6 +637,138 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BurnBadge
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 6
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ca89ffb76b62760800000000000000
+      internalID: 8530499082203548406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WetBadge
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 6
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417c65f98b82c67e0800000000000000
+      internalID: 9135132431863872577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GustBadge
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 6
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a8c7369ae3eb710800000000000000
+      internalID: 8208904997296384119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrackBadge
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 6
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce053e0726aac3830800000000000000
+      internalID: -8952124553975429682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SteamBadge
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 6
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515d6bdcaf2850020800000000000000
+      internalID: 166677921995119953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StormBadge
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 6
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c05f59543d9e965d0800000000000000
+      internalID: 6743751478279233472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -675,6 +807,12 @@ TextureImporter:
       Tide: -4474366334431934626
       Warden: 4718869372670953859
       Wave: 6795077884157259837
+      BurnBadge: 8530499082203548406
+      WetBadge: 9135132431863872577
+      GustBadge: 8208904997296384119
+      CrackBadge: -8952124553975429682
+      SteamBadge: 166677921995119953
+      StormBadge: 6743751478279233472
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
