@@ -122,7 +122,6 @@ namespace Veilward.Editor
 
             var boss = Card("Boss Panel", safe, TopLeft, 10, -60, 246, 52, "InkStrip");
             Decoration("Warden Mask", boss, Left, 6, 0, 44, 44, "Warden");
-            // Справа от полосы HP остаётся место для двух значков #104.
             var bossNotice = Label("Boss Notice", boss, TopLeft, 52, -9, 184, 34, "", 12, Stone, TextAnchor.UpperLeft, true);
             var bossHealth = Label("Boss Health", boss, TopLeft, 52, -22, 152, 16, "", 12, Stone, bold: true);
             var bossBar = ArtImage("Boss HP Bar", boss, Vector2.zero, 52, 9, 136, 7, "HealthTrack", false).rectTransform;
@@ -268,6 +267,31 @@ namespace Veilward.Editor
                 TowerPanel = tower.gameObject, TowerStatsText = towerStats, UpgradeButton = upgrade, SellButton = sell, CloseTowerButton = closeTower,
                 SellConfirmationPanel = sellOverlay.gameObject, ConfirmSellButton = confirmSell, CancelSellButton = cancelSell
             };
+        }
+
+        private static void AddBossBadges(BossHudController boss, EnemyInspectorController inspector, RectTransform panel)
+        {
+            var first = Image("Boss Badge 1", panel, TopLeft, 191, -15, 24, 24, Color.white, false);
+            var second = Image("Boss Badge 2", panel, TopLeft, 217, -15, 24, 24, Color.white, false);
+            var hit = Image("Inspect Warden", panel, TopLeft, 0, 0, panel.rect.width, 60, Color.clear, true);
+            var button = hit.gameObject.AddComponent<Button>();
+            button.targetGraphic = hit;
+            button.transition = Selectable.Transition.None;
+            button.interactable = false;
+            Bind(boss, ("inspector", inspector), ("inspectButton", button));
+            BindStatusBadges(boss, first, second);
+        }
+
+        private static void BindStatusBadges(Component view, Image first, Image second)
+        {
+            first.enabled = second.enabled = false;
+            using var data = new SerializedObject(view);
+            var pair = data.FindProperty("badges");
+            pair.FindPropertyRelative("firstSlot").objectReferenceValue = first;
+            pair.FindPropertyRelative("secondSlot").objectReferenceValue = second;
+            foreach (var name in new[] { "Burn", "Wet", "Gust", "Crack", "Steam", "Storm" })
+                pair.FindPropertyRelative(name.ToLowerInvariant()).objectReferenceValue = SpriteFor(name + "Badge");
+            data.ApplyModifiedPropertiesWithoutUndo();
         }
 
         private static Text Metric(Transform parent, string name, float x, float width, VeilwardGlyph glyph)

@@ -1,0 +1,15 @@
+tap	4.5936						Continue Button	(402.16, 428.38)
+tap	5.0520	Combat	3021	11	16	52	Start Wave Button	(1283.24, 817.84)
+png	7.6725	Combat	3099	11	16	52	shade-two	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	7.6725	Combat	3099	11	16	52	shade-two				ShadePairs=1	clock=2.8660	scale=1
+tap	10.6770	Combat	3190	26	16	55	Ability Button	(1465.95, 108.11)
+tap	11.0063	Combat	3199	26	16	55	Confirm Ability Button	(1154.60, 103.78)
+png	16.7101	Combat	3371	56	16	61	boss-combat	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	16.7101	Combat	3371	56	16	61	boss-combat	68	HP 600/600   ·   Armor 5		ShadePairs=0	clock=11.9037	scale=1
+png	19.7846	Combat	3463	66	16	63	boss-two	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	19.7846	Combat	3463	66	16	63	boss-two	68	HP 577/600   ·   Armor 5	GustBadge,SteamBadge	ShadePairs=0	clock=14.9781	scale=1
+tap	31.0112	Combat	3800	66	16	63	Ability Button	(1465.95, 108.11)
+tap	31.2364	Combat	3806	66	16	63	Confirm Ability Button	(1154.60, 103.78)
+png	31.5883	Victory	3809	136	16	64	victory	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	31.5883	Victory	3809	136	16	64	victory		HP 109/600   ·   Armor 5		ShadePairs=0	clock=26.7819	scale=1
+done	0	False

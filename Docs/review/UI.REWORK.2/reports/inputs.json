@@ -1,0 +1,56 @@
+{
+  "source": "36d4ec47554ac37c9b157d21ba8f3618a80ebfec",
+  "runtimeTrees": {
+    "Assets": "ade811dd6e8a0606fa9ecac985c0d1beeacf810c",
+    "Packages": "b65db5755220f30fc7fc670e9500944e03d1ae82",
+    "ProjectSettings": "440b100237428f8ec6b59f8e226b7ecead7ba6e7"
+  },
+  "tracked": {
+    "ArtSource/UI/InkAndLanterns/README.md": "71f162d4c21e4f0f2713c17f444f0c6be1554fc3d207dd6e29c3f293c96e99c0",
+    "ArtSource/UI/InkAndLanterns/render.py": "5c986ffbf1af08bffc3f92ac0b8154b176525d6363d9ef1bc591b28cdfbe8941",
+    "ArtSource/UI/InkAndLanterns/slices.json": "344f4fb562f6d873836b3ceac0e1ae6295ec9d066ba165e7ec57cb6e2068ac21",
+    "Assets/Settings/Mobile_RPAsset.asset": "077b30c366ee79c2b0906284297c3433c470b59a7bca563801901512d6cabf64",
+    "Assets/_Game/Art/Materials/GrayboxSelection.mat": "ccaef8a0a76ed900829aac9ea559afe00c858411838002b73a227e3d9c386f64",
+    "Assets/_Game/Art/Materials/GrayboxTower.mat": "a8a2f3b33accbad57da378055c7d93da4b440eb0cb38daf7b93b6943409c17a1",
+    "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat": "072b877ec1184ee60be1c533cfc6aaddf1ff3b382117f0c942fc641fcb3c873b",
+    "Assets/_Game/Art/UI/InkAndLanterns/InkUi.png": "b90ea71f78fefc7aca99b431ccc837cdcb277bafba46c48d1dab4da346d78680",
+    "Assets/_Game/Art/UI/InkAndLanterns/InkUi.png.meta": "dfe200d200f9835ecfafcc0da01fc8fabbac90a2d748177d119b94a8bd510609",
+    "Assets/_Game/Configs/EightWaveAbilityBossV2.asset": "d9e85098df18a3e5bc6b73da31a2a0845af351aabecec45882c9f97b0c6ac661",
+    "Assets/_Game/Prefabs/ART5/P_Enemy_RiftWarden.prefab": "30ecddae3a40cd54490fffd6a079bcd53e2541a48ed3b51e361df30027ec75fa",
+    "Assets/_Game/Prefabs/InkAndLanterns/Shade.prefab": "7cbee92e5927f2407511404e9710ba02fad2df2d0f7b875167eb27e308e85bdc",
+    "Assets/_Game/Prefabs/InkAndLanterns/Warden.prefab": "0181359290717f1b092afd416ace34166e1f52463f217150b794a02ba9057fa6",
+    "Assets/_Game/Prefabs/Shade.prefab": "542bdb4bc84fc09f074b5b43299b117131882dbf8644c1b00ee560ab772f952a",
+    "Assets/_Game/Scenes/Battle.unity": "3b51d06e475b833feaef410592728ee5828e4adf3026c7b1fe6eec231577a42b",
+    "Assets/_Game/Scenes/MainMenu.unity": "fb63755c71e6a60256c9c665df01b3fdbbf84f65f9979e4120c170780f61a136",
+    "Assets/_Game/Scripts/Editor/BattleAssetValidator.cs": "f3a8fe56006a6f250a6a0177827173147045fe153c146bd31e04569b9aef10cf",
+    "Assets/_Game/Scripts/Editor/BattlePlayerUiBuilder.cs": "da79765f74d70dbc91ac438380bdcd2115b2f6c46e64f959cbd1fca7e3c5a242",
+    "Assets/_Game/Scripts/Editor/BattleSceneBuilder.cs": "bf47c4608d1a546090f331c2b94a90068f9435b7fe48d6a79f5e0ded3e706d64",
+    "Assets/_Game/Scripts/Editor/EnemyModelBuilder.cs": "34dda2f63614a9e071da098da2768684589f8da509cb33d9b1db5ed190550f82",
+    "Assets/_Game/Scripts/Presentation/BattleSceneController.cs": "a11c3f998a5a9ddaf009f3427c37a02fd85b05da52c792e26315ee81bf95e134",
+    "Assets/_Game/Scripts/Presentation/BossHudController.cs": "1fa5f74ffdac97505f16c5deb2a3c26869e4b85b99323847f84dfe30d390ef89",
+    "Assets/_Game/Scripts/Presentation/EnemyStatusView.cs": "50a108f1c8c6e9ff2c554840f24d3b5e3246bae90c7146cc03c8402a0cc8c9c4",
+    "Assets/_Game/Scripts/Presentation/ReactionPresentationState.cs": "b2294f99353994351a3aadcdc84dbbf759401cb3b8dd62a9117f697ec4b00a2c",
+    "Assets/_Game/Tests/EditMode/BattleReactionPresentationTests.cs": "1118cd5af0e55081d3503992acc5be4c6fb7089af949da82de83794054bdd9df",
+    "Assets/_Game/Tests/EditMode/BossPresentationTests.cs": "881c20bb539567c2f44d9c5e8d1052a85e93b7b921362a18e53bb38f6c0da188",
+    "Assets/_Game/Tests/EditMode/EnemyModelAssetTests.cs": "45f261eec872fcd4ee7f1d698edc8f8815d18b4f6ca8f8b460507da31f906be0",
+    "Assets/_Game/Tests/EditMode/InkBattleArtTests.cs": "c9854df6a2e4711792573be652c1458175c131b8eb514cc96bcd9c9ff8491653",
+    "Assets/_Game/Tests/EditMode/StatusCueTests.cs": "10dd5b79a432e1c42c51cf9a59836b93a91f6a996c4376bce338ce843ceec909",
+    "Assets/_Game/Tests/EditMode/TideModelAssetTests.cs": "613e5d4db33edf55a3849d740ff4ee3be0e441c8a9a5c2d87756274d8e8d7c58",
+    "Assets/_Game/Tests/PlayMode/BasicProjectilePlayModeTests.cs": "d97a47295edeef186d6a68e4cb4c27fda95b890b498f7723432f9a3b7e74369d",
+    "Assets/_Game/Tests/PlayMode/ProductionUiPlayModeTests.cs": "dd72807a869dccabc0e0acf23b8703eab0acd74b1c6140e8f217eb56120470a0",
+    "Docs/UI_REWORK_2_STATUS_BADGES.md": "35f99479c6b3cd49ccdd3511e1ab62b76189f7b2cbdbae7b2cc66f9e44c6355b",
+    "Docs/review/VFX.1d/reports/safe-file.json": "559bdb0df8d2332be5588057f39ae586634c5deeda603b22af1537b624f54269",
+    "Packages/manifest.json": "a78d2c59e34818add54d16dc5954518d2da7db5675de2581d98290da49ef6eef",
+    "Packages/packages-lock.json": "aa3863f6781ab09d3883c846faec36322a393dae4955ff3cc9b6b5faa5d9b67e",
+    "ProjectSettings/ProjectVersion.txt": "91b35566b263574c8a513eff3bba6d5d313482d752d961077b47ab5b3ff14981"
+  },
+  "renderCarry": {
+    "Assets/Settings/Mobile_RPAsset.asset": "2d5182d2b8884ac88bc6ed033a0a722c23cfb15a7bc8b7daa38db37227bafd09",
+    "Assets/_Game/Art/Materials/GrayboxSelection.mat": "6107f7e1b6deb79ceb4489599637fdb16c5e01870013e0cc3a71d2c50b35ad65",
+    "Assets/_Game/Art/Materials/GrayboxTower.mat": "71ced636160a68dca7cf26fd2338913b0d0620aeb891c4ea106d7cacba94f275",
+    "Assets/_Game/Art/Materials/GrayboxTowerPreview.mat": "1b49d268ffb66f7e898a81d0a4a7b02e404d14dc7d884cae98cac05bdfa4ce70"
+  },
+  "overlays": {
+    "Docs/review/UI.REWORK.2/tools/StatusBadgeCapture.cs": "f57cbc2eeb4200efe116ca54a3ffc526f3d2cc143792cdada6be516f8ee68d13"
+  }
+}

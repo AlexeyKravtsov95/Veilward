@@ -44,6 +44,7 @@ namespace Veilward.Editor
             {
                 Bind(shade, false); PrefabUtility.SaveAsPrefabAsset(shade, ShadePath);
                 shade.name = "Rift Warden"; shade.transform.localScale = Vector3.one;
+                BattleSceneBuilder.RemoveStatusSlots(shade);
                 Bind(shade, true); PrefabUtility.SaveAsPrefabAsset(shade, BossPath);
             }
             finally { PrefabUtility.UnloadPrefabContents(shade); }

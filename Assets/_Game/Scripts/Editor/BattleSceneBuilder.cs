@@ -356,7 +356,7 @@ namespace Veilward.Editor
             var healthBar = enemy.AddComponent<EnemyHealthBarView>();
             var barRoot = new GameObject("Health Bar").transform;
             barRoot.SetParent(enemy.transform, false);
-            // Полная HP quad выше projected capsule head и между двумя существующими status glyph slots.
+            // HP quad выше головы. Значки следуют за её отрисованной позицией.
             barRoot.localPosition = new Vector3(0f, 2f, 0f);
 
             var background = CreatePrimitive(PrimitiveType.Quad, "Health Background");
@@ -379,39 +379,23 @@ namespace Veilward.Editor
         private static void AddStatusSlots(GameObject enemy)
         {
             var status = enemy.AddComponent<EnemyStatusView>();
-            var root = new GameObject("Status slots", typeof(RectTransform), typeof(Canvas));
-            root.transform.SetParent(enemy.transform, false);
-            root.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
-            root.transform.localPosition = new Vector3(0, 2.2f, 0);
-            root.transform.localScale = Vector3.one * .014f;
-            var first = CreateText("Status slot 1", root.transform, 28, TextAnchor.MiddleCenter);
-            var second = CreateText("Status slot 2", root.transform, 28, TextAnchor.MiddleCenter);
-            SetRect(first.rectTransform, new Vector2(.5f, .5f), new Vector2(0, 22), new Vector2(540, 76));
-            SetRect(second.rectTransform, new Vector2(.5f, .5f), new Vector2(0, -38), new Vector2(240, 40));
-            foreach (var text in new[] { first, second })
-            {
-                text.raycastTarget = false;
-                var outline = text.gameObject.AddComponent<UnityEngine.UI.Outline>();
-                outline.effectColor = new Color(.02f, .03f, .04f, 1);
-                outline.effectDistance = new Vector2(1.5f, -1.5f);
-                text.gameObject.SetActive(false);
-            }
-            var serialized = new SerializedObject(status);
-            serialized.FindProperty("firstSlot").objectReferenceValue = first;
-            serialized.FindProperty("secondSlot").objectReferenceValue = second;
-            serialized.FindProperty("firstCue").objectReferenceValue = AddStatusCue(first);
-            serialized.FindProperty("secondCue").objectReferenceValue = AddStatusCue(second);
-            serialized.ApplyModifiedPropertiesWithoutUndo();
+            var root = Rect("Status slots", enemy.transform, Center, 0, 0, 56, 26);
+            root.localPosition = new Vector3(0, 2.2f, 0);
+            root.localScale = Vector3.one * (.014f / enemy.transform.localScale.x);
+            root.gameObject.AddComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+            var first = Image("Status badge 1", root, Center, -14, 0, 26, 26, Color.white, false);
+            var second = Image("Status badge 2", root, Center, 14, 0, 26, 26, Color.white, false);
+            Bind(status, ("badgeRoot", root));
+            BindStatusBadges(status, first, second);
+            root.gameObject.SetActive(false);
         }
 
-        internal static StatusCueGraphic AddStatusCue(UnityEngine.UI.Text slot)
+        internal static void RemoveStatusSlots(GameObject enemy)
         {
-            var go = new GameObject(slot.name + " cue", typeof(RectTransform), typeof(CanvasRenderer), typeof(StatusCueGraphic));
-            go.transform.SetParent(slot.transform, false);
-            var cue = go.GetComponent<StatusCueGraphic>();
-            cue.rectTransform.sizeDelta = Vector2.one * StatusCueGraphic.Size;
-            cue.raycastTarget = false; cue.enabled = false;
-            return cue;
+            var root = enemy.transform.Find("Status slots");
+            if (root != null) Object.DestroyImmediate(root.gameObject);
+            var status = enemy.GetComponent<EnemyStatusView>();
+            if (status != null) Object.DestroyImmediate(status);
         }
 
         private static Transform CreateSelection(Material material, float cellSize)
@@ -709,6 +693,7 @@ namespace Veilward.Editor
                 ("reactionSummaryText", hud.ReactionSummaryText));
             Bind(boss, ("battle", battle), ("placement", placement), ("panel", hud.BossPanel),
                 ("noticeText", hud.BossNotice), ("healthText", hud.BossHealth), ("healthFill", hud.BossFill));
+            AddBossBadges(boss, inspector, (RectTransform)hud.BossPanel.transform);
             Bind(checkpoints, ("battle", battle), ("saveStatusText", hud.SaveStatusText), ("retrySaveButton", hud.RetrySave));
             Bind(placement, ("battle", battle), ("enemyInspector", inspector), ("catalogRoot", hud.CatalogRoot),
                 ("catalogButtonTemplate", hud.CatalogButtonTemplate), ("buildStatsText", hud.BuildStatsText),

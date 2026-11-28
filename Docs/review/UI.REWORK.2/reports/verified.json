@@ -1,0 +1,170 @@
+{
+  "testedSource": "36d4ec47554ac37c9b157d21ba8f3618a80ebfec",
+  "scene": {
+    "battleIdenticalRecords": 910,
+    "battleChangedRecords": 2,
+    "battleNewRecords": 13,
+    "mainMenuIdentical": true
+  },
+  "suites": {
+    "EditMode": {
+      "total": 1324,
+      "passed": 1324,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0
+    },
+    "PlayMode": {
+      "total": 111,
+      "passed": 111,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0
+    }
+  },
+  "media": {
+    "images": {
+      "earned/boss-combat.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "9399999c4856a14c1b5554a172a3443dfb67821f548c15b70d876cb981a6ff62"
+      },
+      "earned/boss-two.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "b8b6e7c5c999e4dea6505987c26317fcb37477dc8aa81a448705b462adc538a9"
+      },
+      "earned/shade-two.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "35be847e969194074bf6cfc149593d6b8e4a9ef263ae292a850b5b0a493ddeca"
+      },
+      "earned/victory.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "1600f83408661f53d5e04f6cc9ebaeaba8194813e4fe4c2f36af783d2e6d7e4b"
+      },
+      "fixture/cue-expired.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "e8335a3b1211ff1647493b28add5af70c5cdcd8323202616d54f515c2a928195"
+      },
+      "fixture/dense-fixture.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "94b5c7dbcf33ed91d7d1a79ea05fb0fd242bf491d36b65b63b90d0039c5cf0f2"
+      },
+      "fixture/inspector-full.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "8c9033b48fab20161f304d7c4a417995c436d4ff7fe02612bc1b566501bf2b2b"
+      },
+      "fixture/pause.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "b90705178a6972bcf0b59b58d251be74eee305be0a58510bd95fbca4f6ed672a"
+      },
+      "fixture/resumed-cue.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "a084f29778e38f1ea18608d5e55d4ca6510e6b39a25e044450953ccd22f92de2"
+      },
+      "fixture/shade-inspector.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "a866df5443297df0aa97a933305acd56e1446a02b66b3cdfc75cfc71f781a3fd"
+      },
+      "fixture/status-expired.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "d366ea944167dc5bbccb028065a274782848e780b93d15428358305f6d27428c"
+      },
+      "fixture/steam.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "66d30b28ea77660f79469c9cbf0a4dca379e93849795ddb22e3a0159d5d98f77"
+      },
+      "fixture/storm.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "632924534b3dc252c4e677e8d95e5c2ec3f8aa2aaf9ebc0bff9cd4b63abdeb11"
+      },
+      "fixture/two-slots.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "d7cd1d3229cc60bb04f4c4fc6c4056874faeaf79d2500083aab4ec89ee26e7b8"
+      },
+      "fixture/x2.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "8be8e71bef8fe4d36f50f6df40c87bb4046d8b28809faf634e0f6d42ce5e18b3"
+      },
+      "profiles/baseline.png": {
+        "pixels": [
+          1600,
+          900
+        ],
+        "sha256": "773d3d3c6122a32f82b3c27c6c5af5c52658cfdbb17bfcc1b9fb2dd53a78e81e"
+      },
+      "profiles/ipad.png": {
+        "pixels": [
+          2048,
+          1536
+        ],
+        "sha256": "d35fb8664e954078838a8a8069b8cfe7e48f1da3fa54c90977b6cf73b90818c5"
+      },
+      "profiles/modern.png": {
+        "pixels": [
+          2556,
+          1179
+        ],
+        "sha256": "c91c15615c87c38f2c3116049d87b84b77e60f66f680da4d4803e76eb6fef655"
+      },
+      "profiles/narrow.png": {
+        "pixels": [
+          1136,
+          640
+        ],
+        "sha256": "616f6346fdb2cccf8299f3b0b3fd0ca4ab7609924822392b3060ecbd89255c3e"
+      }
+    },
+    "video": {
+      "codec_name": "h264",
+      "width": 1600,
+      "height": 900,
+      "duration": "10.000000",
+      "nb_read_frames": "200",
+      "sha256": "d8b20dc3fde8e0f0a1d8a25dd0d6e90bb2fdf56d5dab93289bfefc8d61e27d14"
+    }
+  }
+}

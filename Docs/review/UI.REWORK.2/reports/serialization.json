@@ -1,0 +1,38 @@
+{
+  "scene": {
+    "battleIdenticalRecords": 910,
+    "battleChangedRecords": 2,
+    "battleNewRecords": 13,
+    "mainMenuIdentical": true
+  },
+  "prefabs": {
+    "Assets/_Game/Prefabs/Shade.prefab": {
+      "unchanged": 59,
+      "changedRootRecords": 2,
+      "removedLegacyRecords": 22,
+      "newBadgeRecords": 12,
+      "prefabMetaIdentical": true
+    },
+    "Assets/_Game/Prefabs/InkAndLanterns/Shade.prefab": {
+      "unchanged": 33,
+      "changedRootRecords": 2,
+      "removedLegacyRecords": 22,
+      "newBadgeRecords": 12,
+      "prefabMetaIdentical": true
+    },
+    "Assets/_Game/Prefabs/ART5/P_Enemy_RiftWarden.prefab": {
+      "unchanged": 59,
+      "changedRootRecords": 2,
+      "removedLegacyRecords": 22,
+      "newBadgeRecords": 0,
+      "prefabMetaIdentical": true
+    },
+    "Assets/_Game/Prefabs/InkAndLanterns/Warden.prefab": {
+      "unchanged": 33,
+      "changedRootRecords": 2,
+      "removedLegacyRecords": 22,
+      "newBadgeRecords": 0,
+      "prefabMetaIdentical": true
+    }
+  }
+}

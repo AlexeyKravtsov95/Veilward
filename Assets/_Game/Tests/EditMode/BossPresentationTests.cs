@@ -34,10 +34,20 @@ namespace Veilward.Tests.EditMode
             Assert.That(bossHud.Health,Does.Contain("890/1000"));
             var fill=(UnityEngine.UI.Image)typeof(BossHudController).GetField("healthFill",Flags).GetValue(bossHud);
             Assert.That(fill.rectTransform.anchorMax.x,Is.EqualTo(.89f).Within(.0001f));
-            // Existing status contract: two slots, no boss-only marker.
-            var prefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/Shade.prefab");
-            var status=new SerializedObject(prefab.GetComponent<EnemyStatusView>());Assert.That(status.FindProperty("firstSlot").objectReferenceValue,Is.Not.Null);Assert.That(status.FindProperty("secondSlot").objectReferenceValue,Is.Not.Null);
+            Assert.That(bossHud.BadgeOwner, Is.EqualTo(boss.Id));
+            Assert.That(bossHud.VisibleBadgeCount, Is.Zero);
+            boss.ApplyStatus(new StatusEffectDefinition(StatusKind.Wet, 7, 30, 0), new TowerId(9), s.State.Tick);
+            bossHud.Refresh();
+            Assert.That(bossHud.VisibleBadgeCount, Is.EqualTo(1));
+            s.State.SetPhase(BattlePhase.Defeat);
+            bossHud.Refresh();
+            Assert.That(bossHud.BadgeOwner, Is.Null);
+            Assert.That(bossHud.VisibleBadgeCount, Is.Zero);
+            Assert.That(bossHud.Notice, Does.Contain("20 to Heart").And.Not.Contain("reached"));
+            s.State.SetPhase(BattlePhase.Combat);
+            bossHud.Refresh();
             boss.ApplyDamage(890);s.Step();bossHud.Refresh();Assert.That(bossHud.HealthVisible,Is.False);Assert.That(bossHud.Notice,Does.Contain("+50 gold"));
+            Assert.That(bossHud.BadgeOwner, Is.Null);
             battle.GetComponent<BattlePauseController>().Pause();bossHud.Refresh();var panel=(GameObject)typeof(BossHudController).GetField("panel",Flags).GetValue(bossHud);Assert.That(panel.activeInHierarchy,Is.False);
         }
         [TestCase("id")] [TestCase("count")] [TestCase("firstSpawnTick")] [TestCase("spawnIntervalTicks")] [TestCase("missing")] [TestCase("boss")]

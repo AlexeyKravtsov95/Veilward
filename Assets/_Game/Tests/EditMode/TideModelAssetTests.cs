@@ -32,32 +32,38 @@ namespace Veilward.Tests.EditMode
                 var bar = enemy.transform.Find("Health Bar");
                 var anchor = bar.localPosition;
                 var background = bar.Find("Health Background"); var fill = bar.Find("Health Fill");
-                var statuses = enemy.transform.Find("Status slots"); var statusAnchor = statuses.localPosition;
-                var glyphs = statuses.GetComponentsInChildren<UnityEngine.UI.Text>(true);
-                Assert.That(glyphs.Length, Is.EqualTo(2));
-                glyphs[0].text = "● Wet"; glyphs[1].text = "» Gust";
+                var statuses = enemy.GetComponent<EnemyStatusView>();
+                var badges = enemy.GetComponentsInChildren<UnityEngine.UI.Image>(true);
+                var state = EnemyState.CreateInitial(new EnemyId(1), new EnemyDefinition(new EnemyDefinitionId("shade"), 100, 1, 1, 0));
+                BattleReactionTests.Status(state, StatusKind.Wet);
+                BattleReactionTests.Status(state, StatusKind.Gust);
+                var healthRects = new System.Collections.Generic.List<Rect>();
+                var badgeRects = new System.Collections.Generic.List<Rect>();
+                var corners = new Vector3[4];
+                Assert.That(badges.Length, Is.EqualTo(2));
                 var positions = new[] { new Vector3(.53f, .6f, .53f), new Vector3(-.53f, .6f, -.53f), new Vector3(.53f, .6f, -.53f) };
                 foreach (var position in positions)
                 {
                     enemy.transform.position = position; health.SetNormalizedHealth(.6f); health.Face(camera); health.Face(camera);
-                    statuses.rotation = camera.transform.rotation;
+                    healthRects.Clear(); badgeRects.Clear();
+                    health.Layout(camera, healthRects);
+                    statuses.Refresh(state, 0, BattleReactionTests.Catalog(), null, 0, camera);
+                    statuses.Layout(camera, health.BarPosition, healthRects, badgeRects);
+                    Assert.That(statuses.VisibleSlotCount, Is.EqualTo(2));
                     var head = bodies.Max(body => body.sharedMesh.vertices.Max(vertex => ProjectY(body.transform.TransformPoint(vertex))));
                     var quad = background.GetComponent<MeshFilter>().sharedMesh.vertices.Select(vertex => ProjectY(background.TransformPoint(vertex))).ToArray();
                     // Проверяем всю реальную projected quad относительно actual authored animated body, а не число localY.
                     Assert.That(quad.Min() - head, Is.GreaterThanOrEqualTo(3), "HP background must clear the complete projected head");
-                    foreach (var glyph in glyphs)
+                    foreach (var badge in badges)
                     {
-                        var center = ProjectY(glyph.transform.position);
-                        var halfHeight = glyph.preferredHeight * glyph.transform.lossyScale.y * 900 / (2 * camera.orthographicSize) / 2;
-                        Assert.That(quad.Max() + 3 <= center - halfHeight || quad.Min() - 3 >= center + halfHeight,
-                            Is.True, "HP must not overlap either authored status glyph: " + glyph.name);
+                        badge.rectTransform.GetWorldCorners(corners);
+                        Assert.That(corners.Min(ProjectY), Is.GreaterThan(quad.Max()), badge.name);
                     }
                     Assert.That(Vector3.Distance(health.AnchorPosition, enemy.transform.TransformPoint(anchor)), Is.LessThan(.00001f));
                     Assert.That(Vector3.Distance(health.BarPosition, health.AnchorPosition), Is.LessThan(.00001f));
                     Assert.That(health.LeaderVisible, Is.False);
                     Assert.That(fill.localScale.x / background.localScale.x, Is.EqualTo(.6f).Within(.00001));
                     Assert.That(fill.localPosition.x, Is.EqualTo(-.18f).Within(.00001));
-                    Assert.That(statuses.localPosition, Is.EqualTo(statusAnchor));
                     Assert.That(enemy.GetComponentsInChildren<MeshFilter>(true).Length, Is.EqualTo(13), "disabled legacy capsule, four animated sources/cues and two HP sources/cues");
                 }
             }

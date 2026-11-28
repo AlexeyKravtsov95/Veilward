@@ -1,0 +1,15 @@
+tap	47.0550						Continue Button	(402.16, 428.38)
+tap	47.3508	Combat	3021	361	16	52	Start Wave Button	(1283.24, 817.84)
+target	47.8054	Combat	3351	361	14	52	baseline	(x:21.62, y:640.54, width:531.89, height:129.73)	1	531.89x129.73pt
+png	48.1368	Combat	3351	361	14	52	baseline	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	48.1368	Combat	3351	361	14	52	baseline	68	HP 600/600   ·   Armor 5	BurnBadge,WetBadge	ShadePairs=1	clock=0.1422	scale=1
+target	48.7766	Combat	3351	361	14	52	narrow	(x:15.35, y:455.78, width:377.64, height:92.11)	2	188.82x46.05pt
+png	49.0046	Combat	3351	361	14	52	narrow	1136x640	(x:0.00, y:0.00, width:1136.00, height:640.00)
+badges	49.0046	Combat	3351	361	14	52	narrow	68	HP 600/600   ·   Armor 5	BurnBadge,WetBadge	ShadePairs=1	clock=0.1422	scale=1
+target	49.6568	Combat	3351	361	14	52	modern	(x:161.48, y:825.30, width:725.09, height:176.85)	3	241.70x58.95pt
+png	49.8867	Combat	3351	361	14	52	modern	2556x1179	(x:132.00, y:63.00, width:2292.00, height:1116.00)
+badges	49.8867	Combat	3351	361	14	52	modern	68	HP 600/600   ·   Armor 5	BurnBadge,WetBadge	ShadePairs=1	clock=0.1422	scale=1
+target	50.6341	Combat	3351	361	14	52	ipad	(x:27.68, y:1203.89, width:680.82, height:166.05)	2	340.41x83.03pt
+png	50.8633	Combat	3351	361	14	52	ipad	2048x1536	(x:0.00, y:40.00, width:2048.00, height:1496.00)
+badges	50.8633	Combat	3351	361	14	52	ipad	68	HP 600/600   ·   Armor 5	BurnBadge,WetBadge	ShadePairs=1	clock=0.1422	scale=1
+done	0	False

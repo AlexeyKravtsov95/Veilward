@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,133 +6,145 @@ using Veilward.Domain;
 
 namespace Veilward.Presentation
 {
+    public readonly struct EnemyStatusSlot
+    {
+        internal EnemyStatusSlot(StatusKind? status) { Status = status; Reaction = null; Trigger = null; }
+        internal EnemyStatusSlot(ReactionEvent reaction)
+        { Status = null; Reaction = reaction.Kind; Trigger = reaction.TriggerKind; }
+        public StatusKind? Status { get; }
+        public ReactionKind? Reaction { get; }
+        public ReactionTriggerKind? Trigger { get; }
+    }
+
     public readonly struct EnemyStatusSlots
     {
-        public EnemyStatusSlots(string first, string second, Color firstColor, Color secondColor,
-            StatusKind? firstKind = null, StatusKind? secondKind = null)
-        { First = first; Second = second; FirstColor = firstColor; SecondColor = secondColor; FirstKind = firstKind; SecondKind = secondKind; }
-        public string First { get; }
-        public string Second { get; }
-        public Color FirstColor { get; }
-        public Color SecondColor { get; }
-        public StatusKind? FirstKind { get; }
-        public StatusKind? SecondKind { get; }
+        public EnemyStatusSlots(EnemyStatusSlot first, EnemyStatusSlot second) { First = first; Second = second; }
+        public EnemyStatusSlot First { get; }
+        public EnemyStatusSlot Second { get; }
+    }
+
+    [Serializable]
+    internal sealed class EnemyStatusBadgePair
+    {
+        [SerializeField] private Image firstSlot;
+        [SerializeField] private Image secondSlot;
+        [SerializeField] private Sprite burn, wet, gust, crack, steam, storm;
+
+        public int VisibleCount => (firstSlot.enabled ? 1 : 0) + (secondSlot.enabled ? 1 : 0);
+        public void Display(EnemyStatusSlots slots)
+        {
+            Set(firstSlot, Artwork(slots.First));
+            Set(secondSlot, Artwork(slots.Second));
+        }
+
+        private Sprite Artwork(EnemyStatusSlot slot) => slot.Status switch
+        {
+            StatusKind.Burn => burn,
+            StatusKind.Wet => wet,
+            StatusKind.Gust => gust,
+            StatusKind.Crack => crack,
+            _ => slot.Reaction switch
+            {
+                ReactionKind.Steam => steam,
+                ReactionKind.Storm => storm,
+                _ => null
+            }
+        };
+
+        private static void Set(Image image, Sprite sprite)
+        {
+            if (image.sprite != sprite) image.sprite = sprite;
+            if (image.enabled != (sprite != null)) image.enabled = sprite != null;
+        }
     }
 
     public sealed class EnemyStatusView : MonoBehaviour
     {
-        [SerializeField] private Text firstSlot;
-        [SerializeField] private Text secondSlot;
-        [SerializeField] private StatusCueGraphic firstCue;
-        [SerializeField] private StatusCueGraphic secondCue;
         public const int CueCapacity = 2;
-        public StatusCueGraphic FirstCue => firstCue;
-        public StatusCueGraphic SecondCue => secondCue;
-        private Vector3 _slotOrigin;
-        private bool _hasOrigin;
+        // Палитра существующих гибридных снарядов и карточек башен.
         public static readonly Color SteamColor = new Color(1f, .77f, .35f);
         public static readonly Color StormColor = new Color(.42f, .87f, 1f);
-        public int VisibleSlotCount => (firstSlot.gameObject.activeSelf ? 1 : 0) + (secondSlot.gameObject.activeSelf ? 1 : 0);
+        [SerializeField] private RectTransform badgeRoot;
+        [SerializeField] private EnemyStatusBadgePair badges;
+        public int VisibleSlotCount => badgeRoot.gameObject.activeSelf ? badges.VisibleCount : 0;
+        internal void Hide() => badgeRoot.gameObject.SetActive(false);
 
-        public void Refresh(EnemyState enemy, long tick, ReactionCatalog catalog, EnemyReactionMemory memory, double activeTime, Camera camera)
+        public void Refresh(EnemyState enemy, long tick, ReactionCatalog catalog, EnemyReactionMemory memory, double activeTime,
+            Camera camera)
         {
-            var slots = Describe(enemy, tick, catalog, memory, activeTime);
-            SetSlot(firstSlot, slots.First, slots.FirstColor);
-            SetSlot(secondSlot, slots.Second, slots.SecondColor);
-            RefreshCue(firstCue, firstSlot, slots.FirstKind, activeTime, slots.FirstColor);
-            RefreshCue(secondCue, secondSlot, slots.SecondKind, activeTime, slots.SecondColor);
-            var root = firstSlot.transform.parent;
-            if (!_hasOrigin) { _slotOrigin = root.localPosition; _hasOrigin = true; }
-            root.localPosition = _slotOrigin;
-            if (camera != null) root.rotation = camera.transform.rotation;
+            badges.Display(Describe(enemy, tick, catalog, memory, activeTime));
+            if (camera != null) badgeRoot.rotation = camera.transform.rotation;
         }
-        private static void RefreshCue(StatusCueGraphic cue, Text slot, StatusKind? kind, double time, Color tint)
+
+        internal void Layout(Camera camera, Vector3 barPosition, List<Rect> healthRects, List<Rect> occupied)
         {
-            if (cue == null) return; // Старые serialized fixtures сохраняют labels без новой графики.
-            cue.Refresh(kind, time, tint);
-            if (kind.HasValue)
-                cue.rectTransform.anchoredPosition = new Vector2(-Mathf.Min(slot.rectTransform.rect.width, slot.preferredWidth) * .5f - StatusCueGraphic.Size * .6f, 0);
-        }
-        // Простой локальный layout двух уже существующих slots; новых badges нет.
-        public void Layout(Camera camera, List<Rect> occupied)
-        {
-            if (VisibleSlotCount == 0 || camera == null) return;
-            var root = firstSlot.transform.parent;
-            var rect = Bounds(camera);
-            for (var pass = 0; pass < occupied.Count; pass++)
+            if (camera == null || badges.VisibleCount == 0)
             {
-                var lift = 0f;
-                for (var i = 0; i < occupied.Count; i++)
-                    if (rect.Overlaps(occupied[i])) lift = Mathf.Max(lift, occupied[i].yMax + 4 - rect.yMin);
-                if (lift <= 0) break;
-                var screen = camera.WorldToScreenPoint(root.position);
-                root.position = camera.ScreenToWorldPoint(screen + new Vector3(0, lift, 0));
-                rect.y += lift;
+                badgeRoot.gameObject.SetActive(false);
+                return;
             }
-            occupied.Add(rect);
-        }
-        private Rect Bounds(Camera camera)
-        {
-            var result = SlotBounds(firstSlot, firstCue, camera);
-            if (!firstSlot.gameObject.activeSelf) return SlotBounds(secondSlot, secondCue, camera);
-            if (!secondSlot.gameObject.activeSelf) return result;
-            var other = SlotBounds(secondSlot, secondCue, camera);
-            return Rect.MinMaxRect(Mathf.Min(result.xMin, other.xMin), Mathf.Min(result.yMin, other.yMin),
-                Mathf.Max(result.xMax, other.xMax), Mathf.Max(result.yMax, other.yMax));
-        }
-        private static Rect SlotBounds(Text slot, StatusCueGraphic cue, Camera camera)
-        {
-            var center = (Vector2)camera.WorldToScreenPoint(slot.transform.position);
-            var unit = ((Vector2)camera.WorldToScreenPoint(slot.transform.position + camera.transform.right) - center).magnitude;
-            var width = Mathf.Min(slot.rectTransform.rect.width, slot.preferredWidth) * slot.transform.lossyScale.x * unit;
-            var height = slot.preferredHeight * slot.transform.lossyScale.y * unit;
-            var extra = cue != null && cue.enabled ? StatusCueGraphic.Size * 1.2f * slot.transform.lossyScale.x * unit : 0;
-            return new Rect(center.x - width * .5f - 2 - extra, center.y - height * .5f - 2, width + 4 + extra, height + 4);
+
+            // Anchor у отрисованной HP-полосы, включая её смещение и линию-связку в плотной группе.
+            badgeRoot.position = barPosition + camera.transform.up * .23f - camera.transform.forward * .035f;
+            var local = badgeRoot.rect;
+            if (badges.VisibleCount == 1) local.xMax = 0;
+            var low = camera.WorldToScreenPoint(badgeRoot.TransformPoint(local.min));
+            var high = camera.WorldToScreenPoint(badgeRoot.TransformPoint(local.max));
+            var rect = Rect.MinMaxRect(low.x, low.y, high.x, high.y);
+            var visible = low.z > 0 && !Overlaps(rect, healthRects) && !Overlaps(rect, occupied);
+            if (visible) occupied.Add(rect);
+            if (badgeRoot.gameObject.activeSelf != visible) badgeRoot.gameObject.SetActive(visible);
         }
 
-        private static void SetSlot(Text slot, string label, Color color)
+        private static bool Overlaps(Rect rect, List<Rect> occupied)
         {
-            if (slot.text != label) slot.text = label;
-            slot.color = color;
-            slot.gameObject.SetActive(label.Length > 0);
+            for (var i = 0; i < occupied.Count; i++)
+                if (rect.Overlaps(occupied[i])) return true;
+            return false;
         }
 
-        public static EnemyStatusSlots Describe(EnemyState enemy, long tick, ReactionCatalog catalog, EnemyReactionMemory memory, double activeTime)
+        public static EnemyStatusSlots Describe(EnemyState enemy, long tick, ReactionCatalog catalog, EnemyReactionMemory memory,
+            double activeTime)
         {
             if (memory?.Cue != null && activeTime < memory.CueUntil)
             {
-                var cue = memory.Cue.Value;
-                var exclude = cue.Reaction.TriggerKind == ReactionTriggerKind.StatusPair;
-                StatusKind? remaining = null;
-                for (var i = 0; i < 4; i++)
+                var reaction = memory.Cue.Value.Reaction;
+                var excludesPair = reaction.TriggerKind == ReactionTriggerKind.StatusPair;
+                for (var i = (int)StatusKind.Burn; i <= (int)StatusKind.Crack; i++)
                 {
                     var kind = (StatusKind)i;
-                    if (Get(enemy, kind) != null && (!exclude ||
-                        (kind != cue.Reaction.CauseFirstKind && kind != cue.Reaction.CauseSecondKind)))
-                    { remaining = kind; break; }
+                    if (Get(enemy, kind) != null &&
+                        (!excludesPair || (kind != reaction.CauseFirstKind && kind != reaction.CauseSecondKind)))
+                        return new EnemyStatusSlots(new EnemyStatusSlot(reaction), new EnemyStatusSlot(kind));
                 }
-                return new EnemyStatusSlots(cue.MarkerLabel,
-                    remaining.HasValue ? Label(remaining.Value) : "", cue.Reaction.Kind == ReactionKind.Steam ? SteamColor : StormColor,
-                    remaining.HasValue ? ColorFor(remaining.Value) : Color.white, null, remaining);
+                return new EnemyStatusSlots(new EnemyStatusSlot(reaction), default);
             }
-            StatusKind? first = null, second = null;
+
             if (enemy.Burn != null && enemy.Wet != null && ReactionPresentationState.Cooldown(enemy, ReactionKind.Steam, tick, catalog) == 0)
-            { first = StatusKind.Burn; second = StatusKind.Wet; }
-            else if (enemy.Wet != null && enemy.Gust != null && ReactionPresentationState.Cooldown(enemy, ReactionKind.Storm, tick, catalog) == 0)
-            { first = StatusKind.Wet; second = StatusKind.Gust; }
-            else
-                for (var i = 0; i < 4; i++)
-                    if (Get(enemy, (StatusKind)i) != null)
-                    { if (!first.HasValue) first = (StatusKind)i; else { second = (StatusKind)i; break; } }
-            return new EnemyStatusSlots(first.HasValue ? Label(first.Value) : "", second.HasValue ? Label(second.Value) : "",
-                first.HasValue ? ColorFor(first.Value) : Color.white, second.HasValue ? ColorFor(second.Value) : Color.white, first, second);
+                return StatusPair(StatusKind.Burn, StatusKind.Wet);
+            if (enemy.Wet != null && enemy.Gust != null && ReactionPresentationState.Cooldown(enemy, ReactionKind.Storm, tick, catalog) == 0)
+                return StatusPair(StatusKind.Wet, StatusKind.Gust);
+
+            StatusKind? first = null;
+            for (var i = (int)StatusKind.Burn; i <= (int)StatusKind.Crack; i++)
+            {
+                var kind = (StatusKind)i;
+                if (Get(enemy, kind) == null) continue;
+                if (first.HasValue) return StatusPair(first, kind);
+                first = kind;
+            }
+            return StatusPair(first, null);
         }
 
-        private static StatusInstance Get(EnemyState e, StatusKind k)
-        { switch (k) { case StatusKind.Burn: return e.Burn; case StatusKind.Wet: return e.Wet; case StatusKind.Gust: return e.Gust; default: return e.Crack; } }
-        private static string Label(StatusKind kind)
-        { switch (kind) { case StatusKind.Burn: return "▲ Burn"; case StatusKind.Wet: return "● Wet"; case StatusKind.Gust: return "» Gust"; default: return "× Crack"; } }
-        private static Color ColorFor(StatusKind kind)
-        { switch (kind) { case StatusKind.Burn: return new Color(1, .55f, .3f); case StatusKind.Wet: return new Color(.4f, .8f, 1); case StatusKind.Gust: return new Color(.5f, 1, .65f); default: return new Color(.85f, .65f, 1); } }
+        private static StatusInstance Get(EnemyState enemy, StatusKind kind) => kind switch
+        {
+            StatusKind.Burn => enemy.Burn,
+            StatusKind.Wet => enemy.Wet,
+            StatusKind.Gust => enemy.Gust,
+            _ => enemy.Crack
+        };
+
+        private static EnemyStatusSlots StatusPair(StatusKind? first, StatusKind? second) =>
+            new EnemyStatusSlots(new EnemyStatusSlot(first), new EnemyStatusSlot(second));
     }
 }

@@ -43,11 +43,14 @@ namespace Veilward.Tests.PlayMode
                 values.Add(line.enabled); values.Add(line.startWidth); values.Add(line.endWidth);
                 for(var i=0;i<line.positionCount;i++) values.Add(line.GetPosition(i));
             }
-            foreach (var cue in battle.GetComponentsInChildren<StatusCueGraphic>())
+            foreach (var view in battle.GetComponentsInChildren<EnemyStatusView>())
             {
-                var mesh = cue.canvasRenderer.GetMesh();
-                values.Add(cue.enabled); values.Add(cue.Kind);
-                if(mesh != null) foreach(var v in mesh.vertices) values.Add(v);
+                foreach (var badge in view.GetComponentsInChildren<UnityEngine.UI.Image>())
+                {
+                    values.Add(badge.enabled);
+                    values.Add(badge.sprite);
+                    values.Add(badge.rectTransform.position);
+                }
             }
             return values.ToArray();
         }
@@ -72,7 +75,7 @@ namespace Veilward.Tests.PlayMode
                     if(view.IsFlying && view.HeadPosition!=initial[view.Kind] && view.HeadPosition!=view.Target) moved.Add(view.Kind);
                     if(view.ImpactVisible)impacts.Add(view.Kind);
                 }
-                if(!paused && Battle.GetComponentsInChildren<StatusCueGraphic>().Any(c=>c.enabled))
+                if(!paused && Battle.GetComponentsInChildren<EnemyStatusView>().Any(view => view.VisibleSlotCount > 0))
                 {
                     var pause=Battle.GetComponent<BattlePauseController>();pause.Pause();
                     yield return new WaitForEndOfFrame();

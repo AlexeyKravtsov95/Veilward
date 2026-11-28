@@ -1,0 +1,232 @@
+tap	33.3777						Continue Button	(402.16, 428.38)
+tap	33.6985	Combat	3021	361	16	52	Start Wave Button	(1283.24, 817.84)
+frame	33.7511	Combat	3351	361	14	52	0	start
+frame	33.7511	Combat	3351	361	14	52	1	start
+frame	33.8618	Combat	3351	361	14	52	2	start
+frame	33.8618	Combat	3351	361	14	52	3	start
+frame	33.9657	Combat	3351	361	14	52	4	start
+frame	33.9657	Combat	3351	361	14	52	5	start
+png	33.9657	Combat	3351	361	14	52	two-slots	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	33.9657	Combat	3351	361	14	52	two-slots	68	HP 600/600   ·   Armor 5	GustBadge,WetBadge	ShadePairs=1	clock=0.1409	scale=1
+frame	34.0690	Combat	3351	361	14	52	6	two-slots
+frame	34.0690	Combat	3351	361	14	52	7	two-slots
+frame	34.1718	Combat	3351	361	14	52	8	two-slots
+frame	34.1718	Combat	3351	361	14	52	9	two-slots
+frame	34.2819	Combat	3351	361	14	52	10	two-slots
+frame	34.2819	Combat	3351	361	14	52	11	two-slots
+frame	34.3958	Combat	3351	361	14	52	12	two-slots
+frame	34.3958	Combat	3351	361	14	52	13	two-slots
+frame	34.5078	Combat	3351	361	14	52	14	two-slots
+frame	34.5078	Combat	3351	361	14	52	15	two-slots
+frame	34.5078	Combat	3351	361	14	52	16	two-slots
+frame	34.6189	Combat	3351	361	14	52	17	two-slots
+frame	34.6189	Combat	3351	361	14	52	18	two-slots
+frame	34.7254	Combat	3351	361	14	52	19	two-slots
+frame	34.7254	Combat	3351	361	14	52	20	two-slots
+png	34.7254	Combat	3351	361	14	52	shade-inspector	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	34.7254	Combat	3351	361	14	52	shade-inspector	68	HP 600/600   ·   Armor 5	GustBadge,WetBadge	ShadePairs=1	clock=0.1409	scale=1
+frame	34.8289	Combat	3351	361	14	52	21	shade-inspector
+frame	34.8289	Combat	3351	361	14	52	22	shade-inspector
+frame	34.9333	Combat	3351	361	14	52	23	shade-inspector
+frame	34.9333	Combat	3351	361	14	52	24	shade-inspector
+frame	35.0444	Combat	3351	361	14	52	25	shade-inspector
+frame	35.0444	Combat	3351	361	14	52	26	shade-inspector
+frame	35.1547	Combat	3351	361	14	52	27	shade-inspector
+frame	35.1547	Combat	3351	361	14	52	28	shade-inspector
+frame	35.1547	Combat	3351	361	14	52	29	shade-inspector
+tap	35.2568	Combat	3351	361	14	52	Close Inspector Button	(562.16, 105.95)
+frame	35.2685	Combat	3351	361	14	52	30	shade-inspector
+frame	35.2685	Combat	3351	361	14	52	31	shade-inspector
+frame	35.3750	Combat	3351	361	14	52	32	shade-inspector
+frame	35.3750	Combat	3351	361	14	52	33	shade-inspector
+frame	35.4873	Combat	3351	361	14	52	34	shade-inspector
+frame	35.4873	Combat	3351	361	14	52	35	shade-inspector
+png	35.4873	Combat	3351	361	14	52	steam	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	35.4873	Combat	3351	361	14	52	steam	68	HP 600/600   ·   Armor 5	GustBadge,SteamBadge	ShadePairs=1	clock=0.1409	scale=1
+frame	35.5885	Combat	3351	361	14	52	36	steam
+frame	35.5885	Combat	3351	361	14	52	37	steam
+frame	35.6920	Combat	3351	361	14	52	38	steam
+frame	35.6920	Combat	3351	361	14	52	39	steam
+tap	35.7948	Combat	3351	361	14	52	Pause Button	(1513.51, 817.84)
+frame	35.8073	Combat	3351	361	14	52	40	steam
+frame	35.8073	Combat	3351	361	14	52	41	steam
+frame	35.8073	Combat	3351	361	14	52	42	steam
+frame	35.9187	Combat	3351	361	14	52	43	steam
+frame	35.9187	Combat	3351	361	14	52	44	steam
+frame	36.0273	Combat	3351	361	14	52	45	steam
+frame	36.0273	Combat	3351	361	14	52	46	steam
+png	36.0273	Combat	3351	361	14	52	pause	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	36.0273	Combat	3351	361	14	52	pause	68	HP 600/600   ·   Armor 5		ShadePairs=1	clock=0.1409	scale=1
+frame	36.1288	Combat	3351	361	14	52	47	pause
+frame	36.1288	Combat	3351	361	14	52	48	pause
+frame	36.2371	Combat	3351	361	14	52	49	pause
+frame	36.2371	Combat	3351	361	14	52	50	pause
+frame	36.3483	Combat	3351	361	14	52	51	pause
+frame	36.3483	Combat	3351	361	14	52	52	pause
+frame	36.4590	Combat	3351	361	14	52	53	pause
+frame	36.4590	Combat	3351	361	14	52	54	pause
+frame	36.4590	Combat	3351	361	14	52	55	pause
+frame	36.5684	Combat	3351	361	14	52	56	pause
+frame	36.5684	Combat	3351	361	14	52	57	pause
+frame	36.6752	Combat	3351	361	14	52	58	pause
+frame	36.6752	Combat	3351	361	14	52	59	pause
+tap	36.7777	Combat	3351	361	14	52	Resume Button	(800.00, 485.68)
+frame	36.7879	Combat	3351	361	14	52	60	pause
+frame	36.7879	Combat	3351	361	14	52	61	pause
+frame	36.8965	Combat	3354	361	14	52	62	pause
+frame	36.8965	Combat	3354	361	14	52	63	pause
+frame	37.0095	Combat	3357	361	14	52	64	pause
+frame	37.0095	Combat	3357	361	14	52	65	pause
+frame	37.0095	Combat	3357	361	14	52	66	pause
+png	37.0095	Combat	3357	361	14	52	resumed-cue	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	37.0095	Combat	3357	361	14	52	resumed-cue	68	HP 600/600   ·   Armor 5	GustBadge,SteamBadge	ShadePairs=1	clock=0.3626	scale=1
+frame	37.1123	Combat	3360	361	13	52	67	resumed-cue
+frame	37.1123	Combat	3360	361	13	52	68	resumed-cue
+frame	37.2177	Combat	3363	361	13	52	69	resumed-cue
+frame	37.2177	Combat	3363	361	13	52	70	resumed-cue
+frame	37.3262	Combat	3367	361	13	52	71	resumed-cue
+frame	37.3262	Combat	3367	361	13	52	72	resumed-cue
+frame	37.4385	Combat	3370	361	13	52	73	resumed-cue
+frame	37.4385	Combat	3370	361	13	52	74	resumed-cue
+frame	37.5457	Combat	3373	361	13	52	75	resumed-cue
+frame	37.5457	Combat	3373	361	13	52	76	resumed-cue
+frame	37.6571	Combat	3377	361	13	52	77	resumed-cue
+frame	37.6571	Combat	3377	361	13	52	78	resumed-cue
+frame	37.6571	Combat	3377	361	13	52	79	resumed-cue
+frame	37.7678	Combat	3380	361	13	52	80	resumed-cue
+frame	37.7678	Combat	3380	361	13	52	81	resumed-cue
+frame	37.8794	Combat	3380	361	13	52	82	resumed-cue
+frame	37.8794	Combat	3380	361	13	52	83	resumed-cue
+frame	37.9899	Combat	3380	361	13	52	84	resumed-cue
+frame	37.9899	Combat	3380	361	13	52	85	resumed-cue
+png	37.9899	Combat	3380	361	13	52	cue-expired	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	37.9899	Combat	3380	361	13	52	cue-expired	68	HP 600/600   ·   Armor 5	GustBadge,WetBadge	ShadePairs=1	clock=1.1134	scale=1
+frame	38.0932	Combat	3380	361	13	52	86	cue-expired
+frame	38.0932	Combat	3380	361	13	52	87	cue-expired
+frame	38.1962	Combat	3380	361	13	52	88	cue-expired
+frame	38.1962	Combat	3380	361	13	52	89	cue-expired
+frame	38.3057	Combat	3380	361	13	52	90	cue-expired
+frame	38.3057	Combat	3380	361	13	52	91	cue-expired
+frame	38.3057	Combat	3380	361	13	52	92	cue-expired
+frame	38.4148	Combat	3380	361	13	52	93	cue-expired
+frame	38.4148	Combat	3380	361	13	52	94	cue-expired
+frame	38.5250	Combat	3380	361	13	52	95	cue-expired
+frame	38.5250	Combat	3380	361	13	52	96	cue-expired
+frame	38.6385	Combat	3380	361	13	52	97	cue-expired
+frame	38.6385	Combat	3380	361	13	52	98	cue-expired
+frame	38.7483	Combat	3380	361	13	52	99	cue-expired
+frame	38.7483	Combat	3380	361	13	52	100	cue-expired
+frame	38.8571	Combat	3380	361	13	52	101	cue-expired
+frame	38.8571	Combat	3380	361	13	52	102	cue-expired
+frame	38.8571	Combat	3380	361	13	52	103	cue-expired
+png	38.8571	Combat	3380	361	13	52	storm	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	38.8571	Combat	3380	361	13	52	storm	68	HP 600/600   ·   Armor 5	BurnBadge,StormBadge	ShadePairs=1	clock=1.1134	scale=1
+frame	38.9603	Combat	3380	361	13	52	104	storm
+frame	38.9603	Combat	3380	361	13	52	105	storm
+frame	39.0628	Combat	3380	361	13	52	106	storm
+frame	39.0628	Combat	3380	361	13	52	107	storm
+frame	39.1720	Combat	3380	361	13	52	108	storm
+frame	39.1720	Combat	3380	361	13	52	109	storm
+frame	39.2811	Combat	3380	361	13	52	110	storm
+frame	39.2811	Combat	3380	361	13	52	111	storm
+frame	39.3915	Combat	3380	361	13	52	112	storm
+frame	39.3915	Combat	3380	361	13	52	113	storm
+tap	39.4947	Combat	3380	361	13	52	Inspect Warden	(287.57, 705.41)
+frame	39.5050	Combat	3380	361	13	52	114	storm
+frame	39.5050	Combat	3380	361	13	52	115	storm
+frame	39.5050	Combat	3380	361	13	52	116	storm
+frame	39.6177	Combat	3380	361	13	52	117	storm
+frame	39.6177	Combat	3380	361	13	52	118	storm
+frame	39.7245	Combat	3380	361	13	52	119	storm
+frame	39.7245	Combat	3380	361	13	52	120	storm
+png	39.7245	Combat	3380	361	13	52	inspector-full	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	39.7245	Combat	3380	361	13	52	inspector-full	68	HP 600/600   ·   Armor 5	BurnBadge,StormBadge	ShadePairs=1	clock=1.1134	scale=1
+frame	39.8268	Combat	3380	361	13	52	121	inspector-full
+frame	39.8268	Combat	3380	361	13	52	122	inspector-full
+frame	39.9298	Combat	3380	361	13	52	123	inspector-full
+frame	39.9298	Combat	3380	361	13	52	124	inspector-full
+frame	40.0387	Combat	3380	361	13	52	125	inspector-full
+frame	40.0387	Combat	3380	361	13	52	126	inspector-full
+frame	40.1476	Combat	3380	361	13	52	127	inspector-full
+frame	40.1476	Combat	3380	361	13	52	128	inspector-full
+frame	40.2555	Combat	3380	361	13	52	129	inspector-full
+frame	40.2555	Combat	3380	361	13	52	130	inspector-full
+frame	40.2555	Combat	3380	361	13	52	131	inspector-full
+frame	40.3629	Combat	3380	361	13	52	132	inspector-full
+frame	40.3629	Combat	3380	361	13	52	133	inspector-full
+frame	40.4720	Combat	3380	361	13	52	134	inspector-full
+frame	40.4720	Combat	3380	361	13	52	135	inspector-full
+frame	40.5793	Combat	3380	361	13	52	136	inspector-full
+frame	40.5793	Combat	3380	361	13	52	137	inspector-full
+frame	40.6890	Combat	3380	361	13	52	138	inspector-full
+frame	40.6890	Combat	3380	361	13	52	139	inspector-full
+tap	40.7900	Combat	3380	361	13	52	Close Inspector Button	(562.16, 105.95)
+frame	40.8003	Combat	3380	361	13	52	140	inspector-full
+frame	40.8003	Combat	3380	361	13	52	141	inspector-full
+frame	40.8003	Combat	3380	361	13	52	142	inspector-full
+frame	40.9127	Combat	3387	361	13	52	143	inspector-full
+frame	40.9127	Combat	3387	361	13	52	144	inspector-full
+frame	41.0244	Combat	3394	361	12	52	145	inspector-full
+frame	41.0244	Combat	3394	361	12	52	146	inspector-full
+frame	41.1374	Combat	3401	361	12	52	147	inspector-full
+frame	41.1374	Combat	3401	361	12	52	148	inspector-full
+frame	41.2480	Combat	3407	361	12	52	149	inspector-full
+frame	41.2480	Combat	3407	361	12	52	150	inspector-full
+frame	41.3595	Combat	3414	361	12	52	151	inspector-full
+frame	41.3595	Combat	3414	361	12	52	152	inspector-full
+frame	41.3595	Combat	3414	361	12	52	153	inspector-full
+frame	41.4701	Combat	3420	361	11	52	154	inspector-full
+frame	41.4701	Combat	3420	361	11	52	155	inspector-full
+frame	41.5793	Combat	3427	361	11	52	156	inspector-full
+frame	41.5793	Combat	3427	361	11	52	157	inspector-full
+png	41.5793	Combat	3427	361	11	52	x2	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	41.5793	Combat	3427	361	11	52	x2	68	HP 600/600   ·   Armor 5	BurnBadge,WetBadge	ShadePairs=0	clock=2.6920	scale=2
+frame	41.6828	Combat	3433	361	11	52	158	x2
+frame	41.6828	Combat	3433	361	11	52	159	x2
+frame	41.7884	Combat	3440	361	11	52	160	x2
+frame	41.7884	Combat	3440	361	11	52	161	x2
+frame	41.8992	Combat	3446	361	11	52	162	x2
+frame	41.8992	Combat	3446	361	11	52	163	x2
+frame	41.8992	Combat	3446	361	11	52	164	x2
+frame	42.0135	Combat	3453	361	10	52	165	x2
+frame	42.0135	Combat	3453	361	10	52	166	x2
+frame	42.1218	Combat	3460	361	10	52	167	x2
+frame	42.1218	Combat	3460	361	10	52	168	x2
+frame	42.2338	Combat	3466	361	10	52	169	x2
+frame	42.2338	Combat	3466	361	10	52	170	x2
+frame	42.3445	Combat	3473	361	10	52	171	x2
+frame	42.3445	Combat	3473	361	10	52	172	x2
+frame	42.4581	Combat	3480	361	9	52	173	x2
+frame	42.4581	Combat	3480	361	9	52	174	x2
+frame	42.4581	Combat	3480	361	9	52	175	x2
+frame	42.5695	Combat	3486	361	9	52	176	x2
+frame	42.5695	Combat	3486	361	9	52	177	x2
+frame	42.6816	Combat	3493	361	9	52	178	x2
+frame	42.6816	Combat	3493	361	9	52	179	x2
+frame	42.7895	Combat	3500	361	9	52	180	x2
+frame	42.7895	Combat	3500	361	9	52	181	x2
+frame	42.9003	Combat	3506	361	9	52	182	x2
+frame	42.9003	Combat	3506	361	9	52	183	x2
+frame	42.9003	Combat	3506	361	9	52	184	x2
+frame	43.0110	Combat	3513	361	8	52	185	x2
+frame	43.0110	Combat	3513	361	8	52	186	x2
+frame	43.1234	Combat	3520	361	8	52	187	x2
+frame	43.1234	Combat	3520	361	8	52	188	x2
+png	43.1234	Combat	3520	361	8	52	status-expired	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	43.1234	Combat	3520	361	8	52	status-expired	68	HP 595/600   ·   Armor 5		ShadePairs=0	clock=5.7801	scale=2
+frame	43.2260	Combat	3526	361	8	52	189	status-expired
+frame	43.2260	Combat	3526	361	8	52	190	status-expired
+frame	43.3297	Combat	3532	361	8	52	191	status-expired
+frame	43.3297	Combat	3532	361	8	52	192	status-expired
+frame	43.4382	Combat	3539	361	8	52	193	status-expired
+frame	43.4382	Combat	3539	361	8	52	194	status-expired
+frame	43.5515	Combat	3545	361	7	52	195	status-expired
+frame	43.5515	Combat	3545	361	7	52	196	status-expired
+frame	43.5515	Combat	3545	361	7	52	197	status-expired
+frame	43.6610	Combat	3552	361	7	52	198	status-expired
+frame	43.6610	Combat	3552	361	7	52	199	status-expired
+tap	44.2880						Continue Button	(402.16, 428.38)
+tap	44.6023	Combat	3021	361	16	52	Start Wave Button	(1283.24, 817.84)
+png	44.8413	Combat	3181	361	16	52	dense-fixture	1600x900	(x:0.00, y:0.00, width:1600.00, height:900.00)
+badges	44.8413	Combat	3181	361	16	52	dense-fixture				ShadePairs=1	clock=0.1406	scale=1
+done	200	False

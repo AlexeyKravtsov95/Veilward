@@ -210,6 +210,7 @@ namespace Veilward.Presentation
             // Синхронный Cast может завершить волну в кадре без fixed Step.
             if (checkpointController != null) checkpointController.ObserveCommandCompletion();
             SynchronizeViews();
+            if (bossHud != null) bossHud.Refresh();
             UpdateHud();
         }
 
@@ -443,6 +444,7 @@ namespace Veilward.Presentation
             if (abilityController != null) { abilityController.Refresh(); abilityController.DispatchIntent(); }
             if (checkpointController != null) checkpointController.ObserveCommandCompletion();
             SynchronizeViews();
+            if (bossHud != null) bossHud.Refresh();
             UpdateHud();
 
         }
@@ -590,13 +592,13 @@ namespace Veilward.Presentation
             _flameProjectiles?.Clear();
             _basicProjectiles?.Clear();
             _hybridProjectiles?.Clear();
-            if (bossHud != null) bossHud.ResetView();
             if (abilityController != null) abilityController.ResetTransient();
             _nextAbilityCast = _nextAbilityHit = 0;
             _bossCueOrder = 0;
             for (var i = 0; i < _abilityPool.Length; i++) if (_abilityPool[i] != null) _abilityPool[i].Clear();
             foreach (var cue in _bossCues) if (cue != null) cue.Clear();
             Presentation.Reset(); _accumulator = 0; _skipNextDelta = true; _nextReactionEffect = 0;
+            if (bossHud != null) bossHud.ResetView();
             for (var i = 0; i < _reactionPool.Length; i++) if (_reactionPool[i] != null) _reactionPool[i].Clear();
             foreach (var beam in GetComponentsInChildren<AttackBeamView>())
                 if (UnityEngine.Application.isPlaying) Destroy(beam.gameObject); else DestroyImmediate(beam.gameObject);
@@ -735,16 +737,22 @@ namespace Veilward.Presentation
                         }
                     }
                 }
-                if (view.Status != null)
-                    view.Status.Refresh(enemy, state.Tick, _simulation.ReactionCatalog,
-                        Presentation.GetMemory(enemy.Id), Presentation.ActiveTime, worldCamera);
-                if (view.Status != null) view.Status.Layout(worldCamera, _statusRects);
                 if (view.HealthBar != null)
                 {
                     view.HealthBar.SetNormalizedHealth((float)enemy.Health / enemy.Definition.MaxHealth);
                     view.HealthBar.Face(worldCamera);
                     view.HealthBar.Layout(worldCamera, _healthRects);
                 }
+            }
+
+            for (var index = 0; index < state.Enemies.Count; index++)
+            {
+                var enemy = state.Enemies[index];
+                var view = _enemyViews[enemy.Id];
+                if (view.Status == null || view.HealthBar == null) continue;
+                view.Status.Refresh(enemy, state.Tick, _simulation.ReactionCatalog,
+                    Presentation.GetMemory(enemy.Id), Presentation.ActiveTime, worldCamera);
+                view.Status.Layout(worldCamera, view.HealthBar.BarPosition, _healthRects, _statusRects);
             }
 
             _staleEnemyIds.Clear();
@@ -851,6 +859,11 @@ namespace Veilward.Presentation
                 IsBoss = isBoss;
                 HealthBar = transform.GetComponentInChildren<EnemyHealthBarView>(true);
                 Status = transform.GetComponent<EnemyStatusView>();
+                if (isBoss && Status != null)
+                {
+                    Status.Hide();
+                    Status = null;
+                }
                 Model = transform.GetComponentInChildren<EnemyModelView>(true);
             }
 
